@@ -21,7 +21,7 @@ Function Get-Folder()
     return $folder
 }
 
-## Login-AzureRmAccount -SubscriptionId $subscriptionId
+Login-AzureRmAccount -SubscriptionId $subscriptionId
 $folder = Get-Folder
 $filePath =  $folder.GetValue(1) + "\" + $logicAppName + ".swagger.json"
 Invoke-AzureRmResourceAction -ResourceType "Microsoft.Logic/workflows" -ResourceGroupName $resourceGroup -ResourceName $logicAppName -Action listSwagger -ApiVersion "2016-06-01" -Force | ConvertTo-Json -Depth 99 | Out-File $filePath
