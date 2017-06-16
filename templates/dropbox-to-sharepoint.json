@@ -1,0 +1,110 @@
+{
+    "id": "/providers/Microsoft.Logic/galleries/public/templates/4047185d35d041ca80c27e86f7bbbb34",
+    "type": "Microsoft.Logic/galleries/templates",
+    "name": "4047185d35d041ca80c27e86f7bbbb34",
+    "properties": {
+        "author": {
+            "displayName": "Microsoft"
+        },
+        "categoryNames": [
+            "productivity"
+        ],
+        "description": "${Resources.TEMPLATE_DROPBOX_TO_SHAREPOINT_DESCRIPTION}",
+        "displayName": "${Resources.TEMPLATE_DROPBOX_TO_SHAREPOINT_DISPLAYNAME}",
+        "galleryName": "public",
+        "summary": "",
+        "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "actions": {
+                "Create_file": {
+                    "inputs": {
+                        "body": "@triggerBody()",
+                        "host": {
+                            "api": {
+                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/sharepointonline"
+                            },
+                            "connection": {
+                                "name": "@parameters('$connections')['sharepointonline']['connectionId']"
+                            }
+                        },
+                        "method": "post",
+                        "path": "/datasets//files",
+                        "queries": {
+                            "folderPath": "",
+                            "name": "@{triggerOutputs()['headers']?['x-ms-file-name']}"
+                        }
+                    },
+                    "runAfter": {},
+                    "type": "ApiConnection"
+                }
+            },
+            "contentVersion": "1.0.0.0",
+            "outputs": {},
+            "parameters": {
+                "$connections": {
+                    "defaultValue": {},
+                    "type": "Object"
+                }
+            },
+            "triggers": {
+                "When_a_file_is_created": {
+                    "inputs": {
+                        "host": {
+                            "api": {
+                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/dropbox"
+                            },
+                            "connection": {
+                                "name": "@parameters('$connections')['dropbox']['connectionId']"
+                            }
+                        },
+                        "method": "get",
+                        "path": "/datasets/default/triggers/onnewfile",
+                        "queries": {
+                            "folderId": ""
+                        }
+                    },
+                    "recurrence": {
+                        "frequency": "Minute",
+                        "interval": 3
+                    },
+                    "type": "ApiConnection"
+                }
+            }
+        },
+        "connectionReferences": {
+            "dropbox": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/dropbox"
+                }
+            },
+            "sharepointonline": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/sharepointonline"
+                }
+            }
+        },
+        "apiSummaries": [
+            {
+                "type": "apiconnection",
+                "displayName": "${Resources.DROPBOX}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/dropbox.png",
+                "brandColor": "#007ee5"
+            },
+            {
+                "type": "apiconnection",
+                "displayName": "${Resources.SHAREPOINT}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/sharepointonline.png",
+                "brandColor": "#1b75bc"
+            }
+        ],
+        "changedTime": "2017-01-31T00:00:39.000Z",
+        "createdTime": "2017-01-31T00:00:39.000Z",
+        "popularity": 22
+    }
+}

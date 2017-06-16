@@ -1,0 +1,110 @@
+{
+    "id": "/providers/Microsoft.Logic/galleries/public/templates/33b2577c-2c32-468d-9fcf-6c47981d4a30",
+    "type": "Microsoft.Logic/galleries/templates",
+    "name": "33b2577c-2c32-468d-9fcf-6c47981d4a30",
+    "properties": {
+        "author": {
+            "displayName": "Microsoft"
+        },
+        "categoryNames": [
+            "Sync"
+        ],
+        "description": "${Resources.TEMPLATE_SALESFORCE_COMMONDATAMODEL_ACCOUNTS_DESCRIPTION}",
+        "displayName": "${Resources.TEMPLATE_SALESFORCE_COMMONDATAMODEL_ACCOUNTS_DISPLAYNAME}",
+        "galleryName": "public",
+        "summary": "",
+        "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "actions": {
+                "Create_a_new_record": {
+                    "inputs": {
+                        "body": {
+                            "BusinessPhone": "@{triggerBody()?['Phone']}",
+                            "Description": "@{triggerBody()?['Description']}",
+                            "FullName": "@{triggerBody()?['Name']}",
+                            "PartyType": "Organization",
+                            "WebSite": "@{triggerBody()?['Website']}"
+                        },
+                        "host": {
+                            "api": {
+                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/runtimeservice"
+                            },
+                            "connection": {
+                                "name": "@parameters('$connections')['runtimeservice']['connectionId']"
+                            }
+                        },
+                        "method": "post",
+                        "path": "/datasets//tables/@{encodeURIComponent(encodeURIComponent('Customer'))}/items"
+                    },
+                    "runAfter": {},
+                    "type": "ApiConnection"
+                }
+            },
+            "contentVersion": "1.0.0.0",
+            "outputs": {},
+            "parameters": {
+                "$connections": {
+                    "defaultValue": {},
+                    "type": "Object"
+                }
+            },
+            "triggers": {
+                "When_an_object_is_created": {
+                    "inputs": {
+                        "host": {
+                            "api": {
+                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/salesforce"
+                            },
+                            "connection": {
+                                "name": "@parameters('$connections')['salesforce']['connectionId']"
+                            }
+                        },
+                        "method": "get",
+                        "path": "/datasets/default/tables/@{encodeURIComponent(encodeURIComponent('Account'))}/onnewitems"
+                    },
+                    "recurrence": {
+                        "frequency": "Minute",
+                        "interval": 3
+                    },
+                    "splitOn": "@triggerBody()?['value']",
+                    "type": "ApiConnection"
+                }
+            }
+        },
+        "connectionReferences": {
+            "salesforce": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/salesforce"
+                }
+            },
+            "runtimeservice": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/runtimeservice"
+                }
+            }
+        },
+        "apiSummaries": [
+            {
+                "type": "apiconnection",
+                "displayName": "${Resources.SALESFORCE}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/salesforce.png",
+                "brandColor": "#1EB8EB"
+            },
+            {
+                "type": "apiconnection",
+                "displayName": "${Resources.COMMONDATAMODEL}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/CommonDataModel.png",
+                "brandColor": "#742774"
+            }
+        ],
+        "changedTime": "2017-06-16T00:00:57.000Z",
+        "createdTime": "2017-01-31T00:00:57.000Z",
+        "popularity": 12
+    }
+}

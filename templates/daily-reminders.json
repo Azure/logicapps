@@ -1,0 +1,121 @@
+{
+    "id": "/providers/Microsoft.Logic/galleries/public/templates/ea517d06-0f18-40b6-9c1c-5365141d3a58",
+    "type": "Microsoft.Logic/galleries/templates",
+    "name": "ea517d06-0f18-40b6-9c1c-5365141d3a58",
+    "properties": {
+        "author": {
+            "displayName": "Microsoft"
+        },
+        "categoryNames": [
+            "productivity"
+        ],
+        "description": "${Resources.TEMPLATE_DAILY_REMINDERS_DESCRIPTION}",
+        "displayName": "${Resources.TEMPLATE_DAILY_REMINDERS_DISPLAYNAME}",
+        "galleryName": "public",
+        "summary": "",
+        "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "actions": {
+                "Get_my_profile": {
+                    "inputs": {
+                        "host": {
+                            "api": {
+                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/office365users"
+                            },
+                            "connection": {
+                                "name": "@parameters('$connections')['office365users']['connectionId']"
+                            }
+                        },
+                        "method": "get",
+                        "path": "/users/me"
+                    },
+                    "runAfter": {},
+                    "type": "ApiConnection"
+                },
+                "Send_email": {
+                    "inputs": {
+                        "body": {
+                            "Body": "Hi @{body('Get_my_profile')?['DisplayName']}, you have a reminder!",
+                            "Subject": "[Daily Reminder from Logic Apps]",
+                            "To": "@{body('Get_my_profile')?['Mail']}"
+                        },
+                        "host": {
+                            "api": {
+                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/office365"
+                            },
+                            "connection": {
+                                "name": "@parameters('$connections')['office365']['connectionId']"
+                            }
+                        },
+                        "method": "post",
+                        "path": "/Mail"
+                    },
+                    "runAfter": {
+                        "Get_my_profile": [
+                            "Succeeded"
+                        ]
+                    },
+                    "type": "ApiConnection"
+                }
+            },
+            "contentVersion": "1.0.0.0",
+            "outputs": {},
+            "parameters": {
+                "$connections": {
+                    "defaultValue": {},
+                    "type": "Object"
+                }
+            },
+            "triggers": {
+                "Recurrence": {
+                    "recurrence": {
+                        "frequency": "Day",
+                        "interval": 1
+                    },
+                    "type": "Recurrence"
+                }
+            }
+        },
+        "connectionReferences": {
+            "office365": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/office365"
+                }
+            },
+            "office365users": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/office365users"
+                }
+            }
+        },
+        "apiSummaries": [
+            {
+                "type": "recurrence",
+                "displayName": "${Resources.RECURRENCE_TRIGGER_DISPLAYNAME}",
+                "iconUri": "${Images.RecurrenceIcon}",
+                "brandColor": "#f18d00"
+            },
+            {
+                "type": "apiconnection",
+                "displayName": "${Resources.OFFICE_365_DISPLAYNAME}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/office365.png",
+                "brandColor": "#eb3c00"
+            },
+            {
+                "type": "apiconnection",
+                "displayName": "${Resources.OFFICE_USERS}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/office365users.png",
+                "brandColor": "#eb3c00"
+            }
+        ],
+        "changedTime": "2017-01-31T00:00:36.000Z",
+        "createdTime": "2017-01-31T00:00:36.000Z",
+        "popularity": 6
+    }
+}

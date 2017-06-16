@@ -1,0 +1,159 @@
+{
+    "id": "/providers/Microsoft.Logic/galleries/public/templates/498f2507ffd54f12a2a73305c2b2d1dd",
+    "type": "Microsoft.Logic/galleries/templates",
+    "name": "498f2507ffd54f12a2a73305c2b2d1dd",
+    "properties": {
+        "author": {
+            "displayName": "Microsoft"
+        },
+        "categoryNames": [
+            "Enterprise Integration"
+        ],
+        "description": "${Resources.TEMPLATE_AS2_RESPONSE_DESCRIPTION}",
+        "displayName": "${Resources.TEMPLATE_AS2_RESPONSE_DISPLAYNAME}",
+        "galleryName": "public",
+        "summary": "",
+        "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "actions": {
+                "Check_MDN_Expected": {
+                    "actions": {
+                        "Check_MDN_Type": {
+                            "actions": {
+                                "Send_200_OK_for_Async_MDN": {
+                                    "type": "Response",
+                                    "inputs": {
+                                        "statusCode": 200
+                                    },
+                                    "runAfter": {}
+                                },
+                                "Send_Async_MDN": {
+                                    "type": "Http",
+                                    "inputs": {
+                                        "method": "POST",
+                                        "uri": "@{body('Decode_AS2_message')?['OutgoingMdn']?['ReceiptDeliveryOption']}",
+                                        "headers": "@body('Decode_AS2_message')?['OutgoingMdn']?['OutboundHeaders']",
+                                        "body": "@base64ToBinary(body('Decode_AS2_message')?['OutgoingMdn']?['Content'])"
+                                    },
+                                    "runAfter": {
+                                        "Send_200_OK_for_Async_MDN": [
+                                            "Succeeded"
+                                        ]
+                                    }
+                                }
+                            },
+                            "else": {
+                                "actions": {
+                                    "Send_Sync_MDN": {
+                                        "inputs": {
+                                            "body": "@base64ToBinary(body('Decode_AS2_message')?['OutgoingMdn']?['Content'])",
+                                            "headers": "@body('Decode_AS2_message')?['OutgoingMdn']?['OutboundHeaders']",
+                                            "statusCode": 200
+                                        },
+                                        "runAfter": {},
+                                        "type": "Response"
+                                    }
+                                }
+                            },
+                            "expression": "@equals(body('Decode_AS2_message')?['OutgoingMdn']?['MdnType'], 'Async')",
+                            "runAfter": {},
+                            "type": "If"
+                        }
+                    },
+                    "else": {
+                        "actions": {
+                            "Send_200_OK": {
+                                "inputs": {
+                                    "statusCode": 200
+                                },
+                                "runAfter": {},
+                                "type": "Response"
+                            }
+                        }
+                    },
+                    "expression": "@equals(body('Decode_AS2_message')?['AS2Message']?['MdnExpected'], 'Expected')",
+                    "runAfter": {
+                        "Decode_AS2_message": [
+                            "Succeeded"
+                        ]
+                    },
+                    "type": "If"
+                },
+                "Decode_AS2_message": {
+                    "inputs": {
+                        "body": "@triggerBody()",
+                        "headers": "@triggerOutputs()['headers']",
+                        "host": {
+                            "api": {
+                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/as2"
+                            },
+                            "connection": {
+                                "name": "@parameters('$connections')['as2']['connectionId']"
+                            }
+                        },
+                        "method": "post",
+                        "path": "/decode"
+                    },
+                    "runAfter": {},
+                    "type": "ApiConnection"
+                }
+            },
+            "contentVersion": "1.0.0.0",
+            "outputs": {},
+            "parameters": {
+                "$connections": {
+                    "defaultValue": {},
+                    "type": "Object"
+                }
+            },
+            "triggers": {
+                "manual": {
+                    "inputs": {
+                        "schema": {}
+                    },
+                    "kind": "Http",
+                    "type": "Request"
+                }
+            }
+        },
+        "connectionReferences": {
+            "as2": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/as2"
+                }
+            }
+        },
+        "apiSummaries": [
+            {
+                "type": "request",
+                "displayName": "${Resources.REQUEST_TRIGGER_DISPLAYNAME}",
+                "iconUri": "${Images.RequestIcon}",
+                "brandColor": "#DD0735"
+            },
+            {
+                "type": "apiconnection",
+                "displayName": "${Resources.AS2_DISPLAYNAME}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/as2.png",
+                "brandColor": "#2b79da"
+            },
+            {
+                "type": "http",
+                "displayName": "${Resources.HTTP_DISPLAYNAME}",
+                "iconUri": "${Images.HttpIcon}",
+                "brandColor": "#6c9b00"
+            },
+            {
+                "type": "response",
+                "displayName": "${Resources.RESPONSE_DISPLAYNAME}",
+                "iconUri": "${Images.ResponseIcon}",
+                "brandColor": "#DD0735"
+            }
+        ],
+        "changedTime": "2017-01-31T00:00:54.000Z",
+        "createdTime": "2017-01-31T00:00:54.000Z",
+        "popularity": 4
+    }
+}

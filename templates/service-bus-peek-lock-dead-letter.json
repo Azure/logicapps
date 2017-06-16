@@ -1,0 +1,142 @@
+{
+    "id": "/providers/Microsoft.Logic/galleries/public/templates/9dcb7d1d-28d7-4b51-850a-0cde84272c07",
+    "type": "Microsoft.Logic/galleries/templates",
+    "name": "9dcb7d1d-28d7-4b51-850a-0cde84272c07",
+    "properties": {
+        "author": {
+            "displayName": "Microsoft"
+        },
+        "categoryNames": [
+            "Enterprise Integration"
+        ],
+        "description": "${Resources.TEMPLATE_SERVICEBUS_PEEKLOCK_DEADLETTER_DESCRIPTION}",
+        "displayName": "${Resources.TEMPLATE_SERVICEBUS_PEEKLOCK_DEADLETTER_DISPLAYNAME}",
+        "galleryName": "public",
+        "summary": "",
+        "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "actions": {
+                "Complete_the_message_in_a_queue": {
+                    "inputs": {
+                        "host": {
+                            "api": {
+                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/servicebus"
+                            },
+                            "connection": {
+                                "name": "@parameters('$connections')['servicebus']['connectionId']"
+                            }
+                        },
+                        "method": "delete",
+                        "path": "//messages/complete",
+                        "queries": {
+                            "lockToken": "@{triggerBody()?['LockToken']}",
+                            "queueType": "Main"
+                        }
+                    },
+                    "runAfter": {
+                        "Scope": [
+                            "Succeeded"
+                        ]
+                    },
+                    "type": "ApiConnection"
+                },
+                "Dead-letter_the_message_in_a_queue": {
+                    "inputs": {
+                        "host": {
+                            "api": {
+                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/servicebus"
+                            },
+                            "connection": {
+                                "name": "@parameters('$connections')['servicebus']['connectionId']"
+                            }
+                        },
+                        "method": "post",
+                        "path": "//messages/deadletter",
+                        "queries": {
+                            "lockToken": "@{triggerBody()?['LockToken']}"
+                        }
+                    },
+                    "runAfter": {
+                        "Scope": [
+                            "Failed"
+                        ]
+                    },
+                    "type": "ApiConnection"
+                },
+                "Scope": {
+                    "actions": {
+                        "HTTP": {
+                            "inputs": {
+                                "method": "GET",
+                                "uri": "http://api.geonames.org/searchJSON?q=seattle&maxRows=10&username=demo"
+                            },
+                            "runAfter": {},
+                            "type": "Http"
+                        }
+                    },
+                    "runAfter": {},
+                    "type": "Scope"
+                }
+            },
+            "contentVersion": "1.0.0.0",
+            "outputs": {},
+            "parameters": {
+                "$connections": {
+                    "defaultValue": {},
+                    "type": "Object"
+                }
+            },
+            "triggers": {
+                "When_a_message_is_received_in_a_queue_(peek-lock)": {
+                    "inputs": {
+                        "host": {
+                            "api": {
+                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/servicebus"
+                            },
+                            "connection": {
+                                "name": "@parameters('$connections')['servicebus']['connectionId']"
+                            }
+                        },
+                        "method": "get",
+                        "path": "//messages/head/peek",
+                        "queries": {
+                            "queueType": "Main"
+                        }
+                    },
+                    "recurrence": {
+                        "frequency": "Minute",
+                        "interval": 3
+                    },
+                    "type": "ApiConnection"
+                }
+            }
+        },
+        "connectionReferences": {
+            "servicebus": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/servicebus"
+                }
+            }
+        },
+        "apiSummaries": [
+            {
+                "type": "apiconnection",
+                "displayName": "${Resources.SERVICEBUS}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/servicebus.png",
+                "brandColor": "#79BA1F"
+            },
+            {
+                "type": "apiconnection",
+                "displayName": "${Resources.SERVICEBUS}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/servicebus.png",
+                "brandColor": "#79BA1F"
+            }
+        ],
+        "changedTime": "2017-01-31T00:00:58.000Z",
+        "createdTime": "2017-01-31T00:00:58.000Z",
+        "popularity": 5
+    }
+}

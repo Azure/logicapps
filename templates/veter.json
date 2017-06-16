@@ -1,0 +1,118 @@
+{
+    "id": "/providers/Microsoft.Logic/galleries/public/templates/498f2507ffd54f12a2a73305c2b2d1de",
+    "type": "Microsoft.Logic/galleries/templates",
+    "name": "498f2507ffd54f12a2a73305c2b2d1de",
+    "properties": {
+        "author": {
+            "displayName": "Microsoft"
+        },
+        "categoryNames": [
+            "Enterprise Integration"
+        ],
+        "description": "${Resources.TEMPLATE_VETER_DESCRIPTION}",
+        "displayName": "${Resources.TEMPLATE_VETER_DISPLAYNAME}",
+        "galleryName": "public",
+        "summary": "",
+        "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "actions": {
+                "Condition": {
+                    "actions": {
+                        "Transform_XML": {
+                            "inputs": {
+                                "content": "@{body('Flat_File_Decoding')}",
+                                "function": {
+                                    "id": ""
+                                },
+                                "integrationAccount": {
+                                    "map": {
+                                        "name": ""
+                                    }
+                                }
+                            },
+                            "runAfter": {},
+                            "type": "Xslt"
+                        }
+                    },
+                    "expression": "@equals(xpath(xml(body('Flat_File_Decoding')), 'string(count(/.))'), '1')",
+                    "runAfter": {
+                        "XML_Validation": [
+                            "Succeeded"
+                        ]
+                    },
+                    "type": "If"
+                },
+                "Flat_File_Decoding": {
+                    "inputs": {
+                        "content": "@{triggerBody()}",
+                        "integrationAccount": {
+                            "schema": {
+                                "name": ""
+                            }
+                        }
+                    },
+                    "runAfter": {},
+                    "type": "FlatFileDecoding"
+                },
+                "XML_Validation": {
+                    "inputs": {
+                        "content": "@{body('Flat_File_Decoding')}",
+                        "integrationAccount": {
+                            "schema": {
+                                "name": ""
+                            }
+                        }
+                    },
+                    "runAfter": {
+                        "Flat_File_Decoding": [
+                            "Succeeded"
+                        ]
+                    },
+                    "type": "XmlValidation"
+                }
+            },
+            "contentVersion": "1.0.0.0",
+            "outputs": {},
+            "parameters": {},
+            "triggers": {
+                "manual": {
+                    "inputs": {
+                        "schema": {}
+                    },
+                    "kind": "Http",
+                    "type": "Request"
+                }
+            }
+        },
+        "connectionReferences": {},
+        "apiSummaries": [
+            {
+                "type": "request",
+                "displayName": "${Resources.REQUEST_TRIGGER_DISPLAYNAME}",
+                "iconUri": "${Images.RequestIcon}",
+                "brandColor": "#DD0735"
+            },
+            {
+                "type": "flatfiledecoding",
+                "displayName": "${Resources.FLAT_FILE_DECODING_DISPLAYNAME}",
+                "iconUri": "${Images.FlatFileDecodingIcon}",
+                "brandColor": "#804998"
+            },
+            {
+                "type": "xmlvalidation",
+                "displayName": "${Resources.XML_VALIDATION_DISPLAYNAME}",
+                "iconUri": "${Images.XmlValidationIcon}",
+                "brandColor": "#0099BC"
+            },
+            {
+                "type": "xslt",
+                "displayName": "${Resources.XSLT_DISPLAYNAME}",
+                "iconUri": "${Images.XsltIcon}",
+                "brandColor": "#0099BC"
+            }
+        ],
+        "changedTime": "2017-01-31T00:00:53.000Z",
+        "createdTime": "2017-01-31T00:00:53.000Z",
+        "popularity": 10
+    }
+}

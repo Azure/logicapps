@@ -1,0 +1,187 @@
+{
+    "id": "/providers/Microsoft.Logic/galleries/public/templates/0d81d53d04d14f3f99bf3830813b02a2",
+    "type": "Microsoft.Logic/galleries/templates",
+    "name": "0d81d53d04d14f3f99bf3830813b02a2",
+    "properties": {
+        "author": {
+            "displayName": "Microsoft"
+        },
+        "categoryNames": [
+            "social"
+        ],
+        "description": "${Resources.TEMPLATE_MAILCHIMP_SHAREPOINT_DESCRIPTION}",
+        "displayName": "${Resources.TEMPLATE_MAILCHIMP_SHAREPOINT_DISPLAYNAME}",
+        "galleryName": "public",
+        "summary": "",
+        "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "actions": {
+                "Condition": {
+                    "actions": {
+                        "Create_item": {
+                            "inputs": {
+                                "body": {},
+                                "host": {
+                                    "api": {
+                                        "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/sharepointonline"
+                                    },
+                                    "connection": {
+                                        "name": "@parameters('$connections')['sharepointonline']['connectionId']"
+                                    }
+                                },
+                                "method": "post",
+                                "path": "/datasets//tables//items"
+                            },
+                            "runAfter": {},
+                            "type": "ApiConnection"
+                        }
+                    },
+                    "expression": "@equals(body('Send_approval_email')?['SelectedOption'], 'Add to SharePoint')",
+                    "runAfter": {
+                        "Send_approval_email": [
+                            "Succeeded"
+                        ]
+                    },
+                    "type": "If"
+                },
+                "Get_my_profile": {
+                    "inputs": {
+                        "host": {
+                            "api": {
+                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/office365users"
+                            },
+                            "connection": {
+                                "name": "@parameters('$connections')['office365users']['connectionId']"
+                            }
+                        },
+                        "method": "get",
+                        "path": "/users/me"
+                    },
+                    "runAfter": {},
+                    "type": "ApiConnection"
+                },
+                "Send_approval_email": {
+                    "inputs": {
+                        "body": {
+                            "NotificationUrl": "@listCallbackUrl()",
+                            "Message": {
+                                "Importance": "Normal",
+                                "Options": "Add to SharePoint, No thanks",
+                                "Subject": "Add @{triggerBody()?['merge_fields']?['FNAME']} @{triggerBody()?['merge_fields']?['LNAME']} to VIP list in SharePoint?",
+                                "To": "@{body('Get_my_profile')?['Mail']}"
+                            }
+                        },
+                        "host": {
+                            "api": {
+                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/office365"
+                            },
+                            "connection": {
+                                "name": "@parameters('$connections')['office365']['connectionId']"
+                            }
+                        },
+                        "path": "/approvalmail/$subscriptions"
+                    },
+                    "runAfter": {
+                        "Get_my_profile": [
+                            "Succeeded"
+                        ]
+                    },
+                    "type": "ApiConnectionWebhook"
+                }
+            },
+            "contentVersion": "1.0.0.0",
+            "outputs": {},
+            "parameters": {
+                "$connections": {
+                    "defaultValue": {},
+                    "type": "Object"
+                }
+            },
+            "triggers": {
+                "When_a_Member_has_been_added_to_a_list": {
+                    "inputs": {
+                        "host": {
+                            "api": {
+                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/mailchimp"
+                            },
+                            "connection": {
+                                "name": "@parameters('$connections')['mailchimp']['connectionId']"
+                            }
+                        },
+                        "method": "get",
+                        "path": "/trigger/lists//members"
+                    },
+                    "splitOn": "@triggerBody()?.members",
+                    "recurrence": {
+                        "frequency": "Minute",
+                        "interval": 3
+                    },
+                    "type": "ApiConnection"
+                }
+            }
+        },
+        "connectionReferences": {
+            "mailchimp": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/mailchimp"
+                }
+            },
+            "office365": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/office365"
+                }
+            },
+            "office365users": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/office365users"
+                }
+            },
+            "sharepointonline": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/sharepointonline"
+                }
+            }
+        },
+        "apiSummaries": [
+            {
+                "type": "apiconnection",
+                "displayName": "${Resources.MAILCHIMP}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/mailchimp.png",
+                "brandColor": "#249AB9"
+            },
+            {
+                "type": "apiconnection",
+                "displayName": "${Resources.OFFICE_USERS}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/office365users.png",
+                "brandColor": "#eb3c00"
+            },
+            {
+                "type": "apiconnectionwebhook",
+                "displayName": "${Resources.OFFICE}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/office365.png",
+                "brandColor": "#eb3c00"
+            },
+            {
+                "type": "apiconnection",
+                "displayName": "${Resources.SHAREPOINT}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/sharepointonline.png",
+                "brandColor": "#1b75bc"
+            }
+        ],
+        "changedTime": "2017-01-31T00:00:44.000Z",
+        "createdTime": "2017-01-31T00:00:44.000Z",
+        "popularity": 24
+    }
+}

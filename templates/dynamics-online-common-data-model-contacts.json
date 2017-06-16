@@ -1,0 +1,110 @@
+{
+    "id": "/providers/Microsoft.Logic/galleries/public/templates/b2be7bf0-f42e-40a4-ada7-7a55e10edc63",
+    "type": "Microsoft.Logic/galleries/templates",
+    "name": "b2be7bf0-f42e-40a4-ada7-7a55e10edc63",
+    "properties": {
+        "author": {
+            "displayName": "Microsoft"
+        },
+        "categoryNames": [
+            "Sync"
+        ],
+        "description": "${Resources.TEMPLATE_DYNAMICSCRMONLINE_COMMONDATAMODEL_CONTACTS_DESCRIPTION}",
+        "displayName": "${Resources.TEMPLATE_DYNAMICSCRMONLINE_COMMONDATAMODEL_CONTACTS_DISPLAYNAME}",
+        "galleryName": "public",
+        "summary": "",
+        "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "actions": {
+                "Create_a_new_record": {
+                    "type": "ApiConnection",
+                    "inputs": {
+                        "host": {
+                            "api": {
+                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/runtimeservice"
+                            },
+                            "connection": {
+                                "name": "@parameters('$connections')['runtimeservice']['connectionId']"
+                            }
+                        },
+                        "method": "post",
+                        "path": "/datasets//tables/@{encodeURIComponent(encodeURIComponent('Contact'))}/items",
+                        "body": {
+                            "FirstName": "@{triggerBody()?['firstname']}",
+                            "LastName": "@{triggerBody()?['lastname']}@{triggerBody()?['lastname']}",
+                            "Email": "@{triggerBody()?['emailaddress1']}",
+                            "BusinessPhone": "@{triggerBody()?['telephone1']}",
+                            "CellPhone": "@{triggerBody()?['mobilephone']}"
+                        }
+                    },
+                    "runAfter": {}
+                }
+            },
+            "contentVersion": "1.0.0.0",
+            "outputs": {},
+            "parameters": {
+                "$connections": {
+                    "defaultValue": {},
+                    "type": "Object"
+                }
+            },
+            "triggers": {
+                "When_a_record_is_created": {
+                    "type": "ApiConnection",
+                    "inputs": {
+                        "host": {
+                            "api": {
+                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/dynamicscrmonline"
+                            },
+                            "connection": {
+                                "name": "@parameters('$connections')['dynamicscrmonline']['connectionId']"
+                            }
+                        },
+                        "method": "get",
+                        "path": "/datasets//tables/@{encodeURIComponent(encodeURIComponent('contacts'))}/onnewitems"
+                    },
+                    "recurrence": {
+                        "frequency": "Minute",
+                        "interval": 3
+                    },
+                    "splitOn": "@triggerBody()?['value']"
+                }
+            }
+        },
+        "connectionReferences": {
+            "dynamicscrmonline": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/dynamicscrmonline"
+                }
+            },
+            "runtimeservice": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/runtimeservice"
+                }
+            }
+        },
+        "apiSummaries": [
+            {
+                "type": "apiconnection",
+                "displayName": "${Resources.DYNAMICSCRMONLINE}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/dynamicscrmonline.png",
+                "brandColor": "#16244E"
+            },
+            {
+                "type": "apiconnection",
+                "displayName": "${Resources.COMMONDATAMODEL}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/CommonDataModel.png",
+                "brandColor": "#742774"
+            }
+        ],
+        "changedTime": "2017-06-16T00:00:56.000Z",
+        "createdTime": "2017-01-31T00:00:56.000Z",
+        "popularity": 7
+    }
+}

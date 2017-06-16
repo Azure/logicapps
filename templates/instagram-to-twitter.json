@@ -1,0 +1,125 @@
+{
+    "id": "/providers/Microsoft.Logic/galleries/public/templates/11317f96abe444699543fcdeb450e2e0",
+    "type": "Microsoft.Logic/galleries/templates",
+    "name": "11317f96abe444699543fcdeb450e2e0",
+    "properties": {
+        "author": {
+            "displayName": "Microsoft"
+        },
+        "categoryNames": [
+            "social"
+        ],
+        "description": "${Resources.TEMPLATE_INSTAGRAM_TO_TWITTER_DESCRIPTION}",
+        "displayName": "${Resources.TEMPLATE_INSTAGRAM_TO_TWITTER_DISPLAYNAME}",
+        "galleryName": "public",
+        "summary": "",
+        "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "actions": {
+                "Http": {
+                    "inputs": {
+                        "method": "GET",
+                        "uri": "@{triggerBody()?['images']?['standard_resolution']?['url']}"
+                    },
+                    "runAfter": {},
+                    "type": "Http"
+                },
+                "Post_a_new_tweet": {
+                    "inputs": {
+                        "body": "@body('Http')",
+                        "host": {
+                            "api": {
+                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/twitter"
+                            },
+                            "connection": {
+                                "name": "@parameters('$connections')['twitter']['connectionId']"
+                            }
+                        },
+                        "method": "post",
+                        "path": "/posttweet",
+                        "queries": {
+                            "tweetText": "@{triggerBody()?['caption']?['text']}"
+                        }
+                    },
+                    "runAfter": {
+                        "Http": [
+                            "Succeeded"
+                        ]
+                    },
+                    "type": "ApiConnection"
+                }
+            },
+            "contentVersion": "1.0.0.0",
+            "outputs": {},
+            "parameters": {
+                "$connections": {
+                    "defaultValue": {},
+                    "type": "Object"
+                }
+            },
+            "triggers": {
+                "When_I_upload_a_new_media": {
+                    "inputs": {
+                        "host": {
+                            "api": {
+                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/instagram"
+                            },
+                            "connection": {
+                                "name": "@parameters('$connections')['instagram']['connectionId']"
+                            }
+                        },
+                        "method": "get",
+                        "path": "/trigger/users/self/media/recent"
+                    },
+                    "splitOn": "@triggerBody()?.data",
+                    "recurrence": {
+                        "frequency": "Minute",
+                        "interval": 3
+                    },
+                    "type": "ApiConnection"
+                }
+            }
+        },
+        "connectionReferences": {
+            "instagram": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/instagram"
+                }
+            },
+            "twitter": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/twitter"
+                }
+            }
+        },
+        "apiSummaries": [
+            {
+                "type": "apiconnection",
+                "displayName": "${Resources.INSTAGRAM}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/instagram.png",
+                "brandColor": "#3f729b"
+            },
+            {
+                "type": "http",
+                "displayName": "${Resources.HTTP_DISPLAYNAME}",
+                "iconUri": "${Images.HttpIcon}",
+                "brandColor": "#6c9b00"
+            },
+            {
+                "type": "apiconnection",
+                "displayName": "${Resources.TWITTER}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/twitter.png",
+                "brandColor": "#5fa9dd"
+            }
+        ],
+        "changedTime": "2017-01-31T00:00:43.000Z",
+        "createdTime": "2017-01-31T00:00:43.000Z",
+        "popularity": 17
+    }
+}

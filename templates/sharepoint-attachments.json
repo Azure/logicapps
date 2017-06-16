@@ -1,0 +1,120 @@
+{
+    "id": "/providers/Microsoft.Logic/galleries/public/templates/f7a46809e53c42108034e56acf83bb79",
+    "type": "Microsoft.Logic/galleries/templates",
+    "name": "f7a46809e53c42108034e56acf83bb79",
+    "properties": {
+        "author": {
+            "displayName": "Microsoft"
+        },
+        "categoryNames": [
+            "productivity"
+        ],
+        "description": "${Resources.TEMPLATE_SHAREPOINT_ATTACHMENTS_DESCRIPTION}",
+        "displayName": "${Resources.TEMPLATE_SHAREPOINT_ATTACHMENTS_DISPLAYNAME}",
+        "galleryName": "public",
+        "summary": "",
+        "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "actions": {
+                "Foreach": {
+                    "actions": {
+                        "Create_file": {
+                            "inputs": {
+                                "body": "@base64ToBinary(item()['ContentBytes'])",
+                                "host": {
+                                    "api": {
+                                        "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/sharepointonline"
+                                    },
+                                    "connection": {
+                                        "name": "@parameters('$connections')['sharepointonline']['connectionId']"
+                                    }
+                                },
+                                "method": "post",
+                                "path": "/datasets//files",
+                                "queries": {
+                                    "folderPath": "",
+                                    "name": "@{item()['Name']}"
+                                }
+                            },
+                            "runAfter": {},
+                            "type": "ApiConnection"
+                        }
+                    },
+                    "foreach": "@triggerBody()?['Attachments']",
+                    "runAfter": {},
+                    "type": "Foreach"
+                }
+            },
+            "contentVersion": "1.0.0.0",
+            "outputs": {},
+            "parameters": {
+                "$connections": {
+                    "defaultValue": {},
+                    "type": "Object"
+                }
+            },
+            "triggers": {
+                "On_new_email": {
+                    "inputs": {
+                        "host": {
+                            "api": {
+                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/office365"
+                            },
+                            "connection": {
+                                "name": "@parameters('$connections')['office365']['connectionId']"
+                            }
+                        },
+                        "method": "get",
+                        "path": "/Mail/OnNewEmail",
+                        "queries": {
+                            "fetchOnlyWithAttachment": "True",
+                            "folderPath": "Inbox",
+                            "importance": "Normal"
+                        }
+                    },
+                    "splitOn": "@triggerBody()?['value']",
+                    "recurrence": {
+                        "frequency": "Minute",
+                        "interval": 3
+                    },
+                    "type": "ApiConnection"
+                }
+            }
+        },
+        "connectionReferences": {
+            "sharepointonline": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/sharepointonline"
+                }
+            },
+            "office365": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/office365"
+                }
+            }
+        },
+        "apiSummaries": [
+            {
+                "type": "apiconnection",
+                "displayName": "${Resources.OFFICE}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/office365.png",
+                "brandColor": "#eb3c00"
+            },
+            {
+                "type": "apiconnection",
+                "displayName": "${Resources.SHAREPOINT}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/sharepoint.png",
+                "brandColor": "#1b75bc"
+            }
+        ],
+        "changedTime": "2017-06-16T00:00:00.000Z",
+        "createdTime": "2017-01-31T00:00:48.000Z",
+        "popularity": 9
+    }
+}

@@ -1,0 +1,114 @@
+{
+    "id": "/providers/Microsoft.Logic/galleries/public/templates/31a7826b6f404812b4e0b6e54964a72f",
+    "type": "Microsoft.Logic/galleries/templates",
+    "name": "31a7826b6f404812b4e0b6e54964a72f",
+    "properties": {
+        "author": {
+            "displayName": "Microsoft"
+        },
+        "categoryNames": [
+            "social"
+        ],
+        "description": "${Resources.TEMPLATE_TWITTER_FACEBOOK_DESCRIPTION}",
+        "displayName": "${Resources.TEMPLATE_TWITTER_FACEBOOK_DISPLAYNAME}",
+        "galleryName": "public",
+        "summary": "",
+        "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "actions": {
+                "Post_to_my_timeline": {
+                    "inputs": {
+                        "body": {
+                            "caption": "@{triggerBody()['TweetedBy']}",
+                            "message": "@{triggerBody()['TweetText']}",
+                            "name": "@{triggerBody()['TweetText']}",
+                            "privacy": {
+                                "value": "EVERYONE"
+                            }
+                        },
+                        "host": {
+                            "api": {
+                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/facebook"
+                            },
+                            "connection": {
+                                "name": "@parameters('$connections')['facebook']['connectionId']"
+                            }
+                        },
+                        "method": "post",
+                        "path": "/me/feed"
+                    },
+                    "runAfter": {},
+                    "type": "ApiConnection"
+                }
+            },
+            "contentVersion": "1.0.0.0",
+            "outputs": {},
+            "parameters": {
+                "$connections": {
+                    "defaultValue": {},
+                    "type": "Object"
+                }
+            },
+            "triggers": {
+                "When_a_new_tweet_appears": {
+                    "inputs": {
+                        "host": {
+                            "api": {
+                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/twitter"
+                            },
+                            "connection": {
+                                "name": "@parameters('$connections')['twitter']['connectionId']"
+                            }
+                        },
+                        "method": "get",
+                        "path": "/onnewtweet",
+                        "queries": {
+                            "searchQuery": ""
+                        }
+                    },
+                    "splitOn": "@triggerBody()?['value']",
+                    "recurrence": {
+                        "frequency": "Minute",
+                        "interval": 3
+                    },
+                    "type": "ApiConnection"
+                }
+            }
+        },
+        "connectionReferences": {
+            "twitter": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/twitter"
+                }
+            },
+            "facebook": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/facebook"
+                }
+            }
+        },
+        "apiSummaries": [
+            {
+                "type": "apiconnection",
+                "displayName": "${Resources.TWITTER}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/twitter.png",
+                "brandColor": "#5fa9dd"
+            },
+            {
+                "type": "apiconnection",
+                "displayName": "${Resources.FACEBOOK}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/facebook.png",
+                "brandColor": "#3b5998"
+            }
+        ],
+        "changedTime": "2017-06-16T00:00:46.000Z",
+        "createdTime": "2017-01-31T00:00:46.000Z",
+        "popularity": 16
+    }
+}

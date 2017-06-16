@@ -1,0 +1,140 @@
+{
+    "id": "/providers/Microsoft.Logic/galleries/public/templates/a33024af5e464009867cfaea0854aec6",
+    "type": "Microsoft.Logic/galleries/templates",
+    "name": "a33024af5e464009867cfaea0854aec6",
+    "properties": {
+        "author": {
+            "displayName": "Microsoft"
+        },
+        "categoryNames": [
+            "social"
+        ],
+        "description": "${Resources.TEMPLATE_TWITTER_TO_OUTLOOK_DESCRIPTION}",
+        "displayName": "${Resources.TEMPLATE_TWITTER_TO_OUTLOOK_DISPLAYNAME}",
+        "galleryName": "public",
+        "summary": "",
+        "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "actions": {
+                "Get_user": {
+                    "inputs": {
+                        "host": {
+                            "api": {
+                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/twitter"
+                            },
+                            "connection": {
+                                "name": "@parameters('$connections')['twitter']['connectionId']"
+                            }
+                        },
+                        "method": "get",
+                        "path": "/user",
+                        "queries": {
+                            "userName": "@{triggerBody()['TweetedBy']}"
+                        }
+                    },
+                    "runAfter": {},
+                    "type": "ApiConnection"
+                },
+                "Send_email": {
+                    "inputs": {
+                        "body": {
+                            "Body": "Tweet: @{triggerBody()['TweetText']}\n----\nTweeted at: @{triggerBody()?['CreatedAt']}\nhttps://twitter.com/@{triggerBody()['TweetedBy']}/status/@{triggerBody()?['TweetId']}\n---\nTweeted by: @{body('Get_user')['UserName']}\nDescription: @{triggerBody()['UserDetails']['Description']}\nFollowers: @{body('Get_user')?['FollowersCount']}\nFriends: @{body('Get_user')?['FriendsCount']}",
+                            "Subject": "New tweet from @{body('Get_user')['FullName']}",
+                            "To": null
+                        },
+                        "host": {
+                            "api": {
+                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/outlook"
+                            },
+                            "connection": {
+                                "name": "@parameters('$connections')['outlook']['connectionId']"
+                            }
+                        },
+                        "method": "post",
+                        "path": "/Mail"
+                    },
+                    "runAfter": {
+                        "Get_user": [
+                            "Succeeded"
+                        ]
+                    },
+                    "type": "ApiConnection"
+                }
+            },
+            "contentVersion": "1.0.0.0",
+            "outputs": {},
+            "parameters": {
+                "$connections": {
+                    "defaultValue": {},
+                    "type": "Object"
+                }
+            },
+            "triggers": {
+                "When_a_new_tweet_appears": {
+                    "inputs": {
+                        "host": {
+                            "api": {
+                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/twitter"
+                            },
+                            "connection": {
+                                "name": "@parameters('$connections')['twitter']['connectionId']"
+                            }
+                        },
+                        "method": "get",
+                        "path": "/onnewtweet",
+                        "queries": {
+                            "searchQuery": ""
+                        }
+                    },
+                    "splitOn": "@triggerBody()?['value']",
+                    "recurrence": {
+                        "frequency": "Minute",
+                        "interval": 3
+                    },
+                    "type": "ApiConnection"
+                }
+            }
+        },
+        "connectionReferences": {
+            "twitter": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/twitter"
+                }
+            },
+            "outlook": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/outlook"
+                }
+            }
+        },
+        "apiSummaries": [
+            {
+                "type": "apiconnection",
+                "displayName": "${Resources.TWITTER}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/twitter.png",
+                "brandColor": "#5fa9dd"
+            },
+            {
+                "type": "apiconnection",
+                "displayName": "${Resources.OUTLOOK}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/outlook.png",
+                "brandColor": "#0072c6"
+            },
+            {
+                "type": "apiconnection",
+                "displayName": "${Resources.TWITTER}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/twitter.png",
+                "brandColor": "#5fa9dd"
+            }
+        ],
+        "changedTime": "2017-06-16T00:00:41.000Z",
+        "createdTime": "2017-01-31T00:00:41.000Z",
+        "popularity": 11
+    }
+}

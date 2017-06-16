@@ -1,0 +1,142 @@
+{
+    "id": "/providers/Microsoft.Logic/galleries/public/templates/bdbc63efa8ed4e9eae783bb521e46016",
+    "type": "Microsoft.Logic/galleries/templates",
+    "name": "bdbc63efa8ed4e9eae783bb521e46016",
+    "properties": {
+        "author": {
+            "displayName": "Microsoft"
+        },
+        "categoryNames": [
+            "productivity"
+        ],
+        "description": "${Resources.TEMPLATE_SHAREPOINT_LIST_EMAIL_DESCRIPTION}",
+        "displayName": "${Resources.TEMPLATE_SHAREPOINT_LIST_EMAIL_DISPLAYNAME}",
+        "galleryName": "public",
+        "summary": "",
+        "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "actions": {
+                "Get_my_profile": {
+                    "inputs": {
+                        "host": {
+                            "api": {
+                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/office365users"
+                            },
+                            "connection": {
+                                "name": "@parameters('$connections')['office365users']['connectionId']"
+                            }
+                        },
+                        "method": "get",
+                        "path": "/users/me"
+                    },
+                    "runAfter": {},
+                    "type": "ApiConnection"
+                },
+                "Send_email": {
+                    "inputs": {
+                        "body": {
+                            "Body": "Hi @{body('Get_my_profile')?['GivenName']},\n\nA new item was added to your SharePoint Online list.",
+                            "Subject": "New item added",
+                            "To": "@{body('Get_my_profile')?['Mail']}"
+                        },
+                        "host": {
+                            "api": {
+                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/office365"
+                            },
+                            "connection": {
+                                "name": "@parameters('$connections')['office365']['connectionId']"
+                            }
+                        },
+                        "method": "post",
+                        "path": "/Mail"
+                    },
+                    "runAfter": {
+                        "Get_my_profile": [
+                            "Succeeded"
+                        ]
+                    },
+                    "type": "ApiConnection"
+                }
+            },
+            "contentVersion": "1.0.0.0",
+            "outputs": {},
+            "parameters": {
+                "$connections": {
+                    "defaultValue": {},
+                    "type": "Object"
+                }
+            },
+            "triggers": {
+                "When_a_new_item_is_created": {
+                    "inputs": {
+                        "host": {
+                            "api": {
+                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/sharepointonline"
+                            },
+                            "connection": {
+                                "name": "@parameters('$connections')['sharepointonline']['connectionId']"
+                            }
+                        },
+                        "method": "get",
+                        "path": "/datasets//tables//onnewitems"
+                    },
+                    "splitOn": "@triggerBody()?['value']",
+                    "recurrence": {
+                        "frequency": "Minute",
+                        "interval": 3
+                    },
+                    "type": "ApiConnection"
+                }
+            }
+        },
+        "connectionReferences": {
+            "sharepointonline": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/sharepointonline"
+                }
+            },
+            "office365": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/office365"
+                }
+            },
+            "office365users": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/office365users"
+                }
+            }
+        },
+        "apiSummaries": [
+            {
+                "type": "apiconnection",
+                "displayName": "${Resources.SHAREPOINT}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/sharepoint.png",
+                "brandColor": "#1b75bc"
+            },
+            {
+                "type": "apiconnection",
+                "displayName": "${Resources.OFFICE_USERS}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/office365users.png",
+                "brandColor": "#eb3c00"
+            },
+            {
+                "type": "apiconnection",
+                "displayName": "${Resources.OFFICE}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/office365.png",
+                "brandColor": "#eb3c00"
+            }
+        ],
+        "changedTime": "2017-06-16T00:00:50.000Z",
+        "createdTime": "2017-01-31T00:00:50.000Z",
+        "popularity": 14
+    }
+}

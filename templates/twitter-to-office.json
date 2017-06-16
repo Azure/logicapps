@@ -1,0 +1,174 @@
+{
+    "id": "/providers/Microsoft.Logic/galleries/public/templates/05982e9b-911f-45d0-a3af-2cc19bc896d3",
+    "type": "Microsoft.Logic/galleries/templates",
+    "name": "05982e9b-911f-45d0-a3af-2cc19bc896d3",
+    "properties": {
+        "author": {
+            "displayName": "Microsoft"
+        },
+        "categoryNames": [
+            "social"
+        ],
+        "description": "${Resources.TEMPLATE_TWITTER_TO_OFFICE_DESCRIPTION}",
+        "displayName": "${Resources.TEMPLATE_TWITTER_TO_OFFICE_DISPLAYNAME}",
+        "galleryName": "public",
+        "summary": "",
+        "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "actions": {
+                "Get_my_profile": {
+                    "inputs": {
+                        "host": {
+                            "api": {
+                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/office365users"
+                            },
+                            "connection": {
+                                "name": "@parameters('$connections')['office365users']['connectionId']"
+                            }
+                        },
+                        "method": "get",
+                        "path": "/users/me"
+                    },
+                    "runAfter": {
+                        "Get_user": [
+                            "Succeeded"
+                        ]
+                    },
+                    "type": "ApiConnection"
+                },
+                "Get_user": {
+                    "inputs": {
+                        "host": {
+                            "api": {
+                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/twitter"
+                            },
+                            "connection": {
+                                "name": "@parameters('$connections')['twitter']['connectionId']"
+                            }
+                        },
+                        "method": "get",
+                        "path": "/user",
+                        "queries": {
+                            "userName": "@{triggerBody()['TweetedBy']}"
+                        }
+                    },
+                    "runAfter": {},
+                    "type": "ApiConnection"
+                },
+                "Send_email": {
+                    "inputs": {
+                        "body": {
+                            "Body": "Tweet: @{triggerBody()['TweetText']}\n----\nTweeted at: @{triggerBody()?['CreatedAt']}\nhttps://twitter.com/@{triggerBody()['TweetedBy']}/status/@{triggerBody()?['TweetId']}\n----\nTweeted by: @{body('Get_user')['UserName']}\nDescription: @{triggerBody()['UserDetails']['Description']}\nFollowers: @{triggerBody()?['UserDetails']?['FollowersCount']}\nFriends:@{body('Get_user')?['FriendsCount']}",
+                            "Subject": "New Tweet from @{body('Get_user')['FullName']}",
+                            "To": "@{body('Get_my_profile')?['Mail']}"
+                        },
+                        "host": {
+                            "api": {
+                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/office365"
+                            },
+                            "connection": {
+                                "name": "@parameters('$connections')['office365']['connectionId']"
+                            }
+                        },
+                        "method": "post",
+                        "path": "/Mail"
+                    },
+                    "runAfter": {
+                        "Get_my_profile": [
+                            "Succeeded"
+                        ]
+                    },
+                    "type": "ApiConnection"
+                }
+            },
+            "contentVersion": "1.0.0.0",
+            "outputs": {},
+            "parameters": {
+                "$connections": {
+                    "defaultValue": {},
+                    "type": "Object"
+                }
+            },
+            "triggers": {
+                "When_a_new_tweet_appears": {
+                    "inputs": {
+                        "host": {
+                            "api": {
+                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/twitter"
+                            },
+                            "connection": {
+                                "name": "@parameters('$connections')['twitter']['connectionId']"
+                            }
+                        },
+                        "method": "get",
+                        "path": "/onnewtweet",
+                        "queries": {
+                            "searchQuery": ""
+                        }
+                    },
+                    "splitOn": "@triggerBody()?['value']",
+                    "recurrence": {
+                        "frequency": "Minute",
+                        "interval": 3
+                    },
+                    "type": "ApiConnection"
+                }
+            }
+        },
+        "connectionReferences": {
+            "twitter": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/twitter"
+                }
+            },
+            "office365users": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/office365users"
+                }
+            },
+            "office365": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/office365"
+                }
+            }
+        },
+        "apiSummaries": [
+            {
+                "type": "apiconnection",
+                "displayName": "${Resources.TWITTER}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/twitter.png",
+                "brandColor": "#5fa9dd"
+            },
+            {
+                "type": "apiconnection",
+                "displayName": "${Resources.OFFICE_USERS}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/office365users.png",
+                "brandColor": "#eb3c00"
+            },
+            {
+                "type": "apiconnection",
+                "displayName": "${Resources.OFFICE}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/office365.png",
+                "brandColor": "#eb3c00"
+            },
+            {
+                "type": "apiconnection",
+                "displayName": "${Resources.TWITTER}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/twitter.png",
+                "brandColor": "#5fa9dd"
+            }
+        ],
+        "changedTime": "2017-06-16T00:00:40.000Z",
+        "createdTime": "2017-01-31T00:00:40.000Z",
+        "popularity": 21
+    }
+}

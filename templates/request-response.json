@@ -1,0 +1,59 @@
+{
+    "id": "/providers/Microsoft.Logic/galleries/public/templates/93807acf52bf403db4a31ca3f9031af7",
+    "type": "Microsoft.Logic/galleries/templates",
+    "name": "93807acf52bf403db4a31ca3f9031af7",
+    "properties": {
+        "author": {
+            "displayName": "Microsoft"
+        },
+        "categoryNames": [
+            "general"
+        ],
+        "description": "${Resources.TEMPLATE_REQUEST_RESPONSE_DESCRIPTION}",
+        "displayName": "${Resources.TEMPLATE_REQUEST_RESPONSE_DISPLAYNAME}",
+        "galleryName": "public",
+        "summary": "",
+        "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "actions": {
+                "Response": {
+                    "inputs": {
+                        "statusCode": 200
+                    },
+                    "runAfter": {},
+                    "type": "Response"
+                }
+            },
+            "contentVersion": "1.0.0.0",
+            "outputs": {},
+            "parameters": {},
+            "triggers": {
+                "request": {
+                    "inputs": {
+                        "schema": {}
+                    },
+                    "kind": "Http",
+                    "type": "Request"
+                }
+            }
+        },
+        "connectionReferences": {},
+        "apiSummaries": [
+            {
+                "type": "request",
+                "displayName": "${Resources.REQUEST_TRIGGER_DISPLAYNAME}",
+                "iconUri": "${Images.RequestIcon}",
+                "brandColor": "#DD0735"
+            },
+            {
+                "type": "http",
+                "displayName": "${Resources.RESPONSE_DISPLAYNAME}",
+                "iconUri": "${Images.ResponseIcon}",
+                "brandColor": "#DD0735"
+            }
+        ],
+        "changedTime": "2017-01-31T00:00:38.000Z",
+        "createdTime": "2017-01-31T00:00:38.000Z",
+        "popularity": 1
+    }
+}
