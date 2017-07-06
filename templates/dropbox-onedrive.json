@@ -20,9 +20,6 @@
                     "inputs": {
                         "body": "@triggerBody()",
                         "host": {
-                            "api": {
-                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/onedrive"
-                            },
                             "connection": {
                                 "name": "@parameters('$connections')['onedrive']['connectionId']"
                             }
@@ -50,9 +47,6 @@
                 "When_a_file_is_created": {
                     "inputs": {
                         "host": {
-                            "api": {
-                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/dropbox"
-                            },
                             "connection": {
                                 "name": "@parameters('$connections')['dropbox']['connectionId']"
                             }
@@ -103,7 +97,7 @@
                 "brandColor": "#094ab2"
             }
         ],
-        "changedTime": "2017-01-31T00:00:52.000Z",
+        "changedTime": "2017-07-05T00:00:52.000Z",
         "createdTime": "2017-01-31T00:00:52.000Z",
         "popularity": 8
     }

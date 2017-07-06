@@ -28,9 +28,6 @@
                     "inputs": {
                         "body": "@body('Http')",
                         "host": {
-                            "api": {
-                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/twitter"
-                            },
                             "connection": {
                                 "name": "@parameters('$connections')['twitter']['connectionId']"
                             }
@@ -61,9 +58,6 @@
                 "When_I_upload_a_new_media": {
                     "inputs": {
                         "host": {
-                            "api": {
-                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/instagram"
-                            },
                             "connection": {
                                 "name": "@parameters('$connections')['instagram']['connectionId']"
                             }
@@ -118,7 +112,7 @@
                 "brandColor": "#5fa9dd"
             }
         ],
-        "changedTime": "2017-01-31T00:00:43.000Z",
+        "changedTime": "2017-07-05T00:00:43.000Z",
         "createdTime": "2017-01-31T00:00:43.000Z",
         "popularity": 17
     }

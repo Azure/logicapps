@@ -20,9 +20,6 @@
                     "inputs": {
                         "body": {},
                         "host": {
-                            "api": {
-                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/sharepointonline"
-                            },
                             "connection": {
                                 "name": "@parameters('$connections')['sharepointonline']['connectionId']"
                             }
@@ -46,9 +43,6 @@
                 "When_a_new_tweet_appears": {
                     "inputs": {
                         "host": {
-                            "api": {
-                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/twitter"
-                            },
                             "connection": {
                                 "name": "@parameters('$connections')['twitter']['connectionId']"
                             }
@@ -100,7 +94,7 @@
                 "brandColor": "#1b75bc"
             }
         ],
-        "changedTime": "2017-06-16T00:00:45.000Z",
+        "changedTime": "2017-07-05T00:00:45.000Z",
         "createdTime": "2017-01-31T00:00:45.000Z",
         "popularity": 18
     }

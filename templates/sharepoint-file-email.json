@@ -19,9 +19,6 @@
                 "Get_my_profile": {
                     "inputs": {
                         "host": {
-                            "api": {
-                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/office365users"
-                            },
                             "connection": {
                                 "name": "@parameters('$connections')['office365users']['connectionId']"
                             }
@@ -40,9 +37,6 @@
                             "To": "@{body('Get_my_profile')?['Mail']}"
                         },
                         "host": {
-                            "api": {
-                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/office365"
-                            },
                             "connection": {
                                 "name": "@parameters('$connections')['office365']['connectionId']"
                             }
@@ -70,9 +64,6 @@
                 "When_a_file_is_created": {
                     "inputs": {
                         "host": {
-                            "api": {
-                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/sharepointonline"
-                            },
                             "connection": {
                                 "name": "@parameters('$connections')['sharepointonline']['connectionId']"
                             }
@@ -137,7 +128,7 @@
                 "brandColor": "#eb3c00"
             }
         ],
-        "changedTime": "2017-01-31T00:00:49.000Z",
+        "changedTime": "2017-07-05T00:00:49.000Z",
         "createdTime": "2017-01-31T00:00:49.000Z",
         "popularity": 19
     }

@@ -20,9 +20,6 @@
                     "type": "ApiConnection",
                     "inputs": {
                         "host": {
-                            "api": {
-                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/runtimeservice"
-                            },
                             "connection": {
                                 "name": "@parameters('$connections')['runtimeservice']['connectionId']"
                             }
@@ -53,9 +50,6 @@
                     "type": "ApiConnection",
                     "inputs": {
                         "host": {
-                            "api": {
-                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/dynamicscrmonline"
-                            },
                             "connection": {
                                 "name": "@parameters('$connections')['dynamicscrmonline']['connectionId']"
                             }
@@ -103,7 +97,7 @@
                 "brandColor": "#742774"
             }
         ],
-        "changedTime": "2017-06-16T00:00:56.000Z",
+        "changedTime": "2017-07-05T00:00:56.000Z",
         "createdTime": "2017-01-31T00:00:56.000Z",
         "popularity": 7
     }

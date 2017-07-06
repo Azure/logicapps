@@ -20,9 +20,6 @@
                     "inputs": {
                         "body": "@triggerBody()",
                         "host": {
-                            "api": {
-                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/sharepointonline"
-                            },
                             "connection": {
                                 "name": "@parameters('$connections')['sharepointonline']['connectionId']"
                             }
@@ -50,9 +47,6 @@
                 "When_a_file_is_created": {
                     "inputs": {
                         "host": {
-                            "api": {
-                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/dropbox"
-                            },
                             "connection": {
                                 "name": "@parameters('$connections')['dropbox']['connectionId']"
                             }
@@ -103,7 +97,7 @@
                 "brandColor": "#1b75bc"
             }
         ],
-        "changedTime": "2017-01-31T00:00:39.000Z",
+        "changedTime": "2017-07-05T00:00:39.000Z",
         "createdTime": "2017-01-31T00:00:39.000Z",
         "popularity": 22
     }

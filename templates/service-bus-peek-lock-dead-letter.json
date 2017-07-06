@@ -19,9 +19,6 @@
                 "Complete_the_message_in_a_queue": {
                     "inputs": {
                         "host": {
-                            "api": {
-                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/servicebus"
-                            },
                             "connection": {
                                 "name": "@parameters('$connections')['servicebus']['connectionId']"
                             }
@@ -43,9 +40,6 @@
                 "Dead-letter_the_message_in_a_queue": {
                     "inputs": {
                         "host": {
-                            "api": {
-                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/servicebus"
-                            },
                             "connection": {
                                 "name": "@parameters('$connections')['servicebus']['connectionId']"
                             }
@@ -90,9 +84,6 @@
                 "When_a_message_is_received_in_a_queue_(peek-lock)": {
                     "inputs": {
                         "host": {
-                            "api": {
-                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/servicebus"
-                            },
                             "connection": {
                                 "name": "@parameters('$connections')['servicebus']['connectionId']"
                             }
@@ -135,7 +126,7 @@
                 "brandColor": "#79BA1F"
             }
         ],
-        "changedTime": "2017-01-31T00:00:58.000Z",
+        "changedTime": "2017-07-05T00:00:58.000Z",
         "createdTime": "2017-01-31T00:00:58.000Z",
         "popularity": 5
     }

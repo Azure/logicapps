@@ -22,9 +22,6 @@
                             "inputs": {
                                 "body": {},
                                 "host": {
-                                    "api": {
-                                        "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/sharepointonline"
-                                    },
                                     "connection": {
                                         "name": "@parameters('$connections')['sharepointonline']['connectionId']"
                                     }
@@ -47,9 +44,6 @@
                 "Get_my_profile": {
                     "inputs": {
                         "host": {
-                            "api": {
-                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/office365users"
-                            },
                             "connection": {
                                 "name": "@parameters('$connections')['office365users']['connectionId']"
                             }
@@ -72,9 +66,6 @@
                             }
                         },
                         "host": {
-                            "api": {
-                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/office365"
-                            },
                             "connection": {
                                 "name": "@parameters('$connections')['office365']['connectionId']"
                             }
@@ -101,9 +92,6 @@
                 "When_a_Member_has_been_added_to_a_list": {
                     "inputs": {
                         "host": {
-                            "api": {
-                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/mailchimp"
-                            },
                             "connection": {
                                 "name": "@parameters('$connections')['mailchimp']['connectionId']"
                             }
@@ -180,7 +168,7 @@
                 "brandColor": "#1b75bc"
             }
         ],
-        "changedTime": "2017-01-31T00:00:44.000Z",
+        "changedTime": "2017-07-05T00:00:44.000Z",
         "createdTime": "2017-01-31T00:00:44.000Z",
         "popularity": 24
     }

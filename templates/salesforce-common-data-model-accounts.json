@@ -26,9 +26,6 @@
                             "WebSite": "@{triggerBody()?['Website']}"
                         },
                         "host": {
-                            "api": {
-                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/runtimeservice"
-                            },
                             "connection": {
                                 "name": "@parameters('$connections')['runtimeservice']['connectionId']"
                             }
@@ -52,9 +49,6 @@
                 "When_an_object_is_created": {
                     "inputs": {
                         "host": {
-                            "api": {
-                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/salesforce"
-                            },
                             "connection": {
                                 "name": "@parameters('$connections')['salesforce']['connectionId']"
                             }
@@ -103,7 +97,7 @@
                 "brandColor": "#742774"
             }
         ],
-        "changedTime": "2017-06-16T00:00:57.000Z",
+        "changedTime": "2017-07-05T00:00:57.000Z",
         "createdTime": "2017-01-31T00:00:57.000Z",
         "popularity": 12
     }

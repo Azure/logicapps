@@ -24,9 +24,6 @@
                                     "inputs": {
                                         "body": "@base64ToBinary(item()?['Payload'])",
                                         "host": {
-                                            "api": {
-                                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/azureblob"
-                                            },
                                             "connection": {
                                                 "name": "@parameters('$connections')['azureblob']['connectionId']"
                                             }
@@ -136,9 +133,6 @@
                                     "inputs": {
                                         "body": "@item()?['Payload']",
                                         "host": {
-                                            "api": {
-                                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/azureblob"
-                                            },
                                             "connection": {
                                                 "name": "@parameters('$connections')['azureblob']['connectionId']"
                                             }
@@ -172,9 +166,6 @@
                         "body": "@triggerBody()",
                         "headers": "@triggerOutputs()['headers']",
                         "host": {
-                            "api": {
-                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/as2"
-                            },
                             "connection": {
                                 "name": "@parameters('$connections')['as2']['connectionId']"
                             }
@@ -189,9 +180,6 @@
                     "inputs": {
                         "body": "@base64ToBinary(body('Decode_AS2_message')?['AS2Message']?['Content'])",
                         "host": {
-                            "api": {
-                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/x12"
-                            },
                             "connection": {
                                 "name": "@parameters('$connections')['x12']['connectionId']"
                             }
@@ -303,7 +291,7 @@
                 "brandColor": "#804998"
             }
         ],
-        "changedTime": "2017-01-31T00:00:55.000Z",
+        "changedTime": "2017-07-05T00:00:55.000Z",
         "createdTime": "2017-01-31T00:00:55.000Z",
         "popularity": 3
     }

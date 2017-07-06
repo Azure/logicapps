@@ -24,9 +24,6 @@
                             "To": null
                         },
                         "host": {
-                            "api": {
-                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/office365"
-                            },
                             "connection": {
                                 "name": "@parameters('$connections')['office365']['connectionId']"
                             }
@@ -50,9 +47,6 @@
                 "When_an_existing_item_is_modified": {
                     "inputs": {
                         "host": {
-                            "api": {
-                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/sharepointonline"
-                            },
                             "connection": {
                                 "name": "@parameters('$connections')['sharepointonline']['connectionId']"
                             }
@@ -101,7 +95,7 @@
                 "brandColor": "#eb3c00"
             }
         ],
-        "changedTime": "2017-06-16T00:00:35.000Z",
+        "changedTime": "2017-07-05T00:00:35.000Z",
         "createdTime": "2017-01-31T00:00:35.000Z",
         "popularity": 3
     }

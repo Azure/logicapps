@@ -22,9 +22,6 @@
                             "inputs": {
                                 "body": "@base64ToBinary(item()['ContentBytes'])",
                                 "host": {
-                                    "api": {
-                                        "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/sharepointonline"
-                                    },
                                     "connection": {
                                         "name": "@parameters('$connections')['sharepointonline']['connectionId']"
                                     }
@@ -57,9 +54,6 @@
                 "On_new_email": {
                     "inputs": {
                         "host": {
-                            "api": {
-                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/office365"
-                            },
                             "connection": {
                                 "name": "@parameters('$connections')['office365']['connectionId']"
                             }
@@ -113,7 +107,7 @@
                 "brandColor": "#1b75bc"
             }
         ],
-        "changedTime": "2017-06-16T00:00:00.000Z",
+        "changedTime": "2017-07-05T00:00:00.000Z",
         "createdTime": "2017-01-31T00:00:48.000Z",
         "popularity": 9
     }

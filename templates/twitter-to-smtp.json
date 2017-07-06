@@ -23,9 +23,6 @@
                             "Subject": "Twitter: @{triggerBody()['TweetText']}"
                         },
                         "host": {
-                            "api": {
-                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/smtp"
-                            },
                             "connection": {
                                 "name": "@parameters('$connections')['smtp']['connectionId']"
                             }
@@ -49,9 +46,6 @@
                 "When_a_new_tweet_appears": {
                     "inputs": {
                         "host": {
-                            "api": {
-                                "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/twitter"
-                            },
                             "connection": {
                                 "name": "@parameters('$connections')['twitter']['connectionId']"
                             }
@@ -103,7 +97,7 @@
                 "brandColor": "#e75300"
             }
         ],
-        "changedTime": "2017-06-16T00:00:42.000Z",
+        "changedTime": "2017-07-05T00:00:42.000Z",
         "createdTime": "2017-01-31T00:00:42.000Z",
         "popularity": 15
     }
