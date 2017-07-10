@@ -274,24 +274,24 @@
             },
             {
                 "type": "apiconnection",
-                "displayName": "${Resources.AS2}",
+                "displayName": "${Resources.AS2_DISPLAYNAME}",
                 "iconUri": "https://az818438.vo.msecnd.net/icons/as2.png",
                 "brandColor": "#2b79da"
             },
             {
                 "type": "apiconnection",
-                "displayName": "${Resources.X12}",
+                "displayName": "${Resources.X12_DISPLAYNAME}",
                 "iconUri": "https://az818438.vo.msecnd.net/icons/x12.png",
                 "brandColor": "#67b5db"
             },
             {
                 "type": "apiconnection",
-                "displayName": "${Resources.AZURE_BLOB}",
+                "displayName": "${Resources.AZURE_BLOB_DISPLAYNAME}",
                 "iconUri": "https://az818438.vo.msecnd.net/icons/azureblob.png",
                 "brandColor": "#804998"
             }
         ],
-        "changedTime": "2017-07-05T00:00:55.000Z",
+        "changedTime": "2017-07-10T00:00:55.000Z",
         "createdTime": "2017-01-31T00:00:55.000Z",
         "popularity": 3
     }
