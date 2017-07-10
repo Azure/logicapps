@@ -97,7 +97,7 @@
             },
             {
                 "type": "apiconnection",
-                "displayName": "${Resources.OFFICE_365_DISPLAYNAME}",
+                "displayName": "${Resources.OFFICE}",
                 "iconUri": "https://az818438.vo.msecnd.net/icons/office365.png",
                 "brandColor": "#eb3c00"
             },
@@ -108,7 +108,7 @@
                 "brandColor": "#eb3c00"
             }
         ],
-        "changedTime": "2017-07-05T00:00:36.000Z",
+        "changedTime": "2017-07-10T00:00:36.000Z",
         "createdTime": "2017-01-31T00:00:36.000Z",
         "popularity": 6
     }
