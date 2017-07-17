@@ -43,13 +43,13 @@
                 "type": "request",
                 "displayName": "${Resources.REQUEST_TRIGGER_DISPLAYNAME}",
                 "iconUri": "${Images.RequestIcon}",
-                "brandColor": "#DD0735"
+                "brandColor": "#009DA5"
             },
             {
                 "type": "http",
                 "displayName": "${Resources.RESPONSE_DISPLAYNAME}",
                 "iconUri": "${Images.ResponseIcon}",
-                "brandColor": "#DD0735"
+                "brandColor": "#009DA5"
             }
         ],
         "changedTime": "2017-01-31T00:00:38.000Z",
