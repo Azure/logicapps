@@ -34,7 +34,7 @@
                             "type": "Xslt"
                         }
                     },
-                    "expression": "@equals(xpath(xml(body('Flat_File_Decoding')), 'string(count(/.))'), '1')",
+                    "expression": "@equals(xpath(xml(body('Flat_File_Decoding')), 'string(count(/.))'), string('1'))",
                     "runAfter": {
                         "XML_Validation": [
                             "Succeeded"
@@ -111,7 +111,7 @@
                 "brandColor": "#0099BC"
             }
         ],
-        "changedTime": "2017-01-31T00:00:53.000Z",
+        "changedTime": "2017-07-20T00:00:53.000Z",
         "createdTime": "2017-01-31T00:00:53.000Z",
         "popularity": 10
     }
