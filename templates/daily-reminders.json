@@ -93,7 +93,7 @@
                 "type": "recurrence",
                 "displayName": "${Resources.RECURRENCE_TRIGGER_DISPLAYNAME}",
                 "iconUri": "${Images.RecurrenceIcon}",
-                "brandColor": "#f18d00"
+                "brandColor": "#1F85FF"
             },
             {
                 "type": "apiconnection",

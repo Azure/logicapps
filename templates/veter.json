@@ -90,7 +90,7 @@
                 "type": "request",
                 "displayName": "${Resources.REQUEST_TRIGGER_DISPLAYNAME}",
                 "iconUri": "${Images.RequestIcon}",
-                "brandColor": "#DD0735"
+                "brandColor": "#009DA5"
             },
             {
                 "type": "flatfiledecoding",
@@ -102,13 +102,13 @@
                 "type": "xmlvalidation",
                 "displayName": "${Resources.XML_VALIDATION_DISPLAYNAME}",
                 "iconUri": "${Images.XmlValidationIcon}",
-                "brandColor": "#0099BC"
+                "brandColor": "#444444"
             },
             {
                 "type": "xslt",
                 "displayName": "${Resources.XSLT_DISPLAYNAME}",
                 "iconUri": "${Images.XsltIcon}",
-                "brandColor": "#0099BC"
+                "brandColor": "#444444"
             }
         ],
         "changedTime": "2017-07-20T00:00:53.000Z",

@@ -270,7 +270,7 @@
                 "type": "request",
                 "displayName": "${Resources.REQUEST_TRIGGER_DISPLAYNAME}",
                 "iconUri": "${Images.RequestIcon}",
-                "brandColor": "#DD0735"
+                "brandColor": "#009DA5"
             },
             {
                 "type": "apiconnection",
