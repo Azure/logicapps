@@ -14,8 +14,8 @@ To start developing template for Logic Apps, you will need the following:
 
 ## Overview of the template structure
 
-| Property                          | Description                                                                       | Possible Value  | Example |
-|:---------------------------------:|:---------------------------------------------------------------------------------:|:-----:|:-----:|
+| Property                          | Description                   | Possible Value  | Example |
+|:---------------------------------:|:-----------------------------:|:---------------:|:-------:|
 | `id`                              | ID of the template, ends with a guid | `/providers/Microsoft.Logic/galleries/public/templates/{guid}` | |
 | `name`                            | Same guid used in `id` | `{guid}` | `148efebb38114db08f90acba2231053a` |
 | `type`                            | Indicate this is a template for Logic Apps | `Microsoft.Logic/galleries/templates` | `Microsoft.Logic/galleries/templates` |
@@ -34,6 +34,9 @@ To start developing template for Logic Apps, you will need the following:
 
 ## Creating a new template
 The easiest way to create a new template is to build out the workflow using Logic Apps designer. 
+1. Create a Logic App
+2. Templatize and export the Logic App
+3. Create template JSON with template metadata, [this sample](sample.json) is a great place to start
 
 ## Testing
 To test a new template, it is the easiest to use Fiddler to redirect traffic.
@@ -46,12 +49,11 @@ The following script will redirect all traffic to Logic Apps' repository to your
 
     ```javascript
     if (oSession.url.StartsWith("raw.githubusercontent.com/Azure/logicapps")) {
-        oSession.url.Replace("Azure", "derek1ee");
-        oSession["ui-color"] = "red";
+        oSession.url.Replace("Azure", "{replace with your GitHub username}");
     }
 
 ## Localization
-Please authtor the template with text in the language of your choice. 
+Please authtor the template with text in the language of your choice.
 
 ## Contribution Guide
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
