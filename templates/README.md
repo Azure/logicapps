@@ -15,21 +15,21 @@ To start developing template for Logic Apps, you will need the following:
 ## Overview of the template structure
 
 | Property                          | Description                   | Possible Value  |
-|:---------------------------------:|:-----------------------------:|:---------------:|
-| `id`                              | ID of the template, ends with a guid | `/providers/Microsoft.Logic/galleries/public/templates/{guid}` |
-| `name`                            | Same guid used in `id` | `{guid}` |
-| `type`                            | Indicate this is a template for Logic Apps | `Microsoft.Logic/galleries/templates` |
-| `properties.author`               | Name of the template author | Any string | `Jane Doe` |
+|:---------------------------------:| ----------------------------- |:---------------:|
+| `id`                              | ID of the template, ends with a guid                    | `/providers/Microsoft.Logic/galleries/public/templates/{guid}` |
+| `name`                            | Same guid used in `id`                                  | `{guid}` |
+| `type`                            | Indicate this is a template for Logic Apps              | `Microsoft.Logic/galleries/templates` |
+| `properties.author`               | Name of the template author | Any string                | `Jane Doe` |
 | `properties.categoryNames`        | Collection of categories in which the template is shown | `enterprise_integration`, `general`, `producitivity`, `social`, `sync`,  `schedule` |
-| `properties.description`          | Text description of the template | Any string | 
-| `properties.displayName`          | Template name shown in template gallery | Any string |
-| `properties.galleryName`          | centered | `public` |
-| `properties.summary`              | are neat | "" |
-| `properties.definition`           | The workflow definition of the template | A valid JSON object representing the workflow |
+| `properties.description`          | Text description of the template                        | Any string | 
+| `properties.displayName`          | Template name shown in template gallery                 | Any string |
+| `properties.galleryName`          | centered                                                | `public` |
+| `properties.summary`              | are neat                                                | "" |
+| `properties.definition`           | The workflow definition of the template                 | A valid JSON object representing the workflow |
 | `properties.connectionReferences` | Connection references for connector used in the template | |
 | `properties.apiSummaries`         | Collection of connection referenced in the template for shown in template gallery ||
-| `properties.changedTime`          | Timestamp in which the template was updated ||
-| `properties.createTime`           | Timestamp in which the template was created ||
+| `properties.changedTime`          | Timestamp in which the template was updated             ||
+| `properties.createTime`           | Timestamp in which the template was created             ||
 | `properties.popularity`           | Integer value indicating the populatiry of the template ||
 
 ## Creating a new template
