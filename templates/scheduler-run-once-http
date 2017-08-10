@@ -1,0 +1,92 @@
+{
+    "id": "/providers/Microsoft.Logic/galleries/public/templates/148efebb38114db08f90acba2231053a",
+    "type": "Microsoft.Logic/galleries/templates",
+    "name": "148efebb38114db08f90acba2231053a",
+    "properties": {
+        "author": {
+            "displayName": "Derek Li"
+        },
+        "categoryNames": [
+            "schedule"
+        ],
+        "description": "This template shows how to use Logic Apps to execute 'run once' jobs similar to Azure Scheduler.",
+        "displayName": "Scheduler: Run Once Jobs",
+        "galleryName": "public",
+        "summary": "",
+        "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "actions": {
+                "Delay_until": {
+                    "inputs": {
+                        "until": {
+                            "timestamp": "@triggerBody()?['startTime']"
+                        }
+                    },
+                    "runAfter": {},
+                    "type": "Wait"
+                },
+                "Error_Action": {
+                    "inputs": {
+                        "method": "",
+                        "uri": ""
+                    },
+                    "runAfter": {
+                        "Primary_Action": [
+                            "Failed"
+                        ]
+                    },
+                    "type": "Http"
+                },
+                "Primary_Action": {
+                    "inputs": {
+                        "method": "",
+                        "uri": ""
+                    },
+                    "runAfter": {
+                        "Delay_until": [
+                            "Succeeded"
+                        ]
+                    },
+                    "type": "Http"
+                }
+            },
+            "contentVersion": "1.0.0.0",
+            "outputs": {},
+            "parameters": {},
+            "triggers": {
+                "manual": {
+                    "inputs": {
+                        "schema": {
+                            "properties": {
+                                "startTime": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "kind": "Http",
+                    "type": "Request"
+                }
+            }
+        },
+        "connectionReferences": {},
+        "apiSummaries": [
+            {
+                "type": "request",
+                "displayName": "${Resources.REQUEST_TRIGGER_DISPLAYNAME}",
+                "iconUri": "${Images.RequestIcon}",
+                "brandColor": "#009DA5"
+            },
+            {
+                "type": "http",
+                "displayName": "${Resources.RESPONSE_DISPLAYNAME}",
+                "iconUri": "${Images.ResponseIcon}",
+                "brandColor": "#009DA5"
+            }
+        ],
+        "changedTime": "2017-08-10T00:00:00.000Z",
+        "createdTime": "2017-08-10T00:00:00.000Z",
+        "popularity": 1
+    }
+}
