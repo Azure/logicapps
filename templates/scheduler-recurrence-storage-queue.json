@@ -21,7 +21,7 @@
                 "inputs": {
                     "host": {
                     "connection": {
-                        "name": "@parameters('$connections')['azurequeues_1']['connectionId']"
+                        "name": "@parameters('$connections')['azurequeues']['connectionId']"
                     }
                     },
                     "method": "post",
@@ -50,7 +50,7 @@
             "outputs": {}
         },
         "connectionReferences": {
-            "servicebus": {
+            "azurequeues": {
                 "connection": {
                     "id": ""
                 },
