@@ -1,0 +1,77 @@
+{
+    "id": "/providers/Microsoft.Logic/galleries/public/templates/351d0fc3e23a4556b2a910527544ae2e",
+    "type": "Microsoft.Logic/galleries/templates",
+    "name": "351d0fc3e23a4556b2a910527544ae2e",
+    "properties": {
+        "author": {
+            "displayName": "Derek Li"
+        },
+        "categoryNames": [
+            "schedule"
+        ],
+        "description": "{Description of the template}",
+        "displayName": "Scheduler - Add message to queue",
+        "galleryName": "public",
+        "summary": "",
+        "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "actions": {
+                "Put_a_message_on_a_queue": {
+                "type": "ApiConnection",
+                "inputs": {
+                    "host": {
+                    "connection": {
+                        "name": "@parameters('$connections')['azurequeues_1']['connectionId']"
+                    }
+                    },
+                    "method": "post",
+                    "path": "",
+                    "body": ""
+                },
+                "runAfter": {}
+                }
+            },
+            "parameters": {
+                "$connections": {
+                    "defaultValue": {},
+                    "type": "Object"
+                }
+            },
+            "triggers": {
+                "Recurrence": {
+                "type": "Recurrence",
+                "recurrence": {
+                    "frequency": "Minute",
+                    "interval": 3
+                }
+                }
+            },
+            "contentVersion": "1.0.0.0",
+            "outputs": {}
+        },
+        "connectionReferences": {},
+        "apiSummaries": [
+            {
+                "type": "Request",
+                "displayName": "${Resources.REQUEST_TRIGGER_DISPLAYNAME}",
+                "iconUri": "${Images.RequestIcon}",
+                "brandColor": "#009DA5"
+            },
+            {
+                "type": "Wait",
+                "displayName": "${Resources.REQUEST_TRIGGER_DISPLAYNAME}",
+                "iconUri": "${Images.WaitIcon}",
+                "brandColor": "#1F85FF"
+            },
+            {
+                "type": "Http",
+                "displayName": "${Resources.RESPONSE_DISPLAYNAME}",
+                "iconUri": "${Images.ResponseIcon}",
+                "brandColor": "#709727"
+            }
+        ],
+        "changedTime": "2017-08-10T00:00:00.000Z",
+        "createdTime": "2017-08-10T00:00:00.000Z",
+        "popularity": 99
+    }
+}
