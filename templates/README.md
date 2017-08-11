@@ -25,10 +25,10 @@ To start developing template for Logic Apps, you will need the following:
 | `properties.displayName`          | Template name shown in template gallery                 | String |
 | `properties.definition`           | The workflow definition of the template                 | A valid JSON object representing the workflow |
 | `properties.connectionReferences` | Connection references for connector used in the template | |
-| `properties.apiSummaries`         | Collection of connection referenced in the template for shown in template gallery ||
-| `properties.changedTime`          | Timestamp in which the template was updated             ||
-| `properties.createTime`           | Timestamp in which the template was created             ||
-| `properties.popularity`           | Integer value indicating the populatiry of the template ||
+| `properties.apiSummaries`         | Collection of connection referenced in the template for shown in template gallery | |
+| `properties.changedTime`          | Timestamp in which the template was updated             | DateTime |
+| `properties.createTime`           | Timestamp in which the template was created             | DateTime |
+| `properties.popularity`           | Unsigned integer value indicating the populatiry of the template, lower value indicate higher popularity | Unsigned int |
 
 ## Creating a new template
 The easiest way to create a new template is to build out the workflow using Logic Apps designer. 
