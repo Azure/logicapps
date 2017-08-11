@@ -68,7 +68,7 @@ The easiest way to create a new template is to build out the workflow first usin
 
 1. Manually edit the Logic App code view
 1. Use "Download" functionality in Cloud Explorer in Visual Studio
-1. Use [Logic Apps template creator script](https://github.com/logicappsio/LogicAppTemplateCreator)
+1. Use [Logic Apps template creator script](https://github.com/jeffhollan/LogicAppTemplateCreator)
 
 Once the Logic App is templatized, it can be plugged into the [sample template file](sample.json), add other required metadatas and you are good to go.
 
