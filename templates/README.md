@@ -33,8 +33,12 @@ To start developing template for Logic Apps, you will need the following:
 ## Creating a new template
 The easiest way to create a new template is to build out the workflow using Logic Apps designer. 
 1. Create a Logic App
-2. Templatize and export the Logic App
-3. Create template JSON with template metadata, [this sample](sample.json) is a great place to start
+1. Templatize the Logic App
+    Three options for templazation:
+    1. Manually edit the Logic App code view
+    1. Use "Download" functionality in Cloud Explorer in Visual Studio
+    1. Use [Logic Apps template creator script](https://github.com/logicappsio/LogicAppTemplateCreator)
+1. Create template JSON with template metadata, [this sample](sample.json) is a great place to start
 
 ## Testing
 To test a new template, it is the easiest to use Fiddler to redirect traffic.
@@ -42,8 +46,8 @@ To test a new template, it is the easiest to use Fiddler to redirect traffic.
 The following script will redirect all traffic to Logic Apps' repository to your own fork.
 
 1. Launch Fiddler.
-2. Press Ctrl + R to launch Fiddler ScriptEditor.
-3. Locate OnBeforeRequest methed, and add the following code to the method.
+1. Press Ctrl + R to launch Fiddler ScriptEditor.
+1. Locate OnBeforeRequest methed, and add the following code to the method.
 
     ```javascript
     if (oSession.url.StartsWith("raw.githubusercontent.com/Azure/logicapps")) {
