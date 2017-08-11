@@ -19,8 +19,22 @@
         "galleryName": "public",
         "summary": "",
         "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "actions": {
+            },
+            "contentVersion": "1.0.0.0",
+            "outputs": {},
+            "parameters": {
+                "$connections": {
+                    "defaultValue": {},
+                    "type": "Object"
+                }
+            },
+            "triggers": {
+            }
         },
-        "connectionReferences": {},
+        "connectionReferences": {
+        },
         "apiSummaries": [
             {
                 "type": "{Type of the API}",
@@ -29,8 +43,8 @@
                 "brandColor": "{Brand color of the API}"
             }
         ],
-        "changedTime": "{Update timestamp of the template}",
-        "createdTime": "{Create timestamp of the template}",
+        "changedTime": "2000-01-01T00:00:00.000Z",
+        "createdTime": "2000-01-01T00:00:00.000Z",
         "popularity": 99
     }
 }
