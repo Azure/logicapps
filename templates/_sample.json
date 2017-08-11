@@ -16,8 +16,6 @@
         ],
         "description": "{Description of the template}",
         "displayName": "{Name of the tetmplate}",
-        "galleryName": "public",
-        "summary": "",
         "definition": {
             "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
             "actions": {
