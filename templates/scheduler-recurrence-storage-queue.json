@@ -67,16 +67,10 @@
                 "brandColor": "#009DA5"
             },
             {
-                "type": "Wait",
-                "displayName": "${Resources.REQUEST_TRIGGER_DISPLAYNAME}",
-                "iconUri": "${Images.WaitIcon}",
-                "brandColor": "#1F85FF"
-            },
-            {
-                "type": "Http",
-                "displayName": "${Resources.RESPONSE_DISPLAYNAME}",
-                "iconUri": "${Images.ResponseIcon}",
-                "brandColor": "#709727"
+                "type": "ApiConnection",
+                "displayName": "Storage Queue",
+                "iconUri": "https://cpgeneralstore.blob.core.windows.net/icons/azurequeues.png",
+                "brandColor": "#0072c6"
             }
         ],
         "changedTime": "2017-08-10T00:00:00.000Z",
