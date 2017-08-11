@@ -30,7 +30,7 @@ To start developing template for Logic Apps, you will need the following:
 | `properties.createTime`           | Timestamp in which the template was created              | DateTime |
 | `properties.popularity`           | Unsigned integer value indicating the populatiry of the template, lower value indicate higher popularity | Unsigned int |
 
-### Diving into `properties.definition`
+### `properties.definition`
 `properties.definition` is the object containing the workflow.
 
 | Property         | Description                                | Possible Value  |
@@ -41,6 +41,15 @@ To start developing template for Logic Apps, you will need the following:
 | `triggers`       | Name of the template author                | String |
 | `contentVersion` | This value should always be `"1.0.0.0"`    | `"1.0.0.0"` |
 | `outputs`        | The output of the Logic App, can be left empty |  | 
+
+### `properties.connectionReferences`
+`properties.connectionReferences` tells Logic Apps which connector to use for actions specified in the workflow.
+
+| Property                      | Description                                | Example  |
+|:-----------------------------:| ------------------------------------------ |:---------------:|
+| `{connectionName}`            | Name of the connection, referenced by `properties.definition.actions.input.host.connection` | `"azurequeues"` |
+| `{connectionName}.connection` | Connection to be created by the template user | `{"id": ""}` |
+| `{connectionName}.api`        | Identify the connector used, this can be found under `$connections.value.{connectionName}.id` of your Logic App. Remember to substitude out your subscription and region  | `/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/azurequeues` |
 
 ## Creating a new template
 The easiest way to create a new template is to build out the workflow using Logic Apps designer. 
