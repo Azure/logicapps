@@ -11,8 +11,6 @@
         ],
         "description": "This template shows how to use Logic Apps to execute 'run once' jobs similar to Azure Scheduler.",
         "displayName": "Scheduler: Run Once Jobs",
-        "galleryName": "public",
-        "summary": "",
         "definition": {
             "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
             "actions": {
