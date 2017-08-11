@@ -61,6 +61,9 @@ The easiest way to create a new template is to build out the workflow using Logi
     1. Use [Logic Apps template creator script](https://github.com/logicappsio/LogicAppTemplateCreator)
 1. Create template JSON with template metadata, [this sample](sample.json) is a great place to start
 
+## Add template to the manifest
+Once the template is created, add it to [manifest.json](manifest.json) so that it can be indexed and rendered by Logic Apps.
+
 ## Testing
 To test a new template, it is the easiest to use Fiddler to redirect traffic.
 
@@ -74,6 +77,8 @@ The following script will redirect all traffic to Logic Apps' repository to your
     if (oSession.url.StartsWith("raw.githubusercontent.com/Azure/logicapps")) {
         oSession.url.Replace("Azure", "{replace with your GitHub username}");
     }
+
+Once the Fiddler url re-write is setup, you can navigate to Azure portal, launch a Logic App, navigate to "Template" page and see the changes you just made.
 
 ## Localization
 Please authtor the template with text in the language of your choice. Please feel free to upvote to support localization in [UserVoice](https://feedback.azure.com/forums/287593-logic-apps/suggestions/20495815-support-localization-for-public-templates).
