@@ -11,8 +11,6 @@
         ],
         "description": "Add a message to Azure Storage queue at a predefined interval.",
         "displayName": "Scheduler - Add message to queue",
-        "galleryName": "public",
-        "summary": "",
         "definition": {
             "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
             "actions": {
