@@ -14,17 +14,17 @@ To start developing template for Logic Apps, you will need the following:
 
 ## Overview of the template structure
 
-| Property                          | Description                                              | Possible Value  |
+| Property                          | Description                                              | Example |
 |:---------------------------------:| -------------------------------------------------------- |:---------------:|
-| `id`                              | ID of the template, ends with a guid                     | `/providers/Microsoft.Logic/galleries/public/templates/{guid}` |
-| `name`                            | Same guid used in `id`                                   | `{guid}` |
+| `id`                              | ID of the template, ends with a guid                     | `"/providers/Microsoft.Logic/galleries/public/templates/{guid}"` |
+| `name`                            | Same guid used in `id`                                   | `"{guid}"` |
 | `type`                            | Indicate this is a template for Logic Apps               | `Microsoft.Logic/galleries/templates` |
-| `properties.author`               | Name of the template author                              | String |
-| `properties.categoryNames`        | Collection of categories in which the template is shown  | `enterprise_integration`, `general`, `producitivity`, `social`, `sync`,  `schedule` |
-| `properties.description`          | Text description of the template                         | String | 
-| `properties.displayName`          | Template name shown in template gallery                  | String |
-| `properties.definition`           | The workflow definition of the template                  | A valid JSON object representing the workflow |
-| `properties.connectionReferences` | Connection references for connector used in the template | |
+| `properties.author`               | Name of the template author                              | `"Jane Doe"` |
+| `properties.categoryNames`        | Collection of categories in which the template is shown  | `["enterprise_integration", "sync"]` |
+| `properties.description`          | Text description of the template                         | `"A useful template"` | 
+| `properties.displayName`          | Template name shown in template gallery                  | `"Sync CRM with SQL"` |
+| `properties.definition`           | The workflow definition of the template                  | See below |
+| `properties.connectionReferences` | Connection references for connector used in the template | See below |
 | `properties.apiSummaries`         | Collection of connection referenced in the template for shown in template gallery | |
 | `properties.changedTime`          | Timestamp in which the template was updated              | DateTime |
 | `properties.createTime`           | Timestamp in which the template was created              | DateTime |
@@ -33,14 +33,14 @@ To start developing template for Logic Apps, you will need the following:
 ### `properties.definition`
 `properties.definition` is the object containing the workflow.
 
-| Property         | Description                                | Possible Value  |
-|:----------------:| ------------------------------------------ |:---------------:|
-| `$schema`        | Schema of the workflow definition language | `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#` |
-| `actions`        | Same guid used in `id`                     | `{guid}` |
-| `parameters`     | Indicate this is a template for Logic Apps | `Microsoft.Logic/galleries/templates` |
-| `triggers`       | Name of the template author                | String |
-| `contentVersion` | This value should always be `"1.0.0.0"`    | `"1.0.0.0"` |
-| `outputs`        | The output of the Logic App, can be left empty |  | 
+| Property         | Description                                    | Example |
+|:----------------:| ---------------------------------------------- |:---------------:|
+| `$schema`        | Schema of the workflow definition language     | `"https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#"` |
+| `actions`        | Same guid used in `id`                         | `"{guid}"` |
+| `parameters`     | Empty connection parameter object to be filled | `{"$connections": {"defaultValue": {},                   "type": "Object"}` |
+| `triggers`       | Trigger of the template Logic App              | |
+| `contentVersion` | This value should always be `"1.0.0.0"`        | `"1.0.0.0"` |
+| `outputs`        | Output of the Logic App, can be left empty     | | 
 
 ### `properties.connectionReferences`
 `properties.connectionReferences` tells Logic Apps which connector to use for actions specified in the workflow.
