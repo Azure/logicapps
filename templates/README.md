@@ -21,10 +21,8 @@ To start developing template for Logic Apps, you will need the following:
 | `type`                            | Indicate this is a template for Logic Apps              | `Microsoft.Logic/galleries/templates` |
 | `properties.author`               | Name of the template author | Any string                | `Jane Doe` |
 | `properties.categoryNames`        | Collection of categories in which the template is shown | `enterprise_integration`, `general`, `producitivity`, `social`, `sync`,  `schedule` |
-| `properties.description`          | Text description of the template                        | Any string | 
-| `properties.displayName`          | Template name shown in template gallery                 | Any string |
-| `properties.galleryName`          | Should always be `public`                               | `public` |
-| `properties.summary`              |                                                         | "" |
+| `properties.description`          | Text description of the template                        | String | 
+| `properties.displayName`          | Template name shown in template gallery                 | String |
 | `properties.definition`           | The workflow definition of the template                 | A valid JSON object representing the workflow |
 | `properties.connectionReferences` | Connection references for connector used in the template | |
 | `properties.apiSummaries`         | Collection of connection referenced in the template for shown in template gallery ||
