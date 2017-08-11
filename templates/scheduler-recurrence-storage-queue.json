@@ -9,7 +9,7 @@
         "categoryNames": [
             "schedule"
         ],
-        "description": "{Description of the template}",
+        "description": "Add a message to Azure Storage queue at a predefined interval.",
         "displayName": "Scheduler - Add message to queue",
         "galleryName": "public",
         "summary": "",
