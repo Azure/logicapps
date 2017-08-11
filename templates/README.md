@@ -55,7 +55,7 @@ The following script will redirect all traffic to Logic Apps' repository to your
     }
 
 ## Localization
-Please authtor the template with text in the language of your choice.
+Please authtor the template with text in the language of your choice. Please feel free to upvote to support localization in [UserVoice](https://feedback.azure.com/forums/287593-logic-apps/suggestions/20495815-support-localization-for-public-templates).
 
 ## Contribution Guide
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
