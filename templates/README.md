@@ -8,9 +8,9 @@ Template is a great starting point for new users or seasoned integration develop
 ## Setup
 To start developing template for Logic Apps, you will need the following:
 
-* An active Azure subscription
-* A GitHub account
-* Fiddler
+* An active Azure subscription for test new templates in Logic Apps
+* A GitHub account in order to submit pull request for your proposed change
+* [Fiddler](http://www.telerik.com/fiddler) to redirect network traffic to test new templates
 
 ## Overview of the template structure
 
@@ -23,8 +23,8 @@ To start developing template for Logic Apps, you will need the following:
 | `properties.categoryNames`        | Collection of categories in which the template is shown | `enterprise_integration`, `general`, `producitivity`, `social`, `sync`,  `schedule` |
 | `properties.description`          | Text description of the template                        | Any string | 
 | `properties.displayName`          | Template name shown in template gallery                 | Any string |
-| `properties.galleryName`          | centered                                                | `public` |
-| `properties.summary`              | are neat                                                | "" |
+| `properties.galleryName`          | Should always be `public`                               | `public` |
+| `properties.summary`              |                                                         | "" |
 | `properties.definition`           | The workflow definition of the template                 | A valid JSON object representing the workflow |
 | `properties.connectionReferences` | Connection references for connector used in the template | |
 | `properties.apiSummaries`         | Collection of connection referenced in the template for shown in template gallery ||
