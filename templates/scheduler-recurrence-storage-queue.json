@@ -15,18 +15,42 @@
             "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
             "actions": {
                 "Put_a_message_on_a_queue": {
-                "type": "ApiConnection",
-                "inputs": {
-                    "host": {
-                    "connection": {
-                        "name": "@parameters('$connections')['azurequeues']['connectionId']"
-                    }
+                    "type": "ApiConnection",
+                    "inputs": {
+                        "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['azurequeues']['connectionId']"
+                        }
+                        },
+                        "method": "post",
+                        "path": "//messages",
+                        "body": ""
                     },
-                    "method": "post",
-                    "path": "//messages",
-                    "body": ""
+                    "runAfter": {}
                 },
-                "runAfter": {}
+                "Handle_errors": {
+                    "type": "Scope",
+                    "actions": {
+                        "Put_a_message_on_a_queue_2": {
+                            "type": "ApiConnection",
+                            "inputs": {
+                                "host": {
+                                    "connection": {
+                                        "name": "@parameters('$connections')['azurequeues']['connectionId']"
+                                    }
+                                },
+                                "method": "post",
+                                "path": "//messages",
+                                "body": ""
+                            },
+                            "runAfter": {}
+                        }
+                    },
+                    "runAfter": {
+                        "Put_a_message_on_a_queue": [
+                            "Succeeded"
+                        ]
+                    }
                 }
             },
             "parameters": {
