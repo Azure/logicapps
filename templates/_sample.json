@@ -1,0 +1,48 @@
+{
+    "id": "/providers/Microsoft.Logic/galleries/public/templates/{Guid}",
+    "type": "Microsoft.Logic/galleries/templates",
+    "name": "{Guid}",
+    "properties": {
+        "author": {
+            "displayName": "{Your name}"
+        },
+        "categoryNames": [
+            "enterprise_integration",
+            "schedule",
+            "producitivity",
+            "social",
+            "sync",
+            "general"
+        ],
+        "description": "{Description of the template}",
+        "displayName": "{Name of the tetmplate}",
+        "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "actions": {
+            },
+            "contentVersion": "1.0.0.0",
+            "outputs": {},
+            "parameters": {
+                "$connections": {
+                    "defaultValue": {},
+                    "type": "Object"
+                }
+            },
+            "triggers": {
+            }
+        },
+        "connectionReferences": {
+        },
+        "apiSummaries": [
+            {
+                "type": "{Type of the API}",
+                "displayName": "{Name of the API}",
+                "iconUri": "{Icon of the API}",
+                "brandColor": "{Brand color of the API}"
+            }
+        ],
+        "changedTime": "2000-01-01T00:00:00.000Z",
+        "createdTime": "2000-01-01T00:00:00.000Z",
+        "popularity": 99
+    }
+}

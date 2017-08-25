@@ -1,0 +1,102 @@
+{
+    "id": "/providers/Microsoft.Logic/galleries/public/templates/351d0fc3e23a4556b2a910527544ae2e",
+    "type": "Microsoft.Logic/galleries/templates",
+    "name": "351d0fc3e23a4556b2a910527544ae2e",
+    "properties": {
+        "author": {
+            "displayName": "Derek Li"
+        },
+        "categoryNames": [
+            "schedule"
+        ],
+        "description": "Add a message to Azure Storage queue at a predefined interval.",
+        "displayName": "Scheduler - Add message to queue",
+        "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "actions": {
+                "Put_a_message_on_a_queue": {
+                    "type": "ApiConnection",
+                    "inputs": {
+                        "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['azurequeues']['connectionId']"
+                        }
+                        },
+                        "method": "post",
+                        "path": "//messages",
+                        "body": ""
+                    },
+                    "runAfter": {}
+                },
+                "Handle_errors": {
+                    "type": "Scope",
+                    "actions": {
+                        "Put_a_message_on_a_queue_2": {
+                            "type": "ApiConnection",
+                            "inputs": {
+                                "host": {
+                                    "connection": {
+                                        "name": "@parameters('$connections')['azurequeues']['connectionId']"
+                                    }
+                                },
+                                "method": "post",
+                                "path": "//messages",
+                                "body": ""
+                            },
+                            "runAfter": {}
+                        }
+                    },
+                    "runAfter": {
+                        "Put_a_message_on_a_queue": [
+                            "Succeeded"
+                        ]
+                    }
+                }
+            },
+            "parameters": {
+                "$connections": {
+                    "defaultValue": {},
+                    "type": "Object"
+                }
+            },
+            "triggers": {
+                "Recurrence": {
+                "type": "Recurrence",
+                "recurrence": {
+                    "frequency": "Minute",
+                    "interval": 3
+                }
+                }
+            },
+            "contentVersion": "1.0.0.0",
+            "outputs": {}
+        },
+        "connectionReferences": {
+            "azurequeues": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/azurequeues"
+                }
+            }
+        },
+        "apiSummaries": [
+            {
+                "type": "Recurrence",
+                "displayName": "Recurrence",
+                "iconUri": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDMyIDMyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPg0KIDxwYXRoIGQ9Im0wIDBoMzJ2MzJoLTMyeiIgZmlsbD0iIzFGODVGRiIvPg0KIDxnIGZpbGw9IiNmZmYiPg0KICA8cGF0aCBkPSJNMTYuMDE1IDEwLjEzOGMtMy44NC0uMDA3LTYuOTUzIDMuMTA2LTYuOTQ2IDYuOTMxLjAwNyAzLjgzMyAzLjEwNiA2LjkzMSA2LjkyNCA2LjkzMSAzLjgxOCAwIDYuOTMxLTMuMTA2IDYuOTM4LTYuOTI0LjAwNy0zLjgxMS0zLjEwNi02LjkzOC02LjkxNy02LjkzOHptLS4wMjkgMTIuMzI4Yy0zLjA3Ni0uMDE1LTUuMzk2LTIuNDk1LTUuMzgyLTUuNDE4LjAxNS0zLjA5OCAyLjU5Ni01LjQ2MiA1LjYwNy01LjM3NSAyLjgxNS4wODcgNS4yMDcgMi41MzEgNS4xNzggNS4zOTYtLjAwNyAyLjk4OS0yLjM5MyA1LjQxMS01LjQwNCA1LjM5NnoiLz4NCiAgPHBhdGggZD0iTTIxLjk0OSAxMi4xMzhjLjEzOC0uMzQ5LjI2Mi0uNjkxLjQxNS0xLjAxOC4yNC0uNTAyLjEwOS0uOTM4LS4yNjItMS4yODctLjg4LS44MzYtMS45MTMtMS40MzMtMy4wODQtMS43NjctLjM2NC0uMTAyLS43NjQtLjExNi0xLjA0LjE5Ni0uMzEzLjM0OS0uNTc1Ljc0OS0uODczIDEuMTQ5IDEuOTQyLjM1NiAzLjUyNyAxLjI4IDQuODQ0IDIuNzI3eiIvPg0KICA8cGF0aCBkPSJNMTAuMDI5IDEyLjExNmMxLjMwOS0xLjQ2MiAyLjg5NS0yLjM2NCA0LjgxNS0yLjcyNy0uMjMzLS4zMjctLjQ1OC0uNjE4LS42NTUtLjkxNi0uMjY5LS40MjItLjY1NS0uNTMxLTEuMTEzLS40NDQtMS4wNC4yMDQtMS45MTMuNzU2LTIuNzU2IDEuMzY3LS4xODIuMTMxLS4zNDkuMjk4LS41MDIuNDY1LS4yNjIuMjg0LS40MDcuNjE4LS4yOTEuOTk2LjEzOC40MTUuMzI3LjgyMi41MDIgMS4yNTh6Ii8+DQogIDxwYXRoIGQ9Ik0xNi41MTYgMTIuOTIzYy0uNjA0LS4zMjctMS4yNjUuMDUxLTEuMjY1LjczNS4wMDcuOTY3LjAxNSAxLjkzNS4wMzYgMi45MDkuMDA3LjE4OS0uMDQ0LjMyNy0uMTk2LjQ1OC0uMzg1LjMyLS43NzEuNjQ3LTEuMTM1Ljk4OS0uMzEzLjI5MS0uMzA1LjczNS0uMDE1IDEuMDU1LjI4NC4zMTMuNzQyLjM2NCAxLjA1NS4wOTUuNTM4LS40NjUgMS4wNjktLjkzMSAxLjU4NS0xLjQxOC4xMDktLjEwMi4yMTEtLjI5MS4yMTEtLjQzNi4wMjItLjY3Ni4wMDctMS4zNi4wMDctMi4wMzZoLjAzNnYtMS43MzFjLjAwNy0uMjY5LS4wNzMtLjQ4LS4zMi0uNjE4eiIvPg0KIDwvZz4NCjwvc3ZnPg0K",
+                "brandColor": "#1f85ff"
+            },
+            {
+                "type": "ApiConnection",
+                "displayName": "Storage Queue",
+                "iconUri": "https://cpgeneralstore.blob.core.windows.net/icons/azurequeues.png",
+                "brandColor": "#0072c6"
+            }
+        ],
+        "changedTime": "2017-08-10T00:00:00.000Z",
+        "createdTime": "2017-08-10T00:00:00.000Z",
+        "popularity": 15
+    }
+}
