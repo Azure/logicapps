@@ -9,7 +9,7 @@
         "categoryNames": [
             "schedule"
         ],
-        "description": "This template shows how to use Logic Apps to execute 'run once' jobs similar to Azure Scheduler. With Azure Scheduler, customer nees to create multiple jobs, one for each `run once` instance. This template demonstrates how to use a single Logic App to handle `run once` workloads. Specify `startTime` in the request will schedule the action(s) to be executed at time specified.",
+        "description": "This template shows how to use Logic Apps to execute \"run once\" jobs similar to Azure Scheduler. With Azure Scheduler, customer nees to create multiple jobs, one for each \"run once\" instance. This template demonstrates how to use a single Logic App to handle \"run once\" workloads. Specify \"startTime\" in the request will schedule the action(s) to be executed at time specified.",
         "displayName": "Scheduler: Run Once Jobs",
         "definition": {
             "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
@@ -95,9 +95,9 @@
             },
             {
                 "type": "http",
-                "displayName": "${Resources.RESPONSE_DISPLAYNAME}",
-                "iconUri": "${Images.ResponseIcon}",
-                "brandColor": "#009DA5"
+                "displayName": "${Resources.HTTP_DISPLAYNAME}",
+                "iconUri": "${Images.HttpIcon}",
+                "brandColor": "#6c9b00"
             }
         ],
         "changedTime": "2017-08-10T00:00:00.000Z",
