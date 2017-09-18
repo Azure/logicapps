@@ -1,5 +1,8 @@
 [
     "as2-response.json",
+    "asc-post-message-to-slack.json",
+    "asc-post-message-to-teams-and-send-notification-email.json",
+    "asc-send-notification-email.json",
     "daily-reminders.json",
     "dropbox-onedrive.json",
     "dropbox-to-sharepoint.json",

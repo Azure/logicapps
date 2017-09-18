@@ -1,0 +1,472 @@
+{
+    "id": "/providers/Microsoft.Logic/galleries/public/templates/996950CC-F17A-499F-B65D-9ABB2A8B4F5C",
+    "type": "Microsoft.Logic/galleries/templates",
+    "name": "996950CC-F17A-499F-B65D-9ABB2A8B4F5C",
+    "properties": {
+        "author": {
+            "displayName": "Microsoft"
+        },
+        "categoryNames": [
+            "security",
+            "general"
+        ],
+        "description": "Post message in Slack secutiy channel with alert details",
+        "displayName": "Post message in Slack",
+        "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "actions": {
+                "Post_message_to_Slack_security_channel": {
+                    "inputs": {
+                        "host": {
+                            "connection": {
+                                "name": "@parameters('$connections')['slack']['connectionId']"
+                            }
+                        },
+                        "method": "post",
+                        "path": "/chat.postMessage",
+                        "queries": {
+                            "channel": "C75LDQPKR",
+                            "text": "test"
+                        }
+                    },
+                    "runAfter": {},
+                    "type": "ApiConnection"
+                }
+            },
+            "contentVersion": "1.0.0.0",
+            "outputs": {},
+            "parameters": {
+                "$connections": {
+                    "defaultValue": {},
+                    "type": "Object"
+                }
+            },
+            "triggers": {
+                "manual": {
+                    "inputs": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "TimeGenerated": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "title": "Time Generated"
+                                },
+                                "DisplayName": {
+                                    "type": "string",
+                                    "title": "Display Name"
+                                },
+                                "AlertSeverity": {
+                                    "type": "string",
+                                    "title": "Alert Severity"
+                                },
+                                "Description": {
+                                    "type": "string",
+                                    "title": "Description"
+                                },
+                                "ProviderName": {
+                                    "type": "string",
+                                    "title": "Provider Name"
+                                },
+                                "VendorName": {
+                                    "type": "string",
+                                    "title": "Vendor Name"
+                                },
+                                "VendorOriginalId": {
+                                    "type": "string",
+                                    "title": "Vendor Original ID"
+                                },
+                                "SystemAlertId": {
+                                    "type": "string",
+                                    "title": "System Alert ID"
+                                },
+                                "ResourceId": {
+                                    "type": "string",
+                                    "title": "Resource ID"
+                                },
+                                "SourceComputerId": {
+                                    "type": "string",
+                                    "title": "Source Computer ID"
+                                },
+                                "ConfidenceLevel": {
+                                    "type": "string",
+                                    "title": "Confidence Level"
+                                },
+                                "ConfidenceScore": {
+                                    "type": "number",
+                                    "title": "Confidence Score"
+                                },
+                                "IsIncident": {
+                                    "type": "boolean",
+                                    "title": "Is Incident"
+                                },
+                                "StartTime": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "title": "Start Time"
+                                },
+                                "EndTime": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "title": "End Time"
+                                },
+                                "ProcessingEndTime": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "title": "Processing End Time"
+                                },
+                                "RemediationSteps": {
+                                    "type": "string",
+                                    "title": "Remediation Steps"
+                                },
+                                "ExtendedProperties": {
+                                    "type": "string",
+                                    "title": "Extended Properties"
+                                },
+                                "Entities": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {}
+                                    },
+                                    "title": "Entities"
+                                },
+                                "Account.Name": {
+                                    "type": "string",
+                                    "title": "Name",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Account.NTDomain": {
+                                    "type": "string",
+                                    "title": "NT Domain",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Account.UPNSuffix": {
+                                    "type": "string",
+                                    "title": "UPN Suffix",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Account.LogonId": {
+                                    "type": "string",
+                                    "title": "Logon ID",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Account.Sid": {
+                                    "type": "string",
+                                    "title": "SID",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Account.AadTenantId": {
+                                    "type": "string",
+                                    "title": "AAD Tenant ID",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Account.AadUserId": {
+                                    "type": "string",
+                                    "title": "AAD User ID",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Account.PUID": {
+                                    "type": "string",
+                                    "title": "PUID",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Account.IsDomainJoined": {
+                                    "type": "boolean",
+                                    "title": "Is Domain Joined",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Malware.Name": {
+                                    "type": "string",
+                                    "title": "Name",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Malware.Category": {
+                                    "type": "string",
+                                    "title": "Category",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Malware.File": {
+                                    "type": "string",
+                                    "title": "File",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Process.ProcessId": {
+                                    "type": "string",
+                                    "title": "ID",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Process.CommandLine": {
+                                    "type": "string",
+                                    "title": "Command Line",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Process.ElevationToken": {
+                                    "type": "string",
+                                    "title": "Elevation Token",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Process.CreationTimeUtc": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "title": "Creation Time (UTC)",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Process.ImageFile": {
+                                    "type": "string",
+                                    "title": "Image File",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Process.Account": {
+                                    "type": "string",
+                                    "title": "Account",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Process.ParentProcess": {
+                                    "type": "string",
+                                    "title": "Parent Process",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Process.Host": {
+                                    "type": "string",
+                                    "title": "Host",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "File.Directory": {
+                                    "type": "string",
+                                    "title": "Directory",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "File.Name": {
+                                    "type": "string",
+                                    "title": "Name",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "File.Md5": {
+                                    "type": "string",
+                                    "title": "MD5",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "File.Sha1": {
+                                    "type": "string",
+                                    "title": "SHA1",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "File.Sha256": {
+                                    "type": "string",
+                                    "title": "SHA256",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "File.Sha256Ac": {
+                                    "type": "string",
+                                    "title": "SHA256 /ac",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "RegistryKey.Hive": {
+                                    "type": "string",
+                                    "enum": [
+                                        "HKEY_LOCAL_MACHINE",
+                                        "HKEY_CLASSES_ROOT",
+                                        "HKEY_CURRENT_CONFIG",
+                                        "HKEY_USERS",
+                                        "HKEY_CURRENT_USER_LOCAL_SETTINGS",
+                                        "HKEY_PERFORMANCE_DATA",
+                                        "HKEY_PERFORMANCE_NLSTEXT",
+                                        "HKEY_PERFORMANCE_TEXT",
+                                        "HKEY_A",
+                                        "HKEY_CURRENT_USER"
+                                    ],
+                                    "title": "Hive",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "RegistryKey.Key": {
+                                    "type": "string",
+                                    "title": "Key",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "RegistryValue.Key": {
+                                    "type": "string",
+                                    "title": "Key",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "RegistryValue.Name": {
+                                    "type": "string",
+                                    "title": "Name",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "RegistryValue.Value": {
+                                    "type": "string",
+                                    "title": "Value",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "RegistryValue.ValueType": {
+                                    "type": "string",
+                                    "enum": [
+                                        "String",
+                                        "Binary",
+                                        "DWord",
+                                        "Qword",
+                                        "MultiString",
+                                        "ExpandString",
+                                        "None",
+                                        "Unknown"
+                                    ],
+                                    "title": "Value Type",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Connection.SourceAddress": {
+                                    "type": "string",
+                                    "title": "Source Address",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Connection.SourcePort": {
+                                    "type": "number",
+                                    "title": "Source Port",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Connection.DestinationAddress": {
+                                    "type": "string",
+                                    "title": "Destination Address",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Connection.DestinationPort": {
+                                    "type": "number",
+                                    "title": "Destination Port",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Connection.Protocol": {
+                                    "type": "string",
+                                    "enum": [
+                                        "TCP",
+                                        "UDP",
+                                        ""
+                                    ],
+                                    "title": "Protocol",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Ip.Address": {
+                                    "type": "string",
+                                    "title": "Address",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Ip.Location": {
+                                    "type": "string",
+                                    "title": "Location",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Host.DnsDomain": {
+                                    "type": "string",
+                                    "title": "DNS domain",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Host.NTDomain": {
+                                    "type": "string",
+                                    "title": "NT Domain",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Host.HostName": {
+                                    "type": "string",
+                                    "title": "Name",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Host.NetBiosName": {
+                                    "type": "string",
+                                    "title": "NETBIOS Name",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Host.AzureID": {
+                                    "type": "string",
+                                    "title": "Azure ID",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Host.OMSAgentID": {
+                                    "type": "string",
+                                    "title": "OMS Agent ID",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Host.OperatingSystem": {
+                                    "type": "string",
+                                    "title": "Operating System",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Host.IsDomainJoined": {
+                                    "type": "boolean",
+                                    "title": "Is Domain Joined",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "CloudApplication.name": {
+                                    "type": "string",
+                                    "title": "Name",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Dns.DomainName": {
+                                    "type": "string",
+                                    "title": "Domain Name",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Dns.IpAddress": {
+                                    "type": "string",
+                                    "title": "IP Address",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Dns.DnsServerIp": {
+                                    "type": "string",
+                                    "title": "Server IP",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Dns.HostIpAddress": {
+                                    "type": "string",
+                                    "title": "Host IP Address",
+                                    "x-ms-visibility": "advanced"
+                                }
+                            }
+                        }
+                    },
+                    "kind": "SecurityCenterAlert",
+                    "type": "Request"
+                }
+            }
+        },
+        "connectionReferences": {
+            "office365": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/office365"
+                }
+            },
+            "slack": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/slack"
+                }
+            }
+        },
+        "apiSummaries": [
+            {
+                "type": "apiconnection",
+                "displayName": "${Resources.AZURESECURITYCENTER}",
+                "iconUri": "${Images.AzureSecurityCenterIcon}",
+                "brandColor": "#96c414"
+            },
+            {
+                "type": "apiconnection",
+                "displayName": "${Resources.OFFICE}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/office365.png",
+                "brandColor": "#eb3c00"
+            },
+            {
+                "type": "apiconnection",
+                "displayName": "${Resources.SLACK}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/slack.png",
+                "brandColor": "#78d4b6"
+            }
+        ],
+        "changedTime": "2017-09-18T00:00:00.000Z",
+        "createdTime": "2017-09-18T00:00:00.000Z",
+        "popularity": 99
+    }
+}
