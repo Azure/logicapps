@@ -94,10 +94,10 @@
                 "type": "apiconnection",
                 "displayName": "${Resources.SLACK}",
                 "iconUri": "https://az818438.vo.msecnd.net/icons/slack.png",
-                "brandColor": "#6ecadc"
+                "brandColor": "#78d4b6"
             }
         ],
-        "changedTime": "2017-07-05T00:00:47.000Z",
+        "changedTime": "2017-09-18T00:00:00.000Z",
         "createdTime": "2017-01-31T00:00:47.000Z",
         "popularity": 13
     }
