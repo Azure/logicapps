@@ -1,0 +1,559 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "connectorLocation": {
+        "type": "string",
+        "defaultValue": "[resourceGroup().location]",
+        "allowedValues": [
+          "[resourceGroup().location]",
+          "australiaeast",
+          "australiasoutheast",
+          "brazilsouth",
+          "centralus",
+          "eastasia",
+          "eastus",
+          "eastus2",
+          "japaneast",
+          "japanwest",
+          "northcentralus",
+          "northeurope",
+          "southcentralus",
+          "southeastasia",
+          "westeurope",
+          "westus"
+        ],
+        "metadata": {
+          "description": "Location of the Logic App."
+        }
+      },
+      "aadClientId": {
+        "type": "string"
+      },
+      "aadClientSecret": {
+        "type":  "securestring"
+      }
+    },
+    "variables": {},
+    "resources": [
+      {
+        "name": "azure-vm-connector",
+        "type": "Microsoft.Web/customApis",
+        "location": "[parameters('connectorLocation')]",
+        "apiVersion": "2016-06-01",
+        "dependsOn": [],
+        "properties": {
+          "displayName": "Azure VM",
+          "description": "Virtual Machine connector to perform operations on a connector.",
+          "iconUri": "data:image/png;base64,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",
+          "backendService": {
+            "serviceUrl": "https://management.azure.com/"
+          },
+          "brandColor": null,
+          "connectionParameters": {
+            "token": {
+              "type": "oAuthSetting",
+              "oAuthSettings": {
+                "identityProvider": "aad",
+                "customParameters": {
+                  "LoginUri": {
+                    "value": "https://login.windows.net"
+                  },
+                  "TenantId": {
+                    "value": "common"
+                  },
+                  "ResourceUri": {
+                    "value": "https://management.core.windows.net/"
+                  }
+                },
+                "clientId": "[parameters('aadClientId')]",
+                "clientSecret": "[parameters('aadClientSecret')]"
+              },
+              "uiDefinition": null
+            }
+          },
+          "swagger": {
+            "swagger": "2.0",
+            "info": {
+              "version": "1.0.0",
+              "title": "Virtual Machine",
+              "description": "Virtual Machine connector to perform operations on a connector."
+            },
+            "host": "management.azure.com",
+            "basePath": "/",
+            "schemes": [
+              "https"
+            ],
+            "consumes": [],
+            "produces": [
+              "application/json"
+            ],
+            "paths": {
+              "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/virtualMachines/{vmName}/restart": {
+                "post": {
+                  "summary": "Restart",
+                  "description": "Restart a virtual machine",
+                  "operationId": "Restart",
+                  "parameters": [
+                    {
+                      "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                      "$ref": "#/parameters/ResourceGroupNameParameter"
+                    },
+                    {
+                      "name": "vmName",
+                      "type": "string",
+                      "in": "path",
+                      "required": true,
+                      "x-ms-summary": "Virtual Machine Name",
+                      "description": "The name of the virtual machine"
+                    },
+                    {
+                      "name": "x-ms-api-version",
+                      "default": "2017-03-30",
+                      "in": "query",
+                      "type": "string",
+                      "required": true,
+                      "x-ms-summary": "api-version",
+                      "x-ms-visibility": "internal"
+                    }
+                  ],
+                  "responses": {
+                    "default": {
+                      "description": "default",
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/virtualMachines/{vmName}/start": {
+                "post": {
+                  "summary": "Start",
+                  "description": "Start a virtual machine",
+                  "operationId": "Start",
+                  "parameters": [
+                    {
+                      "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                      "$ref": "#/parameters/ResourceGroupNameParameter"
+                    },
+                    {
+                      "name": "vmName",
+                      "type": "string",
+                      "in": "path",
+                      "required": true,
+                      "x-ms-summary": "Virtual Machine Name",
+                      "description": "The name of the virtual machine"
+                    },
+                    {
+                      "name": "x-ms-api-version",
+                      "default": "2017-03-30",
+                      "in": "query",
+                      "type": "string",
+                      "required": true,
+                      "x-ms-summary": "api-version",
+                      "x-ms-visibility": "internal"
+                    }
+                  ],
+                  "responses": {
+                    "default": {
+                      "description": "default",
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/virtualMachines/{vmName}/deallocate": {
+                "post": {
+                  "summary": "Deallocate",
+                  "description": "Deallocate a virtual machine",
+                  "operationId": "Deallocate",
+                  "parameters": [
+                    {
+                      "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                      "$ref": "#/parameters/ResourceGroupNameParameter"
+                    },
+                    {
+                      "name": "vmName",
+                      "type": "string",
+                      "in": "path",
+                      "required": true,
+                      "x-ms-summary": "Virtual Machine Name",
+                      "description": "The name of the virtual machine"
+                    },
+                    {
+                      "name": "x-ms-api-version",
+                      "default": "2017-03-30",
+                      "in": "query",
+                      "type": "string",
+                      "required": true,
+                      "x-ms-summary": "api-version",
+                      "x-ms-visibility": "internal"
+                    }
+                  ],
+                  "responses": {
+                    "default": {
+                      "description": "default",
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/virtualMachines/{vmName}/powerOff": {
+                "post": {
+                  "summary": "Power Off",
+                  "description": "Power Off a virtual machine",
+                  "operationId": "PowerOff",
+                  "parameters": [
+                    {
+                      "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                      "$ref": "#/parameters/ResourceGroupNameParameter"
+                    },
+                    {
+                      "name": "vmName",
+                      "type": "string",
+                      "in": "path",
+                      "required": true,
+                      "x-ms-summary": "Virtual Machine Name",
+                      "description": "The name of the virtual machine"
+                    },
+                    {
+                      "name": "x-ms-api-version",
+                      "default": "2017-03-30",
+                      "in": "query",
+                      "type": "string",
+                      "required": true,
+                      "x-ms-summary": "api-version",
+                      "x-ms-visibility": "internal"
+                    }
+                  ],
+                  "responses": {
+                    "default": {
+                      "description": "default",
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/virtualMachines/{vmName}/capture": {
+                "post": {
+                  "summary": "Capture image (Blob)",
+                  "description": "Capture an image of a virtual machine",
+                  "operationId": "CaptureImage",
+                  "parameters": [
+                    {
+                      "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                      "$ref": "#/parameters/ResourceGroupNameParameter"
+                    },
+                    {
+                      "name": "vmName",
+                      "type": "string",
+                      "in": "path",
+                      "required": true,
+                      "x-ms-summary": "Virtual Machine Name",
+                      "description": "The name of the virtual machine"
+                    },
+                    {
+                      "name": "x-ms-api-version",
+                      "default": "2017-03-30",
+                      "in": "query",
+                      "type": "string",
+                      "required": true,
+                      "x-ms-summary": "api-version",
+                      "x-ms-visibility": "internal"
+                    },
+                    {
+                      "name": "body",
+                      "in": "body",
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "vhdPrefix": {
+                            "type": "string",
+                            "description": "Specifies the prefix in the name of the blobs that constitute the storage profile of the image.",
+                            "x-ms-summary": "VHD Prefix"
+                          },
+                          "destinationContainerName": {
+                            "type": "string",
+                            "description": "Specifies the name of the container inside which the vhds constituting the image resides.",
+                            "x-ms-summary": "Destination Container Name"
+                          },
+                          "overwriteVhds": {
+                            "type": "boolean",
+                            "description": "Specifies if an existing vhd with same prefix inside the destination container is overwritten.",
+                            "x-ms-summary": "Overwrite VHDS"
+                          }
+                        }
+                      },
+                      "required": true
+                    }
+                  ],
+                  "responses": {
+                    "default": {
+                      "description": "default",
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "/subscriptions": {
+                "get": {
+                  "tags": [
+                    "Subscriptions"
+                  ],
+                  "summary": "List subscriptions",
+                  "description": "Gets a list of all the subscriptions to which the principal has access.",
+                  "operationId": "Subscriptions_List",
+                  "parameters": [
+                    {
+                      "name": "x-ms-api-version",
+                      "in": "query",
+                      "x-ms-summary": "API Version",
+                      "x-ms-test-value": "2015-11-01",
+                      "x-ms-visibility": "internal",
+                      "type": "string",
+                      "default": "2015-11-01"
+                    }
+                  ],
+                  "responses": {
+                    "200": {
+                      "description": "OK",
+                      "schema": {
+                        "$ref": "#/definitions/SubscriptionListResult"
+                      }
+                    }
+                  },
+                  "deprecated": false,
+                  "x-ms-visibility": "internal"
+                }
+              },
+              "/subscriptions/{subscriptionId}/resourcegroups": {
+                "get": {
+                  "tags": [
+                    "ResourceGroups"
+                  ],
+                  "summary": "List resource groups",
+                  "description": "Lists all the resource groups within the subscription. The results are paginated at 1,000+ records.",
+                  "operationId": "ResourceGroups_List",
+                  "parameters": [
+                    {
+                      "name": "x-ms-api-version",
+                      "in": "query",
+                      "x-ms-summary": "API Version",
+                      "x-ms-test-value": "2015-11-01",
+                      "x-ms-visibility": "internal",
+                      "type": "string",
+                      "default": "2015-11-01"
+                    },
+                    {
+                      "$ref": "#/parameters/SubscriptionIdParameter"
+                    }
+                  ],
+                  "responses": {
+                    "200": {
+                      "description": "OK",
+                      "schema": {
+                        "$ref": "#/definitions/ResourceGroupListResult"
+                      }
+                    }
+                  },
+                  "deprecated": false
+                }
+              },
+              "/subscriptions/{subscriptionId}/providers/Microsoft.Compute/locations/{location}/operations/{operationId}": {
+                "get": {
+                  "responses": {
+                    "default": {
+                      "description": "default",
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "x-ms-visibility": "internal",
+                  "parameters": [
+                    {
+                      "name": "subscriptionId",
+                      "in": "path",
+                      "required": true,
+                      "type": "string"
+                    },
+                    {
+                      "name": "location",
+                      "in": "path",
+                      "required": true,
+                      "type": "string"
+                    },
+                    {
+                      "name": "operationId",
+                      "in": "path",
+                      "required": true,
+                      "type": "string"
+                    },
+                    {
+                      "name": "monitor",
+                      "in": "query",
+                      "required": false,
+                      "type": "boolean"
+                    },
+                    {
+                      "name": "api-version",
+                      "in": "query",
+                      "required": false,
+                      "type": "string"
+                    }
+                  ],
+                  "summary": "Get operation status",
+                  "description": "Retreives that current status of the operation",
+                  "operationId": "Status_Get"
+                }
+              }
+            },
+            "definitions": {
+              "SubscriptionListResult": {
+                "description": "Subscription list operation response.",
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "description": "The subscriptions available to the user.",
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/Subscription"
+                    }
+                  }
+                }
+              },
+              "Subscription": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "description": "The fully qualified Id. For example, /subscriptions/00000000-0000-0000-0000-000000000000.",
+                    "type": "string",
+                    "readOnly": true,
+                    "x-ms-summary": "Id"
+                  },
+                  "subscriptionId": {
+                    "description": "The subscription Id.",
+                    "type": "string",
+                    "readOnly": true,
+                    "x-ms-summary": "Subscription Id"
+                  },
+                  "displayName": {
+                    "description": "The subscription display name.",
+                    "type": "string",
+                    "readOnly": true,
+                    "x-ms-summary": "Display Name"
+                  }
+                }
+              },
+              "ResourceGroupListResult": {
+                "description": "List of resource groups.",
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "description": "The list of resource groups.",
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/ResourceGroup"
+                    }
+                  }
+                }
+              },
+              "ResourceGroup": {
+                "description": "Resource group information.",
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "description": "The ID of the resource group (e.g. /subscriptions/XXX/resourceGroups/YYY).",
+                    "type": "string",
+                    "readOnly": true,
+                    "x-ms-visibility": "advanced",
+                    "x-ms-summary": "Id"
+                  },
+                  "name": {
+                    "description": "The Name of the resource group.",
+                    "type": "string",
+                    "readOnly": true,
+                    "x-ms-summary": "Name"
+                  }
+                }
+              }
+            },
+            "parameters": {
+              "SubscriptionIdParameter": {
+                "name": "subscriptionId",
+                "in": "path",
+                "description": "The unique identifier for the Microsoft Azure subscription. The subscription ID forms part of the ID for every Azure resource.",
+                "required": true,
+                "x-ms-summary": "Subscription",
+                "x-ms-test-value": "80d4fe69-c95b-4dd2-a938-9250f1c8ab03",
+                "x-ms-dynamic-values": {
+                  "operationId": "Subscriptions_List",
+                  "value-collection": "value",
+                  "value-path": "subscriptionId",
+                  "value-title": "displayName",
+                  "parameters": {
+                    "x-ms-api-version": "2016-06-01"
+                  }
+                },
+                "type": "string"
+              },
+              "ResourceGroupNameParameter": {
+                "name": "resourceGroup",
+                "in": "path",
+                "description": "Resource group name.",
+                "required": true,
+                "x-ms-summary": "Resource Group",
+                "x-ms-dynamic-values": {
+                  "operationId": "ResourceGroups_List",
+                  "value-collection": "value",
+                  "value-path": "name",
+                  "value-title": "name",
+                  "parameters": {
+                    "x-ms-api-version": "2016-06-01",
+                    "subscriptionId": {
+                      "parameter": "subscriptionId"
+                    }
+                  }
+                },
+                "type": "string"
+              }
+            },
+            "responses": {},
+            "securityDefinitions": {
+              "OAuth": {
+                "type": "oauth2",
+                "authorizationUrl": "https://login.windows.net/common/oauth2/authorize",
+                "tokenUrl": "https://login.windows.net/common/oauth2/token",
+                "flow": "accessCode"
+              }
+            },
+            "security": [
+              {}
+            ],
+            "tags": []
+          }
+        }
+      }
+    ],
+    "outputs": {}
+  }
+  
