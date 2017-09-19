@@ -45,225 +45,294 @@
                 "manual": {
                     "inputs": {
                         "schema": {
-                            "type": "object",
                             "properties": {
-                                "TimeGenerated": {
-                                    "type": "string",
-                                    "format": "date-time",
-                                    "title": "Time Generated"
-                                },
-                                "DisplayName": {
-                                    "type": "string",
-                                    "title": "Display Name"
-                                },
-                                "AlertSeverity": {
-                                    "type": "string",
-                                    "title": "Alert Severity"
-                                },
-                                "Description": {
-                                    "type": "string",
-                                    "title": "Description"
-                                },
-                                "ProviderName": {
-                                    "type": "string",
-                                    "title": "Provider Name"
-                                },
-                                "VendorName": {
-                                    "type": "string",
-                                    "title": "Vendor Name"
-                                },
-                                "VendorOriginalId": {
-                                    "type": "string",
-                                    "title": "Vendor Original ID"
-                                },
-                                "SystemAlertId": {
-                                    "type": "string",
-                                    "title": "System Alert ID"
-                                },
-                                "ResourceId": {
-                                    "type": "string",
-                                    "title": "Resource ID"
-                                },
-                                "SourceComputerId": {
-                                    "type": "string",
-                                    "title": "Source Computer ID"
-                                },
-                                "ConfidenceLevel": {
-                                    "type": "string",
-                                    "title": "Confidence Level"
-                                },
-                                "ConfidenceScore": {
-                                    "type": "number",
-                                    "title": "Confidence Score"
-                                },
-                                "IsIncident": {
-                                    "type": "boolean",
-                                    "title": "Is Incident"
-                                },
-                                "StartTime": {
-                                    "type": "string",
-                                    "format": "date-time",
-                                    "title": "Start Time"
-                                },
-                                "EndTime": {
-                                    "type": "string",
-                                    "format": "date-time",
-                                    "title": "End Time"
-                                },
-                                "ProcessingEndTime": {
-                                    "type": "string",
-                                    "format": "date-time",
-                                    "title": "Processing End Time"
-                                },
-                                "RemediationSteps": {
-                                    "type": "string",
-                                    "title": "Remediation Steps"
-                                },
-                                "ExtendedProperties": {
-                                    "type": "string",
-                                    "title": "Extended Properties"
-                                },
-                                "Entities": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "object",
-                                        "properties": {}
-                                    },
-                                    "title": "Entities"
-                                },
-                                "Account.Name": {
-                                    "type": "string",
-                                    "title": "Name",
-                                    "x-ms-visibility": "advanced"
-                                },
-                                "Account.NTDomain": {
-                                    "type": "string",
-                                    "title": "NT Domain",
-                                    "x-ms-visibility": "advanced"
-                                },
-                                "Account.UPNSuffix": {
-                                    "type": "string",
-                                    "title": "UPN Suffix",
-                                    "x-ms-visibility": "advanced"
-                                },
-                                "Account.LogonId": {
-                                    "type": "string",
-                                    "title": "Logon ID",
-                                    "x-ms-visibility": "advanced"
-                                },
-                                "Account.Sid": {
-                                    "type": "string",
-                                    "title": "SID",
-                                    "x-ms-visibility": "advanced"
-                                },
                                 "Account.AadTenantId": {
+                                    "title": "Account AAD Tenant ID",
                                     "type": "string",
-                                    "title": "AAD Tenant ID",
                                     "x-ms-visibility": "advanced"
                                 },
                                 "Account.AadUserId": {
+                                    "title": "Account AAD User ID",
                                     "type": "string",
-                                    "title": "AAD User ID",
-                                    "x-ms-visibility": "advanced"
-                                },
-                                "Account.PUID": {
-                                    "type": "string",
-                                    "title": "PUID",
                                     "x-ms-visibility": "advanced"
                                 },
                                 "Account.IsDomainJoined": {
+                                    "title": "Account Is Domain Joined",
                                     "type": "boolean",
-                                    "title": "Is Domain Joined",
                                     "x-ms-visibility": "advanced"
                                 },
-                                "Malware.Name": {
+                                "Account.LogonId": {
+                                    "title": "Account Logon ID",
                                     "type": "string",
-                                    "title": "Name",
                                     "x-ms-visibility": "advanced"
                                 },
-                                "Malware.Category": {
+                                "Account.NTDomain": {
+                                    "title": "Account NT Domain",
                                     "type": "string",
-                                    "title": "Category",
                                     "x-ms-visibility": "advanced"
                                 },
-                                "Malware.File": {
+                                "Account.Name": {
+                                    "title": "Account Name",
                                     "type": "string",
-                                    "title": "File",
                                     "x-ms-visibility": "advanced"
                                 },
-                                "Process.ProcessId": {
+                                "Account.PUID": {
+                                    "title": "Account PUID",
                                     "type": "string",
-                                    "title": "ID",
                                     "x-ms-visibility": "advanced"
                                 },
-                                "Process.CommandLine": {
+                                "Account.Sid": {
+                                    "title": "Account SID",
                                     "type": "string",
-                                    "title": "Command Line",
                                     "x-ms-visibility": "advanced"
                                 },
-                                "Process.ElevationToken": {
+                                "Account.UPNSuffix": {
+                                    "title": "Account UPN Suffix",
                                     "type": "string",
-                                    "title": "Elevation Token",
                                     "x-ms-visibility": "advanced"
                                 },
-                                "Process.CreationTimeUtc": {
+                                "AlertSeverity": {
+                                    "title": "Alert Severity",
+                                    "type": "string"
+                                },
+                                "CloudApplication.name": {
+                                    "title": "Cloud Application Name",
                                     "type": "string",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "ConfidenceLevel": {
+                                    "title": "Confidence Level",
+                                    "type": "string"
+                                },
+                                "ConfidenceScore": {
+                                    "title": "Confidence Score",
+                                    "type": "number"
+                                },
+                                "Connection.DestinationAddress": {
+                                    "title": "Connection Destination Address",
+                                    "type": "string",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Connection.DestinationPort": {
+                                    "title": "Connection Destination Port",
+                                    "type": "number",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Connection.Protocol": {
+                                    "enum": [
+                                        "TCP",
+                                        "UDP",
+                                        ""
+                                    ],
+                                    "title": "Connection Protocol",
+                                    "type": "string",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Connection.SourceAddress": {
+                                    "title": "Connection Source Address",
+                                    "type": "string",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Connection.SourcePort": {
+                                    "title": "Connection Source Port",
+                                    "type": "number",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Description": {
+                                    "title": "Description",
+                                    "type": "string"
+                                },
+                                "DisplayName": {
+                                    "title": "Display Name",
+                                    "type": "string"
+                                },
+                                "Dns.DnsServerIp": {
+                                    "title": "DNS Server IP",
+                                    "type": "string",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Dns.DomainName": {
+                                    "title": "DNS Domain Name",
+                                    "type": "string",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Dns.HostIpAddress": {
+                                    "title": "DNS Host IP Address",
+                                    "type": "string",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Dns.IpAddress": {
+                                    "title": "DNS IP Address",
+                                    "type": "string",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "EndTime": {
                                     "format": "date-time",
-                                    "title": "Creation Time (UTC)",
-                                    "x-ms-visibility": "advanced"
+                                    "title": "End Time",
+                                    "type": "string"
                                 },
-                                "Process.ImageFile": {
-                                    "type": "string",
-                                    "title": "Image File",
-                                    "x-ms-visibility": "advanced"
+                                "Entities": {
+                                    "items": {
+                                        "properties": {},
+                                        "type": "object"
+                                    },
+                                    "title": "Entities",
+                                    "type": "array"
                                 },
-                                "Process.Account": {
-                                    "type": "string",
-                                    "title": "Account",
-                                    "x-ms-visibility": "advanced"
-                                },
-                                "Process.ParentProcess": {
-                                    "type": "string",
-                                    "title": "Parent Process",
-                                    "x-ms-visibility": "advanced"
-                                },
-                                "Process.Host": {
-                                    "type": "string",
-                                    "title": "Host",
-                                    "x-ms-visibility": "advanced"
+                                "ExtendedProperties": {
+                                    "title": "Extended Properties",
+                                    "type": "string"
                                 },
                                 "File.Directory": {
+                                    "title": "File Directory",
                                     "type": "string",
-                                    "title": "Directory",
-                                    "x-ms-visibility": "advanced"
-                                },
-                                "File.Name": {
-                                    "type": "string",
-                                    "title": "Name",
                                     "x-ms-visibility": "advanced"
                                 },
                                 "File.Md5": {
+                                    "title": "File MD5",
                                     "type": "string",
-                                    "title": "MD5",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "File.Name": {
+                                    "title": "File Name",
+                                    "type": "string",
                                     "x-ms-visibility": "advanced"
                                 },
                                 "File.Sha1": {
+                                    "title": "File SHA1",
                                     "type": "string",
-                                    "title": "SHA1",
                                     "x-ms-visibility": "advanced"
                                 },
                                 "File.Sha256": {
+                                    "title": "File SHA256",
                                     "type": "string",
-                                    "title": "SHA256",
                                     "x-ms-visibility": "advanced"
                                 },
                                 "File.Sha256Ac": {
+                                    "title": "File SHA256 /ac",
                                     "type": "string",
-                                    "title": "SHA256 /ac",
                                     "x-ms-visibility": "advanced"
                                 },
-                                "RegistryKey.Hive": {
+                                "Host.AzureID": {
+                                    "title": "Host Azure ID",
                                     "type": "string",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Host.DnsDomain": {
+                                    "title": "Host DNS domain",
+                                    "type": "string",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Host.HostName": {
+                                    "title": "Host Name",
+                                    "type": "string",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Host.IsDomainJoined": {
+                                    "title": "Host Is Domain Joined",
+                                    "type": "boolean",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Host.NTDomain": {
+                                    "title": "Host NT Domain",
+                                    "type": "string",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Host.NetBiosName": {
+                                    "title": "Host NETBIOS Name",
+                                    "type": "string",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Host.OMSAgentID": {
+                                    "title": "Host OMS Agent ID",
+                                    "type": "string",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Host.OperatingSystem": {
+                                    "title": "Host Operating System",
+                                    "type": "string",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Ip.Address": {
+                                    "title": "IP Address",
+                                    "type": "string",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Ip.Location": {
+                                    "title": "IP Location",
+                                    "type": "string",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "IsIncident": {
+                                    "title": "Is Incident",
+                                    "type": "boolean"
+                                },
+                                "Malware.Category": {
+                                    "title": "Malware Category",
+                                    "type": "string",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Malware.File": {
+                                    "title": "Malware File",
+                                    "type": "string",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Malware.Name": {
+                                    "title": "Malware Name",
+                                    "type": "string",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Process.Account": {
+                                    "title": "Process Account",
+                                    "type": "string",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Process.CommandLine": {
+                                    "title": "Process Command Line",
+                                    "type": "string",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Process.CreationTimeUtc": {
+                                    "format": "date-time",
+                                    "title": "Process Creation Time (UTC)",
+                                    "type": "string",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Process.ElevationToken": {
+                                    "title": "Process Elevation Token",
+                                    "type": "string",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Process.Host": {
+                                    "title": "Process Host",
+                                    "type": "string",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Process.ImageFile": {
+                                    "title": "Process Image File",
+                                    "type": "string",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Process.ParentProcess": {
+                                    "title": "Process Parent Process",
+                                    "type": "string",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "Process.ProcessId": {
+                                    "title": "Process ID",
+                                    "type": "string",
+                                    "x-ms-visibility": "advanced"
+                                },
+                                "ProcessingEndTime": {
+                                    "format": "date-time",
+                                    "title": "Process Processing End Time",
+                                    "type": "string"
+                                },
+                                "ProviderName": {
+                                    "title": "Provider Name",
+                                    "type": "string"
+                                },
+                                "RegistryKey.Hive": {
                                     "enum": [
                                         "HKEY_LOCAL_MACHINE",
                                         "HKEY_CLASSES_ROOT",
@@ -276,31 +345,31 @@
                                         "HKEY_A",
                                         "HKEY_CURRENT_USER"
                                     ],
-                                    "title": "Hive",
+                                    "title": "Registry Key Hive",
+                                    "type": "string",
                                     "x-ms-visibility": "advanced"
                                 },
                                 "RegistryKey.Key": {
+                                    "title": "Registry Key",
                                     "type": "string",
-                                    "title": "Key",
                                     "x-ms-visibility": "advanced"
                                 },
                                 "RegistryValue.Key": {
+                                    "title": "Registry Value Key",
                                     "type": "string",
-                                    "title": "Key",
                                     "x-ms-visibility": "advanced"
                                 },
                                 "RegistryValue.Name": {
+                                    "title": "Registry Value Name",
                                     "type": "string",
-                                    "title": "Name",
                                     "x-ms-visibility": "advanced"
                                 },
                                 "RegistryValue.Value": {
+                                    "title": "Registry Value",
                                     "type": "string",
-                                    "title": "Value",
                                     "x-ms-visibility": "advanced"
                                 },
                                 "RegistryValue.ValueType": {
-                                    "type": "string",
                                     "enum": [
                                         "String",
                                         "Binary",
@@ -311,115 +380,46 @@
                                         "None",
                                         "Unknown"
                                     ],
-                                    "title": "Value Type",
-                                    "x-ms-visibility": "advanced"
-                                },
-                                "Connection.SourceAddress": {
+                                    "title": "Registry Value Type",
                                     "type": "string",
-                                    "title": "Source Address",
                                     "x-ms-visibility": "advanced"
                                 },
-                                "Connection.SourcePort": {
-                                    "type": "number",
-                                    "title": "Source Port",
-                                    "x-ms-visibility": "advanced"
+                                "RemediationSteps": {
+                                    "title": "Remediation Steps",
+                                    "type": "string"
                                 },
-                                "Connection.DestinationAddress": {
-                                    "type": "string",
-                                    "title": "Destination Address",
-                                    "x-ms-visibility": "advanced"
+                                "ResourceId": {
+                                    "title": "Resource ID",
+                                    "type": "string"
                                 },
-                                "Connection.DestinationPort": {
-                                    "type": "number",
-                                    "title": "Destination Port",
-                                    "x-ms-visibility": "advanced"
+                                "SourceComputerId": {
+                                    "title": "Source Computer ID",
+                                    "type": "string"
                                 },
-                                "Connection.Protocol": {
-                                    "type": "string",
-                                    "enum": [
-                                        "TCP",
-                                        "UDP",
-                                        ""
-                                    ],
-                                    "title": "Protocol",
-                                    "x-ms-visibility": "advanced"
+                                "StartTime": {
+                                    "format": "date-time",
+                                    "title": "Start Time",
+                                    "type": "string"
                                 },
-                                "Ip.Address": {
-                                    "type": "string",
-                                    "title": "Address",
-                                    "x-ms-visibility": "advanced"
+                                "SystemAlertId": {
+                                    "title": "System Alert ID",
+                                    "type": "string"
                                 },
-                                "Ip.Location": {
-                                    "type": "string",
-                                    "title": "Location",
-                                    "x-ms-visibility": "advanced"
+                                "TimeGenerated": {
+                                    "format": "date-time",
+                                    "title": "Time Generated",
+                                    "type": "string"
                                 },
-                                "Host.DnsDomain": {
-                                    "type": "string",
-                                    "title": "DNS domain",
-                                    "x-ms-visibility": "advanced"
+                                "VendorName": {
+                                    "title": "Vendor Name",
+                                    "type": "string"
                                 },
-                                "Host.NTDomain": {
-                                    "type": "string",
-                                    "title": "NT Domain",
-                                    "x-ms-visibility": "advanced"
-                                },
-                                "Host.HostName": {
-                                    "type": "string",
-                                    "title": "Name",
-                                    "x-ms-visibility": "advanced"
-                                },
-                                "Host.NetBiosName": {
-                                    "type": "string",
-                                    "title": "NETBIOS Name",
-                                    "x-ms-visibility": "advanced"
-                                },
-                                "Host.AzureID": {
-                                    "type": "string",
-                                    "title": "Azure ID",
-                                    "x-ms-visibility": "advanced"
-                                },
-                                "Host.OMSAgentID": {
-                                    "type": "string",
-                                    "title": "OMS Agent ID",
-                                    "x-ms-visibility": "advanced"
-                                },
-                                "Host.OperatingSystem": {
-                                    "type": "string",
-                                    "title": "Operating System",
-                                    "x-ms-visibility": "advanced"
-                                },
-                                "Host.IsDomainJoined": {
-                                    "type": "boolean",
-                                    "title": "Is Domain Joined",
-                                    "x-ms-visibility": "advanced"
-                                },
-                                "CloudApplication.name": {
-                                    "type": "string",
-                                    "title": "Name",
-                                    "x-ms-visibility": "advanced"
-                                },
-                                "Dns.DomainName": {
-                                    "type": "string",
-                                    "title": "Domain Name",
-                                    "x-ms-visibility": "advanced"
-                                },
-                                "Dns.IpAddress": {
-                                    "type": "string",
-                                    "title": "IP Address",
-                                    "x-ms-visibility": "advanced"
-                                },
-                                "Dns.DnsServerIp": {
-                                    "type": "string",
-                                    "title": "Server IP",
-                                    "x-ms-visibility": "advanced"
-                                },
-                                "Dns.HostIpAddress": {
-                                    "type": "string",
-                                    "title": "Host IP Address",
-                                    "x-ms-visibility": "advanced"
+                                "VendorOriginalId": {
+                                    "title": "Vendor Original ID",
+                                    "type": "string"
                                 }
-                            }
+                            },
+                            "type": "object"
                         }
                     },
                     "kind": "SecurityCenterAlert",
