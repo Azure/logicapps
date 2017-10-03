@@ -9,8 +9,8 @@
     "categoryNames": [
       "schedule"
     ],
-    "description": "Once a day, scan a storage account and expire all blobs older than defined value.",
-    "displayName": "Scheduler - Azure Blob Storage TTL",
+    "description": "Once a day, scan a storage account and delete all blobs older than defined value.",
+    "displayName": "Delete old Azure blobs",
 
     "definition": {
       "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
@@ -35,7 +35,7 @@
                 }
               },
               "description": "Check LastModified timestamp and whether older than the expiration age variable",
-              "expression": "@less(items('For_each')?['LastModified'], addDays(utcnow(), variables('ExpirationAgeInDays')))",
+              "expression": "@less(ticks(items('For_each')?['LastModified']), ticks(addDays(utcnow(), variables('ExpirationAgeInDays')))",
               "runAfter": {},
               "type": "If"
             }
@@ -57,13 +57,10 @@
               }
             },
             "method": "get",
-            "path": "/datasets/default/foldersV2/@{encodeURIComponent(encodeURIComponent('L3Rlc3Q='))}",
+            "path": "/datasets/default/foldersV2/",
             "queries": {
               "useFlatListing": true
             }
-          },
-          "metadata": {
-            "L3Rlc3Q=": ""
           },
           "runAfter": {
             "Set_expiration_age_variable_": [
@@ -125,8 +122,14 @@
         "type": "ApiConnection",
         "displayName": "Azure Blob",
         "iconUri": "https://cpgeneralstore.blob.core.windows.net/icons/azureblob.png",
-        "brandColor": "#0072c6"
+        "brandColor": "#804998"
+      },
+      {
+        "type": "recurrence",
+        "displayName": "${Resources.RECURRENCE_TRIGGER_DISPLAYNAME}",
+        "iconUri": "${Images.RecurrenceIcon}",
+        "brandColor": "#1F85FF"
       }
     ]
   }
-  }
+}
