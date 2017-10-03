@@ -119,16 +119,16 @@
     },
     "apiSummaries": [
       {
-        "type": "ApiConnection",
-        "displayName": "Azure Blob",
-        "iconUri": "https://cpgeneralstore.blob.core.windows.net/icons/azureblob.png",
-        "brandColor": "#804998"
-      },
-      {
         "type": "recurrence",
         "displayName": "${Resources.RECURRENCE_TRIGGER_DISPLAYNAME}",
         "iconUri": "${Images.RecurrenceIcon}",
         "brandColor": "#1F85FF"
+      },
+      {
+        "type": "ApiConnection",
+        "displayName": "Azure Blob",
+        "iconUri": "https://cpgeneralstore.blob.core.windows.net/icons/azureblob.png",
+        "brandColor": "#804998"
       }
     ]
   }
