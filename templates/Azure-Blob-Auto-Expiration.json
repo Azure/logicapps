@@ -1,0 +1,135 @@
+{
+  "id": "/providers/Microsoft.Logic/galleries/public/templates/666271ff871243e59b70460a9c2056db",
+  "type": "Microsoft.Logic/galleries/templates",
+  "name": "666271ff871243e59b70460a9c2056db",
+  "properties": {
+    "author": {
+      "displayName": "Yuan Zheng"
+    },
+    "categoryNames": [
+      "schedule"
+    ],
+    "description": "Once a day, scan a storage account and delete all blobs older than defined value.",
+    "displayName": "Delete old Azure blobs",
+
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "actions": {
+        "For_each": {
+          "actions": {
+            "Condition": {
+              "actions": {
+                "Delete_blob": {
+                  "description": "If blob is older than the expiration age, delete it",
+                  "inputs": {
+                    "host": {
+                      "connection": {
+                        "name": "@parameters('$connections')['azureblob']['connectionId']"
+                      }
+                    },
+                    "method": "delete",
+                    "path": "/datasets/default/files/@{encodeURIComponent(encodeURIComponent(items('For_each')?['Id']))}"
+                  },
+                  "runAfter": {},
+                  "type": "ApiConnection"
+                }
+              },
+              "description": "Check LastModified timestamp and whether older than the expiration age variable",
+              "expression": "@less(ticks(items('For_each')?['LastModified']), ticks(addDays(utcnow(), variables('ExpirationAgeInDays')))",
+              "runAfter": {},
+              "type": "If"
+            }
+          },
+          "description": "Scan all blobs in this folder",
+          "foreach": "@body('List_blobs')?['value']",
+          "runAfter": {
+            "List_blobs": [
+              "Succeeded"
+            ]
+          },
+          "type": "Foreach"
+        },
+        "List_blobs": {
+          "inputs": {
+            "host": {
+              "connection": {
+                "name": "@parameters('$connections')['azureblob']['connectionId']"
+              }
+            },
+            "method": "get",
+            "path": "/datasets/default/foldersV2/",
+            "queries": {
+              "useFlatListing": true
+            }
+          },
+          "runAfter": {
+            "Set_expiration_age_variable_": [
+              "Succeeded"
+            ]
+          },
+          "runtimeConfiguration": {
+            "paginationPolicy": {
+              "minimumItemCount": 5000
+            }
+          },
+          "type": "ApiConnection"
+        },
+        "Set_expiration_age_variable_": {
+          "description": "A variable to configure the auto expiration age in days. Configured in negative number. Default is -30 (30 days old).",
+          "inputs": {
+            "variables": [
+              {
+                "name": "ExpirationAgeInDays",
+                "type": "Integer",
+                "value": -30
+              }
+            ]
+          },
+          "runAfter": {},
+          "type": "InitializeVariable"
+        }
+      },
+      "contentVersion": "1.0.0.0",
+      "outputs": {},
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "Recurrence": {
+          "recurrence": {
+            "frequency": "Day",
+            "interval": 1
+          },
+          "type": "Recurrence"
+        }
+      }
+    },
+    "connectionReferences": {
+      "azureblob": {
+        "connection": {
+          "id": ""
+        },
+        "api": {
+          "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/azureblob"
+        }
+      }
+    },
+    "apiSummaries": [
+      {
+        "type": "recurrence",
+        "displayName": "${Resources.RECURRENCE_TRIGGER_DISPLAYNAME}",
+        "iconUri": "${Images.RecurrenceIcon}",
+        "brandColor": "#1F85FF"
+      },
+      {
+        "type": "ApiConnection",
+        "displayName": "Azure Blob",
+        "iconUri": "https://cpgeneralstore.blob.core.windows.net/icons/azureblob.png",
+        "brandColor": "#804998"
+      }
+    ]
+  }
+}
