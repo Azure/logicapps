@@ -9,7 +9,7 @@
     "categoryNames": [
       "schedule"
     ],
-    "description": "Once a day, scan a storage account and delete all blobs older than defined value.",
+    "description": "Once a day, scan a storage account and delete all blobs older than the defined expiration value.",
     "displayName": "Delete old Azure blobs",
 
     "definition": {
@@ -35,7 +35,7 @@
                 }
               },
               "description": "Check LastModified timestamp and whether older than the expiration age variable",
-              "expression": "@less(ticks(items('For_each')?['LastModified']), ticks(addDays(utcnow(), variables('ExpirationAgeInDays')))",
+              "expression": "@less(ticks(items('For_each')?['LastModified']), ticks(addDays(utcnow(), variables('ExpirationAgeInDays'))))",
               "runAfter": {},
               "type": "If"
             }
