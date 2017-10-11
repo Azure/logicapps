@@ -41,6 +41,9 @@
       "type": "Microsoft.Web/customApis",
       "location": "[parameters('connectorLocation')]",
       "apiVersion": "2016-06-01",
+      "backendService": {
+          "serviceUrl": "https://graph.microsoft.com/"
+      },
       "dependsOn": [],
       "properties": {
         "displayName": "Microsoft Graph",
