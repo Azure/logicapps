@@ -63,7 +63,7 @@
                   "value": "common"
                 },
                 "ResourceUri": {
-                  "value": "https://graph.microsoft.com/"
+                  "value": "https://graph.microsoft.com/v1.0"
                 }
               },
               "clientId": "[parameters('aadClientId')]",
