@@ -81,7 +81,7 @@
           "consumes": [],
           "produces": [],
           "paths": {
-            "/users": {
+            "/v1.0/users": {
               "post": {
                 "responses": {
                   "default": {
@@ -302,7 +302,7 @@
                 ]
               }
             },
-            "/users/{userId}/manager/$ref": {
+            "/v1.0/users/{userId}/manager/$ref": {
               "put": {
                 "responses": {
                   "default": {
@@ -342,7 +342,7 @@
                 ]
               }
             },
-            "/users/{userId}/assignLicense": {
+            "/v1.0/users/{userId}/assignLicense": {
               "post": {
                 "responses": {
                   "default": {
@@ -399,7 +399,7 @@
                 ]
               }
             },
-            "/groups/{groupId}/planner/plans": {
+            "/v1.0/groups/{groupId}/planner/plans": {
               "get": {
                 "responses": {
                   "default": {
