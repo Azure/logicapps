@@ -12,7 +12,7 @@ This is a logic app custom connector for Azure Virtual Machines.  It provides th
 
 ## Pre-Requisites
 
-This connector does require authentication to Azure Active Directory.  As such, deployment will require the client ID and client Secret for an AAD Application.  [These instructions](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-api-authentication) will walk through how to register an Azure Active Directory application with **User + app access** so the connector can act on-behalf-of the authenticated user.
+This connector does require authentication to Azure Active Directory.  As such, deployment will require the client ID and client Secret for an AAD Application.  [These instructions](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-api-authentication) will walk through how to register an Azure Active Directory application with **User + app access** so the connector can act on-behalf-of the authenticated user.  Be sure to set your application up to get delegate access to the Windows Azure application.
 
 After deploying, you will need to open the connector (named `azure-vm-connector` in whichever resource group and location selected) and copy the redirect URL from the security tab.  Update your Azure AD Application reply URLs to support the logic app consent flow.
 

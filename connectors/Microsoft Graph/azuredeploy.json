@@ -1,0 +1,546 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "connectorLocation": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "allowedValues": [
+        "[resourceGroup().location]",
+        "australiaeast",
+        "australiasoutheast",
+        "brazilsouth",
+        "centralus",
+        "eastasia",
+        "eastus",
+        "eastus2",
+        "japaneast",
+        "japanwest",
+        "northcentralus",
+        "northeurope",
+        "southcentralus",
+        "southeastasia",
+        "westeurope",
+        "westus"
+      ],
+      "metadata": {
+        "description": "Location of the Logic App."
+      }
+    },
+    "aadClientId": {
+      "type": "string"
+    },
+    "aadClientSecret": {
+      "type":  "securestring"
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "name": "microsoft-graph-connector",
+      "type": "Microsoft.Web/customApis",
+      "location": "[parameters('connectorLocation')]",
+      "apiVersion": "2016-06-01",
+      "dependsOn": [],
+      "properties": {
+        "displayName": "Microsoft Graph",
+        "description": "Microsoft Graph connector to perform operations on the graph.",
+        "iconUri": "data:image/png;base64,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",
+        "backendService": {
+          "serviceUrl": "https://management.azure.com/"
+        },
+        "brandColor": null,
+        "connectionParameters": {
+          "token": {
+            "type": "oAuthSetting",
+            "oAuthSettings": {
+              "identityProvider": "aad",
+              "customParameters": {
+                "LoginUri": {
+                  "value": "https://login.windows.net"
+                },
+                "TenantId": {
+                  "value": "common"
+                },
+                "ResourceUri": {
+                  "value": "https://graph.microsoft.com/"
+                }
+              },
+              "clientId": "[parameters('aadClientId')]",
+              "clientSecret": "[parameters('aadClientSecret')]"
+            },
+            "uiDefinition": null
+          }
+        },
+        "swagger": {
+          "swagger": "2.0",
+          "info": {
+            "title": "Microsoft Graph",
+            "description": "Operations on the Microsoft Graph",
+            "version": "1.0"
+          },
+          "host": "graph.microsoft.com",
+          "basePath": "/v1.0",
+          "schemes": [],
+          "consumes": [],
+          "produces": [],
+          "paths": {
+            "/users": {
+              "post": {
+                "responses": {
+                  "default": {
+                    "description": "default",
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                        "@odata.context": {
+                          "type": "string",
+                          "description": "@odata.context",
+                          "x-ms-summary": "@odata.context"
+                        },
+                        "id": {
+                          "type": "string",
+                          "description": "id",
+                          "x-ms-summary": "id"
+                        },
+                        "businessPhones": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "description": "businessPhones",
+                          "x-ms-summary": "businessPhones"
+                        },
+                        "displayName": {
+                          "type": "string",
+                          "description": "displayName",
+                          "x-ms-summary": "displayName"
+                        },
+                        "givenName": {
+                          "type": "string",
+                          "description": "givenName",
+                          "x-ms-summary": "givenName"
+                        },
+                        "jobTitle": {
+                          "type": "string",
+                          "description": "jobTitle",
+                          "x-ms-summary": "jobTitle"
+                        },
+                        "mail": {
+                          "type": "string",
+                          "description": "mail",
+                          "x-ms-summary": "mail"
+                        },
+                        "mobilePhone": {
+                          "type": "string",
+                          "description": "mobilePhone",
+                          "x-ms-summary": "mobilePhone"
+                        },
+                        "officeLocation": {
+                          "type": "string",
+                          "description": "officeLocation",
+                          "x-ms-summary": "officeLocation"
+                        },
+                        "preferredLanguage": {
+                          "type": "string",
+                          "description": "preferredLanguage",
+                          "x-ms-summary": "preferredLanguage"
+                        },
+                        "surname": {
+                          "type": "string",
+                          "description": "surname",
+                          "x-ms-summary": "surname"
+                        },
+                        "userPrincipalName": {
+                          "type": "string",
+                          "description": "userPrincipalName",
+                          "x-ms-summary": "userPrincipalName"
+                        }
+                      }
+                    }
+                  }
+                },
+                "summary": "Add User",
+                "description": "Add a user to Microsoft Graph",
+                "operationId": "AddUser",
+                "x-ms-visibility": "important",
+                "parameters": [
+                  {
+                    "name": "body",
+                    "in": "body",
+                    "required": false,
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                        "accountEnabled": {
+                          "type": "boolean",
+                          "description": "accountEnabled",
+                          "x-ms-summary": "accountEnabled",
+                          "title": "accountEnabled",
+                          "x-ms-visibility": "internal",
+                          "enum": [
+                            "",
+                            "true",
+                            "false"
+                          ],
+                          "default": "true"
+                        },
+                        "city": {
+                          "type": "string",
+                          "description": "city",
+                          "x-ms-summary": "city"
+                        },
+                        "country": {
+                          "type": "string",
+                          "description": "country",
+                          "x-ms-summary": "country",
+                          "title": "country",
+                          "x-ms-visibility": "internal",
+                          "default": "USA"
+                        },
+                        "department": {
+                          "type": "string",
+                          "description": "department",
+                          "x-ms-summary": "department",
+                          "title": "department",
+                          "x-ms-visibility": "internal",
+                          "default": "Sales"
+                        },
+                        "displayName": {
+                          "type": "string",
+                          "description": "displayName",
+                          "x-ms-summary": "displayName"
+                        },
+                        "givenName": {
+                          "type": "string",
+                          "description": "givenName",
+                          "x-ms-summary": "givenName"
+                        },
+                        "mailNickname": {
+                          "type": "string",
+                          "description": "Mail Nickname",
+                          "x-ms-summary": "mailNickname",
+                          "title": "Alias",
+                          "x-ms-visibility": ""
+                        },
+                        "passwordPolicies": {
+                          "type": "string",
+                          "description": "passwordPolicies",
+                          "x-ms-summary": "passwordPolicies",
+                          "title": "passwordPolicies",
+                          "x-ms-visibility": "internal",
+                          "default": "DisablePasswordExpiration"
+                        },
+                        "passwordProfile": {
+                          "type": "object",
+                          "properties": {
+                            "forceChangePasswordNextSignIn": {
+                              "type": "boolean",
+                              "description": "forceChangePasswordNextSignIn",
+                              "x-ms-summary": "forceChangePasswordNextSignIn",
+                              "title": "forceChangePasswordNextSignIn",
+                              "x-ms-visibility": "internal",
+                              "enum": [
+                                "",
+                                "true",
+                                "false"
+                              ],
+                              "default": "true"
+                            },
+                            "password": {
+                              "type": "string",
+                              "description": "password",
+                              "x-ms-summary": "password",
+                              "title": "password",
+                              "x-ms-visibility": "internal",
+                              "default": "hUq7U4Jfk4V4"
+                            }
+                          },
+                          "description": "passwordProfile",
+                          "x-ms-summary": "passwordProfile",
+                          "required": [
+                            "forceChangePasswordNextSignIn",
+                            "password"
+                          ]
+                        },
+                        "preferredLanguage": {
+                          "type": "string",
+                          "description": "preferredLanguage",
+                          "x-ms-summary": "preferredLanguage",
+                          "title": "preferredLanguage",
+                          "x-ms-visibility": "internal",
+                          "default": "en-US"
+                        },
+                        "surname": {
+                          "type": "string",
+                          "description": "Surname",
+                          "x-ms-summary": "surname",
+                          "title": "Last Name",
+                          "x-ms-visibility": ""
+                        },
+                        "usageLocation": {
+                          "type": "string",
+                          "description": "usageLocation",
+                          "x-ms-summary": "usageLocation",
+                          "title": "usageLocation",
+                          "x-ms-visibility": "internal",
+                          "default": "US"
+                        },
+                        "userPrincipalName": {
+                          "type": "string",
+                          "description": "userPrincipalName",
+                          "x-ms-summary": "userPrincipalName"
+                        }
+                      },
+                      "required": [
+                        "passwordPolicies",
+                        "accountEnabled",
+                        "country",
+                        "department",
+                        "passwordProfile",
+                        "preferredLanguage",
+                        "usageLocation"
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            "/users/{userId}/manager/$ref": {
+              "put": {
+                "responses": {
+                  "default": {
+                    "description": "default",
+                    "schema": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "summary": "Assign a Manager",
+                "description": "Assign a manager to a user",
+                "operationId": "AssignManager",
+                "parameters": [
+                  {
+                    "name": "userId",
+                    "in": "path",
+                    "required": true,
+                    "type": "string"
+                  },
+                  {
+                    "name": "body",
+                    "in": "body",
+                    "required": false,
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                        "@odata.id": {
+                          "type": "string",
+                          "description": "OData Context ID",
+                          "x-ms-summary": "@odata.id",
+                          "title": "User Context ID",
+                          "x-ms-visibility": ""
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "/users/{userId}/assignLicense": {
+              "post": {
+                "responses": {
+                  "default": {
+                    "description": "default",
+                    "schema": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "summary": "Assign a License",
+                "description": "Assign a license to O365",
+                "operationId": "AssignLicense",
+                "x-ms-visibility": "important",
+                "parameters": [
+                  {
+                    "name": "userId",
+                    "in": "path",
+                    "required": true,
+                    "type": "string"
+                  },
+                  {
+                    "name": "body",
+                    "in": "body",
+                    "required": false,
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                        "addLicenses": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "skuId": {
+                                "type": "string",
+                                "description": "skuId",
+                                "x-ms-summary": "skuId"
+                              }
+                            }
+                          },
+                          "description": "addLicenses",
+                          "x-ms-summary": "addLicenses"
+                        },
+                        "removeLicenses": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "description": "removeLicenses",
+                          "x-ms-summary": "removeLicenses"
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "/groups/{groupId}/planner/plans": {
+              "get": {
+                "responses": {
+                  "default": {
+                    "description": "default",
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                        "@odata.context": {
+                          "type": "string",
+                          "description": "@odata.context",
+                          "x-ms-summary": "@odata.context"
+                        },
+                        "@odata.count": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "@odata.count",
+                          "x-ms-summary": "@odata.count"
+                        },
+                        "@odata.nextLink": {
+                          "type": "string",
+                          "description": "@odata.nextLink",
+                          "x-ms-summary": "@odata.nextLink"
+                        },
+                        "value": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "@odata.etag": {
+                                "type": "string",
+                                "description": "@odata.etag",
+                                "x-ms-summary": "@odata.etag"
+                              },
+                              "createdBy": {
+                                "type": "object",
+                                "properties": {
+                                  "user": {
+                                    "type": "object",
+                                    "properties": {
+                                      "displayName": {
+                                        "type": "string",
+                                        "description": "displayName",
+                                        "x-ms-summary": "displayName"
+                                      },
+                                      "id": {
+                                        "type": "string",
+                                        "description": "id",
+                                        "x-ms-summary": "id"
+                                      }
+                                    },
+                                    "description": "user",
+                                    "x-ms-summary": "user"
+                                  },
+                                  "application": {
+                                    "type": "object",
+                                    "properties": {
+                                      "displayName": {
+                                        "type": "string",
+                                        "description": "displayName",
+                                        "x-ms-summary": "displayName"
+                                      },
+                                      "id": {
+                                        "type": "string",
+                                        "description": "id",
+                                        "x-ms-summary": "id"
+                                      }
+                                    },
+                                    "description": "application",
+                                    "x-ms-summary": "application"
+                                  }
+                                },
+                                "description": "createdBy",
+                                "x-ms-summary": "createdBy"
+                              },
+                              "createdDateTime": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "createdDateTime",
+                                "x-ms-summary": "createdDateTime"
+                              },
+                              "owner": {
+                                "type": "string",
+                                "description": "owner",
+                                "x-ms-summary": "owner"
+                              },
+                              "title": {
+                                "type": "string",
+                                "description": "title",
+                                "x-ms-summary": "title"
+                              },
+                              "id": {
+                                "type": "string",
+                                "description": "id",
+                                "x-ms-summary": "id"
+                              }
+                            }
+                          },
+                          "description": "value",
+                          "x-ms-summary": "value"
+                        }
+                      }
+                    }
+                  }
+                },
+                "summary": "List Plans for Group",
+                "operationId": "ListPlansGroup",
+                "parameters": [
+                  {
+                    "name": "groupId",
+                    "in": "path",
+                    "required": true,
+                    "type": "string",
+                    "x-ms-summary": "Group ID"
+                  }
+                ],
+                "description": "Retrieve a list of Planner Plans owned by a group."
+              }
+            }
+          },
+          "definitions": {},
+          "parameters": {},
+          "responses": {},
+          "securityDefinitions": {
+            "oauth2_auth": {
+              "type": "oauth2",
+              "flow": "accessCode",
+              "authorizationUrl": "https://login.windows.net/common/oauth2/authorize",
+              "tokenUrl": "https://login.windows.net/common/oauth2/authorize"
+            }
+          },
+          "security": [
+            {}
+          ],
+          "tags": []
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}
