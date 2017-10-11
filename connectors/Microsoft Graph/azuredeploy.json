@@ -76,8 +76,7 @@
             "description": "Operations on the Microsoft Graph",
             "version": "1.0"
           },
-          "host": "graph.microsoft.com",
-          "basePath": "/v1.0",
+          "host": "graph.microsoft.com/v1.0",
           "schemes": [],
           "consumes": [],
           "produces": [],
