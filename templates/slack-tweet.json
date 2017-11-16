@@ -94,7 +94,7 @@
                 "type": "apiconnection",
                 "displayName": "${Resources.SLACK}",
                 "iconUri": "https://az818438.vo.msecnd.net/icons/slack.png",
-                "brandColor": "#6ecadc"
+                "brandColor": "#84D4B6"
             }
         ],
         "changedTime": "2017-07-05T00:00:47.000Z",
