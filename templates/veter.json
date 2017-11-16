@@ -107,7 +107,7 @@
             {
                 "type": "xslt",
                 "displayName": "${Resources.XSLT_DISPLAYNAME}",
-                "iconUri": "${Images.XsltIcon}",
+                "iconUri": "${Images.TransformIcon}",
                 "brandColor": "#444444"
             }
         ],
