@@ -1,7 +1,7 @@
 {
-  "id": "/providers/Microsoft.Logic/galleries/public/templates/666271ff871243e59b70460a9c2056db",
+  "id": "/providers/Microsoft.Logic/galleries/public/templates/431e1640-9e1d-4e74-8c91-b948dc17c49f",
   "type": "Microsoft.Logic/galleries/templates",
-  "name": "666271ff871243e59b70460a9c2056db",
+  "name": "431e1640-9e1d-4e74-8c91-b948dc17c49f",
   "properties": {
     "author": {
       "displayName": "Yuan Zheng"
@@ -39,7 +39,7 @@
                 }
               },
               "description": "Check LastModified timestamp and whether older than the expiration age variable",
-              "expression": "@less(ticks(items('For_each')?['LastModified']), ticks(addDays(utcnow(), variables('ExpirationAgeInDays'))))",
+              "expression": "@less(ticks(items('For_each')?['LastModified']), ticks(addDays(utcnow(), variables('TierAgeInDays'))))",
               "runAfter": {},
               "type": "If"
             }
@@ -83,7 +83,7 @@
           "inputs": {
             "variables": [
               {
-                "name": "ExpirationAgeInDays",
+                "name": "TierAgeInDays",
                 "type": "Integer",
                 "value": -90
               }
