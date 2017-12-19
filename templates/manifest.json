@@ -4,6 +4,7 @@
     "asc-post-message-to-teams-and-send-notification-email.json",
     "asc-send-notification-email.json",
     "Azure-Blob-Auto-Expiration.json",
+    "Azure-Blob-Auto-Tier.json",
     "daily-reminders.json",
     "dropbox-onedrive.json",
     "dropbox-to-sharepoint.json",
