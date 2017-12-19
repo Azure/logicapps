@@ -67,7 +67,7 @@
             }
           },
           "runAfter": {
-            "Set_expiration_age_variable_": [
+            "Set_tier_age_variable_": [
               "Succeeded"
             ]
           },
@@ -78,14 +78,14 @@
           },
           "type": "ApiConnection"
         },
-        "Set_expiration_age_variable_": {
-          "description": "A variable to configure the auto expiration age in days. Configured in negative number. Default is -30 (30 days old).",
+        "Set_tier_age_variable_": {
+          "description": "A variable to configure the auto tier age in days. Configured in negative number. Default is -180 (180 days old).",
           "inputs": {
             "variables": [
               {
                 "name": "TierAgeInDays",
                 "type": "Integer",
-                "value": -90
+                "value": -180
               }
             ]
           },
