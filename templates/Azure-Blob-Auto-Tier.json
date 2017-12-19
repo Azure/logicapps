@@ -38,7 +38,7 @@
                   "type": "ApiConnection"
                 }
               },
-              "description": "Check LastModified timestamp and whether older than the expiration age variable",
+              "description": "Check LastModified timestamp and whether older than the tier age variable",
               "expression": "@less(ticks(items('For_each')?['LastModified']), ticks(addDays(utcnow(), variables('TierAgeInDays'))))",
               "runAfter": {},
               "type": "If"
