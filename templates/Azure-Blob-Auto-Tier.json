@@ -10,7 +10,7 @@
       "schedule"
     ],
     "description": "Once a month, scan a storage account and tier all blobs older than the defined value to Cool or Archive tier.",
-    "displayName": "Tier Azure blobs based on the last modified time.",
+    "displayName": "Auto tier Azure blobs based on the last modified time.",
 
     "definition": {
       "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
