@@ -1,0 +1,142 @@
+{
+  "id": "/providers/Microsoft.Logic/galleries/public/templates/431e1640-9e1d-4e74-8c91-b948dc17c49f",
+  "type": "Microsoft.Logic/galleries/templates",
+  "name": "431e1640-9e1d-4e74-8c91-b948dc17c49f",
+  "properties": {
+    "author": {
+      "displayName": "Yuan Zheng"
+    },
+    "categoryNames": [
+      "schedule"
+    ],
+    "description": "Once a month, scan a storage account and tier all blobs older than the defined value to Cool or Archive tier.",
+    "displayName": "Auto tier Azure blobs based on the last modified time.",
+
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "actions": {
+        "For_each": {
+          "actions": {
+            "Condition": {
+              "actions": {
+                "Tier_blob": {
+                  "description": "If blob is older than the defined value, tier it to Cool or Archive tier",
+                  "inputs": {
+                    "host": {
+                      "connection": {
+                        "name": "@parameters('$connections')['azureblob']['connectionId']"
+                      }
+                    },
+                    "method": "post",
+                    "path": "/datasets/default/SetBlobTierByPath",
+                    "queries": {
+                      "newTier": "",
+                      "path": "@items('For_each')?['Path']"
+                    }
+                  },
+                  "runAfter": {},
+                  "type": "ApiConnection"
+                }
+              },
+              "description": "Check LastModified timestamp and whether older than the tier age variable",
+              "expression": "@less(ticks(items('For_each')?['LastModified']), ticks(addDays(utcnow(), variables('TierAgeInDays'))))",
+              "runAfter": {},
+              "type": "If"
+            }
+          },
+          "description": "Scan all blobs in this folder",
+          "foreach": "@body('List_blobs')?['value']",
+          "runAfter": {
+            "List_blobs": [
+              "Succeeded"
+            ]
+          },
+          "type": "Foreach"
+        },
+        "List_blobs": {
+          "inputs": {
+            "host": {
+              "connection": {
+                "name": "@parameters('$connections')['azureblob']['connectionId']"
+              }
+            },
+            "method": "get",
+            "path": "/datasets/default/foldersV2/",
+            "queries": {
+              "useFlatListing": true
+            }
+          },
+          "runAfter": {
+            "Set_tier_age_variable_": [
+              "Succeeded"
+            ]
+          },
+          "runtimeConfiguration": {
+            "paginationPolicy": {
+              "minimumItemCount": 5000
+            }
+          },
+          "type": "ApiConnection"
+        },
+        "Set_tier_age_variable_": {
+          "description": "A variable to configure the auto tier age in days. Configured in negative number. Default is -180 (180 days old).",
+          "inputs": {
+            "variables": [
+              {
+                "name": "TierAgeInDays",
+                "type": "Integer",
+                "value": -180
+              }
+            ]
+          },
+          "runAfter": {},
+          "type": "InitializeVariable"
+        }
+      },
+      "contentVersion": "1.0.0.0",
+      "outputs": {},
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "Recurrence": {
+          "recurrence": {
+            "frequency": "Month",
+            "interval": 1
+          },
+          "type": "Recurrence"
+        }
+      }
+    },
+    "connectionReferences": {
+      "azureblob": {
+        "connection": {
+          "id": ""
+        },
+        "api": {
+          "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/azureblob"
+        }
+      }
+    },
+    "apiSummaries": [
+      {
+        "type": "recurrence",
+        "displayName": "${Resources.RECURRENCE_TRIGGER_DISPLAYNAME}",
+        "iconUri": "${Images.RecurrenceIcon}",
+        "brandColor": "#1F85FF"
+      },
+      {
+        "type": "ApiConnection",
+        "displayName": "Azure Blob",
+        "iconUri": "https://cpgeneralstore.blob.core.windows.net/icons/azureblob.png",
+        "brandColor": "#804998"
+      }
+    ],
+    "changedTime": "2017-12-19T00:00:54.000Z",
+    "createdTime": "2017-12-19T00:00:54.000Z",
+    "popularity": 10
+  }
+}
