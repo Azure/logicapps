@@ -20,7 +20,7 @@
                     "actions": {
                         "Create_file": {
                             "inputs": {
-                                "body": "@base64ToBinary(item()['ContentBytes'])",
+                                "body": "@base64ToBinary(items('Foreach')['ContentBytes'])",
                                 "host": {
                                     "connection": {
                                         "name": "@parameters('$connections')['sharepointonline']['connectionId']"
@@ -30,7 +30,7 @@
                                 "path": "/datasets//files",
                                 "queries": {
                                     "folderPath": "",
-                                    "name": "@{item()['Name']}"
+                                    "name": "@{items('Foreach')['Name']}"
                                 }
                             },
                             "runAfter": {},
