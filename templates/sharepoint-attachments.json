@@ -63,7 +63,8 @@
                         "queries": {
                             "fetchOnlyWithAttachment": true,
                             "folderPath": "Inbox",
-                            "importance": "Normal"
+                            "importance": "Normal",
+                            "includeAttachments": true
                         }
                     },
                     "splitOn": "@triggerBody()?['value']",
