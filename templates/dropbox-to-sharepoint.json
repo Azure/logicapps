@@ -28,7 +28,7 @@
                         "path": "/datasets//files",
                         "queries": {
                             "folderPath": "",
-                            "name": "@{triggerOutputs()['headers']?['x-ms-file-name']}"
+                            "name": "@{triggerOutputs()['headers']?['x-ms-file-name-encoded']}"
                         }
                     },
                     "runAfter": {},
