@@ -28,7 +28,7 @@
                         "path": "/datasets/default/files",
                         "queries": {
                             "folderPath": "/backup from Dropbox",
-                            "name": "@{triggerOutputs()['headers']?['x-ms-file-name']}"
+                            "name": "@{triggerOutputs()['headers']?['x-ms-file-name-encoded']}"
                         }
                     },
                     "runAfter": {},

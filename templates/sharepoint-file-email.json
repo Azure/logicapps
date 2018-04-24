@@ -32,8 +32,8 @@
                 "Send_email": {
                     "inputs": {
                         "body": {
-                            "Body": "Hi @{body('Get_my_profile')?['GivenName']},\n\nA new file, @{triggerOutputs()['headers']?['x-ms-file-name']}, was added. It's located at @{triggerOutputs()['headers']?['x-ms-file-path']}.",
-                            "Subject": "New file added - @{triggerOutputs()['headers']?['x-ms-file-name']}",
+                            "Body": "Hi @{body('Get_my_profile')?['GivenName']},\n\nA new file, @{triggerOutputs()['headers']?['x-ms-file-name-encoded']}, was added. It's located at @{triggerOutputs()['headers']?['x-ms-file-path-encoded']}.",
+                            "Subject": "New file added - @{triggerOutputs()['headers']?['x-ms-file-name-encoded']}",
                             "To": "@{body('Get_my_profile')?['Mail']}"
                         },
                         "host": {
