@@ -428,14 +428,6 @@
             }
         },
         "connectionReferences": {
-            "office365": {
-                "connection": {
-                    "id": ""
-                },
-                "api": {
-                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/office365"
-                }
-            },
             "slack": {
                 "connection": {
                     "id": ""
@@ -451,12 +443,6 @@
                 "displayName": "${Resources.AZURESECURITYCENTER}",
                 "iconUri": "${Images.AzureSecurityCenterIcon}",
                 "brandColor": "#96c414"
-            },
-            {
-                "type": "apiconnection",
-                "displayName": "${Resources.OUTLOOK}",
-                "iconUri": "https://az818438.vo.msecnd.net/icons/outlook.png",
-                "brandColor": "#0072c6"
             },
             {
                 "type": "apiconnection",
