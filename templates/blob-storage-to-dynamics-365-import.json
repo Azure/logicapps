@@ -129,12 +129,12 @@
 					"type": "Http",
 					"inputs": {
 						"authentication": {
-							"audience": "[@parameters('Initiate_Package_Import-Audience')]",
-							"clientId": "[@parameters('Initiate_Package_Import-ClientId')]",
-							"secret": "[@parameters('Initiate_Package_Import-Secret')]",
-							"tenant": "[@parameters('Initiate_Package_Import-Tenant')]",
+							"audience": "@parameters('Initiate_Package_Import-Audience')",
+							"clientId": "@parameters('Initiate_Package_Import-ClientId')",
+							"secret": "@parameters('Initiate_Package_Import-Secret')",
+							"tenant": "@parameters('Initiate_Package_Import-Tenant')",
 							"type": "ActiveDirectoryOAuth",
-							"authority": "[@parameters('Initiate_Package_Import-Authority')]"
+							"authority": "@parameters('Initiate_Package_Import-Authority')"
 						},
 						"body": {
 							"definitionGroupId": "Import_test_02",
