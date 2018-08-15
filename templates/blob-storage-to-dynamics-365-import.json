@@ -20,8 +20,8 @@
 			"triggers": {
 				"When_zip_file_is_added_to_folder": {
 					"recurrence": {
-						"frequency": "[parameters('When_zip_file_is_added_to_folderFrequency')]",
-						"interval": "[parameters('When_zip_file_is_added_to_folderInterval')]"
+						"frequency": "Hour",
+						"interval": 1
 					},
 					"splitOn": "@triggerBody()",
 					"metadata": {
@@ -129,18 +129,18 @@
 					"type": "Http",
 					"inputs": {
 						"authentication": {
-							"audience": "YOUR_D365_INSTANCE_HERE.dynamics.com",
-							"clientId": "your-client-id",
-							"secret": "@parameters('Initiate_Package_Import-Secret')",
-							"tenant": "@parameters('Initiate_Package_Import-Tenant')",
+							"audience": "[YOUR_D365_INSTANCE_HERE].dynamics.com/data/DataManagementDefinitionGroups/Microsoft.Dynamics.DataEntities.ImportFromPackage",
+							"clientId": "",
+							"secret": "",
+							"tenant": "microsoft.com",
 							"type": "ActiveDirectoryOAuth",
-							"authority": "@parameters('Initiate_Package_Import-Authority')"
+							"authority": ""
 						},
 						"body": {
-							"definitionGroupId": "Import_test_02",
+							"definitionGroupId": "[IMPORT_PROJECT_NAME_HERE]",
 							"execute": true,
 							"executionId": "",
-							"legalEntityId": "USMF",
+							"legalEntityId": "[LEGAL_ENTITY_HERE]",
 							"overwrite": true,
 							"packageUrl": "@body('Create_SAS_URI_by_path')?['WebUrl']"
 						},
@@ -241,7 +241,7 @@
 						"body": {
 							"Body": "D365 Import has failed using the API in Logic App BlobStorageToD365.\n\nFilename: @{body('Copy_file_to_processing_folder')?['Name']}",
 							"Subject": "Logic App Failure",
-							"To": "youremail@here.com"
+							"To": ""
 						},
 						"host": {
 							"connection": {
@@ -273,12 +273,12 @@
 							"type": "Http",
 							"inputs": {
 								"authentication": {
-									"audience": "[parameters('Get_Execution_Results-Audience')]",
-									"clientId": "[parameters('Get_Execution_Results-ClientId')]",
-									"secret": "[parameters('Get_Execution_Results-Secret')]",
-									"tenant": "[parameters('Get_Execution_Results-Tenant')]",
+									"audience": "[YOUR_D365_INSTANCE_HERE].dynamics.com/data/DataManagementDefinitionGroups/Microsoft.Dynamics.DataEntities.GetExecutionSummaryStatus",
+									"clientId": "",
+									"secret": "",
+									"tenant": "microsoft.com",
 									"type": "ActiveDirectoryOAuth",
-									"authority": "[parameters('Get_Execution_Results-Authority')]"
+									"authority": ""
 								},
 								"body": {
 									"executionId": "@body('Initiate_Package_Import')['value']"
@@ -307,62 +307,7 @@
 					"defaultValue": {},
 					"type": "Object"
 				},
-				"Initiate_Package_Import-URI": {
-					"type": "string",
-					"defaultValue": "https://[YOUR_D365_INSTANCE_HERE].dynamics.com/data/DataManagementDefinitionGroups/Microsoft.Dynamics.DataEntities.ImportFromPackage"
-				},
-				"Initiate_Package_Import-Audience": {
-					"type": "string",
-					"defaultValue": "https://[YOUR_D365_INSTANCE_HERE].dynamics.com"
-				},
-				"Initiate_Package_Import-Authority": {
-					"type": "string",
-					"defaultValue": null
-				},
-				"Initiate_Package_Import-ClientId": {
-					"type": "string",
-					"defaultValue": "client_id_here"
-				},
-				"Initiate_Package_Import-Secret": {
-					"type": "string",
-					"defaultValue": "secret_key_here"
-				},
-				"Initiate_Package_Import-Tenant": {
-					"type": "string",
-					"defaultValue": "microsoft.com"
-				},
-				"Get_Execution_Results-URI": {
-					"type": "string",
-					"defaultValue": "https://[YOUR_D365_INSTANCE_HERE].dynamics.com/data/DataManagementDefinitionGroups/Microsoft.Dynamics.DataEntities.GetExecutionSummaryStatus"
-				},
-				"Get_Execution_Results-Audience": {
-					"type": "string",
-					"defaultValue": "https://[YOUR_D365_INSTANCE_HERE].dynamics.com"
-				},
-				"Get_Execution_Results-Authority": {
-					"type": "string",
-					"defaultValue": null
-				},
-				"Get_Execution_Results-ClientId": {
-					"type": "string",
-					"defaultValue": "client_id_here"
-				},
-				"Get_Execution_Results-Secret": {
-					"type": "string",
-					"defaultValue": "secret_key_here"
-				},
-				"Get_Execution_Results-Tenant": {
-					"type": "string",
-					"defaultValue": "microsoft.com"
-				},
-				"When_zip_file_is_added_to_folderFrequency": {
-					"type": "string",
-					"defaultValue": "Hour"
-				},
-				"When_zip_file_is_added_to_folderInterval": {
-					"type": "int",
-					"defaultValue": 3
-				},
+				
 				"azureblob_name": {
 					"type": "string",
 					"defaultValue": "azureblob"
@@ -384,7 +329,7 @@
 				},
 				"office365-2_displayName": {
 					"type": "string",
-					"defaultValue": "youremail@here.com"
+					"defaultValue": ""
 				}
 			}
 		},
@@ -410,14 +355,20 @@
 
 	"apiSummaries": [
 		{
-			"type": "",
-			"displayName": "",
-			"iconUri": "",
-			"brandColor": ""
-		}
+       		"type": "ApiConnection",
+        	"displayName": "Azure Blob",
+        	"iconUri": "https://cpgeneralstore.blob.core.windows.net/icons/azureblob.png",
+        	"brandColor": "#804998"
+      	},
+		{
+            "type": "apiconnection",
+            "displayName": "${Resources.DYNAMICSCRMONLINE}",
+            "iconUri": "https://az818438.vo.msecnd.net/icons/dynamicscrmonline.png",
+            "brandColor": "#16244E"
+        }
 	],
 
-	"changedTime": "2000-08-14T00:00:00.000Z",
+	"changedTime": "2018-08-15T00:00:00.000Z",
 
 	"createdTime": "2018-08-14T00:00:00.000Z",
 
