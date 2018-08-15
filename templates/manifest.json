@@ -3,8 +3,6 @@
     "asc-post-message-to-slack.json",
     "asc-post-message-to-teams-and-send-notification-email.json",
     "asc-send-notification-email.json",
-    "Azure-Blob-Auto-Expiration.json",
-    "Azure-Blob-Auto-Tier.json",
     "blob-storage-to-dynamics-365-import.json",
     "daily-reminders.json",
     "dropbox-onedrive.json",
