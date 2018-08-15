@@ -129,7 +129,7 @@
 					"type": "Http",
 					"inputs": {
 						"authentication": {
-							"audience": "[YOUR_D365_INSTANCE_HERE].dynamics.com/data/DataManagementDefinitionGroups/Microsoft.Dynamics.DataEntities.ImportFromPackage",
+							"audience": "[YOUR_D365_INSTANCE_HERE].dynamics.com",
 							"clientId": "",
 							"secret": "",
 							"tenant": "microsoft.com",
@@ -145,7 +145,7 @@
 							"packageUrl": "@body('Create_SAS_URI_by_path')?['WebUrl']"
 						},
 						"method": "POST",
-						"uri": "[parameters('Initiate_Package_Import-URI')]"
+						"uri": "[YOUR_D365_INSTANCE_HERE].dynamics.com/data/DataManagementDefinitionGroups/Microsoft.Dynamics.DataEntities.ImportFromPackage"
 					}
 				},
 				"Move_file_to_folder_based_on_execution_success": {
@@ -245,7 +245,7 @@
 						},
 						"host": {
 							"connection": {
-								"name": "@parameters('$connections')['office365']['connectionId']"
+								"name": "@parameters('$connections')['office365-2']['connectionId']"
 							}
 						},
 						"method": "post",
@@ -273,7 +273,7 @@
 							"type": "Http",
 							"inputs": {
 								"authentication": {
-									"audience": "[YOUR_D365_INSTANCE_HERE].dynamics.com/data/DataManagementDefinitionGroups/Microsoft.Dynamics.DataEntities.GetExecutionSummaryStatus",
+									"audience": "[YOUR_D365_INSTANCE_HERE].dynamics.com",
 									"clientId": "",
 									"secret": "",
 									"tenant": "microsoft.com",
@@ -284,7 +284,7 @@
 									"executionId": "@body('Initiate_Package_Import')['value']"
 								},
 								"method": "POST",
-								"uri": "[parameters('Get_Execution_Results-URI')]"
+								"uri": "[YOUR_D365_INSTANCE_HERE].dynamics.com/data/DataManagementDefinitionGroups/Microsoft.Dynamics.DataEntities.GetExecutionSummaryStatus"
 							}
 						}
 					},
