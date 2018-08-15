@@ -129,8 +129,8 @@
 					"type": "Http",
 					"inputs": {
 						"authentication": {
-							"audience": @parameters('Initiate_Package_Import-Audience'),
-							"clientId": @parameters('Initiate_Package_Import-ClientId'),
+							"audience": "YOUR_D365_INSTANCE_HERE.dynamics.com",
+							"clientId": "your-client-id",
 							"secret": "@parameters('Initiate_Package_Import-Secret')",
 							"tenant": "@parameters('Initiate_Package_Import-Tenant')",
 							"type": "ActiveDirectoryOAuth",
