@@ -233,7 +233,9 @@
 				"Send_email_if_API_returns_an_error": {
 					"runAfter": {
 						"Initiate_Package_Import": [
-							"Failed"
+							"Failed",
+							"Skipped",
+							"TimedOut"
 						]
 					},
 					"type": "ApiConnection",
@@ -295,7 +297,7 @@
 					},
 					"expression": "@or(equals(body('Get_Execution_Results')?['value'], 'Succeeded'), equals(body('Get_Execution_Results')?['value'], 'PartiallySucceeded'), equals(body('Get_Execution_Results')?['value'], 'Canceled'), equals(body('Get_Execution_Results')?['value'], 'Failed'))",
 					"limit": {
-						"count": 60,
+						"count": 240,
 						"timeout": "PT1H"
 					},
 					"type": "Until"
@@ -355,17 +357,17 @@
 
 	"apiSummaries": [
 		{
-       		"type": "ApiConnection",
-        	"displayName": "Azure Blob",
-        	"iconUri": "https://cpgeneralstore.blob.core.windows.net/icons/azureblob.png",
-        	"brandColor": "#804998"
-      	},
+       			"type": "ApiConnection",
+        		"displayName": "Azure Blob",
+        		"iconUri": "https://cpgeneralstore.blob.core.windows.net/icons/azureblob.png",
+        		"brandColor": "#804998"
+      		},
 		{
-            "type": "apiconnection",
-            "displayName": "${Resources.DYNAMICSCRMONLINE}",
-            "iconUri": "https://az818438.vo.msecnd.net/icons/dynamicscrmonline.png",
-            "brandColor": "#16244E"
-        }
+            		"type": "apiconnection",
+            		"displayName": "Dynamics 365 F&O",
+            		"iconUri": "https://az818438.vo.msecnd.net/icons/dynamicscrmonline.png",
+            		"brandColor": "#16244E"
+        	}
 	],
 
 	"changedTime": "2018-08-15T00:00:00.000Z",
