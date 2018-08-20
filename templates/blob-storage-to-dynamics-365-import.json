@@ -357,17 +357,17 @@
 
 	"apiSummaries": [
 		{
-       		"type": "ApiConnection",
-        	"displayName": "Azure Blob",
-        	"iconUri": "https://cpgeneralstore.blob.core.windows.net/icons/azureblob.png",
-        	"brandColor": "#804998"
-      	},
+			"type": "ApiConnection",
+			"displayName": "Azure Blob",
+			"iconUri": "https://cpgeneralstore.blob.core.windows.net/icons/azureblob.png",
+			"brandColor": "#804998"
+		},
 		{
-            "type": "apiconnection",
-            "displayName": "Dynamics 365 F&O",
-            "iconUri": "https://az818438.vo.msecnd.net/icons/dynamicscrmonline.png",
-            "brandColor": "#16244E"
-        }
+			"type": "apiconnection",
+			"displayName": "Dynamics 365 F&O",
+			"iconUri": "https://az818438.vo.msecnd.net/icons/dynamicscrmonline.png",
+			"brandColor": "#16244E"
+		}
 	],
 
 	"changedTime": "2018-08-15T00:00:00.000Z",
