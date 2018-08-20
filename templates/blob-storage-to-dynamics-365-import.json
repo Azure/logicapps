@@ -1,0 +1,381 @@
+{
+	"id": "/providers/Microsoft.Logic/galleries/public/templates/312e65c9c3c94a348f4ccabc084230a6",
+	"type": "Microsoft.Logic/galleries/templates",
+	"name": "312e65c9c3c94a348f4ccabc084230a6",
+	"properties": {
+		"author": {
+			"displayName": "Kevin Monpara"
+		},
+		"categoryNames": [
+			"enterprise_integration"
+		],
+
+		"description": "Import zip files from Blob Storage into Dynamics 365 for Finance and Operations",
+
+		"displayName": "Blob Storage To Dynamics 365 Import",
+
+		"definition": {
+			"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+			"contentVersion": "1.0.0.0",
+			"triggers": {
+				"When_zip_file_is_added_to_folder": {
+					"recurrence": {
+						"frequency": "Hour",
+						"interval": 1
+					},
+					"splitOn": "@triggerBody()",
+					"metadata": {
+						"JTJmemlwLWZpbGVz": "/zip-files"
+					},
+					"type": "ApiConnection",
+					"inputs": {
+						"host": {
+							"connection": {
+								"name": "@parameters('$connections')['azureblob']['connectionId']"
+							}
+						},
+						"method": "get",
+						"path": "/datasets/default/triggers/batch/onupdatedfile",
+						"queries": {
+							"folderId": "JTJmemlwLWZpbGVz",
+							"maxFileCount": 1
+						}
+					}
+				}
+			},
+			"actions": {
+				"Copy_file_to_processing_folder": {
+					"runAfter": {},
+					"type": "ApiConnection",
+					"inputs": {
+						"host": {
+							"connection": {
+								"name": "@parameters('$connections')['azureblob']['connectionId']"
+							}
+						},
+						"method": "post",
+						"path": "/datasets/default/copyFile",
+						"queries": {
+							"destination": "/processing/@{triggerBody()?['Name']}",
+							"overwrite": true,
+							"queryParametersSingleEncoded": true,
+							"source": "@triggerBody()?['Path']"
+						}
+					}
+				},
+				"Create_SAS_URI_by_path": {
+					"runAfter": {
+						"Delete_file_from_original_folder": [
+							"Succeeded"
+						]
+					},
+					"type": "ApiConnection",
+					"inputs": {
+						"body": {
+							"Permissions": "Read"
+						},
+						"host": {
+							"connection": {
+								"name": "@parameters('$connections')['azureblob']['connectionId']"
+							}
+						},
+						"method": "post",
+						"path": "/datasets/default/CreateSharedLinkByPath",
+						"queries": {
+							"path": "@body('Copy_file_to_processing_folder')?['Path']"
+						}
+					}
+				},
+				"Delete_file_from_original_folder": {
+					"runAfter": {
+						"Copy_file_to_processing_folder": [
+							"Succeeded"
+						]
+					},
+					"type": "ApiConnection",
+					"inputs": {
+						"host": {
+							"connection": {
+								"name": "@parameters('$connections')['azureblob']['connectionId']"
+							}
+						},
+						"method": "delete",
+						"path": "/datasets/default/files/@{encodeURIComponent(encodeURIComponent(triggerBody()?['Id']))}"
+					}
+				},
+				"Delete_file_from_processing_folder": {
+					"runAfter": {
+						"Move_file_to_folder_based_on_execution_success": [
+							"Succeeded"
+						]
+					},
+					"type": "ApiConnection",
+					"inputs": {
+						"host": {
+							"connection": {
+								"name": "@parameters('$connections')['azureblob']['connectionId']"
+							}
+						},
+						"method": "delete",
+						"path": "/datasets/default/files/@{encodeURIComponent(encodeURIComponent(body('Copy_file_to_processing_folder')?['Path']))}"
+					}
+				},
+				"Initiate_Package_Import": {
+					"runAfter": {
+						"Create_SAS_URI_by_path": [
+							"Succeeded"
+						]
+					},
+					"type": "Http",
+					"inputs": {
+						"authentication": {
+							"audience": "[YOUR_D365_INSTANCE_HERE].dynamics.com",
+							"clientId": "",
+							"secret": "",
+							"tenant": "microsoft.com",
+							"type": "ActiveDirectoryOAuth",
+							"authority": ""
+						},
+						"body": {
+							"definitionGroupId": "[IMPORT_PROJECT_NAME_HERE]",
+							"execute": true,
+							"executionId": "",
+							"legalEntityId": "[LEGAL_ENTITY_HERE]",
+							"overwrite": true,
+							"packageUrl": "@body('Create_SAS_URI_by_path')?['WebUrl']"
+						},
+						"method": "POST",
+						"uri": "[YOUR_D365_INSTANCE_HERE].dynamics.com/data/DataManagementDefinitionGroups/Microsoft.Dynamics.DataEntities.ImportFromPackage"
+					}
+				},
+				"Move_file_to_folder_based_on_execution_success": {
+					"runAfter": {
+						"Wait_For_Execution_Results": [
+							"Succeeded"
+						]
+					},
+					"cases": {
+						"PartiallySuceeded": {
+							"case": "PartiallySucceeded",
+							"actions": {
+								"Copy_file_to_partiallysucceeded_folder": {
+									"runAfter": {},
+									"type": "ApiConnection",
+									"inputs": {
+										"host": {
+											"connection": {
+												"name": "@parameters('$connections')['azureblob']['connectionId']"
+											}
+										},
+										"method": "post",
+										"path": "/datasets/default/copyFile",
+										"queries": {
+											"destination": "/partiallysucceeded/@{body('Copy_file_to_processing_folder')?['Name']}",
+											"overwrite": true,
+											"queryParametersSingleEncoded": true,
+											"source": "@body('Copy_file_to_processing_folder')?['Path']"
+										}
+									}
+								}
+							}
+						},
+						"Succeeded": {
+							"case": "Succeeded",
+							"actions": {
+								"Copy_file_to_succeeded_folder": {
+									"runAfter": {},
+									"type": "ApiConnection",
+									"inputs": {
+										"host": {
+											"connection": {
+												"name": "@parameters('$connections')['azureblob']['connectionId']"
+											}
+										},
+										"method": "post",
+										"path": "/datasets/default/copyFile",
+										"queries": {
+											"destination": "/succeeded/@{body('Copy_file_to_processing_folder')?['Name']}",
+											"overwrite": true,
+											"queryParametersSingleEncoded": true,
+											"source": "@body('Copy_file_to_processing_folder')?['Path']"
+										}
+									}
+								}
+							}
+						}
+					},
+					"default": {
+						"actions": {
+							"Copy_file_to_failed_folder": {
+								"runAfter": {},
+								"type": "ApiConnection",
+								"inputs": {
+									"host": {
+										"connection": {
+											"name": "@parameters('$connections')['azureblob']['connectionId']"
+										}
+									},
+									"method": "post",
+									"path": "/datasets/default/copyFile",
+									"queries": {
+										"destination": "/failed/@{body('Copy_file_to_processing_folder')?['Name']}",
+										"overwrite": true,
+										"queryParametersSingleEncoded": true,
+										"source": "@body('Copy_file_to_processing_folder')?['Path']"
+									}
+								}
+							}
+						}
+					},
+					"expression": "@body('Get_Execution_Results')['value']",
+					"type": "Switch"
+				},
+				"Send_email_if_API_returns_an_error": {
+					"runAfter": {
+						"Initiate_Package_Import": [
+							"Failed",
+							"Skipped",
+							"TimedOut"
+						]
+					},
+					"type": "ApiConnection",
+					"inputs": {
+						"body": {
+							"Body": "D365 Import has failed using the API in Logic App BlobStorageToD365.\n\nFilename: @{body('Copy_file_to_processing_folder')?['Name']}",
+							"Subject": "Logic App Failure",
+							"To": ""
+						},
+						"host": {
+							"connection": {
+								"name": "@parameters('$connections')['office365-2']['connectionId']"
+							}
+						},
+						"method": "post",
+						"path": "/Mail"
+					}
+				},
+				"Wait_For_Execution_Results": {
+					"actions": {
+						"Delay": {
+							"runAfter": {
+								"Get_Execution_Results": [
+									"Succeeded"
+								]
+							},
+							"type": "Wait",
+							"inputs": {
+								"interval": {
+									"count": 15,
+									"unit": "Second"
+								}
+							}
+						},
+						"Get_Execution_Results": {
+							"runAfter": {},
+							"type": "Http",
+							"inputs": {
+								"authentication": {
+									"audience": "[YOUR_D365_INSTANCE_HERE].dynamics.com",
+									"clientId": "",
+									"secret": "",
+									"tenant": "microsoft.com",
+									"type": "ActiveDirectoryOAuth",
+									"authority": ""
+								},
+								"body": {
+									"executionId": "@body('Initiate_Package_Import')['value']"
+								},
+								"method": "POST",
+								"uri": "[YOUR_D365_INSTANCE_HERE].dynamics.com/data/DataManagementDefinitionGroups/Microsoft.Dynamics.DataEntities.GetExecutionSummaryStatus"
+							}
+						}
+					},
+					"runAfter": {
+						"Initiate_Package_Import": [
+							"Succeeded"
+						]
+					},
+					"expression": "@or(equals(body('Get_Execution_Results')?['value'], 'Succeeded'), equals(body('Get_Execution_Results')?['value'], 'PartiallySucceeded'), equals(body('Get_Execution_Results')?['value'], 'Canceled'), equals(body('Get_Execution_Results')?['value'], 'Failed'))",
+					"limit": {
+						"count": 240,
+						"timeout": "PT1H"
+					},
+					"type": "Until"
+				}
+			},
+			"outputs":{},
+			"parameters": {
+				"$connections": {
+					"defaultValue": {},
+					"type": "Object"
+				},
+				
+				"azureblob_name": {
+					"type": "string",
+					"defaultValue": "azureblob"
+				},
+				"azureblob_displayName": {
+					"type": "string",
+					"defaultValue": "get-files-to-be-processed"
+				},
+				"azureblob_accountName": {
+					"type": "string",
+					"defaultValue": "",
+					"metadata": {
+						"description": "Name of the storage account the connector should use."
+					}
+				},
+				"office365-2_name": {
+					"type": "string",
+					"defaultValue": "office365-2"
+				},
+				"office365-2_displayName": {
+					"type": "string",
+					"defaultValue": ""
+				}
+			}
+		},
+
+	"connectionReferences": {
+		"azureblob": {
+			"connection": {
+				"id": ""
+			},
+			"api": {
+				"id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/azureblob"
+			}
+		},
+		"office365-2": {
+			"connection": {
+				"id": ""
+			},
+			"api": {
+				"id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/office365"
+			}
+		}
+	},
+
+	"apiSummaries": [
+		{
+			"type": "ApiConnection",
+			"displayName": "Azure Blob",
+			"iconUri": "https://cpgeneralstore.blob.core.windows.net/icons/azureblob.png",
+			"brandColor": "#804998"
+		},
+		{
+			"type": "apiconnection",
+			"displayName": "Dynamics 365 F&O",
+			"iconUri": "https://az818438.vo.msecnd.net/icons/dynamicscrmonline.png",
+			"brandColor": "#16244E"
+		}
+	],
+
+	"changedTime": "2018-08-15T00:00:00.000Z",
+
+	"createdTime": "2018-08-14T00:00:00.000Z",
+
+	"popularity": 99
+
+	}
+
+}
