@@ -97,7 +97,7 @@
                 "type": "http",
                 "displayName": "${Resources.HTTP_DISPLAYNAME}",
                 "iconUri": "${Images.HttpIcon}",
-                "brandColor": "#6c9b00"
+                "brandColor": "#709727"
             }
         ],
         "changedTime": "2017-08-10T00:00:00.000Z",
