@@ -205,14 +205,14 @@
             {
                 "type": "apiconnection",
                 "displayName": "${Resources.SERVICEBUS}",
-                "iconUri": "https://az818438.vo.msecnd.net/icons/servicebus.png",
-                "brandColor": "#79BA1F"
+                "iconUri": "https://connectoricons-prod.azureedge.net/servicebus/icon_1.0.1019.1195.png",
+                "brandColor": "#59B4D9"
             },
             {
                 "type": "apiconnection",
                 "displayName": "${Resources.SERVICEBUS}",
-                "iconUri": "https://az818438.vo.msecnd.net/icons/servicebus.png",
-                "brandColor": "#79BA1F"
+                "iconUri": "https://connectoricons-prod.azureedge.net/servicebus/icon_1.0.1019.1195.png",
+                "brandColor": "#59B4D9"
             }
         ],
         "changedTime": "2017-07-05T00:00:59.000Z",

@@ -140,7 +140,7 @@
                 "type": "http",
                 "displayName": "${Resources.HTTP_DISPLAYNAME}",
                 "iconUri": "${Images.HttpIcon}",
-                "brandColor": "#6c9b00"
+                "brandColor": "#709727"
             },
             {
                 "type": "response",
