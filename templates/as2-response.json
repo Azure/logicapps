@@ -134,7 +134,7 @@
                 "type": "apiconnection",
                 "displayName": "${Resources.AS2_DISPLAYNAME}",
                 "iconUri": "https://az818438.vo.msecnd.net/icons/as2.png",
-                "brandColor": "#2b79da"
+                "brandColor": "#0178D5"
             },
             {
                 "type": "http",
