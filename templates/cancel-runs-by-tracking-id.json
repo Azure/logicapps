@@ -1,0 +1,213 @@
+{
+    "id": "/providers/Microsoft.Logic/galleries/public/templates/8539ff0c-7ee2-4642-8a4f-11da95e11f0d",
+    "type": "Microsoft.Logic/galleries/templates",
+    "name": "8539ff0c-7ee2-4642-8a4f-11da95e11f0d",
+    "properties": {
+        "author": {
+            "displayName": "Microsoft"
+        },
+        "categoryNames": [
+            "schedule",
+            "general"
+        ],
+        "description": "Cancels Logic Apps runs based on the tracking id configured in the trigger either passed in as x-ms-client-tracking-id header or configured in trigger settings.",
+        "displayName": "Cancel runs by tracking id",
+        "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "actions": {
+              "Catch_for_each_errors": {
+                "type": "Scope",
+                "actions": {
+                  "Error_response": {
+                    "type": "Response",
+                    "kind": "Http",
+                    "inputs": {
+                      "statusCode": 500,
+                      "body": "Could not cancel all runs correlated to tracking id @{triggerBody()['trackingId']}.\nErrors:\n@{body('Select')}"
+                    },
+                    "runAfter": {
+                      "Select": [
+                        "Succeeded"
+                      ]
+                    }
+                  },
+                  "Filter_for_errors": {
+                    "type": "Query",
+                    "inputs": {
+                      "from": "@result('For_each_run')",
+                      "where": "@equals(item()['status'], 'Failed')"
+                    },
+                    "runAfter": {}
+                  },
+                  "Rethrow": {
+                    "type": "Terminate",
+                    "inputs": {
+                      "runStatus": "Failed",
+                      "runError": {
+                        "code": "500",
+                        "message": "@{body('Select')}"
+                      }
+                    },
+                    "runAfter": {
+                      "Error_response": [
+                        "Succeeded"
+                      ]
+                    }
+                  },
+                  "Select": {
+                    "type": "Select",
+                    "inputs": {
+                      "from": "@body('Filter_for_errors')[0]['outputs']",
+                      "select": {
+                        "action": "@item()['name']",
+                        "error": "@item()['outputs']['body']['message']",
+                        "statusCode": "@item()['outputs']['statusCode']"
+                      }
+                    },
+                    "runAfter": {
+                      "Filter_for_errors": [
+                        "Succeeded"
+                      ]
+                    }
+                  }
+                },
+                "runAfter": {
+                  "For_each_run": [
+                    "Failed",
+                    "TimedOut"
+                  ]
+                }
+              },
+              "For_each_run": {
+                "type": "Foreach",
+                "foreach": "@body('List_Runs')['value']",
+                "actions": {
+                  "Cancel_Run": {
+                    "type": "ApiConnection",
+                    "inputs": {
+                      "host": {
+                        "connection": {
+                          "name": "@parameters('$connections')['arm']['connectionId']"
+                        }
+                      },
+                      "method": "post",
+                      "path": "/subscriptions/@{encodeURIComponent(coalesce(triggerBody()?['subscriptionId'], parameters('subscriptionId')))}/resourcegroups/@{encodeURIComponent(triggerBody()['resourceGroup'])}/providers/@{encodeURIComponent('Microsoft.Logic')}/@{encodeURIComponent('workflows/', triggerBody()['logicAppName'], '/runs/', items('For_each_run')['name'])}/@{encodeURIComponent('cancel')}",
+                      "queries": {
+                        "x-ms-api-version": "2018-07-01-preview"
+                      }
+                    },
+                    "runAfter": {}
+                  }
+                },
+                "runAfter": {
+                  "List_Runs": [
+                    "Succeeded"
+                  ]
+                }
+              },
+              "List_Runs": {
+                "type": "ApiConnection",
+                "inputs": {
+                  "host": {
+                    "connection": {
+                      "name": "@parameters('$connections')['arm']['connectionId']"
+                    }
+                  },
+                  "method": "get",
+                  "path": "/subscriptions/@{encodeURIComponent(coalesce(triggerBody()?['subscriptionId'], parameters('subscriptionId')))}/resourcegroups/@{encodeURIComponent(triggerBody()['resourceGroup'])}/providers/@{encodeURIComponent('Microsoft.Logic')}/@{encodeURIComponent('workflows/', triggerBody()['logicAppName'], '/runs')}",
+                  "queries": {
+                    "x-ms-api-version": "2018-07-01-preview",
+                    "$filter": "clientTrackingId eq '@{triggerBody()['trackingId']}' and status eq 'Running'"
+                  }
+                },
+                "runAfter": {}
+              },
+              "Success_response": {
+                "type": "Response",
+                "kind": "Http",
+                "inputs": {
+                  "statusCode": 200,
+                  "body": "Canceled @{length(body('List_Runs')['value'])} run(s) correlated to tracking id @{triggerBody()['trackingId']}."
+                },
+                "runAfter": {
+                  "For_each_run": [
+                    "Succeeded"
+                  ]
+                }
+              }
+            },
+            "parameters": {
+              "$connections": {
+                "defaultValue": {},
+                "type": "Object"
+              },
+              "subscriptionId": {
+                "defaultValue": "",
+                "type": "String"
+              }
+            },
+            "triggers": {
+              "manual": {
+                "type": "Request",
+                "kind": "Http",
+                "inputs": {
+                  "schema": {
+                    "properties": {
+                      "logicAppName": {
+                        "description": "Name of the logic app for which you want to cancel a run for.",
+                        "type": "string"
+                      },
+                      "resourceGroup": {
+                        "description": "Resource group of logic app run to be canceled.",
+                        "type": "string"
+                      },
+                      "subscriptionId": {
+                        "description": "Subscription id of the logic app run to be canceled.",
+                        "type": "string"
+                      },
+                      "trackingId": {
+                        "description": "clientTrackingId associated to the run that you want to cancel.",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "trackingId",
+                      "logicAppName",
+                      "resourceGroup"
+                    ],
+                    "type": "object"
+                  },
+                  "method": "POST"
+                },
+                "operationOptions": "EnableSchemaValidation",
+                "correlation": {
+                  "clientTrackingId": "@triggerBody()['trackingId']"
+                }
+              }
+            },
+            "contentVersion": "1.0.0.0",
+            "outputs": {}
+          },
+        "connectionReferences": {
+            "arm": {
+                "connection":{
+                    "id":""
+                },
+                "api":{
+                    "id":"/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/arm"
+                }
+            }
+        },
+        "apiSummaries": [
+            {
+                "type": "ApiConnection",
+                "displayName": "arm",
+                "iconUri": "https://connectoricons-prod.azureedge.net/arm/icon_1.0.1022.1205.png",
+                "brandColor": "#d8dfe5"
+            }
+        ],
+        "changedTime": "2018-10-07T00:00:00.000Z",
+        "createdTime": "2010-10-07T00:00:00.000Z",
+        "popularity": 6
+    }
+}
