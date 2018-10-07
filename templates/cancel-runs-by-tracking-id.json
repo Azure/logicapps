@@ -200,6 +200,12 @@
         },
         "apiSummaries": [
             {
+                "type": "request",
+                "displayName": "${Resources.REQUEST_TRIGGER_DISPLAYNAME}",
+                "iconUri": "${Images.RequestIcon}",
+                "brandColor": "#009DA5"
+            },
+            {
                 "type": "ApiConnection",
                 "displayName": "Azure Resource Manager",
                 "iconUri": "https://connectoricons-prod.azureedge.net/arm/icon_1.0.1022.1205.png",
