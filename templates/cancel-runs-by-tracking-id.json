@@ -210,12 +210,6 @@
                 "displayName": "Azure Resource Manager",
                 "iconUri": "https://connectoricons-prod.azureedge.net/arm/icon_1.0.1022.1205.png",
                 "brandColor": "#003056"
-            },
-            {
-                "type": "ApiConnection",
-                "displayName": "Azure Resource Manager",
-                "iconUri": "https://connectoricons-prod.azureedge.net/arm/icon_1.0.1022.1205.png",
-                "brandColor": "#003056"
             }            
         ],
         "changedTime": "2018-10-07T00:00:00.000Z",
