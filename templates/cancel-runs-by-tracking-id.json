@@ -204,7 +204,13 @@
                 "displayName": "arm",
                 "iconUri": "https://connectoricons-prod.azureedge.net/arm/icon_1.0.1022.1205.png",
                 "brandColor": "#d8dfe5"
-            }
+            },
+            {
+                "type": "ApiConnection",
+                "displayName": "arm",
+                "iconUri": "https://connectoricons-prod.azureedge.net/arm/icon_1.0.1022.1205.png",
+                "brandColor": "#d8dfe5"
+            }            
         ],
         "changedTime": "2018-10-07T00:00:00.000Z",
         "createdTime": "2010-10-07T00:00:00.000Z",
