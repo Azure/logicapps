@@ -6,7 +6,7 @@
     "Azure-Blob-Auto-Expiration.json",
     "Azure-Blob-Auto-Tier.json",
     "blob-storage-to-dynamics-365-import.json",
-    "cancel-runs-by-tracking-id",
+    "cancel-runs-by-tracking-id.json",
     "daily-reminders.json",
     "dropbox-onedrive.json",
     "dropbox-to-sharepoint.json",
