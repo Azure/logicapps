@@ -141,7 +141,7 @@
                 "type": "Object"
               },
               "subscriptionId": {
-                "defaultValue": "{0}",
+                "defaultValue": "[subscription().id]",
                 "type": "String"
               }
             },
