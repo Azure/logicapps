@@ -172,7 +172,8 @@
                     "required": [
                       "trackingId",
                       "logicAppName",
-                      "resourceGroup"
+                      "resourceGroup",
+                      "subscriptionId"
                     ],
                     "type": "object"
                   },
