@@ -39,21 +39,6 @@
                     },
                     "runAfter": {}
                   },
-                  "Rethrow": {
-                    "type": "Terminate",
-                    "inputs": {
-                      "runStatus": "Failed",
-                      "runError": {
-                        "code": "500",
-                        "message": "@{body('Select')}"
-                      }
-                    },
-                    "runAfter": {
-                      "Error_response": [
-                        "Succeeded"
-                      ]
-                    }
-                  },
                   "Select": {
                     "type": "Select",
                     "inputs": {
@@ -122,6 +107,20 @@
                 },
                 "runAfter": {}
               },
+              "Not_Found_Response": {
+                  "inputs": {
+                      "body": "@body('List_Runs')",
+                      "statusCode": "@actionOutputs('List_Runs')['statusCode']"
+                  },
+                  "kind": "Http",
+                  "runAfter": {
+                      "List_Runs": [
+                          "Failed",
+                          "TimedOut"
+                      ]
+                  },
+                  "type": "Response"
+              },
               "Success_response": {
                 "type": "Response",
                 "kind": "Http",
@@ -142,7 +141,7 @@
                 "type": "Object"
               },
               "subscriptionId": {
-                "defaultValue": "",
+                "defaultValue": "{0}",
                 "type": "String"
               }
             },
