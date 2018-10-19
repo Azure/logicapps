@@ -32,10 +32,10 @@
         },
         "apiSummaries": [
             {
-                "type": "{Type of the API}",
-                "displayName": "{Name of the API}",
+                "type": "ApiConnection",
+                "displayName": "Azure Monitor",
                 "iconUri": "{Icon of the API}",
-                "brandColor": "{Brand color of the API}"
+                "brandColor": "#FFF"
             }
         ],
         "changedTime": "2018-10-19T12:00:00.000Z",
