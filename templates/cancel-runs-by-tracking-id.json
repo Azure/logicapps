@@ -76,7 +76,7 @@
                         }
                       },
                       "method": "post",
-                      "path": "/subscriptions/@{encodeURIComponent(coalesce(triggerBody()?['subscriptionId'], parameters('subscriptionId')))}/resourcegroups/@{encodeURIComponent(triggerBody()['resourceGroup'])}/providers/@{encodeURIComponent('Microsoft.Logic')}/@{encodeURIComponent('workflows/', triggerBody()['logicAppName'], '/runs/', items('For_each_run')['name'])}/@{encodeURIComponent('cancel')}",
+                      "path": "/subscriptions/@{encodeURIComponent(triggerBody()?['subscriptionId'])}/resourcegroups/@{encodeURIComponent(triggerBody()['resourceGroup'])}/providers/@{encodeURIComponent('Microsoft.Logic')}/@{encodeURIComponent('workflows/', triggerBody()['logicAppName'], '/runs/', items('For_each_run')['name'])}/@{encodeURIComponent('cancel')}",
                       "queries": {
                         "x-ms-api-version": "2018-07-01-preview"
                       }
@@ -99,7 +99,7 @@
                     }
                   },
                   "method": "get",
-                  "path": "/subscriptions/@{encodeURIComponent(coalesce(triggerBody()?['subscriptionId'], parameters('subscriptionId')))}/resourcegroups/@{encodeURIComponent(triggerBody()['resourceGroup'])}/providers/@{encodeURIComponent('Microsoft.Logic')}/@{encodeURIComponent('workflows/', triggerBody()['logicAppName'], '/runs')}",
+                  "path": "/subscriptions/@{encodeURIComponent(triggerBody()?['subscriptionId'])}/resourcegroups/@{encodeURIComponent(triggerBody()['resourceGroup'])}/providers/@{encodeURIComponent('Microsoft.Logic')}/@{encodeURIComponent('workflows/', triggerBody()['logicAppName'], '/runs')}",
                   "queries": {
                     "x-ms-api-version": "2018-07-01-preview",
                     "$filter": "clientTrackingId eq '@{triggerBody()['trackingId']}' and status eq 'Running'"
@@ -139,10 +139,6 @@
               "$connections": {
                 "defaultValue": {},
                 "type": "Object"
-              },
-              "subscriptionId": {
-                "defaultValue": "[subscription().id]",
-                "type": "String"
               }
             },
             "triggers": {
