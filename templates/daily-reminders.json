@@ -98,8 +98,8 @@
             {
                 "type": "apiconnection",
                 "displayName": "${Resources.OFFICE}",
-                "iconUri": "https://az818438.vo.msecnd.net/icons/office365.png",
-                "brandColor": "#eb3c00"
+                "iconUri": "https://connectoricons-prod.azureedge.net/office365/icon_1.0.1008.1183.png",
+                "brandColor": "#0072c5"
             },
             {
                 "type": "apiconnection",
