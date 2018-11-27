@@ -1,5 +1,7 @@
 # Azure Logic Apps
 
+If you have questions about Logic Apps, please visit the [MSDN forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+
 ## Connectors
 Samples of custom connectors for Azure Logic Apps.
 
