@@ -10,7 +10,7 @@
             "security",
             "general"
         ],
-        "description": "Post message to Teams channel if alert sevirty is high, else send email notification",
+        "description": "Post message to Teams channel if alert severity is high, else send email notification",
         "displayName": "Post message to Teams channel and send email notification",
         "definition": {
             "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
