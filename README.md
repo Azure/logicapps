@@ -14,7 +14,7 @@ Samples of custom connectors for Azure Logic Apps.
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Flogicapps%2Fmaster%2Fconnectors%2FMicrosoft%20Graph%2Fazuredeploy.json" target="_blank">
         <img src="http://azuredeploy.net/deploybutton.png"/>
     </a>
-    * AddU ser, Assign Manager, Assign License, and more
+    * Add User, Assign Manager, Assign License, and more
 
 ## Templates
 View the template gallery for logic apps, with [instructions on how to create your own template](templates/README.md)
