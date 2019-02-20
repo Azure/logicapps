@@ -1,0 +1,167 @@
+{
+    "id": "/providers/Microsoft.Logic/galleries/public/templates/850f4390-9110-479e-b1d6-974a9a8b77a1",
+    "type": "Microsoft.Logic/galleries/templates",
+    "name": "850f4390-9110-479e-b1d6-974a9a8b77a1",
+    "properties": {
+        "author": {
+            "displayName": "Tom Kerkhove"
+        },
+        "categoryNames": [
+            "enterprise_integration",
+            "producitivity",
+            "general"
+        ],
+        "description": "Quickstart template for handling alerts pushed by Azure Monitor.",
+        "displayName": "Azure Monitor - Metrics Alert Handler",
+        "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "actions": {},
+            "contentVersion": "1.0.0.0",
+            "outputs": {},
+            "parameters": {
+                "$connections": {
+                    "defaultValue": {},
+                    "type": "Object"
+                }
+            },
+            "triggers": {
+                "manual": {
+                    "inputs": {
+                        "schema": {
+                            "properties": {
+                                "data": {
+                                    "properties": {
+                                        "context": {
+                                            "properties": {
+                                                "condition": {
+                                                    "properties": {
+                                                        "allOf": {
+                                                            "items": {
+                                                                "properties": {
+                                                                    "dimensions": {
+                                                                        "items": {
+                                                                            "properties": {
+                                                                                "name": {
+                                                                                    "type": "string"
+                                                                                },
+                                                                                "value": {
+                                                                                    "type": "string"
+                                                                                }
+                                                                            },
+                                                                            "required": [
+                                                                                "name",
+                                                                                "value"
+                                                                            ],
+                                                                            "type": "object"
+                                                                        },
+                                                                        "type": "array"
+                                                                    },
+                                                                    "metricName": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "metricValue": {
+                                                                        "type": "integer"
+                                                                    },
+                                                                    "operator": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "threshold": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "timeAggregation": {
+                                                                        "type": "string"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "metricName",
+                                                                    "dimensions",
+                                                                    "operator",
+                                                                    "threshold",
+                                                                    "timeAggregation",
+                                                                    "metricValue"
+                                                                ],
+                                                                "type": "object"
+                                                            },
+                                                            "type": "array"
+                                                        },
+                                                        "windowSize": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "conditionType": {
+                                                    "type": "string"
+                                                },
+                                                "description": {
+                                                    "type": "string"
+                                                },
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "portalLink": {
+                                                    "type": "string"
+                                                },
+                                                "resourceGroupName": {
+                                                    "type": "string"
+                                                },
+                                                "resourceId": {
+                                                    "type": "string"
+                                                },
+                                                "resourceName": {
+                                                    "type": "string"
+                                                },
+                                                "resourceType": {
+                                                    "type": "string"
+                                                },
+                                                "subscriptionId": {
+                                                    "type": "string"
+                                                },
+                                                "timestamp": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "properties": {
+                                            "properties": {},
+                                            "type": "object"
+                                        },
+                                        "status": {
+                                            "type": "string"
+                                        },
+                                        "version": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "schemaId": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "kind": "Http",
+                    "type": "Request"
+                }
+            }
+        },
+        "connectionReferences": {},
+        "apiSummaries": [
+            {
+                "type": "ApiConnection",
+                "displayName": "Azure Monitor",
+                "iconUri": "{Icon of the API}",
+                "brandColor": "#FFF"
+            }
+        ],
+        "changedTime": "2018-10-19T12:00:00.000Z",
+        "createdTime": "2018-10-19T12:00:00.000Z",
+        "popularity": 3
+    }
+}
