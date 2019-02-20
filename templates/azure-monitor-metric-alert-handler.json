@@ -1,7 +1,7 @@
 {
-    "id": "/providers/Microsoft.Logic/galleries/public/templates/850f4390-9110-479e-b1d6-974a9a8b77a1",
+    "id": "/providers/Microsoft.Logic/galleries/public/templates/7878ca26-5642-4681-86dc-f7b6976dc050",
     "type": "Microsoft.Logic/galleries/templates",
-    "name": "850f4390-9110-479e-b1d6-974a9a8b77a1",
+    "name": "7878ca26-5642-4681-86dc-f7b6976dc050",
     "properties": {
         "author": {
             "displayName": "Tom Kerkhove"
@@ -11,7 +11,7 @@
             "producitivity",
             "general"
         ],
-        "description": "Quickstart template for handling alerts pushed by Azure Monitor.",
+        "description": "Quickstart template for handling metric alerts pushed by Azure Monitor.",
         "displayName": "Azure Monitor - Metrics Alert Handler",
         "definition": {
             "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
@@ -156,11 +156,11 @@
             {
                 "type": "ApiConnection",
                 "displayName": "Azure Monitor",
-                "iconUri": "{Icon of the API}",
+                "iconUri": "https://user-images.githubusercontent.com/4345663/47220402-fbaea900-d3b1-11e8-809c-1adacf4ace34.png",
                 "brandColor": "#FFF"
             }
         ],
-        "changedTime": "2018-10-19T12:00:00.000Z",
+        "changedTime": "2019-02-20T08:00:00.000Z",
         "createdTime": "2018-10-19T12:00:00.000Z",
         "popularity": 3
     }
