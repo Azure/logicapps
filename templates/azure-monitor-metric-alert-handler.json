@@ -156,7 +156,7 @@
             {
                 "type": "ApiConnection",
                 "displayName": "Azure Monitor",
-                "iconUri": "https://user-images.githubusercontent.com/4345663/47220402-fbaea900-d3b1-11e8-809c-1adacf4ace34.png",
+                "iconUri": "https://github.com/Azure/logicapps/raw/master/templates/images/azure-monitor.png",
                 "brandColor": "#FFF"
             }
         ],
