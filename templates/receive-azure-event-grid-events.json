@@ -1,0 +1,87 @@
+{
+    "id": "/providers/Microsoft.Logic/galleries/public/templates/71e35685-6dd9-4519-a947-5ef51a554817",
+    "type": "Microsoft.Logic/galleries/templates",
+    "name": "71e35685-6dd9-4519-a947-5ef51a554817",
+    "properties": {
+        "author": {
+            "displayName": "Tom Kerkhove"
+        },
+        "categoryNames": [
+            "enterprise_integration",
+            "productivity",
+            "general"
+        ],
+        "description": "Provide HTTP endpoint to accept and handle Azure Event Grid events with schema validation.",
+        "displayName": "Receive Azure Event Grid Events",
+        "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "actions": {},
+            "contentVersion": "1.0.0.0",
+            "outputs": {},
+            "parameters": {},
+            "triggers": {
+                "manual": {
+                    "inputs": {
+                        "schema": {
+                            "items": {
+                                "properties": {
+                                    "data": {
+                                        "properties": {},
+                                        "type": "object"
+                                    },
+                                    "dataVersion": {
+                                        "type": "string"
+                                    },
+                                    "eventTime": {
+                                        "type": "string"
+                                    },
+                                    "eventType": {
+                                        "type": "string"
+                                    },
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "metadataVersion": {
+                                        "type": "string"
+                                    },
+                                    "subject": {
+                                        "type": "string"
+                                    },
+                                    "topic": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "topic",
+                                    "subject",
+                                    "eventType",
+                                    "eventTime",
+                                    "id",
+                                    "data",
+                                    "dataVersion",
+                                    "metadataVersion"
+                                ],
+                                "type": "object"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "kind": "Http",
+                    "type": "Request"
+                }
+            }
+        },
+        "connectionReferences": {},
+        "apiSummaries": [
+            {
+                "type": "ApiConnection",
+                "displayName": "Azure Event Grid",
+                "iconUri": "https://connectoricons-prod.azureedge.net/azureeventgrid/icon_1.0.1019.1193.png",
+                "brandColor": "#0072C6"
+            }
+        ],
+        "changedTime": "2019-03-16T13:37:00.000Z",
+        "createdTime": "2019-03-16T13:37:00.000Z",
+        "popularity": 20
+    }
+}

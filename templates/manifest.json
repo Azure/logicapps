@@ -15,6 +15,7 @@
     "instagram-to-twitter.json",
     "mailchimp-sharepoint.json",
     "office-to-wunderlist.json",
+    "receive-azure-event-grid-events.json",
     "request-response.json",
     "salesforce-common-data-model-accounts.json",
     "scheduler-recurrence-storage-queue.json",
