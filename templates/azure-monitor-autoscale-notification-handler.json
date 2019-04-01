@@ -1,0 +1,125 @@
+{
+    "id": "/providers/Microsoft.Logic/galleries/public/templates/c191db60-bd77-4dc8-b8aa-755af0508ff7",
+    "type": "Microsoft.Logic/galleries/templates",
+    "name": "c191db60-bd77-4dc8-b8aa-755af0508ff7",
+    "properties": {
+        "author": {
+            "displayName": "Tom Kerkhove"
+        },
+        "categoryNames": [
+            "enterprise_integration",
+            "producitivity",
+            "general"
+        ],
+        "description": "Quickstart template for handling autoscaling notifications pushed by Azure Monitor.",
+        "displayName": "Receive Azure Monitor Autoscale Notification",
+        "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "actions": {},
+            "contentVersion": "1.0.0.0",
+            "outputs": {},
+            "parameters": {
+                "$connections": {
+                    "defaultValue": {},
+                    "type": "Object"
+                }
+            },
+            "triggers": {
+                "manual": {
+                    "inputs": {
+                        "schema": {
+                            "$schema": "http://json-schema.org/draft-04/schema#",
+                            "properties": {
+                                "context": {
+                                    "properties": {
+                                        "details": {
+                                            "type": "string"
+                                        },
+                                        "id": {
+                                            "type": "string"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "newCapacity": {
+                                            "type": "string"
+                                        },
+                                        "oldCapacity": {
+                                            "type": "string"
+                                        },
+                                        "portalLink": {
+                                            "type": "string"
+                                        },
+                                        "resourceGroupName": {
+                                            "type": "string"
+                                        },
+                                        "resourceId": {
+                                            "type": "string"
+                                        },
+                                        "resourceName": {
+                                            "type": "string"
+                                        },
+                                        "resourceType": {
+                                            "type": "string"
+                                        },
+                                        "subscriptionId": {
+                                            "type": "string"
+                                        },
+                                        "timestamp": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "timestamp",
+                                        "id",
+                                        "name",
+                                        "details",
+                                        "subscriptionId",
+                                        "resourceGroupName",
+                                        "resourceName",
+                                        "resourceType",
+                                        "resourceId",
+                                        "portalLink",
+                                        "oldCapacity",
+                                        "newCapacity"
+                                    ],
+                                    "type": "object"
+                                },
+                                "operation": {
+                                    "type": "string"
+                                },
+                                "status": {
+                                    "type": "string"
+                                },
+                                "version": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "version",
+                                "status",
+                                "operation",
+                                "context"
+                            ],
+                            "type": "object"
+                        }
+                    },
+                    "kind": "Http",
+                    "type": "Request"
+                }
+            }
+        },
+        "connectionReferences": {},
+        "apiSummaries": [
+            {
+                "type": "ApiConnection",
+                "displayName": "Azure Monitor",
+                "iconUri": "https://github.com/Azure/logicapps/raw/master/templates/images/azure-monitor.png",
+                "brandColor": "#FFF"
+            }
+        ],
+        "changedTime": "2019-02-20T08:00:00.000Z",
+        "createdTime": "2018-10-19T12:00:00.000Z",
+        "popularity": 3
+    }
+}

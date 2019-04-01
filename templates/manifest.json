@@ -4,6 +4,7 @@
     "asc-post-message-to-teams-and-send-notification-email.json",
     "asc-send-notification-email.json",
     "azure-monitor-metric-alert-handler.json",
+    "azure-monitor-autoscale-notification-handler.json",
     "Azure-Blob-Auto-Expiration.json",
     "Azure-Blob-Auto-Tier.json",
     "blob-storage-to-dynamics-365-import.json",
