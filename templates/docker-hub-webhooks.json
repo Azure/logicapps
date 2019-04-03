@@ -110,7 +110,7 @@
             {
                 "type": "ApiConnection",
                 "displayName": "Docker Hub",
-                "iconUri": "!!!!!!!!!!!!!!DO NOT MERGE ME AS-IS!!!!!!!!!!!!!!",
+                "iconUri": "https://github.com/Azure/logicapps/raw/master/templates/images/docker-hub.png",
                 "brandColor": "#FFF"
             }
         ],
