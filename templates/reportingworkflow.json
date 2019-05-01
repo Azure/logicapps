@@ -10,7 +10,7 @@
             "blockchain"
         ],
         "description": "Publish smart contract event data to Power BI",
-        "displayName": "Publish Smart Contract Event Data to Power BI",
+        "displayName": "Publish smart contract event data to Power BI",
         "galleryName": "public",
         "summary": "",
         "definition": {
