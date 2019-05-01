@@ -9,8 +9,8 @@
         "categoryNames": [
             "general"
         ],
-        "description": "${Resources.TEMPLATE_REQUEST_RESPONSE_DESCRIPTION}",
-        "displayName": "${Resources.TEMPLATE_REQUEST_RESPONSE_DISPLAYNAME}",
+        "description": "Modified Desc",
+        "displayName": "Modified Disp Name",
         "galleryName": "public",
         "summary": "",
         "definition": {
