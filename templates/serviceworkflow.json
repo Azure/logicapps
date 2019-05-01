@@ -9,8 +9,8 @@
     "categoryNames": [
       "blockchain"
     ],
-    "description": "Expose smart contract function/property as a microservice",
-    "displayName": "Expose smart contract function/property as a microservice",
+    "description": "Expose a smart contract function or property as a microservice",
+    "displayName": "Expose a smart contract function or property as a microservice",
     "galleryName": "public",
     "summary": "",
     "definition": {
