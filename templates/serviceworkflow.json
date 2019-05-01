@@ -96,11 +96,11 @@
         "type": "apiconnection",
         "displayName": "Ethereum Connector",
         "iconUri": "https://connectoricons-prod.azureedge.net/blockchainethereum/icon_1.0.1118.1361.png",
-        "brandColor": "#ffffff"
+        "brandColor": "#606060"
       }
     ],
     "changedTime": "2017-07-05T00:00:43.000Z",
     "createdTime": "2017-01-31T00:00:43.000Z",
-    "popularity": 17
+    "popularity": 99
   }
 }
