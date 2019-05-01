@@ -9,8 +9,8 @@
         "categoryNames": [
             "blockchain"
         ],
-        "description": "Publish smart contract event data to Power BI",
         "displayName": "Publish smart contract event data to Power BI",
+        "description": "When an event occurs on a smart contract, this Logic App will be triggered and post the content of the event to Power BI.\\nOnce the template is configured with the smart contract detail, there is the option to publish all or some of the event details to Power BI.",
         "galleryName": "public",
         "summary": "",
         "definition": {

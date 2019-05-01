@@ -9,8 +9,8 @@
     "categoryNames": [
       "blockchain"
     ],
-    "description": "Expose a smart contract function or property as a microservice",
     "displayName": "Expose a smart contract function or property as a microservice",
+    "description": "When the Logic App is configured with details for the smart contract function, these values from the REST endpoint can be assigned to the parameters of the function.\\nWhen the function is complete, it can then send the response to the caller of the service.",
     "galleryName": "public",
     "summary": "",
     "definition": {
@@ -27,14 +27,7 @@
           "type": "Request",
           "kind": "Http",
           "inputs": {
-            "schema": {
-              "properties": {
-                "text": {
-                  "type": "string"
-                }
-              },
-              "type": "object"
-            }
+            "schema": {}
           }
         }
       },

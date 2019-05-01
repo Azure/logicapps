@@ -9,8 +9,8 @@
     "categoryNames": [
       "blockchain"
     ],
-    "description": "Publish smart contract event data to SQL DB",
     "displayName": "Publish smart contract event data to SQL DB",
+    "description": "When an event occurs on a smart contract, this Logic App will be triggered and post the message to SQL DB.\\nOnce the template is configured with the smart contract detail, this will insert a row in a database table that has column names that map to the properties of the event.",
     "galleryName": "public",
     "summary": "",
     "definition": {
