@@ -1,0 +1,661 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "location": {
+        "type": "string",
+        "minLength": 1,
+        "allowedValues": [
+          "eastasia",
+          "southeastasia",
+          "centralus",
+          "eastus",
+          "eastus2",
+          "westus",
+          "northcentralus",
+          "southcentralus",
+          "northeurope",
+          "westeurope",
+          "japanwest",
+          "japaneast",
+          "brazilsouth",
+          "australiaeast",
+          "australiasoutheast",
+          "southindia",
+          "centralindia",
+          "westindia",
+          "canadacentral",
+          "canadaeast",
+          "uksouth",
+          "ukwest",
+          "westcentralus",
+          "westus2"
+        ],
+        "metadata": {
+          "description": "Location for all resources."
+        }
+      },
+      "CreateRecurrenceJobLogicAppName": {
+        "type": "string",
+        "minLength": 1,
+        "metadata": {
+          "description": "The name of the logic app that creates timer jobs."
+        }
+      },
+      "ExecuteRecurrenceJobLogicAppName": {
+        "type": "string",
+        "minLength": 1,
+        "metadata": {
+          "description": "The name of the logic app that runs timer jobs."
+        }
+      }      ,
+      "RescheduleRecurrenceJobLogicAppName": {
+        "type": "string",
+        "minLength": 1,
+        "metadata": {
+          "description": "The name of the logic app that runs timer jobs."
+        }
+      },
+      "ServiceBusConnName": {
+        "type": "string",
+        "minLength": 1,
+        "metadata": {
+          "description": "The name of the service bus connection."
+        }
+      },
+      "ServiceBusConnConnectionString": {
+        "type": "string",
+        "minLength": 1,
+        "metadata": {
+          "description": "The connection string of the service bus connection."
+        }
+      }
+    },
+    "variables": {},
+    "resources": [
+        {
+           "name": "[concat(parameters('ServiceBusConnName'), copyIndex())]",
+           "type": "Microsoft.Web/connections",
+           "location": "[parameters('location')]",
+           "apiVersion": "2016-06-01",
+           "scale": null,
+           "properties": {
+               "displayName": "[concat(parameters('ServiceBusConnName'), copyIndex())]",
+               "customParameterValues": {},
+               "api": {
+                   "id": "[concat('/subscriptions/',  subscription().subscriptionId, '/providers/Microsoft.Web/locations/', parameters('location') , '/managedApis/servicebus')]"
+                },
+                "parameterValues": {
+                    "connectionString": "[parameters('ServiceBusConnConnectionString')]"
+                }
+            },
+            "dependsOn": [],
+            "copy": {
+                "name": "serviceBusConnCopy",
+                "count": 3
+              }
+        },
+      {
+        "name": "[parameters('CreateRecurrenceJobLogicAppName')]",
+        "type": "Microsoft.Logic/workflows",
+        "location": "[parameters('location')]",
+        "tags": {
+          "displayName": "LogicApp"
+        },
+        "apiVersion": "2017-07-01",
+        "dependsOn": [
+          "[resourceId('Microsoft.Logic/workflows', parameters('ExecuteRecurrenceJobLogicAppName'))]"
+        ],
+        "properties": {
+          "state": "Enabled",
+          "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "actions": {
+                "Condition": {
+                    "actions": {
+                        "Until_2": {
+                            "actions": {
+                                "Increment_variable_2": {
+                                    "inputs": {
+                                        "name": "count",
+                                        "value": 1
+                                    },
+                                    "runAfter": {},
+                                    "type": "IncrementVariable"
+                                }
+                            },
+                            "expression": "@contains(triggerBody()?['days'], createArray('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday')[mod(add(variables('count'), dayOfWeek(convertFromUtc(utcnow(), triggerBody()?['inputTimeZone']))), 7)])",
+                            "limit": {
+                                "count": 60,
+                                "timeout": "PT1H"
+                            },
+                            "runAfter": {},
+                            "type": "Until"
+                        }
+                    },
+                    "description": "Check to see if the execution time has already passed for today.",
+                    "expression": {
+                        "and": [
+                            {
+                                "equals": [
+                                    "@variables('count')",
+                                    0
+                                ]
+                            },
+                            {
+                                "less": [
+                                    "@convertToUtc(addMinutes(addHours(startOfDay(triggerBody()?['startTime']), triggerBody()?['hours']), triggerBody()?['minutes']), triggerBody()?['inputTimeZone'])",
+                                    "@utcNow()"
+                                ]
+                            }
+                        ]
+                    },
+                    "runAfter": {
+                        "Until": [
+                            "Succeeded"
+                        ]
+                    },
+                    "type": "If"
+                },
+                "ExecuteRecurrenceJob": {
+                    "inputs": {
+                        "body": {
+                            "days": "@triggerBody()?['days']",
+                            "dead-letter-props": "@triggerBody()?['dead-letter-props']",
+                            "hours": "@triggerBody()?['hours']",
+                            "inputTimeZone": "@triggerBody()?['inputTimeZone']",
+                            "minutes": "@triggerBody()?['minutes']",
+                            "nextExecutionTime": "@variables('nextTime')",
+                            "sbmessage": "@triggerBody()?['sbmessage']",
+                            "startTime": "@triggerBody()?['startTime']"
+                        },
+                        "host": {
+                            "triggerName": "manual",
+                            "workflow": {
+                                "id": "[resourceId('Microsoft.Logic/workflows',parameters('ExecuteRecurrenceJobLogicAppName'))]"
+                            }
+                        }
+                    },
+                    "operationOptions": "DisableAsyncPattern",
+                    "runAfter": {
+                        "Initialize_nextTime": [
+                            "Succeeded"
+                        ]
+                    },
+                    "type": "Workflow"
+                },
+                "Initialize_counter": {
+                    "description": "A counter to calculate how many days the next schedule should execute from now.",
+                    "inputs": {
+                        "variables": [
+                            {
+                                "name": "count",
+                                "type": "Integer",
+                                "value": -1
+                            }
+                        ]
+                    },
+                    "runAfter": {
+                        "Initialize_startTime": [
+                            "Succeeded"
+                        ]
+                    },
+                    "type": "InitializeVariable"
+                },
+                "Initialize_nextTime": {
+                    "description": "Calculate next execution time by adding ",
+                    "inputs": {
+                        "variables": [
+                            {
+                                "name": "nextTime",
+                                "type": "String",
+                                "value": "@{convertToUtc(addDays(addMinutes(addHours(startOfDay(convertFromUtc(variables('startTime'), triggerBody()?['inputTimeZone'])), triggerBody()?['hours']), triggerBody()?['minutes']), variables('count')), triggerBody()?['inputTimeZone'])}"
+                            }
+                        ]
+                    },
+                    "runAfter": {
+                        "Condition": [
+                            "Succeeded"
+                        ]
+                    },
+                    "type": "InitializeVariable"
+                },
+                "Initialize_startTime": {
+                    "inputs": {
+                        "variables": [
+                            {
+                                "name": "startTime",
+                                "type": "String",
+                                "value": "@{if(less(convertToUtc(triggerBody()?['startTime'], triggerBody()?['inputTimeZone']), utcNow()), utcNow(), convertToUtc(triggerBody()?['startTime'], triggerBody()?['inputTimeZone']))}"
+                            }
+                        ]
+                    },
+                    "runAfter": {},
+                    "type": "InitializeVariable"
+                },
+                "Response": {
+                    "inputs": {
+                        "body": "@variables('nextTime')",
+                        "statusCode": 200
+                    },
+                    "kind": "Http",
+                    "runAfter": {
+                        "Initialize_nextTime": [
+                            "Succeeded"
+                        ]
+                    },
+                    "type": "Response"
+                },
+                "Until": {
+                    "actions": {
+                        "Increment_variable": {
+                            "inputs": {
+                                "name": "count",
+                                "value": 1
+                            },
+                            "runAfter": {},
+                            "type": "IncrementVariable"
+                        }
+                    },
+                    "description": "Checks which day in the whole week is included in the schedule, starting from today, wrap over via modulus 7, with a loop timeout count of 7.",
+                    "expression": "@contains(triggerBody()?['days'], createArray('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday')[mod(add(variables('count'), dayOfWeek(variables('startTime'))), 7)])",
+                    "limit": {
+                        "count": 7,
+                        "timeout": "PT1H"
+                    },
+                    "runAfter": {
+                        "Initialize_counter": [
+                            "Succeeded"
+                        ]
+                    },
+                    "type": "Until"
+                }
+            },
+            "contentVersion": "1.0.0.0",
+            "outputs": {},
+            "parameters": {},
+            "triggers": {
+                "manual": {
+                    "correlation": {
+                        "clientTrackingId": "@triggerBody()['sbmessage']['JobIdentifier']"
+                    },
+                    "inputs": {
+                        "schema": {
+                            "properties": {
+                                "days": {
+                                    "type": "array"
+                                },
+                                "dead-letter-props": {
+                                    "type": "object"
+                                },
+                                "hours": {
+                                    "type": "integer"
+                                },
+                                "inputTimeZone": {
+                                    "type": "string"
+                                },
+                                "minutes": {
+                                    "type": "integer"
+                                },
+                                "sbmessage": {
+                                    "type": "object"
+                                },
+                                "startTime": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "kind": "Http",
+                    "type": "Request"
+                }
+            }
+          },
+          "parameters": {}
+        }
+      },
+      {
+        "name": "[parameters('ExecuteRecurrenceJobLogicAppName')]",
+        "type": "Microsoft.Logic/workflows",
+        "location": "[parameters('location')]",
+        "tags": {
+          "displayName": "LogicApp"
+        },
+        "apiVersion": "2017-07-01",
+        "properties": {
+          "state": "Enabled",
+          "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "actions": {
+                "Delay_until_nextExecutionTime": {
+                    "inputs": {
+                        "until": {
+                            "timestamp": "@triggerBody()?['nextExecutionTime']"
+                        }
+                    },
+                    "runAfter": {},
+                    "type": "Wait"
+                },
+                "Send_message": {
+                    "inputs": {
+                        "body": {
+                            "ContentData": "@{base64(triggerBody()?['sbmessage'])}",
+                            "ContentType": "application/jsonstream",
+                            "Properties": "@triggerBody()?['dead-letter-props']"
+                        },
+                        "host": {
+                            "connection": {
+                                "name": "@parameters('$connections')[concat('servicebus_', rand(1,3))]['connectionId']"
+                            }
+                        },
+                        "method": "post",
+                        "path": "/@{encodeURIComponent(encodeURIComponent('remotestartqueue'))}/messages",
+                        "queries": {
+                            "systemProperties": "None"
+                        }
+                    },
+                    "runAfter": {
+                        "Delay_until_nextExecutionTime": [
+                            "Succeeded"
+                        ]
+                    },
+                    "type": "ApiConnection"
+                }
+            },
+            "contentVersion": "1.0.0.0",
+            "outputs": {},
+            "parameters": {},
+            "triggers": {
+                "manual": {
+                    "correlation": {},
+                    "inputs": {
+                        "schema": {
+                            "properties": {
+                                "days": {
+                                    "type": "array"
+                                },
+                                "dead-letter-props": {
+                                    "type": "object"
+                                },
+                                "hours": {
+                                    "type": "integer"
+                                },
+                                "inputTimeZone": {
+                                    "type": "string"
+                                },
+                                "minutes": {
+                                    "type": "integer"
+                                },
+                                "nextExecutionTime": {
+                                    "type": "string"
+                                },
+                                "sbmessage": {
+                                    "type": "object"
+                                },
+                                "startTime": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "kind": "Http",
+                    "type": "Request"
+                }
+            }
+          },
+          "parameters": {}
+        }
+      },
+      {
+        "name": "[parameters('RescheduleRecurrenceJobLogicAppName')]",
+        "type": "Microsoft.Logic/workflows",
+        "location": "[parameters('location')]",
+        "tags": {
+          "displayName": "LogicApp"
+        },
+        "apiVersion": "2017-07-01",
+        "dependsOn": [
+          "[resourceId('Microsoft.Logic/workflows', parameters('ExecuteRecurrenceJobLogicAppName'))]"
+        ],
+        "properties": {
+          "state": "Enabled",
+          "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "actions": {
+                "ExecuteRecurrenceJob": {
+                    "inputs": {
+                        "body": {
+                            "days": "@triggerBody()?['days']",
+                            "dead-letter-props": "@triggerBody()?['dead-letter-props']",
+                            "hours": "@triggerBody()?['hours']",
+                            "inputTimeZone": "@triggerBody()?['inputTimeZone']",
+                            "minutes": "@triggerBody()?['minutes']",
+                            "nextExecutionTime": "@variables('nextTime')",
+                            "sbmessage": "@triggerBody()?['sbmessage']",
+                            "startTime": "@triggerBody()?['startTime']"
+                        },
+                        "host": {
+                            "triggerName": "manual",
+                            "workflow": {
+                                "id": "[resourceId('Microsoft.Logic/workflows',parameters('ExecuteRecurrenceJobLogicAppName'))]"
+                            }
+                        }
+                    },
+                    "operationOptions": "DisableAsyncPattern",
+                    "runAfter": {
+                        "Initialize_nextTime": [
+                            "Succeeded"
+                        ]
+                    },
+                    "type": "Workflow"
+                },
+                "Initialize_counter": {
+                    "description": "A counter to calculate how many days the next schedule should execute from now.",
+                    "inputs": {
+                        "variables": [
+                            {
+                                "name": "count",
+                                "type": "Integer",
+                                "value": 0
+                            }
+                        ]
+                    },
+                    "runAfter": {},
+                    "type": "InitializeVariable"
+                },
+                "Initialize_nextTime": {
+                    "description": "Calculate next execution time by adding ",
+                    "inputs": {
+                        "variables": [
+                            {
+                                "name": "nextTime",
+                                "type": "String",
+                                "value": "@{addDays(convertToUtc(addMinutes(addHours(startOfDay(triggerBody()?['lastExecutionTime']), triggerBody()?['hours']), triggerBody()?['minutes']), triggerBody()?['inputTimeZone']), variables('count'))}"
+                            }
+                        ]
+                    },
+                    "runAfter": {
+                        "Until": [
+                            "Succeeded"
+                        ]
+                    },
+                    "type": "InitializeVariable"
+                },
+                "Response": {
+                    "inputs": {
+                        "body": "@variables('nextTime')",
+                        "statusCode": 200
+                    },
+                    "kind": "Http",
+                    "runAfter": {
+                        "Initialize_nextTime": [
+                            "Succeeded"
+                        ]
+                    },
+                    "type": "Response"
+                },
+                "Until": {
+                    "actions": {
+                        "Increment_variable": {
+                            "inputs": {
+                                "name": "count",
+                                "value": 1
+                            },
+                            "runAfter": {},
+                            "type": "IncrementVariable"
+                        }
+                    },
+                    "description": "Checks which day in the whole week is included in the schedule, starting from today, wrap over via modulus 7, with a loop timeout count of 7.",
+                    "expression": "@contains(triggerBody()?['days'], createArray('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday')[mod(add(variables('count'), dayOfWeek(convertFromUtc(utcnow(), triggerBody()?['inputTimeZone']))), 7)])",
+                    "limit": {
+                        "count": 7,
+                        "timeout": "PT1H"
+                    },
+                    "runAfter": {
+                        "Initialize_counter": [
+                            "Succeeded"
+                        ]
+                    },
+                    "type": "Until"
+                }
+            },
+            "contentVersion": "1.0.0.0",
+            "outputs": {},
+            "parameters": {},
+            "triggers": {
+                "manual": {
+                    "correlation": {},
+                    "inputs": {},
+                    "kind": "Http",
+                    "type": "Request"
+                }
+            }
+          },
+          "parameters": {}
+        }
+      },
+      {
+        "apiVersion": "2018-08-01",
+        "name": "nestedTemplate",
+        "type": "Microsoft.Resources/deployments",
+        "dependsOn": [
+          "[resourceId('Microsoft.Logic/workflows', parameters('CreateRecurrenceJobLogicAppName'))]",
+          "[resourceId('Microsoft.Logic/workflows', parameters('RescheduleRecurrenceJobLogicAppName'))]",
+          "[resourceId('Microsoft.Web/connections', concat(parameters('ServiceBusConnName'), 0))]",
+          "[resourceId('Microsoft.Web/connections', concat(parameters('ServiceBusConnName'), 1))]",
+          "[resourceId('Microsoft.Web/connections', concat(parameters('ServiceBusConnName'), 2))]"
+        ],
+        "properties": {
+          "mode": "Incremental",
+          "template": {
+            "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+            "contentVersion": "1.0.0.0",
+            "resources": [
+              {
+                "name": "[parameters('ExecuteRecurrenceJobLogicAppName')]",
+                "type": "Microsoft.Logic/workflows",
+                "location": "[parameters('location')]",
+                "tags": {
+                  "displayName": "LogicApp"
+                },
+                "apiVersion": "2017-07-01",
+                "properties": {
+                  "state": "Enabled",
+                  "definition": {
+                    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+                    "actions": {
+                        "Send_message": {
+                            "inputs": {
+                                "body": {},
+                                "host": {
+                                    "connection": {
+                                        "name": "@parameters('$connections')[concat('servicebus_', rand(1,3))]['connectionId']"
+                                    }
+                                },
+                                "method": "post",
+                                "path": "",
+                                "queries": {}
+                            },
+                            "runAfter": {
+                                "Delay_until_nextExecutionTime": [
+                                    "Succeeded"
+                                ]
+                            },
+                            "type": "ApiConnection"
+                        },
+                        "Delay_until_nextExecutionTime": {
+                            "inputs": {
+                                "until": {
+                                    "timestamp": "@triggerBody()?['nextExecutionTime']"
+                                }
+                            },
+                            "runAfter": {},
+                            "type": "Wait"
+                        },
+                        "RescheduleRecurrenceJob": {
+                            "inputs": {
+                                "body": {},
+                                "host": {
+                                    "triggerName": "manual",
+                                    "workflow": {
+                                        "id": "[resourceId('Microsoft.Logic/workflows',parameters('RescheduleRecurrenceJobLogicAppName'))]"
+                                    }
+                                }
+                            },
+                            "runAfter": {
+                                "Send_message": [
+                                    "Succeeded"
+                                ]
+                            },
+                            "type": "Workflow"
+                        }
+                    },
+                    "contentVersion": "1.0.0.0",
+                    "outputs": {},
+                    "parameters": {
+                        "$connections": {
+                            "defaultValue": {},
+                            "type": "Object"
+                        }
+                    },
+                    "triggers": {
+                        "manual": {
+                            "correlation": {},
+                            "inputs": {},
+                            "kind": "Http",
+                            "type": "Request"
+                        }
+                    }
+                  },
+                  "parameters": {
+                    "$connections": {
+                        "value": {
+                            "servicebus_1": {
+                                "connectionId": "[resourceId('Microsoft.Web/connections', concat(parameters('ServiceBusConnName'), 0))]",
+                                "connectionName": "[concat(parameters('ServiceBusConnName'), 0)]",
+                                "id": "[concat('/subscriptions/', subscription().subscriptionId ,'/providers/Microsoft.Web/locations/', parameters('location') ,'/managedApis/servicebus')]"
+                            },
+                            "servicebus_2": {
+                                "connectionId": "[resourceId('Microsoft.Web/connections', concat(parameters('ServiceBusConnName'), 1))]",
+                                "connectionName": "[concat(parameters('ServiceBusConnName'), 1)]",
+                                "id": "[concat('/subscriptions/', subscription().subscriptionId ,'/providers/Microsoft.Web/locations/', parameters('location') ,'/managedApis/servicebus')]"
+                            },
+                            "servicebus_3": {
+                                "connectionId": "[resourceId('Microsoft.Web/connections', concat(parameters('ServiceBusConnName'), 2))]",
+                                "connectionName": "[concat(parameters('ServiceBusConnName'), 2)]",
+                                "id": "[concat('/subscriptions/', subscription().subscriptionId ,'/providers/Microsoft.Web/locations/', parameters('location') ,'/managedApis/servicebus')]"
+                            }
+                        }
+                      }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "outputs": {}
+  }
