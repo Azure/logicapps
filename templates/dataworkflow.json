@@ -1,13 +1,13 @@
 {
   "id": "/providers/Microsoft.Logic/galleries/public/templates/9a7c734078b04a22a0d081a2e24812a3",
   "type": "Microsoft.Logic/galleries/templates",
-  "name": "9a7c7340-78b0-4a22-a0d0-81a2e24812a3",
+  "name": "9a7c734078b04a22a0d081a2e24812a3",
   "properties": {
     "author": {
       "displayName": "Microsoft"
     },
     "categoryNames": [
-      "Enterprise Integration"
+      "social"
     ],
     "description": "Publish smart contract event data to SQL DB",
     "displayName": "Publish smart contract event data to SQL DB",
@@ -98,6 +98,6 @@
     ],
     "changedTime": "2017-07-05T00:00:43.000Z",
     "createdTime": "2017-01-31T00:00:43.000Z",
-    "popularity": 17
+    "popularity": 99
   }
 }
