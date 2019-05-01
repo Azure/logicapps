@@ -10,7 +10,7 @@
       "blockchain"
     ],
     "displayName": "Publish smart contract event data to Service Bus",
-    "description": "When an event occurs on a smart contract, this Logic App will be triggered and post the message to Service Bus.\\nOnce the template is configured with the smart contract detail, there is the option to publish all of the event detail or specific properties of the event.",
+    "description": "When an event occurs on a smart contract, this Logic App will be triggered and post the message to Service Bus. Once the template is configured with the smart contract detail, there is the option to publish all of the event detail or specific properties of the event.",
     "galleryName": "public",
     "summary": "",
     "definition": {
