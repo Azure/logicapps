@@ -97,6 +97,12 @@
         "displayName": "Ethereum Connector",
         "iconUri": "https://connectoricons-prod.azureedge.net/blockchainethereum/icon_1.0.1118.1361.png",
         "brandColor": "#ffffff"
+      },
+      {
+        "type": "http",
+        "displayName": "${Resources.RESPONSE_DISPLAYNAME}",
+        "iconUri": "${Images.ResponseIcon}",
+        "brandColor": "#009DA5"
       }
     ],
     "changedTime": "2017-07-05T00:00:43.000Z",
