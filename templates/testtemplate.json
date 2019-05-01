@@ -1,0 +1,104 @@
+{
+    "id": "/providers/Microsoft.Logic/galleries/public/templates/6472fdfd-2e21-4e08-b071-1a7c34e91ad3",
+    "type": "Microsoft.Logic/galleries/templates",
+    "name": "6472fdfd-2e21-4e08-b071-1a7c34e91ad3",
+    "properties": {
+        "author": {
+            "displayName": "Microsoft"
+        },
+        "categoryNames": [
+            "productivity"
+        ],
+        "description": "This is a Test Template",
+        "displayName": "Test Template",
+        "galleryName": "public",
+        "summary": "",
+        "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "actions": {
+                "Create_file": {
+                    "inputs": {
+                        "body": "@triggerBody()",
+                        "host": {
+                            "connection": {
+                                "name": "@parameters('$connections')['onedrive']['connectionId']"
+                            }
+                        },
+                        "method": "post",
+                        "path": "/datasets/default/files",
+                        "queries": {
+                            "folderPath": "/backup from Dropbox",
+                            "name": "@{triggerOutputs()['headers']?['x-ms-file-name-encoded']}"
+                        }
+                    },
+                    "runAfter": {},
+                    "type": "ApiConnection"
+                }
+            },
+            "contentVersion": "1.0.0.0",
+            "outputs": {},
+            "parameters": {
+                "$connections": {
+                    "defaultValue": {},
+                    "type": "Object"
+                }
+            },
+            "triggers": {
+                "When_a_file_is_created": {
+                    "inputs": {
+                        "host": {
+                            "connection": {
+                                "name": "@parameters('$connections')['dropbox']['connectionId']"
+                            }
+                        },
+                        "method": "get",
+                        "path": "/datasets/default/triggers/onnewfile",
+                        "queries": {
+                            "folderId": ""
+                        }
+                    },
+                    "recurrence": {
+                        "frequency": "Minute",
+                        "interval": 3
+                    },
+                    "type": "ApiConnection"
+                }
+            }
+        },
+        "connectionReferences": {
+            "dropbox": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/dropbox"
+                }
+            },
+            "onedrive": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/onedrive"
+                }
+            }
+        },
+        "apiSummaries": [
+            {
+                "type": "apiconnection",
+                "displayName": "Drop Box",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/dropbox.png",
+                "brandColor": "#007ee5"
+            },
+            {
+                "type": "apiconnection",
+                "displayName": "One Drive",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/onedrive.png",
+                "brandColor": "#094ab2"
+            }
+        ],
+        "changedTime": "2017-07-05T00:00:52.000Z",
+        "createdTime": "2017-01-31T00:00:52.000Z",
+        "popularity": 8
+    }
+}
