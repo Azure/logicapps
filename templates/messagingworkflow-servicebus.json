@@ -9,8 +9,8 @@
     "categoryNames": [
       "blockchain"
     ],
-    "description": "Messagingworkflow_ServiceBus",
-    "displayName": "Messagingworkflow_ServiceBus",
+    "description": "Publish smart contract event data to Service Bus",
+    "displayName": "Publish smart contract event data to Service Bus",
     "galleryName": "public",
     "summary": "",
     "definition": {
