@@ -1,0 +1,106 @@
+{
+  "id": "/providers/Microsoft.Logic/galleries/public/templates/6729a943831048619b731af8b82537d8",
+  "type": "Microsoft.Logic/galleries/templates",
+  "name": "6729a943831048619b731af8b82537d8",
+  "properties": {
+    "author": {
+      "displayName": "Microsoft"
+    },
+    "categoryNames": [
+      "blockchain"
+    ],
+    "description": "Smart Contract Microservice",
+    "displayName": "Smart Contract Microservice",
+    "galleryName": "public",
+    "summary": "",
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "type": "Request",
+          "kind": "Http",
+          "inputs": {
+            "schema": {
+              "properties": {
+                "text": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          }
+        }
+      },
+      "actions": {
+        "Call_smart_contract_function": {
+          "runAfter": {},
+          "type": "ApiConnection",
+          "inputs": {
+            "body": {
+              "text": ""
+            },
+            "host": {
+              "connection": {
+                "name": "@parameters('$connections')['blockchainethereum']['connectionId']"
+              }
+            },
+            "method": "post",
+            "path": "/contract/functions/@{encodeURIComponent(encodeURIComponent(''))}/execute",
+            "queries": {
+              "abi": "",
+              "contractAddress": ""
+            }
+          }
+        },
+        "Response": {
+          "runAfter": {
+            "Call_smart_contract_function": [
+              "Succeeded"
+            ]
+          },
+          "type": "Response",
+          "kind": "Http",
+          "inputs": {
+            "body": "@body('Call_smart_contract_function')",
+            "statusCode": 200
+          }
+        }
+      },
+      "outputs": {}
+    },
+    "connectionReferences": {
+      "blockchainethereum": {
+        "connection": {
+          "id": ""
+        },
+        "api": {
+          "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/blockchainethereum"
+        }
+      }
+    },
+    "apiSummaries": [
+      {
+        "type": "request",
+        "displayName": "${Resources.REQUEST_TRIGGER_DISPLAYNAME}",
+        "iconUri": "${Images.RequestIcon}",
+        "brandColor": "#009DA5"
+      },
+      {
+        "type": "apiconnection",
+        "displayName": "Ethereum Connector",
+        "iconUri": "https://connectoricons-prod.azureedge.net/servicebus/icon_1.0.1019.1195.png",
+        "brandColor": "#59B4D9"
+      }
+    ],
+    "changedTime": "2017-07-05T00:00:43.000Z",
+    "createdTime": "2017-01-31T00:00:43.000Z",
+    "popularity": 17
+  }
+}

@@ -1,7 +1,7 @@
 {
-  "id": "/providers/Microsoft.Logic/galleries/public/templates/9a7c734078b04a22a0d081a2e24812a3",
+  "id": "/providers/Microsoft.Logic/galleries/public/templates/250e33b85ac14661a3008df311cae3db",
   "type": "Microsoft.Logic/galleries/templates",
-  "name": "9a7c734078b04a22a0d081a2e24812a3",
+  "name": "250e33b85ac14661a3008df311cae3db",
   "properties": {
     "author": {
       "displayName": "Microsoft"
@@ -9,8 +9,8 @@
     "categoryNames": [
       "blockchain"
     ],
-    "description": "Publish smart contract event data to SQL DB",
-    "displayName": "Publish smart contract event data to SQL DB",
+    "description": "Messagingworkflow_ServiceBus",
+    "displayName": "Messagingworkflow_ServiceBus",
     "galleryName": "public",
     "summary": "",
     "definition": {
@@ -46,18 +46,23 @@
         }
       },
       "actions": {
-        "Insert_row": {
+        "Send_message": {
           "inputs": {
             "body": {
-              "message": "@triggerBody()?['message']"
+              "ContentType": "application/json",
+              "SessionId": "@{guid()}",
+              "ContentData": ""
             },
             "host": {
               "connection": {
-                "name": "@parameters('$connections')['sql']['connectionId']"
+                "name": "@parameters('$connections')['servicebus']['connectionId']"
               }
             },
             "method": "post",
-            "path": "/datasets/default/tables/@{encodeURIComponent(encodeURIComponent(''))}/items"
+            "path": "/@{encodeURIComponent(encodeURIComponent(''))}/messages",
+            "queries": {
+              "systemProperties": "None"
+            }
           },
           "runAfter": {},
           "type": "ApiConnection"
@@ -73,12 +78,12 @@
           "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/blockchainethereum"
         }
       },
-      "sql": {
+      "servicebus": {
         "connection": {
           "id": ""
         },
         "api": {
-          "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/sql"
+          "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/servicebus"
         }
       }
     },
@@ -90,11 +95,11 @@
         "brandColor": "#59B4D9"
       },
       {
-          "type": "apiconnection",
-          "displayName": "SQL Server",
-          "iconUri": "https://connectoricons-prod.azureedge.net/servicebus/icon_1.0.1019.1195.png",
-          "brandColor": "#59B4D9"
-      }      
+        "type": "apiconnection",
+        "displayName": "Service Bus",
+        "iconUri": "https://connectoricons-prod.azureedge.net/servicebus/icon_1.0.1019.1195.png",
+        "brandColor": "#59B4D9"
+      }
     ],
     "changedTime": "2017-07-05T00:00:43.000Z",
     "createdTime": "2017-01-31T00:00:43.000Z",

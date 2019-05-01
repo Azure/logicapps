@@ -1,0 +1,109 @@
+{
+    "id": "/providers/Microsoft.Logic/galleries/public/templates/4ae0489f6935498eabe6be3a773f341b",
+    "type": "Microsoft.Logic/galleries/templates",
+    "name": "4ae0489f6935498eabe6be3a773f341b",
+    "properties": {
+        "author": {
+            "displayName": "Microsoft"
+        },
+        "categoryNames": [
+            "blockchain"
+        ],
+        "description": "Publish smart contract event data to Event Grid",
+        "displayName": "Publish smart contract event data to Event Grid",
+        "galleryName": "public",
+        "summary": "",
+        "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "contentVersion": "1.0.0.0",
+            "parameters": {
+                "$connections": {
+                    "defaultValue": {},
+                    "type": "Object"
+                }
+            },
+            "triggers": {
+                "When_a_smart_contract_event_occurs": {
+                    "inputs": {
+                        "host": {
+                            "connection": {
+                                "name": "@parameters('$connections')['blockchainethereum']['connectionId']"
+                            }
+                        },
+                        "method": "get",
+                        "path": "/contract/OnNewEvent",
+                        "queries": {
+                            "abi": "",
+                            "contractAddress": "",
+                            "eventName": ""
+                        }
+                    },
+                    "recurrence": {
+                        "frequency": "Minute",
+                        "interval": 3
+                    },
+                    "type": "ApiConnection"
+                }
+            },
+            "actions": {
+                "Publish_Event": {
+                    "inputs": {
+                        "body": [
+                            {
+                                "data": "@triggerBody()",
+                                "eventTime": "@{utcNow()}",
+                                "eventType": "",
+                                "id": "@{guid()}",
+                                "subject": ""
+                            }
+                        ],
+                        "host": {
+                            "connection": {
+                                "name": "@parameters('$connections')['azureeventgridpublish']['connectionId']"
+                            }
+                        },
+                        "method": "post",
+                        "path": "/eventGrid/api/events"
+                    },
+                    "runAfter": {},
+                    "type": "ApiConnection"
+                }
+            }
+        },
+        "connectionReferences": {
+            "blockchainethereum": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/blockchainethereum"
+                }
+            },
+            "azureeventgridpublish": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/azureeventgridpublish"
+                }
+            }
+        },
+        "apiSummaries": [
+            {
+                "type": "apiconnection",
+                "displayName": "Ethereum Connector",
+                "iconUri": "https://connectoricons-prod.azureedge.net/servicebus/icon_1.0.1019.1195.png",
+                "brandColor": "#59B4D9"
+            },
+            {
+                "type": "apiconnection",
+                "displayName": "Event Grid",
+                "iconUri": "https://connectoricons-prod.azureedge.net/servicebus/icon_1.0.1019.1195.png",
+                "brandColor": "#59B4D9"
+            }
+        ],
+        "changedTime": "2017-07-05T00:00:43.000Z",
+        "createdTime": "2017-01-31T00:00:43.000Z",
+        "popularity": 99
+    }
+}
