@@ -51,7 +51,7 @@
             "body": {
               "ContentType": "application/json",
               "SessionId": "@{guid()}",
-              "ContentData": ""
+              "ContentData": "@triggerBody()"
             },
             "host": {
               "connection": {

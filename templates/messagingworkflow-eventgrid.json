@@ -51,7 +51,7 @@
                         "body": [
                             {
                                 "data": "@triggerBody()",
-                                "eventTime": "@{utcNow()}",
+                                "eventTime": "",
                                 "eventType": "",
                                 "id": "@{guid()}",
                                 "subject": ""
