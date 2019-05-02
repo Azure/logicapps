@@ -1,0 +1,103 @@
+{
+  "id": "/providers/Microsoft.Logic/galleries/public/templates/2EFD17EDCC1E4C1D91DFB0AAF06267A3",
+  "type": "Microsoft.Logic/galleries/templates",
+  "name": "2EFD17EDCC1E4C1D91DFB0AAF06267A3",
+  "properties": {
+    "author": {
+      "displayName": "Microsoft"
+    },
+    "categoryNames": [
+      "blockchain"
+    ],
+    "displayName": "Publish smart contract event data to SQL DB",
+    "description": "When an event occurs on a smart contract, this Logic App will be triggered and post the message to SQL DB. Once the template is configured with the smart contract detail, this will insert a row in a database table that has column names that map to the properties of the event.",
+    "galleryName": "public",
+    "summary": "",
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "When_a_smart_contract_event_occurs": {
+          "inputs": {
+            "host": {
+              "connection": {
+                "name": "@parameters('$connections')['blockchainethereum']['connectionId']"
+              }
+            },
+            "method": "get",
+            "path": "/contract/OnNewEvent",
+            "queries": {
+              "abi": "",
+              "contractAddress": "",
+              "eventName": ""
+            }
+          },
+          "recurrence": {
+            "frequency": "Minute",
+            "interval": 3
+          },
+          "type": "ApiConnection"
+        }
+      },
+      "actions": {
+        "Insert_row": {
+          "inputs": {
+            "body": {
+              "message": "@triggerBody()?['message']"
+            },
+            "host": {
+              "connection": {
+                "name": "@parameters('$connections')['sql']['connectionId']"
+              }
+            },
+            "method": "post",
+            "path": "/datasets/default/tables/@{encodeURIComponent(encodeURIComponent(''))}/items"
+          },
+          "runAfter": {},
+          "type": "ApiConnection"
+        }
+      }
+    },
+    "connectionReferences": {
+      "blockchainethereum": {
+        "connection": {
+          "id": ""
+        },
+        "api": {
+          "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/blockchainethereum"
+        }
+      },
+      "sql": {
+        "connection": {
+          "id": ""
+        },
+        "api": {
+          "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/sql"
+        }
+      }
+    },
+    "apiSummaries": [
+      {
+        "type": "apiconnection",
+        "displayName": "Ethereum Connector",
+        "iconUri": "https://connectoricons-prod.azureedge.net/blockchainethereum/icon_1.0.1118.1361.png",
+        "brandColor": "#ffffff"
+},
+      {
+          "type": "apiconnection",
+          "displayName": "SQL Server",
+          "iconUri": "https://connectoricons-prod.azureedge.net/sql/icon_1.0.1002.1175.png",
+          "brandColor": "#ba141a"
+      }      
+    ],
+    "changedTime": "2019-05-01T23:33:32Z",
+    "createdTime": "2019-05-01T23:33:32Z",
+    "popularity": 10
+  }
+}

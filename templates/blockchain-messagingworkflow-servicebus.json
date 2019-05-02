@@ -1,0 +1,108 @@
+{
+  "id": "/providers/Microsoft.Logic/galleries/public/templates/633F7D174009451DBFD880DCD503602F",
+  "type": "Microsoft.Logic/galleries/templates",
+  "name": "633F7D174009451DBFD880DCD503602F",
+  "properties": {
+    "author": {
+      "displayName": "Microsoft"
+    },
+    "categoryNames": [
+      "blockchain"
+    ],
+    "displayName": "Publish smart contract event data to Service Bus",
+    "description": "When an event occurs on a smart contract, this Logic App will be triggered and post the message to Service Bus. Once the template is configured with the smart contract detail, there is the option to publish all of the event detail or specific properties of the event.",
+    "galleryName": "public",
+    "summary": "",
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "When_a_smart_contract_event_occurs": {
+          "inputs": {
+            "host": {
+              "connection": {
+                "name": "@parameters('$connections')['blockchainethereum']['connectionId']"
+              }
+            },
+            "method": "get",
+            "path": "/contract/OnNewEvent",
+            "queries": {
+              "abi": "",
+              "contractAddress": "",
+              "eventName": ""
+            }
+          },
+          "recurrence": {
+            "frequency": "Minute",
+            "interval": 3
+          },
+          "type": "ApiConnection"
+        }
+      },
+      "actions": {
+        "Send_message": {
+          "inputs": {
+            "body": {
+              "ContentType": "application/json",
+              "SessionId": "@{guid()}",
+              "ContentData": "@triggerBody()"
+            },
+            "host": {
+              "connection": {
+                "name": "@parameters('$connections')['servicebus']['connectionId']"
+              }
+            },
+            "method": "post",
+            "path": "/@{encodeURIComponent(encodeURIComponent(''))}/messages",
+            "queries": {
+              "systemProperties": "None"
+            }
+          },
+          "runAfter": {},
+          "type": "ApiConnection"
+        }
+      }
+    },
+    "connectionReferences": {
+      "blockchainethereum": {
+        "connection": {
+          "id": ""
+        },
+        "api": {
+          "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/blockchainethereum"
+        }
+      },
+      "servicebus": {
+        "connection": {
+          "id": ""
+        },
+        "api": {
+          "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/servicebus"
+        }
+      }
+    },
+    "apiSummaries": [
+      {
+        "type": "apiconnection",
+        "displayName": "Ethereum Connector",
+        "iconUri": "https://connectoricons-prod.azureedge.net/blockchainethereum/icon_1.0.1118.1361.png",
+        "brandColor": "#ffffff"
+      },
+      {
+        "type": "apiconnection",
+        "displayName": "Service Bus",
+        "iconUri": "https://connectoricons-prod.azureedge.net/servicebus/icon_1.0.1019.1195.png",
+        "brandColor": "#59B4D9"
+      }
+    ],
+    "changedTime": "2019-05-01T23:33:32Z",
+    "createdTime": "2019-05-01T23:33:32Z",
+    "popularity": 30
+  }
+}

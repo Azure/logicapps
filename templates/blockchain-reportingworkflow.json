@@ -1,0 +1,103 @@
+{
+    "id": "/providers/Microsoft.Logic/galleries/public/templates/BDF20324644943489D36B16E3D5F476E",
+    "type": "Microsoft.Logic/galleries/templates",
+    "name": "BDF20324644943489D36B16E3D5F476E",
+    "properties": {
+        "author": {
+            "displayName": "Microsoft"
+        },
+        "categoryNames": [
+            "blockchain"
+        ],
+        "displayName": "Publish smart contract event data to Power BI",
+        "description": "When an event occurs on a smart contract, this Logic App will be triggered and post the content of the event to Power BI. Once the template is configured with the smart contract detail, there is the option to publish all or some of the event details to Power BI.",
+        "galleryName": "public",
+        "summary": "",
+        "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "contentVersion": "1.0.0.0",
+            "parameters": {
+                "$connections": {
+                    "defaultValue": {},
+                    "type": "Object"
+                }
+            },
+            "triggers": {
+                "When_a_smart_contract_event_occurs": {
+                    "inputs": {
+                        "host": {
+                            "connection": {
+                                "name": "@parameters('$connections')['blockchainethereum']['connectionId']"
+                            }
+                        },
+                        "method": "get",
+                        "path": "/contract/OnNewEvent",
+                        "queries": {
+                            "abi": "",
+                            "contractAddress": "",
+                            "eventName": ""
+                        }
+                    },
+                    "recurrence": {
+                        "frequency": "Minute",
+                        "interval": 1
+                    },
+                    "type": "ApiConnection"
+                }
+            },
+            "actions": {
+                "Add_rows_to_a_dataset": {
+                    "inputs": {
+                        "body": {
+                            "Payload": ""
+                        },
+                        "host": {
+                            "connection": {
+                                "name": "@parameters('$connections')['powerbi']['connectionId']"
+                            }
+                        },
+                        "method": "post",
+                        "path": "/v1.0/myorg/groups/@{encodeURIComponent('')}/datasets/@{encodeURIComponent('')}/tables/@{encodeURIComponent('')}/rows"
+                    },
+                    "runAfter": {},
+                    "type": "ApiConnection"
+                }
+            }
+        },
+        "connectionReferences": {
+            "blockchainethereum": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/blockchainethereum"
+                }
+            },
+            "powerbi": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/powerbi"
+                }
+            }
+        },
+        "apiSummaries": [
+            {
+                "type": "apiconnection",
+                "displayName": "Ethereum Connector",
+                "iconUri": "https://connectoricons-prod.azureedge.net/blockchainethereum/icon_1.0.1118.1361.png",
+                "brandColor": "#ffffff"
+            },
+            {
+                "type": "apiconnection",
+                "displayName": "Power BI",
+                "iconUri": "https://connectoricons-prod.azureedge.net/powerbi/icon_1.0.1152.1466.png",
+                "brandColor": "#F2C811"
+            }
+        ],
+        "changedTime": "2019-05-01T23:33:32Z",
+        "createdTime": "2019-05-01T23:33:32Z",
+        "popularity": 40
+    }
+}

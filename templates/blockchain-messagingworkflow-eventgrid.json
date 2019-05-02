@@ -1,0 +1,109 @@
+{
+    "id": "/providers/Microsoft.Logic/galleries/public/templates/015B50F23EE04BFBB62918B08CD50850",
+    "type": "Microsoft.Logic/galleries/templates",
+    "name": "015B50F23EE04BFBB62918B08CD50850",
+    "properties": {
+        "author": {
+            "displayName": "Microsoft"
+        },
+        "categoryNames": [
+            "blockchain"
+        ],
+        "displayName": "Publish smart contract event data to Event Grid",
+        "description": "When an event occurs on a smart contract, this Logic App will be triggered and post the message to Event Grid. Once the template is configured with the smart contract detail, there is the option to publish all of the event detail or specific properties of the event.",
+        "galleryName": "public",
+        "summary": "",
+        "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "contentVersion": "1.0.0.0",
+            "parameters": {
+                "$connections": {
+                    "defaultValue": {},
+                    "type": "Object"
+                }
+            },
+            "triggers": {
+                "When_a_smart_contract_event_occurs": {
+                    "inputs": {
+                        "host": {
+                            "connection": {
+                                "name": "@parameters('$connections')['blockchainethereum']['connectionId']"
+                            }
+                        },
+                        "method": "get",
+                        "path": "/contract/OnNewEvent",
+                        "queries": {
+                            "abi": "",
+                            "contractAddress": "",
+                            "eventName": ""
+                        }
+                    },
+                    "recurrence": {
+                        "frequency": "Minute",
+                        "interval": 3
+                    },
+                    "type": "ApiConnection"
+                }
+            },
+            "actions": {
+                "Publish_Event": {
+                    "inputs": {
+                        "body": [
+                            {
+                                "data": "@triggerBody()",
+                                "eventTime": "",
+                                "eventType": "",
+                                "id": "@{guid()}",
+                                "subject": ""
+                            }
+                        ],
+                        "host": {
+                            "connection": {
+                                "name": "@parameters('$connections')['azureeventgridpublish']['connectionId']"
+                            }
+                        },
+                        "method": "post",
+                        "path": "/eventGrid/api/events"
+                    },
+                    "runAfter": {},
+                    "type": "ApiConnection"
+                }
+            }
+        },
+        "connectionReferences": {
+            "blockchainethereum": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/blockchainethereum"
+                }
+            },
+            "azureeventgridpublish": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/azureeventgridpublish"
+                }
+            }
+        },
+        "apiSummaries": [
+            {
+                "type": "apiconnection",
+                "displayName": "Ethereum Connector",
+                "iconUri": "https://connectoricons-prod.azureedge.net/blockchainethereum/icon_1.0.1118.1361.png",
+                "brandColor": "#ffffff"
+            },
+            {
+                "type": "apiconnection",
+                "displayName": "Azure Event Grid",
+                "iconUri": "https://connectoricons-prod.azureedge.net/azureeventgrid/icon_1.0.1073.1287.png",
+                "brandColor": "#0072c6"
+            }
+        ],
+        "changedTime": "2019-05-01T23:33:32Z",
+        "createdTime": "2019-05-01T23:33:32Z",
+        "popularity": 20
+    }
+}
