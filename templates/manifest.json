@@ -41,5 +41,5 @@
     "twitter-to-smtp.json",
     "veter.json",
     "x12-to-as2.json",
-    "rosettanet-decode-response"
+    "rosettanet-decode-response.json"
 ]
