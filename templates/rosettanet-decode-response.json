@@ -1,0 +1,166 @@
+{
+    "id": "/providers/Microsoft.Logic/galleries/public/templates/ad5addf597fc45d89143f34c9dcb39b9",
+    "type": "Microsoft.Logic/galleries/templates",
+    "name": "ad5addf597fc45d89143f34c9dcb39b9",
+    "properties": {
+        "author": {
+            "displayName": "Microsoft"
+        },
+        "categoryNames": [
+            "enterprise_integration"
+         ],
+        "description": "Decode RosettaNet message and return encoded signal to partner",
+        "displayName": "RosettaNet Decode",
+        "definition": {
+          "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "$connections": {
+              "defaultValue": {},
+              "type": "Object"
+            }
+          },
+          "triggers": {
+            "manual": {
+              "type": "Request",
+              "kind": "Http",
+              "inputs": {
+                "schema": {}
+              }
+            }
+          },
+          "actions": {
+            "Encode_and_Send_Signal": {
+              "actions": {
+                "HTTP_Send_signal_to_Partner": {
+                  "runAfter": {
+                    "RosettaNet_Encode_Signal": [
+                      "Succeeded"
+                    ]
+                  },
+                  "type": "Http",
+                  "inputs": {
+                    "body": "@outputs('RosettaNet_Encode_Signal')?['body']?['messageContent']",
+                    "headers": "@outputs('RosettaNet_Encode_Signal')?['body']?['messageHeaders']",
+                    "method": "POST",
+                    "uri": "@outputs('RosettaNet_Encode_Signal')?['body']?['outboundUri']"
+                  }
+                },
+                "RosettaNet_Encode_Signal": {
+                  "runAfter": {},
+                  "type": "RosettaNetEncode",
+                  "inputs": {
+                    "guestPartnerName": "@outputs('RosettaNet_Decode')?['body']?['guestPartnerName']",
+                    "homeRole": "Initiator",
+                    "hostPartnerName": "@outputs('RosettaNet_Decode')?['body']?['hostPartnerName']",
+                    "messageToEncode": "@outputs('RosettaNet_Decode')?['body']?['outboundSignal']",
+                    "messageType": "Signal",
+                    "processConfigurationCode": "@outputs('RosettaNet_Decode')?['body']?['processConfigurationCode']",
+                    "processConfigurationInstanceIdentity": "@outputs('RosettaNet_Decode')?['body']?['processConfigurationInstanceIdentity']",
+                    "processConfigurationVersion": "@outputs('RosettaNet_Decode')?['body']?['processConfigurationVersion']",
+                    "trackingId": "@outputs('RosettaNet_Decode')?['body']?['trackingId']"
+                  }
+                }
+              },
+              "runAfter": {
+                "RosettaNet_Decode": [
+                  "Succeeded"
+                ]
+              },
+              "expression": {
+                "and": [
+                  {
+                    "not": {
+                      "equals": [
+                        "@outputs('RosettaNet_Decode')?['body']?['outboundSignal']",
+                        null
+                      ]
+                    }
+                  }
+                ]
+              },
+              "type": "If"
+            },
+            "RosettaNet_Decode": {
+              "runAfter": {},
+              "type": "RosettaNetDecode",
+              "inputs": {
+                "homeRole": "Initiator",
+                "messageHeaders": {
+                  "x-RN-Response-Type": "Async",
+                  "x-RN-Version": "RosettaNet/V02.00"
+                },
+                "messageToDecode": "@triggerBody()"
+              }
+            },
+            "Send_decoded_message_to_LOB_application": {
+              "runAfter": {
+                "RosettaNet_Decode": [
+                  "Succeeded"
+                ]
+              },
+              "type": "ApiConnection",
+              "inputs": {
+                "body": "@outputs('RosettaNet_Decode')?['body']?['messageContent']",
+                "host": {
+                  "connection": {
+                    "name": "@parameters('$connections')['azureblob_1']['connectionId']"
+                  }
+                },
+                "method": "post",
+                "path": "/datasets/default/files",
+                "queries": {
+                  "folderPath": "/public",
+                  "name": "RNMessages",
+                  "queryParametersSingleEncoded": true
+                }
+              },
+              "runtimeConfiguration": {
+                "contentTransfer": {
+                  "transferMode": "Chunked"
+                }
+              }
+            }
+          },
+          "outputs": {}
+        },
+        "connectionReferences": {
+            "azureblob": {
+			"connection": {
+				"id": ""
+			},
+			"api": {
+				"id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/azureblob"
+			}
+        },
+        "apiSummaries": [
+            {
+                "type": "request",
+                "displayName": "${Resources.REQUEST_TRIGGER_DISPLAYNAME",
+                "iconUri": "{Images.RequestIcon}",
+                "brandColor": "#009DA5"
+            },
+            {
+                "type": "rosettanetdecode",
+                "displayName": "${Resources.RNDECODE_DISPLAYNAME",
+                "iconUri": "{Images.RNDecodeIcon}",
+                "brandColor": "#009DA5"
+            },
+            {
+                "type": "createblob",
+                "displayName": "${Resources.BLOB_DISPLAYNAME",
+                "iconUri": "{Images.BlobIcon}",
+                "brandColor": "#009DA5"
+            },
+            {
+                "type": "httpresponse",
+                "displayName": "${Resources.RNDECODE_DISPLAYNAME",
+                "iconUri": "{Images.ResponseIcon}",
+                "brandColor": "#009DA5"
+            }
+        ],
+        "changedTime": "2000-01-01T00:00:00.000Z",
+        "createdTime": "2000-01-01T00:00:00.000Z",
+        "popularity": 99
+    }
+}
