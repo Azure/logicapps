@@ -104,7 +104,7 @@
                 "body": "@outputs('RosettaNet_Decode')?['body']?['messageContent']",
                 "host": {
                   "connection": {
-                    "name": "@parameters('$connections')['azureblob_1']['connectionId']"
+                    "name": "@parameters('$connections')['azureblob']['connectionId']"
                   }
                 },
                 "method": "post",
@@ -138,7 +138,7 @@
             
           {
                 "type": "request",
-                "displayName": "${Resources.REQUEST_TRIGGER_DISPLAYNAME",
+                "displayName": "Request Trigger",
                 "iconUri": "{Images.RequestIcon}",
                 "brandColor": "#009DA5"
             },
