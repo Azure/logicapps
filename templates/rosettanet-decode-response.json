@@ -132,6 +132,7 @@
 			"api": {
 				"id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/azureblob"
 			}
+        }
         },
         "apiSummaries": [
             {
@@ -139,29 +140,11 @@
                 "displayName": "${Resources.REQUEST_TRIGGER_DISPLAYNAME",
                 "iconUri": "{Images.RequestIcon}",
                 "brandColor": "#009DA5"
-            },
-            {
-                "type": "rosettanetdecode",
-                "displayName": "${Resources.RNDECODE_DISPLAYNAME",
-                "iconUri": "{Images.RNDecodeIcon}",
-                "brandColor": "#009DA5"
-            },
-            {
-                "type": "createblob",
-                "displayName": "${Resources.BLOB_DISPLAYNAME",
-                "iconUri": "{Images.BlobIcon}",
-                "brandColor": "#009DA5"
-            },
-            {
-                "type": "httpresponse",
-                "displayName": "${Resources.RNDECODE_DISPLAYNAME",
-                "iconUri": "{Images.ResponseIcon}",
-                "brandColor": "#009DA5"
             }
+          
         ],
         "changedTime": "2000-01-01T00:00:00.000Z",
         "createdTime": "2000-01-01T00:00:00.000Z",
         "popularity": 99
     }
-}
 }
