@@ -135,13 +135,19 @@
         }
         },
         "apiSummaries": [
-            {
+            
+          {
                 "type": "request",
                 "displayName": "${Resources.REQUEST_TRIGGER_DISPLAYNAME",
                 "iconUri": "{Images.RequestIcon}",
                 "brandColor": "#009DA5"
+            },
+            {
+			          "type": "ApiConnection",
+			          "displayName": "Azure Blob",
+			          "iconUri": "https://cpgeneralstore.blob.core.windows.net/icons/azureblob.png",
+                "brandColor": "#804998"		
             }
-          
         ],
         "changedTime": "2000-01-01T00:00:00.000Z",
         "createdTime": "2000-01-01T00:00:00.000Z",
