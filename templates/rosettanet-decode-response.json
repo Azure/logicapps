@@ -135,20 +135,25 @@
         }
         },
         "apiSummaries": [
-            
-          {
+           {
                 "type": "request",
-                "displayName": "Request Trigger",
-                "iconUri": "{Images.RequestIcon}",
+                "displayName": "${Resources.REQUEST_TRIGGER_DISPLAYNAME}",
+                "iconUri": "${Images.RequestIcon}",
                 "brandColor": "#009DA5"
             },
             {
-			          "type": "ApiConnection",
-			          "displayName": "Azure Blob",
-			          "iconUri": "https://cpgeneralstore.blob.core.windows.net/icons/azureblob.png",
-                "brandColor": "#804998"		
+                "type": "RosettaNetDecode",
+                "displayName": "RosettaNet Decode",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/azureblob.png",
+                "brandColor": "#804998"
+            },
+            {
+                "type": "apiconnection",
+                "displayName": "${Resources.AZURE_BLOB_DISPLAYNAME}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/azureblob.png",
+                "brandColor": "#804998"
             }
-        ],
+         ],
         "changedTime": "2000-01-01T00:00:00.000Z",
         "createdTime": "2000-01-01T00:00:00.000Z",
         "popularity": 99
