@@ -9,8 +9,8 @@
         "categoryNames": [
             "enterprise_integration"
          ],
-        "description": "Decode RosettaNet message and return encoded signal to partner",
-        "displayName": "Decode RosettaNet message and return encoded signal to partner",
+        "description": "Decode RosettaNet message, send it to blob and return encoded signal to partner",
+        "displayName": "Decode RosettaNet message, send it to Blob and return encoded signal to partner",
         "definition": {
           "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
           "contentVersion": "1.0.0.0",
@@ -144,7 +144,7 @@
             {
                 "type": "RosettaNetDecode",
                 "displayName": "RosettaNet Decode",
-                "iconUri": "https://latemplateartifacts.blob.core.windows.net/rosettanet/RosettaNetIcon.png",
+                "iconUri": "https://latemplateartifacts.blob.core.windows.net/rosettanet/rosetta-net-connector-100.png",
                 "brandColor": "#804998"
             },
             {
@@ -152,6 +152,12 @@
                 "displayName": "${Resources.AZURE_BLOB_DISPLAYNAME}",
                 "iconUri": "https://az818438.vo.msecnd.net/icons/azureblob.png",
                 "brandColor": "#804998"
+            },
+            {
+                "type": "http",
+                "displayName": "${Resources.HTTP_DISPLAYNAME}",
+                "iconUri": "${Images.HttpIcon}",
+                "brandColor": "#709727"
             }
          ],
         "changedTime": "2000-01-01T00:00:00.000Z",
