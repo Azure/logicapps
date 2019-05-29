@@ -49,7 +49,7 @@
                     "body": "@outputs('RosettaNet_Encode_Signal')?['body']?['messageContent']",
                     "headers": "@outputs('RosettaNet_Encode_Signal')?['body']?['messageHeaders']",
                     "method": "POST",
-                    "uri": "[parameters('HTTP_Send_signal_to_Partner-URI')]"
+                    "uri": "@outputs('RosettaNet_Encode')?['body']?['outboundUri']"
                   }
                 },
                 "RosettaNet_Encode_Signal": {
