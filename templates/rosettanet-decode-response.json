@@ -14,12 +14,7 @@
         "definition": {
           "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
           "contentVersion": "1.0.0.0",
-          "parameters": {
-            "$connections": {
-              "defaultValue": {},
-              "type": "Object"
-            }
-          },
+          "parameters": {},
           "triggers": {
             "manual": {
               "type": "Request",
@@ -30,6 +25,17 @@
             }
           },
           "actions": {
+            "Compose": {
+              "runAfter": {
+                "RosettaNet_Decode": [
+                  "Succeeded"
+                ]
+              },
+              "type": "Compose",
+              "inputs": {
+                "Placeholder": "Replace the action with what you want to do with decoded message.  This could be a call to send payload to your LOB application"
+              }
+            },
             "Encode_and_Send_Signal": {
               "actions": {
                 "HTTP_Send_signal_to_Partner": {
@@ -43,7 +49,7 @@
                     "body": "@outputs('RosettaNet_Encode_Signal')?['body']?['messageContent']",
                     "headers": "@outputs('RosettaNet_Encode_Signal')?['body']?['messageHeaders']",
                     "method": "POST",
-                    "uri": "@outputs('RosettaNet_Encode_Signal')?['body']?['outboundUri']"
+                    "uri": "[parameters('HTTP_Send_signal_to_Partner-URI')]"
                   }
                 },
                 "RosettaNet_Encode_Signal": {
@@ -92,48 +98,12 @@
                 },
                 "messageToDecode": "@triggerBody()"
               }
-            },
-            "Send_decoded_message_to_LOB_application": {
-              "runAfter": {
-                "RosettaNet_Decode": [
-                  "Succeeded"
-                ]
-              },
-              "type": "ApiConnection",
-              "inputs": {
-                "body": "@outputs('RosettaNet_Decode')?['body']?['messageContent']",
-                "host": {
-                  "connection": {
-                    "name": "@parameters('$connections')['azureblob']['connectionId']"
-                  }
-                },
-                "method": "post",
-                "path": "/datasets/default/files",
-                "queries": {
-                  "folderPath": "/public",
-                  "name": "RNMessages",
-                  "queryParametersSingleEncoded": true
-                }
-              },
-              "runtimeConfiguration": {
-                "contentTransfer": {
-                  "transferMode": "Chunked"
-                }
-              }
             }
           },
           "outputs": {}
         },
         "connectionReferences": {
-            "azureblob": {
-			"connection": {
-				"id": ""
-			},
-			"api": {
-				"id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/azureblob"
-			}
-        }
-        },
+         },
         "apiSummaries": [
            {
                 "type": "request",
@@ -145,12 +115,6 @@
                 "type": "RosettaNetDecode",
                 "displayName": "RosettaNet Decode",
                 "iconUri": "https://latemplateartifacts.blob.core.windows.net/rosettanet/rosetta-net-connector-100.png",
-                "brandColor": "#804998"
-            },
-            {
-                "type": "apiconnection",
-                "displayName": "${Resources.AZURE_BLOB_DISPLAYNAME}",
-                "iconUri": "https://az818438.vo.msecnd.net/icons/azureblob.png",
                 "brandColor": "#804998"
             },
             {
