@@ -65,7 +65,7 @@
                     "body": "@outputs('RosettaNet_Encode')?['body']?['messageContent']",
                     "headers": "@outputs('RosettaNet_Encode')?['body']?['messageHeaders']",
                     "method": "POST",
-                    "uri": "[parameters('HTTP_-_Send_encoded_message_to_partner-URI')]"
+                    "uri": "@outputs('RosettaNet_Encode')?['body']?['outboundUri']"
                   }
                 },
                 "RosettaNet_Encode": {
