@@ -30,9 +30,9 @@
             }
           },
           "actions": {
-            "Condition": {
+            "Condition_-_Check_if_there_is_Notification_of_Failure": {
               "actions": {
-                "Create_blob": {
+                "Create_blob_-_Store_NOF_for_further_processing": {
                   "runAfter": {},
                   "type": "ApiConnection",
                   "inputs": {
@@ -76,7 +76,7 @@
             },
             "Until": {
               "actions": {
-                "HTTP": {
+                "HTTP_-_Send_encoded_message_to_partner": {
                   "runAfter": {
                     "RosettaNet_Encode": [
                       "Succeeded"
