@@ -12,14 +12,9 @@
         "description": "Encode RosettaNet message,send to partner, wait/reconcile response from partner as per the PIP",
         "displayName": "Encode RosettaNet message and send to partner, wait/reconcile response from partner as per the PIP",
         "definition": {
-         "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+           "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
           "contentVersion": "1.0.0.0",
-          "parameters": {
-            "$connections": {
-              "defaultValue": {},
-              "type": "Object"
-            }
-          },
+          "parameters": {},
           "triggers": {
             "manual": {
               "type": "Request",
@@ -30,30 +25,13 @@
             }
           },
           "actions": {
-            "Condition": {
+            "Condition_-_Check_if_there_is_Notification_of_Failure": {
               "actions": {
-                "Create_blob": {
+                "Compose": {
                   "runAfter": {},
-                  "type": "ApiConnection",
+                  "type": "Compose",
                   "inputs": {
-                    "body": "@outputs('RosettaNet_wait_for_response')?['body']?['notificationOfFailure']",
-                    "host": {
-                      "connection": {
-                        "name": "@parameters('$connections')['azureblob']['connectionId']"
-                      }
-                    },
-                    "method": "post",
-                    "path": "",
-                    "queries": {
-                      "folderPath": "/rosettanet",
-                      "name": "NotOfFailure.txt",
-                      "queryParametersSingleEncoded": true
-                    }
-                  },
-                  "runtimeConfiguration": {
-                    "contentTransfer": {
-                      "transferMode": "Chunked"
-                    }
+                    "PlaceHolder": "Replace this action with what you want to do with Notification of Failure. This could be your LOB application where you manage RN transactions."
                   }
                 }
               },
@@ -76,7 +54,7 @@
             },
             "Until": {
               "actions": {
-                "HTTP": {
+                "HTTP_-_Send_encoded_message_to_partner": {
                   "runAfter": {
                     "RosettaNet_Encode": [
                       "Succeeded"
@@ -87,7 +65,7 @@
                     "body": "@outputs('RosettaNet_Encode')?['body']?['messageContent']",
                     "headers": "@outputs('RosettaNet_Encode')?['body']?['messageHeaders']",
                     "method": "POST",
-                    "uri": "[parameters('HTTP-URI')]"
+                    "uri": "[parameters('HTTP_-_Send_encoded_message_to_partner-URI')]"
                   }
                 },
                 "RosettaNet_Encode": {
@@ -106,7 +84,7 @@
                 },
                 "RosettaNet_wait_for_response": {
                   "runAfter": {
-                    "HTTP": [
+                    "HTTP_-_Send_encoded_message_to_partner": [
                       "Succeeded"
                     ]
                   },
@@ -131,15 +109,7 @@
           "outputs": {}
         },
         "connectionReferences": {
-            "azureblob": {
-			"connection": {
-				"id": ""
-			},
-			"api": {
-				"id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/azureblob"
-			}
-        }
-        },
+         },
         "apiSummaries": [
             {
                 "type": "RosettaNetEncode",
@@ -152,12 +122,6 @@
                 "displayName": "${Resources.HTTP_DISPLAYNAME}",
                 "iconUri": "${Images.HttpIcon}",
                 "brandColor": "#709727"
-            },
-            {
-                "type": "apiconnection",
-                "displayName": "${Resources.AZURE_BLOB_DISPLAYNAME}",
-                "iconUri": "https://az818438.vo.msecnd.net/icons/azureblob.png",
-                "brandColor": "#804998"
             }
             
          ],
