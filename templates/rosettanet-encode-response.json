@@ -9,8 +9,8 @@
         "categoryNames": [
             "enterprise_integration"
          ],
-        "description": "Encode or Send RosettaNet message and send to partner, wait/reconcile response as per the PIP",
-        "displayName": "Encode or Send RosettaNet message and send to partner, wait/reconcile response as per the PIP",
+        "description": "Encode RosettaNet message,send to partner, wait/reconcile response from partner as per the PIP",
+        "displayName": "Encode RosettaNet message and send to partner, wait/reconcile response from partner as per the PIP",
         "definition": {
          "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
           "contentVersion": "1.0.0.0",
@@ -30,9 +30,9 @@
             }
           },
           "actions": {
-            "Condition_-_Check_if_there_is_Notification_of_Failure": {
+            "Condition": {
               "actions": {
-                "Create_blob_-_Store_NOF_for_further_processing": {
+                "Create_blob": {
                   "runAfter": {},
                   "type": "ApiConnection",
                   "inputs": {
@@ -76,7 +76,7 @@
             },
             "Until": {
               "actions": {
-                "HTTP_-_Send_encoded_message_to_partner": {
+                "HTTP": {
                   "runAfter": {
                     "RosettaNet_Encode": [
                       "Succeeded"
@@ -148,17 +148,18 @@
                 "brandColor": "#804998"
             },
             {
-                "type": "apiconnection",
-                "displayName": "${Resources.AZURE_BLOB_DISPLAYNAME}",
-                "iconUri": "https://az818438.vo.msecnd.net/icons/azureblob.png",
-                "brandColor": "#804998"
-            },
-            {
                 "type": "http",
                 "displayName": "${Resources.HTTP_DISPLAYNAME}",
                 "iconUri": "${Images.HttpIcon}",
                 "brandColor": "#709727"
+            },
+            {
+                "type": "apiconnection",
+                "displayName": "${Resources.AZURE_BLOB_DISPLAYNAME}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/azureblob.png",
+                "brandColor": "#804998"
             }
+            
          ],
         "changedTime": "2000-01-01T00:00:00.000Z",
         "createdTime": "2000-01-01T00:00:00.000Z",

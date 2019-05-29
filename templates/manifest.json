@@ -22,6 +22,8 @@
     "mailchimp-sharepoint.json",
     "office-to-wunderlist.json",
     "request-response.json",
+    "rosettanet-decode-response.json",
+    "rosettanet-encode-response.json",
     "salesforce-common-data-model-accounts.json",
     "scheduler-recurrence-storage-queue.json",
     "scheduler-run-once-http.json",
@@ -40,7 +42,5 @@
     "twitter-to-outlook.json",
     "twitter-to-smtp.json",
     "veter.json",
-    "x12-to-as2.json",
-    "rosettanet-decode-response.json",
-    "rosettanet-encode-response.json"    
+    "x12-to-as2.json"
 ]
