@@ -1,0 +1,126 @@
+{
+    "id": "/providers/Microsoft.Logic/galleries/public/templates/ad5addf597fc45d89143f34c9dcb39b9",
+    "type": "Microsoft.Logic/galleries/templates",
+    "name": "ad5addf597fc45d89143f34c9dcb39b9",
+    "properties": {
+        "author": {
+            "displayName": "Microsoft"
+        },
+        "categoryNames": [
+            "enterprise_integration"
+         ],
+        "description": "Decode RosettaNet message, send it to blob and return encoded signal to partner",
+        "displayName": "Decode RosettaNet message, send it to Blob and return encoded signal to partner",
+        "definition": {
+           "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {},
+          "triggers": {
+            "manual": {
+              "type": "Request",
+              "kind": "Http",
+              "inputs": {
+                "schema": {}
+              }
+            }
+          },
+          "actions": {
+            "Compose": {
+              "runAfter": {
+                "RosettaNet_Decode": [
+                  "Succeeded"
+                ]
+              },
+              "type": "Compose",
+              "inputs": {
+                "Placeholder": "Replace the action with what you want to do with decoded message.  This could be a call to send payload to your LOB application"
+              }
+            },
+            "Encode_and_Send_Signal": {
+              "actions": {
+                "HTTP_Send_signal_to_Partner": {
+                  "runAfter": {
+                    "RosettaNet_Encode_Signal": [
+                      "Succeeded"
+                    ]
+                  },
+                  "type": "Http",
+                  "inputs": {
+                    "body": "@outputs('RosettaNet_Encode_Signal')?['body']?['messageContent']",
+                    "headers": "@outputs('RosettaNet_Encode_Signal')?['body']?['messageHeaders']",
+                    "method": "POST",
+                    "uri": "@outputs('RosettaNet_Encode_Signal')?['body']?['outboundUri']"
+                  }
+                },
+                "RosettaNet_Encode_Signal": {
+                  "runAfter": {},
+                  "type": "RosettaNetEncode",
+                  "inputs": {
+                    "guestPartnerName": "@outputs('RosettaNet_Decode')?['body']?['guestPartnerName']",
+                    "homeRole": "Responder",
+                    "hostPartnerName": "@outputs('RosettaNet_Decode')?['body']?['hostPartnerName']",
+                    "messageToEncode": "@outputs('RosettaNet_Decode')?['body']?['outboundSignal']",
+                    "messageType": "Signal",
+                    "processConfigurationCode": "@outputs('RosettaNet_Decode')?['body']?['processConfigurationCode']",
+                    "processConfigurationInstanceIdentity": "@outputs('RosettaNet_Decode')?['body']?['processConfigurationInstanceIdentity']",
+                    "processConfigurationVersion": "@outputs('RosettaNet_Decode')?['body']?['processConfigurationVersion']",
+                    "trackingId": "@outputs('RosettaNet_Decode')?['body']?['trackingId']"
+                  }
+                }
+              },
+              "runAfter": {
+                "RosettaNet_Decode": [
+                  "Succeeded"
+                ]
+              },
+              "expression": {
+                "and": [
+                  {
+                    "equals": [
+                      "@outputs('RosettaNet_Decode')?['body']?['messageType']",
+                      "Action"
+                    ]
+                  }
+                ]
+              },
+              "type": "If"
+            },
+            "RosettaNet_Decode": {
+              "runAfter": {},
+              "type": "RosettaNetDecode",
+              "inputs": {
+                "homeRole": "Responder",
+                "messageHeaders": "@triggerOutputs()['headers']",
+                "messageToDecode": "@triggerBody()"
+              }
+            }
+          },
+          "outputs": {}
+        },
+        "connectionReferences": {
+         },
+        "apiSummaries": [
+           {
+                "type": "request",
+                "displayName": "${Resources.REQUEST_TRIGGER_DISPLAYNAME}",
+                "iconUri": "${Images.RequestIcon}",
+                "brandColor": "#009DA5"
+            },
+            {
+                "type": "RosettaNetDecode",
+                "displayName": "RosettaNet Decode",
+                "iconUri": "https://latemplateartifacts.blob.core.windows.net/rosettanet/rosetta-net-connector-100.png",
+                "brandColor": "#804998"
+            },
+            {
+                "type": "http",
+                "displayName": "${Resources.HTTP_DISPLAYNAME}",
+                "iconUri": "${Images.HttpIcon}",
+                "brandColor": "#709727"
+            }
+         ],
+        "changedTime": "2000-01-01T00:00:00.000Z",
+        "createdTime": "2000-01-01T00:00:00.000Z",
+        "popularity": 99
+    }
+}

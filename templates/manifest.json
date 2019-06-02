@@ -22,6 +22,8 @@
     "mailchimp-sharepoint.json",
     "office-to-wunderlist.json",
     "request-response.json",
+    "rosettanet-decode-response.json",
+    "rosettanet-encode-response.json",
     "salesforce-common-data-model-accounts.json",
     "scheduler-recurrence-storage-queue.json",
     "scheduler-run-once-http.json",

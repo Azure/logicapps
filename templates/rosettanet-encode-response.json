@@ -1,0 +1,145 @@
+{
+    "id": "/providers/Microsoft.Logic/galleries/public/templates/616a6c6ec1ee4deba2923d0111dc66e5",
+    "type": "Microsoft.Logic/galleries/templates",
+    "name": "616a6c6ec1ee4deba2923d0111dc66e5",
+    "properties": {
+        "author": {
+            "displayName": "Microsoft"
+        },
+        "categoryNames": [
+            "enterprise_integration"
+         ],
+        "description": "Encode RosettaNet message,send to partner, wait/reconcile response from partner as per the PIP",
+        "displayName": "Encode RosettaNet message and send to partner, wait/reconcile response from partner as per the PIP",
+        "definition": {
+           "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {},
+          "triggers": {
+            "manual": {
+              "type": "Request",
+              "kind": "Http",
+              "inputs": {
+                "schema": {}
+              }
+            }
+          },
+          "actions": {
+            "Condition_-_Check_if_there_is_Notification_of_Failure": {
+              "actions": {
+                "Compose": {
+                  "runAfter": {},
+                  "type": "Compose",
+                  "inputs": {
+                    "PlaceHolder": "Replace this action with what you want to do with Notification of Failure. This could be your LOB application where you manage RN transactions."
+                  }
+                }
+              },
+              "runAfter": {
+                "Until": [
+                  "Succeeded"
+                ]
+              },
+              "expression": {
+                "and": [
+                  {
+                    "equals": [
+                      "@outputs('RosettaNet_wait_for_response')?['body']?['notificationOfFailure']",
+                      "@null"
+                    ]
+                  }
+                ]
+              },
+              "type": "If"
+            },
+            "Create_PIP_instance_identity": {
+              "runAfter": {},
+              "type": "Compose",
+              "inputs": 1234
+            },
+            "Until": {
+              "actions": {
+                "HTTP_-_Send_encoded_message_to_partner": {
+                  "runAfter": {
+                    "RosettaNet_Encode": [
+                      "Succeeded"
+                    ]
+                  },
+                  "type": "Http",
+                  "inputs": {
+                    "body": "@outputs('RosettaNet_Encode')?['body']?['messageContent']",
+                    "headers": "@outputs('RosettaNet_Encode')?['body']?['messageHeaders']",
+                    "method": "POST",
+                    "uri": "@outputs('RosettaNet_Encode')?['body']?['outboundUri']"
+                  }
+                },
+                "RosettaNet_Encode": {
+                  "runAfter": {},
+                  "type": "RosettaNetEncode",
+                  "inputs": {
+                    "guestPartnerName": "ContosoGuest",
+                    "homeRole": "Initiator",
+                    "hostPartnerName": "FabriakamHost",
+                    "messageToEncode": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<note>\n<body>Hello World</body>\n</note>",
+                    "messageType": "Action",
+                    "processConfigurationCode": "3A4",
+                    "processConfigurationInstanceIdentity": "@outputs('Create_PIP_instance_identity')",
+                    "processConfigurationVersion": "v02.02.00"
+                  }
+                },
+                "RosettaNet_wait_for_response": {
+                  "runAfter": {
+                    "HTTP_-_Send_encoded_message_to_partner": [
+                      "Succeeded"
+                    ]
+                  },
+                  "type": "RosettaNetWaitForResponse",
+                  "inputs": {
+                    "homeRole": "Initiator",
+                    "pollingInterval": {
+                      "count": 1,
+                      "unit": "Minute"
+                    },
+                    "processInstanceIdentity": "@outputs('Create_PIP_instance_identity')",
+                    "retryCount": "@iterationIndexes('Until')",
+                    "serviceContent": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<note>\n<body>Hello World</body>\n</note>"
+                  }
+                }
+              },
+              "runAfter": {
+                "Create_PIP_instance_identity": [
+                  "Succeeded"
+                ]
+              },
+              "expression": "@not(equals(outputs('RosettaNet_wait_for_response')?['body']?['waitForResponseResult'], 'retryable'))",
+              "limit": {
+                "count": 60,
+                "timeout": "PT1H"
+              },
+              "type": "Until"
+            }
+          },
+          "outputs": {}
+        },
+        "connectionReferences": {
+         },
+        "apiSummaries": [
+            {
+                "type": "RosettaNetEncode",
+                "displayName": "RosettaNet Encode",
+                "iconUri": "https://latemplateartifacts.blob.core.windows.net/rosettanet/rosetta-net-connector-100.png",
+                "brandColor": "#804998"
+            },
+            {
+                "type": "http",
+                "displayName": "${Resources.HTTP_DISPLAYNAME}",
+                "iconUri": "${Images.HttpIcon}",
+                "brandColor": "#709727"
+            }
+            
+         ],
+        "changedTime": "2000-01-01T00:00:00.000Z",
+        "createdTime": "2000-01-01T00:00:00.000Z",
+        "popularity": 99
+    }
+}
