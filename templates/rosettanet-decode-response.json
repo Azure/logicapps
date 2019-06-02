@@ -12,7 +12,7 @@
         "description": "Decode RosettaNet message, send it to blob and return encoded signal to partner",
         "displayName": "Decode RosettaNet message, send it to Blob and return encoded signal to partner",
         "definition": {
-          "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+           "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
           "contentVersion": "1.0.0.0",
           "parameters": {},
           "triggers": {
@@ -57,7 +57,7 @@
                   "type": "RosettaNetEncode",
                   "inputs": {
                     "guestPartnerName": "@outputs('RosettaNet_Decode')?['body']?['guestPartnerName']",
-                    "homeRole": "Initiator",
+                    "homeRole": "Responder",
                     "hostPartnerName": "@outputs('RosettaNet_Decode')?['body']?['hostPartnerName']",
                     "messageToEncode": "@outputs('RosettaNet_Decode')?['body']?['outboundSignal']",
                     "messageType": "Signal",
@@ -76,12 +76,10 @@
               "expression": {
                 "and": [
                   {
-                    "not": {
-                      "equals": [
-                        "@outputs('RosettaNet_Decode')?['body']?['outboundSignal']",
-                        null
-                      ]
-                    }
+                    "equals": [
+                      "@outputs('RosettaNet_Decode')?['body']?['messageType']",
+                      "Action"
+                    ]
                   }
                 ]
               },
@@ -91,11 +89,8 @@
               "runAfter": {},
               "type": "RosettaNetDecode",
               "inputs": {
-                "homeRole": "Initiator",
-                "messageHeaders": {
-                  "x-RN-Response-Type": "Async",
-                  "x-RN-Version": "RosettaNet/V02.00"
-                },
+                "homeRole": "Responder",
+                "messageHeaders": "@triggerOutputs()['headers']",
                 "messageToDecode": "@triggerBody()"
               }
             }

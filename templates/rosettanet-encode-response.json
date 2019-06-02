@@ -52,6 +52,11 @@
               },
               "type": "If"
             },
+            "Create_PIP_instance_identity": {
+              "runAfter": {},
+              "type": "Compose",
+              "inputs": 1234
+            },
             "Until": {
               "actions": {
                 "HTTP_-_Send_encoded_message_to_partner": {
@@ -72,13 +77,13 @@
                   "runAfter": {},
                   "type": "RosettaNetEncode",
                   "inputs": {
-                    "guestPartnerName": "Contoso",
+                    "guestPartnerName": "ContosoGuest",
                     "homeRole": "Initiator",
-                    "hostPartnerName": "@triggerOutputs()['Headers']['host']",
-                    "messageToEncode": "@triggerBody()",
+                    "hostPartnerName": "FabriakamHost",
+                    "messageToEncode": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<note>\n<body>Hello World</body>\n</note>",
                     "messageType": "Action",
                     "processConfigurationCode": "3A4",
-                    "processConfigurationInstanceIdentity": "@guid()",
+                    "processConfigurationInstanceIdentity": "@outputs('Create_PIP_instance_identity')",
                     "processConfigurationVersion": "v02.02.00"
                   }
                 },
@@ -91,13 +96,21 @@
                   "type": "RosettaNetWaitForResponse",
                   "inputs": {
                     "homeRole": "Initiator",
-                    "processInstanceIdentity": "@triggerBody()",
+                    "pollingInterval": {
+                      "count": 1,
+                      "unit": "Minute"
+                    },
+                    "processInstanceIdentity": "@outputs('Create_PIP_instance_identity')",
                     "retryCount": "@iterationIndexes('Until')",
-                    "serviceContent": "@triggerBody()"
+                    "serviceContent": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<note>\n<body>Hello World</body>\n</note>"
                   }
                 }
               },
-              "runAfter": {},
+              "runAfter": {
+                "Create_PIP_instance_identity": [
+                  "Succeeded"
+                ]
+              },
               "expression": "@not(equals(outputs('RosettaNet_wait_for_response')?['body']?['waitForResponseResult'], 'retryable'))",
               "limit": {
                 "count": 60,
