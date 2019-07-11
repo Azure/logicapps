@@ -1,6 +1,6 @@
 [
     "as2-response.json",
-	"asc-alert-send-notification-email.json",
+    "asc-alert-send-notification-email.json",
     "asc-post-message-to-slack.json",
     "asc-post-message-to-teams-and-send-notification-email.json",
     "asc-send-notification-email.json",

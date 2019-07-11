@@ -7,7 +7,8 @@
             "displayName": "Microsoft"
         },
         "categoryNames": [
-            "general"
+            "general",
+			"security"
         ],
         "description": "Send an email notification with the alert details when a threat is detected",
         "displayName": "Get a notification email when Security Center detects a threat",
@@ -19,7 +20,7 @@
               "inputs": {
                 "host": {
                   "connection": {
-                    "name": "@parameters('$connections')['office365_1']['connectionId']"
+                    "name": "@parameters('$connections')['office365']['connectionId']"
                   }
                 },
                 "method": "post",
@@ -61,12 +62,12 @@
           "outputs": {}
         },
         "connectionReferences": {
-            "office365_1": {
+            "office365": {
                 "connection": {
                     "id": ""
                 },
                 "api": {
-                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/office365_1"
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/office365"
                 }
             },
             "ascalert": {
@@ -81,7 +82,7 @@
         "apiSummaries": [
 			{
                 "type": "apiconnection",
-                "displayName": "${Resources.ASCAlert}",
+                "displayName": "Azure Security Center Alert",
                 "iconUri": "https://connectoricons-prod.azureedge.net/ascalert/icon_1.0.1221.1620.png",
                 "brandColor": "#99c419"
             },
