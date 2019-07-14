@@ -27,10 +27,9 @@
                 "body": {
                   "To": null,
                   "Subject": "Azure Security Center has discovered a potential security threat in your environment",
-                  "Body": "Azure Security Center has discovered a potential security threat in your environment - Alert details below:\r\n\r\nAlert name: @{triggerBody()?['AlertDisplayName']}\r\n\nDescription: @{triggerBody()?['Description']}\r\n\r\nDetection time: @{triggerBody()?['TimeGenerated']}\r\n\r\nAttacked resource: @{triggerBody()?['CompromisedEntity']}\r\n\r\nDetected by: @{triggerBody()?['VendorName']}\r\n\r\nAlert ID: @{triggerBody()?['SystemAlertId']}",
-                  "Importance": "High",
-                  "IsHtml": true
-                },
+                  "Body": "Azure Security Center has discovered a potential security threat in your environment - Alert details below:\nAlert name: @{triggerBody()?['AlertDisplayName']}\nDescription: @{triggerBody()?['Description']}\nDetection time: @{triggerBody()?['TimeGenerated']}\nAttacked resource: @{triggerBody()?['CompromisedEntity']}\nDetected by: @{triggerBody()?['VendorName']}\nAlert ID: @{triggerBody()?['SystemAlertId']}",
+                  "Importance": "High"
+				},
                 "path": "/Mail"
               },
               "runAfter": {}
