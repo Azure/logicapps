@@ -27,7 +27,7 @@
                 "body": {
                   "To": null,
                   "Subject": "Azure Security Center has discovered a potential security threat in your environment",
-                  "Body": "Azure Security Center has discovered a potential security threat in your environment - Alert details below:\n\nAlert name: @{triggerBody()?['AlertDisplayName']}\n\nDescription: @{triggerBody()?['Description']}\n\nDetection time: @{triggerBody()?['TimeGenerated']}\n\nAttacked resource: @{triggerBody()?['CompromisedEntity']}\n\nDetected by: @{triggerBody()?['VendorName']}\n\nAlert ID: @{triggerBody()?['SystemAlertId']}",
+                  "Body": "Azure Security Center has discovered a potential security threat in your environment - Alert details below:\r\n\r\nAlert name: @{triggerBody()?['AlertDisplayName']}\r\n\nDescription: @{triggerBody()?['Description']}\r\n\r\nDetection time: @{triggerBody()?['TimeGenerated']}\r\n\r\nAttacked resource: @{triggerBody()?['CompromisedEntity']}\r\n\r\nDetected by: @{triggerBody()?['VendorName']}\r\n\r\nAlert ID: @{triggerBody()?['SystemAlertId']}",
                   "Importance": "High",
                   "IsHtml": true
                 },
