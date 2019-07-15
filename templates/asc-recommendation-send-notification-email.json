@@ -27,7 +27,7 @@
                 "body": {
                   "To": null,
                   "Subject": "Azure Security Center has discovered a potential security vulnerability in your environment",
-                  "Body": "Azure Security Center has discovered a potential security vulnerability in your environment - Recommendation details below:\n\nRecommendation name: @{triggerBody()?['properties']?['displayName']}\n\n@{triggerBody()?['properties']?['source']}\n\nResource ID: @{triggerBody()?['properties']?['resourceDetails']?['id']}\n"
+                  "Body": "Azure Security Center has discovered a potential security vulnerability in your environment - Recommendation details below:\n\nRecommendation name: @{triggerBody()?['properties']?['displayName']}\n\nResource ID: @{triggerBody()?['properties']?['resourceDetails']?['id']}\n"
                 },
                 "path": "/Mail"
               },
