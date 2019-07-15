@@ -1,0 +1,98 @@
+{
+    "id": "/providers/Microsoft.Logic/galleries/public/templates/7835cb8c-ee78-49d6-bfa7-0840c61e96b3",
+    "type": "Microsoft.Logic/galleries/templates",
+    "name": "7835cb8c-ee78-49d6-bfa7-0840c61e96b3",
+    "properties": {
+        "author": {
+            "displayName": "Microsoft"
+        },
+        "categoryNames": [
+            "general",
+			"security"
+        ],
+        "description": "Send an email notification with the recommendation details when a resource is not securely configured",
+        "displayName": "Get a notification email when Security Center creates a recommendation",
+		"definition": {
+          "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+          "actions": {
+            "Send_a_notification_email": {
+              "type": "ApiConnection",
+              "inputs": {
+                "host": {
+                  "connection": {
+                    "name": "@parameters('$connections')['office365']['connectionId']"
+                  }
+                },
+                "method": "post",
+                "body": {
+                  "To": null,
+                  "Subject": "Azure Security Center has discovered a potential security vulnerability in your environment",
+                  "Body": "Azure Security Center has discovered a potential security vulnerability in your environment - Recommendation details below:\n\nRecommendation name: @{triggerBody()?['properties.displayName']}\n\n@{triggerBody()?['name']}\n\nResource ID: @{triggerBody()?['properties']?['resourceDetails']?['id']}\n"
+                },
+                "path": "/Mail"
+              },
+              "runAfter": {}
+            }
+          },
+          "parameters": {
+            "$connections": {
+              "defaultValue": {},
+              "type": "Object"
+            }
+          },
+          "triggers": {
+            "When_an_Azure_Security_Center_Assessment_is_created": {
+              "type": "ApiConnectionWebhook",
+              "inputs": {
+                "host": {
+                  "connection": {
+                    "name": "@parameters('$connections')['ascassessment']['connectionId']"
+                  }
+                },
+                "body": {
+                  "callback_url": "@{listCallbackUrl()}"
+                },
+                "path": "/Microsoft.Security/Assessment/subscribe"
+              }
+            }
+          },
+          "contentVersion": "1.0.0.0",
+          "outputs": {}
+        },
+        "connectionReferences": {
+			"office365": {
+				"connection": {
+					"id": ""
+				},
+				"api": {
+					"id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/office365"
+                }
+            },
+            "ascassessment": {
+                "connection": {
+                    "id": ""
+                },
+                "api": {
+                    "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/ascassessment"
+                }
+            }
+        },
+        "apiSummaries": [
+            {
+                "type": "apiconnection",
+                "displayName": "Azure Security Center Recommendation",
+                "iconUri": "https://connectoricons-df.azureedge.net/ascassessment/icon_1.0.1221.1620.png",
+                "brandColor": "#99c419"
+            },
+			{
+                "type": "apiconnection",
+                "displayName": "${Resources.OUTLOOK}",
+                "iconUri": "https://az818438.vo.msecnd.net/icons/outlook.png",
+                "brandColor": "#0072c6"
+            }
+        ],
+        "changedTime": "2019-07-15T00:00:00.000Z",
+        "createdTime": "2019-07-15T00:00:00.000Z",
+        "popularity": 99
+    }
+}
