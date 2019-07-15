@@ -71,19 +71,6 @@
                     "runAfter": {},
                     "type": "InitializeVariable"
                 },
-                "Init_numMessages": {
-                    "inputs": {
-                        "variables": [
-                            {
-                                "name": "numMessages",
-                                "type": "Integer",
-                                "value": 1
-                            }
-                        ]
-                    },
-                    "runAfter": {},
-                    "type": "InitializeVariable"
-                },
                 "Try": {
                     "actions": {
                         "Close_a_session_in_a_queue_and_succeed": {
@@ -107,58 +94,28 @@
                             },
                             "type": "ApiConnection"
                         },
-                        "Process_initial_message": {
-                            "actions": {
-                                "Complete_initial_message_in_queue": {
-                                    "description": "Do not remove this step - message must be completed in order to be removed from the queue",
-                                    "inputs": {
-                                        "host": {
-                                            "connection": {
-                                                "name": "@parameters('$connections')['servicebus']['connectionId']"
-                                            }
-                                        },
-                                        "method": "delete",
-                                        "path": "/@{encodeURIComponent('')}/messages/complete",
-                                        "queries": {
-                                            "lockToken": "@{triggerBody()?['LockToken']}",
-                                            "queueType": "Main",
-                                            "sessionId": "@{triggerBody()?['SessionId']}"
-                                        }
-                                    },
-                                    "runAfter": {
-                                        "Send_initial_message_to_topic": [
-                                            "Succeeded"
-                                        ]
-                                    },
-                                    "type": "ApiConnection"
+                        "Complete_initial_message_in_queue": {
+                            "description": "Do not remove this step - message must be completed in order to be removed from the queue if you're using the above step as your work for the retrieved SB message",
+                            "inputs": {
+                                "host": {
+                                    "connection": {
+                                        "name": "@parameters('$connections')['servicebus']['connectionId']"
+                                    }
                                 },
-                                "Send_initial_message_to_topic": {
-                                    "description": "This action can be anything - it's basically whatever you want to do with the messages that come in for the session.",
-                                    "inputs": {
-                                        "body": {
-                                            "ContentData": "@{triggerBody()?['ContentData']}",
-                                            "ContentType": "@{triggerBody()?['ContentType']}",
-                                            "Properties": "@triggerBody()?['Properties']",
-                                            "SessionId": "@{triggerBody()?['SessionId']}"
-                                        },
-                                        "host": {
-                                            "connection": {
-                                                "name": "@parameters('$connections')['servicebus']['connectionId']"
-                                            }
-                                        },
-                                        "method": "post",
-                                        "path": "/@{encodeURIComponent(triggerBody()?['SessionId'],'-topic')}/messages",
-                                        "queries": {
-                                            "systemProperties": "None"
-                                        }
-                                    },
-                                    "runAfter": {},
-                                    "type": "ApiConnection"
+                                "method": "delete",
+                                "path": "/@{encodeURIComponent('')}/messages/complete",
+                                "queries": {
+                                    "lockToken": "@{triggerBody()?['LockToken']}",
+                                    "queueType": "Main",
+                                    "sessionId": "@{triggerBody()?['SessionId']}"
                                 }
                             },
-                            "description": "This block can be anything - it's basically whatever you want to do with the messages that come in for the session.",
-                            "runAfter": {},
-                            "type": "Scope"
+                            "runAfter": {
+                                "Send_initial_message_to_topic": [
+                                    "Succeeded"
+                                ]
+                            },
+                            "type": "ApiConnection"
                         },
                         "Renew_session_lock_until_cancelled": {
                             "actions": {
@@ -215,11 +172,34 @@
                                 "timeout": "PT1H"
                             },
                             "runAfter": {
-                                "Process_initial_message": [
+                                "Complete_initial_message_in_queue": [
                                     "Succeeded"
                                 ]
                             },
                             "type": "Until"
+                        },
+                        "Send_initial_message_to_topic": {
+                            "description": "This action can be anything - it's basically whatever you want to do with the messages that come in for the session.",
+                            "inputs": {
+                                "body": {
+                                    "ContentData": "@{triggerBody()?['ContentData']}",
+                                    "ContentType": "@{triggerBody()?['ContentType']}",
+                                    "Properties": "@triggerBody()?['Properties']",
+                                    "SessionId": "@{triggerBody()?['SessionId']}"
+                                },
+                                "host": {
+                                    "connection": {
+                                        "name": "@parameters('$connections')['servicebus']['connectionId']"
+                                    }
+                                },
+                                "method": "post",
+                                "path": "/@{encodeURIComponent(triggerBody()?['SessionId'],'-topic')}/messages",
+                                "queries": {
+                                    "systemProperties": "None"
+                                }
+                            },
+                            "runAfter": {},
+                            "type": "ApiConnection"
                         },
                         "Set_cancel_=_true": {
                             "description": "When the additional messages loop terminates - for any reason - we flag the cancel semaphore so the Logic App stops renewing the lock on the session.",
@@ -239,76 +219,6 @@
                         },
                         "While_there_are_more_messages_for_the_session_in_the_queue": {
                             "actions": {
-                                "For_each_additional_message_received": {
-                                    "actions": {
-                                        "Process_additional_message": {
-                                            "actions": {
-                                                "Complete_the_message_in_a_queue": {
-                                                    "description": "Do not remove this step - message must be completed in order to be removed from the queue",
-                                                    "inputs": {
-                                                        "host": {
-                                                            "connection": {
-                                                                "name": "@parameters('$connections')['servicebus']['connectionId']"
-                                                            }
-                                                        },
-                                                        "method": "delete",
-                                                        "path": "/@{encodeURIComponent('')}/messages/complete",
-                                                        "queries": {
-                                                            "lockToken": "@items('For_each_additional_message_received')?['LockToken']",
-                                                            "queueType": "Main",
-                                                            "sessionId": "@items('For_each_additional_message_received')?['SessionId']"
-                                                        }
-                                                    },
-                                                    "runAfter": {
-                                                        "Send_message_to_topic": [
-                                                            "Succeeded"
-                                                        ]
-                                                    },
-                                                    "type": "ApiConnection"
-                                                },
-                                                "Send_message_to_topic": {
-                                                    "description": "This action can be anything - it's basically whatever you want to do with the messages that come in for the session.",
-                                                    "inputs": {
-                                                        "body": {
-                                                            "ContentData": "@{items('For_each_additional_message_received')?['ContentData']}",
-                                                            "ContentType": "@items('For_each_additional_message_received')?['ContentType']",
-                                                            "Properties": "@items('For_each_additional_message_received')?['Properties']",
-                                                            "SessionId": "@items('For_each_additional_message_received')?['SessionId']"
-                                                        },
-                                                        "host": {
-                                                            "connection": {
-                                                                "name": "@parameters('$connections')['servicebus']['connectionId']"
-                                                            }
-                                                        },
-                                                        "method": "post",
-                                                        "path": "/@{encodeURIComponent(encodeURIComponent(items('For_each_additional_message_received')?['SessionId'],'-topic'))}/messages",
-                                                        "queries": {
-                                                            "systemProperties": "None"
-                                                        }
-                                                    },
-                                                    "runAfter": {},
-                                                    "type": "ApiConnection"
-                                                }
-                                            },
-                                            "description": "The content of this block should exactly match what's being done in 'Process initial message' earlier in the Logic App",
-                                            "runAfter": {},
-                                            "type": "Scope"
-                                        }
-                                    },
-                                    "description": "So messages are process in FIFO order, Concurrency Control (Setting menu of this action) is turned on and set to 1. This ensures only one message for the session is processed at a time.",
-                                    "foreach": "@body('Get_additional_messages_from_session')",
-                                    "runAfter": {
-                                        "Get_additional_messages_from_session": [
-                                            "Succeeded"
-                                        ]
-                                    },
-                                    "runtimeConfiguration": {
-                                        "concurrency": {
-                                            "repetitions": 1
-                                        }
-                                    },
-                                    "type": "Foreach"
-                                },
                                 "Get_additional_messages_from_session": {
                                     "description": "The max # of messages is 175, impacted by the size of the messages and the max message size property of the Service Bus (256k for Standard, 1mb for Premium)",
                                     "inputs": {
@@ -328,23 +238,110 @@
                                     "runAfter": {},
                                     "type": "ApiConnection"
                                 },
-                                "Set_numMessages": {
-                                    "inputs": {
-                                        "name": "numMessages",
-                                        "value": "@length(body('Get_additional_messages_from_session'))"
+                                "Process_messages_if_we_got_any": {
+                                    "actions": {
+                                        "Set_cancel_=_true_because_no_messages_left": {
+                                            "inputs": {
+                                                "name": "cancel",
+                                                "value": "@true"
+                                            },
+                                            "runAfter": {},
+                                            "type": "SetVariable"
+                                        }
+                                    },
+                                    "description": "Check the number of messages we got back and, if it was 0, flip the cancel flag otherwise process them",
+                                    "else": {
+                                        "actions": {
+                                            "For_each_additional_message_received": {
+                                                "actions": {
+                                                    "Process_additional_message": {
+                                                        "actions": {
+                                                            "Complete_the_message_in_a_queue": {
+                                                                "description": "Do not remove this step - message must be completed in order to be removed from the queue",
+                                                                "inputs": {
+                                                                    "host": {
+                                                                        "connection": {
+                                                                            "name": "@parameters('$connections')['servicebus']['connectionId']"
+                                                                        }
+                                                                    },
+                                                                    "method": "delete",
+                                                                    "path": "/@{encodeURIComponent('')}/messages/complete",
+                                                                    "queries": {
+                                                                        "lockToken": "@items('For_each_additional_message_received')?['LockToken']",
+                                                                        "queueType": "Main",
+                                                                        "sessionId": "@items('For_each_additional_message_received')?['SessionId']"
+                                                                    }
+                                                                },
+                                                                "runAfter": {
+                                                                    "Send_message_to_topic": [
+                                                                        "Succeeded"
+                                                                    ]
+                                                                },
+                                                                "type": "ApiConnection"
+                                                            },
+                                                            "Send_message_to_topic": {
+                                                                "description": "This action can be anything - it's basically whatever you want to do with the messages that come in for the session.",
+                                                                "inputs": {
+                                                                    "body": {
+                                                                        "ContentData": "@{items('For_each_additional_message_received')?['ContentData']}",
+                                                                        "ContentType": "@items('For_each_additional_message_received')?['ContentType']",
+                                                                        "Properties": "@items('For_each_additional_message_received')?['Properties']",
+                                                                        "SessionId": "@items('For_each_additional_message_received')?['SessionId']"
+                                                                    },
+                                                                    "host": {
+                                                                        "connection": {
+                                                                            "name": "@parameters('$connections')['servicebus']['connectionId']"
+                                                                        }
+                                                                    },
+                                                                    "method": "post",
+                                                                    "path": "/@{encodeURIComponent(encodeURIComponent(items('For_each_additional_message_received')?['SessionId'],'-topic'))}/messages",
+                                                                    "queries": {
+                                                                        "systemProperties": "None"
+                                                                    }
+                                                                },
+                                                                "runAfter": {},
+                                                                "type": "ApiConnection"
+                                                            }
+                                                        },
+                                                        "description": "The content of this block should exactly match what's being done in 'Process initial message' earlier in the Logic App",
+                                                        "runAfter": {},
+                                                        "type": "Scope"
+                                                    }
+                                                },
+                                                "description": "So messages are process in FIFO order, Concurrency Control (Setting menu of this action) is turned on and set to 1. This ensures only one message for the session is processed at a time.",
+                                                "foreach": "@body('Get_additional_messages_from_session')",
+                                                "runAfter": {},
+                                                "runtimeConfiguration": {
+                                                    "concurrency": {
+                                                        "repetitions": 1
+                                                    }
+                                                },
+                                                "type": "Foreach"
+                                            }
+                                        }
+                                    },
+                                    "expression": {
+                                        "and": [
+                                            {
+                                                "equals": [
+                                                    "@length(body('Get_additional_messages_from_session'))",
+                                                    0
+                                                ]
+                                            }
+                                        ]
                                     },
                                     "runAfter": {
                                         "Get_additional_messages_from_session": [
                                             "Succeeded"
                                         ]
                                     },
-                                    "type": "SetVariable"
+                                    "type": "If"
                                 },
-                                "Set_numMessages_=_0": {
+                                "Set_cancel_=_true_on_failure_to_read_messages": {
                                     "description": "If we fail to get additional messages from the queue for any reason, set numMessages = 0 so the loop terminates",
                                     "inputs": {
-                                        "name": "numMessages",
-                                        "value": 0
+                                        "name": "cancel",
+                                        "value": "@true"
                                     },
                                     "runAfter": {
                                         "Get_additional_messages_from_session": [
@@ -357,12 +354,12 @@
                                 }
                             },
                             "description": "This block keeps asking for more messages in the session for 1 hour or as long as it finds messages in the queue for the session, whichever comes first. To hold longer, change the 'Timeout' property of this Until block",
-                            "expression": "@equals(variables('numMessages'), 0)",
+                            "expression": "@not(equals(variables('cancel'), true))",
                             "limit": {
                                 "timeout": "PT1H"
                             },
                             "runAfter": {
-                                "Process_initial_message": [
+                                "Complete_initial_message_in_queue": [
                                     "Succeeded"
                                 ]
                             },
@@ -372,9 +369,6 @@
                     "description": "Follow the Try/Catch pattern using Scopes to process messages in a Try block but appropriately handle errors with a Catch block",
                     "runAfter": {
                         "Init_cancel": [
-                            "Succeeded"
-                        ],
-                        "Init_numMessages": [
                             "Succeeded"
                         ]
                     },
