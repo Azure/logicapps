@@ -8,57 +8,57 @@
         },
         "categoryNames": [
             "general",
-			"security"
+            "security"
         ],
         "description": "Send an email notification with the alert details when a threat is detected",
         "displayName": "Get a notification email when Security Center detects a threat",
         "definition": {
-		  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-          "actions": {
-            "Send_an_email": {
-              "type": "ApiConnection",
-              "inputs": {
-                "host": {
-                  "connection": {
-                    "name": "@parameters('$connections')['office365']['connectionId']"
-                  }
-                },
-                "method": "post",
-                "body": {
-                  "To": null,
-                  "Subject": "Azure Security Center has discovered a potential security threat in your environment",
-                  "Body": "Azure Security Center has discovered a potential security threat in your environment - Alert details below:\n\nAlert name: @{triggerBody()?['AlertDisplayName']}\n\nDescription: @{triggerBody()?['Description']}\n\nDetection time: @{triggerBody()?['TimeGenerated']}\n\nAttacked resource: @{triggerBody()?['CompromisedEntity']}\n\nDetected by: @{triggerBody()?['VendorName']}\n\nAlert ID: @{triggerBody()?['SystemAlertId']}",
-                  "Importance": "High"
-				},
-                "path": "/Mail"
-              },
-              "runAfter": {}
-            }
-          },
-          "parameters": {
-            "$connections": {
-              "defaultValue": {},
-              "type": "Object"
-            }
-          },
-          "triggers": {
-            "When_an_Azure_Security_Center_Alert_is_created": {
-              "type": "ApiConnectionWebhook",
-              "inputs": {
-                "host": {
-                  "connection": {
-                    "name": "@parameters('$connections')['ascalert']['connectionId']"
-                  }
-                },
-                "body": {
-                  "callback_url": "@{listCallbackUrl()}"
-                },
-                "path": "/Microsoft.Security/Alert/subscribe"
-              }
-            }
-          },
-          "contentVersion": "1.0.0.0",
-          "outputs": {}
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "actions": {
+                "Send_an_email": {
+                    "type": "ApiConnection",
+                    "inputs": {
+                        "host": {
+                            "connection": {
+                                "name": "@parameters('$connections')['office365']['connectionId']"
+                            }
+                        },
+                        "method": "post",
+                        "body": {
+                            "To": null,
+                            "Subject": "Azure Security Center has discovered a potential security threat in your environment",
+                            "Body": "Azure Security Center has discovered a potential security threat in your environment - Alert details below:\n\nAlert name: @{triggerBody()?['AlertDisplayName']}\n\nDescription: @{triggerBody()?['Description']}\n\nDetection time: @{triggerBody()?['TimeGenerated']}\n\nAttacked resource: @{triggerBody()?['CompromisedEntity']}\n\nDetected by: @{triggerBody()?['VendorName']}\n\nAlert ID: @{triggerBody()?['SystemAlertId']}",
+                            "Importance": "High"
+                        },
+                        "path": "/Mail"
+                    },
+                    "runAfter": {}
+                }
+            },
+            "parameters": {
+                "$connections": {
+                    "defaultValue": {},
+                    "type": "Object"
+                }
+            },
+            "triggers": {
+                "When_an_Azure_Security_Center_Alert_is_created": {
+                    "type": "ApiConnectionWebhook",
+                    "inputs": {
+                        "host": {
+                            "connection": {
+                                "name": "@parameters('$connections')['ascalert']['connectionId']"
+                            }
+                        },
+                        "body": {
+                            "callback_url": "@{listCallbackUrl()}"
+                        },
+                        "path": "/Microsoft.Security/Alert/subscribe"
+                    }
+                }
+            },
+            "contentVersion": "1.0.0.0",
+            "outputs": {}
         },
         "connectionReferences": {
             "office365": {
@@ -79,13 +79,13 @@
             }
         },
         "apiSummaries": [
-			{
+            {
                 "type": "apiconnection",
                 "displayName": "Azure Security Center Alert",
                 "iconUri": "https://connectoricons-prod.azureedge.net/ascalert/icon_1.0.1221.1620.png",
                 "brandColor": "#99c419"
             },
-			{
+            {
                 "type": "apiconnection",
                 "displayName": "${Resources.OUTLOOK}",
                 "iconUri": "https://az818438.vo.msecnd.net/icons/outlook.png",
