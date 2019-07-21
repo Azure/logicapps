@@ -45,7 +45,7 @@
                       "from": "@body('Filter_for_errors')[0]['outputs']",
                       "select": {
                         "action": "@item()['name']",
-                        "error": "@item()['outputs']['body']['error']['message']",
+                        "error": "@coalesce(item()['outputs']['body']?['message'],item()['outputs']['body']?['error']['message'])",
                         "statusCode": "@item()['outputs']['statusCode']"
                       }
                     },
