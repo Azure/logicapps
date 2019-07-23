@@ -1,0 +1,65 @@
+{
+    "$connections": {
+        "value": {
+            "servicebus_1": {
+                "connectionId": "/subscriptions/{subscription}/resourceGroups/{resourceGroup}/providers/Microsoft.Web/connections/servicebus-1",
+                "connectionName": "servicebus-11",
+                "id": "/subscriptions/{subscription}/providers/Microsoft.Web/locations/{location}/managedApis/servicebus"
+            }
+        }
+    },
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "actions": {
+            "Delay_until": {
+                "inputs": {
+                    "until": {
+                        "timestamp": "@{convertToUtc(triggerBody()?['timestamp'],triggerBody()?['sourceTimeZone'])}"
+                    }
+                },
+                "runAfter": {},
+                "type": "Wait"
+            },
+            "Send_message": {
+                "inputs": {
+                    "body": {
+                        "ContentData": "@{base64(triggerBody()?['content'])}"
+                    },
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['servicebus_1']['connectionId']"
+                        }
+                    },
+                    "method": "post",
+                    "path": "/@{encodeURIComponent(triggerBody()?['queue'])}/messages",
+                    "queries": {
+                        "systemProperties": "None"
+                    }
+                },
+                "runAfter": {
+                    "Delay_until": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "ApiConnection"
+            }
+        },
+        "contentVersion": "1.0.0.0",
+        "outputs": {},
+        "parameters": {
+            "$connections": {
+                "defaultValue": {},
+                "type": "Object"
+            }
+        },
+        "triggers": {
+            "manual": {
+                "inputs": {
+                    "schema": {}
+                },
+                "kind": "Http",
+                "type": "Request"
+            }
+        }
+    }
+}
