@@ -254,61 +254,54 @@
                                         "actions": {
                                             "For_each_additional_message_received": {
                                                 "actions": {
-                                                    "Process_additional_message": {
-                                                        "actions": {
-                                                            "Complete_the_message_in_a_queue": {
-                                                                "description": "Do not remove this step - message must be completed in order to be removed from the queue",
-                                                                "inputs": {
-                                                                    "host": {
-                                                                        "connection": {
-                                                                            "name": "@parameters('$connections')['servicebus']['connectionId']"
-                                                                        }
-                                                                    },
-                                                                    "method": "delete",
-                                                                    "path": "/@{encodeURIComponent('')}/messages/complete",
-                                                                    "queries": {
-                                                                        "lockToken": "@items('For_each_additional_message_received')?['LockToken']",
-                                                                        "queueType": "Main",
-                                                                        "sessionId": "@items('For_each_additional_message_received')?['SessionId']"
-                                                                    }
-                                                                },
-                                                                "runAfter": {
-                                                                    "Send_message_to_topic": [
-                                                                        "Succeeded"
-                                                                    ]
-                                                                },
-                                                                "type": "ApiConnection"
+                                                    "Complete_the_message_in_a_queue": {
+                                                        "description": "Do not remove this step - message must be completed in order to be removed from the queue",
+                                                        "inputs": {
+                                                            "host": {
+                                                                "connection": {
+                                                                    "name": "@parameters('$connections')['servicebus']['connectionId']"
+                                                                }
                                                             },
-                                                            "Send_message_to_topic": {
-                                                                "description": "This action can be anything - it's basically whatever you want to do with the messages that come in for the session.",
-                                                                "inputs": {
-                                                                    "body": {
-                                                                        "ContentData": "@{items('For_each_additional_message_received')?['ContentData']}",
-                                                                        "ContentType": "@items('For_each_additional_message_received')?['ContentType']",
-                                                                        "Properties": "@items('For_each_additional_message_received')?['Properties']",
-                                                                        "SessionId": "@items('For_each_additional_message_received')?['SessionId']"
-                                                                    },
-                                                                    "host": {
-                                                                        "connection": {
-                                                                            "name": "@parameters('$connections')['servicebus']['connectionId']"
-                                                                        }
-                                                                    },
-                                                                    "method": "post",
-                                                                    "path": "/@{encodeURIComponent(encodeURIComponent(items('For_each_additional_message_received')?['SessionId'],'-topic'))}/messages",
-                                                                    "queries": {
-                                                                        "systemProperties": "None"
-                                                                    }
-                                                                },
-                                                                "runAfter": {},
-                                                                "type": "ApiConnection"
+                                                            "method": "delete",
+                                                            "path": "/@{encodeURIComponent('')}/messages/complete",
+                                                            "queries": {
+                                                                "lockToken": "@items('For_each_additional_message_received')?['LockToken']",
+                                                                "queueType": "Main",
+                                                                "sessionId": "@items('For_each_additional_message_received')?['SessionId']"
                                                             }
                                                         },
-                                                        "description": "The content of this block should exactly match what's being done in 'Process initial message' earlier in the Logic App",
+                                                        "runAfter": {
+                                                            "Send_message_to_topic": [
+                                                                "Succeeded"
+                                                            ]
+                                                        },
+                                                        "type": "ApiConnection"
+                                                    },
+                                                    "Send_message_to_topic": {
+                                                        "description": "This action can be anything - it's basically whatever you want to do with the messages that come in for the session.",
+                                                        "inputs": {
+                                                            "body": {
+                                                                "ContentData": "@{items('For_each_additional_message_received')?['ContentData']}",
+                                                                "ContentType": "@items('For_each_additional_message_received')?['ContentType']",
+                                                                "Properties": "@items('For_each_additional_message_received')?['Properties']",
+                                                                "SessionId": "@items('For_each_additional_message_received')?['SessionId']"
+                                                            },
+                                                            "host": {
+                                                                "connection": {
+                                                                    "name": "@parameters('$connections')['servicebus']['connectionId']"
+                                                                }
+                                                            },
+                                                            "method": "post",
+                                                            "path": "/@{encodeURIComponent(encodeURIComponent(items('For_each_additional_message_received')?['SessionId'],'-topic'))}/messages",
+                                                            "queries": {
+                                                                "systemProperties": "None"
+                                                            }
+                                                        },
                                                         "runAfter": {},
-                                                        "type": "Scope"
+                                                        "type": "ApiConnection"
                                                     }
                                                 },
-                                                "description": "So messages are process in FIFO order, Concurrency Control (Setting menu of this action) is turned on and set to 1. This ensures only one message for the session is processed at a time.",
+                                                "description": "So messages are process in FIFO order, Concurrency Control (Setting menu of this action) is turned on and set to 1. This ensures only one message for the session is processed at a time. ",
                                                 "foreach": "@body('Get_additional_messages_from_session')",
                                                 "runAfter": {},
                                                 "runtimeConfiguration": {
