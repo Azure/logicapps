@@ -32,16 +32,44 @@
               "runAfter": {},
               "type": "ApiConnection"
             },
+            "Find_failure_msg_from_'Try'_block": {
+              "inputs": {
+                "from": "@Result('Try')",
+                "where": "@equals(item()['status'], 'Failed')"
+              },
+              "runAfter": {
+                "Close_the_session_in_the_queue_and_fail": [
+                  "Succeeded"
+                ]
+              },
+              "type": "Query"
+            },
+            "Select_error_details": {
+              "inputs": {
+                "from": "@body('Find_failure_msg_from_''Try''_block')[0]['outputs']",
+                "select": {
+                  "action": "@item()['name']",
+                  "errorResult": "@item()"
+                }
+              },
+              "runAfter": {
+                "Find_failure_msg_from_'Try'_block": [
+                  "Succeeded"
+                ]
+              },
+              "type": "Select"
+            },
             "Terminate": {
               "description": "This Failure Termination only runs if the Close Session upon Failure action runs - otherwise the LA will be terminated as Success",
               "inputs": {
                 "runError": {
-                  "message": "There was an error processing messages for Session ID @{triggerBody()?['SessionId']}"
+                  "code": "",
+                  "message": "There was an error processing messages for Session ID @{triggerBody()?['SessionId']}. The following error(s) occurred: @{body('Select_error_details')['errorResult']}"
                 },
                 "runStatus": "Failed"
               },
               "runAfter": {
-                "Close_the_session_in_the_queue_and_fail": [
+                "Select_error_details": [
                   "Succeeded"
                 ]
               },
