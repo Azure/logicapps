@@ -1,7 +1,9 @@
 [
     "as2-response.json",
+    "asc-alert-send-notification-email.json",
     "asc-post-message-to-slack.json",
     "asc-post-message-to-teams-and-send-notification-email.json",
+    "asc-recommendation-send-notification-email.json",
     "asc-send-notification-email.json",
     "azure-monitor-metric-alert-handler.json",
     "Azure-Blob-Auto-Expiration.json",
