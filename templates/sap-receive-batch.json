@@ -110,7 +110,7 @@
 			"type": "ApiConnection",
 			"displayName": "SAP",
 			"iconUri": "https://latemplateartifacts.blob.core.windows.net/templateicons/sap.png",
-			"brandColor": "#99e7ff"
+			"brandColor": "#0072c6"
     },
     {
       "type": "SetVariable",
