@@ -109,9 +109,21 @@
 		{
 			"type": "ApiConnection",
 			"displayName": "SAP",
-			"iconUri": "https://cpgeneralstore.blob.core.windows.net/icons/azureblob.png",
+			"iconUri": "https://latemplateartifacts.blob.core.windows.net/templateicons/sap.png",
 			"brandColor": "#804998"
-		}
+    },
+    {
+      "type": "SetVariable",
+      "displayName": "Get array of IDOCs",
+      "iconUri": "${Images.VariableIcon}",
+      "brandColor": "#444444"
+  },
+  {
+      "type": "Foreach",
+      "displayName": "Enumerate each IDOC in batch",
+      "iconUri": "${Images.ForeachIcon}",
+      "brandColor": "#444444"
+  }
 	
 	],
 
