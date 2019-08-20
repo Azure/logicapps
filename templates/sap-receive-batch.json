@@ -1,21 +1,19 @@
 {
-
   "id": "/providers/Microsoft.Logic/galleries/public/templates/7c26917a9146473eb044349634d221d8",
   "type": "Microsoft.Logic/galleries/templates",
   "name": "7c26917a9146473eb044349634d221d8",
   "properties": {
-      "author": {
-          "displayName": "Microsoft"
-      },
-      "categoryNames": [
-          "enterprise_integration"
-       ],
-      "description": "Receive batch or packet of IDOCs from SAP and enumerate them",
-      "displayName": "Receive batch or packet of IDOCs from SAP and enumerate them",
-
-	"definition": {
-			"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-			"contentVersion": "1.0.0.0",
+    "author": {
+      "displayName": "Microsoft"
+    },
+    "categoryNames": [
+      "enterprise_integration"
+    ],
+    "description": "Receive batch or packet of IDOCs from SAP and enumerate them",
+    "displayName": "Receive batch or packet of IDOCs from SAP and enumerate them",
+    "definition": {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
       "actions": {
         "For_each": {
           "type": "Foreach",
@@ -24,7 +22,9 @@
             "Replace_this_step_as_per_your_need_to_process_individual_items_in_the_batch_IDOC": {
               "type": "Compose",
               "inputs": "<Receive xmlns=>@{variables('RootNamespace')}@{items('For_each')}</Receive>",
-              "runAfter": {}
+              "runAfter": {
+                
+              }
             }
           },
           "runAfter": {
@@ -61,7 +61,9 @@
               }
             ]
           },
-          "runAfter": {}
+          "runAfter": {
+            
+          }
         }
       },
       "triggers": {
@@ -84,53 +86,51 @@
             }
           }
         }
-		 },
-			"outputs":{},
-			"parameters": {
-				"$connections": {
-					"defaultValue": {},
-					"type": "Object"
+      },
+      "outputs": {
+        
+      },
+      "parameters": {
+        "$connections": {
+          "defaultValue": {
+            
+          },
+          "type": "Object"
         }
       }
-	},
-
-	"connectionReferences": {
-		"sap": {
-			"connection": {
-				"id": ""
-			},
-			"api": {
-				"id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/sap"
-			}
-		}
-	},
-
-	"apiSummaries": [
-		{
-			"type": "ApiConnection",
-			"displayName": "Receive batch/packet of IDOCs",
-			"iconUri": "https://latemplateartifacts.blob.core.windows.net/templateicons/sap.png",
-			"brandColor": "#0072c6"
     },
-    {
-      "type": "SetVariable",
-      "displayName": "Get array of IDOCs from the IDOC batch/packet",
-      "iconUri": "${Images.VariableIcon}",
-      "brandColor": "#770BD6"
+    "connectionReferences": {
+      "sap": {
+        "connection": {
+          "id": ""
+        },
+        "api": {
+          "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/sap"
+        }
+      }
     },
-    {
-      "type": "Foreach",
-      "displayName": "Enumerate each IDOC in batch/packet",
-      "iconUri": "${Images.ForeachIcon}",
-      "brandColor": "#758393"
-    }
-	
-	],
-
-  "changedTime": "2000-01-01T00:00:00.000Z",
-  "createdTime": "2000-01-01T00:00:00.000Z",
-  "popularity": 99
-
-	}
-
+    "apiSummaries": [
+      {
+        "type": "ApiConnection",
+        "displayName": "Receive batch/packet of IDOCs",
+        "iconUri": "https://latemplateartifacts.blob.core.windows.net/templateicons/sap.png",
+        "brandColor": "#0072c6"
+      },
+      {
+        "type": "SetVariable",
+        "displayName": "Get array of IDOCs from the IDOC batch/packet",
+        "iconUri": "${Images.VariableIcon}",
+        "brandColor": "#770BD6"
+      },
+      {
+        "type": "Foreach",
+        "displayName": "Enumerate each IDOC in batch/packet",
+        "iconUri": "${Images.ForeachIcon}",
+        "brandColor": "#758393"
+      }
+    ],
+    "changedTime": "2019-08-20T00:00:00Z",
+    "createdTime": "2019-08-20T00:00:00Z",
+    "popularity": 99
+  }
 }
