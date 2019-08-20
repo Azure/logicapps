@@ -13,7 +13,7 @@
       "description": "Receive batch or packet of IDOCs from SAP and enumerate them",
       "displayName": "Receive batch or packet of IDOCs from SAP and enumerate them",
 
-		"definition": {
+	"definition": {
 			"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
 			"contentVersion": "1.0.0.0",
       "actions": {
@@ -84,7 +84,7 @@
             }
           }
         }
-			},
+		 },
 			"outputs":{},
 			"parameters": {
 				"$connections": {
@@ -92,7 +92,7 @@
 					"type": "Object"
         }
       }
-		},
+	},
 
 	"connectionReferences": {
 		"sap": {
@@ -117,13 +117,13 @@
       "displayName": "Get array of IDOCs from the IDOC batch/packet",
       "iconUri": "${Images.VariableIcon}",
       "brandColor": "#770BD6"
-  },
-  {
+    },
+    {
       "type": "Foreach",
       "displayName": "Enumerate each IDOC in batch/packet",
       "iconUri": "${Images.ForeachIcon}",
       "brandColor": "#758393"
-  }
+    }
 	
 	],
 
