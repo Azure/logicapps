@@ -21,7 +21,7 @@
           "actions": {
             "Replace_this_step_as_per_your_need_to_process_individual_items_in_the_batch_IDOC": {
               "type": "Compose",
-              "inputs": "<Receive xmlns=>@{variables('RootNamespace')}@{items('For_each')}</Receive>",
+              "inputs": "<Receive xmlns=@{variables('RootNamespace')}>@{items('For_each')}</Receive>",
               "runAfter": {
                 
               }
