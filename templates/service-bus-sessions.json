@@ -101,6 +101,31 @@
         },
         "Try": {
           "actions": {
+            "Abandon_the_message_in_a_queue_2": {
+              "description": "If something goes wrong processing the message, we must abandon it to release it for pickup by another run",
+              "inputs": {
+                "host": {
+                  "connection": {
+                    "name": "@parameters('$connections')['servicebus']['connectionId']"
+                  }
+                },
+                "method": "post",
+                "path": "/@{encodeURIComponent('')}/messages/abandon",
+                "queries": {
+                  "lockToken": "@triggerBody()?['LockToken']",
+                  "queueType": "Main",
+                  "sessionId": "@triggerBody()?['SessionId']"
+                }
+              },
+              "runAfter": {
+                "Send_initial_message_to_topic": [
+                  "Failed",
+                  "Skipped",
+                  "TimedOut"
+                ]
+              },
+              "type": "ApiConnection"
+            },
             "Close_a_session_in_a_queue_and_succeed": {
               "description": "If this is hit and executed, the next close session & terminate actions won't be hit because of their Configure Run After settings",
               "inputs": {
@@ -113,6 +138,9 @@
                 "path": "//sessions/@{encodeURIComponent(triggerBody()?['SessionId'])}/close"
               },
               "runAfter": {
+                "Abandon_the_message_in_a_queue_2": [
+                  "Succeeded"
+                ],
                 "Renew_session_lock_until_cancelled": [
                   "Succeeded"
                 ],
@@ -191,7 +219,7 @@
                     }
                   },
                   "runAfter": {},
-                  "type": "wait"
+                  "type": "Wait"
                 }
               },
               "description": "This block ensures the session lock remains held by this Logic App for 1 hour or as long as it finds messages in the queue for the session, whichever comes first. To hold longer, change the 'Timeout' property of this Until block",
@@ -230,7 +258,7 @@
               "type": "ApiConnection"
             },
             "Set_isDone_=_true": {
-              "description": "When the additional messages loop terminates - for any reason - we flag the cancel semaphore so the Logic App stops renewing the lock on the session.",
+              "description": "When the additional messages loop terminates - for any reason - we flag the isDone semaphore so the Logic App stops renewing the lock on the session.",
               "inputs": {
                 "name": "isDone",
                 "value": "@true"
@@ -282,6 +310,31 @@
                     "actions": {
                       "For_each_additional_message_received": {
                         "actions": {
+                          "Abandon_the_message_in_a_queue": {
+                            "description": "If something goes wrong processing the message, we must abandon it to release it for pickup by another run",
+                            "inputs": {
+                              "host": {
+                                "connection": {
+                                  "name": "@parameters('$connections')['servicebus']['connectionId']"
+                                }
+                              },
+                              "method": "post",
+                              "path": "/@{encodeURIComponent('')}/messages/abandon",
+                              "queries": {
+                                "lockToken": "@items('For_each_additional_message_received')?['LockToken']",
+                                "queueType": "Main",
+                                "sessionId": "@items('For_each_additional_message_received')?['SessionId']"
+                              }
+                            },
+                            "runAfter": {
+                              "Send_message_to_topic": [
+                                "Failed",
+                                "TimedOut",
+                                "Skipped"
+                              ]
+                            },
+                            "type": "ApiConnection"
+                          },
                           "Complete_the_message_in_a_queue": {
                             "description": "Do not remove this step - message must be completed in order to be removed from the queue",
                             "inputs": {
@@ -359,7 +412,7 @@
                   "type": "If"
                 },
                 "Set_isDone_=_true_on_failure_to_read_messages": {
-                  "description": "If we fail to get additional messages from the queue for any reason, set numMessages = 0 so the loop terminates",
+                  "description": "If we fail to get additional messages from the queue for any reason, set isDone = true so the loop terminates",
                   "inputs": {
                     "name": "isDone",
                     "value": "@true"
