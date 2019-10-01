@@ -1,11 +1,11 @@
 # Max number of pages to follow when retriving runs
 # Each page contains up to 30 runs
-$maxPage = 2
+$maxPage = 10
 
 # Logic Apps to cancel
-$subscriptionName = 'Logic Apps PM'
-$resourceGroup = 'delirg2'
-$logicAppsName = 'TimerJob'
+$subscriptionName = 'Subscription Name'
+$resourceGroup = 'Resource Group Name'
+$logicAppsName = 'Logic Apps Name'
 
 
 #####
