@@ -27,6 +27,7 @@
     "rosettanet-decode-response.json",
     "rosettanet-encode-response.json",
     "salesforce-common-data-model-accounts.json",
+    "sap-receive-batch.json",
     "scheduler-recurrence-storage-queue.json",
     "scheduler-run-once-http.json",
     "service-bus-peek-lock-complete.json",

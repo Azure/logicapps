@@ -1,0 +1,136 @@
+{
+  "id": "/providers/Microsoft.Logic/galleries/public/templates/7c26917a9146473eb044349634d221d8",
+  "type": "Microsoft.Logic/galleries/templates",
+  "name": "7c26917a9146473eb044349634d221d8",
+  "properties": {
+    "author": {
+      "displayName": "Microsoft"
+    },
+    "categoryNames": [
+      "enterprise_integration"
+    ],
+    "description": "Receive batch or packet of IDOCs from SAP and enumerate them",
+    "displayName": "Receive batch or packet of IDOCs from SAP and enumerate them",
+    "definition": {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "actions": {
+        "For_each": {
+          "type": "Foreach",
+          "foreach": "@variables('Array_of_idocData')",
+          "actions": {
+            "Replace_this_step_as_per_your_need_to_process_individual_items_in_the_batch_IDOC": {
+              "type": "Compose",
+              "inputs": "<Receive xmlns=@{variables('RootNamespace')}>@{items('For_each')}</Receive>",
+              "runAfter": {
+                
+              }
+            }
+          },
+          "runAfter": {
+            "Get_the_array_of_idocData_elements": [
+              "Succeeded"
+            ]
+          }
+        },
+        "Get_the_array_of_idocData_elements": {
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Array_of_idocData",
+                "type": "Array",
+                "value": "@xpath(xml(triggerBody()?['Content']), '/*[local-name()=\"Receive\"]/*[local-name()=\"idocData\"]')"
+              }
+            ]
+          },
+          "runAfter": {
+            "Get_the_namespace_of_root_node_from_received_IDOC": [
+              "Succeeded"
+            ]
+          }
+        },
+        "Get_the_namespace_of_root_node_from_received_IDOC": {
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "RootNamespace",
+                "type": "String",
+                "value": "@{xpath(xml(triggerBody()?['Content']), 'namespace-uri(/*)')}"
+              }
+            ]
+          },
+          "runAfter": {
+            
+          }
+        }
+      },
+      "triggers": {
+        "When_a_message_is_received_from_SAP": {
+          "type": "ApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connection": {
+                "name": "@parameters('$connections')['sap']['connectionId']"
+              }
+            },
+            "body": {
+              "NotificationUrl": "@{listCallbackUrl()}"
+            },
+            "path": "/api/webhooktrigger/subscribe",
+            "queries": {
+              "gatewayHost": "SAP-Host",
+              "gatewayService": "3300",
+              "programId": "Azure"
+            }
+          }
+        }
+      },
+      "outputs": {
+        
+      },
+      "parameters": {
+        "$connections": {
+          "defaultValue": {
+            
+          },
+          "type": "Object"
+        }
+      }
+    },
+    "connectionReferences": {
+      "sap": {
+        "connection": {
+          "id": ""
+        },
+        "api": {
+          "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/sap"
+        }
+      }
+    },
+    "apiSummaries": [
+      {
+        "type": "ApiConnection",
+        "displayName": "Receive batch/packet of IDOCs",
+        "iconUri": "https://latemplateartifacts.blob.core.windows.net/templateicons/sap.png",
+        "brandColor": "#0072c6"
+      },
+      {
+        "type": "SetVariable",
+        "displayName": "Get array of IDOCs from the IDOC batch/packet",
+        "iconUri": "${Images.VariableIcon}",
+        "brandColor": "#770BD6"
+      },
+      {
+        "type": "Foreach",
+        "displayName": "Enumerate each IDOC in batch/packet",
+        "iconUri": "${Images.ForeachIcon}",
+        "brandColor": "#758393"
+      }
+    ],
+    "changedTime": "2019-08-20T00:00:00Z",
+    "createdTime": "2019-08-20T00:00:00Z",
+    "popularity": 99
+  }
+}

@@ -14,7 +14,7 @@ $logicApps = Get-AzResource -ResourceType Microsoft.Logic/workflows <# | where {
 
 Foreach ($la in $logicApps) {
     $runs = Get-AzLogicAppRunHistory -ResourceGroupName $la.ResourceGroupName -Name $la.name | where { $_.Status -eq 'Failed' } | where { $_.StartTime -gt $startDateTime -and $_.StartTime -lt $endDateTime }
-    
+
     $headers = @{
         'Authorization' = 'Bearer ' + $token
     }
