@@ -10,12 +10,12 @@
             "general",
             "security"
         ],
-        "description": "Send an email notification with the alert details when a threat is detected",
+        "description": "Send an email notification with the alert details when a threat is detected on a Security Center protected resource. Note: automated running of this trigger requires enabling automation in Azure Security Center and enabling the Standard tier as a preliminary step.",
         "displayName": "Get a notification email when Security Center detects a threat",
         "definition": {
             "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
             "actions": {
-                "Send_an_email": {
+                "Send_an_email_(V2)": {
                     "type": "ApiConnection",
                     "inputs": {
                         "host": {
@@ -27,10 +27,10 @@
                         "body": {
                             "To": null,
                             "Subject": "Azure Security Center has discovered a potential security threat in your environment",
-                            "Body": "Azure Security Center has discovered a potential security threat in your environment - Alert details below:\n\nAlert name: @{triggerBody()?['AlertDisplayName']}\n\nDescription: @{triggerBody()?['Description']}\n\nDetection time: @{triggerBody()?['TimeGenerated']}\n\nAttacked resource: @{triggerBody()?['CompromisedEntity']}\n\nDetected by: @{triggerBody()?['VendorName']}\n\nAlert ID: @{triggerBody()?['SystemAlertId']}",
+                            "Body": "<p>Azure Security Center has discovered a potential security threat in your environment. Details below:<br>\n<br>\nAlert name: @{triggerBody()?['AlertDisplayName']}<br>\n<br>\nAttacked resource: @{triggerBody()?['CompromisedEntity']}<br>\n<br>\nAlert severity: @{triggerBody()?['Severity']}<br>\n<br>\nDetection time: @{triggerBody()?['TimeGenerated']}<br>\n<br>\nDescription: @{triggerBody()?['Description']}<br>\n<br>\nDetected by: @{triggerBody()?['VendorName']}<br>\n<br>\nAlert ID: @{triggerBody()?['SystemAlertId']}<br>\n<br>\nResource identifiers: @{json(triggerBody()?['ResourceIdentifiers'])}<br>\n<br>\nLink to view alert in Azure Security Center: @{triggerBody()?['AlertUri']}<br>\n<br>\n&nbsp;<br>\nPowered by Azure Security Center Logic Apps alert connector</p>",
                             "Importance": "High"
                         },
-                        "path": "/Mail"
+                        "path": "/v2/Mail"
                     },
                     "runAfter": {}
                 }
@@ -42,7 +42,7 @@
                 }
             },
             "triggers": {
-                "When_an_Azure_Security_Center_Alert_is_created": {
+                "When_an_Azure_Security_Center_Alert_is_created_or_triggered": {
                     "type": "ApiConnectionWebhook",
                     "inputs": {
                         "host": {
