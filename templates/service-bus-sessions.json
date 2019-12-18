@@ -27,7 +27,7 @@
                   }
                 },
                 "method": "delete",
-                "path": "/@{encodeURIComponent('')}/sessions/@{encodeURIComponent(triggerBody()?['SessionId'])}/close"
+                "path": "/@{encodeURIComponent(encodeURIComponent('foo'))}/sessions/@{encodeURIComponent(triggerBody()?['SessionId'])}/close"
               },
               "runAfter": {},
               "type": "ApiConnection"
@@ -101,7 +101,7 @@
         },
         "Try": {
           "actions": {
-            "Abandon_the_message_in_a_queue_2": {
+            "Abandon_initial_message_from_the_queue": {
               "description": "If something goes wrong processing the message, we must abandon it to release it for pickup by another run",
               "inputs": {
                 "host": {
@@ -138,13 +138,13 @@
                 "path": "//sessions/@{encodeURIComponent(triggerBody()?['SessionId'])}/close"
               },
               "runAfter": {
-                "Abandon_the_message_in_a_queue_2": [
+                "Abandon_initial_message_from_the_queue": [
                   "Succeeded",
                   "Skipped"
                 ],
                 "Renew_session_lock_until_cancelled": [
-                  "Succeeded",
-                  "Skipped"
+                  "Skipped",
+                  "Succeeded"
                 ],
                 "Set_isDone_=_true": [
                   "Succeeded",
