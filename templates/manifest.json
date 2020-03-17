@@ -8,6 +8,7 @@
     "azure-monitor-metric-alert-handler.json",
     "Azure-Blob-Auto-Expiration.json",
     "Azure-Blob-Auto-Tier.json",
+    "ASI-BlockAADUser.json",
     "blob-storage-to-dynamics-365-import.json",
     "blockchain-dataworkflow.json",
     "blockchain-messagingworkflow-eventgrid.json",

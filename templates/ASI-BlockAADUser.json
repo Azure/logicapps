@@ -1,0 +1,155 @@
+{
+    "id": "/providers/Microsoft.Logic/galleries/public/templates/{Guid}",
+    "type": "Microsoft.Logic/galleries/templates",
+    "name": "{Guid}",
+  "properties": {
+    "author": {
+      "displayName": "Nicholas DiCola"
+    },
+    "categoryNames": [
+      "security",
+      "general"
+    ],
+    "description": "When a new Azure Sentinel Alert is triggered, this playbook disables the user in Azure Active Directoy and adds a comment to the incident",
+    "displayName": "Azure Sentinel Block AAD User",
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "actions": {
+        "Alert_-_Get_accounts": {
+          "type": "ApiConnection",
+          "inputs": {
+            "host": {
+              "connection": {
+                "name": "@parameters('$connections')['azuresentinel']['connectionId']"
+              }
+            },
+            "method": "post",
+            "body": "@triggerBody()?['Entities']",
+            "path": "/entities/account"
+          },
+          "runAfter": {
+            "Alert_-_Get_incident": [
+              "Succeeded"
+            ]
+          }
+        },
+        "Alert_-_Get_incident": {
+          "type": "ApiConnection",
+          "inputs": {
+            "host": {
+              "connection": {
+                "name": "@parameters('$connections')['azuresentinel']['connectionId']"
+              }
+            },
+            "method": "get",
+            "path": "/Cases/@{encodeURIComponent(triggerBody()?['SystemAlertId'])}/@{encodeURIComponent(triggerBody()?['WorkspaceSubscriptionId'])}/@{encodeURIComponent(triggerBody()?['WorkspaceId'])}/@{encodeURIComponent(triggerBody()?['WorkspaceResourceGroup'])}"
+          },
+          "runAfter": {}
+        },
+        "For_each": {
+          "type": "Foreach",
+          "foreach": "@body('Alert_-_Get_accounts')?['Accounts']",
+          "actions": {
+            "Add_comment_to_incident": {
+              "type": "ApiConnection",
+              "inputs": {
+                "host": {
+                  "connection": {
+                    "name": "@parameters('$connections')['azuresentinel']['connectionId']"
+                  }
+                },
+                "method": "put",
+                "path": "/Comment/@{encodeURIComponent(triggerBody()?['WorkspaceSubscriptionId'])}/@{encodeURIComponent(triggerBody()?['WorkspaceId'])}/@{encodeURIComponent(triggerBody()?['WorkspaceResourceGroup'])}/@{encodeURIComponent('Incident')}/@{encodeURIComponent(body('Alert_-_Get_incident')?['properties']?['CaseNumber'])}/@{encodeURIComponent('User was disabled in AAD via playbook')}"
+              },
+              "runAfter": {
+                "Update_user": [
+                  "Succeeded"
+                ]
+              }
+            },
+            "Update_user": {
+              "runAfter": {},
+              "type": "ApiConnection",
+              "inputs": {
+                "body": {
+                  "accountEnabled": false
+                },
+                "host": {
+                  "connection": {
+                    "name": "@parameters('$connections')['azuread']['connectionId']"
+                  }
+                },
+                "method": "patch",
+                "path": "/v1.0/users/@{encodeURIComponent(concat(items('For_each')?['Name'], '@', items('for_each')?['UPNSuffix']))}"
+              }
+            }
+          },
+          "runAfter": {
+            "Alert_-_Get_accounts": [
+              "Succeeded"
+            ]
+          }
+        }
+      },
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "When_a_response_to_an_Azure_Sentinel_alert_is_triggered": {
+          "type": "ApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connection": {
+                "name": "@parameters('$connections')['azuresentinel']['connectionId']"
+              }
+            },
+            "body": {
+              "callback_url": "@{listCallbackUrl()}"
+            },
+            "path": "/subscribe"
+          }
+        }
+      },
+      "contentVersion": "1.0.0.0",
+      "outputs": {}
+    },
+    "connectionReferences": {
+
+      "azuresentinel": {
+        "connection": {
+          "id": ""
+        },
+        "api": {
+          "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/azuresentinel"
+        }
+      },
+
+      "azuread": {
+        "connection": {
+          "id": ""
+        },
+        "api": {
+          "id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/azuread"
+        }
+      }
+
+
+
+
+    },
+    "apiSummaries": [
+      {
+        "type": "{Type of the API}",
+        "displayName": "{Name of the API}",
+        "iconUri": "{Icon of the API}",
+        "brandColor": "{Brand color of the API}"
+      }
+    ],
+    "changedTime": "2000-01-01T00:00:00.000Z",
+    "createdTime": "2000-01-01T00:00:00.000Z",
+    "popularity": 99
+  }
+}
