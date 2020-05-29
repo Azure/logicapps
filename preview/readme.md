@@ -14,7 +14,7 @@ Local development on your dev machine
 
 Currently the following regions are supportd for Function App deployment:
 
-* West Central US
+* West Central US (cloud connectors are only supported in this region) 
 * West US 2
 * North Central US
 * West Europe
