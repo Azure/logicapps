@@ -2,6 +2,8 @@
 
 If you have questions about Logic Apps, please visit the [MSDN forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
+If you have feedback regarding Logic Apps, such as suggestions for features or other observations, please visit [feedback.azure.com](https://feedback.azure.com/forums/287593-logic-apps).
+
 ## Connectors
 Samples of custom connectors for Azure Logic Apps.
 
