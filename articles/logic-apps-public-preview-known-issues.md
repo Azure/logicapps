@@ -11,3 +11,11 @@ This article documents the known issues of the Logic Apps's new containerized an
 1. Restarting the app is required after updating an Inline Code action.
 
 1. Enterprise connectors, custom connectors, and or gateway-based connectors are not yet supported.
+
+## See issues not listed?
+
+You can open issues [here](https://github.com/Azure/logicapps/issues) on GitHub. 
+
+## Provide feedback
+
+You can submit feedbacks and comments using [this form](https://aka.ms/lafeedback).
