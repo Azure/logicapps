@@ -33,7 +33,7 @@ This article provides some more details on the changes.
 | France Central | 40.79.148.96 - 40.79.148.127 |
 | France South | 40.79.180.224 - 40.79.180.255 |
 | Japan East | 40.79.189.64 - 40.79.189.95 |
-| Japan West 40.80.180.64 - 40.80.180.95 |
+| Japan West | 40.80.180.64 - 40.80.180.95 |
 | Korea Central | 20.44.29.64 - 20.44.29.95 |
 | Korea South | 52.231.148.224 - 52.231.148.255 |
 | North Central US | 52.162.111.192 - 52.162.111.223 |
