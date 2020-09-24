@@ -20,6 +20,11 @@ Logic Apps public preview is currently available in the following Azure regions.
 * East US EUAP
 * West Central US
 * West US 2
+* Central US
+* Japan West
+* Brazil South
+* Central India
+* South Africa West
 
 ## Seeing issues not listed?
 
