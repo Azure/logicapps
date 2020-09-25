@@ -1,6 +1,6 @@
 # Azure Logic Apps
 
-If you have questions about Logic Apps, please visit the [MSDN forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+If you have questions about Logic Apps, please visit [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 
 If you have feedback regarding Logic Apps, such as suggestions for features or other observations, please visit [feedback.azure.com](https://feedback.azure.com/forums/287593-logic-apps).
 
