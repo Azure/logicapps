@@ -22,6 +22,8 @@ Logic Apps public preview is currently available in the following Azure regions.
 
 * Creating the new **Logic App (Preview)** resource is only supported in Visual Studio Code, not the Azure portal. After you create this new resource in Visual Studio Code and deploy to Azure, you can add or edit workflows through the Azure portal.
 
+* Cloud connectors are supported in Logic Apps VS Code extension 0.0.3 or above, and in West Central US region. More region support coming soon.
+
 * Enterprise connectors, custom connectors, and on-premises data gateway connectors are not yet supported.
 
 * The [**Inline Code** action](https://docs.microsoft.com/azure/logic-apps/logic-apps-add-run-inline-code), which you can use for running JavaScript code, currently isn't supported on Linux operating systems or on the Azure Functions runtime version 2x.
