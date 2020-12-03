@@ -4,17 +4,7 @@ This article documents the region availability and known issues for the new cont
 
 ## Available regions
 
-Logic Apps public preview is currently available in the following Azure regions.
-
-* Central US EUAP
-* East US EUAP
-* West Central US
-* West US 2
-* Central US
-* Japan West
-* Brazil South
-* Central India
-* South Africa West
+Logic Apps public preview is available in the all Azure regions.
 
 ## Issues
 
