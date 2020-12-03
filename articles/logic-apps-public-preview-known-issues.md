@@ -4,7 +4,7 @@ This article documents the region availability and known issues for the new cont
 
 ## Available regions
 
-Lobic Apps public preview is now available in all regions.
+Logic Apps public preview is now available in all regions.
 
 ## Issues
 
