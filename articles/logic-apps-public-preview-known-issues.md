@@ -30,18 +30,6 @@ Logic Apps Public Preview is available in all Azure regions.
 
   If you select **Disable** on a logic app's **Workflows** pane or on a workflow on their **Overview** pane, you might experience a delay, usually around 30 seconds, before the **Status** changes from **Enabled** to **Disabled**. This delay happens because the function host, which powers the workflow, has to restart. However, the **Status** column shows the correct state after the function host finishes restarting.
 
-* Zoom levels and off-screen content in Visual Studio Code
-
-  No scrollbar appears when you zoom in or zoom out in Visual Studio Code, which prevents you from viewing content that appears off the screen.
-
-  * To restore the original view, reset the zoom level with either option:
-
-    * Press **Ctrl** + **NumPad0**.
-
-    * From the **View** menu, select **Appearance** **>** **Reset Zoom**.
-
-  * To change the zoom level only on the Logic App Designer canvas, use the designer's zoom controls (**+** **100%** **-**) at the bottom of the canvas.
-
 ## Issues not listed here?
 
 Open them [in this GitHub repo's issues section](https://github.com/Azure/logicapps/issues).
