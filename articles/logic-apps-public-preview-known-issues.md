@@ -4,7 +4,7 @@ This article documents the region availability and known issues for the new cont
 
 ## Available regions
 
-Logic Apps public preview is available in the all Azure regions.
+Logic Apps Public Preview is available in all Azure regions.
 
 ## Issues
 
