@@ -16,7 +16,7 @@ Logic Apps Public Preview is available in all Azure regions.
 
   * After you make changes to this action action, you must restart your logic app.
 
-* The built-in action, **Azure Functions - Choose an Azure function** (renamed as **Azure Function Operations - Call an Azure Function**), currently works only for functions that are created from the HTTP Trigger template. For more information, see [Overview for Azure Logic Apps Preview)(https://docs.microsoft.com/azure/logic-apps/logic-apps-overview-preview#limited-unavailable-unsupported).
+* The built-in action, **Azure Functions - Choose an Azure function** (renamed as **Azure Function Operations - Call an Azure Function**), currently works only for functions that are created from the HTTP Trigger template. For more information, see [Overview for Azure Logic Apps Preview](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview-preview#limited-unavailable-unsupported).
 
 * Data persistence in the details pane for triggers and actions
 
