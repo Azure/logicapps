@@ -11,7 +11,7 @@
             "security"
         ],
         "description": "Send an email notification with the alert details when a threat is detected on a Security Center protected resource. Note: automated running of this trigger requires enabling automation in Azure Security Center and enabling the Standard tier as a preliminary step.",
-        "displayName": "Gettt a notification email when Security Center detects a threat",
+        "displayName": "Get a notification email when Security Center detects a threat",
         "definition": {
             "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
             "actions": {
