@@ -8,7 +8,7 @@ Logic Apps Public Preview is available in all Azure regions.
 
 ## Issues
 
-* Enterprise connectors, custom connectors, on-premises data gateway triggers, and some built-in B2B actions, such as Flat File, are currently unavailable. For more information, see [Overview for Azure Logic Apps Preview](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview-preview#limited-unavailable-unsupported).
+* Custom connectors, on-premises data gateway triggers, and some built-in B2B actions, such as Flat File, are currently unavailable. For more information, see [Overview for Azure Logic Apps Preview](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview-preview#limited-unavailable-unsupported).
 
 * For Visual Studio Code running on Linux or macOS, the [**Inline Code - Execute JavaScript Code** action (renamed **Inline Code Operations - Run in-line JavaScript**)](https://docs.microsoft.com/azure/logic-apps/logic-apps-add-run-inline-code) is currently unavailable.
 
