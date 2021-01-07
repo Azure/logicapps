@@ -68,7 +68,7 @@
 					"id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/office365"
 				}
 			},
-			"ascassessment": {
+			"ascregulatorycomplianceassessment": {
 				"connection": {
 					"id": ""
 				},
