@@ -1,0 +1,97 @@
+{
+	"id": "/providers/Microsoft.Logic/galleries/public/templates/b846cc4b-7393-4ac5-a470-994b8b530458",
+	"type": "Microsoft.Logic/galleries/templates",
+	"name": "b846cc4b-7393-4ac5-a470-994b8b530458",
+	"properties": {
+		"author": {
+			"displayName": "Microsoft"
+		},
+		"categoryNames": [
+			"general",
+			"security"
+		],
+		"description": "Send an email notification with the regulatory compliance assessment details. Note: automated running of this trigger requires enabling automation in Azure Security Center",
+		"displayName": "Get a notification email when Security Center creates a regulatory compliance assessment (Preview)",
+		"definition": {
+			"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+			"actions": {
+				"Send_an_email_(V2)": {
+					"type": "ApiConnection",
+					"inputs": {
+						"host": {
+							"connection": {
+								"name": "@parameters('$connections')['office365']['connectionId']"
+							}
+						},
+						"method": "post",
+						"body": {
+							"To": null,
+							"Subject": "New Azure Security Center regulatory compliance assessment has been created for your environment",
+							"Body": "<p>Azure Security Center regulatory compliance assessment has been created for your environment - assessment details below:<br>\n<br>\nAssessment Id: @{triggerBody()?['id']}<br>\n<br>\nAssessment name: @{triggerBody()?['name']}<br>\n<br>\nResource provider type: @{triggerBody()?['type']}<br>\n<br>\nAssessment description: @{triggerBody()?['properties']?['description']}<br>\n<br>\nAssessment type: @{triggerBody()?['properties']?['assessmentType']}<br>\n<br>\nAssessment state: @{triggerBody()?['properties']?['state']}<br>\n<br>\nAssessment's related resources count with passed state: @{triggerBody()?['properties']?['passedResources']}<br>\n<br>\nAssessment's related resources count with failed state: &nbsp;@{triggerBody()?['properties']?['failedResources']}<br>\n<br>\nAssessment's related resources count with skipped state: &nbsp;@{triggerBody()?['properties']?['skippedResources']}<br>\n<br>\nLink to more detailed assessment results data: @{triggerBody()?['properties']?['assessmentDetailsLink']}<br>\n<br>\nPowered by Azure Security Center Logic Apps regulatory compliance connector.</p>"
+						},
+						"path": "/v2/Mail"
+					},
+					"runAfter": {}
+				}
+			},
+			"parameters": {
+				"$connections": {
+					"defaultValue": {},
+					"type": "Object"
+				}
+			},
+			"triggers": {
+				"When_a_Security_Center_Regulatory_Compliance_Assessment_is_created_or_triggered": {
+					"type": "ApiConnectionWebhook",
+					"inputs": {
+						"body": {
+							"callback_url": "@{listCallbackUrl()}"
+						},
+						"host": {
+							"connection": {
+								"name": "@parameters('$connections')['ascregulatorycomplianceassessment']['connectionId']"
+							}
+						},
+						"path": "/Microsoft.Security/RegulatoryComplianceAssessment/subscribe"
+					}
+				}
+			},
+			"contentVersion": "1.0.0.0",
+			"outputs": {}
+		},
+		"connectionReferences": {
+			"office365": {
+				"connection": {
+					"id": ""
+				},
+				"api": {
+					"id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/office365"
+				}
+			},
+			"ascassessment": {
+				"connection": {
+					"id": ""
+				},
+				"api": {
+					"id": "/subscriptions/{0}/providers/Microsoft.Web/locations/{1}/managedApis/ascregulatorycomplianceassessment"
+				}
+			}
+		},
+		"apiSummaries": [{
+				"type": "apiconnection",
+				"displayName": "Azure Security Center Regulatory Compliance",
+				"iconUri": "https://connectoricons-df.azureedge.net/ascassessment/icon_1.0.1221.1620.png",
+				"brandColor": "#99c419"
+			},
+			{
+				"type": "apiconnection",
+				"displayName": "${Resources.OUTLOOK}",
+				"iconUri": "https://az818438.vo.msecnd.net/icons/outlook.png",
+				"brandColor": "#0072c6"
+			}
+		],
+		"changedTime": "2020-12-15T00:00:00.000Z",
+		"createdTime": "2019-12-15T00:00:00.000Z",
+		"popularity": 99
+	}
+}
