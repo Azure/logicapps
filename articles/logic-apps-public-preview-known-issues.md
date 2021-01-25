@@ -42,8 +42,6 @@ Logic Apps Public Preview is available in all Azure regions.
 
 * **Breakpoint debugging in Visual Studio Code**: Although you can add and use breakpoints inside the workflow.json file for a workflow, breakpoints are currently supported only for actions, not triggers. For more information, see [Create stateful and stateless workflows in Visual Studio Code](https://docs.microsoft.com/azure/logic-apps/create-stateful-stateless-workflows-visual-studio-code).
 
-* Users can still access connections using old keys even after revocation of existing keys. The fix will be available in all regions by 12/15.
-
 ## Issues not listed here?
 
 Open them [in this GitHub repo's issues section](https://github.com/Azure/logicapps/issues).
