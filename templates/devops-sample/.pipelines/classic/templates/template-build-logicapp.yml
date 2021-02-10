@@ -1,0 +1,22 @@
+# Logic app validation steps template
+
+parameters:
+- name: workingDirectory
+  type: string
+- name: configuration
+  type: string
+- name: outputFolder
+  type: string
+  default: publish_output
+
+steps:
+- task: DotNetCoreCLI@2
+  displayName: 'Build & publish'
+  inputs:
+    command: 'publish'
+    projects: '**/*.csproj'
+    arguments: '-o ${{ parameters.outputFolder }} -c ${{ parameters.configuration }}'
+    zipAfterPublish: true
+    modifyOutputPath: false
+    publishWebProjects: false
+    workingDirectory: ${{ parameters.workingDirectory }}

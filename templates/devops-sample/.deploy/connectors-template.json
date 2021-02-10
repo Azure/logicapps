@@ -1,0 +1,85 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "metadata": {
+        "description": "The datacenter to use for the deployment."
+      }
+    },
+    "environmentName": {
+      "type": "string"
+    },
+    "projectName": {
+      "type": "string"
+    },
+    "officeConnectionName": {
+      "type": "string"
+    },
+    "logicAppSystemAssignedIdentityTenantId": {
+        "type": "string"
+    },
+    "logicAppSystemAssignedIdentityObjectId": {
+        "type": "string"
+    }
+  },
+  "variables": {
+    "office365ConnectionId": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), 'office365')]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Web/connections",
+      "apiVersion": "2016-06-01",
+      "name": "[parameters('officeConnectionName')]",
+      "location": "[parameters('location')]",
+      "kind": "V2",
+      "tags": {
+        "Environment": "[parameters('environmentName')]",
+        "Project": "[parameters('projectName')]"
+      },
+      "properties": {
+        "displayName": "Office365 Connection",
+        "api": {
+          "id": "[variables('office365ConnectionId')]"
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Web/connections/accessPolicies",
+      "apiVersion": "2016-06-01",
+      "name": "[concat(parameters('officeConnectionName'),'/', parameters('logicAppSystemAssignedIdentityObjectId'))]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/connections', parameters('officeConnectionName'))]"
+      ],
+      "properties": {
+        "principal": {
+          "type": "ActiveDirectory",
+          "identity": {
+            "tenantId": "[parameters('logicAppSystemAssignedIdentityTenantId')]",
+            "objectId": "[parameters('logicAppSystemAssignedIdentityObjectId')]"
+          }
+        }
+      }
+    }
+  ],
+  "outputs": {
+    "office365ConnectionName": {
+      "type": "string",
+      "value": "[parameters('officeConnectionName')]"
+    },
+    "office365ConnectionId": {
+      "type": "string",
+      "value": "[resourceId('Microsoft.Web/connections', parameters('officeConnectionName'))]"
+    },
+    "office365ConnectionManagedApiId": {
+      "type": "string",
+      "value": "[variables('office365ConnectionId')]"
+    },
+    "office365RuntimeConnectionUrl": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.Web/connections', parameters('officeConnectionName')),'2016-06-01', 'full').properties.connectionRuntimeUrl]"
+    }
+  }
+}

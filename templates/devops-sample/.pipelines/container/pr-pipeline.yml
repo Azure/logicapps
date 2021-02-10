@@ -1,0 +1,27 @@
+trigger: none
+
+pool:
+  vmImage: 'ubuntu-18.04'
+
+variables:
+- name: workingDirectory
+  value: $(System.DefaultWorkingDirectory)
+- template: variables/vars-iac.yml
+
+jobs:
+- job: logic_app_build
+  displayName: 'Build and validate logic app'
+  steps:
+  - task: AzureCLI@2
+    displayName: 'Build Logic App Image'
+    inputs:
+      azureSubscription: $(devServiceConnection)
+      scriptType: 'bash'
+      scriptLocation: 'inlineScript'
+      inlineScript: |
+        az acr build \
+        -r $(acrName) \
+        -t $(logicAppContainerName):$(Build.BuildId) \
+        --no-push \
+        .
+      workingDirectory: $(workingDirectory)

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "containerRegistryName": {
+      "type": "string"
+    },
+    "environmentName": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "projectName": {
+      "type": "string"
+    },
+    "skuName": {
+      "type": "string",
+      "defaultValue": "Basic"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.ContainerRegistry/registries",
+      "sku": {
+        "name": "[parameters('skuName')]"
+      },
+      "name": "[parameters('containerRegistryName')]",
+      "apiVersion": "2019-05-01",
+      "location": "[parameters('location')]",
+      "tags": {
+        "Environment": "[parameters('environmentName')]",
+        "Project": "[parameters('projectName')]"
+      },
+      "properties": {
+        "adminUserEnabled": true
+      }
+    }
+  ],
+  "outputs": {
+    "acrUsername": {
+      "type": "string",
+      "value": "[listCredentials(resourceId('Microsoft.ContainerRegistry/registries', parameters('containerRegistryName')), '2017-10-01').username]"
+    },
+    "acrPassword": {
+      "type": "string",
+      "value": "[listCredentials(resourceId('Microsoft.ContainerRegistry/registries', parameters('containerRegistryName')), '2017-10-01').passwords[0].value]"
+    }
+  }
+}
