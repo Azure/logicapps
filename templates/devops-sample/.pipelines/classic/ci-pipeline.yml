@@ -1,0 +1,42 @@
+trigger:
+- main
+
+pr: none
+
+pool:
+  vmImage: 'ubuntu-18.04'
+
+variables:
+- name: workingDirectory
+  value: $(System.DefaultWorkingDirectory)
+- template: variables/vars-ci.yml
+- template: variables/vars-iac.yml
+
+jobs:
+- job: logic_app_build
+  displayName: 'Build and publish logic app'
+  steps:
+  - task: AzurePowerShell@4
+    displayName: 'Generate connections.json file'
+    inputs:
+      azureSubscription: $(devServiceConnection)
+      ScriptType: 'FilePath'
+      ScriptPath: '$(workingDirectory)/.pipelines/scripts/Generate-Connections.ps1'
+      FailOnStandardError: true
+      azurePowerShellVersion: LatestVersion
+      pwsh: true
+      ScriptArguments: >-
+        -resourceGroup $(resourceGroupName)
+
+  - template: templates/template-build-logicapp.yml
+    parameters:
+      workingDirectory: $(workingDirectory)
+      configuration: Release
+      outputFolder: $(publishOutputFolder)
+
+  - task: PublishPipelineArtifact@1
+    displayName: 'Publish pipeline artifact'
+    inputs:
+      targetPath: '$(workingDirectory)/$(publishOutputFolder)'
+      artifact: '$(logicAppCIArtifactName)'
+      publishLocation: 'pipeline'
