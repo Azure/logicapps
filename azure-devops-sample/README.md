@@ -220,10 +220,6 @@ Under the `variables/` folder & in some pipeline files, you will need to fill in
 # vars-iac
 devServiceConnection: 'NAME OF AZURE SERVICE CONNECTION IN AZURE DEVOPS'
 
-# vars-ci
-projectId: 'ID OF AZURE DEVOPS PROJECT'
-iacPipelineDefinitionId: 'ID OF THE IAC PIPELINE IN AZURE DEVOPS'
-
 # cd-pipeline
 toEmailAddress: 'EMAIL ADDRESS THE EXAMPLE WORKFLOW SHOULD EMAIL'
 resources.pipelines.pipeline.source: 'NAME OF THE CI PIPELINE IN AZURE DEVOPS'
