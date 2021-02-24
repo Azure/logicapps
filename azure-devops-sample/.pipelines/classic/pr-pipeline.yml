@@ -15,4 +15,3 @@ jobs:
     parameters:
       workingDirectory: $(workingDirectory)
       configuration: Debug
-      outputFolder: $(publishOutputFolder)
