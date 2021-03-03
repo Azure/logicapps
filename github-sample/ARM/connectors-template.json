@@ -1,0 +1,97 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "logicAppSystemAssignedIdentityTenantId": {
+            "type": "string"
+        },
+        "logicAppSystemAssignedIdentityObjectId": {
+            "type": "string"
+        },
+        "sa_name": {
+            "defaultValue": "storage name",
+            "type": "string"
+        }, 
+        "connections_azureblob_2_name": {
+            "defaultValue": "azureblob-2",
+            "type": "string"
+        }
+    },
+    "variables": {
+        "sa": "[concat(toLower(parameters('sa_name')), uniqueString(resourceGroup().id))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2020-08-01-preview",
+            "name": "[variables('sa')]",
+            "location": "australiasoutheast",
+            "sku": {
+                "name": "Standard_LRS",
+                "tier": "Standard"
+            },
+            "kind": "Storage",
+            "properties": {
+                "networkAcls": {
+                    "bypass": "AzureServices",
+                    "virtualNetworkRules": [],
+                    "ipRules": [],
+                    "defaultAction": "Allow"
+                },
+                "supportsHttpsTrafficOnly": true,
+                "encryption": {
+                    "services": {
+                        "file": {
+                            "keyType": "Account",
+                            "enabled": true
+                        },
+                        "blob": {
+                            "keyType": "Account",
+                            "enabled": true
+                        }
+                    },
+                    "keySource": "Microsoft.Storage"
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Web/connections",
+            "apiVersion": "2016-06-01",
+            "name": "[parameters('connections_azureblob_2_name')]",
+            "location": "australiasoutheast",
+            "kind": "V2",            
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts', variables('sa'))]"
+            ],
+            "properties": {
+                "displayName": "privatestorage",
+                "parameterValues": {
+                    "accountName": "[variables('sa')]", 
+                    "accessKey": "[concat(listKeys(concat(resourceGroup().id,'/providers/Microsoft.Storage/storageAccounts/', variables('sa')),'2019-06-01').keys[0].value)]"
+                },
+                "api": {
+                    "id": "/subscriptions/80b60a27-4eab-437e-899f-dde369cd1c17/providers/Microsoft.Web/locations/australiasoutheast/managedApis/azureblob"
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Web/connections/accessPolicies",
+            "apiVersion": "2016-06-01",
+            "name": "[concat(parameters('connections_azureblob_2_name'),'/',parameters('logicAppSystemAssignedIdentityObjectId'))]",
+            "location": "australiasoutheast",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/connections', parameters('connections_azureblob_2_name'))]"
+            ],
+            "properties": {
+                "principal": {
+                    "type": "ActiveDirectory",
+                    "identity": {
+                        "tenantId": "[parameters('logicAppSystemAssignedIdentityTenantId')]",
+                        "objectId": "[parameters('logicAppSystemAssignedIdentityObjectId')]"
+                    }
+                }
+            }
+        }
+   
+    ]
+}

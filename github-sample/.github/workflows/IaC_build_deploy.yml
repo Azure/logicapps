@@ -1,0 +1,98 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/azure/functions-action
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
+name: Logic App IaC, Build and deploy. 
+
+on:
+  - workflow_dispatch 
+
+env:
+  AZURE_LOGICAPP_PACKAGE_PATH: '.' # set this to the path to your web app project, defaults to the repository root
+  DOTNET_VERSION: '3.1.301'    # set this to the dotnet version to use
+  RG_LA: 'GHApp'
+  RG_CON: 'GHConnections'
+
+jobs:
+  deploy-all: 
+    runs-on: ubuntu-latest
+    steps:
+                      
+    # Authentication
+    # Set up the following secrets in your repository: AZURE_CREDENTIALS
+    # For details on usage of secrets, please refer https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS  }}
+        enable-AzPSSession: true 
+
+    # Checkout
+    - name: Checkout
+      uses: actions/checkout@v1
+
+    # Deployment of template  
+
+    - name: Deploy Logic App Resources
+      uses: Azure/arm-deploy@v1.0.1
+      id: ladeploy
+      with:
+        # You can change these environment variables for your configuration:   AZURE_SUBSCRIPTION_ID, AZURE_RESOURCE_GROUP
+        scope: resourcegroup  
+        subscriptionId: ${{ secrets.AZURE_SUB }}
+        resourceGroupName:  ${{ env.RG_LA }}
+        template: ARM/la-template.json  # Set this to the location of your template file
+        parameters: ARM/la-parameters.json # Set this to the location of your parameters file
+        deploymentMode: Incremental
+   
+    # Deployment of template    
+    - name: Deploy Connector Resources 
+      id: msdemoconn
+      uses: Azure/arm-deploy@v1.0.1
+      with:
+        scope: resourcegroup  
+        subscriptionId: ${{ secrets.AZURE_SUB }}
+        resourceGroupName: ${{ env.RG_CON }}
+        template: ARM/connectors-template.json  # Set this to the location of your template file
+        parameters: ARM/connectors-parameters.json logicAppSystemAssignedIdentityTenantId=${{ steps.ladeploy.outputs.logicAppSystemAssignedIdentityTenantId }} logicAppSystemAssignedIdentityObjectId=${{ steps.ladeploy.outputs.logicAppSystemAssignedIdentityObjectId }}
+        deploymentMode: Incremental
+
+    - name: Generate Connections.json
+      uses: azure/powershell@v1
+      with:
+        inlineScript: |
+          ./Scripts/Generate-Connections.ps1 -resourceGroup '${{ env.RG_CON }}'
+        azPSVersion: latest
+
+    - name: Get publish Profile
+      id: fncapp
+      uses: azure/powershell@v1
+      with:
+        inlineScript: |
+          $profile = Get-AzWebAppPublishingProfile `
+              -ResourceGroupName ${{ env.RG_LA }} `
+              -Name ${{ steps.ladeploy.outputs.LAname }}
+          $profile = $profile.Replace("`r", "").Replace("`n", "")
+          Write-Output "::set-output name=profile::$profile"
+        azPSVersion: latest
+
+    - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION }}
+          
+    - name: 'Resolve Project Dependencies Using Dotnet'
+      shell: pwsh
+      run: |
+        pushd './${{ env.AZURE_LOGICAPP_PACKAGE_PATH }}'
+        dotnet build --configuration Release --output ./output
+        popd
+
+    - name: 'Run Azure Functions Action'
+      uses: Azure/functions-action@v1
+      id: fa
+      with:
+        app-name: ${{ steps.ladeploy.outputs.LAname }}
+        package: '${{ env.AZURE_LOGICAPP_PACKAGE_PATH }}/output'
+        publish-profile: ${{steps.fncapp.outputs.profile}}
+   
+   

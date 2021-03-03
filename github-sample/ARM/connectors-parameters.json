@@ -1,0 +1,18 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "logicAppSystemAssignedIdentityTenantId": {
+            "value": "__1__"
+        },
+        "logicAppSystemAssignedIdentityObjectId": {
+            "value": "__2__"
+        },
+        "sa_name": {
+            "value": "consa"
+        },
+        "connections_azureblob_2_name": {
+            "value":"azureblob-2"
+        }
+    }
+}
