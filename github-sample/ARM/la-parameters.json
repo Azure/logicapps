@@ -1,0 +1,15 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sites_armLAdemo_name": {
+            "value": "cicdla"
+        },
+        "serverfarms_ASP_ARMLaDemo_bce2_name": {
+            "value": "cicdasp"
+        },
+        "sa_name": {
+            "value": "cicdsa"
+        }
+    }
+}

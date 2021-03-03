@@ -1,0 +1,268 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sites_armLAdemo_name": {
+            "defaultValue": "cicdlogicapp",
+            "type": "string"
+        },
+        "serverfarms_ASP_ARMLaDemo_bce2_name": {
+            "defaultValue": "cicddemopremiumplan",
+            "type": "string"
+        },
+        "sa_name": {
+            "defaultValue": "cicddemosably",
+            "type": "string"
+        }
+    },
+    "variables": {
+        "sa": "[concat(toLower(parameters('sa_name')), uniqueString(resourceGroup().id))]",
+        "logicApp": "[concat(toLower(parameters('sites_armLAdemo_name')), uniqueString(resourceGroup().id))]",
+        "asp":"[concat(toLower(parameters('serverfarms_ASP_ARMLaDemo_bce2_name')), uniqueString(resourceGroup().id))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2020-08-01-preview",
+            "name": "[variables('sa')]",
+            "location": "australiasoutheast",
+            "sku": {
+                "name": "Standard_LRS",
+                "tier": "Standard"
+            },
+            "kind": "Storage",
+            "properties": {
+                "networkAcls": {
+                    "bypass": "AzureServices",
+                    "virtualNetworkRules": [],
+                    "ipRules": [],
+                    "defaultAction": "Allow"
+                },
+                "supportsHttpsTrafficOnly": true,
+                "encryption": {
+                    "services": {
+                        "file": {
+                            "keyType": "Account",
+                            "enabled": true
+                        },
+                        "blob": {
+                            "keyType": "Account",
+                            "enabled": true
+                        }
+                    },
+                    "keySource": "Microsoft.Storage"
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Web/serverfarms",
+            "apiVersion": "2018-02-01",
+            "name": "[variables('asp')]",
+            "location": "Australia Southeast",
+            "sku": {
+                "name": "EP1",
+                "tier": "ElasticPremium",
+                "size": "EP1",
+                "family": "EP",
+                "capacity": 1
+            },
+            "kind": "elastic",
+            "properties": {
+                "perSiteScaling": false,
+                "maximumElasticWorkerCount": 20,
+                "isSpot": false,
+                "reserved": false,
+                "isXenon": false,
+                "hyperV": false,
+                "targetWorkerCount": 0,
+                "targetWorkerSizeId": 0
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites",
+            "apiVersion": "2018-11-01",
+            "name": "[variables('logicApp')]",
+            "location": "Australia Southeast",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', variables('asp'))]", 
+                "[resourceId('Microsoft.Storage/storageAccounts', variables('sa'))]"
+            ],
+            "kind": "functionapp,workflowapp",
+            "identity": {
+                "type": "SystemAssigned"
+            },
+            "properties": {
+                "enabled": true,
+                "hostNameSslStates": [
+                    {
+                        "name": "[concat(variables('logicApp'),'.azurewebsites.net')]",
+                        "sslState": "Disabled",
+                        "hostType": "Standard"
+                    },
+                    {
+                        "name": "[concat(variables('logicApp'),'.scm.azurewebsites.net')]",
+                        "sslState": "Disabled",
+                        "hostType": "Repository"
+                    }
+                ],
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('asp'))]",
+                "reserved": false,
+                "isXenon": false,
+                "hyperV": false,
+                "siteConfig": {
+                    "appSettings":[
+                        {
+                            "name": "AzureFunctionsJobHost__extensionBundle__id",
+                            "value":"Microsoft.Azure.Functions.ExtensionBundle.Workflows"
+                        },
+                        {
+                            "name": "AzureFunctionsJobHost__extensionBundle__version",
+                            "value":"[1.*, 2.0.0)"
+                        },
+                        {
+                            "name": "AzureWebJobsStorage",
+                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',variables('sa'),';AccountKey=',concat(listKeys(concat(resourceGroup().id,'/providers/Microsoft.Storage/storageAccounts/', variables('sa')),'2019-06-01').keys[0].value),';EndpointSuffix=core.windows.net')]"
+                        },
+                        {
+                            "name": "FUNCTIONS_EXTENSION_VERSION",
+                            "value":"~3"
+                        },
+                        {
+                            "name": "FUNCTIONS_WORKER_RUNTIME",
+                            "value":"dotnet"
+                        },
+                        {
+                            "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
+                            "value":"[concat('DefaultEndpointsProtocol=https;AccountName=',variables('sa'),';AccountKey=',concat(listKeys(concat(resourceGroup().id,'/providers/Microsoft.Storage/storageAccounts/', variables('sa')),'2019-06-01').keys[0].value),';EndpointSuffix=core.windows.net')]"
+                        },
+                        {
+                            "name": "WEBSITE_CONTENTSHARE",
+                            "value":"cicdlogicappbdc3"
+                        }
+
+                    ]
+                },
+                "scmSiteAlsoStopped": false,
+                "clientAffinityEnabled": true,
+                "clientCertEnabled": false,
+                "hostNamesDisabled": false,
+                "containerSize": 1536,
+                "dailyMemoryTimeQuota": 0,
+                "httpsOnly": false,
+                "redundancyMode": "None"
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites/config",
+            "apiVersion": "2018-11-01",
+            "name": "[concat(variables('logicApp'), '/web')]",
+            "location": "Australia Southeast",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', variables('logicApp'))]"
+            ],
+            "properties": {
+                "numberOfWorkers": -1,
+                "defaultDocuments": [
+                    "Default.htm",
+                    "Default.html",
+                    "Default.asp",
+                    "index.htm",
+                    "index.html",
+                    "iisstart.htm",
+                    "default.aspx",
+                    "index.php"
+                ],
+                "netFrameworkVersion": "v4.0",
+                "phpVersion": "5.6",
+                "requestTracingEnabled": false,
+                "remoteDebuggingEnabled": false,
+                "remoteDebuggingVersion": "VS2019",
+                "httpLoggingEnabled": false,
+                "logsDirectorySizeLimit": 35,
+                "detailedErrorLoggingEnabled": false,
+                "publishingUsername": "[concat('$',variables('logicApp'))]",
+                "azureStorageAccounts": {},
+                "scmType": "None",
+                "use32BitWorkerProcess": true,
+                "webSocketsEnabled": false,
+                "alwaysOn": false,
+                "managedPipelineMode": "Integrated",
+                "virtualApplications": [
+                    {
+                        "virtualPath": "/",
+                        "physicalPath": "site\\wwwroot",
+                        "preloadEnabled": false
+                    }
+                ],
+                "loadBalancing": "LeastRequests",
+                "experiments": {
+                    "rampUpRules": []
+                },
+                "autoHealEnabled": false,
+                "cors": {
+                    "allowedOrigins": [
+                        "https://afd.hosting.portal.azure.net",
+                        "https://afd.hosting-ms.portal.azure.net",
+                        "https://hosting.portal.azure.net",
+                        "https://ms.hosting.portal.azure.net",
+                        "https://ema-ms.hosting.portal.azure.net",
+                        "https://ema.hosting.portal.azure.net"
+                    ],
+                    "supportCredentials": false
+                },
+                "localMySqlEnabled": false,
+                "managedServiceIdentityId": 18450,
+                "ipSecurityRestrictions": [
+                    {
+                        "ipAddress": "Any",
+                        "action": "Allow",
+                        "priority": 1,
+                        "name": "Allow all",
+                        "description": "Allow all access"
+                    }
+                ],
+                "scmIpSecurityRestrictions": [
+                    {
+                        "ipAddress": "Any",
+                        "action": "Allow",
+                        "priority": 1,
+                        "name": "Allow all",
+                        "description": "Allow all access"
+                    }
+                ],
+                "scmIpSecurityRestrictionsUseMain": false,
+                "http20Enabled": false,
+                "minTlsVersion": "1.2",
+                "ftpsState": "AllAllowed",
+                "reservedInstanceCount": 1
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites/hostNameBindings",
+            "apiVersion": "2018-11-01",
+            "name": "[concat(variables('logicApp'), '/', variables('logicApp'), '.azurewebsites.net')]",
+            "location": "Australia Southeast",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', variables('logicApp'))]"
+            ],
+            "properties": {
+                "siteName": "variables('logicApp')",
+                "hostNameType": "Verified"
+            }
+        }
+    ],
+    "outputs": {
+        "logicAppSystemAssignedIdentityTenantId": {
+            "type": "string",
+            "value": "[subscription().tenantid]"
+        },
+        "logicAppSystemAssignedIdentityObjectId": {
+            "type": "string",
+            "value": "[reference(resourceId('Microsoft.Web/sites', variables('logicApp')),'2019-08-01', 'full').identity.principalId]"
+        }, 
+        "LAname": {
+            "type": "string",
+            "value": "[variables('logicApp')]"
+        }
+    }
+}
