@@ -1,8 +1,8 @@
-# Logic Apps v2
+# Logic Apps (Single-tenant)
 
-This repository contains a sample Logic App v2 project, with Azure deployment and pipeline examples.
+This repository contains a sample Logic App (single-tenant) project, with Azure deployment and pipeline examples.
 
-- [Logic Apps v2](#logic-apps-v2)
+- [Logic Apps](#logic-apps)
   - [Prerequisites](#prerequisites)
   - [Local](#local)
     - [VS Code](#vs-code)
