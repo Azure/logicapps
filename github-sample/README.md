@@ -1,4 +1,4 @@
-# Logic Apps (preview) DevOps 
+# Logic Apps (Single-tenant) DevOps 
 
 This repository contains a sample Logic App (preview) project, with Azure deployment and GitHub Actions examples. For a sample on how to create DevOps pipeline for Logic Apps with Azure DevOps please see [here](https://github.com/Azure/logicapps/tree/master/templates/devops-sample)
 
@@ -175,7 +175,7 @@ A pipeline that doth both build and deploy actions to build the Logic Apps proje
 
 ## Known Issues & Limitations
 
-With Logic App v2 being in preview, there are some caveats to be aware of.
+With Logic App (single-tenant) being in preview, there are some caveats to be aware of.
 
 - [**Connections**] You cannot parameterize values inside the `connection.json` file. You can replace an entire variable with an `appsetting` parameter, but you cannot parameterize parts of a string. For example:
 
@@ -214,7 +214,7 @@ With Logic App v2 being in preview, there are some caveats to be aware of.
 
 Q: Why do I have to recreate the operation that uses the API connection?
 
-- A: Currently, whilst Logic Apps v2 is in preview, the designer does not allow you to select or create a new connection when a `connections.json` file does not already exist, the only way
+- A: Currently, whilst Logic Apps (single tenant) is in preview, the designer does not allow you to select or create a new connection when a `connections.json` file does not already exist, the only way
   around this is to recreate the operation that uses the connection, or create any operation that uses that connection inside a new workflow file.
 
 Q: Why do I need to get a connection key to run locally?
