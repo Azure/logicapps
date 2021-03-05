@@ -4,7 +4,3 @@ variables:
 
   publishOutputFolder: 'publish_output'
   logicAppCIArtifactName: 'logicapp_publish_artifact_dev'
-
-  # TODO: Fill this in with your DevOps project Id and the Id of the IaC pipeline
-  projectId: ''
-  iacPipelineDefinitionId: ''

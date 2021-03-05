@@ -142,6 +142,10 @@
         "siteConfig": {
           "appSettings": [
             {
+              "name": "APP_KIND",
+              "value": "workflowApp"
+            },
+            {
               "name": "AzureFunctionsJobHost__extensionBundle__id",
               "value": "Microsoft.Azure.Functions.ExtensionBundle.Workflows"
             },
@@ -162,12 +166,16 @@
               "value": "dotnet"
             },
             {
+              "name": "FUNCTIONS_V2_COMPATIBILITY_MODE",
+              "value": "true"
+            },
+            {
               "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
               "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageName'),';AccountKey=',concat(listKeys(concat(resourceGroup().id,'/providers/Microsoft.Storage/storageAccounts/', parameters('storageName')),'2019-06-01').keys[0].value),';EndpointSuffix=core.windows.net')]"
             },
             {
               "name": "WEBSITE_CONTENTSHARE",
-              "value": "cicdlogicappbdc3"
+              "value": "[parameters('logicAppName')]"
             }
           ]
         },
