@@ -14,15 +14,6 @@
     "projectName": {
       "type": "string"
     },
-    "acrName": {
-      "type": "String"
-    },
-    "acrUsername": {
-      "type": "String"
-    },
-    "acrPassword": {
-      "type": "string"
-    },
     "logicAppName": {
       "type": "String"
     },
@@ -106,7 +97,7 @@
         "perSiteScaling": false,
         "maximumElasticWorkerCount": 20,
         "isSpot": false,
-        "reserved": true,
+        "reserved": false,
         "isXenon": false,
         "hyperV": false,
         "targetWorkerCount": 0,
@@ -122,7 +113,7 @@
         "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]",
         "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageName'))]"
       ],
-      "kind": "functionapp,linux,container,workflowapp",
+      "kind": "functionapp,workflowapp",
       "identity": {
         "type": "SystemAssigned"
       },
@@ -145,11 +136,15 @@
           }
         ],
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]",
-        "reserved": true,
+        "reserved": false,
         "isXenon": false,
         "hyperV": false,
         "siteConfig": {
           "appSettings": [
+            {
+              "name": "APP_KIND",
+              "value": "workflowApp"
+            },
             {
               "name": "AzureFunctionsJobHost__extensionBundle__id",
               "value": "Microsoft.Azure.Functions.ExtensionBundle.Workflows"
@@ -167,8 +162,12 @@
               "value": "~3"
             },
             {
+              "name": "FUNCTIONS_V2_COMPATIBILITY_MODE",
+              "value": "true"
+            },
+            {
               "name": "FUNCTIONS_WORKER_RUNTIME",
-              "value": "dotnet"
+              "value": "node"
             },
             {
               "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
@@ -176,24 +175,16 @@
             },
             {
               "name": "WEBSITE_CONTENTSHARE",
-              "value": "cicdlogicappbdc3"
+              "value": "[parameters('logicAppName')]"
             },
             {
-              "name": "DOCKER_REGISTRY_SERVER_URL",
-              "value": "[concat('https://', parameters('acrName'), '.azurecr.io')]"
-            },
-            {
-              "name": "DOCKER_REGISTRY_SERVER_USERNAME",
-              "value": "[parameters('acrUsername')]"
-            },
-            {
-              "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
-              "value": "[parameters('acrPassword')]"
+              "name": "WEBSITE_NODE_DEFAULT_VERSION",
+              "value": "~12"
             }
           ]
         },
         "scmSiteAlsoStopped": false,
-        "clientAffinityEnabled": false,
+        "clientAffinityEnabled": true,
         "clientCertEnabled": false,
         "hostNamesDisabled": false,
         "containerSize": 1536,
@@ -227,7 +218,7 @@
           "index.php"
         ],
         "netFrameworkVersion": "v4.0",
-        "linuxFxVersion": "DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice",
+        "phpVersion": "5.6",
         "requestTracingEnabled": false,
         "remoteDebuggingEnabled": false,
         "httpLoggingEnabled": false,
@@ -236,7 +227,7 @@
         "publishingUsername": "[concat('$',parameters('logicAppName'))]",
         "azureStorageAccounts": {},
         "scmType": "None",
-        "use32BitWorkerProcess": false,
+        "use32BitWorkerProcess": true,
         "webSocketsEnabled": false,
         "alwaysOn": false,
         "managedPipelineMode": "Integrated",
@@ -264,7 +255,6 @@
           "supportCredentials": false
         },
         "localMySqlEnabled": false,
-        "managedServiceIdentityId": 1241,
         "ipSecurityRestrictions": [
           {
             "ipAddress": "Any",

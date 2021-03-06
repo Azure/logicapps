@@ -7,10 +7,7 @@ pool:
   vmImage: 'ubuntu-18.04'
 
 variables:
-- name: workingDirectory
-  value: $(System.DefaultWorkingDirectory)
-- template: variables/vars-ci.yml
-- template: variables/vars-iac.yml
+- template: variables/pipeline-vars.yml
 
 jobs:
 - job: logic_app_build
@@ -21,22 +18,25 @@ jobs:
     inputs:
       azureSubscription: $(devServiceConnection)
       ScriptType: 'FilePath'
-      ScriptPath: '$(workingDirectory)/.pipelines/scripts/Generate-Connections.ps1'
+      ScriptPath: '$(System.DefaultWorkingDirectory)/.pipelines/scripts/Generate-Connections.ps1'
       FailOnStandardError: true
       azurePowerShellVersion: LatestVersion
       pwsh: true
       ScriptArguments: >-
         -resourceGroup $(resourceGroupName)
 
-  - template: templates/template-build-logicapp.yml
-    parameters:
-      workingDirectory: $(workingDirectory)
-      configuration: Release
-      outputFolder: $(publishOutputFolder)
+  - task: ArchiveFiles@2
+    displayName: 'Create project zip'
+    inputs:
+      rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+      includeRootFolder: false
+      archiveType: 'zip'
+      archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+      replaceExistingArchive: true
 
   - task: PublishPipelineArtifact@1
-    displayName: 'Publish pipeline artifact'
+    displayName: 'Publish project zip artifact'
     inputs:
-      targetPath: '$(workingDirectory)/$(publishOutputFolder)'
+      targetPath: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
       artifact: '$(logicAppCIArtifactName)'
       publishLocation: 'pipeline'

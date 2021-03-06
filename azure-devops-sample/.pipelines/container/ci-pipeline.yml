@@ -7,10 +7,7 @@ pool:
   vmImage: 'ubuntu-18.04'
 
 variables:
-- name: workingDirectory
-  value: $(System.DefaultWorkingDirectory)
-- template: variables/vars-iac.yml
-- template: variables/vars-ci.yml
+- template: variables/pipeline-vars.yml
 
 jobs:
 - job: logic_app_build
@@ -21,7 +18,7 @@ jobs:
     inputs:
       azureSubscription: $(devServiceConnection)
       ScriptType: 'FilePath'
-      ScriptPath: '$(workingDirectory)/.pipelines/scripts/Generate-Connections.ps1'
+      ScriptPath: '$(System.DefaultWorkingDirectory)/.pipelines/scripts/Generate-Connections.ps1'
       FailOnStandardError: true
       azurePowerShellVersion: LatestVersion
       pwsh: true
@@ -40,4 +37,4 @@ jobs:
         -t $(logicAppContainerName):$(Build.BuildId) \
         -t $(logicAppContainerName):latest \
         .
-      workingDirectory: $(workingDirectory)
+      workingDirectory: $(System.DefaultWorkingDirectory)

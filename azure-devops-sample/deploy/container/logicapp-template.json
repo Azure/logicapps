@@ -14,6 +14,15 @@
     "projectName": {
       "type": "string"
     },
+    "acrName": {
+      "type": "String"
+    },
+    "acrUsername": {
+      "type": "String"
+    },
+    "acrPassword": {
+      "type": "string"
+    },
     "logicAppName": {
       "type": "String"
     },
@@ -97,7 +106,7 @@
         "perSiteScaling": false,
         "maximumElasticWorkerCount": 20,
         "isSpot": false,
-        "reserved": false,
+        "reserved": true,
         "isXenon": false,
         "hyperV": false,
         "targetWorkerCount": 0,
@@ -113,7 +122,7 @@
         "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]",
         "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageName'))]"
       ],
-      "kind": "functionapp,workflowapp",
+      "kind": "functionapp,linux,container,workflowapp",
       "identity": {
         "type": "SystemAssigned"
       },
@@ -136,7 +145,7 @@
           }
         ],
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]",
-        "reserved": false,
+        "reserved": true,
         "isXenon": false,
         "hyperV": false,
         "siteConfig": {
@@ -158,12 +167,20 @@
               "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageName'),';AccountKey=',concat(listKeys(concat(resourceGroup().id,'/providers/Microsoft.Storage/storageAccounts/', parameters('storageName')),'2019-06-01').keys[0].value),';EndpointSuffix=core.windows.net')]"
             },
             {
-              "name": "FUNCTIONS_EXTENSION_VERSION",
-              "value": "~3"
+              "name": "DOCKER_REGISTRY_SERVER_URL",
+              "value": "[concat('https://', parameters('acrName'), '.azurecr.io')]"
             },
             {
-              "name": "FUNCTIONS_WORKER_RUNTIME",
-              "value": "dotnet"
+              "name": "DOCKER_REGISTRY_SERVER_USERNAME",
+              "value": "[parameters('acrUsername')]"
+            },
+            {
+              "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
+              "value": "[parameters('acrPassword')]"
+            }
+            {
+              "name": "FUNCTIONS_EXTENSION_VERSION",
+              "value": "~3"
             },
             {
               "name": "FUNCTIONS_V2_COMPATIBILITY_MODE",
@@ -176,11 +193,15 @@
             {
               "name": "WEBSITE_CONTENTSHARE",
               "value": "[parameters('logicAppName')]"
+            },
+            {
+              "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
+              "value": "false"
             }
           ]
         },
         "scmSiteAlsoStopped": false,
-        "clientAffinityEnabled": true,
+        "clientAffinityEnabled": false,
         "clientCertEnabled": false,
         "hostNamesDisabled": false,
         "containerSize": 1536,
@@ -202,7 +223,7 @@
         "Project": "[parameters('projectName')]"
       },
       "properties": {
-        "numberOfWorkers": -1,
+        "numberOfWorkers": 1,
         "defaultDocuments": [
           "Default.htm",
           "Default.html",
@@ -214,17 +235,16 @@
           "index.php"
         ],
         "netFrameworkVersion": "v4.0",
-        "phpVersion": "5.6",
+        "linuxFxVersion": "DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice",
         "requestTracingEnabled": false,
         "remoteDebuggingEnabled": false,
-        "remoteDebuggingVersion": "VS2019",
         "httpLoggingEnabled": false,
         "logsDirectorySizeLimit": 35,
         "detailedErrorLoggingEnabled": false,
         "publishingUsername": "[concat('$',parameters('logicAppName'))]",
         "azureStorageAccounts": {},
         "scmType": "None",
-        "use32BitWorkerProcess": true,
+        "use32BitWorkerProcess": false,
         "webSocketsEnabled": false,
         "alwaysOn": false,
         "managedPipelineMode": "Integrated",
@@ -252,7 +272,6 @@
           "supportCredentials": false
         },
         "localMySqlEnabled": false,
-        "managedServiceIdentityId": 18450,
         "ipSecurityRestrictions": [
           {
             "ipAddress": "Any",
