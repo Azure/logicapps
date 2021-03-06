@@ -25,10 +25,21 @@ jobs:
       ScriptArguments: >-
         -resourceGroup $(resourceGroupName)
 
+  - task: CopyFiles@2
+    displayName: 'Create project folder'
+    inputs:
+      SourceFolder: '$(System.DefaultWorkingDirectory)'
+      Contents: |
+        host.json
+        proxies.json
+        connections.json
+        ExampleWorkflow/**
+      TargetFolder: 'project_output'
+
   - task: ArchiveFiles@2
     displayName: 'Create project zip'
     inputs:
-      rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+      rootFolderOrFile: '$(System.DefaultWorkingDirectory)/project_output'
       includeRootFolder: false
       archiveType: 'zip'
       archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
