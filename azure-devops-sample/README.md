@@ -240,6 +240,8 @@ With Logic App v2 being in preview, there are some caveats to be aware of.
 
 - Authentication is not yet supported using the built-in HTTP operation
 
+- ManagedServiceIdentity is not yet supported using the built-in HTTP operation
+
 ### Q & A
 
 Q: Why do I have to recreate the operation that uses the API connection?
