@@ -234,24 +234,6 @@ With Logic App v2 being in preview, there are some caveats to be aware of.
 
   - `"someVariable": "myPrefix-@{appsetting('example')}"` || `"someVariable": "@appsetting('example')"`
 
-> NOTE: this *does **not*** work with `path` properties inside the workflow file, values for this property must be hardcoded for now. For example, the path property when you create an event grid trigger:
->
->```json
->   "When_a_resource_event_occurs": {
->       "type": "ApiConnectionWebhook",
->       "inputs": {
->           "host": {
->               "connection": {
->                   "referenceName": "azureeventgrid"
->               }
->           },
->           "body": { . . . },
->           "path": "THIS VALUE HAS TO BE HARD CODED",
->       },
->       "splitOn": "@triggerBody()"
->   }
->```
-
 - [Azurite](https://github.com/Azure/Azurite) is not yet supported.
 
 - There is currently a bug where you cannot view Azure operations in the designer when using a stateless workflow
