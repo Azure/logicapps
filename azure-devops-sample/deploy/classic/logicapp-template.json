@@ -162,12 +162,12 @@
               "value": "~3"
             },
             {
-              "name": "FUNCTIONS_WORKER_RUNTIME",
-              "value": "dotnet"
-            },
-            {
               "name": "FUNCTIONS_V2_COMPATIBILITY_MODE",
               "value": "true"
+            },
+            {
+              "name": "FUNCTIONS_WORKER_RUNTIME",
+              "value": "node"
             },
             {
               "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
@@ -176,6 +176,10 @@
             {
               "name": "WEBSITE_CONTENTSHARE",
               "value": "[parameters('logicAppName')]"
+            },
+            {
+              "name": "WEBSITE_NODE_DEFAULT_VERSION",
+              "value": "~12"
             }
           ]
         },
@@ -202,7 +206,7 @@
         "Project": "[parameters('projectName')]"
       },
       "properties": {
-        "numberOfWorkers": -1,
+        "numberOfWorkers": 1,
         "defaultDocuments": [
           "Default.htm",
           "Default.html",
@@ -217,7 +221,6 @@
         "phpVersion": "5.6",
         "requestTracingEnabled": false,
         "remoteDebuggingEnabled": false,
-        "remoteDebuggingVersion": "VS2019",
         "httpLoggingEnabled": false,
         "logsDirectorySizeLimit": 35,
         "detailedErrorLoggingEnabled": false,
@@ -252,7 +255,6 @@
           "supportCredentials": false
         },
         "localMySqlEnabled": false,
-        "managedServiceIdentityId": 18450,
         "ipSecurityRestrictions": [
           {
             "ipAddress": "Any",

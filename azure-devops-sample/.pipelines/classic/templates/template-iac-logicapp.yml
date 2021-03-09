@@ -67,4 +67,4 @@ jobs:
           inputs:
             targetType: 'inline'
             script: |
-              echo 'Please manually authorize the office 365 api connection that was just created.'
+              echo 'Please manually authorize the Office 365 API Connection that was just created.'

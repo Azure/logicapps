@@ -18,7 +18,7 @@ stages:
     - task: CopyFiles@2
       displayName: 'Copy ARM templates'
       inputs:
-        sourceFolder: '.deploy'
+        sourceFolder: 'deploy'
         targetFolder: '$(Build.ArtifactStagingDirectory)'
     - publish: '$(Build.ArtifactStagingDirectory)'
       artifact: $(artifactName)
@@ -26,8 +26,7 @@ stages:
 - stage: DEV
   displayName: 'DEV Deployment'
   variables:
-  - template: variables/vars-iac.yml
-  - template: variables/vars-ci.yml
+  - template: variables/pipeline-vars.yml
   jobs:
   - template: templates/template-iac-logicapp.yml
     parameters:

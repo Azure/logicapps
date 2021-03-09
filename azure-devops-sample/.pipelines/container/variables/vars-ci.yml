@@ -1,6 +1,0 @@
-# CI pipeline variables
-
-variables:
-
-  publishOutputFolder: 'publish_output'
-  logicAppCIArtifactName: 'logicapp_publish_artifact_dev'
