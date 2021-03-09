@@ -1,0 +1,70 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/azure/functions-action
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
+name: Build and Deploy Logic App. 
+
+env:
+  AZURE_LOGICAPP_PACKAGE_PATH: '.'
+  DOTNET_VERSION: '3.1.301'    # set this to the dotnet version to use
+  RG_LA: 'GHApp'
+  RG_CON: 'GHConnections'
+  LA_NAME: 'cicdsa34234'
+
+on:
+  - workflow_dispatch 
+
+jobs:
+   logic_app_build: 
+    runs-on: ubuntu-latest
+    steps: 
+
+    - name: Checkout
+      uses: actions/checkout@v1
+    
+    - name: Login via Az module
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS}}
+        enable-AzPSSession: true 
+
+    - name: Generate Connections
+      uses: azure/powershell@v1
+      with:
+        inlineScript: |
+          ./Scripts/Generate-Connections.ps1 -resourceGroup '${{ env.RG_CON }}'
+        azPSVersion: latest
+
+    - name: Get publish Profile
+      id: fncapp
+      uses: azure/powershell@v1
+      with:
+        inlineScript: |
+          $profile = Get-AzWebAppPublishingProfile `
+              -ResourceGroupName ${{ env.RG_LA }} `
+              -Name ${{ env.LA_NAME }}
+          $profile = $profile.Replace("`r", "").Replace("`n", "")
+          Write-Output "::set-output name=profile::$profile"
+        azPSVersion: latest
+
+    - name: Create project folder
+      run: |
+        mkdir output
+        cp 'host.json' 'output/'
+        cp 'proxies.json' 'output/'
+        cp 'connections.json' 'output/'
+        cp -r 'starterworkflow' 'output/'
+
+    - name: Easy Zip Files
+      uses: vimtor/action-zip@v1
+      with:
+        dest: '${{ github.run_id }}.zip'
+        files: output/
+
+    - name: 'Run Azure Functions Action'
+      uses: Azure/functions-action@v1
+      id: fa
+      with:
+        app-name: ${{env.RG_LA}}
+        package: '${{ github.run_id }}.zip'
+        publish-profile: ${{steps.fncapp.outputs.profile}}
+
