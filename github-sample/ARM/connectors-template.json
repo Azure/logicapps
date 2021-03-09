@@ -13,7 +13,7 @@
             "type": "string"
         }, 
         "connections_azureblob_2_name": {
-            "defaultValue": "azureblob-2",
+            "defaultValue": "azureblob",
             "type": "string"
         }
     },

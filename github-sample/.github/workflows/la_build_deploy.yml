@@ -8,6 +8,7 @@ env:
   DOTNET_VERSION: '3.1.301'    # set this to the dotnet version to use
   RG_LA: 'GHApp'
   RG_CON: 'GHConnections'
+  LA_NAME: 'cicdsa34234'
 
 on:
   - workflow_dispatch 
@@ -40,28 +41,30 @@ jobs:
         inlineScript: |
           $profile = Get-AzWebAppPublishingProfile `
               -ResourceGroupName ${{ env.RG_LA }} `
-              -Name ${{ secrets.LOGIC_APP_NAME }}
+              -Name ${{ env.LA_NAME }}
           $profile = $profile.Replace("`r", "").Replace("`n", "")
           Write-Output "::set-output name=profile::$profile"
         azPSVersion: latest
 
-    - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: ${{ env.DOTNET_VERSION }}
-          
-    - name: 'Resolve Project Dependencies Using Dotnet'
-      shell: pwsh
+    - name: Create project folder
       run: |
-        pushd './${{ env.AZURE_LOGICAPP_PACKAGE_PATH }}'
-        dotnet build --configuration Release --output ./output
-        popd
+        mkdir output
+        cp 'host.json' 'output/'
+        cp 'proxies.json' 'output/'
+        cp 'connections.json' 'output/'
+        cp -r 'starterworkflow' 'output/'
+
+    - name: Easy Zip Files
+      uses: vimtor/action-zip@v1
+      with:
+        dest: '${{ github.run_id }}.zip'
+        files: output/
 
     - name: 'Run Azure Functions Action'
       uses: Azure/functions-action@v1
       id: fa
       with:
-        app-name: ${{secrets.LOGIC_APP_NAME}}
-        package: '${{ env.AZURE_LOGICAPP_PACKAGE_PATH }}/output'
+        app-name: ${{env.RG_LA}}
+        package: '${{ github.run_id }}.zip'
         publish-profile: ${{steps.fncapp.outputs.profile}}
 

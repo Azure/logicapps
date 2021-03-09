@@ -1,15 +1,33 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {
-        "sites_armLAdemo_name": {
-            "value": "cicdla"
+    "parameters": { 
+        "location": {
+            "value": "Australia Southeast"
         },
-        "serverfarms_ASP_ARMLaDemo_bce2_name": {
-            "value": "cicdasp"
-        },
-        "sa_name": {
+        "environmentName": {
             "value": "cicdsa"
+        },
+        "projectName": {
+            "value": "cicdsa"
+        },
+        "logicAppName": {
+            "value": "cicdsa34234"
+        },
+        "appServicePlanName": {
+            "value": "cicdasp12321"
+        },
+        "storageName": {
+            "value": "storagela12321"
+        },
+        "kind": {
+            "value": "StorageV2"
+        },
+        "skuName": {
+            "value": "Standard_LRS"
+        },
+        "skuTier": {
+            "value": "Standard"
+          }
         }
     }
-}
