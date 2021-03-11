@@ -72,7 +72,7 @@ To get the `connections.json` file generated for you, for both the new and exist
 
 This approach is where you would delete and recreate operations using your connector in your project workflow file, for example:
 
-1. Right-click on the `workflow.json` file (inside ExampleWorkflow/ folder)
+1. Right-click on the `workflow.json` file (inside starterworkflow/ folder)
 1. Click `Open in designer`
 1. Right-click on the Azure blob operation and click `Delete`
 1. Add a new step
@@ -95,7 +95,7 @@ This approach uses another workflow as a resource for creating connections so th
 1. Create the operation that uses the connection you want to generate
    - Similar to [steps 4 to 9 above](#recreate-the-operation-using-the-connection)
 1. Now that the `connections.json` file has been created for you, you can just update your real workflow file
-   to reference the connection. For example with `ExampleWorkflow`, you would update `host.connection.referenceName`
+   to reference the connection. For example with `starterworkflow`, you would update `host.connection.referenceName`
    to match the name of the connection that was created inside the `connections.json` file.
 
 After you complete either one of the above steps, a `connection.json` file will be generated and the `local.settings.json` file should be updated to contain the key for the blob connection.
@@ -134,9 +134,9 @@ BEFORE YOU RUN:
 
 The `ARM` folder contains the ARM templates required to deploy all the required logic app resources.
 
-- `connectors-template.json` deploys an Azure Storage connector
+- `connectors-template.json` deploys an Azure Storage connection
 - `la-template.json` deploys: 
-    - Windows logic app
+    - Logic app
     - App service plan
     - Storage account
    
@@ -150,8 +150,8 @@ A pipeline that doth both build and deploy actions to build the Logic Apps proje
 
 - Uses the `Scripts/Generate-Connections.ps1` script to generate a `connections.json` file
 - Dynamically retrieve the publish profile of the Logic App environment 
-- Runs `dotnet build` to generate zip of project
-- Publishes project to Logic App using the Azure Functions Github Action
+- Copy and zip files into deployment artifact
+- Publishes artifact to Logic App using the Azure Functions Github Action
 
 
 > #### Note on `Generate-Connections.ps1`
@@ -177,36 +177,7 @@ A pipeline that doth both build and deploy actions to build the Logic Apps proje
 
 With Logic App (single-tenant) being in preview, there are some caveats to be aware of.
 
-- [**Connections**] You cannot parameterize values inside the `connection.json` file. You can replace an entire variable with an `appsetting` parameter, but you cannot parameterize parts of a string. For example:
-
-  - This works: `"someVariable": "@appsetting('exampleVariable')"`
-  - This *does **not*** work: `"someVariable": "/subscriptions/@{appsetting('subId')}/resourceGroups/@{appsetting('resourceGroup')}/"`
-
-- [**Workflow**] Parameters are not yet supported inside the `workflow.json` file, but you can use `appsetting` instead. For example:
-
-  - `"someVariable": "myPrefix-@{appsetting('example')}"` || `"someVariable": "@appsetting('example')"`
-
-> NOTE: this *does **not*** work with `path` properties inside the workflow file, values for this property must be hardcoded for now. For example, the path property when you create an event grid trigger:
->
->```json
->   "When_a_resource_event_occurs": {
->       "type": "ApiConnectionWebhook",
->       "inputs": {
->           "host": {
->               "connection": {
->                   "referenceName": "azureeventgrid"
->               }
->           },
->           "body": { . . . },
->           "path": "THIS VALUE HAS TO BE HARD CODED",
->       },
->       "splitOn": "@triggerBody()"
->   }
->```
-
 - [Azurite](https://github.com/Azure/Azurite) is not yet supported.
-
-- There is currently a bug where generating a new `connections.json` file will update `.csproj` with another entry for the connections file, feel free to delete this new reference - you do not need to reference the connections file more than once.
 
 - Authentication is not yet supported using the built-in HTTP operation
 

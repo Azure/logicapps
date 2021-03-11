@@ -11,8 +11,8 @@
         "sa_name": {
             "value": "consa"
         },
-        "connections_azureblob_2_name": {
-            "value":"azureblob-2"
+        "connections_azureblob_name": {
+            "value":"azureblob"
         }
     }
 }
