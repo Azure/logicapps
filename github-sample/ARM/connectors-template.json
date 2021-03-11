@@ -12,7 +12,7 @@
             "defaultValue": "storage name",
             "type": "string"
         }, 
-        "connections_azureblob_2_name": {
+        "connections_azureblob_name": {
             "defaultValue": "azureblob",
             "type": "string"
         }
@@ -57,7 +57,7 @@
         {
             "type": "Microsoft.Web/connections",
             "apiVersion": "2016-06-01",
-            "name": "[parameters('connections_azureblob_2_name')]",
+            "name": "[parameters('connections_azureblob_name')]",
             "location": "australiasoutheast",
             "kind": "V2",            
             "dependsOn": [
@@ -77,10 +77,10 @@
         {
             "type": "Microsoft.Web/connections/accessPolicies",
             "apiVersion": "2016-06-01",
-            "name": "[concat(parameters('connections_azureblob_2_name'),'/',parameters('logicAppSystemAssignedIdentityObjectId'))]",
+            "name": "[concat(parameters('connections_azureblob_name'),'/',parameters('logicAppSystemAssignedIdentityObjectId'))]",
             "location": "australiasoutheast",
             "dependsOn": [
-                "[resourceId('Microsoft.Web/connections', parameters('connections_azureblob_2_name'))]"
+                "[resourceId('Microsoft.Web/connections', parameters('connections_azureblob_name'))]"
             ],
             "properties": {
                 "principal": {
