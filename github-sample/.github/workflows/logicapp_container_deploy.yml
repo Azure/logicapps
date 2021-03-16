@@ -4,14 +4,12 @@
 name: (container) Build and Deploy Logic App. 
 
 env:
-  AZURE_LOGICAPP_PACKAGE_PATH: '.'
-  DOTNET_VERSION: '3.1.301'    # set this to the dotnet version to use
-  RG_LA: 'your-la-rg'
   RG_CON: 'your-con-rg'
   LA_NAME: 'your-la-name'
-  Cont_Image: 'your-cont-image'
-  Cont_Tag: 'your-tag'
-  acrUsername: 'your-acr-name'
+  IMAGE_NAME: 'your-image-name'
+  IMAGE_TAG: 'your-tag'
+  ACR_NAME: 'your-acr-name'
+  IMAGE_URI: '${{ env.ACR_NAME }}.azurecr.io/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}'
 
 on:
   - workflow_dispatch 
@@ -38,25 +36,22 @@ jobs:
           ./Scripts/Generate-Connections.ps1 -resourceGroup '${{ env.RG_CON }}'
         azPSVersion: latest
 
-    - name: 'Docker Login'
+    - name: 'Login to Azure Container Registry'
       uses: azure/docker-login@v1
       with:
-        login-server: ${{ env.acrUsername }}.azurecr.io
-        username: ${{ env.acrUsername }}
+        login-server: ${{ env.ACR_NAME }}.azurecr.io
+        username: ${{ env.ACR_NAME }}
         password: ${{secrets.ACRPASSWORD}}
 
-    - name: 'Compose Customized Docker Image'
+    - name: 'Build & Push Docker Image'
       shell: bash
       run: |
-        docker build . -t  ${{ env.acrUsername }}.azurecr.io/${{ env.Cont_Image }}:${{ env.Cont_Tag }}
-        docker push  ${{ env.acrUsername }}.azurecr.io/${{ env.Cont_Image }}:${{ env.Cont_Tag }}
+        docker build . -t  ${{ env.IMAGE_URI }}
+        docker push  ${{ env.IMAGE_URI }}
 
-    - name: 'Run Azure Functions Container Action'
+    - name: 'Deploy Logic App Container'
       uses: Azure/functions-container-action@v1
       id: fa
       with:
         app-name: ${{ env.LA_NAME }}
-        image: '${{ env.acrUsername }}''.azurecr.io/${{ env.Cont_Image }}:${{ env.Cont_Tag }}'
-    #- name: 'use the published functionapp url in upcoming steps'
-    #  run: |
-    #    echo "${{ steps.fa.outputs.app-url }}"
+        image: '${{ env.IMAGE_URI }}'
