@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/azure/functions-action
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Logic App Infrastructure as Code Pipeline. 
+name: (classic) Logic App Infrastructure as Code Pipeline. 
 
 on:
   - workflow_dispatch 
@@ -9,8 +9,8 @@ on:
 env:
   AZURE_LOGICAPP_PACKAGE_PATH: '.' # set this to the path to your web app project, defaults to the repository root
   DOTNET_VERSION: '3.1.301'    # set this to the dotnet version to use
-  RG_LA: 'GHApp'
-  RG_CON: 'GHConnections'
+  RG_LA: 'your-la-rg'
+  RG_CON: 'your-con-rg'
 
 jobs:
   deploy-all: 

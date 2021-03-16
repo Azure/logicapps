@@ -49,6 +49,25 @@ To run the project locally, you can follow the [documentation provided by the Lo
 
 > If you're running on a Mac, you cannot use an emulator for the storage account and will have to point to a real account in Azure for now.
 
+### Docker
+
+Using docker, you can build and run using the following commands:
+
+`docker build . -t local/logicappsample`
+
+`docker run --env-file .env -p 8080:80 local/logicappsample`
+
+Once your application is running:
+
+- Get the master key from your storage account or emulator
+  - [Documentation here](https://docs.microsoft.com/azure/logic-apps/create-stateful-stateless-workflows-visual-studio-code#get-callback-url-for-request-trigger)
+
+- Call `listCallbackUrl` to get the workflow URL:
+
+  `http://localhost:8080/runtime/webhooks/workflow/api/management/workflows/ExampleWorkflow/triggers/manual/listCallbackUrl?api-version=2020-05-01-preview&code=<MASTER KEY GOES HERE>`
+
+- You can then use the workflow URL to trigger your Logic App
+
 ### API Connections
 
 This project uses the Azure Storage Blob connection. For you to run this project locally, you will need to generate a `connections.json` file. There are two ways you can do this,
@@ -103,7 +122,7 @@ If you provided the workflow variables mentioned above, the Logic App should con
 
 ## DevOps
 
-You can view a sample of this project's GitHub Actions in .github/workflows. 
+You can view a sample of this project's GitHub Actions in .github/workflows. We have sample pipelines for both containers and zip deployments. 
 
 BEFORE YOU RUN:
 1. Add Azure credentials to Secrets 
@@ -120,10 +139,16 @@ BEFORE YOU RUN:
     ```
     1. Save the output of the above command to [GitHub Secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository) and call the secret `AZURE_CREDENTIALS`: 
     1. You also need to create a secret `AZURE_SUB` with the subscription ID of the subscription you want to deploy to. Subscription IDs can be found using the `az account list -o table` command.
-
+    1. If you are running just build pipelines standalone for containers, you will also need to create a GitHub Secret for your ACR Password `ACRPASSWORD`. 
 2. Add environment variables to your pipeline  
-	- LA_RG (name of the resource group where your logic Apps will be deployed) 
-	- LA_CON (Name of the resource group where your Connections will be deployed)
+	- For both Container and Classic deployments
+    - LA_RG (name of the resource group where your logic Apps will be deployed) 
+    - LA_CON (Name of the resource group where your Connections will be deployed)
+    - LA_Name (Name of the Logic App resource if you are running standalone build pipelines)
+  - For Container deployments only:
+    - Cont_Image (Name of the container image to be pushed to your Azure Container Registry(ACR))
+    - Cont_Tag (Tag of the container image to be pushed to your ACR)
+    - acrUsername (Name of your ACR)
   
 > #### Note on separate resource groups for Logic Apps + Connections 
 >
@@ -135,16 +160,28 @@ BEFORE YOU RUN:
 The `ARM` folder contains the ARM templates required to deploy all the required logic app resources.
 
 - `connectors-template.json` deploys an Azure Storage connection
-- `la-template.json` deploys: 
-    - Logic app
-    - App service plan
-    - Storage account
+- For classic zip deployments:
+  - `la-template.json` deploys: 
+      - Logic app
+      - App service plan
+      - Storage account
+- For container deployments 
+  - `acr-template.json` deploys: 
+      - Logic app
+      - App service plan
+      - Storage account
+      - Azure Container Registry 
+
    
 ### GitHub Actions 
 
-The `.github` folder contains examples of how to deploy the logic app, both separately and with it's infrastructure.
+The `.github` folder contains examples of how to deploy the logic app with separate pipelines for: 
+- (classic) Logic App build and deploy 
+- (containers) Logic Apps build and deploy 
+- (classic) Logic App Infrastructure as Code 
+- (containers) Logic App Infrastructure as Code 
 
-#### Application Pipeline
+#### Application Pipeline (classic)
 
 A pipeline that doth both build and deploy actions to build the Logic Apps project and deploy to a pre-existing Logic App. This is a demonstration of separation of concerns whereby your logic app application is deployed independently of the underlying infrastructure which can be handled in a separate pipeline with it's own cadences. 
 
@@ -153,6 +190,8 @@ A pipeline that doth both build and deploy actions to build the Logic Apps proje
 - Copy and zip files into deployment artifact
 - Publishes artifact to Logic App using the Azure Functions Github Action
 
+#### Application Pipeline (containers)
+Similar to the classic pipeline, however instead of zipping up the build artefact the pipeline builds and pushes the Logic App as a container to an Azure Container Registry. This is then input into the Azure Functions Container GitHub Action. 
 
 > #### Note on `Generate-Connections.ps1`
 >
@@ -161,13 +200,11 @@ A pipeline that doth both build and deploy actions to build the Logic Apps proje
 > - All of the connections you want to include in your `connections.json` file must be in the same resource group
 > - This script generates the `connections.json` for deployment, not for local use. This is because we set the auth type to `ManagedServiceIdentity` ([read more here](#q--a))
 
-#### IaC Pipeline
+#### IaC Pipeline 
 
-- Deploys the logic app and API connections
+- Deploys the logic app and API connections. 
+- (containers) container based deployments also deploy an Azure Container Registry. 
 - Set access policies on the connections 
-- Repeats steps of the previous build/publish pipeline: 
-  - builds the logic app and generates the connections.json file 
-  - deploys to the logic app resource just created via ARM
 
 > #### Note:
 > 
