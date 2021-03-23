@@ -1,11 +1,9 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/azure/functions-action
-# More GitHub Actions for Azure: https://github.com/Azure/actions
+# make sure your Logic App resources are running by either running your IaC pipeline or creating manually.
 
 name: (classic) Build and Deploy Logic App. 
 
 env:
   AZURE_LOGICAPP_PACKAGE_PATH: '.'
-  DOTNET_VERSION: '3.1.301'    # set this to the dotnet version to use
   RG_LA: 'your-la-rg'
   RG_CON: 'your-con-rg'
   LA_NAME: 'your-la-name'
@@ -46,6 +44,8 @@ jobs:
           Write-Output "::set-output name=profile::$profile"
         azPSVersion: latest
 
+    #TODO: Replace 'starterworklow' with your own workflow folder name
+    # and add additional commands for additional workflows
     - name: Create project folder
       run: |
         mkdir output
@@ -53,6 +53,7 @@ jobs:
         cp 'proxies.json' 'output/'
         cp 'connections.json' 'output/'
         cp -r 'starterworkflow' 'output/'
+
 
     - name: Easy Zip Files
       uses: vimtor/action-zip@v1

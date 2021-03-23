@@ -18,7 +18,7 @@
             "value": "asp-name"
         },
         "storageName": {
-            "value": "storage-name"
+            "value": "uniquestoragename"
         },
         "kind": {
             "value": "StorageV2"
