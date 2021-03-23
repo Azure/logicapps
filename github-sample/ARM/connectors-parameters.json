@@ -8,8 +8,11 @@
         "logicAppSystemAssignedIdentityObjectId": {
             "value": "__2__"
         },
+        "location": {
+            "value": "Australia Southeast"
+        },
         "sa_name": {
-            "value": "your-sa-name"
+            "value": "uniquestoragename"
         },
         "connections_azureblob_name": {
             "value":"azureblob"
