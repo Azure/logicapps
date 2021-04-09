@@ -7,6 +7,9 @@ variables:
   value: deploy_artifacts
 - name: devEnvironment
   value: dev
+# TODO: Fill in with the name of your Azure service connection
+- name: devServiceConnection
+  value: ''
 
 stages:
 - stage: Builds

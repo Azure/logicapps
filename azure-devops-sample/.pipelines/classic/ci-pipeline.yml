@@ -7,6 +7,9 @@ pool:
   vmImage: 'ubuntu-18.04'
 
 variables:
+# TODO: Fill in with the name of your Azure service connection
+- name: devServiceConnection
+  value: ''
 - template: variables/pipeline-vars.yml
 
 jobs:
