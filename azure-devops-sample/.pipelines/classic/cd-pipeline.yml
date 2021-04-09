@@ -8,6 +8,9 @@ variables:
 # TODO: provide an email address for the ExampleWorkflow to an send mail to
 - name: toEmailAddress
   value: ''
+# TODO: Fill in with the name of your Azure service connection
+- name: devServiceConnection
+  value: ''
 
 resources:
   pipelines:
