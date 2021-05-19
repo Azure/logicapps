@@ -15,7 +15,7 @@ variables:
 resources:
   pipelines:
   - pipeline: cipipeline
-    # TODO: Update with the name of your CI pipeline
+    # TODO: Update with the name of your CI pipeline (use 'Rename/move' in Azure DevOps to rename it)
     source: ''
     trigger:
       branches:
