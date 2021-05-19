@@ -6,6 +6,9 @@ variables:
   value: deploy_artifacts
 - name: devEnvironment
   value: dev
+# TODO: Replace 'value' with the name of your Azure service connection
+- name: devServiceConnection
+  value: 'NAME OF AZURE SERVICE CONNECTION IN AZURE DEVOPS'
 
 stages:
 - stage: Builds
@@ -18,6 +21,7 @@ stages:
     - task: CopyFiles@2
       displayName: 'Copy ARM templates'
       inputs:
+        # TODO: Adapt 'sourceFolder' to your repository structure, default is 'deploy' and is equivalent to '$(Build.SourcesDirectory)/deploy'
         sourceFolder: 'deploy'
         targetFolder: '$(Build.ArtifactStagingDirectory)'
     - publish: '$(Build.ArtifactStagingDirectory)'
