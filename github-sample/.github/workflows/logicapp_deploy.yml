@@ -4,67 +4,82 @@
 name: (classic) Build and Deploy Logic App. 
 
 env:
-  AZURE_LOGICAPP_PACKAGE_PATH: '.'
-  DOTNET_VERSION: '3.1.301'    # set this to the dotnet version to use
-  RG_LA: 'your-la-rg'
-  RG_CON: 'your-con-rg'
-  LA_NAME: 'your-la-name'
+  LA_NAME: 'la-name-324234'
 
 on:
-  - workflow_dispatch 
+  workflow_dispatch:
+    # Trigger the workflow every time the build workflow ran to completion
+  workflow_run:
+    workflows:
+      - (classic) Logic App Infrastructure as Code Pipeline.
+    types:
+      - completed
+  # Triggers when an environment file has been changed  
+  push:
+    paths:
+      - "logic/**"
+      - ".github/workflows/logicapp_deploy.yml"
 
 jobs:
-   logic_app_build: 
+  logic_app_build: 
+    name: Build 
     runs-on: ubuntu-latest
     steps: 
-
     - name: Checkout
       uses: actions/checkout@v1
-    
+    - name: Package logic
+      run: (cd logic; mkdir -p ../build-art; zip -r ../build-art/logic.zip .)
+    - name: Upload app zip package
+      uses: actions/upload-artifact@v2
+      with:
+        name: logic
+        path: ./build-art/
+        retention-days: 1 
+
+  logic_app_deploy: 
+    name: Deploy 
+    runs-on: ubuntu-latest
+    needs: [logic_app_build]
+    environment: 
+      name: Dev
+    steps: 
+    - name: Checkout
+      uses: actions/checkout@v1    
     - name: Login via Az module
       uses: azure/login@v1
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
         enable-AzPSSession: true 
-
-    - name: Generate Connections
-      uses: azure/powershell@v1
+    - uses: actions/download-artifact@master
       with:
-        inlineScript: |
-          ./Scripts/Generate-Connections.ps1 -resourceGroup '${{ env.RG_CON }}'
-        azPSVersion: latest
-
+        name: logic
+        path: ./build-art/
+        
     - name: Get publish Profile
-      id: fncapp
+      id: publishprofile
       uses: azure/powershell@v1
       with:
         inlineScript: |
           $profile = Get-AzWebAppPublishingProfile `
-              -ResourceGroupName ${{ env.RG_LA }} `
+              -ResourceGroupName ${{ secrets.RG_LA }} `
               -Name ${{ env.LA_NAME }}
           $profile = $profile.Replace("`r", "").Replace("`n", "")
           Write-Output "::set-output name=profile::$profile"
         azPSVersion: latest
 
-    - name: Create project folder
-      run: |
-        mkdir output
-        cp 'host.json' 'output/'
-        cp 'proxies.json' 'output/'
-        cp 'connections.json' 'output/'
-        cp -r 'starterworkflow' 'output/'
-
-    - name: Easy Zip Files
-      uses: vimtor/action-zip@v1
+    - name: Deploy to Azure Logic App
+      uses: Azure/functions-action@v1.3.1
+      id: la
       with:
-        dest: '${{ github.run_id }}.zip'
-        files: output/
+        app-name: ${{secrets.RG_LA}}
+        package: './build-art/logic.zip'
+        publish-profile: ${{steps.publishprofile.outputs.profile}}
 
-    - name: 'Run Azure Functions Action'
-      uses: Azure/functions-action@v1
-      id: fa
+    - name: Swap parameter files 
+      id: params
+      uses: azure/powershell@v1
       with:
-        app-name: ${{env.RG_LA}}
-        package: '${{ github.run_id }}.zip'
-        publish-profile: ${{steps.fncapp.outputs.profile}}
+        inlineScript: |
+          az functionapp deploy --resource-group ${{ secrets.RG_LA }} --name ${{ env.LA_NAME }} --src-path  logic/azure.parameters.json --type static --target-path parameters.json
+        azPSVersion: latest
 

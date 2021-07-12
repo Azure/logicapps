@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": { 
         "location": {
-            "value": "Australia Southeast"
+            "value": "australiasoutheast"
         },
         "environmentName": {
             "value": "env-name"
