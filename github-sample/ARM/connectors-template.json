@@ -2,6 +2,12 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "location": {
+            "type": "string",
+            "metadata": {
+              "description": "The datacenter to use for the deployment."
+            }
+        },
         "logicAppSystemAssignedIdentityTenantId": {
             "type": "string"
         },
@@ -25,7 +31,7 @@
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2020-08-01-preview",
             "name": "[variables('sa')]",
-            "location": "australiasoutheast",
+            "location": "[parameters('location')]",
             "sku": {
                 "name": "Standard_LRS",
                 "tier": "Standard"
@@ -71,7 +77,7 @@
             "type": "Microsoft.Web/connections",
             "apiVersion": "2016-06-01",
             "name": "[parameters('connections_azureblob_name')]",
-            "location": "australiasoutheast",
+            "location": "[parameters('location')]",
             "kind": "V2",            
             "dependsOn": [
                 "[resourceId('Microsoft.Storage/storageAccounts', variables('sa'))]"
@@ -83,7 +89,7 @@
                     "accessKey": "[concat(listKeys(concat(resourceGroup().id,'/providers/Microsoft.Storage/storageAccounts/', variables('sa')),'2019-06-01').keys[0].value)]"
                 },
                 "api": {
-                    "id": "/subscriptions/80b60a27-4eab-437e-899f-dde369cd1c17/providers/Microsoft.Web/locations/australiasoutheast/managedApis/azureblob"
+                    "id": "[concat('/subscriptions/',subscription().subscriptionId,'/providers/Microsoft.Web/locations/',parameters('location'),'/managedApis/azureblob')]"
                 }
             }
         },
