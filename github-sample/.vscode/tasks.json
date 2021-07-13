@@ -8,21 +8,27 @@
         "${input:getDebugSymbolDll}"
       ],
       "type": "process",
-      "problemMatcher": "$msCompile"
+      "problemMatcher": "$msCompile",
+      "options": {
+        "cwd": "${workspaceFolder}/logic"
+      }
     },
     {
       "type": "func",
       "command": "host start",
       "problemMatcher": "$func-watch",
       "isBackground": true,
-      "dependsOn": "generateDebugSymbols"
+      "dependsOn": "generateDebugSymbols",
+      "options": {
+        "cwd": "${workspaceFolder}/logic"
+      }
     }
   ],
   "inputs": [
     {
       "id": "getDebugSymbolDll",
       "type": "command",
-      "command": "azureLogicAppsV2.getDebugSymbolDll"
+      "command": "azureLogicAppsStandard.getDebugSymbolDll"
     }
   ]
 }
