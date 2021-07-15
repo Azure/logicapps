@@ -13,33 +13,18 @@ jobs:
 - job: logic_app_build
   displayName: 'Build and publish logic app'
   steps:
-  - task: AzurePowerShell@4
-    displayName: 'Generate connections.json file'
-    inputs:
-      azureSubscription: $(devServiceConnection)
-      ScriptType: 'FilePath'
-      ScriptPath: '$(System.DefaultWorkingDirectory)/.pipelines/scripts/Generate-Connections.ps1'
-      FailOnStandardError: true
-      azurePowerShellVersion: LatestVersion
-      pwsh: true
-      ScriptArguments: >-
-        -resourceGroup $(resourceGroupName)
-
   - task: CopyFiles@2
     displayName: 'Create project folder'
     inputs:
       SourceFolder: '$(System.DefaultWorkingDirectory)'
       Contents: |
-        host.json
-        proxies.json
-        connections.json
-        ExampleWorkflow/**
+        logic/**
       TargetFolder: 'project_output'
 
   - task: ArchiveFiles@2
     displayName: 'Create project zip'
     inputs:
-      rootFolderOrFile: '$(System.DefaultWorkingDirectory)/project_output'
+      rootFolderOrFile: '$(System.DefaultWorkingDirectory)/project_output/logic'
       includeRootFolder: false
       archiveType: 'zip'
       archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'

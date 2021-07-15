@@ -32,4 +32,5 @@ stages:
   - template: templates/template-iac-logicapp.yml
     parameters:
       environment: $(devEnvironment)
-      serviceConnection: $(devServiceConnection)
+      # TODO: Fill in with the name of your Azure service connection
+      serviceConnection: ''

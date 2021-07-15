@@ -15,7 +15,7 @@
       "type": "string"
     },
     "logicAppName": {
-      "type": "String"
+      "type": "string"
     },
     "appServicePlanName": {
       "type": "string"
@@ -52,28 +52,6 @@
       "tags": {
         "Environment": "[parameters('environmentName')]",
         "Project": "[parameters('projectName')]"
-      },
-      "properties": {
-        "supportsHttpsTrafficOnly": true,
-        "networkAcls": {
-          "bypass": "AzureServices",
-          "virtualNetworkRules": [],
-          "ipRules": [],
-          "defaultAction": "Allow"
-        },
-        "encryption": {
-          "services": {
-            "file": {
-              "keyType": "Account",
-              "enabled": true
-            },
-            "blob": {
-              "keyType": "Account",
-              "enabled": true
-            }
-          },
-          "keySource": "Microsoft.Storage"
-        }
       }
     },
     {
@@ -86,23 +64,10 @@
         "Project": "[parameters('projectName')]"
       },
       "sku": {
-        "name": "EP1",
-        "tier": "ElasticPremium",
-        "size": "EP1",
-        "family": "EP",
-        "capacity": 1
+        "name": "WS1",
+        "tier": "WorkflowStandard"
       },
-      "kind": "elastic",
-      "properties": {
-        "perSiteScaling": false,
-        "maximumElasticWorkerCount": 20,
-        "isSpot": false,
-        "reserved": false,
-        "isXenon": false,
-        "hyperV": false,
-        "targetWorkerCount": 0,
-        "targetWorkerSizeId": 0
-      }
+      "kind": "windows"
     },
     {
       "type": "Microsoft.Web/sites",
@@ -113,7 +78,7 @@
         "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]",
         "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageName'))]"
       ],
-      "kind": "functionapp,workflowapp",
+      "kind": "workflowapp,functionapp",
       "identity": {
         "type": "SystemAssigned"
       },
@@ -122,24 +87,9 @@
         "Project": "[parameters('projectName')]"
       },
       "properties": {
-        "enabled": true,
-        "hostNameSslStates": [
-          {
-            "name": "[concat(parameters('logicAppName'),'.azurewebsites.net')]",
-            "sslState": "Disabled",
-            "hostType": "Standard"
-          },
-          {
-            "name": "[concat(parameters('logicAppName'),'.scm.azurewebsites.net')]",
-            "sslState": "Disabled",
-            "hostType": "Repository"
-          }
-        ],
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]",
-        "reserved": false,
-        "isXenon": false,
-        "hyperV": false,
         "siteConfig": {
+          "netFrameworkVersion": "v4.6",
           "appSettings": [
             {
               "name": "APP_KIND",
@@ -180,121 +130,26 @@
             {
               "name": "WEBSITE_NODE_DEFAULT_VERSION",
               "value": "~12"
-            }
+            }, 
+            {
+              "name": "WORKFLOWS_SUBSCRIPTION_ID", 
+              "value": "[subscription().subscriptionId]"
+            },
+            {
+              "name": "WORKFLOWS_LOCATION_NAME", 
+              "value": "[parameters('location')]"
+            },
+            {
+              "name": "WORKFLOWS_RESOURCE_GROUP_NAME", 
+              "value": ""
+            },
+            {
+              "name": "BLOB_CONNECTION_RUNTIMEURL", 
+              "value": ""
+            }              
           ]
         },
-        "scmSiteAlsoStopped": false,
-        "clientAffinityEnabled": true,
-        "clientCertEnabled": false,
-        "hostNamesDisabled": false,
-        "containerSize": 1536,
-        "dailyMemoryTimeQuota": 0,
-        "httpsOnly": false,
-        "redundancyMode": "None"
-      }
-    },
-    {
-      "type": "Microsoft.Web/sites/config",
-      "apiVersion": "2018-11-01",
-      "name": "[concat(parameters('logicAppName'), '/web')]",
-      "location": "[parameters('location')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Web/sites', parameters('logicAppName'))]"
-      ],
-      "tags": {
-        "Environment": "[parameters('environmentName')]",
-        "Project": "[parameters('projectName')]"
-      },
-      "properties": {
-        "numberOfWorkers": 1,
-        "defaultDocuments": [
-          "Default.htm",
-          "Default.html",
-          "Default.asp",
-          "index.htm",
-          "index.html",
-          "iisstart.htm",
-          "default.aspx",
-          "index.php"
-        ],
-        "netFrameworkVersion": "v4.0",
-        "phpVersion": "5.6",
-        "requestTracingEnabled": false,
-        "remoteDebuggingEnabled": false,
-        "httpLoggingEnabled": false,
-        "logsDirectorySizeLimit": 35,
-        "detailedErrorLoggingEnabled": false,
-        "publishingUsername": "[concat('$',parameters('logicAppName'))]",
-        "azureStorageAccounts": {},
-        "scmType": "None",
-        "use32BitWorkerProcess": true,
-        "webSocketsEnabled": false,
-        "alwaysOn": false,
-        "managedPipelineMode": "Integrated",
-        "virtualApplications": [
-          {
-            "virtualPath": "/",
-            "physicalPath": "site\\wwwroot",
-            "preloadEnabled": false
-          }
-        ],
-        "loadBalancing": "LeastRequests",
-        "experiments": {
-          "rampUpRules": []
-        },
-        "autoHealEnabled": false,
-        "cors": {
-          "allowedOrigins": [
-            "https://afd.hosting.portal.azure.net",
-            "https://afd.hosting-ms.portal.azure.net",
-            "https://hosting.portal.azure.net",
-            "https://ms.hosting.portal.azure.net",
-            "https://ema-ms.hosting.portal.azure.net",
-            "https://ema.hosting.portal.azure.net"
-          ],
-          "supportCredentials": false
-        },
-        "localMySqlEnabled": false,
-        "ipSecurityRestrictions": [
-          {
-            "ipAddress": "Any",
-            "action": "Allow",
-            "priority": 1,
-            "name": "Allow all",
-            "description": "Allow all access"
-          }
-        ],
-        "scmIpSecurityRestrictions": [
-          {
-            "ipAddress": "Any",
-            "action": "Allow",
-            "priority": 1,
-            "name": "Allow all",
-            "description": "Allow all access"
-          }
-        ],
-        "scmIpSecurityRestrictionsUseMain": false,
-        "http20Enabled": false,
-        "minTlsVersion": "1.2",
-        "ftpsState": "AllAllowed",
-        "reservedInstanceCount": 1
-      }
-    },
-    {
-      "type": "Microsoft.Web/sites/hostNameBindings",
-      "apiVersion": "2018-11-01",
-      "name": "[concat(parameters('logicAppName'), '/', parameters('logicAppName'), '.azurewebsites.net')]",
-      "location": "[parameters('location')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Web/sites', parameters('logicAppName'))]"
-      ],
-      "properties": {
-        "siteName": "[parameters('logicAppName')]",
-        "hostNameType": "Verified"
-      },
-      "tags": {
-        "Environment": "[parameters('environmentName')]",
-        "Project": "[parameters('projectName')]"
+        "clientAffinityEnabled": false
       }
     }
   ],
@@ -306,6 +161,10 @@
     "logicAppSystemAssignedIdentityObjectId": {
       "type": "string",
       "value": "[reference(resourceId('Microsoft.Web/sites', parameters('logicAppName')),'2019-08-01', 'full').identity.principalId]"
+    },
+    "LAname": {
+      "type": "string",
+      "value": "[parameters('logicAppName')]"
     }
   }
 }
