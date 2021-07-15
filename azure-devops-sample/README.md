@@ -208,7 +208,7 @@ For both the classic and container deployment approach, you will need to supply 
 Under the `variables/` folder & in some pipeline files, you will need to fill in some variables:
 
 ```yml
-# pipeline-vars.yml
+# cd-pipeline.yml, ci-pipeline.yml, iac-pipeline.yml
 devServiceConnection: 'NAME OF AZURE SERVICE CONNECTION IN AZURE DEVOPS'
 
 # cd-pipeline.yaml

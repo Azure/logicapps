@@ -8,11 +8,14 @@ variables:
 # TODO: provide an email address for the ExampleWorkflow to an send mail to
 - name: toEmailAddress
   value: ''
+# TODO: Replace 'value' with the name of your Azure service connection
+- name: devServiceConnection
+  value: 'NAME OF AZURE SERVICE CONNECTION IN AZURE DEVOPS'
 
 resources:
   pipelines:
   - pipeline: cipipeline
-    # TODO: Update with the name of your CI pipeline
+    # TODO: Update with the name of your CI pipeline (use 'Rename/move' in Azure DevOps to rename it)
     source: ''
     trigger:
       branches:
