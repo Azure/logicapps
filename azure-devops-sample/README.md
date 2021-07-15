@@ -146,7 +146,7 @@ If you provided the workflow variables mentioned above, the Logic App should con
 
 ## DevOps
 
-You can view a sample of this project's pipelines in [Azure DevOps](https://dev.azure.com/logicappsdemo/Logic%20Apps%20v2%20Sample/_build?view=folders).
+You can view a sample of this project's pipelines in [Azure DevOps](https://dev.azure.com/liliankasem/Logic%20Apps%20v2%20Sample/_build?view=folders).
 
 ### ARM Deployment
 
