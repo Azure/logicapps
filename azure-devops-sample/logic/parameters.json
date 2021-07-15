@@ -1,0 +1,11 @@
+{
+    "blob_auth": {
+        "type":"object", 
+        "value": {
+            "type": "Raw",
+            "scheme": "Key",
+            "parameter": "@appsetting('azureblob-connectionKey')"
+        }
+    }
+
+}

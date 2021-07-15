@@ -55,16 +55,26 @@ jobs:
             csmFile: '$(Pipeline.Workspace)/$(artifactName)/connectors-template.json'
             overrideParameters: '
               -location $(resourceGroupLocation)
-              -officeConnectionName $(officeConnectionName)
-              -environmentName ${{ parameters.environment }}
-              -projectName $(projectName)
+              -connections_azureblob_name $(blobConnectionName)
               -logicAppSystemAssignedIdentityTenantId $(logicAppSystemAssignedIdentityTenantId)
               -logicAppSystemAssignedIdentityObjectId $(logicAppSystemAssignedIdentityObjectId)'
             deploymentMode: $(deploymentMode)
 
-        - task: Bash@3
-          displayName: 'USER ACTION: Authorize Office365 API Connection'
+        - task: ARM Outputs@6
+          displayName: 'ARM Outputs Connections'
           inputs:
-            targetType: 'inline'
-            script: |
-              echo 'Please manually authorize the Office 365 API Connection that was just created.'
+            ConnectedServiceNameSelector: 'ConnectedServiceNameARM'
+            ConnectedServiceNameARM: ${{ parameters.serviceConnection }}
+            resourceGroupName: $(resourceGroupName)
+            whenLastDeploymentIsFailed: 'fail'
+
+        - task: AzureCLI@2
+          inputs:
+            azureSubscription: 'devconnection2'
+            scriptType: 'bash'
+            scriptLocation: 'inlineScript'
+            inlineScript: |
+              az functionapp config appsettings set --name $(LAname) --resource-group  $(resourceGroupName) --settings "BLOB_CONNECTION_RUNTIMEURL=$(blobendpointurl)"
+              az functionapp config appsettings set --name $(LAname) --resource-group  $(resourceGroupName) --settings "WORKFLOWS_RESOURCE_GROUP_NAME=$(resourceGroupName)"
+            addSpnToEnvironment: true
+            useGlobalConfig: true

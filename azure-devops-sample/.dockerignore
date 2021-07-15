@@ -4,5 +4,5 @@
 .pipelines
 deploy
 test
-workflow-designtime
+logic/workflow-designtime
 local.settings.json

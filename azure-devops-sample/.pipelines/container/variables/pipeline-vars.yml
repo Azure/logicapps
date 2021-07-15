@@ -6,7 +6,7 @@ variables:
   suffix: 'devc'
 
   # TODO: Fill in with the name of your Azure service connection
-  devServiceConnection: ''
+  devServiceConnectionn: ''
 
   # Resource Group
   resourceGroupLocation: 'westus'
