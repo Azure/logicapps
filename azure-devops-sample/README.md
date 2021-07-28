@@ -115,7 +115,7 @@ We can now test out our new connection!
 
 ## DevOps
 
-You can view a sample of this project's pipelines in [Azure DevOps](https://dev.azure.com/logicappsdemo/Logic%20Apps%20v2%20Sample/_build?view=folders).
+You can view a sample of this project's pipelines in [Azure DevOps](https://dev.azure.com/liliankasem/Logic%20Apps%20v2%20Sample/_build?view=folders).
 
 ### ARM Deployment
 
