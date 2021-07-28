@@ -1,0 +1,15 @@
+# Visual Studio 2015 cache/options directory
+**/.vs/
+
+env/*.json
+
+# Azurite folders/files
+**/__*storage__/
+**/__azurite*
+.azurite
+
+# LogicApp used solely to generate connection information
+**/ConnectionsGenerator
+
+environment-variables.*.sh
+env/repopvars.sh

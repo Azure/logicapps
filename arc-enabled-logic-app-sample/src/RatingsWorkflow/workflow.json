@@ -1,0 +1,272 @@
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "actions": {
+            "Get_records_that_haven't_been_published_to_Blob_storage_yet": {
+                "type": "ApiConnection",
+                "inputs": {
+                    "host": {
+                        "connection": {
+                            "referenceName": "azuretables"
+                        }
+                    },
+                    "method": "get",
+                    "path": "/Tables/@{encodeURIComponent('ratings')}/entities",
+                    "queries": {
+                        "$filter": "publishDate eq '00/00/0000'"
+                    }
+                },
+                "runAfter": {}
+            },
+            "For_each_record": {
+                "type": "Foreach",
+                "foreach": "@body('Get_records_that_haven''t_been_published_to_Blob_storage_yet')?['value']",
+                "actions": {
+                    "Checks_if__Blob_for_this_record_productId_exists": {
+                        "type": "ServiceProvider",
+                        "inputs": {
+                            "parameters": {
+                                "containerName": "@variables('containerName')",
+                                "blobName": "@items('For_each_record')?['PartitionKey']"
+                            },
+                            "serviceProviderConfiguration": {
+                                "connectionName": "AzureBlob",
+                                "operationId": "blobExists",
+                                "serviceProviderId": "/serviceProviders/AzureBlob"
+                            }
+                        },
+                        "runAfter": {
+                            "Compose_updatedRating": [
+                                "Succeeded"
+                            ]
+                        }
+                    },
+                    "Uploads_a_Blob_to_Azure_Storage": {
+                        "type": "ServiceProvider",
+                        "inputs": {
+                            "parameters": {
+                                "containerName": "@variables('containerName')",
+                                "blobName": "@items('For_each_record')?['PartitionKey']",
+                                "content": "@variables('ratingsArray')"
+                            },
+                            "serviceProviderConfiguration": {
+                                "connectionName": "AzureBlob",
+                                "operationId": "uploadBlob",
+                                "serviceProviderId": "/serviceProviders/AzureBlob"
+                            }
+                        },
+                        "runAfter": {
+                            "Add_current_rating_to_ratingsArray": [
+                                "Succeeded"
+                            ]
+                        }
+                    },
+                    "Update_Ratings_table_record_with_publish_date": {
+                        "type": "ApiConnection",
+                        "inputs": {
+                            "host": {
+                                "connection": {
+                                    "referenceName": "azuretables"
+                                }
+                            },
+                            "method": "patch",
+                            "body": "@outputs('Compose_updatedRating')",
+                            "headers": {
+                                "If-Match": "*"
+                            },
+                            "path": "/Tables/@{encodeURIComponent('ratings')}/entities/etag(PartitionKey='@{encodeURIComponent(items('For_each_record')?['PartitionKey'])}',RowKey='@{encodeURIComponent('',items('For_each_record')?['RowKey'])}')"
+                        },
+                        "runAfter": {
+                            "Uploads_a_Blob_to_Azure_Storage": [
+                                "Succeeded"
+                            ]
+                        }
+                    },
+                    "Condition": {
+                        "type": "If",
+                        "expression": {
+                            "and": [
+                                {
+                                    "equals": [
+                                        "@variables('blobExists')",
+                                        true
+                                    ]
+                                }
+                            ]
+                        },
+                        "actions": {
+                            "Get_Blob_for_this_product": {
+                                "type": "ServiceProvider",
+                                "inputs": {
+                                    "parameters": {
+                                        "containerName": "@variables('containerName')",
+                                        "blobName": "@items('For_each_record')?['PartitionKey']"
+                                    },
+                                    "serviceProviderConfiguration": {
+                                        "connectionName": "AzureBlob",
+                                        "operationId": "readBlob",
+                                        "serviceProviderId": "/serviceProviders/AzureBlob"
+                                    }
+                                },
+                                "runAfter": {}
+                            },
+                            "Delete_Blob_for_this_product": {
+                                "type": "ServiceProvider",
+                                "inputs": {
+                                    "parameters": {
+                                        "containerName": "@variables('containerName')",
+                                        "blobName": "@items('For_each_record')?['PartitionKey']"
+                                    },
+                                    "serviceProviderConfiguration": {
+                                        "connectionName": "AzureBlob",
+                                        "operationId": "deleteBlob",
+                                        "serviceProviderId": "/serviceProviders/AzureBlob"
+                                    }
+                                },
+                                "runAfter": {
+                                    "Set_ratingsArray_to_blob_content": [
+                                        "Succeeded"
+                                    ]
+                                }
+                            },
+                            "Set_ratingsArray_to_blob_content": {
+                                "type": "SetVariable",
+                                "inputs": {
+                                    "name": "ratingsArray",
+                                    "value": "@outputs('Read_Blob_Content')"
+                                },
+                                "runAfter": {
+                                    "Read_Blob_Content": [
+                                        "Succeeded"
+                                    ]
+                                }
+                            },
+                            "Read_Blob_Content": {
+                                "type": "Compose",
+                                "inputs": "@json(base64ToString(outputs('Get_Blob_for_this_product')?['body']?['content']['$content']))",
+                                "runAfter": {
+                                    "Get_Blob_for_this_product": [
+                                        "Succeeded"
+                                    ]
+                                }
+                            }
+                        },
+                        "runAfter": {
+                            "Set_blobExists_variable": [
+                                "Succeeded"
+                            ]
+                        }
+                    },
+                    "Set_blobExists_variable": {
+                        "type": "SetVariable",
+                        "inputs": {
+                            "name": "blobExists",
+                            "value": "@outputs('Checks_if__Blob_for_this_record_productId_exists')?['body']?['isBlobExists']"
+                        },
+                        "runAfter": {
+                            "Checks_if__Blob_for_this_record_productId_exists": [
+                                "Succeeded"
+                            ]
+                        }
+                    },
+                    "Add_current_rating_to_ratingsArray": {
+                        "type": "AppendToArrayVariable",
+                        "inputs": {
+                            "name": "ratingsArray",
+                            "value": "@outputs('Compose_updatedRating')"
+                        },
+                        "runAfter": {
+                            "Condition": [
+                                "Succeeded"
+                            ]
+                        }
+                    },
+                    "Compose_updatedRating": {
+                        "type": "Compose",
+                        "inputs": {
+                            "createDate": "@{items('For_each_record')['createDate']}",
+                            "productId": "@items('For_each_record')['productId']",
+                            "publishDate": "@{utcNow()}",
+                            "rating": "@items('For_each_record')['rating']",
+                            "ratingId": "@items('For_each_record')['ratingId']",
+                            "userName": "@items('For_each_record')['userName']",
+                            "userNotes": "@items('For_each_record')['userNotes']"
+                        },
+                        "runAfter": {}
+                    }
+                },
+                "runAfter": {
+                    "Initialize_blobExists_variable": [
+                        "Succeeded"
+                    ]
+                },
+                "runtimeConfiguration": {
+                    "concurrency": {
+                        "repetitions": 1
+                    }
+                }
+            },
+            "Initialize_ratingsArray": {
+                "type": "InitializeVariable",
+                "inputs": {
+                    "variables": [
+                        {
+                            "name": "ratingsArray",
+                            "type": "array"
+                        }
+                    ]
+                },
+                "runAfter": {
+                    "Get_records_that_haven't_been_published_to_Blob_storage_yet": [
+                        "Succeeded"
+                    ]
+                }
+            },
+            "Initialize_containerName": {
+                "type": "InitializeVariable",
+                "inputs": {
+                    "variables": [
+                        {
+                            "name": "containerName",
+                            "type": "string",
+                            "value": "ratings"
+                        }
+                    ]
+                },
+                "runAfter": {
+                    "Initialize_ratingsArray": [
+                        "Succeeded"
+                    ]
+                }
+            },
+            "Initialize_blobExists_variable": {
+                "type": "InitializeVariable",
+                "inputs": {
+                    "variables": [
+                        {
+                            "name": "blobExists",
+                            "type": "boolean"
+                        }
+                    ]
+                },
+                "runAfter": {
+                    "Initialize_containerName": [
+                        "Succeeded"
+                    ]
+                }
+            }
+        },
+        "triggers": {
+            "Check_Ratings_table_each_minute": {
+                "type": "Recurrence",
+                "recurrence": {
+                    "frequency": "Minute",
+                    "interval": 1
+                }
+            }
+        },
+        "contentVersion": "1.0.0.0",
+        "outputs": {}
+    },
+    "kind": "Stateful"
+}
