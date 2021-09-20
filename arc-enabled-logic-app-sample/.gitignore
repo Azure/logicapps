@@ -13,3 +13,5 @@ env/*.json
 
 environment-variables.*.sh
 env/repopvars.sh
+
+**/node_modules

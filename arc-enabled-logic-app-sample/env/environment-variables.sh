@@ -16,4 +16,6 @@ export KUBE_ENV_NAME="${BASENAME}-kube"
 export CUSTOM_LOCATION_NAME="${BASENAME}-location"
 export APP_SERVICE_PLAN="${BASENAME}-appservice-plan"
 export KUBE_ENVIRONMENT_NAME="${BASENAME}-kube-appservice"
+export APPINSIGHTS_NAME="${RESOURCE_GROUP}-appinsights"
+export LA_WORKSPACE_NAME="${RESOURCE_GROUP}-la"
 

@@ -7,7 +7,7 @@ set -ux
 az group create -n $RESOURCE_GROUP -l $LOCATION
 
 # create AKS cluster
-az deployment group create --name "${DEPLOYMENT_NAME}-aks" -g $RESOURCE_GROUP --template-file  aks.bicep  --parameters clusterName=$AKS_NAME
+az deployment group create --name "${DEPLOYMENT_NAME}-aks" -g $RESOURCE_GROUP --template-file  aks.bicep  --parameters clusterName=$AKS_NAME logWorkspaceName=$LA_WORKSPACE_NAME appInsightsName=$APPINSIGHTS_NAME
 
 NODE_RG=$(az deployment group show  -g $RESOURCE_GROUP -n "${DEPLOYMENT_NAME}-aks" -o tsv --query properties.outputs.nodeResourceGroup.value)
 
@@ -24,6 +24,9 @@ az connectedk8s connect -g $RESOURCE_GROUP -n $AKS_NAME
 
 # get the Connected Cluster Id
 export CONNECTED_CLUSTER_ID=$(az connectedk8s show -n $AKS_NAME -g $RESOURCE_GROUP --query id -o tsv)
+
+LA_CUSTOMER_ID_ENC=$(az monitor log-analytics workspace show --resource-group $RESOURCE_GROUP --workspace-name $LA_WORKSPACE_NAME --query customerId --output tsv | base64 -w0)
+LA_SHARED_KEY_ENC=$(az monitor log-analytics workspace get-shared-keys --resource-group $RESOURCE_GROUP --workspace-name $LA_WORKSPACE_NAME --query primarySharedKey --output tsv | base64 -w0)
 
 # install the App Service extension on the Arc cluster
 az k8s-extension create \
@@ -44,7 +47,10 @@ az k8s-extension create \
     --configuration-settings "buildService.storageAccessMode=ReadWriteOnce" \
     --configuration-settings "customConfigMap=${APP_SERVICE_NAMESPACE}/kube-environment-config" \
     --configuration-settings "envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group=${RESOURCE_GROUP}" \
-    --configuration-settings "keda.enabled=true"
+    --configuration-settings "keda.enabled=true" \
+    --configuration-settings "logProcessor.appLogs.destination=log-analytics" \
+    --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.customerId=${LA_CUSTOMER_ID_ENC}" \
+    --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.sharedKey=${LA_SHARED_KEY_ENC}"
 
 # extract an ID of the installed App Service extension
 EXTENSION_ID=$(az k8s-extension show --cluster-type connectedClusters -c $AKS_NAME -g $RESOURCE_GROUP --name $EXTENSION_NAME --query id -o tsv)

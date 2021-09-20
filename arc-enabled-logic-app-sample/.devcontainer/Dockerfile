@@ -1,50 +1,36 @@
-# [Choice] .NET Core version: 3.1, 2.1
-ARG VARIANT=3.1
-FROM mcr.microsoft.com/vscode/devcontainers/dotnet:0-${VARIANT}
+# See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/dotnet/.devcontainer/base.Dockerfile
 
-# Avoid warnings by switching to noninteractive
-ENV DEBIAN_FRONTEND=noninteractive
+FROM mcr.microsoft.com/vscode/devcontainers/dotnet:3.1
 
-# install packages
-RUN \
-    # Install Azure CLI
-    curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-
-RUN \
-    # verify git and needed tools are installed
-    apt-get -y install \
-    git \
-    iproute2 \
-    procps \
-    curl \
-    apt-transport-https \
-    gnupg2 \
-    lsb-release \
-    jq \
-    software-properties-common \
-    zip \
-    npm 
-
-RUN \
-    # Add source for Azure Functions
-    curl -sL https://packages.microsoft.com/keys/microsoft.asc | (OUT=$(apt-key add - 2>&1) || echo $OUT) \
+# Configure apt and install packages
+RUN apt-get update \
+    && apt-get -y install --no-install-recommends \
+        apt-utils \
+        dialog  \
+        git \
+        iproute2 \
+        procps \
+        curl \
+        apt-transport-https \
+        gnupg2 \
+        lsb-release \
+        jq \
+        software-properties-common \
+        zip \
+    && curl -sL https://packages.microsoft.com/keys/microsoft.asc | (OUT=$(apt-key add - 2>&1) || echo $OUT) \
+    && echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $(lsb_release -cs) main" > /etc/apt/sources.list.d/azure-cli.list \
     && echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list \
-    # Add source for Docker CLI
-    && curl -fsSL https://download.docker.com/linux/$(lsb_release -is | tr '[:upper:]' '[:lower:]')/gpg | apt-key add - 2>/dev/null \
-    && echo "deb [arch=amd64] https://download.docker.com/linux/$(lsb_release -is | tr '[:upper:]' '[:lower:]') $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list \
-    # Add source for Helm
     && curl https://baltocdn.com/helm/signing.asc | apt-key add \ 
     && echo "deb https://baltocdn.com/helm/stable/debian/ all main" | tee /etc/apt/sources.list.d/helm-stable-debian.list \
+    && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
     && apt-get update \
     && apt-get -y install --no-install-recommends \ 
         apt-utils \
         dialog  \
-        # Install Func CLI
+        azure-cli \ 
         azure-functions-core-tools-3 \
-        # Install Docker CLI
-        docker-ce-cli \
-        # Install Helm
         helm=3.5.0-1 \
+        nodejs \
     # Install Azure CLI Extensions
     && az aks install-cli \
     # Install bicep
@@ -56,11 +42,16 @@ RUN \
     && az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py2.py3-none-any.whl" \
     && az extension add --yes --source "https://aka.ms/logicapp-latest-py2.py3-none-any.whl" \    
     # Install Azurite
-    && npm install -g azurite \
-    && apt-get clean -y && rm -rf /var/lib/apt/lists/*
+    && npm install -g azurite
+    # install k9s
+RUN mkdir -p /home/${USERNAME}/.k9s \
+    && K9S_VERSION=$(basename "$(curl -fsSL -o /dev/null -w "%{url_effective}" https://github.com/derailed/k9s/releases/latest)") \
+    && curl -Lo ./k9s.tar.gz https://github.com/derailed/k9s/releases/download/${K9S_VERSION}/k9s_Linux_x86_64.tar.gz \
+    && mkdir k9s \
+    && tar xvzf k9s.tar.gz -C ./k9s \
+    && chmod 755 ./k9s/k9s \
+    && mv ./k9s/k9s /usr/local/bin/k9s \
+    && rm -rf k9s.tar.gz k9s \
+    && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
 
-ENV PATH=/root/.azure/bin:${PATH}
-ENV DOCKER_HOST=tcp://host.docker.internal:2375
-
-# Switch back to dialog for any ad-hoc use of apt-get
-ENV DEBIAN_FRONTEND=dialog
+ENV LANG en_US.UTF-8

@@ -12,10 +12,6 @@ export TENANT_ID=$(echo $SP_INFO | jq .tenant  -r)
 
 echo 'Deploying resources logic app hosting resources...'
 
-# az bicep build --file main.bicep
-# # add the 'kind=v2' to our tablestorage connector; only way to do this right now
-# sed -i 's/"name": "tablestorage",/"name": "tablestorage","kind":"V2",/g' main.json
-
 az deployment group create \
   --name $DEPLOYMENT_NAME-logicapp \
   --resource-group $RESOURCE_GROUP \
@@ -29,7 +25,8 @@ az deployment group create \
     customLocationId=$CUSTOM_LOCATION_ID \
     appServicePlanName=$APP_SERVICE_PLAN \
     kubeEnvironmentName=$KUBE_ENVIRONMENT_NAME \
-    appServiceIP=$STATIC_IP
+    appServiceIP=$STATIC_IP \
+    appInsightsName=$APPINSIGHTS_NAME
 
 echo 'Deploying Logic App code...'
 pushd ../src

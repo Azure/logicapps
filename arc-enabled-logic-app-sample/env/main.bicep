@@ -12,9 +12,13 @@ param customLocationId string
 param appServicePlanName string
 param kubeEnvironmentName string
 param appServiceIP string
+param appInsightsName string
 
 var deploymentLocation = resourceGroup().location
 
+resource appInsights 'Microsoft.Insights/components@2020-02-02' existing = {
+  name: appInsightsName
+}
 resource storageAccount 'Microsoft.Storage/storageAccounts@2021-04-01' = {
   name: storageAccountName
   kind: 'StorageV2'
@@ -139,28 +143,6 @@ resource workflowApp 'Microsoft.Web/sites@2021-01-15' = {
         }
       ]
       linuxFxVersion: 'Node|12'
-    }
-  }
-  tags: tags
-}
-
-resource appInsights 'Microsoft.Insights/components@2020-02-02-preview' = {
-  name: '${appName}-ai'
-  location: deploymentLocation
-  kind: 'web'
-  properties: {
-    Application_Type: 'web'
-    WorkspaceResourceId: appInsightsWorkspace.id
-  }
-  tags: tags
-}
-
-resource appInsightsWorkspace 'Microsoft.OperationalInsights/workspaces@2020-10-01' = {
-  name: '${appName}-aiws'
-  location: deploymentLocation
-  properties: {
-    sku: {
-      name: 'Free'
     }
   }
   tags: tags

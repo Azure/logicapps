@@ -1,6 +1,6 @@
 # Introduction
 
-This sample shows an Azure Logic App running on an Arc-enabled Kubernetes cluster. The Logic App periodically checks Azure Table Storage for new ratings items. Any new ratings are appended to a JSON file in Azure Blob Storage that contain all the ratings for that product.
+This sample shows an Azure Logic App running on an [App Service in an Arc-enabled Kubernetes cluster](https://docs.microsoft.com/en-US/Azure/app-service/overview-arc-integration). The Logic App periodically checks Azure Table Storage for new ratings items. Any new ratings are appended to a JSON file in Azure Blob Storage that contain all the ratings for that product.
 
 ![Architecture Diagram](./docs/SolutionDiagramLogicAppsSample.png)
 
@@ -35,7 +35,7 @@ The script will output the portal url of the Logic App and the Storage Account. 
 
 ## Testing in Azure
 
-Once the app is deployed to Azure, you can upload data to *ratings* table in Azure Table Storage, and view the results in Azure Blob Storage.
+Once the app is deployed to Azure, you can upload data to the *ratings* table in Azure Table Storage, and view the results in Azure Blob Storage.
 
 1. Use the [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to connect to the storage account output by the deploy script.
    > Check the `deploy.sh1` file for an example on using the azure cli to interact with table storage if you can't use Azure Storage Explorer.
@@ -51,3 +51,11 @@ Once the app is deployed to Azure, you can upload data to *ratings* table in Azu
 1. Open the blob called 3. This blob will contain the ratings from the ratings table.
 
 Try adding more data with different product ID's in the ratings table, or change the publish date of an existing item to `00/00/0000`, to add it to the blobs.
+
+## Resources
+
+* [App Service, Functions, and Logic Apps on Azure Arc (Preview)](https://docs.microsoft.com/en-US/Azure/app-service/overview-arc-integration)
+* [Set up an Azure Arc enabled Kubernetes cluster to run App Service, Functions, and Logic Apps (Preview)](https://docs.microsoft.com/en-us/azure/app-service/manage-create-arc-environment)
+* [Create and deploy single-tenant based logic app workflows with Azure Arc enabled Logic Apps (Preview)](https://docs.microsoft.com/en-us/azure/logic-apps/azure-arc-enabled-logic-apps-create-deploy-workflows)
+* [Azure Storage Emulator](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-emulator?toc=/azure/storage/blobs/toc.json)
+* [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/)
