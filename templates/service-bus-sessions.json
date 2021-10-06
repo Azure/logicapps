@@ -431,7 +431,7 @@
                 }
               },
               "description": "This block keeps asking for more messages in the session for 1 hour or as long as it finds messages in the queue for the session, whichever comes first. To hold longer, change the 'Timeout' property of this Until block",
-              "expression": "@not(equals(variables('isDone'), true))",
+              "expression": "@equals(variables('isDone'), true)",
               "limit": {
                 "timeout": "PT1H"
               },
