@@ -1,0 +1,18 @@
+﻿{
+  "managedApiConnections": {
+    "arm": {
+      "api": {
+        "id": "/subscriptions/someSubscription/providers/Microsoft.Web/locations/eastus/managedApis/arm"
+      },
+      "connection": {
+        "id": "/subscriptions/someSubscription/resourceGroups/someResourceGroup/providers/Microsoft.Web/connections/arm-1"
+      },
+      "connectionRuntimeUrl": "@appsetting('arm-connectionRuntimeUrl')",
+      "authentication": {
+        "type": "Raw",
+        "scheme": "Key",
+        "parameter": "@appsetting('arm-connectionKey')"
+      }
+    }
+  }
+}
