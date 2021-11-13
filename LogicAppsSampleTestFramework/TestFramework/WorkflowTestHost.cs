@@ -102,7 +102,7 @@ namespace TestFramework
                 }
                 else
                 {
-                    File.Copy(Path.Combine(Directory.GetCurrentDirectory(), "..\\..\\TestFiles\\local.settings.json"), Path.Combine(this.WorkingDirectory, "local.settings.json"));
+                    File.Copy(Path.Combine(Directory.GetCurrentDirectory(), "..\\..\\..\\TestFiles\\local.settings.json"), Path.Combine(this.WorkingDirectory, "local.settings.json"));
                 }
 
                 if (!string.IsNullOrEmpty(host))
@@ -111,7 +111,7 @@ namespace TestFramework
                 }
                 else
                 {
-                    File.Copy(Path.Combine(Directory.GetCurrentDirectory(), "..\\..\\TestFiles\\host.json"), Path.Combine(this.WorkingDirectory, "host.json"));
+                    File.Copy(Path.Combine(Directory.GetCurrentDirectory(), "..\\..\\..\\TestFiles\\host.json"), Path.Combine(this.WorkingDirectory, "host.json"));
                 }
 
                 this.Process = new Process
