@@ -64,16 +64,21 @@ Function Get-ApiConnections {
     $name = $_.Name;
     Write-Host 'Found API connector: '$name
     $connectionResource = Get-AzResource -ResourceId $_.id
-    $apiConnections["$name"] = @{
-      "api"                  = @{
-        "id" = $connectionResource.Properties.api.id
-      };
-      "connection"           = @{
-        "id" = $_.Id.ToLower();
-      };
-      "connectionRuntimeUrl" = $connectionResource.Properties.connectionRuntimeUrl;
-      "authentication"       = @{
-        "type" = "ManagedServiceIdentity"
+    # only adding managed API connections of type V2
+    if($connectionResource.Kind -eq "V2")
+    {
+      Write-Host 'Found API connector: '$name
+      $apiConnections["$name"] = @{
+          "api"                  = @{
+            "id" = $connectionResource.Properties.api.id
+          };
+          "connection"           = @{
+            "id" = $_.Id.ToLower();
+          };
+          "connectionRuntimeUrl" = $connectionResource.Properties.connectionRuntimeUrl;
+          "authentication"       = @{
+            "type" = "ManagedServiceIdentity"
+          }
       }
     }
   }
