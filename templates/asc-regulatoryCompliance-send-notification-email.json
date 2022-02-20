@@ -11,7 +11,7 @@
 			"security"
 		],
 		"description": "Send an email notification with the regulatory compliance assessment details. Note: automated running of this trigger requires enabling automation in Azure Security Center",
-		"displayName": "Get a notification email when Security Center creates a regulatory compliance assessment (Preview)",
+		"displayName": "Get a notification email when Security Center creates a regulatory compliance assessment",
 		"definition": {
 			"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
 			"actions": {
