@@ -1,0 +1,36 @@
+trigger: none
+
+pr: none
+
+variables:
+- name: artifactName
+  value: deploy_artifacts
+- name: devEnvironment
+  value: dev
+
+stages:
+- stage: Builds
+  displayName: 'Publish IaC Artifacts'
+  jobs:
+  - job: Build
+    pool:
+      vmImage: ubuntu-18.04
+    steps:
+    - task: CopyFiles@2
+      displayName: 'Copy ARM templates'
+      inputs:
+        sourceFolder: 'deploy'
+        targetFolder: '$(Build.ArtifactStagingDirectory)'
+    - publish: '$(Build.ArtifactStagingDirectory)'
+      artifact: $(artifactName)
+
+- stage: DEV
+  displayName: 'DEV Deployment'
+  variables:
+  - template: variables/pipeline-vars.yml
+  jobs:
+  - template: templates/template-iac-logicapp.yml
+    parameters:
+      environment: $(devEnvironment)
+      # TODO: Fill in with the name of your Azure service connection
+      serviceConnection: ''

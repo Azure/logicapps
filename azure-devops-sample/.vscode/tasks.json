@@ -1,0 +1,35 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+	  {
+		"label": "generateDebugSymbols",
+		"command": "dotnet",
+		"args": [
+		  "${input:getDebugSymbolDll}"
+		],
+		"type": "process",
+		"problemMatcher": "$msCompile",
+		"options": {
+		  "cwd": "${workspaceFolder}/logic"
+		}
+	  },
+	  {
+		"type": "func",
+		"command": "host start",
+		"problemMatcher": "$func-watch",
+		"isBackground": true,
+		"dependsOn": "generateDebugSymbols",
+		"options": {
+		  "cwd": "${workspaceFolder}/logic"
+		}
+	  }
+	],
+	"inputs": [
+	  {
+		"id": "getDebugSymbolDll",
+		"type": "command",
+		"command": "azureLogicAppsStandard.getDebugSymbolDll"
+	  }
+	]
+  }
+  

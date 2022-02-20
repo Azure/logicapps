@@ -1,0 +1,31 @@
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "actions": {
+            "Invoke_a_workflow_in_this_workflow_app": {
+                "inputs": {
+                    "body": "demo content",
+                    "host": {
+                        "workflow": {
+                            "id": "eventprocessor"
+                        }
+                    }
+                },
+                "runAfter": {},
+                "type": "Workflow"
+            }
+        },
+        "contentVersion": "1.0.0.0",
+        "outputs": {},
+        "triggers": {
+            "Recurrence": {
+                "recurrence": {
+                    "frequency": "Day",
+                    "interval": 1
+                },
+                "type": "Recurrence"
+            }
+        }
+    },
+    "kind": "Stateful"
+}

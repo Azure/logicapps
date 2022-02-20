@@ -1,0 +1,80 @@
+# IaC Logic App resources deployment template
+
+parameters:
+- name: environment
+  type: string
+- name: serviceConnection
+  type: string
+
+jobs:
+- deployment: deploy_logicapp_resources
+  displayName: Deploy Logic App Resources
+  pool:
+    vmImage: ubuntu-18.04
+  environment: ${{ parameters.environment }}
+  variables:
+    deploymentMode: 'Incremental'
+  strategy:
+    runOnce:
+      deploy:
+        steps:
+        - download: current
+          artifact: $(artifactName)
+
+        - task: AzureResourceGroupDeployment@2
+          displayName: 'Deploy Logic App'
+          inputs:
+            azureSubscription: ${{ parameters.serviceConnection }}
+            resourceGroupName: $(resourceGroupName)
+            location: $(resourceGroupLocation)
+            csmFile: '$(Pipeline.Workspace)/$(artifactName)/classic/logicapp-template.json'
+            overrideParameters: '
+              -location $(resourceGroupLocation)
+              -environmentName ${{ parameters.environment }}
+              -projectName $(projectName)
+              -logicAppName $(logicAppName)
+              -appServicePlanName $(appServicePlanName)
+              -storageName $(storageName)'
+            deploymentMode: $(deploymentMode)
+            deploymentOutputs: 'LogicAppArmOutputs'
+
+        - task: ARM Outputs@6
+          displayName: 'ARM Outputs'
+          inputs:
+            ConnectedServiceNameSelector: 'ConnectedServiceNameARM'
+            ConnectedServiceNameARM: ${{ parameters.serviceConnection }}
+            resourceGroupName: $(resourceGroupName)
+            whenLastDeploymentIsFailed: 'fail'
+
+        - task: AzureResourceGroupDeployment@2
+          displayName: 'Deploy Connectors'
+          inputs:
+            azureSubscription: ${{ parameters.serviceConnection }}
+            resourceGroupName: $(resourceGroupName)
+            location: $(resourceGroupLocation)
+            csmFile: '$(Pipeline.Workspace)/$(artifactName)/connectors-template.json'
+            overrideParameters: '
+              -location $(resourceGroupLocation)
+              -connections_azureblob_name $(blobConnectionName)
+              -logicAppSystemAssignedIdentityTenantId $(logicAppSystemAssignedIdentityTenantId)
+              -logicAppSystemAssignedIdentityObjectId $(logicAppSystemAssignedIdentityObjectId)'
+            deploymentMode: $(deploymentMode)
+
+        - task: ARM Outputs@6
+          displayName: 'ARM Outputs Connections'
+          inputs:
+            ConnectedServiceNameSelector: 'ConnectedServiceNameARM'
+            ConnectedServiceNameARM: ${{ parameters.serviceConnection }}
+            resourceGroupName: $(resourceGroupName)
+            whenLastDeploymentIsFailed: 'fail'
+
+        - task: AzureCLI@2
+          inputs:
+            azureSubscription: 'devconnection2'
+            scriptType: 'bash'
+            scriptLocation: 'inlineScript'
+            inlineScript: |
+              az functionapp config appsettings set --name $(LAname) --resource-group  $(resourceGroupName) --settings "BLOB_CONNECTION_RUNTIMEURL=$(blobendpointurl)"
+              az functionapp config appsettings set --name $(LAname) --resource-group  $(resourceGroupName) --settings "WORKFLOWS_RESOURCE_GROUP_NAME=$(resourceGroupName)"
+            addSpnToEnvironment: true
+            useGlobalConfig: true

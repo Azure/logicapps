@@ -1,0 +1,40 @@
+trigger:
+- main
+
+pr: none
+
+pool:
+  vmImage: 'ubuntu-18.04'
+
+variables:
+- template: variables/pipeline-vars.yml
+
+jobs:
+- job: logic_app_build
+  displayName: 'Build and publish logic app'
+  steps:
+  - task: AzurePowerShell@4
+    displayName: 'Generate connections.json file'
+    inputs:
+      azureSubscription: $(devServiceConnection)
+      ScriptType: 'FilePath'
+      ScriptPath: '$(System.DefaultWorkingDirectory)/.pipelines/scripts/Generate-Connections.ps1'
+      FailOnStandardError: true
+      azurePowerShellVersion: LatestVersion
+      pwsh: true
+      ScriptArguments: >-
+        -resourceGroup $(resourceGroupName)
+
+  - task: AzureCLI@2
+    displayName: 'Build & Push Logic App Image'
+    inputs:
+      azureSubscription: $(devServiceConnection)
+      scriptType: 'bash'
+      scriptLocation: 'inlineScript'
+      inlineScript: |
+        az acr build \
+        -r $(acrName) \
+        -t $(logicAppContainerName):$(Build.BuildId) \
+        -t $(logicAppContainerName):latest \
+        .
+      workingDirectory: $(System.DefaultWorkingDirectory)

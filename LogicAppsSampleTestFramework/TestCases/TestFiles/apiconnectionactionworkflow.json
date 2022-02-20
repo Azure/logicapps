@@ -1,0 +1,46 @@
+﻿{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "actions": {
+      "Response": {
+        "type": "Response",
+        "kind": "http",
+        "inputs": {
+          "statusCode": 200,
+          "body": "@body('List_resource_groups')"
+        },
+        "runAfter": {
+          "List_resource_groups": [
+            "Succeeded"
+          ]
+        }
+      },
+      "List_resource_groups": {
+        "type": "ApiConnection",
+        "inputs": {
+          "host": {
+            "connection": {
+              "referenceName": "arm"
+            }
+          },
+          "method": "get",
+          "path": "/subscriptions/@{encodeURIComponent('someSubscription')}/resourcegroups",
+          "queries": {
+            "x-ms-api-version": "2016-06-01"
+          }
+        },
+        "runAfter": {}
+      }
+    },
+    "triggers": {
+      "manual": {
+        "type": "Request",
+        "kind": "Http",
+        "inputs": {}
+      }
+    },
+    "contentVersion": "1.0.0.0",
+    "outputs": {}
+  },
+  "kind": "Stateful"
+}

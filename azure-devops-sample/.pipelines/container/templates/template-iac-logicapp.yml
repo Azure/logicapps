@@ -1,0 +1,92 @@
+# IaC Logic App resources deployment template
+
+parameters:
+- name: environment
+  type: string
+- name: serviceConnection
+  type: string
+
+jobs:
+- deployment: deploy_logicapp_resources
+  displayName: Deploy Logic App Resources
+  pool:
+    vmImage: ubuntu-18.04
+  environment: ${{ parameters.environment }}
+  variables:
+    deploymentMode: 'Incremental'
+  strategy:
+    runOnce:
+      deploy:
+        steps:
+        - download: current
+          artifact: $(artifactName)
+
+        - task: AzureResourceGroupDeployment@2
+          displayName: 'Deploy Container Registry'
+          inputs:
+            azureSubscription: ${{ parameters.serviceConnection }}
+            resourceGroupName: $(resourceGroupName)
+            location: $(resourceGroupLocation)
+            csmFile: '$(Pipeline.Workspace)/$(artifactName)/container/acr-template.json'
+            overrideParameters: '-containerRegistryName $(acrName) -location $(resourceGroupLocation) -skuName $(acrSkuName)
+              -environmentName ${{ parameters.environment }} -projectName $(projectName)'
+            deploymentMode: $(deploymentMode)
+
+        - task: ARM Outputs@6
+          displayName: 'ARM Outputs'
+          inputs:
+            ConnectedServiceNameSelector: 'ConnectedServiceNameARM'
+            ConnectedServiceNameARM: ${{ parameters.serviceConnection }}
+            resourceGroupName: $(resourceGroupName)
+            whenLastDeploymentIsFailed: 'fail'
+
+        - task: AzureResourceGroupDeployment@2
+          displayName: 'Deploy Logic App'
+          inputs:
+            azureSubscription: ${{ parameters.serviceConnection }}
+            resourceGroupName: $(resourceGroupName)
+            location: $(resourceGroupLocation)
+            csmFile: '$(Pipeline.Workspace)/$(artifactName)/container/logicapp-template.json'
+            overrideParameters: '
+              -location $(resourceGroupLocation)
+              -environmentName ${{ parameters.environment }}
+              -projectName $(projectName)
+              -logicAppName $(logicAppName)
+              -appServicePlanName $(appServicePlanName)
+              -storageName $(storageName)
+              -acrName $(acrName)
+              -acrUsername $(acrUsername)
+              -acrPassword $(acrPassword)'
+            deploymentMode: $(deploymentMode)
+            deploymentOutputs: 'LogicAppArmOutputs'
+
+        - task: ARM Outputs@6
+          displayName: 'ARM Outputs'
+          inputs:
+            ConnectedServiceNameSelector: 'ConnectedServiceNameARM'
+            ConnectedServiceNameARM: ${{ parameters.serviceConnection }}
+            resourceGroupName: $(resourceGroupName)
+            whenLastDeploymentIsFailed: 'fail'
+
+        - task: AzureResourceGroupDeployment@2
+          displayName: 'Deploy Connectors'
+          inputs:
+            azureSubscription: ${{ parameters.serviceConnection }}
+            resourceGroupName: $(resourceGroupName)
+            location: $(resourceGroupLocation)
+            csmFile: '$(Pipeline.Workspace)/$(artifactName)/connectors-template.json'
+            overrideParameters: '
+              -location $(resourceGroupLocation)
+              -officeConnectionName $(officeConnectionName)
+              -environmentName ${{ parameters.environment }}
+              -projectName $(projectName)
+              -logicAppSystemAssignedIdentityTenantId $(logicAppSystemAssignedIdentityTenantId)
+              -logicAppSystemAssignedIdentityObjectId $(logicAppSystemAssignedIdentityObjectId)'
+            deploymentMode: $(deploymentMode)
+
+        - task: Bash@3
+          displayName: 'USER ACTION: Authorize Office365 API Connection'
+          inputs:
+            targetType: 'inline'
+            script: |
+              echo 'Please manually authorize the Office 365 API Connection that was just created.'

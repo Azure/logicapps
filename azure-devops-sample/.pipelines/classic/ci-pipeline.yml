@@ -1,0 +1,38 @@
+trigger:
+- main
+
+pr: none
+
+pool:
+  vmImage: 'ubuntu-18.04'
+
+variables:
+- template: variables/pipeline-vars.yml
+
+jobs:
+- job: logic_app_build
+  displayName: 'Build and publish logic app'
+  steps:
+  - task: CopyFiles@2
+    displayName: 'Create project folder'
+    inputs:
+      SourceFolder: '$(System.DefaultWorkingDirectory)'
+      Contents: |
+        logic/**
+      TargetFolder: 'project_output'
+
+  - task: ArchiveFiles@2
+    displayName: 'Create project zip'
+    inputs:
+      rootFolderOrFile: '$(System.DefaultWorkingDirectory)/project_output/logic'
+      includeRootFolder: false
+      archiveType: 'zip'
+      archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+      replaceExistingArchive: true
+
+  - task: PublishPipelineArtifact@1
+    displayName: 'Publish project zip artifact'
+    inputs:
+      targetPath: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+      artifact: '$(logicAppCIArtifactName)'
+      publishLocation: 'pipeline'
