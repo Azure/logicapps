@@ -40,7 +40,7 @@ namespace TestFramework
         /// <summary>
         /// The management host name.
         /// </summary>
-        public static readonly string ManagementHostName = $"Management-{Environment.MachineName}";
+        public static readonly string ManagementHostName = $"{Environment.MachineName}";
 
         /// <summary>
         /// The test host uri.
