@@ -1,0 +1,41 @@
+// Application Insight Queries for Logic Apps Standard Performance Benchmark
+
+// Scaling
+performanceCounters
+| summarize dcount(cloud_RoleInstance) by bin(timestamp, 1m)
+| render timechart
+
+// Actions per minute per instance
+customMetrics
+|where name contains "Actions Completed"
+|summarize sum(value) by bin(timestamp, 1m)
+|render timechart
+
+// Runs per minute per instance
+customMetrics
+|where name in ("Runs Completed")
+|summarize sum(value) by bin(timestamp, 1m)
+|render timechart
+
+// Average execution delay (in seconds)
+customMetrics
+|where name == "Job Execution Delay"
+|summarize avg(valueSum/valueCount) by bin(timestamp, 1m)
+|render timechart
+
+// CPU
+performanceCounters
+| where name == "% Processor Time"
+| summarize percentile(value, 90) by bin(timestamp, 1m), cloud_RoleInstance
+| render timechart
+
+// Memory
+performanceCounters
+| summarize avgif(value, name=="Private Bytes") by bin(timestamp, 1m), cloud_RoleInstance
+| render timechart
+
+// Storage requests 
+Requires trace level logging. Change the logLevel in host.json from "Error" to "Trace" to log this data.
+traces
+| where message startswith "storage operation completed"
+| count
