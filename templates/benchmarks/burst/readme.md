@@ -1,12 +1,12 @@
-# Instructions on how to execute these benchmarks and reproduce results
+# Instructions on how to execute these benchmarks and gather results
 
-1. Create three Logic Apps with the three SKUs (WS1, WS2, WS3). Make sure Application Insights is enabled.
+1. Create three Logic Apps with the three SKUs (WS1, WS2, WS3). Make sure Application Insights is enabled. Note that Application Insights incurrs a small performance penalty but it is needed to log performance metrics. These results will be slightly worse than those obtained in the blog post, which used internal metrics instead of Application Insights to gather results.
 2. Create a dotnet Function App with the provided source code. The Enricher workflow will make outbound calls to it.
 3. In each Logic App, create the stateful Dispatcher workflow and the stateless Enricher workflow with the provided workflow definitions.
 4. Add these app settings to each of the Logic Apps
     * Enricher.Cosmos.DefaultTtl: 86400
     * Enricher.MaxMappingValidUntil: 3
-    * Enricher.RetailApiUrl: \<URL to invoke your function app\>
+    * Enricher.RetailApiUrl: \<URL to invoke your function app\>&ean=
 5. Modify host.json with these settings to enable verbose logging and disable Application Insights sampling (to improve metric accuracy).
     ```
     {
@@ -17,12 +17,12 @@
     },
     "logging": {
         "logLevel":{
-            "default": "Trace"
+            "default": "Error"
             },
             "applicationInsights": {
-            "samplingSettings": {
-                "isEnabled": false
-            }
+                "samplingSettings": {
+                    "isEnabled": false
+                }
             }
         }
     }
@@ -38,33 +38,35 @@
 
 # Applicaiton Insight Queries
 
-## Storage requests:
-````
-traces
-| where message startswith "storage operation completed"
-| count
-````
-
-## Actions per instance per second
+## Scaling
 ```
-traces
-| where message startswith "Workflow action starts"
-|summarize actionPerSecond=count()/((max(timestamp) - min(timestamp))/1s) by cloud_RoleInstance
-| summarize round(avg(actionPerSecond), 2)
+performanceCounters
+| summarize dcount(cloud_RoleInstance) by bin(timestamp, 1m)
+| render timechart
 ```
 
-## 95th percentile execution delay
+## Actions per minute per instance
 ```
-traces
-| where message startswith "job history"
-| parse message with * "jobPartition='" jobPartition "'," * "executionDelayInMilliseconds='" executionDelay"'" *
-| project executionDelay, jobPartition
-| summarize round(percentile(todouble(executionDelay), 95), 2) by flowId = tolower(substring(jobPartition, 0, 32))
-| join (traces
-    | where message startswith "workflow run"
-    | parse message with * "flowName='" flowName "', flowId='" flowId "'," *
-    | distinct flowName, flowId) on flowId
-| project-away flowId, flowId1
+customMetrics
+|where name contains "Actions Completed"
+|summarize sum(value) by bin(timestamp, 1m)
+|render timechart
+```
+
+## Runs per minute per instance
+```
+customMetrics
+|where name in ("Runs Completed")
+|summarize sum(value) by bin(timestamp, 1m)
+|render timechart
+```
+
+## Average execution delay (in seconds)
+```
+customMetrics
+|where name == "Job Execution Delay"
+|summarize avg(valueSum/valueCount) by bin(timestamp, 1m)
+|render timechart
 ```
 
 ## CPU
@@ -82,10 +84,10 @@ performanceCounters
 | render timechart
 ```
 
-## Scaling
-```
+## Storage requests 
+Requires trace level logging. Change the logLevel in host.json from "Error" to "Trace" to log this data.
+````
 traces
-| where message startswith "workflow run"
-| summarize dcount(cloud_RoleInstance) by bin(timestamp, 1m)
-| render timechart
-```
+| where message startswith "storage operation completed"
+| count
+````
