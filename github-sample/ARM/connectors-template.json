@@ -63,7 +63,7 @@
         {
             "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
             "apiVersion": "2021-09-01",
-            "name": "[concat(variables('sa'), '/default/blobs')]",
+            "name": "[format('{0}/default/blobs', variables('sa'))]",
             "dependsOn": [
                 "[resourceId('Microsoft.Storage/storageAccounts', variables('sa'))]"
             ],
@@ -86,7 +86,7 @@
                 "displayName": "privatestorage",
                 "parameterValues": {
                     "accountName": "[variables('sa')]", 
-                    "accessKey": "[concat(listKeys(concat(resourceGroup().id,'/providers/Microsoft.Storage/storageAccounts/', variables('sa')),'2019-06-01').keys[0].value)]"
+                    "accessKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts/', variables('sa')), '2019-06-01').keys[0].value]"
                 },
                 "api": {
                     "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), 'azureblob')]"
@@ -96,7 +96,7 @@
         {
             "type": "Microsoft.Web/connections/accessPolicies",
             "apiVersion": "2016-06-01",
-            "name": "[concat(parameters('connections_azureblob_name'),'/',parameters('logicAppSystemAssignedIdentityObjectId'))]",
+            "name": "[format('{0}/{1}', parameters('connections_azureblob_name'), parameters('logicAppSystemAssignedIdentityObjectId'))]",
             "location": "[parameters('location')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Web/connections', parameters('connections_azureblob_name'))]"
@@ -116,7 +116,7 @@
     "outputs": {
       "blobendpointurl": {
         "type": "string",
-        "value": "[reference(resourceId('Microsoft.Web/connections', parameters('connections_azureblob_name')),'2016-06-01', 'full').properties.connectionRuntimeUrl]"
+        "value": "[reference(resourceId('Microsoft.Web/connections', parameters('connections_azureblob_name')), '2016-06-01', 'full').properties.connectionRuntimeUrl]"
       }
     }
 }
