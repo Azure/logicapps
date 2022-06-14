@@ -63,9 +63,9 @@
     {
       "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
       "apiVersion": "2021-09-01",
-      "name": "[format('{0}/default/blobs', variables('sa'))]",
+      "name": "[format('{0}/default/blobs', variables('storage_account'))]",
       "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts', variables('sa'))]"
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storage_account'))]"
       ],
       "properties": {
         "defaultEncryptionScope": "$account-encryption-key",
@@ -80,13 +80,13 @@
       "location": "[parameters('location')]",
       "kind": "V2",
       "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts', variables('sa'))]"
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storage_account'))]"
       ],
       "properties": {
         "displayName": "privatestorage",
         "parameterValues": {
           "accountName": "[variables('storage_account')]",
-          "accessKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts/', variables('sa')), '2019-06-01').keys[0].value]"
+          "accessKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts/', variables('storage_account')), '2019-06-01').keys[0].value]"
         },
         "api": {
           "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), 'azureblob')]"
