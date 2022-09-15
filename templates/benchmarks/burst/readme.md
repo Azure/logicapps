@@ -36,7 +36,7 @@
     - Make the orders array as large as the desired batch size. For example, to send a burst load of 100k messages, the array should have 100k elements.
 7. Wait until all the runs finish. Then the below Application Insights queries can be used to obtain the data described in the results section of the blog post. Be sure to set the time range for the queries to correspond to the duration of the test run.
 
-# Applicaiton Insight Queries
+# Application Insight Queries
 
 ## Scaling
 ```
