@@ -122,11 +122,7 @@
               {
                 "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
                 "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageName'),';AccountKey=',concat(listKeys(concat(resourceGroup().id,'/providers/Microsoft.Storage/storageAccounts/', parameters('storageName')),'2019-06-01').keys[0].value),';EndpointSuffix=core.windows.net')]"
-              },
-              {
-                "name": "WEBSITE_CONTENTSHARE",
-                "value": "[parameters('logicAppName')]"
-              },
+              },              
               {
                 "name": "WEBSITE_NODE_DEFAULT_VERSION",
                 "value": "~12"
