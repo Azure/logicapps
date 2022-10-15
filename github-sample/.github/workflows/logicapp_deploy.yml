@@ -77,9 +77,7 @@ jobs:
 
     - name: Swap parameter files 
       id: params
-      uses: azure/powershell@v1
+      uses: azure/CLI@v1
       with:
         inlineScript: |
           az functionapp deploy --resource-group ${{ secrets.RG_LA }} --name ${{ env.LA_NAME }} --src-path  logic/azure.parameters.json --type static --target-path parameters.json
-        azPSVersion: latest
-
