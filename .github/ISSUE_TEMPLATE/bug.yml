@@ -26,8 +26,8 @@ body:
       required: true
 
 
-  - type: textarea
-    id: platform
+  - type: input
+    id: plantype
     attributes:
       label: Plan Type
       placeholder: Standard/Consumption/Local
