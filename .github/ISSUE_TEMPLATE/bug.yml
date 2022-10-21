@@ -2,7 +2,7 @@ name: '🐞 Report A Bug'
 description: Use this to create a report if you found Logic Apps Bug
 labels: ["triage"]
 body:
- - type: markdown
+  - type: markdown
     attributes:
       value: |
         Thank you for reporting an issue.
