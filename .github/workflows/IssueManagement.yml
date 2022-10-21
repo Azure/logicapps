@@ -2,11 +2,6 @@ name: Close inactive issues
 on:
   schedule:
     - cron: "0 * * * *"
-    
-permissions:
-  contents: write
-  issues: write
-  pull-requests: write
   
 jobs:
   close-issues:
@@ -27,5 +22,5 @@ jobs:
           days-before-pr-close: 7
           stale-pr-message: "This PR is stale because it has been open for 30 days with no activity."
           close-pr-message: "This issue was closed because it has been inactive for 7 days since being marked as stale."
-          operations-per-run: 300
+          operations-per-run: 3000
           repo-token: ${{ secrets.GITHUB_TOKEN }}
