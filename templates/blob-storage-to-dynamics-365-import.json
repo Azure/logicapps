@@ -359,13 +359,19 @@
 		{
 			"type": "ApiConnection",
 			"displayName": "Azure Blob",
-			"iconUri": "https://cpgeneralstore.blob.core.windows.net/icons/azureblob.png",
+			"iconUri": "https://logicappsresources.blob.core.windows.net/icons/azureblob.png",
 			"brandColor": "#804998"
 		},
 		{
-			"type": "apiconnection",
-			"displayName": "Dynamics 365 F&O",
-			"iconUri": "https://az818438.vo.msecnd.net/icons/dynamicscrmonline.png",
+			"type": "Http",
+			"displayName": "${Resources.HTTP_DISPLAYNAME}",
+			"iconUri": "${Images.HttpIcon}",
+			"brandColor": "#709727"
+		},
+		{
+			"type": "ApiConnection",
+			"displayName": "Office 365",
+			"iconUri": "https://logicappsresources.blob.core.windows.net/icons/office365.png",
 			"brandColor": "#16244E"
 		}
 	],

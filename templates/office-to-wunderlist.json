@@ -88,13 +88,13 @@
             {
                 "type": "apiconnection",
                 "displayName": "${Resources.OFFICE}",
-                "iconUri": "https://connectoricons-prod.azureedge.net/office365/icon_1.0.1008.1183.png",
+                "iconUri": "https://logicappsresources.blob.core.windows.net/icons/office365.png",
                 "brandColor": "#0072c5"
             },
             {
                 "type": "apiconnection",
                 "displayName": "${Resources.WUNDERLIST}",
-                "iconUri": "https://az818438.vo.msecnd.net/icons/wunderlist.png",
+                "iconUri": "https://logicappsresources.blob.core.windows.net/icons/wunderlist.png",
                 "brandColor": "#de4c40"
             }
         ],

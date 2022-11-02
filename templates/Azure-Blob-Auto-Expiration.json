@@ -127,7 +127,7 @@
       {
         "type": "ApiConnection",
         "displayName": "Azure Blob",
-        "iconUri": "https://cpgeneralstore.blob.core.windows.net/icons/azureblob.png",
+        "iconUri": "https://logicappsresources.blob.core.windows.net/icons/azureblob.png",
         "brandColor": "#804998"
       }
     ]

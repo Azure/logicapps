@@ -87,13 +87,13 @@
             {
                 "type": "apiconnection",
                 "displayName": "${Resources.TWITTER}",
-                "iconUri": "https://az818438.vo.msecnd.net/icons/twitter.png",
+                "iconUri": "https://logicappsresources.blob.core.windows.net/icons/twitter.png",
                 "brandColor": "#5fa9dd"
             },
             {
                 "type": "apiconnection",
                 "displayName": "${Resources.SLACK}",
-                "iconUri": "https://az818438.vo.msecnd.net/icons/slack.png",
+                "iconUri": "https://logicappsresources.blob.core.windows.net/icons/slack.png",
                 "brandColor": "#78d4b6"
             }
         ],

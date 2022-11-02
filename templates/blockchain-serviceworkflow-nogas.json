@@ -92,7 +92,7 @@
                 "brandColor": "#ffffff"
             },
             {
-                "type": "http",
+                "type": "response",
                 "displayName": "${Resources.RESPONSE_DISPLAYNAME}",
                 "iconUri": "${Images.ResponseIcon}",
                 "brandColor": "#009DA5"
