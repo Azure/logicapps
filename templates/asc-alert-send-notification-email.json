@@ -89,7 +89,7 @@
                 "type": "apiconnection",
                 "displayName": "${Resources.OUTLOOK}",
                 "iconUri": "https://logicappsresources.blob.core.windows.net/icons/office365.png",
-                "brandColor": "#0072c6"
+                "brandColor": "#0078D4"
             }
         ],
         "changedTime": "2019-07-11T00:00:00.000Z",
