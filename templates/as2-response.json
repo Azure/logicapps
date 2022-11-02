@@ -133,7 +133,7 @@
             {
                 "type": "apiconnection",
                 "displayName": "${Resources.AS2_DISPLAYNAME}",
-                "iconUri": "https://az818438.vo.msecnd.net/icons/as2.png",
+                "iconUri": "https://logicappsresources.blob.core.windows.net/icons/as2.png",
                 "brandColor": "#0178D5"
             },
             {

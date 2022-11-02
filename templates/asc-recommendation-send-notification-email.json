@@ -87,7 +87,7 @@
             {
                 "type": "apiconnection",
                 "displayName": "${Resources.OUTLOOK}",
-                "iconUri": "https://az818438.vo.msecnd.net/icons/outlook.png",
+                "iconUri": "https://logicappsresources.blob.core.windows.net/icons/office365.png",
                 "brandColor": "#0072c6"
             }
         ],
