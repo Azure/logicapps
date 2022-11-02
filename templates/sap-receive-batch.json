@@ -126,7 +126,7 @@
         "type": "Foreach",
         "displayName": "Enumerate each IDOC in batch/packet",
         "iconUri": "${Images.ForeachIcon}",
-        "brandColor": "#758393"
+        "brandColor": "#486991"
       }
     ],
     "changedTime": "2019-08-20T00:00:00Z",

@@ -86,13 +86,13 @@
                 "type": "apiconnection",
                 "displayName": "${Resources.SHAREPOINT}",
                 "iconUri": "https://logicappsresources.blob.core.windows.net/icons/sharepoint.png",
-                "brandColor": "#1b75bc"
+                "brandColor": "#036C70"
             },
             {
                 "type": "apiconnection",
                 "displayName": "${Resources.OFFICE}",
                 "iconUri": "https://logicappsresources.blob.core.windows.net/icons/office365.png",
-                "brandColor": "#0072c5"
+                "brandColor": "#0078D4"
             }
         ],
         "changedTime": "2017-07-05T00:00:35.000Z",

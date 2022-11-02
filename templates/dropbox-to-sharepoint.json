@@ -94,7 +94,7 @@
                 "type": "apiconnection",
                 "displayName": "${Resources.SHAREPOINT}",
                 "iconUri": "https://logicappsresources.blob.core.windows.net/icons/sharepoint.png",
-                "brandColor": "#1b75bc"
+                "brandColor": "#036C70"
             }
         ],
         "changedTime": "2017-07-05T00:00:39.000Z",

@@ -146,7 +146,7 @@
                 "type": "apiconnection",
                 "displayName": "${Resources.OFFICE}",
                 "iconUri": "https://logicappsresources.blob.core.windows.net/icons/office365.png",
-                "brandColor": "#0072c5"
+                "brandColor": "#0078D4"
             },
             {
                 "type": "apiconnection",

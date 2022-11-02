@@ -372,7 +372,7 @@
 			"type": "ApiConnection",
 			"displayName": "Office 365",
 			"iconUri": "https://logicappsresources.blob.core.windows.net/icons/office365.png",
-			"brandColor": "#16244E"
+			"brandColor": "#0078D4"
 		}
 	],
 
