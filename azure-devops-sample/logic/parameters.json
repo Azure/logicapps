@@ -6,6 +6,9 @@
             "scheme": "Key",
             "parameter": "@appsetting('azureblob-connectionKey')"
         }
+    },
+    "storage_account_name": {
+      "type": "String",
+      "value": "@appsetting('storage-account-name')"
     }
-
 }
