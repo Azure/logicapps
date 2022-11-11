@@ -16,7 +16,7 @@ variables:
   acrName: 'acrwus$(projectName)$(suffix)'
   acrSkuName: 'Basic'
 
-  # Storage
+  # Storage - make sure this is unique and that the projectName you choose above is short enough, due to storage account name length restriction: https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview#storage-account-name
   storageName: 'sa$(projectName)$(suffix)'
   appServicePlanName: 'asp$(projectName)$(suffix)'
 

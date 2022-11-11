@@ -70,7 +70,8 @@ jobs:
 
         - task: AzureCLI@2
           inputs:
-            azureSubscription: 'devconnection2'
+            # TODO: Fill in with the name of your Azure service connection
+            azureSubscription: ''
             scriptType: 'bash'
             scriptLocation: 'inlineScript'
             inlineScript: |
