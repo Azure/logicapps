@@ -6,7 +6,7 @@ echo 'Create Service Principal...'
 # create service principal
 export SP_INFO=$(az ad sp create-for-rbac --skip-assignment -n $SP_NAME)
 export CLIENT_ID=$(echo $SP_INFO | jq .appId  -r)
-export OBJECT_ID=$(az ad sp show --id $CLIENT_ID --query 'objectId' -o tsv)
+export OBJECT_ID=$(az ad app show --id $CLIENT_ID --query 'id' -o tsv)
 export CLIENT_SECRET=$(echo $SP_INFO | jq .password  -r)
 export TENANT_ID=$(echo $SP_INFO | jq .tenant  -r)
 
