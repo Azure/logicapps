@@ -1,0 +1,13 @@
+{
+  "generatedBy": "Microsoft.NET.Sdk.Functions-1.0.24",
+  "configurationSource": "attributes",
+  "bindings": [
+    {
+      "type": "workflowActionTrigger",
+      "name": "parameter1"
+    }
+  ],
+  "disabled": false,
+  "scriptFile": "../bin/dev.dll",
+  "entryPoint": "Tests.Flow.Functions.FlowInvokedFunctionTest.Run"
+}

@@ -1,0 +1,9 @@
+{
+  "description": {
+    "language": "dotnet-isolated",
+    "extensions": [ ".dll" ],
+    "defaultExecutablePath": "{WorkerRoot}dev.exe",
+    "defaultWorkerPath": "dev.exe",
+    "workerIndexing": "false"
+  }
+}
