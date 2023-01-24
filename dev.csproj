@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <IsPackable>false</IsPackable>
     <TargetFramework>net472</TargetFramework>
@@ -12,7 +12,7 @@
 
   <ItemGroup>
   <!-- Please ensure you have the 'Microsoft.Azure.Functions.Extensions.Workflows.WorkflowActionTrigger' package and the 'Microsoft.Azure.WebJobs.Core' dependency. -->
-   <PackageReference Include="Microsoft.Azure.Functions.WorkflowActionTrigger" Version="4.0.4736" />
+	  <PackageReference Include="Microsoft.Azure.Functions.Extensions.Workflows.WorkflowActionTrigger" Version="1.0.0" />
    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.24" />
    <PackageReference Include="Microsoft.Azure.WebJobs.Core" Version="3.0.33" />
   </ItemGroup>
