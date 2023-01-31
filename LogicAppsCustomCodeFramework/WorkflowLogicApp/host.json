@@ -1,0 +1,23 @@
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "excludedTypes": "Request"
+      }
+    }
+  },
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Workflows",
+    "version": "1.5.0.9"
+  },
+  "extensions":{
+    "workflow": {
+        "settings": {
+            "Runtime.IsInvokeFunctionActionEnabled": "true"
+        }
+    }
+}
+}
+
