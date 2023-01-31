@@ -29,8 +29,8 @@
 			"command": "dotnet",
 			"type": "process",
 			"args": [
-   			 "build",
-    		"${workspaceFolder}"
+   			"build",
+    			"${workspaceFolder}"
 			]
 		}
 	]
