@@ -53,7 +53,7 @@ Logic App
 1) Workflow.json. This file is the JSON file that contains your logic app project. 
 
 2 Host.json. In host.json a specific value needs to be enabled in order to execute the invoke function action for this feature. 
-``` "extensions":{ "workflow": { "settings": { "Runtime.IsInvokeFunctionActionEnabled": "true" } } ```
+``` "extensions":{ "workflow": { "settings": { "Runtime.IsInvokeFunctionActionEnabled": "true" } }" ```
 
 
 
