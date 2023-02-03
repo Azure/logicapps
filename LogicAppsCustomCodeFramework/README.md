@@ -9,7 +9,7 @@ To run this sample, clone the repository to your local machine.
 ```bash
 git clone https://github.com/Azure/logicapps.git
 ```
-To pull the nuget package that contains the WorkflowActionTrigger attribute for your project. 
+To pull the nuget package that contains the WorkflowActionTrigger attribute for your project, include the phrase below in the csproj file of your project. 
 
 ```bash
 <PackageReference Include="Microsoft.Azure.Functions.Extensions.Workflows.WorkflowActionTrigger" Version="1.0.0" />
