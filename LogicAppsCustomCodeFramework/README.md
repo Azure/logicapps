@@ -4,20 +4,19 @@ Custom Code is a new Logic Apps feature in which users can author their own cust
 This project contains a sample project that utilizes this feature. The contents consist of a Logic App project (WorkflowLogicApp) and an Azure Function App (Function).  
 ## Installation
 
-To clone the repository to your local machine.
+To run this sample, clone the repository to your local machine.
 
 ```bash
 git clone https://github.com/Azure/logicapps.git
 ```
-To pull the WorkflowActionTrigger attribute for your project. 
+To pull the nuget package that contains the WorkflowActionTrigger attribute for your project. 
 
 ```bash
 <PackageReference Include="Microsoft.Azure.Functions.Extensions.Workflows.WorkflowActionTrigger" Version="1.0.0" />
 ```
 
 # Workspace Setup
-
-Due to the nature of this project where there are two distinct applications that need to be ran simultaneously, it is important to create a single VS Code workspace in order to utilize both applications.The steps for doing so are as follows:
+To setup the Logic Apps Custom Code feature in a new project, start by creating a Workspace. Due to the nature of this project where there are two distinct applications that need to be ran simultaneously, it is important to create a single VS Code workspace in order to utilize both applications.The steps for doing so are as follows:
 
 1) Create a new folder for your workspace. 
 2) Open this new folder in VS Code and open a terminal.
@@ -33,7 +32,7 @@ Due to the nature of this project where there are two distinct applications that
 ## Usage
 
 Function App 
-FlowInvokedFunction.cs is the cs project that holds the custom .NET code executed by a specific type of Azure Function. This Azure function is called WorkflowActionTrigger. All of the function headers authoring custom code will need to include the WorkflowActionTrigger in order to execute the code properly.
+To see an example of how an function can be invoked, please refer to FlowInvokedFunction.cs is the cs project that was provided in sample repo. That class holds the custom .NET code executed by an Azure Function. The Azure function trigger needed for the function is called WorkflowActionTrigger. All of the function headers authoring custom code will need to include the WorkflowActionTrigger in order to execute the code properly.
 To make changes to author your own function, ensure that you have three things:
 1) Function Header Name. This is the name of your function. 
 
