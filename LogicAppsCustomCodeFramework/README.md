@@ -23,7 +23,7 @@ To setup the Logic Apps Custom Code feature in a new project, start by creating 
 3) In the terminal create a solution: ``` dotnet new sln -n FunctionApp ```
 4) Add the csproj file of your function application to this solution. ``` dotnet sln add src/dev/dev.csproj ```
 5) Add the logic app project folder directly to your workspace by clicking File -> Add Folder To Workspace. 
-6) Ensure that there is a build task for building the function application in task.json. This should be located in "..\<yourfunctionfolder>\.vscode\tasks.json"
+6) Ensure that there is a build task for building the function application in task.json. This should be located in "..\<yourfunctionfolder> \.vscode\tasks.json"
 
 ```	{ "label": "build", "command": "dotnet", "type": "process", "args": [ "build", "${workspaceFolder}"] } ```
 
