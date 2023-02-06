@@ -49,9 +49,10 @@ To make changes to author your own function, ensure that you have three things:
 
 ![Screenshot_20230206_085009](https://user-images.githubusercontent.com/111014793/217033830-f0231893-6b33-47a3-a294-9c297b0b0d09.png)
 
-For the full screenshot of the code please see below. 
+For reference, the full screenshot of the code is posted below. 
 
-![Screenshot_20230206_084721](https://user-images.githubusercontent.com/111014793/217034927-929d4440-5923-4ff1-867b-e6026859349c.png)
+![Screenshot 2023-02-06 091600](https://user-images.githubusercontent.com/111014793/217039346-7162f057-db44-4bce-b1fe-d0ffe4540ddb.png)
+
 
 
 4) Dev.csproj file contains a the already configured build steps to copy the required assemblies needed to invoke a custom function. In the dev.csproj, replace the value in LogicAppFolder with the name of your own folder that holds the logic app project. 
@@ -64,17 +65,38 @@ For the full screenshot of the code please see below.
 
 1) Workflow.json. This file is the JSON file that contains your logic app project. 
 
-2 Host.json. In host.json a specific value needs to be enabled in order to execute the invoke function action for this feature. 
+2) Host.json. In host.json a specific value needs to be enabled in order to execute the invoke function action for this feature. 
 ``` "extensions":{ "workflow": { "settings": { "Runtime.IsInvokeFunctionActionEnabled": "true" } }" ```
 
 
 STEPS: 
 1) To call the invoke function action, right click on your workflow.json file and click open in designer.
+![designer](https://user-images.githubusercontent.com/111014793/217036602-01f92e50-256f-4e3d-b27d-1f9e0808f035.png)
+
 2) In the designer look for "Invoke a function in this LogicApp", and add that action to your logic app workflow. 
-3) In the action, replace FunctionName with the same name as your Azure function, and insert the parameters necessary for your function application. Once your logic app is created, click save. 
+![invoke](https://user-images.githubusercontent.com/111014793/217037045-b6e550a3-0bee-4eef-8770-c30b9279bec8.png)
+
+3) In the action, replace FunctionName with the same name as your Azure function, and insert the parameters necessary for your function application. Once your logic app is created, click save. ![Screenshot_20230206_090935](https://user-images.githubusercontent.com/111014793/217037991-23ad112e-d50f-4040-8d48-6eb10e508d53.png)
+
 4) After that run Run-> Run without debugging (Ctrl + F5).
+
+![run](https://user-images.githubusercontent.com/111014793/217038206-c254df23-f4ad-4e03-8800-4ad4cc1aa611.png)
+
 5) Right click on your workflow.json and open the overview to run the trigger for your logic app.
-6) After the trigger has been ran you can open a run to see if the logic app run was sucessful and see the output of your custom code.
+
+![overview](https://user-images.githubusercontent.com/111014793/217038386-9cd5ce10-9f3b-4f64-b6ff-4a2d77228141.png)
+
+6) Click on run trigger to run your trigger for your logic app. 
+![runtri](https://user-images.githubusercontent.com/111014793/217038789-eaa3a736-e499-4e98-9935-91562d4ce6bf.png)
+
+7) After the trigger has been ran you can open a run to see if the logic app run was successful and see the output of your custom code.
+
+![sucessful](https://user-images.githubusercontent.com/111014793/217039132-f8828e74-4112-4ff3-afe7-2b2700a6b4fb.png)
+
+
+![logicappsucessful](https://user-images.githubusercontent.com/111014793/217039149-200745f1-9b8d-4562-ad31-530ae7ed50ad.png)
+
+
 
 ## Contributing
 
