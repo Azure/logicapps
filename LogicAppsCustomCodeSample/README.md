@@ -1,7 +1,7 @@
 # Logic Apps Custom Code Feature
 
 Custom Code is a new Logic Apps feature in which users can author their own custom code through the usage of .NET Framework code from an Azure Logic Apps workflow.
-This project contains a sample project that utilizes this feature. The contents consist of a Logic App project (WorkflowLogicApp) and an Azure Function App (Function).  
+This folder contains a sample project that utilizes this feature. The contents consist of a Logic App project (WorkflowLogicApp) and an Azure Function App (Function).  
 ## Installation
 
 To run this sample, clone the repository to your local machine.
