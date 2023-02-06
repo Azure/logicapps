@@ -19,7 +19,7 @@ To pull the nuget package that contains the WorkflowActionTrigger attribute for 
 To setup the Logic Apps Custom Code feature in a new project, start by creating a Workspace. Due to the nature of this project where there are two distinct applications that need to be ran simultaneously, it is important to create a single VS Code workspace in order to utilize both applications.The steps for doing so are as follows:
 
 1) Create a new folder for your workspace. 
-2) Open this new folder in VS Code and open a terminal.
+2) Open this new folder in VS Code and open a terminal by clicking Terminal -> New Terminal (CTRL + SHIFT + 5) 
 3) In the terminal create a solution: ``` dotnet new sln -n FunctionApp ```
 4) Add the csproj file of your function application to this solution. ``` dotnet sln add src/dev/dev.csproj ```
 5) Add the logic app project folder directly to your workspace by clicking File -> Add Folder To Workspace. 
