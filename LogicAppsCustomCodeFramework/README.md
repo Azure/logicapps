@@ -9,7 +9,7 @@ To run this sample, clone the repository to your local machine.
 ```bash
 git clone https://github.com/Azure/logicapps.git
 ```
-To pull the nuget package that contains the WorkflowActionTrigger attribute for your project, include the phrase below in the csproj file of your project. 
+To pull the nuget package that contains the WorkflowActionTrigger attribute for your own project, include the phrase below in the csproj file of your project. 
 
 ```bash
 <PackageReference Include="Microsoft.Azure.Functions.Extensions.Workflows.WorkflowActionTrigger" Version="1.0.0" />
@@ -29,32 +29,43 @@ To setup the Logic Apps Custom Code feature in a new project, start by creating 
 
 7) To save as workspace go to File -> Save as Workspace.
 
-## Usage
+# Usage
+The sections below explain the process of how to author your own function app and logic app, as well as explain what the sample code provided contains in order for a user to create their own custom code instance. 
 
-Function App 
-To see an example of how an function can be invoked, please refer to FlowInvokedFunction.cs is the cs project that was provided in sample repo. That class holds the custom .NET code executed by an Azure Function. The Azure function trigger needed for the function is called WorkflowActionTrigger. All of the function headers authoring custom code will need to include the WorkflowActionTrigger in order to execute the code properly.
+## Function App 
+To see an example of how an function can be invoked, please refer to FlowInvokedFunction.cs is the .NET code sample that was provided in the sample repository. That class holds the custom .NET code executed by an Azure Function. The Azure function trigger needed for the function is called WorkflowActionTrigger. All of the function headers authoring custom code will need to include the WorkflowActionTrigger in order to execute the code properly.
 To make changes to author your own function, ensure that you have three things:
 1) Function Header Name. This is the name of your function. 
 
+![functionanme](https://user-images.githubusercontent.com/111014793/217034574-968087d3-d053-4cdb-98c4-3afa8341b1e9.png)
+
+
 2) WorkflowActionTrigger. This is the respective trigger for the custom code feature. This is necessary to add as a trigger in order to invoke your custom function.
+
+![wrok](https://user-images.githubusercontent.com/111014793/217034182-5734a894-603f-4bd7-9e68-4335df38b499.png)
+
 
 3) Parameter value(s). The parameter values can be set to null if your function has no parameters.
 
-Dev.csproj file contains a the already configured build steps to copy the required assemblies needed to invoke a custom function. In the dev.csproj, replace the value in LogicAppFolder with the name of your own folder that holds the logic app project. 
+![Screenshot_20230206_085009](https://user-images.githubusercontent.com/111014793/217033830-f0231893-6b33-47a3-a294-9c297b0b0d09.png)
+
+For the full screenshot of the code please see below. 
+
+![Screenshot_20230206_084721](https://user-images.githubusercontent.com/111014793/217034927-929d4440-5923-4ff1-867b-e6026859349c.png)
+
+
+4) Dev.csproj file contains a the already configured build steps to copy the required assemblies needed to invoke a custom function. In the dev.csproj, replace the value in LogicAppFolder with the name of your own folder that holds the logic app project. 
 
 ```bash
 <LogicAppFolder>WorkflowLogicApp</LogicAppFolder>
 ```
 
-STEPS: 
-
-Logic App 
+## Logic App 
 
 1) Workflow.json. This file is the JSON file that contains your logic app project. 
 
 2 Host.json. In host.json a specific value needs to be enabled in order to execute the invoke function action for this feature. 
 ``` "extensions":{ "workflow": { "settings": { "Runtime.IsInvokeFunctionActionEnabled": "true" } }" ```
-
 
 
 STEPS: 
