@@ -19,7 +19,7 @@ Please ensure you also have the Azure Logic Apps Standard and Azure Functions ex
 
 
 # Workspace Setup
-To setup the Logic Apps Custom Code feature in a new project, start by creating a Workspace. Due to the nature of this project where there are two distinct applications that need to be ran simultaneously, it is important to create a single VS Code workspace in order to utilize both applications.The steps for doing so are as follows:
+To setup the Logic Apps Custom Code feature in a new project, start by creating a Workspace. Due to the nature of this project where there are two distinct applications that need to be ran simultaneously, it is important to create a single VS Code workspace in order to utilize both applications. The steps for doing so are as follows:
 
 1) Create a new folder for your workspace. 
 2) Open this new folder in VS Code and open a terminal by clicking Terminal -> New Terminal (CTRL + SHIFT + 5) 
@@ -33,10 +33,11 @@ To setup the Logic Apps Custom Code feature in a new project, start by creating 
 7) To save as workspace go to File -> Save as Workspace.
 
 # Usage
-The sections below explain the process of how to author your own function app and logic app, as well as explain what the sample code provided contains in order for a user to create their own custom code instance. 
+The sections below will explain the process of how to author your own function app and logic app, as well as explain what the sample code provided contains in order for a user to create their own custom code instance. 
 
 ## Function App 
-To see an example of how an function can be invoked, please refer to FlowInvokedFunction.cs is the .NET code sample that was provided in the sample repository. That class holds the custom .NET code executed by an Azure Function. The Azure function trigger needed for the function is called WorkflowActionTrigger. All of the function headers authoring custom code will need to include the WorkflowActionTrigger in order to execute the code properly.
+To see an example of how an function can be invoked, please refer to FlowInvokedFunction.cs is the .NET code sample that was provided in the sample repository. That class holds the custom .NET code executed by an Azure Function. The Azure function trigger needed for the function is called WorkflowActionTrigger. All of the functions authoring custom code will need to include the WorkflowActionTrigger in the function header in order to execute the code properly.
+  
 To make changes to author your own function, ensure that you have three things:
 1) Function Header Name. This is the name of your function. 
 
@@ -64,9 +65,28 @@ For reference, the full screenshot of the code is posted below.
 ```
 
 STEPS FOR AUTHORING A CUSTOM CODE FUNCTION: 
-1) 
+
+1) Add an Azure Function by clicking on the Workspace icon in the Azure tab. Click on the lighting symbol by Workspace to create an Azure Function in your workspace. 
   
-2) 
+![create function](https://user-images.githubusercontent.com/111014793/217051951-c1f39778-1070-48c8-b7db-dbff681b3adf.png)  
+
+2) When the pop up appears, select a folder for your function, this would be the workspace in which you want to run both your Function and Logic App together. 
+ 
+4) For the language please click 'C#'. For .NET runtime please click '.NET Framework'. 
+  
+5) For the template please click 'Skip for now' since we are authoring a custom Azure Function. 
+
+6) Rename Program.cs to the name of your custom function code name.
+  
+7) Please check that your C# class file contains a namespace for your project, a public static class with the same name as your file, a function header, and the code that you wish to invoke. Please follow the sample project. Below is a screenshot of an example skeleton set up for your function. Your function class should follow a similar structure. 
+
+![barebones](https://user-images.githubusercontent.com/111014793/217053377-37dfdf85-f566-4b0a-9f31-b44ca336d023.png)
+
+8) Please copy the contents of dev.csproj to your personal project and replace the name of LogicAppFolder in the csproj to the name of your folder that contains your logic app.
+  
+9) If the WorkflowActionTrigger is not configured automatically, please click Terminal -> New Terminal and type ``` dotnet restore ```.
+
+10) After restore, please run the build task configured for the function application. Click Run -> Run Task -> Build. 
 
 ## Logic App 
 
