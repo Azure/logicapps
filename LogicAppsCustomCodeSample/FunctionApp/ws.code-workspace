@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../Function"
+		},
+		{
+			"path": "../../WorkflowLogicApp"
+		}
+	],
+	"settings": {}
+}
