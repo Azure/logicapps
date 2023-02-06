@@ -9,11 +9,14 @@ To run this sample, clone the repository to your local machine.
 ```bash
 git clone https://github.com/Azure/logicapps.git
 ```
-To pull the nuget package that contains the WorkflowActionTrigger attribute for your own project, include the phrase below in the csproj file of your project. 
+To pull the nuget package that contains the WorkflowActionTrigger attribute for your own project, include the phrase below in the csproj file of your project. The link to the myget package that stores this nuget package is listed here: [MyGet]( https://www.myget.org/feed/microsoft-workflowactiontrigger/package/nuget/Microsoft.Azure.Functions.Extensions.Workflows.WorkflowActionTrigger)
+
 
 ```bash
 <PackageReference Include="Microsoft.Azure.Functions.Extensions.Workflows.WorkflowActionTrigger" Version="1.0.0" />
 ```
+Please ensure you also have the Azure Logic Apps Standard and Azure Functions extensions for Visual Studio Code. This can be downloaded through the Extensions section in Visual Studio Code. For more information on how to install extensions for Visual Studio Code please check here: [EXTENSIONS](https://code.visualstudio.com/docs/editor/extension-marketplace).
+
 
 # Workspace Setup
 To setup the Logic Apps Custom Code feature in a new project, start by creating a Workspace. Due to the nature of this project where there are two distinct applications that need to be ran simultaneously, it is important to create a single VS Code workspace in order to utilize both applications.The steps for doing so are as follows:
@@ -23,7 +26,7 @@ To setup the Logic Apps Custom Code feature in a new project, start by creating 
 3) In the terminal create a solution: ``` dotnet new sln -n FunctionApp ```
 4) Add the csproj file of your function application to this solution. ``` dotnet sln add src/dev/dev.csproj ```
 5) Add the logic app project folder directly to your workspace by clicking File -> Add Folder To Workspace. 
-6) Ensure that there is a build task for building the function application in task.json. This should be located in "..\<yourfunctionfolder> \.vscode\tasks.json"
+6) Ensure that there is a build task for building the function application in task.json. The tasks.json for your Function application should be located in the location "\\..<yourfunctionfolder>\\.vscode\tasks.json"
 
 ```	{ "label": "build", "command": "dotnet", "type": "process", "args": [ "build", "${workspaceFolder}"] } ```
 
@@ -54,12 +57,16 @@ For reference, the full screenshot of the code is posted below.
 ![Screenshot 2023-02-06 091600](https://user-images.githubusercontent.com/111014793/217039346-7162f057-db44-4bce-b1fe-d0ffe4540ddb.png)
 
 
-
 4) Dev.csproj file contains a the already configured build steps to copy the required assemblies needed to invoke a custom function. In the dev.csproj, replace the value in LogicAppFolder with the name of your own folder that holds the logic app project. 
 
 ```bash
 <LogicAppFolder>WorkflowLogicApp</LogicAppFolder>
 ```
+
+STEPS FOR AUTHORING A CUSTOM CODE FUNCTION: 
+1) 
+  
+2) 
 
 ## Logic App 
 
@@ -69,7 +76,7 @@ For reference, the full screenshot of the code is posted below.
 ``` "extensions":{ "workflow": { "settings": { "Runtime.IsInvokeFunctionActionEnabled": "true" } }" ```
 
 
-STEPS: 
+STEPS FOR AUTHORING A LOGIC APP WITH THE CUSTOM CODE ACTION: 
 1) To call the invoke function action, right click on your workflow.json file and click open in designer.
 ![designer](https://user-images.githubusercontent.com/111014793/217036602-01f92e50-256f-4e3d-b27d-1f9e0808f035.png)
 
