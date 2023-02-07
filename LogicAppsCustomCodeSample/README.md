@@ -1,130 +1,186 @@
-# Logic Apps Custom Code Feature
+# Sample: Write and run your own custom code from a Standard workflow in Azure Logic Apps
 
-Custom Code is a new Logic Apps feature in which users can author their own custom code through the usage of .NET Framework code from an Azure Logic Apps workflow.
-This folder contains a sample project that utilizes this feature. The contents consist of a Logic App project (WorkflowLogicApp) and an Azure Function App (Function).  
-## Installation
+> This capability is in preview and is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To run this sample, clone the repository to your local machine.
+With the custom code feature in Azure Logic Apps (Standard), you can write your own code as a function using the .NET Framework, and then use the custom code feature to run that function from a Standard logic app workflow. To illustrate, the provided sample project uses the custom code capability and includes the following applications:
 
-```bash
-git clone https://github.com/Azure/logicapps.git
-```
-To pull the nuget package that contains the WorkflowActionTrigger attribute for your own project, include the phrase below in the csproj file of your project. The link to the myget package that stores this nuget package is listed here: [MyGet]( https://www.myget.org/feed/microsoft-workflowactiontrigger/package/nuget/Microsoft.Azure.Functions.Extensions.Workflows.WorkflowActionTrigger)
+- A Standard logic app named **WorkflowLogicApp**
+- An Azure function app named **Function**
+
+## Prerequisites
+
+- For Visual Studio Code, make sure to meet the [prerequisites to create a Standard logic app](https://learn.microsoft.com/azure/logic-apps/create-single-tenant-workflows-visual-studio-code#prerequisites) and the [prerequisites to create a function app](https://learn.microsoft.com/azure/azure-functions/functions-develop-vs-code), which include the [extensions for Azure Logic Apps (Standard) and Azure Functions](https://marketplace.visualstudio.com/VSCode).
+
+- Copy and update the sample project by following these steps:
+
+  1. Clone the following GitHub repository to your local computer:
+
+     `git clone https://github.com/Azure/logicapps.git`
+
+  1. On your computer, go to the folder that contains the sample project.
+
+  1. Open the project's .csproj file, and add the following line to specify the project attribute named `WorkflowActionTrigger`, which pulls the required NuGet package into the sample project:
+
+     ```xml
+     <PackageReference Include="Microsoft.Azure.Functions.Extensions.Workflows.WorkflowActionTrigger" Version="1.0.0" />
+     ```
+
+     For the link to the MyGet package that stores this NuGet package, see [Microsoft.Azure.Functions.Extensions.Workflows.WorkflowActionTrigger 1.0.0](https://www.myget.org/feed/microsoft-workflowactiontrigger/package/nuget/Microsoft.Azure.Functions.Extensions.Workflows.WorkflowActionTrigger).
+
+- To set up the custom code feature in a new project, create a single new workspace in Visual Studio Code with the following steps. You need this workspace so that both the logic app and function app can run at the same time.
+
+  1. On your computer, create a new folder.
+
+  1. From Visual Studio Code, open the created folder.
+
+  1. From the **Terminal** menu, select **New Terminal**. (Keyboard: Ctrl + Shift + 5)
+
+  1. In the terminal window, run the following command to create a new solution:
+
+     `dotnet new sln -n FunctionApp`
+
+  1. Add your function app's **dev.csproj** file to the created solution by running the following command:
+
+     `dotnet sln add src/dev/dev.csproj`
+
+  1. From the **File** menu, select **Add Folder To Workspace**. Add the logic app project folder directly to your workspace.
+
+  1. Go to the following location, and open the **tasks.json** file:
+
+     `..\<yourfunctionfolder>\.vscode\tasks.json`
+
+  1. Check that the **tasks.json** file has the following build task to build the function app:
+
+     `{ "label": "build", "command": "dotnet", "type": "process", "args": [ "build", "${workspaceFolder}"] }`
+
+  1. Save all your changes as a workspace. From the **File** menu, select **Save as Workspace**.
+
+## Create your custom code function
+
+This section describes how to set up your project so that you can add and call your own custom code function. The sample project contains an example that shows how to set up and call your custom code function. To find this example, go to the sample function app's **Function** folder, and review the class file named **FlowInvokedFunction.cs**. This class file contains the sample .NET custom code that an Azure function runs.
+
+1. In Visual Studio Code, from the [Activity Bar](https://code.visualstudio.com/api/ux-guidelines/activity-bar) on the left side, select **Azure**, which opens the **AZURE** pane.
+
+1. To add an Azure function to your workspace, in the **AZURE** pane, browse to **WORKSPACE** > **Local Project** > **Functions**.
+
+1. On the **WORKSPACE** section's toolbar, select **Create Function** (lightning icon).
+
+   ![Screenshot that shows Visual Studio Code, 'Azure' pane, 'Workspace' section expanded to 'Functions', and on the section toolbar, the 'Create Function' button is selected.](https://user-images.githubusercontent.com/111014793/217051951-c1f39778-1070-48c8-b7db-dbff681b3adf.png)  
+
+1. Select the folder where you want to put your function. This folder is the workspace from where you want to run both your function and logic app workflow.
+
+1. For the language, select **C#**. For the .NET runtime, select **.NET Framework**.
+
+1. For the template, select **Skip for now** because you're authoring a custom Azure function.
+
+1. Rename the **Program.cs** C# class file to the name for your custom code function.
+
+1. Confirm that your C# class file contains the following items:
+
+   - A namespace for your project
+   - A public static class with the same name as your file, a function header, and the code that you want to call. 
+
+   In any function that includes custom code, the function header must include the Azure Functions trigger that's named **WorkflowActionTrigger** to correctly run that custom code. Make sure that your function includes the following items:
+
+   | Item | Value | Description |
+   |------|-------|-------------|
+   | Function name | `[FunctionName("FlowInvokedFunction")]` | The name for your custom code function |
+   | Workflow action trigger | `[WorkflowActionTrigger]` | The respective trigger that you must add to correctly call your custom code function |
+   | Parameter values | `public static Task<Wrapper> Run([WorkflowActionTrigger] string parameter1, int parameter2)` | Any parameter values that your custom code function requires. If your custom code function doesn't have parameters, you can set these values to null. |
+
+   The following code example shows the references to the required items:
+
+   ```csharp
+   /// <summary>
+   /// The flow invoked function.
+   /// </summary>
+   public static class FlowInvokedFunctionTest
+   {
+       /// <summary>
+       /// Run method.
+       /// </summary>
+       /// <param name="parameter1">The parameter 1.</param>
+       /// <param name="parameter2">The parameter 2.</param>
+       [FunctionName("FlowInvokedFunction")]
+       public static Task<Wrapper> Run([WorkflowActionTrigger] string parameter1, int parameter2)
+       {
+           var result = new Wrapper
+           {
+               RandomProperty = new Dictionary<string, object>(){
+                   ["parameter1"] = parameter1,
+                   ["parameter2"] = parameter2
+               }
+           };
+
+           return Task.FromResult(result);
+       }
+   }
+   ```
+
+1. Check that your file follows the function class skeleton structure in the sample project, for example:
+
+   ![barebones](https://user-images.githubusercontent.com/111014793/217053377-37dfdf85-f566-4b0a-9f31-b44ca336d023.png)
+
+1. In the sample project, open the sample function app's **Function** folder, and then open the **dev.csproj** file.
+
+   The **dev.csproj** file contains configured build steps that copy the required assemblies to call a custom function.
+
+1. From the sample **dev.csproj** file, copy the contents to your own project.
+
+1. In your copy, find the following **<LogicAppFolder></LogicAppFolder>** element: `<LogicAppFolder>WorkflowLogicApp</LogicAppFolder>`
+
+1. Replace the default value with the folder name for your logic app project, for example: `<LogicAppFolder>MyLogicAppWorkflow-CustomCode</LogicAppFolder>`
+
+1. If **WorkflowActionTrigger** isn't automatically configured, follow these steps:
+
+   1. from the **Terminal** menu, select **New Terminal**. In the terminal window, enter `dotnet restore`.
+
+   1. After the restore operation completes, run the build task that's configured for the function app. From the **Run** menu, select **Run Task** > **Build**.
 
 
-```bash
-<PackageReference Include="Microsoft.Azure.Functions.Extensions.Workflows.WorkflowActionTrigger" Version="1.0.0" />
-```
-Please ensure you also have the Azure Logic Apps Standard and Azure Functions extensions for Visual Studio Code. This can be downloaded through the Extensions section in Visual Studio Code. For more information on how to install extensions for Visual Studio Code please check here: [EXTENSIONS](https://code.visualstudio.com/docs/editor/extension-marketplace).
+## Set up your logic app workflow to call your custom code function
 
+The sample logic app project includes the following files relevant to the custom code capability:
 
-# Workspace Setup
-To setup the Logic Apps Custom Code feature in a new project, start by creating a Workspace. Due to the nature of this project where there are two distinct applications that need to be ran simultaneously, it is important to create a single VS Code workspace in order to utilize both applications. The steps for doing so are as follows:
+| Item | Description |
+|------|-------------|
+| **workflow.json** | The JSON file that defines a workflow in your logic app project |
+| **host.json** | The JSON file where you have to enable a specific value to run the **Invoke a function** action used by the custom code capability: <br><br>`"extensions": { "workflow": { "settings": { "Runtime.IsInvokeFunctionActionEnabled": "true" } }` |
 
-1) Create a new folder for your workspace. 
-2) Open this new folder in VS Code and open a terminal by clicking Terminal -> New Terminal (CTRL + SHIFT + 5) 
-3) In the terminal create a solution: ``` dotnet new sln -n FunctionApp ```
-4) Add the csproj file of your function application to this solution. ``` dotnet sln add src/dev/dev.csproj ```
-5) Add the logic app project folder directly to your workspace by clicking File -> Add Folder To Workspace. 
-6) Ensure that there is a build task for building the function application in task.json. The tasks.json for your Function application should be located in the location "\\..<yourfunctionfolder>\\.vscode\tasks.json"
+1. In Visual Studio Code, open the **workflow.json** file shortcut menu, select **Open in Designer**.
 
-```	{ "label": "build", "command": "dotnet", "type": "process", "args": [ "build", "${workspaceFolder}"] } ```
+   ![designer](https://user-images.githubusercontent.com/111014793/217036602-01f92e50-256f-4e3d-b27d-1f9e0808f035.png)
 
-7) To save as workspace go to File -> Save as Workspace.
+1. In the designer search box, find and select the **Local Function operations** action named **Invoke a function in this Logic App**.
 
-# Usage
-The sections below will explain the process of how to author your own function app and logic app, as well as explain what the sample code provided contains in order for a user to create their own custom code instance. 
+   ![invoke](https://user-images.githubusercontent.com/111014793/217037045-b6e550a3-0bee-4eef-8770-c30b9279bec8.png)
 
-## Function App 
-To see an example of how an function can be invoked, please refer to FlowInvokedFunction.cs is the .NET code sample that was provided in the sample repository. That class holds the custom .NET code executed by an Azure Function. The Azure function trigger needed for the function is called WorkflowActionTrigger. All of the functions authoring custom code will need to include the WorkflowActionTrigger in the function header in order to execute the code properly.
-  
-To make changes to author your own function, ensure that you have three things:
-1) Function Name. This is the name of your function. 
+1. When the selected action appears on the designer, in the **Function Name** property, enter the name for your function.
 
-![functionanme](https://user-images.githubusercontent.com/111014793/217034574-968087d3-d053-4cdb-98c4-3afa8341b1e9.png)
+1. In the **Function parameters** property, enter any parameters that your function requires, for example:
 
+   ![Screenshot_20230206_090935](https://user-images.githubusercontent.com/111014793/217037991-23ad112e-d50f-4040-8d48-6eb10e508d53.png)
 
-2) WorkflowActionTrigger. This is the respective trigger for the custom code feature. This is necessary to add as a trigger in order to invoke your custom function.
+1. When you're done, on the designer toolbar, select **Save**.
 
-![wrok](https://user-images.githubusercontent.com/111014793/217034182-5734a894-603f-4bd7-9e68-4335df38b499.png)
+1. From the **Run** menu, select **Run Without Debugging**. (Keyboard: Ctrl + F5)
 
+   ![run](https://user-images.githubusercontent.com/111014793/217038206-c254df23-f4ad-4e03-8800-4ad4cc1aa611.png)
 
-3) Parameter value(s). The parameter values can be set to null if your function has no parameters.
+1. After the workflow finishes running, from the **workflow.json** file shortcut menu, select **Overview**.
 
-![Screenshot_20230206_085009](https://user-images.githubusercontent.com/111014793/217033830-f0231893-6b33-47a3-a294-9c297b0b0d09.png)
+   ![overview](https://user-images.githubusercontent.com/111014793/217038386-9cd5ce10-9f3b-4f64-b6ff-4a2d77228141.png)
 
-For reference, the full screenshot of the code is posted below. 
+1. On the **Overview** page that opens, select **Run trigger** to run your workflow's trigger.
 
-![Screenshot 2023-02-06 091600](https://user-images.githubusercontent.com/111014793/217039346-7162f057-db44-4bce-b1fe-d0ffe4540ddb.png)
+   ![runtri](https://user-images.githubusercontent.com/111014793/217038789-eaa3a736-e499-4e98-9935-91562d4ce6bf.png)
 
+1. After the trigger runs, open the workflow's run history to check whether the run successfully finished and review the output from your custom code.
 
-4) Dev.csproj file contains a the already configured build steps to copy the required assemblies needed to invoke a custom function. In the dev.csproj, replace the value in LogicAppFolder with the name of your own folder that holds the logic app project. 
+   ![sucessful](https://user-images.githubusercontent.com/111014793/217039132-f8828e74-4112-4ff3-afe7-2b2700a6b4fb.png)
 
-```bash
-<LogicAppFolder>WorkflowLogicApp</LogicAppFolder>
-```
+   ![logicappsucessful](https://user-images.githubusercontent.com/111014793/217039149-200745f1-9b8d-4562-ad31-530ae7ed50ad.png)
 
-STEPS FOR AUTHORING A CUSTOM CODE FUNCTION: 
+## Contributions
 
-1) Add an Azure Function by clicking on the Workspace icon in the Azure tab. Click on the lighting symbol by Workspace to create an Azure Function in your workspace. 
-  
-![create function](https://user-images.githubusercontent.com/111014793/217051951-c1f39778-1070-48c8-b7db-dbff681b3adf.png)  
-
-2) When the pop up appears, select a folder for your function, this would be the workspace in which you want to run both your Function and Logic App together. 
- 
-3) For the language please click 'C#'. For .NET runtime please click '.NET Framework'. 
-  
-4) For the template please click 'Skip for now' since we are authoring a custom Azure Function. 
-
-5) Rename Program.cs to the name of your custom function code name.
-  
-6) Please check that your C# class file contains a namespace for your project, a public static class with the same name as your file, a function header, and the code that you wish to invoke. Please follow the sample project. Below is a screenshot of an example skeleton set up for your function. Your function class should follow a similar structure. 
-
-![barebones](https://user-images.githubusercontent.com/111014793/217053377-37dfdf85-f566-4b0a-9f31-b44ca336d023.png)
-
-7) Please copy the contents of dev.csproj to your personal project and replace the name of LogicAppFolder in the csproj to the name of your folder that contains your logic app.
-  
-8) If the WorkflowActionTrigger is not configured automatically, please click Terminal -> New Terminal and type ``` dotnet restore ```.
-
-9) After restore, please run the build task configured for the function application. Click Run -> Run Task -> Build. 
-
-## Logic App 
-
-1) Workflow.json. This file is the JSON file that contains your logic app project. 
-
-2) Host.json. In host.json a specific value needs to be enabled in order to execute the invoke function action for this feature. 
-``` "extensions":{ "workflow": { "settings": { "Runtime.IsInvokeFunctionActionEnabled": "true" } }" ```
-
-
-STEPS FOR AUTHORING A LOGIC APP WITH THE CUSTOM CODE ACTION: 
-1) To call the invoke function action, right click on your workflow.json file and click open in designer.
-![designer](https://user-images.githubusercontent.com/111014793/217036602-01f92e50-256f-4e3d-b27d-1f9e0808f035.png)
-
-2) In the designer look for "Invoke a function in this LogicApp", and add that action to your logic app workflow. 
-![invoke](https://user-images.githubusercontent.com/111014793/217037045-b6e550a3-0bee-4eef-8770-c30b9279bec8.png)
-
-3) In the action, replace FunctionName with the same name as your Azure function, and insert the parameters necessary for your function application. Once your logic app is created, click save. ![Screenshot_20230206_090935](https://user-images.githubusercontent.com/111014793/217037991-23ad112e-d50f-4040-8d48-6eb10e508d53.png)
-
-4) After that run Run-> Run without debugging (Ctrl + F5).
-
-![run](https://user-images.githubusercontent.com/111014793/217038206-c254df23-f4ad-4e03-8800-4ad4cc1aa611.png)
-
-5) Right click on your workflow.json and open the overview to run the trigger for your logic app.
-
-![overview](https://user-images.githubusercontent.com/111014793/217038386-9cd5ce10-9f3b-4f64-b6ff-4a2d77228141.png)
-
-6) Click on run trigger to run your trigger for your logic app. 
-![runtri](https://user-images.githubusercontent.com/111014793/217038789-eaa3a736-e499-4e98-9935-91562d4ce6bf.png)
-
-7) After the trigger has been ran you can open a run to see if the logic app run was successful and see the output of your custom code.
-
-![sucessful](https://user-images.githubusercontent.com/111014793/217039132-f8828e74-4112-4ff3-afe7-2b2700a6b4fb.png)
-
-
-![logicappsucessful](https://user-images.githubusercontent.com/111014793/217039149-200745f1-9b8d-4562-ad31-530ae7ed50ad.png)
-
-
-
-## Contributing
-
-This project has adopted the Microsoft Open Source Code of Conduct. For more information see the Code of Conduct FAQ or contact opencode@microsoft.com with any additional questions or comments.
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact opencode@microsoft.com with any additional questions or comments.
