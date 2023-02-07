@@ -119,7 +119,7 @@ This section describes how to set up your project so that you can add and call y
 
 1. Check that your file follows the function class skeleton structure in the sample project, for example:
 
-   ![barebones](https://user-images.githubusercontent.com/111014793/217053377-37dfdf85-f566-4b0a-9f31-b44ca336d023.png)
+   ![Screenshot that shows Visual Studio Code, C# class file, and example custom code function skeleton structure.](https://user-images.githubusercontent.com/111014793/217053377-37dfdf85-f566-4b0a-9f31-b44ca336d023.png)
 
 1. In the sample project, open the sample function app's **Function** folder, and then open the **dev.csproj** file.
 
@@ -137,7 +137,6 @@ This section describes how to set up your project so that you can add and call y
 
    1. After the restore operation completes, run the build task that's configured for the function app. From the **Run** menu, select **Run Task** > **Build**.
 
-
 ## Set up your logic app workflow to call your custom code function
 
 The sample logic app project includes the following files relevant to the custom code capability:
@@ -149,37 +148,39 @@ The sample logic app project includes the following files relevant to the custom
 
 1. In Visual Studio Code, open the **workflow.json** file shortcut menu, select **Open in Designer**.
 
-   ![designer](https://user-images.githubusercontent.com/111014793/217036602-01f92e50-256f-4e3d-b27d-1f9e0808f035.png)
+   ![Screenshot that shows Visual Studio Code, workspace, Standard logic app project, 'workflow.json' file with open shortcut menu, and 'Open in Designer' selected.](https://user-images.githubusercontent.com/111014793/217036602-01f92e50-256f-4e3d-b27d-1f9e0808f035.png)
 
-1. In the designer search box, find and select the **Local Function operations** action named **Invoke a function in this Logic App**.
+1. In the designer search box, find and select the built-in action named **Invoke a function in this Logic App**. This action is part of the **Local Function operations** collection.
 
-   ![invoke](https://user-images.githubusercontent.com/111014793/217037045-b6e550a3-0bee-4eef-8770-c30b9279bec8.png)
+   ![Screenshot that shows the Standard workflow designer with the action named 'Invoke a function in this logic app' selected.](https://user-images.githubusercontent.com/111014793/217037045-b6e550a3-0bee-4eef-8770-c30b9279bec8.png)
 
 1. When the selected action appears on the designer, in the **Function Name** property, enter the name for your function.
 
 1. In the **Function parameters** property, enter any parameters that your function requires, for example:
 
-   ![Screenshot_20230206_090935](https://user-images.githubusercontent.com/111014793/217037991-23ad112e-d50f-4040-8d48-6eb10e508d53.png)
+   ![Screenshot that shows the Standard workflow designer, the 'Invoke a function in this Logic App' action, plus the 'Function Name' and 'Function parameters' property values entered.](https://user-images.githubusercontent.com/111014793/217037991-23ad112e-d50f-4040-8d48-6eb10e508d53.png)
 
 1. When you're done, on the designer toolbar, select **Save**.
 
 1. From the **Run** menu, select **Run Without Debugging**. (Keyboard: Ctrl + F5)
 
-   ![run](https://user-images.githubusercontent.com/111014793/217038206-c254df23-f4ad-4e03-8800-4ad4cc1aa611.png)
+   ![Screenshot that shows the Visual Studio Code 'Run' menu with 'Run Without Debugging' selected.](https://user-images.githubusercontent.com/111014793/217038206-c254df23-f4ad-4e03-8800-4ad4cc1aa611.png)
 
 1. After the workflow finishes running, from the **workflow.json** file shortcut menu, select **Overview**.
 
-   ![overview](https://user-images.githubusercontent.com/111014793/217038386-9cd5ce10-9f3b-4f64-b6ff-4a2d77228141.png)
+   ![Screenshot that shows the 'workflow.json' file's shortcut menu opened and the 'Overview' command selected.](https://user-images.githubusercontent.com/111014793/217038386-9cd5ce10-9f3b-4f64-b6ff-4a2d77228141.png)
 
 1. On the **Overview** page that opens, select **Run trigger** to run your workflow's trigger.
 
-   ![runtri](https://user-images.githubusercontent.com/111014793/217038789-eaa3a736-e499-4e98-9935-91562d4ce6bf.png)
+   ![Screenshot that shows the workflow's 'Overview' page and the 'Run trigger' command selected.](https://user-images.githubusercontent.com/111014793/217038789-eaa3a736-e499-4e98-9935-91562d4ce6bf.png)
 
-1. After the trigger runs, open the workflow's run history to check whether the run successfully finished and review the output from your custom code.
+1. After the trigger runs, select the workflow run that just finished.
 
-   ![sucessful](https://user-images.githubusercontent.com/111014793/217039132-f8828e74-4112-4ff3-afe7-2b2700a6b4fb.png)
+   ![Screenshot that shows the recent workflow run selected.](https://user-images.githubusercontent.com/111014793/217039132-f8828e74-4112-4ff3-afe7-2b2700a6b4fb.png)
 
-   ![logicappsucessful](https://user-images.githubusercontent.com/111014793/217039149-200745f1-9b8d-4562-ad31-530ae7ed50ad.png)
+   The workflow's run history opens to show whether the run successfully finished. From the page, you can review the output from your custom code.
+
+   ![Screeshot shows a successful run with the inputs and outputs from the run.](https://user-images.githubusercontent.com/111014793/217039149-200745f1-9b8d-4562-ad31-530ae7ed50ad.png)
 
 ## Contributions
 
