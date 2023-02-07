@@ -6,16 +6,35 @@
 			"command": "dotnet",
 			"type": "process",
 			"args": [
-   			 "build",
-    		"${workspaceFolder}"
+				"build",
+				"${workspaceFolder}"
 			]
+		},
+		{
+			"label": "generateDebugSymbols",
+			"command": "dotnet",
+			"args": [
+				"${input:getDebugSymbolDll}"
+			],
+			"type": "process",
+			"problemMatcher": "$msCompile"
 		},
 		{
 			"type": "func",
 			"command": "host start",
 			"problemMatcher": "$func-watch",
-			"isBackground": true
+			"isBackground": true,
+			"label": "func: host start"
+		},
+		{
+			"type": "shell",
+			"label": "runFunctionsHost",
+			"options": {
+			  "cwd": "${workspaceFolder}/LogicApp"
+			},
+			"command": "func host start",
+			"isBackground": true,
+			"problemMatcher": "$func-watch"
 		  }
-		
 	]
 }
