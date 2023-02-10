@@ -1,0 +1,10 @@
+{
+  "azureFunctions.deploySubpath": "bin/Release/net472/publish",
+  "azureFunctions.projectLanguage": "C#",
+  "azureFunctions.projectRuntime": "~4",
+  "debug.internalConsoleOptions": "neverOpen",
+  "azureFunctions.preDeployTask": "publish (functions)",
+  "azureFunctions.templateFilter": "Core",
+  "azureFunctions.showTargetFrameworkWarning": false,
+  "azureFunctions.projectSubpath": "bin\\Release\\net472\\publish"
+}

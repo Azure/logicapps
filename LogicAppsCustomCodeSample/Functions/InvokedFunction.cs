@@ -12,7 +12,7 @@ namespace Tests.Flow.Functions
     /// <summary>
     /// The flow invoked function.
     /// </summary>
-    public static class FlowInvokedFunctionTest
+    public static class InvokedFunction
     {
         /// <summary>
         /// Run method.
