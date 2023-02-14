@@ -1,11 +1,11 @@
 {
 	"folders": [
-		{
-			"path": "Functions"
-		},
-		{
-			"path": "LogicApp"
-		}
+	{
+		"path": "Functions"
+	},
+	{
+		"path": "LogicApp"
+	}
 	],
 	"settings": {}
 }
