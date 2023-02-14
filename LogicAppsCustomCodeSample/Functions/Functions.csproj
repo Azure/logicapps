@@ -6,7 +6,7 @@
     <OutputType>Library</OutputType>
     <PlatformTarget>x64</PlatformTarget>
     <!-- Please replace 'LogicAppFolder' with the name of your folder that contains your logic app project. -->
-    <LogicAppFolder>WorkflowLogicApp</LogicAppFolder>
+    <LogicAppFolder>LogicApp</LogicAppFolder>
     <CopyToOutputDirectory>Always</CopyToOutputDirectory>
  </PropertyGroup>
 
