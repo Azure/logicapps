@@ -5,7 +5,7 @@
       "name": "Attach to .NET Functions",
       "type": "clr",
       "request": "attach",
-      "processId": "${command:pickProcess}"
+      "processName": "Microsoft.Azure.Workflows.Functions.NetFxWorker.exe"
     }
   ]
 }
