@@ -3,7 +3,7 @@
   "configurations": [
 
     {
-      "name": "Attach to .NET Functions",
+      "name": "Attach to Logic App",
       "type": "coreclr",
       "request": "attach",
       "processId": "${command:azureLogicAppsStandard.pickProcess}"
