@@ -2,7 +2,7 @@
   "version": "2.0",
   "extensionBundle": {
     "id": "Microsoft.Azure.Functions.ExtensionBundle.Workflows",
-    "version": "1.5.0.9"
+    "version": "[1.0, 2.0)"
   },
   "extensions": {
     "workflow": {
