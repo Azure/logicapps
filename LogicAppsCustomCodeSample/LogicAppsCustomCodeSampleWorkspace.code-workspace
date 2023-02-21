@@ -7,5 +7,15 @@
 		"path": "LogicApp"
 	}
 	],
-	"settings": {}
+	"settings": {},
+	"launch": {
+		"configurations": [
+		    {
+				"name": "Attach to Logic App",
+				"type": "coreclr",
+				"request": "attach",
+				"processId": "${command:azureLogicAppsStandard.pickProcess}"
+			}
+		]
+	}
 }
