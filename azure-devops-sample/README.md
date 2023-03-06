@@ -30,14 +30,7 @@ This folder contains a sample Logic App (single-tenant) project, with Azure depl
 - [Logic App Tools List](https://docs.microsoft.com/azure/logic-apps/create-stateful-stateless-workflows-visual-studio-code#tools)
 - [ARM Outputs Azure DevOps Task](https://marketplace.visualstudio.com/items?itemName=keesschollaart.arm-outputs)
 - [Powershell v7](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-7.1)
-  - [Azure Powershell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-5.4.0#install-the-azure-powershell-module)
-
-## Prerequisites
-
-- [Azure Subscription](https://azure.microsoft.com/free)
-- [Azure Storage Account or Emulator](https://docs.microsoft.com/azure/logic-apps/create-stateful-stateless-workflows-visual-studio-code#storage-requirements)
-- [Visual Studio Code](https://code.visualstudio.com/)
-- [Logic App Tools List](https://docs.microsoft.com/azure/logic-apps/create-stateful-stateless-workflows-visual-studio-code#tools)
+- [Azure Powershell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-5.4.0#install-the-azure-powershell-module)
 
 ## Local
 
@@ -45,7 +38,7 @@ To run the project locally, you can follow the [documentation](https://docs.micr
 
 ### Setting up your project in VS Code
 
-- Clone this repository locally and open the `github-sample` folder in VSCode
+- Clone this repository locally and open the `azure-devops-sample` folder in VSCode
 - Navigate to the `logic` folder and create a `local.settings.json` file and paste in the following:
 
   ```json
