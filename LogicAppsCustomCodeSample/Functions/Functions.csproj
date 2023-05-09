@@ -18,12 +18,12 @@
   </ItemGroup>
 
   
-	<Target Name="PreBuild" AfterTargets="GenerateProgramFiles">
-		<ItemGroup>
-			<DirsToClean Include="..\$(LogicAppFolder)\lib\custom" />
-		</ItemGroup>
-		<RemoveDir Directories="@(DirsToClean)" />
-	</Target>
+  <Target Name="PreBuild" AfterTargets="GenerateProgramFiles">
+  <ItemGroup>
+    <DirsToClean Include="..\$(LogicAppFolder)\lib\custom" />
+  </ItemGroup>
+    <RemoveDir Directories="@(DirsToClean)" />
+  </Target>
   
   <Target Name="CopyExtensionFiles" AfterTargets="_GenerateFunctionsPostBuild">
     <ItemGroup>
