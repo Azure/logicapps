@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk" InitialTargets="Compile">
   <PropertyGroup>
     <IsPackable>false</IsPackable>
     <TargetFramework>net472</TargetFramework>
@@ -18,12 +18,12 @@
   </ItemGroup>
 
   
-  <Target Name="PreBuild" AfterTargets="GenerateProgramFiles">
-  <ItemGroup>
-    <DirsToClean Include="..\$(LogicAppFolder)\lib\custom" />
-  </ItemGroup>
-    <RemoveDir Directories="@(DirsToClean)" />
-  </Target>
+ <Target Name="DeleteStaleFiles" AfterTargets="Compile">
+    <ItemGroup>
+			  <DirsToClean2 Include="..\$(LogicAppFolder)\lib\custom" />
+		  </ItemGroup>
+		  <RemoveDir Directories="@(DirsToClean2)" />
+ </Target>
   
   <Target Name="CopyExtensionFiles" AfterTargets="_GenerateFunctionsPostBuild">
     <ItemGroup>
