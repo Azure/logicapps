@@ -17,12 +17,11 @@
    <PackageReference Include="Microsoft.Azure.WebJobs.Core" Version="3.0.33" />
   </ItemGroup>
 
-  
  <Target Name="DeleteStaleFiles" AfterTargets="Compile">
     <ItemGroup>
-			  <DirsToClean2 Include="..\$(LogicAppFolder)\lib\custom" />
-		  </ItemGroup>
-		  <RemoveDir Directories="@(DirsToClean2)" />
+    <DirsToClean2 Include="..\$(LogicAppFolder)\lib\custom" />
+    </ItemGroup>
+    <RemoveDir Directories="@(DirsToClean2)" />
  </Target>
   
   <Target Name="CopyExtensionFiles" AfterTargets="_GenerateFunctionsPostBuild">
