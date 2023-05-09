@@ -17,6 +17,14 @@
    <PackageReference Include="Microsoft.Azure.WebJobs.Core" Version="3.0.33" />
   </ItemGroup>
 
+  
+	<Target Name="PreBuild" AfterTargets="GenerateProgramFiles">
+		<ItemGroup>
+			<DirsToClean Include="..\$(LogicAppFolder)\lib\custom" />
+		</ItemGroup>
+		<RemoveDir Directories="@(DirsToClean)" />
+	</Target>
+  
   <Target Name="CopyExtensionFiles" AfterTargets="_GenerateFunctionsPostBuild">
     <ItemGroup>
         <CopyFiles Include="$(MSBuildProjectDirectory)\bin\Debug\net472\**\*.*" CopyToOutputDirectory="PreserveNewest" />
