@@ -15,9 +15,10 @@ $subscription = Get-AzSubscription -SubscriptionName $subscriptionName
 $cotnext = $subscription | Set-AzContext
 
 # Get token from context for use when making REST call to run API
-$tokens = $cotnext.TokenCache.ReadItems() | where { $_.TenantId -eq $cotnext.Subscription.TenantId } | Sort-Object -Property ExpiresOn -Descending
-
-$token = $tokens[0].AccessToken
+#$tokens = $cotnext.TokenCache.ReadItems() | where { $_.TenantId -eq $cotnext.Subscription.TenantId } | Sort-Object -Property ExpiresOn -Descending
+#This is no longer working in the new Azure version. Use below
+$tokens = Get-AzAccessToken | where { $_.TenantId -eq $cotnext.Subscription.TenantId } | Sort-Object -Property ExpiresOn -Descending
+$token = $tokens[0].Token
 
 $logicApps = Get-AzResource -ResourceType Microsoft.Logic/workflows -ResourceGroupName $resourceGroup -Name $logicAppsName
 
