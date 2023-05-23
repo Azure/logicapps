@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+=======
+<Project Sdk="Microsoft.NET.Sdk" InitialTargets="Compile">
+>>>>>>> d2355802318a1e3ae9a440d346971c15f93d7333
   <PropertyGroup>
     <IsPackable>false</IsPackable>
     <TargetFramework>net472</TargetFramework>
@@ -17,6 +21,13 @@
    <PackageReference Include="Microsoft.Azure.WebJobs.Core" Version="3.0.33" />
   </ItemGroup>
 
+ <Target Name="DeleteStaleFiles" AfterTargets="Compile">
+    <ItemGroup>
+    <DirsToClean2 Include="..\$(LogicAppFolder)\lib\custom" />
+    </ItemGroup>
+    <RemoveDir Directories="@(DirsToClean2)" />
+ </Target>
+  
   <Target Name="CopyExtensionFiles" AfterTargets="_GenerateFunctionsPostBuild">
     <ItemGroup>
         <CopyFiles Include="$(MSBuildProjectDirectory)\bin\Debug\net472\**\*.*" CopyToOutputDirectory="PreserveNewest" />
