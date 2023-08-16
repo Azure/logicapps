@@ -1,10 +1,22 @@
 # Azure Logic Apps (Standard)
 
-## NuGet version 1.23.x | Bundle version 1.23.x
+## Bundle and NuGet version 1.33.x
 - Various bug fixes and improvements
 <br><br>
 
-## NuGet version 1.21.13 | Bundle version 1.21.13 Latest
+
+## Bundle and NuGet version 1.31.x
+- Fix bug in JavaScript action to properly retry transient failures.
+- Increased `EventGridPublisherConnectionPoolSize` default value to `64`.
+- Fixed bug: SAP error **Unable to allocate client in pool, peak connections limit 10 exceeded**
+- Various bug fixes and improvements
+<br><br>
+
+## Bundle and NuGet version 1.23.x
+- Various bug fixes and improvements
+<br><br>
+
+## NuGet and Bundle version 1.21.13
 - Various bug fixes and improvements
 <br><br>
 
