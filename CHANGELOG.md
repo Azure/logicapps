@@ -1,5 +1,19 @@
 # Azure Logic Apps (Standard)
 
+## Bundle and NuGet version 1.41.x
+- Azure Blob Storage built-in connector: Added support for blob full path in operation outputs. The output property will contain the complete blob path, including the container name.
+- Azure Blob Storage built-in connector: Added action named **Upload blob to storage container referenced by URI**.
+- Azure Blob Storage built-in connector: Added the ability to disable automatic content type inference in the actions named **Read blob content** and **Read blob content referenced by URI**.
+- Azure Blob Storage built-in connector: Added action named **Read blob content referenced by URI**.
+- Azure Service Bus built-in connector: Added new session-based triggers and actions.
+- Application Insights: Fixed live streaming capabilities.
+- Integration account - Premium tier: Added support for XML actions.
+- Workflow Language Definition support for functions that encode and decode an XML element name and value: **encodeXmlValue()**, **decodeXmlValue()**, **encodeXmlName()**, and **decodeXmlName()** 
+- Enhanced Byte Order Mark (BOM) input support for string, binary and loading XML
+- AS2 built-in connector: Fixed bug with invalid callback URL validation.
+- Various bug fixes and improvements
+<br><br>
+
 ## Bundle and NuGet version 1.33.x
 - Various bug fixes and improvements
 <br><br>
