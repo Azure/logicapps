@@ -1,5 +1,13 @@
 # Azure Logic Apps (Standard)
 
+## Bundle and NuGet version 1.44.x
+- **Azure Storage Blob** built-in connector: Add action named **Copy Blob by URI**.
+- **X12 Decode** built-in action: Fix action to properly handle the CRLF delimiters.
+- **Transform XML** built-in action: Adding transform options so that you can, for example, disable the byte order mark during XML transformation.
+- **AS2** built-in actions: Increase agreement limit from 25 to 50 in an integration account.
+- Various bug fixes and improvements
+<br><br>
+
 ## Bundle and NuGet version 1.41.x
 - Azure Blob Storage built-in connector: Added support for blob full path in operation outputs. The output property will contain the complete blob path, including the container name.
 - Azure Blob Storage built-in connector: Added action named **Upload blob to storage container referenced by URI**.
