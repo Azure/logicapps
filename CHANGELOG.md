@@ -1,5 +1,10 @@
 # Azure Logic Apps (Standard)
 
+## Bundle and NuGet version 1.49.x
+- **X12 Encode** built-in action: Added support for X12 interchange encode.
+- Various bug fixes and improvements
+<br><br>
+
 ## Bundle and NuGet version 1.44.x
 - **Azure Storage Blob** built-in connector: Add action named **Copy Blob by URI**.
 - **X12 Decode** built-in action: Fix action to properly handle the CRLF delimiters.
