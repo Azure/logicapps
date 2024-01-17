@@ -11,7 +11,6 @@
 - **IMS** built-in, service provider-based operations: Now available.
 - **SI3270** built-in, service provider-based operations: Now available.
 - Premium integration account: Bug fix for null path, null map name, and null schema name.
-
 - Various bug fixes and improvements
 <br><br>
 
