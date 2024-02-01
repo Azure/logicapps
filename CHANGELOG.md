@@ -7,9 +7,9 @@
   - EDI actions that fetch an agreement from a Premium integration account can now find the agreement, regardless the number of agreements, using the filtering API.
 - **X12 Encode** built-in action: Now supports encoding batch messages.
 - **SFTP** built-in operations: Now include the `inferContentType` parameter.
-- **CICS** built-in, service provider-based operations: Now available.
-- **IMS** built-in, service provider-based operations: Now available.
-- **SI3270** built-in, service provider-based operations: Now available.
+- **IBM CICS** built-in, service provider-based operations: Now available.
+- **IBM IMS** built-in, service provider-based operations: Now available.
+- **IBM SI3270** built-in, service provider-based operations: Now available.
 - Premium integration account: Bug fix for null path, null map name, and null schema name.
 - Various bug fixes and improvements
 <br><br>
