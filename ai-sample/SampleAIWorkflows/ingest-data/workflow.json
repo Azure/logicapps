@@ -1,0 +1,161 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "actions": {
+      "Compose": {
+        "type": "Compose",
+        "inputs": {
+          "base64Content": "@body('HTTP')['$content']",
+          "documentType": "pdf",
+          "splittingStrategy": "recursive",
+          "tokenLength": 512
+        },
+        "runAfter": {
+          "HTTP": [
+            "SUCCEEDED"
+          ]
+        }
+      },
+      "Convert_string_output_to_JSON": {
+        "type": "ParseJson",
+        "inputs": {
+          "content": "@body('Tokenize_a_document')",
+          "schema": {
+            "items": {
+              "properties": {
+                "content": {
+                  "type": "string"
+                },
+                "metadata": {
+                  "properties": {
+                    "page": {
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                },
+                "tokenLength": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "content",
+                "tokenLength",
+                "metadata"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "runAfter": {
+          "Tokenize_a_document": [
+            "SUCCEEDED"
+          ]
+        }
+      },
+      "For_each": {
+        "type": "Foreach",
+        "foreach": "@body('Convert_string_output_to_JSON')",
+        "actions": {
+          "Get_Embeddings": {
+            "type": "ServiceProvider",
+            "inputs": {
+              "parameters": {
+                "deploymentId": "text-embedding",
+                "input": "@items('For_each')"
+              },
+              "serviceProviderConfiguration": {
+                "connectionName": "openai",
+                "operationId": "getSingleEmbedding",
+                "serviceProviderId": "/serviceProviders/openai"
+              }
+            }
+          }
+        },
+        "runAfter": {
+          "Convert_string_output_to_JSON": [
+            "SUCCEEDED"
+          ]
+        }
+      },
+      "HTTP": {
+        "type": "Http",
+        "inputs": {
+          "uri": "https://raw.githubusercontent.com/Azure-Samples/azure-search-openai-demo/main/data/Benefit_Options.pdf",
+          "method": "GET"
+        },
+        "runAfter": {},
+        "runtimeConfiguration": {
+          "contentTransfer": {
+            "transferMode": "Chunked"
+          }
+        }
+      },
+      "Index_documents": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "indexName": "copilot-data",
+            "documents": "@body('Select')"
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "azureaisearch",
+            "operationId": "indexDocuments",
+            "serviceProviderId": "/serviceProviders/azureaisearch"
+          }
+        },
+        "runAfter": {
+          "Select": [
+            "SUCCEEDED"
+          ]
+        }
+      },
+      "Select": {
+        "type": "Select",
+        "inputs": {
+          "from": "@range(0, length(body('Convert_string_output_to_JSON')))",
+          "select": {
+            "content": "@body('Convert_string_output_to_JSON')[item()]['content']",
+            "documentName": "Benefit_Options.pdf",
+            "embeddings": "@body('Get_Embeddings')[item()]['embedding']",
+            "id": "@concat('Benefit_Options', item())"
+          }
+        },
+        "runAfter": {
+          "For_each": [
+            "SUCCEEDED"
+          ]
+        }
+      },
+      "Tokenize_a_document": {
+        "type": "Http",
+        "inputs": {
+          "uri": "https://openaitokenizedoc.azurewebsites.net/api/tokenize_trigger",
+          "method": "POST",
+          "body": "@outputs('Compose')"
+        },
+        "runAfter": {
+          "Compose": [
+            "SUCCEEDED"
+          ]
+        },
+        "runtimeConfiguration": {
+          "contentTransfer": {
+            "transferMode": "Chunked"
+          }
+        }
+      }
+    },
+    "contentVersion": "1.0.0.0",
+    "outputs": {},
+    "parameters": {},
+    "triggers": {
+      "When_a_HTTP_request_is_received": {
+        "type": "Request",
+        "kind": "Http"
+      }
+    }
+  },
+  "kind": "Stateful"
+}
