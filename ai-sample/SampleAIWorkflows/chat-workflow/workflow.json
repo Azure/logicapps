@@ -109,7 +109,7 @@
         "type": "ServiceProvider",
         "inputs": {
           "parameters": {
-            "deploymentId": "psrivasModel",
+            "deploymentId": "@parameters('openai_deployment_id')",
             "messages": "@outputs('generate_search_query')"
           },
           "serviceProviderConfiguration": {
@@ -128,7 +128,7 @@
         "type": "ServiceProvider",
         "inputs": {
           "parameters": {
-            "deploymentId": "text-embedding",
+            "deploymentId": "@parameters('openai_deployment_id')",
             "input": "@body('get_search_query')?['content']"
           },
           "serviceProviderConfiguration": {
@@ -147,7 +147,7 @@
         "type": "ServiceProvider",
         "inputs": {
           "parameters": {
-            "indexName": "enterprise-data",
+            "indexName": "@parameters('aisearch_index_name')",
             "searchVector": {
               "fieldName": "embeddings",
               "vector": "@outputs('Gets_a_single_embedding')['body']['embedding']"
