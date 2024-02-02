@@ -71,7 +71,7 @@
                 "type": "ServiceProvider",
                 "inputs": {
                     "parameters": {
-                        "indexName": "copilot-data",
+                        "indexName": "@parameters('aisearch_index_name')",
                         "documents": "@body('Select')"
                     },
                     "serviceProviderConfiguration": {
@@ -106,7 +106,7 @@
             "Tokenize_a_document": {
                 "type": "Http",
                 "inputs": {
-                    "uri": "https://urlToYourFunctionApp.net",
+                    "uri": "@parameters('tokenize_function_url')",
                     "method": "POST",
                     "body": "@outputs('Compose')"
                 },
@@ -125,7 +125,7 @@
                 "type": "ServiceProvider",
                 "inputs": {
                     "parameters": {
-                        "deploymentId": "test-embeddings",
+                        "deploymentId": "parameters('openai_deployment_id')",
                         "input": "@body('Convert_string_output_to_JSON')"
                     },
                     "serviceProviderConfiguration": {
