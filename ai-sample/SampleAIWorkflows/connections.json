@@ -6,7 +6,7 @@
       "parameterSetName": "ConnectionString",
       "parameterValues": {
         "searchServiceAdminKey": "{Your_AzureAISearch_AdminKey}",
-        "searchServiceEndpoint": "Your_AzureAISearch_Endpoint"
+        "searchServiceEndpoint": "{Your_AzureAISearch_Endpoint}"
       },
       "serviceProvider": {
         "id": "/serviceProviders/azureaisearch"
@@ -16,8 +16,8 @@
       "displayName": "openai",
       "parameterSetName": "NotSpecified",
       "parameterValues": {
-        "openAIEndpoint": "Your_AzureOpenAI_Endpoint",
-        "openAIKey": "Your_AzureOpenAI_Key"
+        "openAIEndpoint": "{Your_AzureOpenAI_Endpoint}",
+        "openAIKey": "{Your_AzureOpenAI_Key}"
       },
       "serviceProvider": {
         "id": "/serviceProviders/openai"
