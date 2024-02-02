@@ -51,7 +51,7 @@ If you already have an existing AI Search Service you can skip to step 5.
 
   6. Once your AI Search service is created you will need to create an index to store your document content and embeddings.
      - Go to your search service on the `Overview` page, at the top click `Add index (JSON)`
-     - Copy the entire contents of the file `aisearch_index.json` and paste them into the index window. You can change the name of the index in the `name` field if you choose. This name will be used in later steps.
+     - Go up one level to the root folder `ai-sample` and open the `Deployment` folder. Copy the entire contents of the file `aisearch_index.json` and paste them into the index window. You can change the name of the index in the `name` field if you choose. This name will be used in later steps.
      - Ensure your index is created by viewing in on the `Indexes` page
 
 
