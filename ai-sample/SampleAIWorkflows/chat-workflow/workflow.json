@@ -30,7 +30,7 @@
         "type": "ServiceProvider",
         "inputs": {
           "parameters": {
-            "deploymentId": "psrivasModel",
+            "deploymentId": "@parameters('openai_deployment_id')",
             "messages": [
               {
                 "role": "system",
