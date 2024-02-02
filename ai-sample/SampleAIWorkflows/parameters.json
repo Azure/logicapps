@@ -1,0 +1,30 @@
+{
+    "openai_deployment_id": { 
+        "type": "string", 
+        "value": "" 
+    },
+    "openai_api_key": { 
+        "type": "string", 
+        "value": ""
+    },
+    "openai_endpoint": { 
+        "type": "string", 
+        "value": ""
+    },
+    "aisearch_index_name": { 
+        "type": "string", 
+        "value": ""
+    },
+    "aisearch_admin_key": { 
+        "type": "string", 
+        "value": ""
+    },
+    "aisearch_endpoint": { 
+        "type": "string", 
+        "value": ""
+    },
+    "tokenize_function_url": { 
+        "type": "string", 
+        "value": ""
+    }
+ }
