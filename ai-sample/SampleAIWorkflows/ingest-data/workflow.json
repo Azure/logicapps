@@ -1,0 +1,180 @@
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "actions": {
+            "Compose": {
+                "type": "Compose",
+                "inputs": {
+                    "base64Content": "@body('HTTP')['$content']",
+                    "documentType": "pdf",
+                    "splittingStrategy": "recursive",
+                    "tokenLength": 512
+                },
+                "runAfter": {
+                    "HTTP": [
+                        "SUCCEEDED"
+                    ]
+                }
+            },
+            "Convert_string_output_to_JSON": {
+                "type": "ParseJson",
+                "inputs": {
+                    "content": "@body('Tokenize_a_document')",
+                    "schema": {
+                        "items": {
+                            "properties": {
+                                "content": {
+                                    "type": "string"
+                                },
+                                "metadata": {
+                                    "properties": {
+                                        "page": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "tokenLength": {
+                                    "type": "integer"
+                                }
+                            },
+                            "required": [
+                                "content",
+                                "tokenLength",
+                                "metadata"
+                            ],
+                            "type": "object"
+                        },
+                        "type": "array"
+                    }
+                },
+                "runAfter": {
+                    "Tokenize_a_document": [
+                        "SUCCEEDED"
+                    ]
+                }
+            },
+            "HTTP": {
+                "type": "Http",
+                "inputs": {
+                    "uri": "@triggerBody()?['fileUrl']",
+                    "method": "GET"
+                },
+                "runAfter": {},
+                "runtimeConfiguration": {
+                    "contentTransfer": {
+                        "transferMode": "Chunked"
+                    }
+                }
+            },
+            "Index_documents": {
+                "type": "ServiceProvider",
+                "inputs": {
+                    "parameters": {
+                        "indexName": "@parameters('aisearch_index_name')",
+                        "documents": "@body('Select')"
+                    },
+                    "serviceProviderConfiguration": {
+                        "connectionName": "azureaisearch",
+                        "operationId": "indexDocuments",
+                        "serviceProviderId": "/serviceProviders/azureaisearch"
+                    }
+                },
+                "runAfter": {
+                    "Select": [
+                        "SUCCEEDED"
+                    ]
+                }
+            },
+            "Select": {
+                "type": "Select",
+                "inputs": {
+                    "from": "@range(0, length(body('Convert_string_output_to_JSON')))",
+                    "select": {
+                        "content": "@body('Convert_string_output_to_JSON')[item()]['content']",
+                        "documentName": "@triggerBody()?['documentName']",
+                        "embeddings": "@body('Get_Embeddings')[item()]['embedding']",
+                        "id": "@concat(triggerBody()?['documentName'], item())"
+                    }
+                },
+                "runAfter": {
+                    "Gets_multiple_embeddings": [
+                        "SUCCEEDED"
+                    ]
+                }
+            },
+            "Select_Multiple": {
+                "inputs": {
+                    "from": "@range(0, length(body('Convert_string_output_to_JSON')))",
+                    "select": "@{body('Convert_string_output_to_JSON')[item()]['content']}"
+                },
+                "runAfter": {
+                    "Convert_string_output_to_JSON": [
+                        "SUCCEEDED"
+                    ]
+                },
+                "type": "Select"
+            },
+            "Tokenize_a_document": {
+                "type": "Http",
+                "inputs": {
+                    "uri": "@parameters('tokenize_function_url')",
+                    "method": "POST",
+                    "body": "@outputs('Compose')"
+                },
+                "runAfter": {
+                    "Compose": [
+                        "SUCCEEDED"
+                    ]
+                },
+                "runtimeConfiguration": {
+                    "contentTransfer": {
+                        "transferMode": "Chunked"
+                    }
+                }
+            },
+            "Gets_multiple_embeddings": {
+                "type": "ServiceProvider",
+                "inputs": {
+                    "parameters": {
+                        "deploymentId": "@parameters('openai_embedding_deployment_id')",
+                        "input": "@body('Select_Multiple')"
+                    },
+                    "serviceProviderConfiguration": {
+                        "connectionName": "openai",
+                        "operationId": "getArrayEmbeddings",
+                        "serviceProviderId": "/serviceProviders/openai"
+                    }
+                },
+                "runAfter": {
+                    "Select_Multiple": [
+                        "SUCCEEDED"
+                    ]
+                }
+            }
+        },
+        "contentVersion": "1.0.0.0",
+        "outputs": {},
+        "parameters": {},
+        "triggers": {
+            "When_a_HTTP_request_is_received": {
+                "type": "Request",
+                "kind": "Http",
+                "inputs": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "fileUrl": {
+                                "type": "string"
+                            },
+                            "documentName": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "kind": "Stateful"
+}
