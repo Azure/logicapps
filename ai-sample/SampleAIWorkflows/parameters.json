@@ -1,5 +1,9 @@
 {
-    "openai_deployment_id": { 
+    "openai_chat_deployment_id": { 
+        "type": "string", 
+        "value": "" 
+    },
+    "openai_embedding_deployment_id": { 
         "type": "string", 
         "value": "" 
     },

@@ -30,7 +30,7 @@
         "type": "ServiceProvider",
         "inputs": {
           "parameters": {
-            "deploymentId": "@parameters('openai_deployment_id')",
+            "deploymentId": "@parameters('openai_chat_deployment_id')",
             "messages": [
               {
                 "role": "system",
@@ -109,7 +109,7 @@
         "type": "ServiceProvider",
         "inputs": {
           "parameters": {
-            "deploymentId": "@parameters('openai_deployment_id')",
+            "deploymentId": "@parameters('openai_chat_deployment_id')",
             "messages": "@outputs('generate_search_query')"
           },
           "serviceProviderConfiguration": {
@@ -128,7 +128,7 @@
         "type": "ServiceProvider",
         "inputs": {
           "parameters": {
-            "deploymentId": "@parameters('openai_deployment_id')",
+            "deploymentId": "@parameters('openai_embedding_deployment_id')",
             "input": "@body('get_search_query')?['content']"
           },
           "serviceProviderConfiguration": {

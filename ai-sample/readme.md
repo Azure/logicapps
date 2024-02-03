@@ -27,11 +27,14 @@ If you already have an existing OpenAI Service and model you can skip these step
 
   5. Follow the prompts to create the service in your chosen subscription and resource group.
 
-  6. Once your OpenAI service is created you will need to create a deployment for generating embeddings.
+  6. Once your OpenAI service is created you will need to create a deployments for generating embeddings and chat completions.
      - Go to your OpenAI service, under the `Resource Management` menu pane, click  `Model deployments`
      - Click `Manage Deployments`
      - On the `Deployments` page click `Create new deployment`
-     - Select an available `model`, `model version`, and `deployment name`. Keep track of the `deployment name`, it will be used in later steps.
+     - Select an available embedding `model` e.g. `text-embedding-ada-002`, `model version`, and `deployment name`. Keep track of the `deployment name`, it will be used in later steps.
+     - Ensure your model is successfully deployed by viewing it on the `Deployments` page
+     - On the `Deployments` page click `Create new deployment`
+     - Select an available chat `model` e.g. `gpt-35-turbo`, `model version`, and `deployment name`. Keep track of the `deployment name`, it will be used in later steps.
      - Ensure your model is successfully deployed by viewing it on the `Deployments` page
 
 
@@ -105,14 +108,15 @@ There are 2 projects that need to be created and published to Azure:
          - Copy the `Endpoint` value and place its values into the `value` field of the `openai_endpoint` property
        - Under the `Resource Management` menu click `Model deployments`
          - Click `Manage Deployments`
-         - Copy the `Deployment name` of the model you want to use and place its value into the `value` field of the `openai_deployment_id` property
-         
+         - Copy the `Deployment name` of the embeddings model you want to use and place its value into the `value` field of the `openai_embeddings_deployment_id` property
+         - Copy the `Deployment name` of the chat model you want to use and place its value into the `value` field of the `openai_chat_deployment_id` property
+
     - Go to your Azure AI Search service in the portal
        - On the `Overview` page copy the `Url` value. Place its value in the `value` field of the `aisearch_endpoint` property
        - Under the `Settings` menu click `Keys`. Copy either the `Primary` or `Secondary` admin key and place its value into the `value` field of the `aisearch_admin_key` property
 
     - Go to your Tokenize Function App
-       - On the `Overview` page. Copy the `URL` value and plan its value into the `value` field of the `tokenize_function_url` property
+       - On the `Overview` page. Copy the `URL` value and place its value into the `value` field of the `tokenize_function_url` property. Then append `/api/tokenize_trigger` to the end of the url.
  
  7. Deploy your Logic App:
     - Go to the Azure Logic Apps extension

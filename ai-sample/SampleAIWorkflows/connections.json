@@ -16,8 +16,8 @@
       "displayName": "openai",
       "parameterSetName": "NotSpecified",
       "parameterValues": {
-        "openAIEndpoint": "@parameters('openai_api_key')",
-        "openAIKey": "@parameters('openai_endpoint')"
+        "openAIEndpoint": "@parameters('openai_endpoint')",
+        "openAIKey": "@parameters('openai_api_key')"
       },
       "serviceProvider": {
         "id": "/serviceProviders/openai"

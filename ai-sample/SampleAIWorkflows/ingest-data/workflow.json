@@ -91,10 +91,10 @@
                 "inputs": {
                     "from": "@range(0, length(body('Convert_string_output_to_JSON')))",
                     "select": {
-                        "content": "@{body('Convert_string_output_to_JSON')[item()]['content']}",
-                        "documentName": "@{triggerBody()?['documentName']}",
-                        "embeddings": "@{body('Get_Embeddings')[item()]['embedding']}",
-                        "id": "@{concat(triggerBody()?['documentName'], item())}"
+                        "content": "@body('Convert_string_output_to_JSON')[item()]['content']",
+                        "documentName": "@triggerBody()?['documentName']",
+                        "embeddings": "@body('Get_Embeddings')[item()]['embedding']",
+                        "id": "@concat(triggerBody()?['documentName'], item())"
                     }
                 },
                 "runAfter": {
@@ -102,6 +102,18 @@
                         "SUCCEEDED"
                     ]
                 }
+            },
+            "Select_Multiple": {
+                "inputs": {
+                    "from": "@range(0, length(body('Convert_string_output_to_JSON')))",
+                    "select": "@{body('Convert_string_output_to_JSON')[item()]['content']}"
+                },
+                "runAfter": {
+                    "Convert_string_output_to_JSON": [
+                        "SUCCEEDED"
+                    ]
+                },
+                "type": "Select"
             },
             "Tokenize_a_document": {
                 "type": "Http",
@@ -125,8 +137,8 @@
                 "type": "ServiceProvider",
                 "inputs": {
                     "parameters": {
-                        "deploymentId": "parameters('openai_deployment_id')",
-                        "input": "@body('Convert_string_output_to_JSON')"
+                        "deploymentId": "@parameters('openai_embedding_deployment_id')",
+                        "input": "@body('Select_Multiple')"
                     },
                     "serviceProviderConfiguration": {
                         "connectionName": "openai",
@@ -135,7 +147,7 @@
                     }
                 },
                 "runAfter": {
-                    "Convert_string_output_to_JSON": [
+                    "Select_Multiple": [
                         "SUCCEEDED"
                     ]
                 }
