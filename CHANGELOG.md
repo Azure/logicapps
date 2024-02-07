@@ -1,5 +1,12 @@
 # Azure Logic Apps (Standard)
 
+## Bundle and NuGet version 1.58.x
+- **AS2** and **EDIFACT**: Operations use `$filter` to find the necessary agreement, eliminating the limit on the number of agreements.
+- **AS2** and **Flat File** operations: Added new settings.
+- **AS2**: Actions that work with Standard integration account now support more than 40 agreements.
+- Various bug fixes and improvements
+<br><br>
+
 ## Bundle and NuGet version 1.55.x
 - **AS2** and **Flat File** operations: Added new settings.
 - Agreements:
