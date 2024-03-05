@@ -1,5 +1,13 @@
 # Azure Logic Apps (Standard)
 
+## Bundle and NuGet version 1.62.x
+- **AS2 Encode** action: Expose receiver URI in this action's output.
+- **XML Transform** action: Fixed a bug where action continues to run when artifact name isn't valid.
+- Azure Logic Apps runtime: Errors now appear in Azure portal notifications as error events, not information events.
+- **XML Validation** action: Supports nested schemas in an integration account.
+- Various bug fixes and improvements
+<br><br>
+
 ## Bundle and NuGet version 1.58.x
 - **AS2** and **EDIFACT**: Operations use `$filter` to find the necessary agreement, eliminating the limit on the number of agreements.
 - **AS2** and **Flat File** operations: Added new settings.
