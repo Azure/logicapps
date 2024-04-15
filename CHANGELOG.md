@@ -1,8 +1,8 @@
 # Azure Logic Apps (Standard)
 
 ## Bundle and NuGet version 1.66.x
-- **Service Bus** action: Adding support for getting deferred messages in Service Bus operations using sessions.
-- **XML Transform** action: Fixed a bug where action will retry endlessly.
+- **Service Bus** action: Added support for using sessions to get deferred messages in Service Bus operations.
+- **XML Transform** action: Fixed a bug where the action retried endlessly.
 - Various bug fixes and improvements
 <br><br>
 
