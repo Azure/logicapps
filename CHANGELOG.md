@@ -1,8 +1,16 @@
 # Azure Logic Apps (Standard)
 
+## Bundle and NuGet version 1.70.x
+
+- **Azure OpenAI** and **Azure AI Search** built-in connectors: Now generally available with this change.
+- **3270**, **Host File**, **CICS**, **IMS**, and **IBM i** built-in connectors: Now generally available with this change.
+- **Azure Service Bus** built-in connector: Added support to get deferred messages.
+- Various bug fixes and improvements
+<br><br>
+
 ## Bundle and NuGet version 1.66.x
-- **Service Bus** action: Adding support for getting deferred messages in Service Bus operations using sessions.
-- **XML Transform** action: Fixed a bug where action will retry endlessly.
+- **Service Bus** action: Added support for using sessions to get deferred messages in Service Bus operations.
+- **XML Transform** action: Fixed a bug where the action retried endlessly.
 - Various bug fixes and improvements
 <br><br>
 
