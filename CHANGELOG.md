@@ -5,6 +5,8 @@
 - **Azure OpenAI** and **Azure AI Search** built-in connectors: Now generally available with this change.
 - **3270**, **Host File**, **CICS**, **IMS**, and **IBM i** built-in connectors: Now generally available with this change.
 - **Azure Service Bus** built-in connector: Added support to get deferred messages.
+- **Call local function in this logic app** built-in action: Supports .NET 8 Framework for authoring and running custom code.
+- **Execute CSharp Script Code** built-in action: Added new action.
 - Various bug fixes and improvements
 <br><br>
 
