@@ -1,0 +1,179 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "actions": {
+      "Azure_Open_AI_-_Get_multiple_embeddings": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "deploymentId": "@parameters('openai_embedding_deployment_model')",
+            "input": "@body('Select_JSON_array_items')"
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "openai",
+            "operationId": "getArrayEmbeddings",
+            "serviceProviderId": "/serviceProviders/openai"
+          }
+        },
+        "runAfter": {
+          "Select_JSON_array_items": [
+            "SUCCEEDED"
+          ]
+        }
+      },
+      "Chunk_and_Tokenize": {
+        "type": "Http",
+        "inputs": {
+          "uri": "@parameters('tokenize_function_url')",
+          "method": "POST",
+          "body": "@outputs('Parameters_for_Tokenize')"
+        },
+        "runAfter": {
+          "Parameters_for_Tokenize": [
+            "SUCCEEDED"
+          ]
+        },
+        "runtimeConfiguration": {
+          "contentTransfer": {
+            "transferMode": "Chunked"
+          }
+        }
+      },
+      "Convert_tokenized_output_to_JSON": {
+        "type": "ParseJson",
+        "inputs": {
+          "content": "@body('Chunk_and_Tokenize')",
+          "schema": {
+            "items": {
+              "properties": {
+                "content": {
+                  "type": "string"
+                },
+                "metadata": {
+                  "properties": {
+                    "page": {
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                },
+                "tokenLength": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "content",
+                "tokenLength",
+                "metadata"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "runAfter": {
+          "Chunk_and_Tokenize": [
+            "SUCCEEDED"
+          ]
+        }
+      },
+      "Get_rows": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "tableName": "@parameters('sql_table_name')"
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "sql",
+            "operationId": "getRows",
+            "serviceProviderId": "/serviceProviders/sql"
+          }
+        },
+        "runAfter": {}
+      },
+      "Index_multiple_documents": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "indexName": "@parameters('aisearch_index_name')",
+            "documents": "@body('Select_embeddings')"
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "azureaisearch",
+            "operationId": "indexDocuments",
+            "serviceProviderId": "/serviceProviders/azureaisearch"
+          }
+        },
+        "runAfter": {
+          "Select_embeddings": [
+            "SUCCEEDED"
+          ]
+        }
+      },
+      "Parameters_for_Tokenize": {
+        "type": "Compose",
+        "inputs": {
+          "base64Content": "@base64(body('Get_rows'))",
+          "documentType": "txt",
+          "splittingStrategy": "recursive",
+          "tokenLength": 512
+        },
+        "runAfter": {
+          "Get_rows": [
+            "SUCCEEDED"
+          ]
+        }
+      },
+      "Response": {
+        "type": "Response",
+        "kind": "Http",
+        "inputs": {
+          "statusCode": 200
+        },
+        "runAfter": {
+          "Index_multiple_documents": [
+            "SUCCEEDED"
+          ]
+        }
+      },
+      "Select_JSON_array_items": {
+        "type": "Select",
+        "inputs": {
+          "from": "@range(0, length(body('Convert_tokenized_output_to_JSON')))",
+          "select": "@body('Convert_tokenized_output_to_JSON')[item()]['content']"
+        },
+        "runAfter": {
+          "Convert_tokenized_output_to_JSON": [
+            "SUCCEEDED"
+          ]
+        }
+      },
+      "Select_embeddings": {
+        "type": "Select",
+        "inputs": {
+          "from": "@range(0, length(body('Convert_tokenized_output_to_JSON')))",
+          "select": {
+            "content": "@body('Convert_tokenized_output_to_JSON')[item()]['content']",
+            "documentName": "music-sales-data.txt",
+            "embeddings": "@body('Azure_Open_AI_-_Get_multiple_embeddings')['embeddings'][item()]",
+            "id": "@concat('music_sales_data_txt', item())"
+          }
+        },
+        "runAfter": {
+          "Azure_Open_AI_-_Get_multiple_embeddings": [
+            "SUCCEEDED"
+          ]
+        }
+      }
+    },
+    "contentVersion": "1.0.0.0",
+    "outputs": {},
+    "triggers": {
+      "When_a_HTTP_request_is_received": {
+        "type": "Request",
+        "kind": "Http"
+      }
+    }
+  },
+  "kind": "Stateful"
+}

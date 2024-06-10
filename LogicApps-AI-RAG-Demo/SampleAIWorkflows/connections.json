@@ -1,0 +1,37 @@
+{
+  "serviceProviderConnections": {
+    "sql": {
+      "parameterValues": {
+        "connectionString": "@appsetting('sql_connectionString')"
+      },
+      "parameterSetName": "connectionString",
+      "serviceProvider": {
+        "id": "/serviceProviders/sql"
+      },
+      "displayName": "divyasql-2"
+    },
+    "openai": {
+      "parameterValues": {
+        "openAIEndpoint": "@appsetting('openai_openAIEndpoint')",
+        "openAIKey": "@appsetting('openai_openAIKey')"
+      },
+      "parameterSetName": "KeyAndEndpointConnection",
+      "serviceProvider": {
+        "id": "/serviceProviders/openai"
+      },
+      "displayName": "lademo-con1"
+    },
+    "azureaisearch": {
+      "parameterValues": {
+        "searchServiceEndpoint": "@appsetting('azureaisearch_searchServiceEndpoint')",
+        "searchServiceAdminKey": "@appsetting('azureaisearch_searchServiceAdminKey')"
+      },
+      "parameterSetName": "ConnectionString",
+      "serviceProvider": {
+        "id": "/serviceProviders/azureaisearch"
+      },
+      "displayName": "aisearch-con1"
+    }
+  },
+  "managedApiConnections": {}
+}

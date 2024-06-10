@@ -1,0 +1,38 @@
+{
+  "tokenize_function_url": {
+    "type": "String",
+    "value": ""
+  },
+  "openai_embedding_deployment_model": {
+    "type": "String",
+    "value": ""
+  },
+  "openai_api_key": { 
+    "type": "string", 
+    "value": ""
+},
+  "openai_endpoint": { 
+    "type": "string", 
+    "value": ""
+},
+  "aisearch_index_name": { 
+    "type": "string", 
+    "value": ""
+},
+  "aisearch_admin_key": { 
+    "type": "string", 
+    "value": ""
+},
+ "aisearch_endpoint": { 
+    "type": "string", 
+    "value": ""
+},
+"sql_table_name": {
+  "type": "String",
+  "value": ""
+},
+  "openai_chat_deployment_model": {
+    "type": "String",
+    "value": ""
+  }
+}
