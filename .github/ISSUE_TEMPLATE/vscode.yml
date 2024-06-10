@@ -1,0 +1,24 @@
+name: 'Visual Studio Code'
+description: Use this to create a report if you were brought here from a VSCode Crash
+labels: ["triage", "vscode"]
+body:
+  - type: textarea
+    id: vscodedump
+    attributes:
+      label: VSCode Dump
+      placeholder: The issue text was copied to the clipboard.  Please paste it into this window.
+    validations:
+      required: true
+  
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce the Bug or Issue
+      description: Describe the steps we have to take to reproduce the behavior. Please also include any other context.
+      placeholder: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+    validations:
+      required: true

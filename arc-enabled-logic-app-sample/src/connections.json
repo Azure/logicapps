@@ -1,0 +1,32 @@
+{
+  "serviceProviderConnections": {
+    "AzureBlob": {
+      "parameterValues": {
+        "connectionString": "@appsetting('AzureBlob_connectionString')"
+      },
+      "serviceProvider": {
+        "id": "/serviceProviders/AzureBlob"
+      },
+      "displayName": "blobstorage"
+    }
+  },
+  "managedApiConnections": {
+    "azuretables": {
+      "api": {
+        "id": "/subscriptions/@appsetting('azuretables_subscriptionId')/providers/Microsoft.Web/locations/eastus/managedApis/azuretables"
+      },
+      "connection": {
+        "id": "/subscriptions/@appsetting('azuretables_subscriptionId')/resourceGroups/@appsetting('azuretables_resourceGroup')/providers/Microsoft.Web/connections/azuretables"
+      },
+      "connectionRuntimeUrl": "@appsetting('azuretables_runtimeUrl')",
+      "authentication": {
+        "type": "ActiveDirectoryOAuth",
+        "audience": "https://management.core.windows.net/",
+        "credentialType": "Secret",
+        "clientId": "@appsetting('WORKFLOWAPP_AAD_CLIENTID')",
+        "tenant": "@appsetting('WORKFLOWAPP_AAD_TENANTID')",
+        "secret": "@appsetting('WORKFLOWAPP_AAD_CLIENTSECRET')"
+      }
+    }
+  }
+}

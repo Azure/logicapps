@@ -96,7 +96,7 @@
             {
                 "type": "apiconnection",
                 "displayName": "${Resources.INSTAGRAM}",
-                "iconUri": "https://az818438.vo.msecnd.net/icons/instagram.png",
+                "iconUri": "https://logicappsresources.blob.core.windows.net/icons/instagram.png",
                 "brandColor": "#3f729b"
             },
             {
@@ -108,7 +108,7 @@
             {
                 "type": "apiconnection",
                 "displayName": "${Resources.TWITTER}",
-                "iconUri": "https://az818438.vo.msecnd.net/icons/twitter.png",
+                "iconUri": "https://logicappsresources.blob.core.windows.net/icons/twitter.png",
                 "brandColor": "#5fa9dd"
             }
         ],

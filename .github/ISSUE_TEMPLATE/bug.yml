@@ -1,0 +1,85 @@
+name: '🐞 Report A Bug'
+description: Use this to create a report if you found Logic Apps Bug
+labels: ["triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting an issue.
+
+        This issue tracker is for reporting bugs found in Logic Apps (https://github.com/Azure/logicapps)
+        If you have a question about how to achieve something and are struggling with a broader Logic App issue, please post a question
+        inside of Logic App's discussion tab: https://github.com/Azure/logicapps/discussions
+
+        Before submitting a new bug/issue, please check the links below to see if there is a solution or question posted there already:
+         - Open Issue's tab: https://github.com/Azure/logicapps/issues?q=is%3Aissue+sort%3Aupdated-desc+position
+         - Closed Issues tab: https://github.com/Azure/logicapps/issues?q=is%3Aissue+sort%3Aupdated-desc+position+is%3Aclosed
+
+        The more information you fill in, the better we can help you.
+ 
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the Bug
+      description: Provide a clear and concise description of the challenge you are running into.
+    validations:
+      required: true
+
+
+  - type: input
+    id: plantype
+    attributes:
+      label: Plan Type
+      placeholder: Standard/Consumption/Local
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce the Bug or Issue
+      description: Describe the steps we have to take to reproduce the behavior. 
+      placeholder: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: workflow
+    attributes:
+      label: Workflow JSON
+      description: If able, provide a workflow json that reproduces the issue. 
+      placeholder: |
+        {
+            "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "actions": {},
+            "contentVersion": "1.0.0.0",
+            "outputs": {},
+            "triggers": {}
+          },
+          "kind": "Stateful"
+        }
+      render: json
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshots_or_videos
+    attributes:
+      label: Screenshots or Videos
+      description: |
+        If applicable, add screenshots or a video to help explain your problem.
+        For more information on the supported file image/file types and the file size limits, please refer
+        to the following link: https://docs.github.com/en/github/writing-on-github/working-with-advanced-formatting/attaching-files
+      placeholder: |
+        You can drag your video or image files inside of this editor ↓
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Add any other context about the problem here.

@@ -1,0 +1,27 @@
+{
+  "managedApiConnections": {},
+  "serviceProviderConnections": {
+    "azureaisearch": {
+      "displayName": "openAI-connection",
+      "parameterSetName": "ConnectionString",
+      "parameterValues": {
+        "searchServiceAdminKey": "@parameters('aisearch_admin_key')",
+        "searchServiceEndpoint": "@parameters('aisearch_endpoint')"
+      },
+      "serviceProvider": {
+        "id": "/serviceProviders/azureaisearch"
+      }
+    },
+    "openai": {
+      "displayName": "openai",
+      "parameterSetName": "NotSpecified",
+      "parameterValues": {
+        "openAIEndpoint": "@parameters('openai_endpoint')",
+        "openAIKey": "@parameters('openai_api_key')"
+      },
+      "serviceProvider": {
+        "id": "/serviceProviders/openai"
+      }
+    }
+  }
+}

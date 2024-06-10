@@ -1,0 +1,531 @@
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "actions": {
+            "Build_price_available_array": {
+                "inputs": {
+                    "code": "var priceAvailableEvents = workflowContext.actions.Build_price_available_events.outputs;\r\n\r\nreturn priceAvailableEvents.body",
+                    "explicitDependencies": {
+                        "actions": [
+                            "Build_price_available_events"
+                        ]
+                    }
+                },
+                "runAfter": {
+                    "Terminate_on_error": [
+                        "Succeeded",
+                        "FAILED"
+                    ]
+                },
+                "type": "JavaScriptCode"
+            },
+            "Build_price_available_events": {
+                "inputs": {
+                    "from": "@coalesce(body('Get_skus')?['skus'], outputs('Flatten_skus1'), outputs('Flatten_skus2'), json('[]'))",
+                    "select": {
+                        "contentData": "{\"countries\":\"@triggerBody()['prices'][0]['countries']\",\"currency\":\"@triggerBody()['prices'][0]['currency']\",\"currentPrice\":\"@triggerBody()['prices'][0]['currentPrice']\",\"ean\":\"@triggerBody()['prices'][0]['ean']\",\"previousPrice\":\"@triggerBody()['prices'][0]?['previousPrice']\",\"priceType\":\"@triggerBody()['prices'][0]['priceType']\",\"sellerId\":\"@triggerBody()['prices'][0]['sellerId']\",\"sku\":\"@triggerBody()['prices'][0]\",\"timestamp\":\"@utcNow()\",\"versionId\":\"@triggerBody()['prices'][0]['versionId']\"}",
+                        "contentType": "application/json"
+                    }
+                },
+                "runAfter": {
+                    "If_price_version_is_newer_in_cosmos": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Select"
+            },
+            "Get_document": {
+                "inputs": {
+                    "body": {
+                        "code": "NotFound"
+                    }
+                },
+                "runAfter": {},
+                "type": "Compose"
+            },
+            "Get_versionId": {
+                "inputs": 0,
+                "runAfter": {
+                    "Get_document": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Compose"
+            },
+            "If_price_version_is_newer_in_cosmos": {
+                "actions": {
+                    "If_price_version_is_the_same": {
+                        "actions": {
+                            "Response_3": {
+                                "inputs": {
+                                    "body": "No price differences.",
+                                    "statusCode": 200
+                                },
+                                "kind": "http",
+                                "runAfter": {},
+                                "type": "Response"
+                            }
+                        },
+                        "else": {
+                            "actions": {
+                                "Response_2": {
+                                    "inputs": {
+                                        "body": "Price version mismatch",
+                                        "statusCode": 200
+                                    },
+                                    "kind": "http",
+                                    "runAfter": {},
+                                    "type": "Response"
+                                }
+                            }
+                        },
+                        "expression": {
+                            "and": [
+                                {
+                                    "equals": [
+                                        "@int(outputs('Get_versionId'))",
+                                        "@int(triggerBody()['prices'][0]['versionId'])"
+                                    ]
+                                }
+                            ]
+                        },
+                        "runAfter": {},
+                        "type": "If"
+                    }
+                },
+                "else": {
+                    "actions": {
+                        "Get_eanMappingValidUntil": {
+                            "inputs": "1970-01-01T00:00:00Z",
+                            "runAfter": {},
+                            "type": "Compose"
+                        },
+                        "If_document_up_to_date": {
+                            "actions": {
+                                "Build_Cosmos_document1": {
+                                    "inputs": {
+                                        "countries": "@triggerBody()['prices'][0]['countries']",
+                                        "currentPrice": "@triggerBody()['prices'][0]['currentPrice']",
+                                        "dtcChannel": "@triggerBody()?['dtcChannel']",
+                                        "dtcProvider": "@triggerBody()['dtcProvider']",
+                                        "ean": "@triggerBody()['prices'][0]['ean']",
+                                        "eanMappingValidUntil": "@outputs('Get_eanMappingValidUntil')",
+                                        "id": "@concat(triggerBody()['prices'][0]['ean'], '_', triggerBody()['prices'][0]['sellerId'], '_', triggerBody()?['dtcChannel'], '_', triggerBody()['dtcProvider'])",
+                                        "isDeleted": "@false",
+                                        "previousPrice": "@triggerBody()['prices'][0]?['previousPrice']",
+                                        "priceType": "@triggerBody()['prices'][0]['priceType']",
+                                        "sellerId": "@triggerBody()['prices'][0]['sellerId']",
+                                        "skus": "@body('Build_sku_array1')",
+                                        "ttl": "@int(appSetting('Enricher.Cosmos.DefaultTtl'))",
+                                        "versionId": "@triggerBody()['prices'][0]['versionId']"
+                                    },
+                                    "runAfter": {
+                                        "Build_sku_array1": [
+                                            "Succeeded"
+                                        ]
+                                    },
+                                    "type": "Compose"
+                                },
+                                "Build_sku_array1": {
+                                    "inputs": {
+                                        "from": "@outputs('Get_document')",
+                                        "select": {
+                                            "isDeleted": "@outputs('Get_document')",
+                                            "sku": "@outputs('Get_document')",
+                                            "versionId": "@triggerBody()['prices'][0]['versionId']"
+                                        }
+                                    },
+                                    "runAfter": {
+                                        "Flatten_skus1": [
+                                            "Succeeded"
+                                        ]
+                                    },
+                                    "type": "Select"
+                                },
+                                "Flatten_skus1": {
+                                    "inputs": {
+                                        "code": "var skus = workflowContext.actions.Get_document.outputs.body.skus;\r\nreturn skus.map((el) => el.sku);",
+                                        "explicitDependencies": {
+                                            "actions": [
+                                                "Get_document"
+                                            ]
+                                        }
+                                    },
+                                    "runAfter": {},
+                                    "type": "JavaScriptCode"
+                                }
+                            },
+                            "else": {
+                                "actions": {
+                                    "Get_skus": {
+                                        "inputs": {
+                                            "method": "GET",
+                                            "retryPolicy": {
+                                                "count": 5,
+                                                "interval": "PT5S",
+                                                "maximumInterval": "PT45S",
+                                                "minimumInterval": "PT5S",
+                                                "type": "exponential"
+                                            },
+                                            "uri": "@concat(appSetting('Enricher.RetailApiUrl'), triggerBody()['prices'][0]['ean'])"
+                                        },
+                                        "operationOptions": "DisableAsyncPattern",
+                                        "runAfter": {},
+                                        "trackedProperties": {
+                                            "retailApiUrl": "@concat(appSetting('Enricher.RetailApiUrl'), triggerBody()['prices'][0]['ean'])"
+                                        },
+                                        "type": "Http"
+                                    },
+                                    "Switch_on_status_code": {
+                                        "cases": {
+                                            "200": {
+                                                "actions": {
+                                                    "Build_Cosmos_document": {
+                                                        "inputs": {
+                                                            "countries": "@triggerBody()['prices'][0]['countries']",
+                                                            "currentPrice": "@triggerBody()['prices'][0]['currentPrice']",
+                                                            "dtcChannel": "@triggerBody()?['dtcChannel']",
+                                                            "dtcProvider": "@triggerBody()['dtcProvider']",
+                                                            "ean": "@triggerBody()['prices'][0]['ean']",
+                                                            "eanMappingValidUntil": "@addToTime(utcNow(), rand(1440, mul(int(appSetting('Enricher.MaxMappingValidUntil')), 1440)), 'Minute')",
+                                                            "id": "@concat(triggerBody()['prices'][0]['ean'], '_', triggerBody()['prices'][0]['sellerId'], '_', triggerBody()?['dtcChannel'], '_', triggerBody()['dtcProvider'])",
+                                                            "isDeleted": "@false",
+                                                            "previousPrice": "@triggerBody()['prices'][0]?['previousPrice']",
+                                                            "priceType": "@triggerBody()['prices'][0]['priceType']",
+                                                            "sellerId": "@triggerBody()['prices'][0]['sellerId']",
+                                                            "skus": "@body('Build_sku_array')",
+                                                            "ttl": "@int(appSetting('Enricher.Cosmos.DefaultTtl'))",
+                                                            "versionId": "@triggerBody()['prices'][0]['versionId']"
+                                                        },
+                                                        "runAfter": {
+                                                            "Build_sku_array": [
+                                                                "Succeeded"
+                                                            ]
+                                                        },
+                                                        "type": "Compose"
+                                                    },
+                                                    "Build_sku_array": {
+                                                        "inputs": {
+                                                            "from": "@body('Get_skus').skus",
+                                                            "select": {
+                                                                "isDeleted": "@false",
+                                                                "sku": "@triggerBody()['prices'][0]",
+                                                                "versionId": "@triggerBody()['prices'][0]?['versionId']"
+                                                            }
+                                                        },
+                                                        "runAfter": {},
+                                                        "type": "Select"
+                                                    }
+                                                },
+                                                "case": 200
+                                            },
+                                            "404": {
+                                                "actions": {
+                                                    "Build_price_not_found_event": {
+                                                        "inputs": {
+                                                            "contentData": {
+                                                                "countries": "@triggerBody()['prices'][0]['countries']",
+                                                                "ean": "@triggerBody()['prices'][0]['ean']",
+                                                                "sellerId": "@triggerBody()['prices'][0]['sellerId']",
+                                                                "timestamp": "@utcNow()",
+                                                                "versionId": "@triggerBody()['prices'][0]['versionId']"
+                                                            },
+                                                            "contentType": "application/json"
+                                                        },
+                                                        "runAfter": {},
+                                                        "type": "Compose"
+                                                    }
+                                                },
+                                                "case": 404
+                                            }
+                                        },
+                                        "default": {
+                                            "actions": {
+                                                "If_Cosmos_document_available": {
+                                                    "actions": {
+                                                        "Build_Cosmos_document2": {
+                                                            "inputs": {
+                                                                "countries": "@triggerBody()['prices'][0]['countries']",
+                                                                "currentPrice": "@triggerBody()['prices'][0]['currentPrice']",
+                                                                "dtcChannel": "@triggerBody()?['dtcChannel']",
+                                                                "dtcProvider": "@triggerBody()['dtcProvider']",
+                                                                "ean": "@triggerBody()['prices'][0]['ean']",
+                                                                "eanMappingValidUntil": "@outputs('Get_eanMappingValidUntil')",
+                                                                "id": "@concat(triggerBody()['prices'][0]['ean'], '_', triggerBody()['prices'][0]['sellerId'], '_', triggerBody()?['dtcChannel'], '_', triggerBody()['dtcProvider'])",
+                                                                "isDeleted": "@false",
+                                                                "previousPrice": "@triggerBody()['prices'][0]?['previousPrice']",
+                                                                "priceType": "@triggerBody()['prices'][0]['priceType']",
+                                                                "sellerId": "@triggerBody()['prices'][0]['sellerId']",
+                                                                "skus": "@body('Build_sku_array2')",
+                                                                "ttl": "@int(appSetting('Enricher.Cosmos.DefaultTtl'))",
+                                                                "versionId": "@triggerBody()['prices'][0]['versionId']"
+                                                            },
+                                                            "runAfter": {
+                                                                "Build_sku_array2": [
+                                                                    "Succeeded"
+                                                                ]
+                                                            },
+                                                            "type": "Compose"
+                                                        },
+                                                        "Build_sku_array2": {
+                                                            "inputs": {
+                                                                "from": "@outputs('Get_document')",
+                                                                "select": {
+                                                                    "isDeleted": "@outputs('Get_document')",
+                                                                    "sku": "@outputs('Get_document')",
+                                                                    "versionId": "@triggerBody()['prices'][0]['versionId']"
+                                                                }
+                                                            },
+                                                            "runAfter": {
+                                                                "Flatten_skus2": [
+                                                                    "Succeeded"
+                                                                ]
+                                                            },
+                                                            "type": "Select"
+                                                        },
+                                                        "Flatten_skus2": {
+                                                            "inputs": {
+                                                                "code": "var skus = workflowContext.actions.Get_document.outputs.body.skus;\r\nreturn skus.map((el) => el.sku);",
+                                                                "explicitDependencies": {
+                                                                    "actions": [
+                                                                        "Get_document"
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "runAfter": {},
+                                                            "type": "JavaScriptCode"
+                                                        }
+                                                    },
+                                                    "else": {
+                                                        "actions": {
+                                                            "Save_error": {
+                                                                "inputs": "@outputs('Get_skus')",
+                                                                "runAfter": {},
+                                                                "type": "Compose"
+                                                            }
+                                                        }
+                                                    },
+                                                    "expression": {
+                                                        "and": [
+                                                            {
+                                                                "not": {
+                                                                    "contains": [
+                                                                        "@outputs('Get_document')['body']['code']",
+                                                                        "NotFound"
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ]
+                                                    },
+                                                    "runAfter": {},
+                                                    "type": "If"
+                                                }
+                                            }
+                                        },
+                                        "expression": "@outputs('Get_skus')['statusCode']",
+                                        "runAfter": {
+                                            "Get_skus": [
+                                                "Succeeded",
+                                                "Failed"
+                                            ]
+                                        },
+                                        "type": "Switch"
+                                    }
+                                }
+                            },
+                            "expression": {
+                                "or": [
+                                    {
+                                        "greaterOrEquals": [
+                                            "@ticks(outputs('Get_eanMappingValidUntil'))",
+                                            "@ticks(utcNow())"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "runAfter": {
+                                "Get_eanMappingValidUntil": [
+                                    "Succeeded"
+                                ]
+                            },
+                            "type": "If"
+                        }
+                    }
+                },
+                "expression": {
+                    "and": [
+                        {
+                            "greaterOrEquals": [
+                                "@int(outputs('Get_versionId'))",
+                                "@int(triggerBody()['prices'][0]['versionId'])"
+                            ]
+                        }
+                    ]
+                },
+                "runAfter": {
+                    "Get_versionId": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "If"
+            },
+            "Response": {
+                "inputs": {
+                    "body": {
+                        "PriceAvailableEvents": "@outputs('Build_price_available_array')",
+                        "PriceSkuNotFoundEvents": "@outputs('Build_price_not_found_event')"
+                    },
+                    "headers": {
+                        "Content-Type": "application/json"
+                    },
+                    "statusCode": 200
+                },
+                "kind": "http",
+                "runAfter": {
+                    "Build_price_available_array": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Response"
+            },
+            "Terminate_on_error": {
+                "actions": {
+                    "If_there_are_errors": {
+                        "actions": {
+                            "Terminate": {
+                                "inputs": {
+                                    "runStatus": "Failed"
+                                },
+                                "runAfter": {},
+                                "type": "Terminate"
+                            }
+                        },
+                        "expression": {
+                            "and": [
+                                {
+                                    "not": {
+                                        "equals": [
+                                            "@outputs('Save_error')",
+                                            "@null"
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        "runAfter": {},
+                        "type": "If"
+                    }
+                },
+                "runAfter": {
+                    "Build_price_available_events": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Scope"
+            }
+        },
+        "contentVersion": "1.0.0.0",
+        "outputs": {},
+        "triggers": {
+            "manual": {
+                "inputs": {
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft/2019-09/schema#",
+                        "description": "An internal command providing DTC prices that should be made available. ",
+                        "properties": {
+                            "dtcChannel": {
+                                "description": "An optional identifier representing the channel/market as identified by the DTC provider.",
+                                "type": "string"
+                            },
+                            "dtcProvider": {
+                                "description": "An identifier for the DTC provider that the prices have been sourced from.",
+                                "enum": [
+                                    "Tradebyte"
+                                ],
+                                "type": "string"
+                            },
+                            "prices": {
+                                "items": {
+                                    "description": "A canonical sku price that should be enriched and ingested before pubishing to consumers.",
+                                    "properties": {
+                                        "countries": {
+                                            "description": "ISO 3166-1 alpha-2 codes of the countries where the price should be made available.",
+                                            "items": {
+                                                "maxLength": 2,
+                                                "minLength": 2,
+                                                "pattern": "^[A-Z]{2}$",
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "currency": {
+                                            "description": "An ISO 4217 currency code that all price values in the event represent.",
+                                            "pattern": "^[A-Z]{3}$",
+                                            "type": "string"
+                                        },
+                                        "currentPrice": {
+                                            "description": "The current selling price. This price should be assumed effective immediately.",
+                                            "exclusiveMinimum": 0,
+                                            "multipleOf": 0.01,
+                                            "type": "number"
+                                        },
+                                        "ean": {
+                                            "description": "An EAN-13 identifying the product sku.",
+                                            "maxLength": 13,
+                                            "minLength": 13,
+                                            "type": "string"
+                                        },
+                                        "previousPrice": {
+                                            "description": "A previous price that will only be present if the priceType is Promotion.",
+                                            "exclusiveMinimum": 0,
+                                            "multipleOf": 0.01,
+                                            "type": "number"
+                                        },
+                                        "priceType": {
+                                            "description": "An indication as to whether the price should be presented as a regular price or as a mark down as part of a promotion.",
+                                            "enum": [
+                                                "Regular",
+                                                "Promotion"
+                                            ],
+                                            "type": "string"
+                                        },
+                                        "sellerId": {
+                                            "description": "The seller that the price applies to.",
+                                            "maxLength": 10,
+                                            "type": "string"
+                                        },
+                                        "versionId": {
+                                            "description": "A version identifier for the price (held against the sku, sellerId and countries specified).",
+                                            "exclusiveMinimum": 0,
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "required": [
+                                        "ean",
+                                        "countries",
+                                        "sellerId",
+                                        "versionId",
+                                        "priceType",
+                                        "currency",
+                                        "currentPrice"
+                                    ],
+                                    "type": "object"
+                                },
+                                "type": "array"
+                            }
+                        },
+                        "required": [
+                            "dtcProvider",
+                            "prices"
+                        ],
+                        "title": "Activate DTC Prices",
+                        "type": "object"
+                    }
+                },
+                "kind": "Http",
+                "type": "Request"
+            }
+        }
+    },
+    "kind": "Stateless"
+}

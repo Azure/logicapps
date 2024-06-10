@@ -1,0 +1,7 @@
+{
+    "azureLogicAppsStandard.deploySubpath": "src",
+    "azureLogicAppsStandard.projectLanguage": "JavaScript",
+    "azureLogicAppsStandard.projectRuntime": "~3",
+    "debug.internalConsoleOptions": "neverOpen"
+  }
+  

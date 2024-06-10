@@ -1,0 +1,12 @@
+{
+    "blob_auth": {
+        "type":"object", 
+        "value": {
+            "type": "ManagedServiceIdentity"
+        }
+    },
+    "storage_account_name": {
+      "type": "String",
+      "value": "@appsetting('storage-account-name')"
+    }
+}

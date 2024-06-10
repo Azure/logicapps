@@ -1,0 +1,4 @@
+PartitionKey,RowKey,createDate,createDate@type,productId,productId@type,publishDate,publishDate@type,rating,rating@type,ratingId,ratingId@type,userName,userName@type,userNotes,userNotes@type
+3,1,6/28/2021 ,Edm.String,3,Edm.Int32,00/00/0000,Edm.String,5,Edm.Int32,1,Edm.Int32,John Doe,Edm.String,Good quality,Edm.String
+3,2,6/29/2021,Edm.String,3,Edm.Int32,00/00/0000,Edm.String,4,Edm.Int32,2,Edm.Int32,Joanna Doe,Edm.String,Nice,Edm.String
+3,3,6/29/2021,Edm.String,3,Edm.Int32,00/00/0000,Edm.String,5,Edm.Int32,4,Edm.Int32,John Doe Jr.,Edm.String,Good stuff,Edm.String

@@ -10,12 +10,12 @@
             "general",
             "security"
         ],
-        "description": "Send an email notification with the recommendation details when a resource is not securely configured",
-        "displayName": "Get a notification email when Security Center creates a recommendation",
+        "description": "Send an email notification with the recommendation details when a resource is not securely configured. Note: automated running of this trigger requires enabling automation in Microsoft Defender for Cloud",
+        "displayName": "Get a notification email when Microsoft Defender for Cloud creates a recommendation",
         "definition": {
             "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
             "actions": {
-                "Send_a_notification_email": {
+                "Send_an_email_(V2)": {
                     "type": "ApiConnection",
                     "inputs": {
                         "host": {
@@ -26,10 +26,10 @@
                         "method": "post",
                         "body": {
                             "To": null,
-                            "Subject": "Azure Security Center has discovered a potential security vulnerability in your environment",
-                            "Body": "Azure Security Center has discovered a potential security vulnerability in your environment - Recommendation details below:\n\nRecommendation name: @{triggerBody()?['properties']?['displayName']}\n\nResource ID: @{triggerBody()?['properties']?['resourceDetails']?['id']}\n"
+                            "Subject": "New Microsoft Defender for Cloud recommendation has been created for your environment",
+                            "Body": "<p>Microsoft Defender for Cloud has discovered a potential security vulnerability in your environment - Recommendation details below:<br>\n<br>\n<br>\n<br>\nRecommendation name: @{triggerBody()?['properties']?['displayName']}<br>\n<br>\nStatus: @{triggerBody()?['properties']?['status']?['code']}<br>\n<br>\nDescription: @{triggerBody()?['properties']?['metadata']?['description']}<br>\n<br>\nRecommendation ID: @{triggerBody()?['name']}<br>\n<br>\nResource ID: @{triggerBody()?['properties']?['resourceDetails']?['id']}<br>\n<br>\nResource type (Azure/Non-Azure): @{triggerBody()?['properties']?['resourceDetails']?['source']}<br>\n<br>\nRemediation steps: @{triggerBody()?['properties']?['metadata']?['remediationDescription']}<br>\n<br>\nLink to view the recommendation in Microsoft Defender for Cloud: @{triggerBody()?['properties']?['links']?['azurePortal']}<br>\n</p>"
                         },
-                        "path": "/Mail"
+                        "path": "/v2/Mail"
                     },
                     "runAfter": {}
                 }
@@ -41,7 +41,7 @@
                 }
             },
             "triggers": {
-                "When_an_Azure_Security_Center_Assessment_is_created": {
+                "When_an_Azure_Security_Center_Recommendation_is_created_or_triggered": {
                     "type": "ApiConnectionWebhook",
                     "inputs": {
                         "host": {
@@ -80,15 +80,15 @@
         "apiSummaries": [
             {
                 "type": "apiconnection",
-                "displayName": "Azure Security Center Recommendation",
+                "displayName": "Microsoft Defender for Cloud Recommendation",
                 "iconUri": "https://connectoricons-df.azureedge.net/ascassessment/icon_1.0.1221.1620.png",
                 "brandColor": "#99c419"
             },
             {
                 "type": "apiconnection",
                 "displayName": "${Resources.OUTLOOK}",
-                "iconUri": "https://az818438.vo.msecnd.net/icons/outlook.png",
-                "brandColor": "#0072c6"
+                "iconUri": "https://logicappsresources.blob.core.windows.net/icons/office365.png",
+                "brandColor": "#0078D4"
             }
         ],
         "changedTime": "2019-07-15T00:00:00.000Z",

@@ -87,14 +87,14 @@
             {
                 "type": "apiconnection",
                 "displayName": "${Resources.DROPBOX}",
-                "iconUri": "https://az818438.vo.msecnd.net/icons/dropbox.png",
+                "iconUri": "https://logicappsresources.blob.core.windows.net/icons/dropbox.png",
                 "brandColor": "#007ee5"
             },
             {
                 "type": "apiconnection",
                 "displayName": "${Resources.SHAREPOINT}",
-                "iconUri": "https://az818438.vo.msecnd.net/icons/sharepointonline.png",
-                "brandColor": "#1b75bc"
+                "iconUri": "https://logicappsresources.blob.core.windows.net/icons/sharepoint.png",
+                "brandColor": "#036C70"
             }
         ],
         "changedTime": "2017-07-05T00:00:39.000Z",

@@ -1,0 +1,28 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/azure-bicep
+{
+	"name": "Arc-Enabled Logic Apps Sample",		
+	"dockerFile": "Dockerfile",
+	
+	// Set *default* container specific settings.json values on container create.
+	"settings": {
+		"terminal.integrated.defaultProfile.linux": "bash",
+	},
+		
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"azurite.azurite",
+		"ms-azuretools.vscode-bicep",
+		"ms-azuretools.vscode-azurelogicapps",
+		"ms-azuretools.vscode-docker",
+		"ms-azuretools.vscode-azurestorage",
+		"ms-azuretools.vscode-azurefunctions",
+		"ms-kubernetes-tools.vscode-kubernetes-tools",
+		"ms-dotnettools.vscode-dotnet-runtime",
+		"ms-dotnettools.csharp",
+		"ms-vscode.azurecli",
+		"davidanson.vscode-markdownlint",
+		"eridem.vscode-postman",
+		"shd101wyy.markdown-preview-enhanced"
+	]	
+}

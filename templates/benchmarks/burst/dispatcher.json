@@ -1,0 +1,154 @@
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "actions": {
+            "Compose": {
+                "inputs": {
+                    "dtcChannel": null,
+                    "dtcProvider": null,
+                    "prices": [
+                        {
+                            "countries": [
+                                "GB"
+                            ],
+                            "currency": "GBP",
+                            "currentPrice": 45.52,
+                            "ean": "0000077686445",
+                            "priceType": "Regular",
+                            "sellerId": "SID",
+                            "versionId": 1621257217
+                        },
+                        {
+                            "countries": [
+                                "GB"
+                            ],
+                            "currency": "GBP",
+                            "currentPrice": 22.13,
+                            "ean": "0000498485460",
+                            "priceType": "Regular",
+                            "sellerId": "SID",
+                            "versionId": 1621257217
+                        },
+                        {
+                            "countries": [
+                                "GB"
+                            ],
+                            "currency": "GBP",
+                            "currentPrice": 29.5,
+                            "ean": "0000855710458",
+                            "priceType": "Regular",
+                            "sellerId": "SID",
+                            "versionId": 1621257217
+                        },
+                        {
+                            "countries": [
+                                "GB"
+                            ],
+                            "currency": "GBP",
+                            "currentPrice": 21.4,
+                            "ean": "0000079848776",
+                            "priceType": "Regular",
+                            "sellerId": "SID",
+                            "versionId": 1621257217
+                        },
+                        {
+                            "countries": [
+                                "GB"
+                            ],
+                            "currency": "GBP",
+                            "currentPrice": 8.11,
+                            "ean": "0000449513506",
+                            "priceType": "Regular",
+                            "sellerId": "SID",
+                            "versionId": 1621257217
+                        },
+                        {
+                            "countries": [
+                                "GB"
+                            ],
+                            "currency": "GBP",
+                            "currentPrice": 32.54,
+                            "ean": "0000222872441",
+                            "priceType": "Regular",
+                            "sellerId": "SID",
+                            "versionId": 1621257217
+                        },
+                        {
+                            "countries": [
+                                "GB"
+                            ],
+                            "currency": "GBP",
+                            "currentPrice": 52.24,
+                            "ean": "0000045647706",
+                            "priceType": "Regular",
+                            "sellerId": "SID",
+                            "versionId": 1621257217
+                        },
+                        {
+                            "countries": [
+                                "GB"
+                            ],
+                            "currency": "GBP",
+                            "currentPrice": 91.55,
+                            "ean": "0000683058587",
+                            "priceType": "Regular",
+                            "sellerId": "SID",
+                            "versionId": 1621257217
+                        },
+                        {
+                            "countries": [
+                                "GB"
+                            ],
+                            "currency": "GBP",
+                            "currentPrice": 5.07,
+                            "ean": "0000425243191",
+                            "priceType": "Regular",
+                            "sellerId": "SID",
+                            "versionId": 1621257217
+                        },
+                        {
+                            "countries": [
+                                "GB"
+                            ],
+                            "currency": "GBP",
+                            "currentPrice": 18.48,
+                            "ean": "0000512469337",
+                            "priceType": "Regular",
+                            "sellerId": "SID",
+                            "versionId": 1621257217
+                        }
+                    ]
+                },
+                "runAfter": {},
+                "type": "Compose"
+            },
+            "Invoke_a_workflow_in_this_workflow_app": {
+                "inputs": {
+                    "body": "@outputs('Compose')",
+                    "host": {
+                        "workflow": {
+                            "id": "enricher"
+                        }
+                    }
+                },
+                "runAfter": {
+                    "Compose": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Workflow"
+            }
+        },
+        "contentVersion": "1.0.0.0",
+        "outputs": {},
+        "triggers": {
+            "manual": {
+                "inputs": {},
+                "kind": "Http",
+                "splitOn": "@triggerBody().orders",
+                "type": "Request"
+            }
+        }
+    },
+    "kind": "Stateful"
+}

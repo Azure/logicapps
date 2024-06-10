@@ -1,0 +1,44 @@
+trigger: none
+
+pr: none
+
+variables:
+- name: devEnvironment
+  value: dev
+# TODO: provide an email address for the ExampleWorkflow to an send mail to
+- name: toEmailAddress
+  value: ''
+
+resources:
+  pipelines:
+  - pipeline: cipipeline
+    # TODO: Update with the name of your CI pipeline
+    source: ''
+    trigger:
+      branches:
+      - main
+
+stages:
+- stage: DEV
+  displayName: 'DEV Deployment'
+  variables:
+  - template: variables/pipeline-vars.yml
+  jobs:
+  - deployment: deploy_logicapp_resources
+    displayName: Deploy Logic App
+    pool:
+      vmImage: ubuntu-18.04
+    environment: $(devEnvironment)
+    variables:
+      deploymentMode: 'Incremental'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: AzureFunctionAppContainer@1
+            displayName: 'Update logic app container'
+            inputs:
+              azureSubscription: $(devServiceConnection)
+              appName: '$(logicAppName)'
+              imageName: '$(acrName).azurecr.io/$(logicAppContainerName):$(resources.pipeline.cipipeline.RunId)'
+              appsettings: '-emailAddress $(toEmailAddress)'

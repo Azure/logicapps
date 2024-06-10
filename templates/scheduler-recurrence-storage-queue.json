@@ -91,7 +91,7 @@
             {
                 "type": "ApiConnection",
                 "displayName": "Storage Queue",
-                "iconUri": "https://cpgeneralstore.blob.core.windows.net/icons/azurequeues.png",
+                "iconUri": "https://logicappsresources.blob.core.windows.net/icons/azurequeues.png",
                 "brandColor": "#0072c6"
             }
         ],

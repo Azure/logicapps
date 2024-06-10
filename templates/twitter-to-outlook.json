@@ -108,19 +108,19 @@
             {
                 "type": "apiconnection",
                 "displayName": "${Resources.TWITTER}",
-                "iconUri": "https://az818438.vo.msecnd.net/icons/twitter.png",
+                "iconUri": "https://logicappsresources.blob.core.windows.net/icons/twitter.png",
                 "brandColor": "#5fa9dd"
             },
             {
                 "type": "apiconnection",
                 "displayName": "${Resources.OUTLOOK}",
-                "iconUri": "https://az818438.vo.msecnd.net/icons/outlook.png",
+                "iconUri": "https://logicappsresources.blob.core.windows.net/icons/outlook.png",
                 "brandColor": "#0072c6"
             },
             {
                 "type": "apiconnection",
                 "displayName": "${Resources.TWITTER}",
-                "iconUri": "https://az818438.vo.msecnd.net/icons/twitter.png",
+                "iconUri": "https://logicappsresources.blob.core.windows.net/icons/twitter.png",
                 "brandColor": "#5fa9dd"
             }
         ],

@@ -1,0 +1,122 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "metadata": {
+        "description": "The datacenter to use for the deployment."
+      }
+    },
+    "logicAppSystemAssignedIdentityTenantId": {
+      "type": "string"
+    },
+    "logicAppSystemAssignedIdentityObjectId": {
+      "type": "string"
+    },
+    "sa_name": {
+      "defaultValue": "storage name",
+      "type": "string"
+    },
+    "connections_azureblob_name": {
+      "defaultValue": "azureblob",
+      "type": "string"
+    }
+  },
+  "variables": {
+    "storage_account": "[concat(toLower(parameters('sa_name')), uniqueString(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2021-09-01",
+      "name": "[variables('storage_account')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard_LRS",
+        "tier": "Standard"
+      },
+      "kind": "Storage",
+      "properties": {
+        "networkAcls": {
+          "bypass": "AzureServices",
+          "virtualNetworkRules": [],
+          "ipRules": [],
+          "defaultAction": "Allow"
+        },
+        "supportsHttpsTrafficOnly": true,
+        "encryption": {
+          "services": {
+            "file": {
+              "keyType": "Account",
+              "enabled": true
+            },
+            "blob": {
+              "keyType": "Account",
+              "enabled": true
+            }
+          },
+          "keySource": "Microsoft.Storage"
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+      "apiVersion": "2021-09-01",
+      "name": "[format('{0}/default/blobs', variables('storage_account'))]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storage_account'))]"
+      ],
+      "properties": {
+        "defaultEncryptionScope": "$account-encryption-key",
+        "denyEncryptionScopeOverride": false,
+        "publicAccess": "Container"
+      }
+    },
+    {
+      "type": "Microsoft.Web/connections",
+      "apiVersion": "2016-06-01",
+      "name": "[parameters('connections_azureblob_name')]",
+      "location": "[parameters('location')]",
+      "kind": "V2",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storage_account'))]"
+      ],
+      "properties": {
+        "displayName": "privatestorage",
+        "parameterValues": {
+          "accountName": "[variables('storage_account')]",
+          "accessKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts/', variables('storage_account')), '2019-06-01').keys[0].value]"
+        },
+        "api": {
+          "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), 'azureblob')]"
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Web/connections/accessPolicies",
+      "apiVersion": "2016-06-01",
+      "name": "[format('{0}/{1}', parameters('connections_azureblob_name'), parameters('logicAppSystemAssignedIdentityObjectId'))]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/connections', parameters('connections_azureblob_name'))]"
+      ],
+      "properties": {
+        "principal": {
+          "type": "ActiveDirectory",
+          "identity": {
+            "tenantId": "[parameters('logicAppSystemAssignedIdentityTenantId')]",
+            "objectId": "[parameters('logicAppSystemAssignedIdentityObjectId')]"
+          }
+        }
+      }
+    }
+
+  ],
+  "outputs": {
+    "blobendpointurl": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.Web/connections', parameters('connections_azureblob_name')), '2016-06-01', 'full').properties.connectionRuntimeUrl]"
+    }
+  }
+}

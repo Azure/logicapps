@@ -275,19 +275,19 @@
             {
                 "type": "apiconnection",
                 "displayName": "${Resources.AS2_DISPLAYNAME}",
-                "iconUri": "https://az818438.vo.msecnd.net/icons/as2.png",
+                "iconUri": "https://logicappsresources.blob.core.windows.net/icons/as2.png",
                 "brandColor": "#0178D5"
             },
             {
                 "type": "apiconnection",
                 "displayName": "${Resources.X12_DISPLAYNAME}",
-                "iconUri": "https://az818438.vo.msecnd.net/icons/x12.png",
+                "iconUri": "https://logicappsresources.blob.core.windows.net/icons/x12.png",
                 "brandColor": "#58B4D9"
             },
             {
                 "type": "apiconnection",
                 "displayName": "${Resources.AZURE_BLOB_DISPLAYNAME}",
-                "iconUri": "https://az818438.vo.msecnd.net/icons/azureblob.png",
+                "iconUri": "https://logicappsresources.blob.core.windows.net/icons/azureblob.png",
                 "brandColor": "#804998"
             }
         ],

@@ -1,0 +1,23 @@
+# IaC variables
+
+variables:
+
+  projectName: 'logicappsample'
+  suffix: 'dev'
+
+  # Resource Group
+  resourceGroupLocation: 'westus'
+  resourceGroupName: 'rg-wus-$(projectName)-$(suffix)'
+
+  # Storage - make sure this is unique and that the projectName you choose above is short enough, due to storage account name length restriction: https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview#storage-account-name
+  storageName: 'sa$(projectName)$(suffix)'
+  appServicePlanName: 'asp$(projectName)$(suffix)'
+
+  #  Logic App
+  logicAppName: 'la-wus-$(projectName)-$(suffix)'
+
+  # API Connections - if you change this name, you must change the reference in workflow.json
+  blobConnectionName: 'azureblob'
+
+  # Project artifacts
+  logicAppCIArtifactName: 'logicapp_publish_artifact'

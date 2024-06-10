@@ -146,26 +146,26 @@
             {
                 "type": "apiconnection",
                 "displayName": "${Resources.MAILCHIMP}",
-                "iconUri": "https://az818438.vo.msecnd.net/icons/mailchimp.png",
+                "iconUri": "https://logicappsresources.blob.core.windows.net/icons/mailchimp.png",
                 "brandColor": "#249AB9"
             },
             {
                 "type": "apiconnection",
                 "displayName": "${Resources.OFFICE_USERS}",
-                "iconUri": "https://az818438.vo.msecnd.net/icons/office365users.png",
+                "iconUri": "https://logicappsresources.blob.core.windows.net/icons/office365users.png",
                 "brandColor": "#eb3c00"
             },
             {
                 "type": "apiconnectionwebhook",
                 "displayName": "${Resources.OFFICE}",
-                "iconUri": "https://connectoricons-prod.azureedge.net/office365/icon_1.0.1008.1183.png",
-                "brandColor": "#0072c5"
+                "iconUri": "https://logicappsresources.blob.core.windows.net/icons/office365.png",
+                "brandColor": "#0078D4"
             },
             {
                 "type": "apiconnection",
                 "displayName": "${Resources.SHAREPOINT}",
-                "iconUri": "https://az818438.vo.msecnd.net/icons/sharepointonline.png",
-                "brandColor": "#1b75bc"
+                "iconUri": "https://logicappsresources.blob.core.windows.net/icons/sharepoint.png",
+                "brandColor": "#036C70"
             }
         ],
         "changedTime": "2017-07-05T00:00:44.000Z",
