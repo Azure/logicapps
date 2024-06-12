@@ -31,6 +31,10 @@
   "type": "String",
   "value": ""
 },
+"sql_connectionString": { 
+    "type": "string", 
+    "value": ""
+},
   "openai_chat_deployment_model": {
     "type": "String",
     "value": ""

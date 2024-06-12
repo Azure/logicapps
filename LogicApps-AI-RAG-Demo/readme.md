@@ -118,8 +118,9 @@ There are 2 projects that need to be created and published to Azure:
     - Go to your Tokenize Function App
        - On the `Overview` page. Copy the `URL` value and place its value into the `value` field of the `tokenize_function_url` property. Then append `/api/tokenize_trigger` to the end of the url.
  
-    - Go to your SQL Server and copy the name of the table which would be the source of data
-       - Place the value of table name into the `value` field of the `sql_table_name` property. 
+    - Go to your SQL Server in Azure Portal or in SQL Management Studio
+       - Copy the name of the table which would be the source of data. Place the value of table name into the `value` field of the `sql_table_name` property. 
+       - Copy the `Conenction Strings` for the SQL database. Place the value into the  `sql_connectionString` property
 
 
  7. Deploy your Logic App:
