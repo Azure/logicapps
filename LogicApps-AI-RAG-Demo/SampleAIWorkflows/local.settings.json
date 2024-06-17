@@ -1,0 +1,10 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "openai_openAIKey": "",
+    "openai_openAIEndpoint": "",
+    "sql_connectionString": "",
+    "azureaisearch_searchServiceEndpoint": "",
+    "azureaisearch_searchServiceAdminKey": ""
+  }
+}

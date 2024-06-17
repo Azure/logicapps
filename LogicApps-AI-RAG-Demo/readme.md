@@ -100,28 +100,37 @@ There are 2 projects that need to be created and published to Azure:
     - Press Enter to use the default `Stateful` name. This can be deleted later
     - Select `Yes` if asked to overwrite any existing files
 
+ 5. Update your `local.settings.json` file:
+    - Open the `local.settings.json` file
+    - Go to your Azure OpenAI service in the portal
+       - Under the `Resource Management` menu click `Keys and Endpoint`
+         - Copy the `KEY 1` value and place its value into the `value` field of the `openai_openAIKey` property
+         - Copy the `Endpoint` value and place its values into the `value` field of the `openai_openAIEndpoint` property
+   - Go to your Azure AI Search service in the portal
+       - On the `Overview` page copy the `Url` value. Place its value in the `value` field of the `azureaisearch_searchServiceEndpoint` property
+       - Under the `Settings` menu click `Keys`. Copy either the `Primary` or `Secondary` admin key and place its value into the `value` field of the `azureaisearch_searchServiceAdminKey` property
+   - Go to your SQL Server in Azure Portal or in SQL Management Studio
+       - Copy the `Conenction Strings` for the SQL database. Place the value into the `sql_connectionString` property
+
  5. Update your `parameters.json` file:
     - Open the `parameters.json` file
     - Go to your Azure OpenAI service in the portal
-       - Under the `Resource Management` menu click `Keys and Endpoint`
-         - Copy the `KEY 1` value and place its value into the `value` field of the `openai_api_key` property
-         - Copy the `Endpoint` value and place its values into the `value` field of the `openai_endpoint` property
        - Under the `Resource Management` menu click `Model deployments`
          - Click `Manage Deployments`
          - Copy the `Deployment name` of the embeddings model you want to use and place its value into the `value` field of the `openai_embeddings_deployment_model` property
          - Copy the `Deployment name` of the chat model you want to use and place its value into the `value` field of the `openai_chat_deployment_model` property
 
     - Go to your Azure AI Search service in the portal
-       - On the `Overview` page copy the `Url` value. Place its value in the `value` field of the `aisearch_endpoint` property
-       - Under the `Settings` menu click `Keys`. Copy either the `Primary` or `Secondary` admin key and place its value into the `value` field of the `aisearch_admin_key` property
+       - Under the `Resource Management` menu click `Indexes`
+         - Copy the name of index that you want to use and place its value into the `value` field of the `oaisearch_index_name` property
+
 
     - Go to your Tokenize Function App
        - On the `Overview` page. Copy the `URL` value and place its value into the `value` field of the `tokenize_function_url` property. Then append `/api/tokenize_trigger` to the end of the url.
  
     - Go to your SQL Server in Azure Portal or in SQL Management Studio
        - Copy the name of the table which would be the source of data. Place the value of table name into the `value` field of the `sql_table_name` property. 
-       - Copy the `Conenction Strings` for the SQL database. Place the value into the  `sql_connectionString` property
-
+  
 
  7. Deploy your Logic App:
     - Go to the Azure Logic Apps extension
