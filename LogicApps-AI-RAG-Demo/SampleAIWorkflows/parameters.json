@@ -1,0 +1,22 @@
+{
+  "tokenize_function_url": {
+    "type": "String",
+    "value": ""
+  },
+  "openai_embedding_deployment_model": {
+    "type": "String",
+    "value": ""
+  },
+  "aisearch_index_name": { 
+    "type": "string", 
+    "value": ""
+  },
+  "sql_table_name": {
+  "type": "String",
+  "value": ""
+  },
+  "openai_chat_deployment_model": {
+    "type": "String",
+    "value": ""
+  }
+}

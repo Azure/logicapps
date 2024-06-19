@@ -1,0 +1,37 @@
+{
+  "serviceProviderConnections": {
+    "sql": {
+      "parameterValues": {
+        "connectionString": "@parameters('sql_connectionString')"
+      },
+      "parameterSetName": "connectionString",
+      "serviceProvider": {
+        "id": "/serviceProviders/sql"
+      },
+      "displayName": "sql-con"
+    },
+    "openai": {
+      "parameterValues": {
+        "openAIEndpoint": "@parameters('openai_openAIEndpoint')",
+        "openAIKey": "@parameters('openai_openAIKey')"
+      },
+      "parameterSetName": "KeyAndEndpointConnection",
+      "serviceProvider": {
+        "id": "/serviceProviders/openai"
+      },
+      "displayName": "openai-con"
+    },
+    "azureaisearch": {
+      "parameterValues": {
+        "searchServiceEndpoint": "@parameters('azureaisearch_searchServiceEndpoint')",
+        "searchServiceAdminKey": "@parameters('azureaisearch_searchServiceAdminKey')"
+      },
+      "parameterSetName": "ConnectionString",
+      "serviceProvider": {
+        "id": "/serviceProviders/azureaisearch"
+      },
+      "displayName": "aisearch-con"
+    }
+  },
+  "managedApiConnections": {}
+}
