@@ -1,3 +1,3 @@
-# use case: 
-# access token for stack overflow
-# connection strings for storage account and OpenAI and AI Search resources
+# Use case: 
+# Do not forget to generate and add the access token for stack overflow API
+# Please add the connection strings for storage account, OpenAI, AI Search and Outlook resources
