@@ -1,0 +1,22 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_EXTENSION_VERSION": "~4",
+    "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING": "",
+    "WEBSITE_SITE_NAME": "testAILA",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "APP_KIND": "workflowApp",
+    "WEBSITE_AUTH_ENABLED": "False",
+    "AzureWebJobsStorage": "",
+    "AzureFunctionsJobHost__extensionBundle__id": "Microsoft.Azure.Functions.ExtensionBundle.Workflows",
+    "AzureBlob_13_connectionString": "",
+    "ScmType": "None",
+    "AzureBlob_blobStorageEndpoint": "",
+    "WEBSITE_CONTENTSHARE": "testailaaa57",
+    "FUNCTIONS_RUNTIME_SCALE_MONITORING_ENABLED": "1",
+    "AzureFunctionsJobHost__extensionBundle__version": "[1.*, 2.0.0)",
+    "WEBSITE_SLOT_NAME": "Production",
+    "WEBSITE_NODE_DEFAULT_VERSION": "18.19.1",
+    "Workflows.ingest-data.FlowState": "Enabled"
+  }
+}

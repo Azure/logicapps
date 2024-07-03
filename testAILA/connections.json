@@ -1,0 +1,117 @@
+{
+  "managedApiConnections": {
+    "azureblob-2": {
+      "api": {
+        "id": ""
+      },
+      "connection": {
+        "id": ""
+      },
+      "authentication": {
+        "type": "ManagedServiceIdentity"
+      },
+      "connectionRuntimeUrl": ""
+    },
+    "outlook": {
+      "api": {
+        "id": ""
+      },
+      "connection": {
+        "id": ""
+      },
+      "authentication": {
+        "type": "ManagedServiceIdentity"
+      },
+      "connectionRuntimeUrl": ""
+    },
+    "office365": {
+      "api": {
+        "id": ""
+      },
+      "connection": {
+        "id": ""
+      },
+      "authentication": {
+        "type": "ManagedServiceIdentity"
+      },
+      "connectionRuntimeUrl": ""
+    }
+  },
+  "serviceProviderConnections": {
+    "AzureBlob": {
+      "parameterValues": {
+        "blobStorageEndpoint": "@appsetting('AzureBlob_blobStorageEndpoint')",
+        "authProvider": {
+          "Type": "ManagedServiceIdentity"
+        }
+      },
+      "parameterSetName": "ManagedServiceIdentity",
+      "serviceProvider": {
+        "id": "/serviceProviders/AzureBlob"
+      },
+      "displayName": "blob-connection"
+    },
+    "AzureBlob-1": {
+      "parameterValues": {
+        "connectionString": "@appsetting('AzureBlob_11_connectionString')"
+      },
+      "parameterSetName": "connectionString",
+      "serviceProvider": {
+        "id": "/serviceProviders/AzureBlob"
+      },
+      "displayName": "blob-con1"
+    },
+    "AzureBlob-3": {
+      "parameterValues": {
+        "connectionString": "@appsetting('AzureBlob_13_connectionString')"
+      },
+      "parameterSetName": "connectionString",
+      "serviceProvider": {
+        "id": "/serviceProviders/AzureBlob"
+      },
+      "displayName": "blob-con-divya"
+    },
+    "AzureBlob-4": {
+      "parameterValues": {
+        "connectionString": "@appsetting('AzureBlob_14_connectionString')"
+      },
+      "parameterSetName": "connectionString",
+      "serviceProvider": {
+        "id": "/serviceProviders/AzureBlob"
+      },
+      "displayName": "blob-con-div-2"
+    },
+    "AzureBlob-5": {
+      "parameterValues": {
+        "connectionString": "@appsetting('AzureBlob_15_connectionString')"
+      },
+      "parameterSetName": "connectionString",
+      "serviceProvider": {
+        "id": "/serviceProviders/AzureBlob"
+      },
+      "displayName": "test-demo"
+    },
+    "openai": {
+      "displayName": "openai",
+      "parameterSetName": "NotSpecified",
+      "parameterValues": {
+        "openAIEndpoint": "@parameters('openai_endpoint')",
+        "openAIKey": "@parameters('openai_api_key')"
+      },
+      "serviceProvider": {
+        "id": "/serviceProviders/openai"
+      }
+    },
+    "azureaisearch": {
+      "displayName": "openAI-connection",
+      "parameterSetName": "ConnectionString",
+      "parameterValues": {
+        "searchServiceAdminKey": "@parameters('aisearch_admin_key')",
+        "searchServiceEndpoint": "@parameters('aisearch_endpoint')"
+      },
+      "serviceProvider": {
+        "id": "/serviceProviders/azureaisearch"
+      }
+    }
+  }
+}
