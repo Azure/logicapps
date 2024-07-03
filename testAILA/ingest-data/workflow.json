@@ -1,0 +1,165 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "actions": {
+      "Compose": {
+        "type": "Compose",
+        "inputs": {
+          "base64Content": "@triggerBody()?['content']['$content']",
+          "documentType": "pdf",
+          "splittingStrategy": "recursive",
+          "tokenLength": 512
+        },
+        "runAfter": {}
+      },
+      "Convert_tokenized_output_to_JSON": {
+        "type": "ParseJson",
+        "inputs": {
+          "content": "@body('Tokenize_document')",
+          "schema": {
+            "items": {
+              "properties": {
+                "content": {
+                  "type": "string"
+                },
+                "metadata": {
+                  "properties": {
+                    "page": {
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                },
+                "tokenLength": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "content",
+                "tokenLength",
+                "metadata"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "runAfter": {
+          "Tokenize_document": [
+            "SUCCEEDED"
+          ]
+        }
+      },
+      "Select_JSON_array_items": {
+        "type": "Select",
+        "inputs": {
+          "from": "@range(0, length(body('Convert_tokenized_output_to_JSON')))",
+          "select": "@body('Convert_tokenized_output_to_JSON')[item()]['content']"
+        },
+        "runAfter": {
+          "Convert_tokenized_output_to_JSON": [
+            "SUCCEEDED"
+          ]
+        }
+      },
+      "Tokenize_document": {
+        "type": "Http",
+        "inputs": {
+          "uri": "@parameters('tokenize_function_url')",
+          "method": "POST",
+          "body": "@outputs('Compose')"
+        },
+        "runAfter": {
+          "Compose": [
+            "SUCCEEDED"
+          ]
+        },
+        "runtimeConfiguration": {
+          "contentTransfer": {
+            "transferMode": "Chunked"
+          }
+        }
+      },
+      "For_each": {
+        "type": "foreach",
+        "foreach": "@outputs('Select_JSON_array_items')['body']",
+        "actions": {
+          "Get_an_embedding": {
+            "type": "ServiceProvider",
+            "inputs": {
+              "parameters": {
+                "deploymentId": "text-embedding",
+                "input": "@items('For_each')"
+              },
+              "serviceProviderConfiguration": {
+                "connectionName": "openai",
+                "operationId": "getSingleEmbedding",
+                "serviceProviderId": "/serviceProviders/openai"
+              }
+            }
+          },
+          "Select_embeddings": {
+            "type": "Select",
+            "inputs": {
+              "from": "@range(0, length(body('Convert_tokenized_output_to_JSON')))",
+              "select": {
+                "content": "@body('Convert_tokenized_output_to_JSON')[item()]['content']",
+                "documentName": "azure-logic-apps.pdf",
+                "embeddings1536": "@body('Get_an_embedding')['embedding']",
+                "id": "@concat('LogicAppDocs', item())"
+              }
+            },
+            "runAfter": {
+              "Get_an_embedding": [
+                "SUCCEEDED"
+              ]
+            }
+          },
+          "Index_documents": {
+            "type": "ServiceProvider",
+            "inputs": {
+              "parameters": {
+                "indexName": "@parameters('aisearch_index_name')",
+                "documents": "@body('Select_embeddings')"
+              },
+              "serviceProviderConfiguration": {
+                "connectionName": "azureaisearch",
+                "operationId": "indexDocuments",
+                "serviceProviderId": "/serviceProviders/azureaisearch"
+              }
+            },
+            "runAfter": {
+              "Select_embeddings": [
+                "SUCCEEDED"
+              ]
+            }
+          }
+        },
+        "runAfter": {
+          "Select_JSON_array_items": [
+            "SUCCEEDED"
+          ]
+        }
+      }
+    },
+    "contentVersion": "1.0.0.0",
+    "outputs": {},
+    "parameters": {},
+    "triggers": {
+      "When_a_blob_is_added_or_updated": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "path": "aicontainer"
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "AzureBlob-5",
+            "operationId": "whenABlobIsAddedOrModified",
+            "serviceProviderId": "/serviceProviders/AzureBlob"
+          }
+        }
+      }
+    }
+  },
+  "kind": "Stateful"
+}

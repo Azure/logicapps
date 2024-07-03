@@ -1,0 +1,328 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "actions": {
+      "HTTP": {
+        "type": "Http",
+        "inputs": {
+          "uri": "https://api.stackexchange.com/2.3/questions/unanswered/my-tags?key=U4DMV*8nvpm3EOpvf69Rxw((&site=stackoverflow&order=desc&sort=activity&access_token={your_access_token}&filter=default",
+          "method": "GET"
+        },
+        "runAfter": {},
+        "runtimeConfiguration": {
+          "contentTransfer": {
+            "transferMode": "Chunked"
+          }
+        }
+      },
+      "system_message": {
+        "type": "Compose",
+        "inputs": "You are an intelligent assistant helping logic app users with their stack overflow questions. .Use 'you' to refer to the individual asking the questions even if they ask with 'I'.Answer the following question using only the data provided in the sources below. Each source has a name followed by colon and the actual information, always include the source name for each fact you use in the response. If you cannot answer using the sources below, say you don't know. ",
+        "runAfter": {
+          "HTTP": [
+            "SUCCEEDED"
+          ]
+        }
+      },
+      "sample_responses": {
+        "type": "Compose",
+        "inputs": [
+          {
+            "message": "What is the difference between Consumption and Standard SKU",
+            "role": "user"
+          },
+          {
+            "message": "Show distinct documentation on different SKUs",
+            "role": "assistant"
+          },
+          {
+            "message": "What are built-in actions",
+            "role": "user"
+          },
+          {
+            "message": "Built in action vs Managed",
+            "role": "assistant"
+          }
+        ],
+        "runAfter": {
+          "system_message": [
+            "SUCCEEDED"
+          ]
+        }
+      },
+      "Parse_JSON_to_use_API_fields": {
+        "type": "ParseJson",
+        "inputs": {
+          "content": "@body('HTTP')",
+          "schema": {
+            "properties": {
+              "items": {
+                "items": {
+                  "properties": {
+                    "answer_count": {
+                      "type": "integer"
+                    },
+                    "content_license": {
+                      "type": "string"
+                    },
+                    "creation_date": {
+                      "type": "integer"
+                    },
+                    "is_answered": {
+                      "type": "boolean"
+                    },
+                    "last_activity_date": {
+                      "type": "integer"
+                    },
+                    "last_edit_date": {
+                      "type": "integer"
+                    },
+                    "link": {
+                      "type": "string"
+                    },
+                    "owner": {
+                      "properties": {
+                        "account_id": {
+                          "type": "integer"
+                        },
+                        "display_name": {
+                          "type": "string"
+                        },
+                        "link": {
+                          "type": "string"
+                        },
+                        "profile_image": {
+                          "type": "string"
+                        },
+                        "reputation": {
+                          "type": "integer"
+                        },
+                        "user_id": {
+                          "type": "integer"
+                        },
+                        "user_type": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "question_id": {
+                      "type": "integer"
+                    },
+                    "score": {
+                      "type": "integer"
+                    },
+                    "tags": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "view_count": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "tags",
+                    "owner",
+                    "is_answered",
+                    "view_count",
+                    "answer_count",
+                    "score",
+                    "last_activity_date",
+                    "creation_date",
+                    "question_id",
+                    "content_license",
+                    "link",
+                    "title"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "runAfter": {
+          "sample_responses": [
+            "SUCCEEDED"
+          ]
+        }
+      },
+      "For_each": {
+        "type": "Foreach",
+        "foreach": "@body('Parse_JSON_to_use_API_fields')?['items']",
+        "actions": {
+          "HTTP_1": {
+            "type": "Http",
+            "inputs": {
+              "uri": "@item()?['link']",
+              "method": "GET"
+            },
+            "runtimeConfiguration": {
+              "contentTransfer": {
+                "transferMode": "Chunked"
+              }
+            }
+          },
+          "Compose_1": {
+            "type": "Compose",
+            "inputs": "@concat(item()?['title'],body('HTTP_1'))",
+            "runAfter": {
+              "HTTP_1": [
+                "SUCCEEDED"
+              ]
+            }
+          },
+          "Compose": {
+            "type": "Compose",
+            "inputs": "@substring(outputs('Compose_1'),0,8190)",
+            "runAfter": {
+              "Compose_1": [
+                "SUCCEEDED"
+              ]
+            }
+          },
+          "Get_the_title": {
+            "type": "Compose",
+            "inputs": {
+              "prompt": "@outputs('Compose')"
+            },
+            "runAfter": {
+              "Compose": [
+                "SUCCEEDED"
+              ]
+            }
+          },
+          "Gets_a_single_embedding": {
+            "type": "ServiceProvider",
+            "inputs": {
+              "parameters": {
+                "deploymentId": "text-embedding",
+                "input": "@outputs('Get_the_title')"
+              },
+              "serviceProviderConfiguration": {
+                "connectionName": "openai",
+                "operationId": "getSingleEmbedding",
+                "serviceProviderId": "/serviceProviders/openai"
+              }
+            },
+            "runAfter": {
+              "Get_the_title": [
+                "SUCCEEDED"
+              ]
+            }
+          },
+          "Vector_search": {
+            "type": "ServiceProvider",
+            "inputs": {
+              "parameters": {
+                "indexName": "ps-copilot",
+                "searchVector": {
+                  "fieldName": "embeddings1536",
+                  "vector": "@body('Gets_a_single_embedding')['embedding']"
+                },
+                "kNearestNeighbors": 3
+              },
+              "serviceProviderConfiguration": {
+                "connectionName": "azureaisearch",
+                "operationId": "vectorSearch",
+                "serviceProviderId": "/serviceProviders/azureaisearch"
+              }
+            },
+            "runAfter": {
+              "Gets_a_single_embedding": [
+                "SUCCEEDED"
+              ]
+            }
+          },
+          "create_prompt": {
+            "type": "JavaScriptCode",
+            "inputs": {
+              "code": "var search_results = workflowContext.actions.Vector_Search.outputs.body;\nvar system_message = workflowContext.actions.system_message.outputs;\n\nvar sources = \"\"\nfor (let i=0;i<search_results.length;i++)\n{\n    sources = sources + \"\\n\" + search_results[i]['title'] +\": page number \" + search_results[i]['id']\n}\n\nvar system_message = system_message + \"\\n\" + \"Sources: \\n\" + sources\n\nreturn system_message\n"
+            },
+            "runAfter": {
+              "Vector_search": [
+                "SUCCEEDED"
+              ]
+            }
+          },
+          "Get_chat_completions": {
+            "type": "ServiceProvider",
+            "inputs": {
+              "parameters": {
+                "deploymentId": "psrivasModel",
+                "messages": [
+                  {
+                    "message": "@outputs('create_prompt')",
+                    "role": "system"
+                  },
+                  {
+                    "message": "@outputs('Get_the_title')['prompt']",
+                    "role": "user"
+                  }
+                ]
+              },
+              "serviceProviderConfiguration": {
+                "connectionName": "openai",
+                "operationId": "getChatCompletions",
+                "serviceProviderId": "/serviceProviders/openai"
+              }
+            },
+            "runAfter": {
+              "create_prompt": [
+                "SUCCEEDED"
+              ]
+            }
+          },
+          "Send_approval_email": {
+            "type": "ApiConnectionWebhook",
+            "inputs": {
+              "host": {
+                "connection": {
+                  "referenceName": "office365"
+                }
+              },
+              "body": {
+                "NotificationUrl": "@{listCallbackUrl()}",
+                "Message": {
+                  "To": "shahparth@microsoft.com",
+                  "Body": "Here is the question: @{item()?['title']}\n\nHere is the answer: @{body('Get_chat_completions')?['content']}",
+                  "Importance": "Normal",
+                  "HideHTMLMessage": false,
+                  "ShowHTMLConfirmationDialog": false,
+                  "Subject": "Approval Request for answering question",
+                  "Options": "Approve, Reject"
+                }
+              },
+              "path": "/approvalmail/$subscriptions"
+            },
+            "runAfter": {
+              "Get_chat_completions": [
+                "SUCCEEDED"
+              ]
+            }
+          }
+        },
+        "runAfter": {
+          "Parse_JSON_to_use_API_fields": [
+            "SUCCEEDED"
+          ]
+        }
+      }
+    },
+    "contentVersion": "1.0.0.0",
+    "outputs": {},
+    "triggers": {
+      "When_a_HTTP_request_is_received": {
+        "type": "Request",
+        "kind": "Http"
+      }
+    }
+  },
+  "kind": "Stateful"
+}
