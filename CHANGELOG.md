@@ -1,7 +1,19 @@
 # Azure Logic Apps (Standard)
 
-## Bundle and NuGet version 1.70.x
+## Bundle and NuGet version 1.81.x
+- **Service Bus** built-in connector: Added new peek-lock triggers and actions to remove dependency on fixed role instances for App Service Plan. The runtime is still supported for the existing operations. The designer uses the new operations for new workflows.
+- **File System** built-in connector: For the **Append File** action, add new input parameter to create file, if non-existent.
+- **File System** built-in connector: For the **Get File Content** action, add the **inferContentType** parameter.
+- Workflow template: Fixed error handling for workflow template expression resolution errors.
+- XML handling: Fixed inconsistent handling of various XML errors. The service now handles a range of .NET XML implementation parsing exceptions.
+- **Azure OpenAI** and **Azure AI Search** built-in connectors: Now generally available with this change.
+- **Data Operations** built-in actions: The **Chunk text** and **Parse a document** actions are now in Preview.
+- **Call a local function in this logic app** built-in action: Added .NET 8 support for calling custom .NET code.
+- **Integration Account Artifact Lookup** built-in action: Fixed a caching bug that caused the action to take a long time to complete.
+- Various bug fixes and improvements
+<br><br>
 
+## Bundle and NuGet version 1.70.x
 - **Azure OpenAI** and **Azure AI Search** built-in connectors: Now generally available with this change.
 - **3270**, **Host File**, **CICS**, **IMS**, and **IBM i** built-in connectors: Now generally available with this change.
 - **Azure Service Bus** built-in connector: Added support to get deferred messages.
