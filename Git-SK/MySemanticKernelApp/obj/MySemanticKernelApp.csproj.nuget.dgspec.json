@@ -1,0 +1,94 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\shahparth\\OneDrive - Microsoft\\Desktop\\Git-SK\\MySemanticKernelApp\\MySemanticKernelApp.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\shahparth\\OneDrive - Microsoft\\Desktop\\Git-SK\\MySemanticKernelApp\\MySemanticKernelApp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\shahparth\\OneDrive - Microsoft\\Desktop\\Git-SK\\MySemanticKernelApp\\MySemanticKernelApp.csproj",
+        "projectName": "MySemanticKernelApp",
+        "projectPath": "C:\\Users\\shahparth\\OneDrive - Microsoft\\Desktop\\Git-SK\\MySemanticKernelApp\\MySemanticKernelApp.csproj",
+        "packagesPath": "C:\\Users\\shahparth\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\shahparth\\OneDrive - Microsoft\\Desktop\\Git-SK\\MySemanticKernelApp\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\shahparth\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.Extensions.Logging": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.Logging.Console": {
+              "target": "Package",
+              "version": "(, )"
+            },
+            "Microsoft.Extensions.Logging.Debug": {
+              "target": "Package",
+              "version": "(, )"
+            },
+            "Microsoft.Identity.Client": {
+              "target": "Package",
+              "version": "[4.61.3, )"
+            },
+            "Microsoft.SemanticKernel": {
+              "target": "Package",
+              "version": "[1.15.1, )"
+            },
+            "Microsoft.SemanticKernel.Plugins.OpenApi": {
+              "target": "Package",
+              "version": "[1.6.3-alphaclear, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
