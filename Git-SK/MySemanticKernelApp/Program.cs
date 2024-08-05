@@ -54,7 +54,7 @@ catch (MsalException ex)
 #pragma warning disable SKEXP0042 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
 await kernel.ImportPluginFromOpenApiAsync(
         pluginName: "pstest",
-        uri: new Uri("{https://{logic-app-name}.azurewebsites.net}/swagger.json"),
+        uri: new Uri("https://{logic-app-name}.azurewebsites.net/swagger.json"),
         executionParameters: new OpenApiFunctionExecutionParameters()
             {
                 HttpClient = new HttpClient()
