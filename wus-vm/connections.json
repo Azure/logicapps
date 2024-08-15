@@ -1,0 +1,47 @@
+{
+  "serviceProviderConnections": {
+    "AzureBlob": {
+      "parameterValues": {
+        "connectionString": "@appsetting('AzureBlob_connectionString')"
+      },
+      "parameterSetName": "connectionString",
+      "serviceProvider": {
+        "id": "/serviceProviders/AzureBlob"
+      },
+      "displayName": "blob-con"
+    },
+    "FileSystem": {
+      "parameterValues": {
+        "mountPath": "@appsetting('FileSystem_mountPath')"
+      },
+      "serviceProvider": {
+        "id": "/serviceProviders/FileSystem"
+      },
+      "displayName": "vm"
+    },
+    "AzureBlob-1": {
+      "parameterValues": {
+        "connectionString": "@appsetting('AzureBlob_11_connectionString')"
+      },
+      "parameterSetName": "connectionString",
+      "serviceProvider": {
+        "id": "/serviceProviders/AzureBlob"
+      },
+      "displayName": "blob-write"
+    }
+  },
+  "managedApiConnections": {
+    "outlook": {
+      "api": {
+        "id": ""
+      },
+      "connection": {
+        "id": "/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/V1workflows/providers/Microsoft.Web/connections/outlook-3"
+      },
+      "authentication": {
+        "type": "ManagedServiceIdentity"
+      },
+      "connectionRuntimeUrl": ""
+    }
+  }
+}

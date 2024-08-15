@@ -1,0 +1,140 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "actions": {
+      "List_files_and_subfolders_in_a_folder": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "folderPath": "/"
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "FileSystem",
+            "operationId": "listFolder",
+            "serviceProviderId": "/serviceProviders/FileSystem"
+          }
+        },
+        "runAfter": {
+          "Start_VM": [
+            "SUCCEEDED"
+          ]
+        }
+      },
+      "For_each": {
+        "type": "foreach",
+        "foreach": "@outputs('List_files_and_subfolders_in_a_folder')?['body']",
+        "actions": {
+          "Condition": {
+            "type": "If",
+            "expression": {
+              "and": [
+                {
+                  "not": {
+                    "equals": [
+                      "@items('For_each')",
+                      ""
+                    ]
+                  }
+                }
+              ]
+            },
+            "actions": {
+              "Get_file_content_(V2)": {
+                "type": "ServiceProvider",
+                "inputs": {
+                  "parameters": {
+                    "filePath": "@item()?['path']",
+                    "inferContentType": true
+                  },
+                  "serviceProviderConfiguration": {
+                    "connectionName": "FileSystem",
+                    "operationId": "getFileContentV2",
+                    "serviceProviderId": "/serviceProviders/FileSystem"
+                  }
+                }
+              },
+              "Upload_blob_to_storage_container": {
+                "type": "ServiceProvider",
+                "inputs": {
+                  "parameters": {
+                    "containerName": "statements",
+                    "blobName": "@item()?['name']",
+                    "content": "@body('Get_file_content_(V2)')"
+                  },
+                  "serviceProviderConfiguration": {
+                    "connectionName": "AzureBlob-1",
+                    "operationId": "uploadBlob",
+                    "serviceProviderId": "/serviceProviders/AzureBlob"
+                  }
+                },
+                "runAfter": {
+                  "Get_file_content_(V2)": [
+                    "SUCCEEDED"
+                  ]
+                }
+              }
+            },
+            "else": {
+              "actions": {
+                "Send_an_email_(V2)": {
+                  "type": "ApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connection": {
+                        "referenceName": "outlook"
+                      }
+                    },
+                    "method": "post",
+                    "body": {
+                      "To": "",
+                      "Subject": "ACTION REQUIRED: Bank reconciliation did not run",
+                      "Body": "<p>In the file system, there were no statements available. Here is the path: @{item()?['path']}</p>",
+                      "Importance": "Normal"
+                    },
+                    "path": "/v2/Mail"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "runAfter": {
+          "List_files_and_subfolders_in_a_folder": [
+            "SUCCEEDED"
+          ]
+        }
+      },
+      "Start_VM": {
+        "type": "PowershellCode",
+        "inputs": {
+          "CodeFile": "start_vm.ps1"
+        },
+        "runAfter": {}
+      },
+      "Deallocate_VM": {
+        "type": "PowershellCode",
+        "inputs": {
+          "CodeFile": "deallocate_vm.ps1"
+        },
+        "runAfter": {
+          "For_each": [
+            "SUCCEEDED"
+          ]
+        }
+      }
+    },
+    "contentVersion": "1.0.0.0",
+    "outputs": {},
+    "triggers": {
+      "Recurrence": {
+        "type": "Recurrence",
+        "recurrence": {
+          "interval": 1,
+          "frequency": "Month",
+          "timeZone": "Pacific Standard Time"
+        }
+      }
+    }
+  },
+  "kind": "Stateful"
+}
