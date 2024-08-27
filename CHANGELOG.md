@@ -1,5 +1,11 @@
 # Azure Logic Apps (Standard)
 
+## Bundle and NuGet version 1.87.x
+- .NET Framework (NetFx) Worker: Add retry logic.
+- Unsupported trigger type: Clarified error message.
+- Various bug fixes and improvements
+<br><br>
+
 ## Bundle and NuGet version 1.81.x
 - **Service Bus** built-in connector: Added new peek-lock triggers and actions to remove dependency on fixed role instances for App Service Plan. The runtime is still supported for the existing operations. The designer uses the new operations for new workflows.
 - **File System** built-in connector: For the **Append File** action, add new input parameter to create file, if non-existent.
