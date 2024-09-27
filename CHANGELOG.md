@@ -1,5 +1,12 @@
 # Azure Logic Apps (Standard)
 
+## Bundle and NuGet version 1.91.x
+- Custom code action: Enable support for external dependent assemblies in .NET 8.
+- Data storage persistence: Enable ZStandard compression.
+- **XML Compose** and **XML Parse**: Public preview for new built-in operations.
+- Various bug fixes and improvements
+<br><br>
+
 ## Bundle and NuGet version 1.87.x
 - .NET Framework (NetFx) Worker: Add retry logic.
 - Unsupported trigger type: Clarified error message.
