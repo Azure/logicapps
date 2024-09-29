@@ -1,0 +1,26 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FileSystem_password": "",
+    "FUNCTIONS_EXTENSION_VERSION": "~4",
+    "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING": "",
+    "WEBSITE_SITE_NAME": "wus-vm",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "WEBSITE_CONTENTOVERVNET": "1",
+    "APP_KIND": "workflowApp",
+    "WEBSITE_AUTH_ENABLED": "False",
+    "Workflows.bank-reconcilation.FlowState": "Enabled",
+    "AzureWebJobsStorage": "",
+    "AzureFunctionsJobHost__extensionBundle__id": "Microsoft.Azure.Functions.ExtensionBundle.Workflows",
+    "ScmType": "None",
+    "WEBSITE_CONTENTSHARE": "wus-vm9980",
+    "FUNCTIONS_RUNTIME_SCALE_MONITORING_ENABLED": "1",
+    "AzureFunctionsJobHost__extensionBundle__version": "[1.*, 2.0.0)",
+    "WEBSITE_SLOT_NAME": "Production",
+    "AzureBlob_connectionString": "",
+    "APPLICATIONINSIGHTS_CONNECTION_STRING": "",
+    "WEBSITE_NODE_DEFAULT_VERSION": "18.19.1",
+    "FileSystem_mountPath": "C:\\mounts\\FileSystem",
+    "AzureBlob_11_connectionString": ""
+  }
+}
