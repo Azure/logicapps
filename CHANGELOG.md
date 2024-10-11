@@ -5,20 +5,20 @@
 - Custom code action: Enable support for external dependent assemblies in .NET 8.
 - Visual Studio Code extension: Added ability to generate unit tests and mock data from existing runs.
 - Non-production slot logic apps: Enable more thorough workflow validation.
-- Various bug fixes and improvements..
+- Various bug fixes and improvements.
 <br><br>
 
 ## Bundle and NuGet version 1.91.x
 - Custom code action: Enable support for external dependent assemblies in .NET 8.
 - Data storage persistence: Enable ZStandard compression.
 - **XML Compose** and **XML Parse**: Public preview for new built-in operations.
-- Various bug fixes and improvements..
+- Various bug fixes and improvements.
 <br><br>
 
 ## Bundle and NuGet version 1.87.x
 - .NET Framework (NetFx) Worker: Add retry logic.
 - Unsupported trigger type: Clarified error message.
-- Various bug fixes and improvements..
+- Various bug fixes and improvements.
 <br><br>
 
 ## Bundle and NuGet version 1.81.x
@@ -31,7 +31,7 @@
 - **Data Operations** built-in actions: The **Chunk text** and **Parse a document** actions are now in Preview.
 - **Call a local function in this logic app** built-in action: Added .NET 8 support for calling custom .NET code.
 - **Integration Account Artifact Lookup** built-in action: Fixed a caching bug that caused the action to take a long time to complete.
-- Various bug fixes and improvements..
+- Various bug fixes and improvements.
 <br><br>
 
 ## Bundle and NuGet version 1.70.x
@@ -40,7 +40,7 @@
 - **Azure Service Bus** built-in connector: Added support to get deferred messages.
 - **Call local function in this logic app** built-in action: Supports .NET 8 Framework for authoring and running custom code.
 - **Execute CSharp Script Code** built-in action: Added new action.
-- Various bug fixes and improvements..
+- Various bug fixes and improvements.
 <br><br>
 
 ## Bundle and NuGet version 1.66.x
@@ -54,7 +54,7 @@
 - **XML Transform** action: Fixed a bug where action continues to run when artifact name isn't valid.
 - Azure Logic Apps runtime: Errors now appear in Azure portal notifications as error events, not information events.
 - **XML Validation** action: Supports nested schemas in an integration account.
-- Various bug fixes and improvements..
+- Various bug fixes and improvements.
 <br><br>
 
 ## Bundle and NuGet version 1.58.x
@@ -209,7 +209,7 @@
 <br><br>
 
 ## NuGet version 1.15.24 | Bundle version 1.15.24
-- Azure Service Bus built-in connector: Added support for **When messages are available...(peek-lock)** triggers and **Complete the message** action to run in stateful workflows.
+- Azure Service Bus built-in connector: Added support for **When messages are available..(peek-lock)** triggers and **Complete the message** action to run in stateful workflows.
 - Fixed an unhandled exception bug with the actions named Transform XML and XML Validation.
 - XML Transform action: Added support for using with integration account.
 - SAP
