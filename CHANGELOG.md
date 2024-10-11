@@ -209,7 +209,7 @@
 <br><br>
 
 ## NuGet version 1.15.24 | Bundle version 1.15.24
-- Azure Service Bus built-in connector: Added support for **When messages are available..(peek-lock)** triggers and **Complete the message** action to run in stateful workflows.
+- Azure Service Bus built-in connector: Added support for **When messages are available...(peek-lock)** triggers and **Complete the message** action to run in stateful workflows.
 - Fixed an unhandled exception bug with the actions named Transform XML and XML Validation.
 - XML Transform action: Added support for using with integration account.
 - SAP
