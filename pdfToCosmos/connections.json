@@ -1,0 +1,46 @@
+{
+  "serviceProviderConnections": {
+    "AzureBlob_pdf_ingestion": {
+      "parameterValues": {
+        "connectionString": "@appsetting('AzureBlob__pdf_ingestion_connectionString')"
+      },
+      "parameterSetName": "connectionString",
+      "serviceProvider": {
+        "id": "/serviceProviders/AzureBlob"
+      },
+      "displayName": "blob"
+    },
+    "AzureCosmosDB": {
+      "parameterValues": {
+        "connectionString": "@appsetting('AzureCosmosDB_connectionString')"
+      },
+      "serviceProvider": {
+        "id": "/serviceProviders/AzureCosmosDB"
+      },
+      "displayName": "docsDb"
+    },
+    "AzureBlob": {
+      "parameterValues": {
+        "connectionString": "@appsetting('AzureBlob_connectionString')"
+      },
+      "parameterSetName": "connectionString",
+      "serviceProvider": {
+        "id": "/serviceProviders/AzureBlob"
+      },
+      "displayName": "blob1"
+    },
+    "openai": {
+      "parameterValues": {
+        "openAIEndpoint": "@appsetting('openai_openAIEndpoint')",
+        "openAIKey": "@appsetting('openai_openAIKey')"
+      },
+      "parameterSetName": "KeyAndEndpointConnection",
+      "serviceProvider": {
+        "id": "/serviceProviders/openai"
+      },
+      "displayName": "openAI"
+    }
+    
+  },
+  "managedApiConnections": {}
+}

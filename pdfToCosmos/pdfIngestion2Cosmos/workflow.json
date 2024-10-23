@@ -1,0 +1,125 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "actions": {
+      "Chunk_text": {
+        "type": "ChunkText",
+        "inputs": {
+          "chunkingStrategy": "TokenSize",
+          "text": "@body('Parse_a_document')?['text']",
+          "EncodingModel": "cl100k_base",
+          "PageOverlapLength": 0,
+          "TokenSize": 2048
+        },
+        "runAfter": {
+          "Parse_a_document": [
+            "SUCCEEDED"
+          ]
+        }
+      },
+      "Get_multiple_embeddings": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "deploymentId": "@parameters('OpenAI_TextEmbedding_Deployment_Identifier_pdf_ingestion')",
+            "input": "@take(body('Chunk_text')?['value'], 10)"
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "openai",
+            "operationId": "getArrayEmbeddings",
+            "serviceProviderId": "/serviceProviders/openai"
+          }
+        },
+        "runAfter": {
+          "Chunk_text": [
+            "SUCCEEDED"
+          ]
+        }
+      },
+      "Parse_a_document": {
+        "type": "ParseDocument",
+        "inputs": {
+          "content": "@body('Read_blob_content')?['content']"
+        },
+        "runAfter": {
+          "Read_blob_content": [
+            "SUCCEEDED"
+          ]
+        }
+      },
+      "Read_blob_content": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "containerName": "@parameters('Blob_Path_pdf_ingestion')",
+            "blobName": "@triggerBody()?['name']"
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "AzureBlob",
+            "operationId": "readBlob",
+            "serviceProviderId": "/serviceProviders/AzureBlob"
+          }
+        },
+        "runAfter": {}
+      },
+      "Select_embeddings_and_map_to_CosmosDB": {
+        "type": "Select",
+        "inputs": {
+          "from": "@range(0, 10)",
+          "select": {
+            "content": "@body('Chunk_text')['value'][item()]",
+            "documentName": "@triggerBody()?['name']",
+            "vector": "@body('Get_multiple_embeddings')['embeddings'][item()]",
+            "docId": "@concat(triggerBody()?['name'], item())",
+            "category": "documents",
+            "id": "@concat('doc', item())"
+          }
+        },
+        "runAfter": {
+          "Get_multiple_embeddings": [
+            "SUCCEEDED"
+          ]
+        }
+      },
+      "Create_or_update_many_items_in_bulk": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "databaseId": "docs",
+            "containerId": "category",
+            "items": "@body('Select_embeddings_and_map_to_CosmosDB')",
+            "isUpsert": true
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "AzureCosmosDB",
+            "operationId": "BulkCreateOrUpdateDocument",
+            "serviceProviderId": "/serviceProviders/AzureCosmosDB"
+          }
+        },
+        "runAfter": {
+          "Select_embeddings_and_map_to_CosmosDB": [
+            "SUCCEEDED"
+          ]
+        }
+      }
+    },
+    "contentVersion": "1.0.0.0",
+    "outputs": {},
+    "triggers": {
+      "When_a_blob_is_added_or_updated": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "path": "@parameters('Blob_Path_pdf_ingestion')"
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "AzureBlob",
+            "operationId": "whenABlobIsAddedOrModified",
+            "serviceProviderId": "/serviceProviders/AzureBlob"
+          }
+        }
+      }
+    }
+  },
+  "kind": "stateful"
+}

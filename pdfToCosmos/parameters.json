@@ -1,0 +1,10 @@
+{
+  "Blob_Path_pdf_ingestion": {
+    "type": "String",
+    "value": "docs"
+  },
+  "OpenAI_TextEmbedding_Deployment_Identifier_pdf_ingestion": {
+    "type": "String",
+    "value": "text-embedding"
+  }
+}
