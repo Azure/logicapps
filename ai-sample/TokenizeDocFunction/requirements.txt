@@ -3,6 +3,6 @@
 # Manually managing azure-functions-worker may cause unexpected issues
 
 azure-functions
-langchain==0.0.326
+langchain==0.3.0
 tiktoken==0.5.1
 pypdf==3.15.5
