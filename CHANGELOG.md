@@ -1,24 +1,34 @@
 # Azure Logic Apps (Standard)
 
+## Bundle and NuGet version 1.114.x
+- Custom code action: Enable support for dependency injection in .NET 8
+- **FTP** built-in connector: Connection setup has an option to remove the connection after the operation completes.
+- mergeObjects(): New expression function that merges two JSON objects.
+- Parse XML action: Added support for **xs:ID** data type.
+- Various bug fixes and improvements
+<br><br>
+
 ## Bundle and NuGet version 1.94.x
 - Data storage persistence: Enable ZStandard compression.
-- Custom code action: Enable support for external dependent assemblies in .NET 8.
+
 - Visual Studio Code extension: Added ability to generate unit tests and mock data from existing runs.
+
 - Non-production slot logic apps: Enable more thorough workflow validation.
-- Various bug fixes and improvements.
+
+- Various bug fixes and improvements
 <br><br>
 
 ## Bundle and NuGet version 1.91.x
 - Custom code action: Enable support for external dependent assemblies in .NET 8.
 - Data storage persistence: Enable ZStandard compression.
 - **XML Compose** and **XML Parse**: Public preview for new built-in operations.
-- Various bug fixes and improvements.
+- Various bug fixes and improvements
 <br><br>
 
 ## Bundle and NuGet version 1.87.x
 - .NET Framework (NetFx) Worker: Add retry logic.
 - Unsupported trigger type: Clarified error message.
-- Various bug fixes and improvements.
+- Various bug fixes and improvements
 <br><br>
 
 ## Bundle and NuGet version 1.81.x
@@ -31,7 +41,7 @@
 - **Data Operations** built-in actions: The **Chunk text** and **Parse a document** actions are now in Preview.
 - **Call a local function in this logic app** built-in action: Added .NET 8 support for calling custom .NET code.
 - **Integration Account Artifact Lookup** built-in action: Fixed a caching bug that caused the action to take a long time to complete.
-- Various bug fixes and improvements.
+- Various bug fixes and improvements
 <br><br>
 
 ## Bundle and NuGet version 1.70.x
@@ -40,13 +50,13 @@
 - **Azure Service Bus** built-in connector: Added support to get deferred messages.
 - **Call local function in this logic app** built-in action: Supports .NET 8 Framework for authoring and running custom code.
 - **Execute CSharp Script Code** built-in action: Added new action.
-- Various bug fixes and improvements.
+- Various bug fixes and improvements
 <br><br>
 
 ## Bundle and NuGet version 1.66.x
 - **Service Bus** action: Added support for using sessions to get deferred messages in Service Bus operations.
 - **XML Transform** action: Fixed a bug where the action retried endlessly.
-- Various bug fixes and improvements.
+- Various bug fixes and improvements
 <br><br>
 
 ## Bundle and NuGet version 1.62.x
@@ -54,14 +64,14 @@
 - **XML Transform** action: Fixed a bug where action continues to run when artifact name isn't valid.
 - Azure Logic Apps runtime: Errors now appear in Azure portal notifications as error events, not information events.
 - **XML Validation** action: Supports nested schemas in an integration account.
-- Various bug fixes and improvements.
+- Various bug fixes and improvements
 <br><br>
 
 ## Bundle and NuGet version 1.58.x
 - **AS2** and **EDIFACT**: Operations use `$filter` to find the necessary agreement, eliminating the limit on the number of agreements.
 - **AS2** and **Flat File** operations: Added new settings.
 - **AS2**: Actions that work with Standard integration account now support more than 40 agreements.
-- Various bug fixes and improvements.
+- Various bug fixes and improvements
 <br><br>
 
 ## Bundle and NuGet version 1.55.x
@@ -75,12 +85,12 @@
 - **IMS** built-in, service provider-based operations: Now available.
 - **SI3270** built-in, service provider-based operations: Now available.
 - Premium integration account: Bug fix for null path, null map name, and null schema name.
-- Various bug fixes and improvements.
+- Various bug fixes and improvements
 <br><br>
 
 ## Bundle and NuGet version 1.49.x
 - **X12 Encode** built-in action: Added support for X12 interchange encode.
-- Various bug fixes and improvements.
+- Various bug fixes and improvements
 <br><br>
 
 ## Bundle and NuGet version 1.44.x
@@ -88,7 +98,7 @@
 - **X12 Decode** built-in action: Fix action to properly handle the CRLF delimiters.
 - **Transform XML** built-in action: Adding transform options so that you can, for example, disable the byte order mark during XML transformation.
 - **AS2** built-in actions: Increase agreement limit from 25 to 50 in an integration account.
-- Various bug fixes and improvements.
+- Various bug fixes and improvements
 <br><br>
 
 ## Bundle and NuGet version 1.41.x
@@ -102,11 +112,11 @@
 - Workflow Language Definition support for functions that encode and decode an XML element name and value: **encodeXmlValue()**, **decodeXmlValue()**, **encodeXmlName()**, and **decodeXmlName()** 
 - Enhanced Byte Order Mark (BOM) input support for string, binary and loading XML
 - AS2 built-in connector: Fixed bug with invalid callback URL validation.
-- Various bug fixes and improvements.
+- Various bug fixes and improvements
 <br><br>
 
 ## Bundle and NuGet version 1.33.x
-- Various bug fixes and improvements.
+- Various bug fixes and improvements
 <br><br>
 
 
@@ -114,15 +124,15 @@
 - Fix bug in JavaScript action to properly retry transient failures.
 - Increased `EventGridPublisherConnectionPoolSize` default value to `64`.
 - Fixed bug: SAP error **Unable to allocate client in pool, peak connections limit 10 exceeded**
-- Various bug fixes and improvements.
+- Various bug fixes and improvements
 <br><br>
 
 ## Bundle and NuGet version 1.23.x
-- Various bug fixes and improvements.
+- Various bug fixes and improvements
 <br><br>
 
 ## NuGet and Bundle version 1.21.13
-- Various bug fixes and improvements.
+- Various bug fixes and improvements
 <br><br>
 
 ## NuGet version 1.19.5 | Bundle version 1.19.5 Latest
@@ -307,7 +317,7 @@
 <br><br>
 
 ## NuGet version 1.2.3 | Bundle version 1.1.35
-- Various bug fixes and improvements.
+- Various bug fixes and improvements
 <br><br>
 
 ## NuGet version 1.2.2 | Bundle version 1.1.33
