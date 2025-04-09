@@ -1,7 +1,7 @@
 # Azure Logic Apps (Standard)
 
 ## Bundle and NuGet version 1.117.x
-- SAP built-in operations: Support for SafeType parameter in responses to SAP operations.
+- SAP built-in operations: The response to SAP operations supports the SafeType parameter.
 - Various bug fixes and improvements
 <br><br>
 
