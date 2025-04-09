@@ -1,5 +1,10 @@
 # Azure Logic Apps (Standard)
 
+## Bundle and NuGet version 1.117.x
+- SAP built-in operations: The response to SAP operations supports the SafeType parameter.
+- Various bug fixes and improvements
+<br><br>
+
 ## Bundle and NuGet version 1.114.x
 - Custom code action: Enable support for dependency injection in .NET 8
 - **FTP** built-in connector: Connection setup has an option to remove the connection after the operation completes.
