@@ -1,0 +1,16 @@
+{
+  "managedApiConnections": {},
+  "serviceProviderConnections": {
+    "openai": {
+      "parameterValues": {
+        "openAIEndpoint": "@appsetting('openai_openAIEndpoint')",
+        "openAIKey": "@appsetting('openai_openAIKey')"
+      },
+      "parameterSetName": "KeyAndEndpointConnection",
+      "serviceProvider": {
+        "id": "/serviceProviders/openai"
+      },
+      "displayName": "new-sampleconnection"
+    }
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "actions": {
+      "documents": {
+        "type": "Compose",
+        "inputs": [
+          {
+            "id": "1",
+            "title": "Dell Latitude 5540 Laptop",
+            "content": "Intel i7, 16GB RAM, 512GB SSD, standard issue for IT new hire onboarding"
+          },
+          {
+            "id": "2",
+            "title": "Docking Station",
+            "content": "Dell WD19S docking stations for dual monitor setup"
+          }
+        ],
+        "runAfter": {}
+      },
+      "question": {
+        "type": "Compose",
+        "inputs": [
+          {
+            "role": "user",
+            "content": "When did we last order laptops for new hires in IT?"
+          }
+        ],
+        "runAfter": {
+          "documents": [
+            "SUCCEEDED"
+          ]
+        }
+      },
+      "customer": {
+        "type": "Compose",
+        "inputs": {
+          "firstName": "Alex",
+          "lastName": "Taylor",
+          "department": "IT",
+          "employeeId": "E12345",
+          "orders": [
+            {
+              "name": "Dell Latitude 5540 Laptop",
+              "description": "Ordered 15 units for Q1 IT onboarding",
+              "date": "2024/02/20"
+            },
+            {
+              "name": "Docking Station",
+              "description": "Bulk purchase of 20 Dell WD19S docking stations",
+              "date": "2024/01/10"
+            }
+          ]
+        },
+        "runAfter": {
+          "question": [
+            "SUCCEEDED"
+          ]
+        }
+      },
+      "Get_chat_completions_using_Prompt_Template": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "deploymentId": "gpt-4o",
+            "promptTemplateInput": "system:\nYou are an AI assistant for Contoso's internal procurement team. You help employees get quick answers \nabout previous orders and product catalog details. Be brief, professional, and use markdown formatting \nwhen appropriate. Include the employee’s name in your response for a personal touch.\n\n# Product Catalog\nUse this documentation to guide your response. Include specific item names and any relevant descriptions.\n\n{% for item in documents %}\nCatalog Item ID: {{item.id}}\nName: {{item.title}}\nDescription: {{item.content}}\n{% endfor %}\n\n# Order History\nHere is the employee's procurement history to use as context when answering their question.\n\n{% for item in customer.orders %}\nOrder Item: {{item.name}}\nDetails: {{item.description}} — Ordered on {{item.date}}\n{% endfor %}\n\n# Employee Info\nName: {{customer.firstName}} {{customer.lastName}}  \nDepartment: {{customer.department}}  \nEmployee ID: {{customer.employeeId}}\n\n# Question\nThe employee has asked the following:\n\n{% for item in question %}\n{{item.role}}:\n{{item.content}}\n{% endfor %}\n\nBased on the product documentation and order history above, please provide a concise and helpful answer to their question. Do not fabricate information beyond the provided inputs.\n",
+            "temperature": 1,
+            "promptTemplateInputVariables": {
+              "documents": "@outputs('documents')",
+              "question": "@outputs('question')",
+              "customer": "@outputs('customer')"
+            }
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "openai",
+            "operationId": "getChatCompletionsUsingPromptTemplate",
+            "serviceProviderId": "/serviceProviders/openai"
+          }
+        },
+        "runAfter": {
+          "customer": [
+            "SUCCEEDED"
+          ]
+        }
+      }
+    },
+    "contentVersion": "1.0.0.0",
+    "outputs": {},
+    "triggers": {
+      "When_a_HTTP_request_is_received": {
+        "type": "Request",
+        "kind": "Http"
+      }
+    }
+  },
+  "kind": "Stateful"
+}
