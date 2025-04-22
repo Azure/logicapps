@@ -1,0 +1,23 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_EXTENSION_VERSION": "~4",
+    "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING": "<your-connection-string>",
+    "WEBSITE_SITE_NAME": "AI-sample-demo",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "APP_KIND": "workflowApp",
+    "WEBSITE_AUTH_ENABLED": "False",
+    "WEBSITE_DEFAULT_HOSTNAME": "<your-app-name>.azurewebsites.net",
+    "openai_openAIKey": "152f2b7d6fb84ba7972e51ec0383c56b",
+    "AzureFunctionsJobHost__extensionBundle__id": "Microsoft.Azure.Functions.ExtensionBundle.Workflows",
+    "ScmType": "None",
+    "openai_openAIEndpoint": "https://<your-azureopenai-endpoint>.openai.azure.com/",
+    "WEBSITE_CONTENTSHARE": "",
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_RUNTIME_SCALE_MONITORING_ENABLED": "1",
+    "AzureFunctionsJobHost__extensionBundle__version": "[1.*, 2.0.0)",
+    "WEBSITE_SLOT_NAME": "Production",
+    "APPLICATIONINSIGHTS_CONNECTION_STRING": "",
+    "WEBSITE_NODE_DEFAULT_VERSION": "20.18.3"
+  }
+}
