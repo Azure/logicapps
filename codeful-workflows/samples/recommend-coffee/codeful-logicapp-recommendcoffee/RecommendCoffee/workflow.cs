@@ -20,7 +20,7 @@ using LogicApps.Connectors.ServiceProviders.Openai;
 using LogicApps.Connectors.ServiceProviders.Azureaisearch;
 using LogicApps.Connectors.Managed.Outlook;
 
-namespace Company.Function.ServiceProviderSDKs
+namespace LogicApps.Codeful.RecommendCoffee
 {
     public static class WorkflowOrchestrator
     {
@@ -104,7 +104,7 @@ namespace Company.Function.ServiceProviderSDKs
 
             var message = new ClientSendHtmlMessage
             {
-                To = "koustephen@microsoft.com",
+                To = "nikhilsira@microsoft.com",
                 Subject = "Hello from Codeful",
                 Body = "Chat response: " + msgResponse
             };
@@ -122,7 +122,6 @@ namespace Company.Function.ServiceProviderSDKs
             [DurableClient] IDurableOrchestrationClient starter,
             ILogger log)
         {
-            /*
             var content = await req.Content.ReadAsStringAsync();
             using var requestStream = await req.Content.ReadAsStreamAsync();
             var options = new JsonSerializerOptions
@@ -130,22 +129,6 @@ namespace Company.Function.ServiceProviderSDKs
                 PropertyNameCaseInsensitive = true
             };
             var workflowInput = await JsonSerializer.DeserializeAsync<WhenAHTTPRequestIsReceivedInput>(requestStream, options);
-            */
-            var workflowInput = new WhenAHTTPRequestIsReceivedInput
-            {
-                OrderID = "order1235",
-                Customer = new CustomerType 
-                {
-                    Name = "Stephen Kou",
-                    Address = "1 Main street",
-                    Contact = "4083180914"
-                },
-                Items = [
-                    new ItemsItemType { ProductName = "Sprite", Qty = 2, Price = 3.33 },
-                    new ItemsItemType { ProductName = "Coca-Cola", Qty = 2, Price = 3.33 }
-                ],
-                Total = 12.33M
-            };
 
             log.LogInformation("Workflow Input = '{workflowInput}'.", JsonSerializer.Serialize(workflowInput));
 
@@ -199,4 +182,3 @@ namespace Company.Function.ServiceProviderSDKs
     }
 
 }
- 

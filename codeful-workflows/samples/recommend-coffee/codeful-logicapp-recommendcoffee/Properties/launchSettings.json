@@ -1,8 +1,8 @@
 {
   "profiles": {
-    "test_app": {
+    "codeful_logicapp": {
       "commandName": "Project",
-      "commandLineArgs": "--port 7046",
+      "commandLineArgs": "--port 7246",
       "launchBrowser": false
     }
   }

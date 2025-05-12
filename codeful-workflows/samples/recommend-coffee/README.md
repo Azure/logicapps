@@ -1,0 +1,2 @@
+To reference the nuget packages (For Logic App extension and Connectors SDK) place the 2 nuget packages that's in the nuget-packages folder in any folder and reference the folder in your nuget.config file.
+![image](https://github.com/user-attachments/assets/378d77e8-cbd8-42fe-9a10-d4dd4d236dcb)

@@ -3,7 +3,7 @@
   "Values": {
     "APP_KIND": "workflowapp",
     "FUNCTIONS_WORKER_RUNTIME": "node",
-    "ProjectDirectoryPath": "q:\\new-nuget-logicapps\\test\\test-app",
+    "ProjectDirectoryPath": "q:\\codeful-logicapp-sample\\codeful-logicapp-workspace\\codeful-logicapp-recommendcoffee",
     "AzureWebJobsSecretStorageType": "Files"
   }
 }

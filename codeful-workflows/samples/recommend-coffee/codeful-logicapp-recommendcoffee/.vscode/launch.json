@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Run/Debug logic app test-app",
+      "name": "Run/Debug logic app codeful-logicapp",
       "type": "coreclr",
       "request": "attach",
       "processId": "${command:azureLogicAppsStandard.pickProcess}"
