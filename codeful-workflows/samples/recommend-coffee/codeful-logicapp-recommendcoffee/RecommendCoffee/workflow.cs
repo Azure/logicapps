@@ -74,7 +74,7 @@ namespace LogicApps.Codeful.RecommendCoffee
                     new GetChatCompletionsInputMessagesTypeItem
                     {
                         Role = "User",
-                        Content = "[\"Light Roast\"]"
+                        Content = composeProductListResult,
                     }
                 ]
             };
@@ -95,8 +95,8 @@ namespace LogicApps.Codeful.RecommendCoffee
 
             var message = new ClientSendHtmlMessage
             {
-                To = "nikhilsira@microsoft.com",
-                Subject = "Hello from Codeful",
+                To = "<add-email-address-here>",
+                Subject = "Hello World from codeful workflow",
                 Body = "Chat response: " + msgResponse
             };
 

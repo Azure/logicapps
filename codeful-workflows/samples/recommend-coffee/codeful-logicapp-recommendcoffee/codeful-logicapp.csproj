@@ -34,11 +34,6 @@
   <ItemGroup>
     <LibDirectory Include="$(MSBuildProjectDirectory)\lib\**\*"/>
   </ItemGroup>
-  <ItemGroup>
-    <None Update="Stateful1\**\*.*">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
   <Target Name="CopyDynamicLibraries" AfterTargets="_GenerateFunctionsExtensionsMetadataPostPublish">
     <Copy SourceFiles="@(LibDirectory)" DestinationFiles="@(LibDirectory->'$(MSBuildProjectDirectory)\$(PublishUrl)\lib\%(RecursiveDir)%(Filename)%(Extension)')"/>
   </Target>
