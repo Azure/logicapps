@@ -1,0 +1,29 @@
+POST http://localhost:7071/api/RecommendCoffee HTTP/1.1
+content-type: application/json
+
+{
+    "orderID": "10234",
+    "customer": {
+        "name": "Stephen Thomas",
+        "address": "123 Main Street",
+        "contact": "kent@contoso.com"
+    },
+    "items": [
+        {
+            "productName": "Light Roast",
+            "qty": 1,
+            "price": 16.99
+        },
+        {
+            "productName": "Medium Blend",
+            "qty": 1,
+            "price": 16.99
+        },
+        {
+            "productName": "Morning Blend",
+            "qty": 1,
+            "price": 14.99
+        }
+    ],
+    "total": 46.52
+}
