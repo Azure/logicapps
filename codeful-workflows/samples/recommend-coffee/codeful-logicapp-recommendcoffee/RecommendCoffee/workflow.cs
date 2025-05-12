@@ -1,18 +1,14 @@
+//-----------------------------------------------------------
+// Copyright (c) Microsoft Corporation.  All rights reserved.
+//-----------------------------------------------------------
 using Microsoft.Azure.WebJobs.Extensions.DurableTask;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs;
-using Microsoft.DurableTask;
 using Microsoft.Extensions.Logging;
 using System.Text.Json;
-using Microsoft.Azure.Workflows.ServiceProviders.FileSystem.Entities;
-using Microsoft.Azure.Workflows.WebJobs.Extensions.Run;
-using Microsoft.Azure.Workflows.Data.Entities;
-using Newtonsoft.Json.Linq;
-using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using System.Threading.Tasks;
 using System.Net.Http;
-using System.Net.Http.Json;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -28,9 +24,7 @@ namespace LogicApps.Codeful.RecommendCoffee
         public static async Task<string> RunOrchestrator(
             [OrchestrationTrigger] IDurableOrchestrationContext context, ILogger log)
         {
-
             var triggerInput = context.GetInput<WhenAHTTPRequestIsReceivedInput>();
-            //log.LogInformation("Starting Recommend coffee orchestrator.");
 
             List<string> CoffeeArray = new();
             foreach (ItemsItemType forEachElement in triggerInput.Items)
@@ -38,7 +32,6 @@ namespace LogicApps.Codeful.RecommendCoffee
                 string composeResult = forEachElement.ProductName;
                 CoffeeArray.Add(composeResult);
             }
-            //log.LogInformation("CoffeeArray json : {result}", JsonSerializer.Serialize(CoffeeArray));
             string composeProductListResult = string.Join(',', CoffeeArray);
 
             var getAnEmbeddingInput = new GetSingleEmbeddingInput
@@ -51,7 +44,6 @@ namespace LogicApps.Codeful.RecommendCoffee
                 connectionId: "openai",
                 input: getAnEmbeddingInput);
 
-            //log.LogInformation("Embedding response : {result}", JsonSerializer.Serialize(embeddingResponse));
 
             var searchVectorsInput = new VectorSearchInput 
             { 
@@ -65,7 +57,6 @@ namespace LogicApps.Codeful.RecommendCoffee
             };
 
             var searchVectorsHttpOutput = await context.VectorSearchAsync("azureaisearch", searchVectorsInput);
-            // log.LogInformation("Vector search output : {result}", searchVectorsHttpOutputStr);
 
             log.LogInformation("Vector search output : {result}", searchVectorsHttpOutput.First()["content"].ToString());
 

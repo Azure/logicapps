@@ -4,9 +4,9 @@ content-type: application/json
 {
     "orderID": "10234",
     "customer": {
-        "name": "Stephen Thomas",
+        "name": "Jane Doe",
         "address": "123 Main Street",
-        "contact": "kent@contoso.com"
+        "contact": "janedoe@contoso.com"
     },
     "items": [
         {
