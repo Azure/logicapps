@@ -1,0 +1,202 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "actions": {
+      "Analyze_document_details": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "modelId": "prebuilt-layout",
+            "modelIdInputs": {
+              "content": "@body('Read_blob_content')?['content']",
+              "outputContentType": "Text"
+            }
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "documentIntelligence",
+            "operationId": "analyzeDocument",
+            "serviceProviderId": "/serviceProviders/documentIntelligence"
+          }
+        },
+        "runAfter": {
+          "Read_blob_content": [
+            "SUCCEEDED"
+          ]
+        }
+      },
+      "Read_blob_content": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "containerName": "exportblobcreate",
+            "blobName": "@triggerBody()?['name']"
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "AzureBlob",
+            "operationId": "readBlob",
+            "serviceProviderId": "/serviceProviders/AzureBlob"
+          }
+        },
+        "runAfter": {}
+      },
+      "Parse_a_document": {
+        "type": "ParseDocument",
+        "inputs": {
+          "content": "@body('Analyze_document_details')?['content']"
+        },
+        "runAfter": {
+          "Analyze_document_details": [
+            "SUCCEEDED"
+          ]
+        }
+      },
+      "Get_chat_completions": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "deploymentId": "gpt-4",
+            "messages": [
+              {
+                "role": "system",
+                "content": "You are an intelligent invoice parser. Given the following invoice text, extract the key fields as JSON. Return only the JSON in proper notation, do not add any markdown text or anything extra. Fields: invoice_number, vendor, invoice_date, due_date, total_amount, and line_items if available.\n"
+              },
+              {
+                "role": "user",
+                "content": "@body('Parse_a_document')?['text']"
+              }
+            ],
+            "temperature": 1
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "openai-1",
+            "operationId": "getChatCompletions",
+            "serviceProviderId": "/serviceProviders/openai"
+          }
+        },
+        "runAfter": {
+          "Parse_a_document": [
+            "SUCCEEDED"
+          ]
+        }
+      },
+      "Parse_JSON": {
+        "type": "ParseJson",
+        "inputs": {
+          "content": "@body('Get_chat_completions')?['content']",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "invoice_number": {
+                "type": "string"
+              },
+              "vendor": {
+                "type": "string"
+              },
+              "invoice_date": {
+                "type": "string"
+              },
+              "due_date": {
+                "type": "string"
+              },
+              "total_amount": {
+                "type": "string"
+              },
+              "line_items": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "SKU": {
+                      "type": "string"
+                    },
+                    "Description": {
+                      "type": "string"
+                    },
+                    "Quantity": {
+                      "type": "string"
+                    },
+                    "Unit Price": {
+                      "type": "string"
+                    },
+                    "Line Total": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "SKU",
+                    "Description",
+                    "Quantity",
+                    "Unit Price",
+                    "Line Total"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "runAfter": {
+          "Get_chat_completions": [
+            "SUCCEEDED"
+          ]
+        }
+      },
+      "Create_or_update_item": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "databaseId": "InvoicesDB",
+            "containerId": "Invoices",
+            "item": "@outputs('Compose')",
+            "partitionKey": "@body('Parse_JSON')?['invoice_number']",
+            "isUpsert": true
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "AzureCosmosDB",
+            "operationId": "CreateOrUpdateDocument",
+            "serviceProviderId": "/serviceProviders/AzureCosmosDB"
+          }
+        },
+        "runAfter": {
+          "Compose": [
+            "SUCCEEDED"
+          ]
+        }
+      },
+      "Compose": {
+        "type": "Compose",
+        "inputs": {
+          "id": "@{body('Parse_JSON')?['invoice_number']}",
+          "invoice_number": "@{body('Parse_JSON')?['invoice_number']}",
+          "vendor": "@{body('Parse_JSON')?['vendor']}",
+          "invoice_date": "@{body('Parse_JSON')?['invoice_date']}",
+          "due_date": "@{body('Parse_JSON')?['due_date']}",
+          "total_amount": "@{body('Parse_JSON')?['total_amount']}",
+          "line_items": "@body('Parse_JSON')?['line_items']"
+        },
+        "runAfter": {
+          "Parse_JSON": [
+            "SUCCEEDED"
+          ]
+        }
+      }
+    },
+    "contentVersion": "1.0.0.0",
+    "outputs": {},
+    "triggers": {
+      "When_a_blob_is_added_or_updated": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "path": "exportblobcreate"
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "AzureBlob",
+            "operationId": "whenABlobIsAddedOrModified",
+            "serviceProviderId": "/serviceProviders/AzureBlob"
+          }
+        }
+      }
+    }
+  },
+  "kind": "Stateful"
+}
