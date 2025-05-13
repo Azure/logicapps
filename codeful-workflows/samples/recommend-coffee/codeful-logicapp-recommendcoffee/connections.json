@@ -12,7 +12,7 @@
       "authentication": {
         "type": "Raw",
         "scheme": "Key",
-        "parameter": "<enter-key-here>"
+        "parameter": "@appsetting('office365-connectionKey')"
       }
     }
   },
@@ -32,7 +32,7 @@
       "displayName": "aoai-connection",
       "parameterSetName": "KeyAndEndpointConnection",
       "parameterValues": {
-        "openAIEndpoint": "<enter-endpoint-here>",
+        "openAIEndpoint": "@parameters('openAIEndpoint')",
         "openAIKey": "<enter-key-here>"
       },
       "serviceProvider": {

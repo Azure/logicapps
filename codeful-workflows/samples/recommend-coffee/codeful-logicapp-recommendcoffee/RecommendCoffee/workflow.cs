@@ -95,7 +95,7 @@ namespace LogicApps.Codeful.RecommendCoffee
 
             var message = new ClientSendHtmlMessage
             {
-                To = "<add-email-address-here>",
+                To = "nikhilsira@microsoft.com",
                 Subject = "Hello World from codeful workflow",
                 Body = "Chat response: " + msgResponse
             };
