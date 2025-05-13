@@ -1,0 +1,8 @@
+{
+  "azureLogicAppsStandard.deploySubpath": "bin/Release/net8.0/publish",
+  "azureLogicAppsStandard.projectLanguage": "C#",
+  "azureLogicAppsStandard.projectRuntime": "~4",
+  "debug.internalConsoleOptions": "neverOpen",
+  "azureFunctions.suppressProject": true,
+  "azureLogicAppsStandard.preDeployTask": "publish"
+}

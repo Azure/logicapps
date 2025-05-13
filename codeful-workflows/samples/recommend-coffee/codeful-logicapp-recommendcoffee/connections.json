@@ -1,0 +1,43 @@
+{
+  "agentConnections": {},
+  "managedApiConnections": {
+    "office365": {
+      "api": {
+        "id": "<enter-api-id-here>"
+      },
+      "connection": {
+        "id": "<connection-id-here>"
+      },
+      "connectionRuntimeUrl": "<enter-connection-runtime-url-here>",
+      "authentication": {
+        "type": "Raw",
+        "scheme": "Key",
+        "parameter": "@appsetting('office365-connectionKey')"
+      }
+    }
+  },
+  "serviceProviderConnections": {
+    "azureaisearch": {
+      "displayName": "aisearch-connection",
+      "parameterSetName": "ConnectionString",
+      "parameterValues": {
+        "searchServiceAdminKey": "<enter-key-here>",
+        "searchServiceEndpoint": "<enter-endpoint-here>"
+      },
+      "serviceProvider": {
+        "id": "/serviceProviders/azureaisearch"
+      }
+    },
+    "openai": {
+      "displayName": "aoai-connection",
+      "parameterSetName": "KeyAndEndpointConnection",
+      "parameterValues": {
+        "openAIEndpoint": "@parameters('openAIEndpoint')",
+        "openAIKey": "<enter-key-here>"
+      },
+      "serviceProvider": {
+        "id": "/serviceProviders/openai"
+      }
+    }
+  }
+}
