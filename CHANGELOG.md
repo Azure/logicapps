@@ -1,7 +1,12 @@
 # Azure Logic Apps (Standard)
 
+## Bundle and NuGet version 1.123.x
+- **Agent workflows**: Public preview for running agents in Standard workflows created with the **Agent** type. For more information, see https://go.microsoft.com/fwlink/?linkid=2320014.
+- Various bug fixes and improvements
+<br><br>
+
 ## Bundle and NuGet version 1.119.x
-- SAP built-in operations: The response to SAP operations supports the SafeType parameter.
+- **SAP** built-in connector: The response to SAP operations supports the SafeType parameter.
 - Various bug fixes and improvements
 <br><br>
 
