@@ -7,12 +7,5 @@
         "excludedTypes": "Request"
       }
     }
-  },
-  "extensions": {
-      "workflow": {
-         "Settings": {
-            "Runtime.CodefulWorkflows.Enabled": "true"
-         }
-      }
-   }
+  }
 }
