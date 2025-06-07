@@ -1,6 +1,2 @@
 {
-  "openAIEndpoint": {
-    "type": "string",
-    "value": "<add-endpoint-here>"
-  }
 }

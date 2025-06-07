@@ -4,6 +4,13 @@
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
     "FUNCTIONS_WORKER_RUNTIME": "dotnet",
     "FUNCTIONS_INPROC_NET8_ENABLED": "1",
-    "office365-connectionKey": "<add-key-here>"
+    "office365-connectionKey": "<your-office365-connection-key>",
+    "office365-connection-runtime-url": "<your-office365-connection-runtime-url>",
+    "office365-connection-id": "<your-office365-connection-id>",
+    "office365-api-id": "<your-office365-api-id>",
+    "azure-aisearch-admin-key": "<your-azure-aisearch-admin-key>",
+    "azure-aisearch-endpoint": "<your-azure-aisearch-endpoint>",
+    "openai-key": "<your-openai-key>",
+    "openai-endpoint": "<your-openai-endpoint>"
   }
 }
