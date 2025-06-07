@@ -21,13 +21,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.Workflows.WebJobs.Extension" Version="1.127.21-preview"/>
+    <PackageReference Include="Microsoft.Azure.Workflows.WebJobs.Extension" Version="1.127.21.2-preview"/>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.DurableTask" Version="3.0.4"/>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.Workflows.Sdk" Version="1.127.0.14"/>
+    <PackageReference Include="Microsoft.Azure.Workflows.Sdk" Version="1.127.21.2-preview"/>
   </ItemGroup>
   <ItemGroup>
     <None Update="connections.json">
