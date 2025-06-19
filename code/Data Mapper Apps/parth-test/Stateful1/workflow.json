@@ -1,0 +1,40 @@
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "actions": {
+            "Transform_using_Data_Mapper_XSLT": {
+                "type": "Xslt",
+                "kind": "DataMapper",
+                "inputs": {
+                    "content": "@triggerBody()",
+                    "map": {
+                        "source": "LogicApp",
+                        "name": "dm-testing-project.xslt"
+                    }
+                },
+                "runAfter": {}
+            },
+            "Response": {
+                "type": "Response",
+                "kind": "Http",
+                "inputs": {
+                    "statusCode": 200
+                },
+                "runAfter": {
+                    "Transform_using_Data_Mapper_XSLT": [
+                        "SUCCEEDED"
+                    ]
+                }
+            }
+        },
+        "contentVersion": "1.0.0.0",
+        "outputs": {},
+        "triggers": {
+            "When_a_HTTP_request_is_received": {
+                "type": "Request",
+                "kind": "Http"
+            }
+        }
+    },
+    "kind": "Stateful"
+}

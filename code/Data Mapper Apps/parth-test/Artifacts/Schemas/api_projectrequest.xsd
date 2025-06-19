@@ -1,0 +1,879 @@
+<?xml version="1.0" encoding="utf-16"?>
+<xs:schema xmlns:ns4="https://SchProjectGBO.SchProjectGBO" xmlns:pjc="http://SchCustomerReference.SchCustomerReference" xmlns:b="http://schemas.microsoft.com/BizTalk/2003" xmlns:ns0="https://SchProjectGBO.PropertySchema" targetNamespace="https://SchProjectGBO.SchProjectGBO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:annotation>
+    <xs:appinfo>
+      <b:imports xmlns:b="http://schemas.microsoft.com/BizTalk/2003">
+        <b:namespace prefix="ns0" uri="https://SchProjectGBO.PropertySchema" location=".\PropertySchema.xsd" />
+      </b:imports>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:simpleType name="guid">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="projectGBO">
+    <xs:annotation>
+      <xs:appinfo>
+        <b:properties>
+          <b:property name="ns0:msgID" xpath="/*[local-name()='projectGBO' and namespace-uri()='https://SchProjectGBO.SchProjectGBO']/*[local-name()='OEBS_Header' and namespace-uri()='']/*[local-name()='messageDetails' and namespace-uri()='']/*[local-name()='msgID' and namespace-uri()='']" />
+          <b:property name="ns0:correlationID" xpath="/*[local-name()='projectGBO' and namespace-uri()='https://SchProjectGBO.SchProjectGBO']/*[local-name()='OEBS_Header' and namespace-uri()='']/*[local-name()='messageDetails' and namespace-uri()='']/*[local-name()='correlationID' and namespace-uri()='']" />
+          <b:property name="ns0:SenderSystem" xpath="/*[local-name()='projectGBO' and namespace-uri()='https://SchProjectGBO.SchProjectGBO']/*[local-name()='OEBS_Header' and namespace-uri()='']/*[local-name()='messageDetails' and namespace-uri()='']/*[local-name()='SenderSystem' and namespace-uri()='']" />
+          <b:property name="ns0:ReceiverSystem" xpath="/*[local-name()='projectGBO' and namespace-uri()='https://SchProjectGBO.SchProjectGBO']/*[local-name()='OEBS_Header' and namespace-uri()='']/*[local-name()='messageDetails' and namespace-uri()='']/*[local-name()='ReceiverSystem' and namespace-uri()='']" />
+          <b:property name="ns0:responseQueue" xpath="/*[local-name()='projectGBO' and namespace-uri()='https://SchProjectGBO.SchProjectGBO']/*[local-name()='OEBS_Header' and namespace-uri()='']/*[local-name()='messageDetails' and namespace-uri()='']/*[local-name()='ResponseLocation' and namespace-uri()='']" />
+          <b:property name="ns0:ServiceCallType" xpath="/*[local-name()='projectGBO' and namespace-uri()='https://SchProjectGBO.SchProjectGBO']/*[local-name()='OEBS_Header' and namespace-uri()='']/*[local-name()='messageDetails' and namespace-uri()='']/*[local-name()='ServiceCallType' and namespace-uri()='']" />
+        </b:properties>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="OEBS_Header">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="1" maxOccurs="1" name="messageDetails">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="msgID" type="ns4:guid">
+                      <xs:annotation>
+                        <xs:documentation>Set when the message header is created at the source. A GUID uniquely identifying the message.</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="correlationID" type="ns4:guid">
+                      <xs:annotation>
+                        <xs:documentation>Set when the message header is created at the source. The value is determined by the sender of the first message in a collaboration sequence and must be the same for all subsequent messages in the same collaboration..</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="ResponseLocation" nillable="true" type="xs:string" />
+                    <xs:element name="responseServer" type="xs:string" />
+                    <xs:element name="requestedOperation" type="xs:string" />
+                    <xs:element name="numRecordsOutput" type="xs:string" />
+                    <xs:element name="documentType" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Set when the message header is created at the source.</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="sentTimeStamp" type="xs:dateTime">
+                      <xs:annotation>
+                        <xs:documentation>Set when the message header is created at the source. Contains a timestamp that indicates the exact date and time at which a message was sent by the source to the Service Bus.</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="receivedTimeStamp" type="xs:dateTime">
+                      <xs:annotation>
+                        <xs:documentation>Set by the Service Bus. Contains a timestamp that indicates the exact date and time at which the message was received for processing by the Service Bus.</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="SenderSystem" type="xs:string" />
+                    <xs:element name="ReceiverSystem" type="xs:string" />
+                    <xs:element name="locationName" type="xs:string" />
+                    <xs:element name="user" type="xs:string" />
+                    <xs:element name="organisationUnit" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="ServiceCallType" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="1" maxOccurs="unbounded" name="project">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="1" maxOccurs="1" name="pmProjectReference" type="xs:string" />
+              <xs:element minOccurs="1" maxOccurs="1" name="paProjectNumber" type="xs:string" />
+              <xs:element minOccurs="1" maxOccurs="1" name="projectSource" type="xs:string" />
+              <xs:element minOccurs="1" maxOccurs="1" name="projectType" type="xs:string" />
+              <xs:element minOccurs="1" maxOccurs="1" name="projectCategory" type="xs:string" />
+              <xs:element minOccurs="1" maxOccurs="1" name="projectName" type="xs:string" />
+              <xs:element minOccurs="1" maxOccurs="1" name="longName" type="xs:string" />
+              <xs:element minOccurs="1" maxOccurs="1" name="projectCurrencyCode" type="xs:string" />
+              <xs:element minOccurs="1" maxOccurs="1" name="orgUnitCode" type="xs:string" />
+              <xs:element minOccurs="1" maxOccurs="1" name="operatingUnitCode" type="xs:string" />
+              <xs:element minOccurs="1" maxOccurs="1" name="projectStatusCode" type="xs:string" />
+              <xs:element minOccurs="1" maxOccurs="1" name="description" type="xs:string" />
+              <xs:element minOccurs="1" maxOccurs="1" name="startDate" type="xs:string" />
+              <xs:element minOccurs="1" maxOccurs="1" name="completionDate" type="xs:string" />
+              <xs:element minOccurs="1" maxOccurs="1" name="createdDate" type="xs:string" />
+              <xs:element name="plObject" type="xs:string" />
+              <xs:element name="serviceCode" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="createdFromProjectID" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="projectTemplateName" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="costCenter" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="publicSectorFlag" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="distributionRule" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="actualStartDate" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="actualFinishDate" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="earlyStartDate" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="earlyFinishDate" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="lateStartDate" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="lateFinishDate" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="sheduledStartDate" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="scheduledFinishDate" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="Attribute1" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="Attribute2" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="projectCustomerContact" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="invoiceCustomerContact" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="Attribute7" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="Attribute8" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="Attribute9" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="Attribute10" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="outputTaxCode" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="retentionTaxCode" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="allowCrossChargeFlag" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="projectRateDate" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="projectRateType" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ccProcessLaborFlag" type="xs:string" />
+              <xs:element maxOccurs="1" name="laborTpSheduleId" type="xs:string" />
+              <xs:element maxOccurs="1" name="laborTpFixedDate" type="xs:string" />
+              <xs:element maxOccurs="1" name="ccProcessNlFlag" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="nlTpSheduleId" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="nlTpFixedDate" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ccTaxTaskId" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="roleListId" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="workTypeId" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="calendarId" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="locationId" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="probabilityMemberId" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="projectValue" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="expectedApprovalDate" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="costJobGroupId" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="billJobGroupId" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="teamTemplateId" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="countryCode" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="region" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="city" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="empBillRateScheduleId" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="jobBillRateScheduleId" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="invprocCurrencyType" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="revprocCurrencyCode" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="projectBilRateDateCode" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="projectBilRateType" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="projectBilRateDate" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="projectBilRateExchangeRate" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="projfuncCurrencyCode" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="projfuncBilRateDateCode" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="projfuncBilRateType" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="projfuncBilRateDate" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="projfuncBilExchangeRate" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="fundingRatedDateCode" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="fundingRatedType" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="fundingRatedDate" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="fundingExchangeRate" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="baselineFunfingFlag" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="multiCurrencyBillingFlag" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="competenceMatchWt" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="availabilitymatchWt" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="jobLevelMatchWt" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="enableAutomatedSearch" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="searchMinAvailability" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="searchOrgHierId" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="searchStartingOrgId" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="searchCountryId" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="minCandScoreReqdForNom" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="maxNumOfSysNomCand" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="nonLabStdBillRtSchId" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="searchCountryCode" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="invByBillTransCurrFlag" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="projfuncCostRateType" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="projfuncCostRateDate" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="assignPrecedesTask" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="splitCostFromWorkplanFlag" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="splitCostFromBillFlag" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="advActionSetId" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="startAdvActionSetFlag" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="priorityCode" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="retnBillingInvFormatId" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="retnAccountingFlag" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="oppValueCurrencyCode" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="revaluateFundingFlag" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="includeGainsLossesFlag" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="securityLevel" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="laborDiscReasonCode" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="nonLaborDiscReasonCode" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="laborScheduleFixedDate" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="laborScheduleDiscount" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="nonLaborBillRateOrgId" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="nonLaborSheduleFixedDate" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="nonLaborSheduleDiscount" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="revIndRateSchId" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="invIndRateSchId" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="revIndSchFixedDate" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="invIndSchFixedDate" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="laborSchType" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="nonLaborSchType" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="AssetAllocationMethod" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="CapitalEventProcessing" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="cintRateSchId" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="cintEligibleFlag" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="cintStopDate" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="sysProgramflag" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="allowMultiProgramRollup" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="enableTopTaskInvMthFlag" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="projfunkAttrForArFlag" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="dateEffFundsFlag" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="arRecNotifyFlag" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="autoReleasePwpInv" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="statusChangeComment" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="billLaborAccrual" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="adjOnStdInv" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="costPlusFixedFeeFlag" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="progressPaymentFlag" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="billingFundsCheckFcFlag" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="deriveBillingFromOkeFlag" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="retentionPercentage" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ratePercentage" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="liquidationRatePercentage" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="altLiquidationRatePer" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="witholdAmount" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="feeRateSchedule" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="ovrFeeRateSchedule" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="feeRevenueSchedule" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="invLineGroup" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="billGroupName" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="feePercentage" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="1" name="feeRate" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="task">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="1" name="pmTaskReference" type="xs:string" />
+                    <xs:element name="taskID" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="taskNumber" type="xs:string" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="taskName" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="taskLongName" type="xs:string" />
+                    <xs:element name="taskManager" type="xs:string" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="description" type="xs:string" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="startDate" type="xs:string" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="endDate" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="billableFlag" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="chargeableFlag" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="pmParentReference" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="paParentTaskId" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="addressId" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="carryingOutOrganisationId" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="serviceTypeCode" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="readyToBillFlag" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="readyToDistributeFlag" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="limitToTxnControlsFlag" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="laborBillRateOrgId" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="laborStdBillRateSchdl" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="laborScheduleFixedDate" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="laborScheduleDiscount" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="nonLaborBillRateOrgId" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="nonlaborStdBillRateSchdl" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="nonlaborScheduleFixedDate" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="nonlaborScheduleDiscount" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="laborCostMultiplierName" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="costIndRateSchId" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="revIndRateSchId" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="InvIndrateSchId" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="costIndSchFixedDate" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="revIndSchFixedDate" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="invIndSchFixedDate" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="laborSchType" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="nonLaborSchType" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="actualStartDate" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="actualFinishDate" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="earlyStartDate" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="earlyFinishDate" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="lateStartDate" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="lateFinishDate" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="scheduledStartDate" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="scheduledFinishDate" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="attribute1" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="attribute2" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="plObject" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="serviceCode" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="projectCustomerContact" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="invoiceCustomerContact" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="attribute7" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="attribute8" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="attribute9" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="attribute10" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="attribute11" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="attribute12" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="attribute13" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="attribute14" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="attribute15" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="allowCrossChargeFlag" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="projectRateDate" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="projectRateType" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="ccProcessLaborFlag" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="laborTpScheduleId" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="laborTpFixedDate" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="ccProcessNlFlag" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="nlTpScheduleId" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="nlTpFixedDate" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="iclaborTpScheduleId" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="icLaborTpFixedDate" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="icNlTpScheduleId" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="icNlTpFixedDate" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="receiveProjectInvoiceFlag" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="workTypeId" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="empBillRateScheduleId" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="jobBillRateScheduleId" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="nonLabStdBillRtSchId" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="taskfuncCostRateType" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="taskfuncCostRateDate" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="displaySequence" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="wbsLevel" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="obligationStartDate" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="obligationFinishDate" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="estimatedStartDate" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="estimatedFinishDate" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="baselineStartDate" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="baselineFinishDate" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="closedDate" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="wqUomCode" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="wqItemCode" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="statusCode" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="wfStatusCode" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="pmSourceCode" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="priorityCode" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="milestoneFlag" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="criticalFlag" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="incProjProgressFlag" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="linkTaskFlag" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="calendarId" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="plannedEffort" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="duration" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="plannedWorkQuantity" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="taskType" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="laborDiscReasonCode" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="nonLaborDiscReasonCode" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="retirementCostFlag" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="cintEligibleFlag" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="cintStopDate" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="predString" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="predDelimiter" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="basePercentCompDerivCode" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="schToolTskTypeCode" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="constraintTypeCode" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="constraintDate" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="freeSlack" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="totalSlack" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="effortDrivenFlag" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="levelAssignmentsFlag" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="invoiceMethod" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="customerId" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="genEtcSourceCode" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="financialTaskFlag" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="mappedTaskId" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="mappedTaskReference" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="deliverable" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="deliverableId" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="extActDuration" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="extRemainDuration" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="extSchDuration" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="etcEffort" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="percentComplete" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="adjOnStdInv" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="costPlusFixedFeeFlag" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="progressPaymentFlag" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="retentionPercentage" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="ratePercentage" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="liquidationRatePercentage" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="altLiquidationRatePer" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="witholdAmount" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="feeRateSchedule" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="ovrFeeRateSchedule" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="feeRevenueSchedule" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="invLineGroup" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="billGroupName" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="feePercentage" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="feeRate" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="billingExtensions">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" maxOccurs="unbounded" name="billingExtension">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element minOccurs="0" maxOccurs="1" name="billingExtName" type="xs:string" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="amount" type="xs:string" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="percent" type="xs:string" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="active" type="xs:string" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" name="nlBillRateOverrides">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" maxOccurs="unbounded" name="nlBillRateOverride">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="nlBillRateOverrideId" type="xs:string" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="expenditureType" type="xs:string" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="nonLaborResource" type="xs:string" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="markupPercentage" type="xs:string" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="billRate" type="xs:string" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="startDateActive" type="xs:string" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="endDateActive" type="xs:string" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="rateCurrencyCode" type="xs:string" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="discountPercentage" type="xs:string" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="rateDiscReasonCode" type="xs:string" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" name="empBillRateOverrides">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" maxOccurs="unbounded" name="empBillRateOverride">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="empBillRateOverrideId" type="xs:string" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="personId" type="xs:string" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="rate" type="xs:string" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="billRateUnit" type="xs:string" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="startDateActive" type="xs:string" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="endDateActive" type="xs:string" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="rateCurrencyCode" type="xs:string" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="discountPercentage" type="xs:string" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="rateDiscReasonCode" type="xs:string" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" name="jobAssignmentOverrides">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" maxOccurs="unbounded" name="jobAssignmentOverride">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="jobAssignmentOverrideId" type="xs:string" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="personId" type="xs:string" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="startDateActive" type="xs:string" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="endDateActive" type="xs:string" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="billingTitle" type="xs:string" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="jobId" type="xs:string" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" name="jobBillTitleOverrides">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" maxOccurs="unbounded" name="jobBillTitleOverride">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element minOccurs="0" maxOccurs="1" name="jobBillTitleOverrideId" type="xs:string" />
+                                <xs:element minOccurs="1" maxOccurs="1" name="jobId" type="xs:string" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="startDateActive" type="xs:string" />
+                                <xs:element minOccurs="1" maxOccurs="1" name="endDateActive" type="xs:string" />
+                                <xs:element minOccurs="1" maxOccurs="1" name="billingTitle" type="xs:string" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" name="jobBillRateOverrides">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" maxOccurs="unbounded" name="jobBillRateOverride">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element minOccurs="0" maxOccurs="1" name="jobBillRateOverrideId" type="xs:string" />
+                                <xs:element minOccurs="1" maxOccurs="1" name="jobId" type="xs:string" />
+                                <xs:element minOccurs="1" maxOccurs="1" name="startDateActive" type="xs:string" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="endDateActive" type="xs:string" />
+                                <xs:element minOccurs="1" maxOccurs="1" name="rate" type="xs:string" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="billRateUnit" type="xs:string" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="rateCurrencyCode" type="xs:string" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="discountPercentage" type="xs:string" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="rateDiscReasonCode" type="xs:string" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="customerReference">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="1" maxOccurs="1" name="source_customerID" type="xs:string" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="billToAddressID" type="xs:string" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="shipToAddressID" type="xs:string" />
+                    <xs:element name="projectRelationshipCode" type="xs:string" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="DNVGL_ID" type="xs:string" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="MDM_ID" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="ContactFirstName" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="ContactLastName" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="InvoiceCustomerFirstName" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="InvoiceCustomerLastName" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="billToCustomerId" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="shipToCustomerId" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="contactId" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="projectContactTypeCode" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="customerBillSplit" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="allowInvUserRateTypeFlag" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="invRateDate" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="invRateType" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="invCurrencyCode" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="invExchangeRate" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="EnableTopTaskCustomerFlag" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="billAnotherProjectFlag" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="receiverTaskId" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="receiverTaskNumber" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="1" name="agreements">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="agreement">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="agreementReference" type="xs:string" />
+                          <xs:element name="agreementID" type="xs:string" />
+                          <xs:element name="agreementNumber" type="xs:string" />
+                          <xs:element name="agreementType" type="xs:string" />
+                          <xs:element name="customerID" type="xs:string" />
+                          <xs:element name="amount" type="xs:string" />
+                          <xs:element name="currencyCodes" type="xs:string" />
+                          <xs:element name="termId" type="xs:string" />
+                          <xs:element name="startDate" type="xs:string" />
+                          <xs:element name="expirationDate" type="xs:string" />
+                          <xs:element name="agreementDescription" type="xs:string" />
+                          <xs:element name="ownedByPersonID" type="xs:string" />
+                          <xs:element name="operatingUnitCode" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="revenueLimitFlag" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="invoiceLimitFlag" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="owningOrganizationId" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="agreementCurrencyCode" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="customerOrderNumber" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="advanceRequired" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="billingSequence" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="lineofAccount" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute1" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute2" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute3" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute4" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute5" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute6" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute7" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute8" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute9" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute10" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute11" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute12" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute13" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute14" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute15" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute16" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute17" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute18" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute19" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute20" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute21" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute22" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute23" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute24" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute25" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="fundings">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element minOccurs="0" maxOccurs="unbounded" name="funding">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="allocatedAmount" type="xs:string" />
+                                      <xs:element name="dateAllocated" type="xs:date" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="pmFundingReference" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="taskNumber" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="fundingCategory" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="attribute1" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="attribute2" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="attribute3" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="attribute4" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="attribute5" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="attribute6" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="attribute7" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="attribute8" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="attribute9" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="attribute10" type="xs:string" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="1" maxOccurs="1" name="projectTeam">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="teamMember">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="projectRoleType" type="xs:string" />
+                          <xs:element name="startDateActive" type="xs:string" />
+                          <xs:element name="endDateActive" type="xs:string" />
+                          <xs:element name="personID" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="1" name="classifications">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="classification">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" maxOccurs="1" name="classCategory" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="classCode" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="codePercentage" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="newClassCode" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="1" name="budgets">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="budget">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="1" maxOccurs="1" name="budgetType" type="xs:string" />
+                          <xs:element name="expectedEndDate">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:date" />
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element minOccurs="0" name="SFProjectName">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:date" />
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element minOccurs="0" maxOccurs="1" name="pmBudgetReference" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="budgetVersionName" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="budgetChangeReason" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="entryMethodCode" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="resourceListId" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="resourceListName" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute1" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute2" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute3" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute4" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute5" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute6" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute7" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute8" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute9" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute10" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute11" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute12" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute13" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute14" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="attribute15" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="budgetLines">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element minOccurs="0" maxOccurs="unbounded" name="budgetLine">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element minOccurs="0" maxOccurs="1" name="pmTaskReference" type="xs:string" />
+                                      <xs:element name="fromDate">
+                                        <xs:simpleType>
+                                          <xs:restriction base="xs:date" />
+                                        </xs:simpleType>
+                                      </xs:element>
+                                      <xs:element name="toDate">
+                                        <xs:simpleType>
+                                          <xs:restriction base="xs:date" />
+                                        </xs:simpleType>
+                                      </xs:element>
+                                      <xs:element name="periodName" type="xs:string" />
+                                      <xs:element name="description" type="xs:string" />
+                                      <xs:element name="rawCost">
+                                        <xs:simpleType>
+                                          <xs:restriction base="xs:integer" />
+                                        </xs:simpleType>
+                                      </xs:element>
+                                      <xs:element name="revenue">
+                                        <xs:simpleType>
+                                          <xs:restriction base="xs:integer" />
+                                        </xs:simpleType>
+                                      </xs:element>
+                                      <xs:element name="quantity">
+                                        <xs:simpleType>
+                                          <xs:restriction base="xs:integer" />
+                                        </xs:simpleType>
+                                      </xs:element>
+                                      <xs:element name="changeReasonCode" type="xs:string" />
+                                      <xs:element name="pmBudgetLineReference" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="resourceAlias" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="resourceListMemberId" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="costCode" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="cbsElementId" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="burdenedCost" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="attribute1" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="attribute2" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="attribute3" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="attribute4" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="attribute5" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="attribute6" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="attribute7" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="attribute8" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="attribute9" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="attribute10" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="attribute11" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="attribute12" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="attribute13" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="attribute14" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="attribute15" type="xs:string" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="1" name="billingExtensions">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="billingExtension">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" maxOccurs="1" name="billingExtName" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="amount" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="percent" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="active" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="1" name="nlBillRateOverrides">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="nlBillRateOverride">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="nlBillRateOverrideId" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="expenditureType" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="nonLaborResource" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="markupPercentage" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="billRate" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="startDateActive" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="endDateActive" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="rateCurrencyCode" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="discountPercentage" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="rateDiscReasonCode" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="1" name="empBillRateOverrides">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="empBillRateOverride">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="empBillRateOverrideId" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="personId" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="rate" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="billRateUnit" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="startDateActive" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="endDateActive" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="rateCurrencyCode" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="discountPercentage" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="rateDiscReasonCode" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="1" name="jobAssignmentOverrides">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="jobAssignmentOverride">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="jobAssignmentOverrideId" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="personId" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="startDateActive" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="endDateActive" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="billingTitle" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="jobId" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="1" name="jobBillTitleOverrides">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="jobBillTitleOverride">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" maxOccurs="1" name="jobBillTitleOverrideId" type="xs:string" />
+                          <xs:element minOccurs="1" maxOccurs="1" name="jobId" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="startDateActive" type="xs:string" />
+                          <xs:element minOccurs="1" maxOccurs="1" name="endDateActive" type="xs:string" />
+                          <xs:element minOccurs="1" maxOccurs="1" name="billingTitle" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="1" name="jobBillRateOverrides">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="jobBillRateOverride">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" maxOccurs="1" name="jobBillRateOverrideId" type="xs:string" />
+                          <xs:element minOccurs="1" maxOccurs="1" name="jobId" type="xs:string" />
+                          <xs:element minOccurs="1" maxOccurs="1" name="startDateActive" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="endDateActive" type="xs:string" />
+                          <xs:element minOccurs="1" maxOccurs="1" name="rate" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="billRateUnit" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="rateCurrencyCode" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="discountPercentage" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="rateDiscReasonCode" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="status" type="xs:string" />
+        <xs:element name="errorMessage" type="xs:string" />
+        <xs:element name="projectCreatedDate" type="xs:string" />
+        <xs:element name="paProjectNumber" type="xs:string" />
+        <xs:element name="pmProjectReference" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

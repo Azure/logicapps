@@ -1,0 +1,26 @@
+$version: 1
+$input: XML
+$output: XML
+$sourceSchema: api_projectrequest.xsd
+$targetSchema: oebs_projectrequest_body.xsd
+$sourceNamespaces:
+  ns4: https://SchProjectGBO.SchProjectGBO
+  pjc: http://SchCustomerReference.SchCustomerReference
+  b: http://schemas.microsoft.com/BizTalk/2003
+  ns0: https://SchProjectGBO.PropertySchema
+  xs: http://www.w3.org/2001/XMLSchema
+$targetNamespaces:
+  tns: http://www.dnvgl.com/EBS_Integration/masterdata/ProjectInbound
+  xs: http://www.w3.org/2001/XMLSchema
+tns:PROJECT_REQUEST_ROOT:
+  tns:PROJECT_REQUEST:
+    tns:PROJINTRF:
+      $for(/ns4:projectGBO/project):
+        tns:PROJECT:
+          tns:PROJECT_TYPE: paProjectNumber
+          tns:TASKS:
+            $for(/ns4:projectGBO/project):
+              $for(task):
+                tns:TASK:
+                  tns:PM_TASK_REFERENCE: pmTaskReference
+                  tns:TASK_ID: ../enableTopTaskInvMthFlag

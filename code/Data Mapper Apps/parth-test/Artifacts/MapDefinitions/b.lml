@@ -1,0 +1,11 @@
+$version: 1
+$input: JSON
+$output: JSON
+$sourceSchema: overlappingLoop.json
+$targetSchema: overlappingLoop.json
+root:
+  root:
+    outerLoop:
+      repeating: filter(/root/root/outerLoop/repeating)
+      innerLoop2:
+        name: /root/root/outerLoop/innerLoop2/name

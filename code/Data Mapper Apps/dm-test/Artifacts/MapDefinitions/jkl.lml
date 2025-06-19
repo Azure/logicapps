@@ -1,0 +1,17 @@
+$version: 1
+$input: XML
+$output: XML
+$sourceSchema: Source.xsd
+$targetSchema: Source.xsd
+$sourceNamespaces:
+  ns0: http://tempuri.org/source.xsd
+  xs: http://www.w3.org/2001/XMLSchema
+$targetNamespaces:
+  ns0: http://tempuri.org/source.xsd
+  xs: http://www.w3.org/2001/XMLSchema
+ns0:Root:
+  CumulativeExpression:
+    Population:
+      State:
+        $if(is-greater-than(/ns0:Root/DataTranslation/Employee/FirstName, /ns0:Root/DataTranslation/Employee/LastName)):
+          Name: /ns0:Root/DataTranslation/Employee/LastName

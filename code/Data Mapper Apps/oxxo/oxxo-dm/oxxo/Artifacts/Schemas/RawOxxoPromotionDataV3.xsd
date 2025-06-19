@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="NewDataSet" targetNamespace="oxxo.promotions.rawxml" xmlns:mstns="oxxo.promotions.rawxml" xmlns="oxxo.promotions.rawxml" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:element name="PromotionBatch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="organizationCountry" type="xs:string" minOccurs="0" />
+        <xs:element name="organizationName" type="xs:string" minOccurs="0" />
+        <xs:element name="businessName" type="xs:string" minOccurs="0" />
+        <xs:element name="departmentId" type="xs:string" minOccurs="0" />
+        <xs:element name="storeId" type="xs:string" minOccurs="0" />
+        <xs:element name="numberOfRecords" type="xs:string" minOccurs="0" />
+        <xs:element name="searchId" type="xs:string" minOccurs="0" />
+        <xs:element name="searchDate" type="xs:string" minOccurs="0" />
+        <xs:element name="ORACLE_CR" type="xs:string" minOccurs="0" />
+        <xs:element name="ORACLE_CR_DESC" type="xs:string" minOccurs="0" />
+        <xs:element name="ORACLE_CR_SUPERIOR" type="xs:string" minOccurs="0" />
+        <xs:element name="ORACLE_CR_TYPE" type="xs:string" minOccurs="0" />
+        <xs:element name="ESTADO" type="xs:string" minOccurs="0" />
+        <xs:element name="RETEK_CR" type="xs:string" minOccurs="0" />
+        <xs:element name="RETEK_ASESOR" type="xs:string" minOccurs="0" />
+        <xs:element name="RETEK_ASESOR_NOMBRE" type="xs:string" minOccurs="0" />
+        <xs:element name="RETEK_DISTRITO" type="xs:string" minOccurs="0" />
+        <xs:element name="RETEK_PLAZA" type="xs:string" minOccurs="0" />
+        <xs:element name="RETEK_STATUS" type="xs:string" minOccurs="0" />
+        <xs:element name="SURH_CR" type="xs:string" minOccurs="0" />
+        <xs:element name="SURH_FLAG" type="xs:string" minOccurs="0" />
+        <xs:element name="CR_FLEX_VALUE_ID" type="xs:string" minOccurs="0" />
+        <xs:element name="ORACLE_EF" type="xs:string" minOccurs="0" />
+        <xs:element name="ORACLE_EF_DESC" type="xs:string" minOccurs="0" />
+        <xs:element name="EF_FLEX_VALUE_ID" type="xs:string" minOccurs="0" />
+        <xs:element name="ORACLE_CIA" type="xs:string" minOccurs="0" />
+        <xs:element name="ORACLE_CIA_DESC" type="xs:string" minOccurs="0" />
+        <xs:element name="CIA_FLEX_VALUE_ID" type="xs:string" minOccurs="0" />
+        <xs:element name="ID_ESTADO_FINANCIERO" type="xs:string" minOccurs="0" />
+        <xs:element name="ID_CENTRO_RESPONSABILIDAD" type="xs:string" minOccurs="0" />
+        <xs:element name="ID_COMPANIA" type="xs:string" minOccurs="0" />
+        <xs:element name="LEGACY_EF" type="xs:string" minOccurs="0" />
+        <xs:element name="LEGACY_CR" type="xs:string" minOccurs="0" />
+        <xs:element name="Promotions" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PromotionData" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="lineNumber" type="xs:string" minOccurs="0" />
+                    <xs:element name="BATCH_ID" type="xs:string" minOccurs="0" />
+                    <xs:element name="LOCATION" type="xs:string" minOccurs="0" />
+                    <xs:element name="ARCHIVO" type="xs:string" minOccurs="0" />
+                    <xs:element name="LOAD_DATE" type="xs:string" minOccurs="0" />
+                    <xs:element name="LOAD_WEEK" type="xs:string" minOccurs="0" />
+                    <xs:element name="LOAD_BATCH_ID" type="xs:string" minOccurs="0" />
+                    <xs:element name="WM_PRM_STATUS" type="xs:string" minOccurs="0" />
+                    <xs:element name="WM_TARGET_PRM" type="xs:string" minOccurs="0" />
+                    <xs:element name="STORE" type="xs:string" minOccurs="0" />
+                    <xs:element name="UPDATE_TYPE" type="xs:string" minOccurs="0" />
+                    <xs:element name="START_DATE" type="xs:string" minOccurs="0" />
+                    <xs:element name="END_DATE" type="xs:string" minOccurs="0" />
+                    <xs:element name="TIME" type="xs:string" minOccurs="0" />
+                    <xs:element name="END_TIME" type="xs:string" minOccurs="0" />
+                    <xs:element name="TRAN_TYPE" type="xs:string" minOccurs="0" />
+                    <xs:element name="ITEM" type="xs:string" minOccurs="0" />
+                    <xs:element name="ITEM_NUMBER_TYPE" type="xs:string" minOccurs="0" />
+                    <xs:element name="FORMAT_ID" type="xs:string" minOccurs="0" />
+                    <xs:element name="PREFIX" type="xs:string" minOccurs="0" />
+                    <xs:element name="REF_ITEM" type="xs:string" minOccurs="0" />
+                    <xs:element name="REF_ITEM_NUMBER_TYPE" type="xs:string" minOccurs="0" />
+                    <xs:element name="REF_FORMAT_ID" type="xs:string" minOccurs="0" />
+                    <xs:element name="REF_PREFIX" type="xs:string" minOccurs="0" />
+                    <xs:element name="ITEM_SHORT_DESC" type="xs:string" minOccurs="0" />
+                    <xs:element name="ITEM_LONG_DESC" type="xs:string" minOccurs="0" />
+                    <xs:element name="DEPT" type="xs:string" minOccurs="0" />
+                    <xs:element name="CLASS" type="xs:string" minOccurs="0" />
+                    <xs:element name="SUBCLASS" type="xs:string" minOccurs="0" />
+                    <xs:element name="NEW_PRICE" type="xs:string" minOccurs="0" />
+                    <xs:element name="NEW_SELLING_UOM" type="xs:string" minOccurs="0" />
+                    <xs:element name="NEW_MULTI_UNITS" type="xs:string" minOccurs="0" />
+                    <xs:element name="NEW_MULTI_UNIT_RETAIL" type="xs:string" minOccurs="0" />
+                    <xs:element name="NEW_MULTI_SELLING_UOM" type="xs:string" minOccurs="0" />
+                    <xs:element name="STATUS" type="xs:string" minOccurs="0" />
+                    <xs:element name="TAXABLE_IND" type="xs:string" minOccurs="0" />
+                    <xs:element name="PROMOTION" type="xs:string" minOccurs="0" />
+                    <xs:element name="MIX_MATCH_NO" type="xs:string" minOccurs="0" />
+                    <xs:element name="MIX_MATCH_TYPE" type="xs:string" minOccurs="0" />
+                    <xs:element name="THRESHOLD_NO" type="xs:string" minOccurs="0" />
+                    <xs:element name="LAUNCH_DATE" type="xs:string" minOccurs="0" />
+                    <xs:element name="QTY_KEY_OPTIONS" type="xs:string" minOccurs="0" />
+                    <xs:element name="MANUAL_PRICE_ENTRY" type="xs:string" minOccurs="0" />
+                    <xs:element name="DEPOSIT_CODE" type="xs:string" minOccurs="0" />
+                    <xs:element name="FOOD_STAMP_IND" type="xs:string" minOccurs="0" />
+                    <xs:element name="WIC_IND" type="xs:string" minOccurs="0" />
+                    <xs:element name="PROPORTIONAL_TARE_PCT" type="xs:string" minOccurs="0" />
+                    <xs:element name="FIXED_TARE_VALUE" type="xs:string" minOccurs="0" />
+                    <xs:element name="FIXED_TARE_UOM" type="xs:string" minOccurs="0" />
+                    <xs:element name="REWARD_ELIGIBLE_IND" type="xs:string" minOccurs="0" />
+                    <xs:element name="ELECT_MTK_CLUBS" type="xs:string" minOccurs="0" />
+                    <xs:element name="RETURN_POLICY" type="xs:string" minOccurs="0" />
+                    <xs:element name="STOP_SALE_IND" type="xs:string" minOccurs="0" />
+                    <xs:element name="RETURNABLE_IND" type="xs:string" minOccurs="0" />
+                    <xs:element name="REFUNDABLE_IND" type="xs:string" minOccurs="0" />
+                    <xs:element name="BACK_ORDER_IND" type="xs:string" minOccurs="0" />
+                    <xs:element name="VAT_CODE" type="xs:string" minOccurs="0" />
+                    <xs:element name="VAT_RATE" type="xs:string" minOccurs="0" />
+                    <xs:element name="CLASS_VAT_IND" type="xs:string" minOccurs="0" />
+                    <xs:element name="LINE_ID" type="xs:string" minOccurs="0" />
+                    <xs:element name="LOAD_TIMESTAMP" type="xs:string" minOccurs="0" />
+                    <xs:element name="MSG_POS" type="xs:string" minOccurs="0" />
+                    <xs:element name="PROM_BIN_CODE" type="xs:string" minOccurs="0" />
+                    <xs:element name="PROM_NAME" type="xs:string" minOccurs="0" />
+                    <xs:element name="PROM_TRAN_TYPE" type="xs:string" minOccurs="0" />
+                    <xs:element name="START_TIME" type="xs:string" minOccurs="0" />
+                    <xs:element name="APPLY_TO" type="xs:string" minOccurs="0" />
+                    <xs:element name="BUY_TYPE" type="xs:string" minOccurs="0" />
+                    <xs:element name="BUY_AMT" type="xs:string" minOccurs="0" />
+                    <xs:element name="GET_TYPE" type="xs:string" minOccurs="0" />
+                    <xs:element name="GET_AMT" type="xs:string" minOccurs="0" />
+                    <xs:element name="SELLING_UOM" type="xs:string" minOccurs="0" />
+                    <xs:element name="THRESHOLD_AMT" type="xs:string" minOccurs="0" />
+                    <xs:element name="DISCOUNT_AMT" type="xs:string" minOccurs="0" />
+                    <xs:element name="DISCOUNT_TYPE" type="xs:string" minOccurs="0" />
+                    <xs:element name="RETEK_STATUS" type="xs:string" minOccurs="0" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="PromotionBatch" />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

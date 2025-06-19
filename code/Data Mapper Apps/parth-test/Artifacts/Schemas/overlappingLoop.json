@@ -1,0 +1,34 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "root": {
+        "type": "object",
+        "properties": {
+          "outerLoop": {
+            "type": "object",
+            "properties": {
+              "repeating": { "type": "boolean" },
+              "innerLoop1": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" }
+                },
+                "required": ["name"]
+              },
+              "innerLoop2": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" }
+                },
+                "required": ["name"]
+              }
+            },
+            "required": ["repeating", "innerLoop1", "innerLoop2"]
+          }
+        },
+        "required": ["outerLoop"]
+      }
+    },
+    "required": ["root"]
+  }

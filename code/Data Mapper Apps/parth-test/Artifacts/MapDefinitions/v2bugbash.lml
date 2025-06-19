@@ -1,0 +1,50 @@
+$version: 1
+$input: XML
+$output: XML
+$sourceSchema: api_projectrequest.xsd
+$targetSchema: oebs_projectrequest_header.xsd
+$sourceNamespaces:
+  ns4: https://SchProjectGBO.SchProjectGBO
+  pjc: http://SchCustomerReference.SchCustomerReference
+  b: http://schemas.microsoft.com/BizTalk/2003
+  ns0: https://SchProjectGBO.PropertySchema
+  xs: http://www.w3.org/2001/XMLSchema
+$targetNamespaces:
+  soapenv: http://schemas.xmlsoap.org/soap/envelope/
+  ns0: http://www.dnvgl.com/EBS_Integration/masterdata/ProjectInbound
+  xs: http://www.w3.org/2001/XMLSchema
+soapenv:Envelope:
+  soapenv:Body:
+    ns0:PROJECT_REQUEST_ROOT:
+      ns0:PROJECT_REQUEST:
+        ns0:INTEGRATION_HEADER:0
+          ns0:MessageID: /ns4:projectGBO/OEBS_Header/messageDetails/msgID
+          ns0:CorrelationID: /ns4:projectGBO/OEBS_Header/messageDetails/correlationID
+          ns0:ResponseLocation: /ns4:projectGBO/OEBS_Header/messageDetails/ResponseLocation
+          ns0:RequestedOperation: /ns4:projectGBO/OEBS_Header/messageDetails/responseServer
+          ns0:ReceiverSystem: /ns4:projectGBO/OEBS_Header/messageDetails/receivedTimeStamp
+          ns0:SenderSystem: /ns4:projectGBO/OEBS_Header/messageDetails/SenderSystem
+          ns0:SentTimeStamp: /ns4:projectGBO/OEBS_Header/messageDetails/sentTimeStamp
+        ns0:PROJINTRF:
+          $for(/ns4:projectGBO/project):
+            ns0:PROJECT:
+              ns0:FEE_PERCENTAGE: feePercentage
+              $if(is-greater-than-equal(int(feeRate), 10000)):
+                ns0:BILL_GROUP_NAME: billGroupName
+              ns0:TASKS:
+                $for(/ns4:projectGBO/project):
+                  $for(task):
+                    ns0:TASK:
+                      $if(is-greater-than-equal(int(/ns4:projectGBO/project/feeRate), 10000)):
+                        ns0:PM_TASK_REFERENCE: /ns4:projectGBO/project/task/pmTaskReference
+                        ns0:TASK_ID: /ns4:projectGBO/project/task/taskID
+                        ns0:LONG_TASK_NAME: /ns4:projectGBO/project/task/taskLongName
+                        ns0:TASK_DESCRIPTION: /ns4:projectGBO/project/task/description
+                      $if(/ns4:projectGBO/project/task/taskNumber):
+                        ns0:TASK_NUMBER: >-
+                          is-greater-than-equal(int(/ns4:projectGBO/project/feeRate),
+                          10000)
+                      $if(/ns4:projectGBO/project/task/taskName):
+                        ns0:TASK_NAME: >-
+                          is-greater-than-equal(int(/ns4:projectGBO/project/feeRate),
+                          10000)

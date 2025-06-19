@@ -1,0 +1,40 @@
+$version: 1
+$input: XML
+$output: XML
+$sourceSchema: RawOxxoPromotionDataV3.xsd
+$targetSchema: MappedOxxoPromotionDataV3.xsd
+$sourceNamespaces:
+  mstns: oxxo.promotions.rawxml
+  xs: http://www.w3.org/2001/XMLSchema
+  msdata: urn:schemas-microsoft-com:xml-msdata
+$targetNamespaces:
+  mstns: oxxo.promotions.mappedxml
+  xs: http://www.w3.org/2001/XMLSchema
+  msdata: urn:schemas-microsoft-com:xml-msdata
+mstns:root:
+  mstns:organizationCountry: /mstns:PromotionBatch/mstns:organizationCountry
+  mstns:organizationName: /mstns:PromotionBatch/mstns:organizationName
+  mstns:businessName: /mstns:PromotionBatch/mstns:businessName
+  mstns:departmentId: /mstns:PromotionBatch/mstns:departmentId
+  mstns:storeId: /mstns:PromotionBatch/mstns:storeId
+  mstns:numberOfRecords: /mstns:PromotionBatch/mstns:numberOfRecords
+  mstns:searchId: /mstns:PromotionBatch/mstns:searchId
+  mstns:searchDate: /mstns:PromotionBatch/mstns:searchDate
+  $for(/mstns:PromotionBatch/mstns:Promotions):
+    $for(mstns:PromotionData):
+      mstns:promotions:
+        mstns:lineNumber: mstns:lineNumber
+        mstns:folio: mstns:PROMOTION
+        mstns:startDate: mstns:START_DATE
+        mstns:endDate: mstns:END_DATE
+        mstns:itemSku: mstns:ITEM
+        $if(or(is-equal(mstns:TRAN_TYPE, "31"), is-equal(mstns:TRAN_TYPE, "32"))):
+          mstns:itemCategory: >-
+            if-then-else(is-null(mstns:THRESHOLD_NO), "1",
+            if-then-else(is-equal(mstns:PROM_TRAN_TYPE, "1001"), "2", "1"))
+          mstns:type: >-
+            if-then-else(is-null(mstns:THRESHOLD_NO), "03",
+            if-then-else(is-equal(mstns:PROM_TRAN_TYPE, "1001"), "01",
+            if-then-else(is-equal(mstns:PROM_TRAN_TYPE, "1002"), "02",
+            if-then-else(is-equal(mstns:PROM_TRAN_TYPE, "1006"), "06",
+            is-equal(mstns:PROM_TRAN_TYPE, "1007")))))

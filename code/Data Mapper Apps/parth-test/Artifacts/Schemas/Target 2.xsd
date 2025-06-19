@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Schema used to get Schema object for Target in Demo transcript. This schema has elementFormDefault as qualified and elementFormDefualt as unqualified.-->
+<xs:schema targetNamespace="http://tempuri.org/Target.xsd"
+    elementFormDefault="unqualified"
+    xmlns="http://tempuri.org/Target.xsd"
+    xmlns:td="http://tempuri.org/TypeDefinition.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <!--Import element to test type definition from another schema.-->
+  <xs:import schemaLocation="TypeDefinition.xsd" namespace="http://tempuri.org/TypeDefinition.xsd"/>
+  <!--Element Root is the root node for this schema.-->
+  <xs:element name="Root">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="DirectTranslation">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Employee">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="ID" type="xs:decimal" />
+                    <xs:element name="Name" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTranslation">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="EmployeeName">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <!--EmployeeName node has a base type of string but also contains attributes with a boolean data type.-->
+                        <xs:extension base="xs:string">
+                            <xs:attribute name="RegularFulltime" type="xs:boolean" />
+                            <!--Any attribute included in schema to test schema compilation with anyAttribute elements.-->
+                            <xs:anyAttribute/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ContentEnrich">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DateOfDemo" type="xs:date" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CumulativeExpression">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PopulationSummary">
+                <xs:complexType>
+                  <xs:sequence>
+                    <!--Element State has a complexType of StateDataType defined at latter part of this schema.-->
+                    <xs:element maxOccurs="unbounded" name="State" type="StateDataType"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ConditionalMapping">
+          <xs:complexType>
+            <xs:sequence>
+              <!--ItemDiscount is optional in this sequence. All 3 elements are non repeating.-->
+              <xs:element name="ItemPrice" type="xs:decimal" />
+              <xs:element name="ItemQuantity" type="xs:decimal" />
+              <xs:element name="ItemDiscount" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Looping">
+          <xs:complexType>
+            <xs:sequence>
+              <!--Person is a repeating element with 3 child elements in sequence. Out of 3 children, Other is optional and the rest are required. All three elements are non repeating.-->
+              <xs:element name="Person" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Name" type="xs:string" />
+                    <xs:element name="Address" type="xs:string" />
+                    <xs:element name="Other" type="xs:string" minOccurs="0" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Trips">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="Trip">
+                      <!--Trip is a repeating element with 3 child elements in sequence.-->
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="VehicleRegistration" type="xs:string" />
+                          <xs:element name="Distance" type="xs:string" />
+                          <xs:element name="Duration" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ConditionalLooping">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CategorizedCatalog">
+                <!--CategorizedCatalog contains 3 child elements in sequence. All 3 children are repeating.-->
+                <xs:complexType>
+                  <!--Repeating sequence with optional children.-->
+                  <xs:sequence maxOccurs="unbounded">
+                    <!--ProductInfoType is defined in imported schema TypeDefinitions.xsd.-->
+                    <xs:element minOccurs="0" name="PetProduct" type="td:ProductInfoType"/>
+                    <xs:element minOccurs="0" name="GroovyProduct" type="td:ProductInfoType"/>
+                    <xs:element minOccurs="0" name="OfficeProduct" type="td:ProductInfoType"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="LoopingWithIndex">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="WeatherSummary">
+                <!--WeatherSummary contains 3 child elements. Day1 and Day2 are not repeating. Element Day is optional and repeating.-->
+                <xs:complexType>
+                  <xs:sequence>
+                    <!--WeatherStatType is defined in imported schema TypeDefinitions.xsd.-->
+                    <xs:element name="Day1" type="td:WeatherStatType"/>
+                    <xs:element name="Day2" type="td:WeatherStatType"/>
+                    <xs:element name="Day" type="td:WeatherStatType" minOccurs="0" maxOccurs="unbounded"/>          
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="NameValueTransforms">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FlatterCatalog">
+                <xs:complexType>
+                  <xs:sequence>
+                    <!--Price has a complexType of SpecialProductType defined latter in this schema.-->
+                    <xs:element maxOccurs="unbounded" name="Price" type="SpecialProductType"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="PO_Status">
+                <!--PO_Status contains 3 required elements. Product is repeating.-->
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="ShipDate" type="xs:string" />
+                    <xs:element name="ShippedVia" type="xs:string" />
+                    <xs:element minOccurs="1" maxOccurs="unbounded" name="Product">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="ProductIdentifier" type="xs:string" />
+                          <xs:element minOccurs="1" maxOccurs="unbounded" name="OrderStatusQuantity">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="GlobalOrderQuantityTypeCode" type="xs:string" />
+                                <xs:element name="ProductQuantity" type="xs:string" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--Type Definition for StateDataType.-->
+  <xs:complexType name="StateDataType">
+      <xs:sequence>
+          <xs:element name="Name" type="xs:string" />
+          <xs:element name="SexRatio" type="xs:string" />
+      </xs:sequence>
+  </xs:complexType>
+    <!--Type definition for SpecialProductType.-->
+    <xs:complexType name="SpecialProductType">
+        <!--All child elements are optional and non repeating. Elements can be in any sequence.-->
+        <xs:all>
+            <xs:element name="Pen" type="xs:string" minOccurs="0"/>
+            <xs:element name="Pencil" type="xs:string" minOccurs="0"/>
+            <xs:element name="NoteBook" type="xs:string" minOccurs="0"/>
+            <xs:element name="Bag" type="xs:string" minOccurs="0"/>
+            <xs:element name="Others" type="xs:string" minOccurs="0"/>
+        </xs:all>   
+    </xs:complexType>
+</xs:schema>

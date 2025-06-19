@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--This file contains type definitions for complexType used in Target.xsd.-->
+<xs:schema targetNamespace="http://tempuri.org/TypeDefinition.xsd"
+    elementFormDefault="unqualified"
+    xmlns="http://tempuri.org/TypeDefinition.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+	<xs:complexType name="WeatherStatType">
+		<xs:sequence>
+            <xs:element name="Name" type="xs:string"/>
+			<xs:element name="Pressure" type="xs:decimal" />
+			<xs:element name="WindSpeed" type="xs:decimal" />
+			<xs:element name="Temperature" type="xs:decimal" />
+            <!--WeatherStarType contains an any element to test and demonstrate handling of any element by the schema compiler and is optional.-->
+            <xs:any minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProductInfoType">
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string" />
+			<xs:element name="SKU" type="xs:string" />
+			<xs:element name="Price" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="NewDataSet" targetNamespace="oxxo.promotions.mappedxml" xmlns:mstns="oxxo.promotions.mappedxml" xmlns="oxxo.promotions.mappedxml" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:element name="root">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="organizationCountry" type="xs:string" minOccurs="0" />
+        <xs:element name="organizationName" type="xs:string" minOccurs="0" />
+        <xs:element name="businessName" type="xs:string" minOccurs="0" />
+        <xs:element name="departmentId" type="xs:string" minOccurs="0" />
+        <xs:element name="storeId" type="xs:string" minOccurs="0" />
+        <xs:element name="numberOfRecords" type="xs:string" minOccurs="0" />
+        <xs:element name="searchId" type="xs:string" minOccurs="0" />
+        <xs:element name="searchDate" type="xs:string" minOccurs="0" />
+        <xs:element name="promotions" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="lineNumber" type="xs:string" minOccurs="0" />
+              <xs:element name="folio" type="xs:string" minOccurs="0" />
+              <xs:element name="itemCategory" type="xs:string" minOccurs="0" />
+              <xs:element name="type" type="xs:string" minOccurs="0" />
+              <xs:element name="startDate" type="xs:string" minOccurs="0" />
+              <xs:element name="endDate" type="xs:string" minOccurs="0" />
+              <xs:element name="itemSku" type="xs:string" minOccurs="0" />
+              <xs:element name="category" type="xs:string" minOccurs="0" />
+              <xs:element name="providerType" type="xs:string" minOccurs="0" />
+              <xs:element name="requiredQuantity" type="xs:string" minOccurs="0" />
+              <xs:element name="discount" type="xs:string" minOccurs="0" />
+              <xs:element name="discountType" type="xs:string" minOccurs="0" />
+              <xs:element name="optative" type="xs:string" minOccurs="0" />
+              <xs:element name="description" type="xs:string" minOccurs="0" />
+              <xs:element name="itemSubcategory" type="xs:string" minOccurs="0" />
+              <xs:element name="itemSegment" type="xs:string" minOccurs="0" />
+              <xs:element name="itemSubsegment" type="xs:string" minOccurs="0" />
+              <xs:element name="durationCode" type="xs:string" minOccurs="0" />
+              <xs:element name="grouper" type="xs:string" minOccurs="0" />
+              <xs:element name="percent" type="xs:string" minOccurs="0" />
+              <xs:element name="optativeOne" type="xs:string" minOccurs="0" />
+              <xs:element name="sent" type="xs:string" minOccurs="0" />
+              <xs:element name="action" type="xs:string" minOccurs="0" />
+              <xs:element name="binCode" type="xs:string" minOccurs="0" />
+              <xs:element name="messagePsg" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="root" />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,12 @@
+$version: 1
+$input: JSON
+$output: JSON
+$sourceSchema: overlappingLoop.json
+$targetSchema: overlappingLoop.json
+root:
+  root:
+    outerLoop:
+      innerLoop1:
+        name: string-join(/root/root/outerLoop/innerLoop1/name)
+      innerLoop2:
+        name: /root/root/outerLoop/innerLoop2/name

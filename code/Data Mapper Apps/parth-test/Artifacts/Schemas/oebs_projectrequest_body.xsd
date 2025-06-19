@@ -1,0 +1,800 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xs:schema xmlns:tns="http://www.dnvgl.com/EBS_Integration/masterdata/ProjectInbound" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.dnvgl.com/EBS_Integration/masterdata/ProjectInbound" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="PROJECT_REQUEST_ROOT">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="PROJECT_REQUEST">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="INTEGRATION_HEADER">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="1" maxOccurs="1" name="MessageID" type="xs:string" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="CorrelationID" type="xs:string" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="ResponseLocation" type="xs:string" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="RequestedOperation" type="xs:string" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="ReceiverSystem" type="xs:string" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="SenderSystem" type="xs:string" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="SentTimeStamp" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="ServiceCallType" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="PROJINTRF">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="PROJECT">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="1" maxOccurs="1" name="PM_PROJECT_REFERENCE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="PA_PROJECT_NUMBER" type="xs:string" />
+                          <xs:element minOccurs="1" maxOccurs="1" name="PROJECT_TYPE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="CREATED_FROM_PROJECT_ID" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="PROJECT_TEMPLATE_NAME" type="xs:string" />
+                          <xs:element minOccurs="1" maxOccurs="1" name="PROJECT_NAME" type="xs:string" />
+                          <xs:element minOccurs="1" maxOccurs="1" name="LONG_NAME" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="PROJECT_CURRENCY_CODE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="CARRYING_OUT_ORGANIZATION_ID" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="COST_CENTER" type="xs:string" />
+                          <xs:element minOccurs="1" maxOccurs="1" name="PROJECT_STATUS_CODE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="DESCRIPTION" type="xs:string" />
+                          <xs:element minOccurs="1" maxOccurs="1" name="START_DATE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="COMPLETION_DATE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="PUBLIC_SECTOR_FLAG" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="DISTRIBUTION_RULE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="ACTUAL_START_DATE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="ACTUAL_FINISH_DATE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="EARLY_START_DATE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="EARLY_FINISH_DATE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="LATE_START_DATE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="LATE_FINISH_DATE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="SCHEDULED_START_DATE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="SCHEDULED_FINISH_DATE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE1" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE2" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="SERVICE_CODE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="PL_OBJECT" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="PROJECT_CUSTOMER_CONTACT" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="INVOICE_CUSTOMER_CONTACT" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE7" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE8" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE9" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE10" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="OUTPUT_TAX_CODE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="RETENTION_TAX_CODE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="ALLOW_CROSS_CHARGE_FLAG" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="PROJECT_RATE_DATE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="PROJECT_RATE_TYPE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="CC_PROCESS_LABOR_FLAG" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="LABOR_TP_SCHEDULE_ID" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="LABOR_TP_FIXED_DATE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="CC_PROCESS_NL_FLAG" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="NL_TP_SCHEDULE_ID" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="NL_TP_FIXED_DATE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="CC_TAX_TASK_ID" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="ROLE_LIST_ID" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="WORK_TYPE_ID" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="CALENDAR_ID" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="LOCATION_ID" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="PROBABILITY_MEMBER_ID" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="PROJECT_VALUE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="EXPECTED_APPROVAL_DATE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="COST_JOB_GROUP_ID" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="BILL_JOB_GROUP_ID" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="TEAM_TEMPLATE_ID" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="COUNTRY_CODE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="REGION" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="CITY" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="EMP_BILL_RATE_SCHEDULE_ID" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="JOB_BILL_RATE_SCHEDULE_ID" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="INVPROC_CURRENCY_TYPE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="REVPROC_CURRENCY_CODE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="PROJECT_BIL_RATE_DATE_CODE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="PROJECT_BIL_RATE_TYPE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="PROJECT_BIL_RATE_DATE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="PROJECT_BIL_EXCHANGE_RATE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="PROJFUNC_CURRENCY_CODE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="PROJFUNC_BIL_RATE_DATE_CODE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="PROJFUNC_BIL_RATE_TYPE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="PROJFUNC_BIL_RATE_DATE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="PROJFUNC_BIL_EXCHANGE_RATE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="FUNDING_RATE_DATE_CODE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="FUNDING_RATE_TYPE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="FUNDING_RATE_DATE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="FUNDING_EXCHANGE_RATE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="BASELINE_FUNDING_FLAG" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="MULTI_CURRENCY_BILLING_FLAG" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="COMPETENCE_MATCH_WT" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="AVAILABILITY_MATCH_WT" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="JOB_LEVEL_MATCH_WT" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="ENABLE_AUTOMATED_SEARCH" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="SEARCH_MIN_AVAILABILITY" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="SEARCH_ORG_HIER_ID" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="SEARCH_STARTING_ORG_ID" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="SEARCH_COUNTRY_ID" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="MIN_CAND_SCORE_REQD_FOR_NOM" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="MAX_NUM_OF_SYS_NOM_CAND" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="NON_LAB_STD_BILL_RT_SCH_ID" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="SEARCH_COUNTRY_CODE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="INV_BY_BILL_TRANS_CURR_FLAG" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="PROJFUNC_COST_RATE_TYPE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="PROJFUNC_COST_RATE_DATE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="ASSIGN_PRECEDES_TASK" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="SPLIT_COST_FROM_WORKPLAN_FLAG" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="SPLIT_COST_FROM_BILL_FLAG" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="ADV_ACTION_SET_ID" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="START_ADV_ACTION_SET_FLAG" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="PRIORITY_CODE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="RETN_BILLING_INV_FORMAT_ID" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="RETN_ACCOUNTING_FLAG" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="OPP_VALUE_CURRENCY_CODE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="REVALUATE_FUNDING_FLAG" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="INCLUDE_GAINS_LOSSES_FLAG" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="SECURITY_LEVEL" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="LABOR_DISC_REASON_CODE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="NON_LABOR_DISC_REASON_CODE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="LABOR_SCHEDULE_FIXED_DATE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="LABOR_SCHEDULE_DISCOUNT" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="NON_LABOR_BILL_RATE_ORG_ID" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="NON_LABOR_SCHEDULE_FIXED_DATE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="NON_LABOR_SCHEDULE_DISCOUNT" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="REV_IND_RATE_SCH_ID" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="INV_IND_RATE_SCH_ID" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="REV_IND_SCH_FIXED_DATE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="INV_IND_SCH_FIXED_DATE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="LABOR_SCH_TYPE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="NON_LABOR_SCH_TYPE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="ASSET_ALLOCATION_METHOD" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="CAPITAL_EVENT_PROCESSING" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="CINT_RATE_SCH_ID" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="CINT_ELIGIBLE_FLAG" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="CINT_STOP_DATE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="SYS_PROGRAM_FLAG" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="ALLOW_MULTI_PROGRAM_ROLLUP" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="ENABLE_TOP_TASK_INV_MTH_FLAG" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="PROJFUNC_ATTR_FOR_AR_FLAG" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="DATE_EFF_FUNDS_FLAG" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="AR_REC_NOTIFY_FLAG" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="AUTO_RELEASE_PWP_INV" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="STATUS_CHANGE_COMMENT" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="BILL_LABOR_ACCRUAL" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="ADJ_ON_STD_INV" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="COST_PLUS_FIXED_FEE_FLAG" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="PROGRESS_PAYMENT_FLAG" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="BILLING_FUNDS_CHECK_FC_FLAG" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="DERIVE_BILLING_FROM_OKE_FLAG" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="RETENTION_PERCENTAGE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="RATE_PERCENTAGE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="LIQUIDATION_RATE_PERCENTAGE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="ALT_LIQUIDATION_RATE_PER" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="WITHHOLD_AMOUNT" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="FEE_RATE_SCHEDULE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="OVR_FEE_RATE_SCHEDULE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="FEE_REVENUE_SCHEDULE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="INV_LINE_GROUP" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="BILL_GROUP_NAME" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="FEE_PERCENTAGE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="FEE_RATE" type="xs:string" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="TASKS">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element minOccurs="0" maxOccurs="unbounded" name="TASK">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element minOccurs="0" maxOccurs="1" name="PM_TASK_REFERENCE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="TASK_ID" type="xs:string" />
+                                      <xs:element minOccurs="1" maxOccurs="1" name="TASK_NUMBER" type="xs:string" />
+                                      <xs:element minOccurs="1" maxOccurs="1" name="TASK_NAME" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="LONG_TASK_NAME" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="TASK_DESCRIPTION" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="TASK_START_DATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="TASK_COMPLETION_DATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="TASK_MANAGER" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="PM_PARENT_TASK_REFERENCE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="PA_PARENT_TASK_ID" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ADDRESS_ID" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="CARRYING_OUT_ORGANIZATION_ID" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="SERVICE_TYPE_CODE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="BILLABLE_FLAG" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="CHARGEABLE_FLAG" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="READY_TO_BILL_FLAG" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="READY_TO_DISTRIBUTE_FLAG" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="LIMIT_TO_TXN_CONTROLS_FLAG" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="LABOR_BILL_RATE_ORG_ID" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="LABOR_STD_BILL_RATE_SCHDL" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="LABOR_SCHEDULE_FIXED_DATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="LABOR_SCHEDULE_DISCOUNT" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="NON_LABOR_BILL_RATE_ORG_ID" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="NON_LABOR_STD_BILL_RATE_SCHDL" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="NON_LABOR_SCHEDULE_FIXED_DATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="NON_LABOR_SCHEDULE_DISCOUNT" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="LABOR_COST_MULTIPLIER_NAME" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="COST_IND_RATE_SCH_ID" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="REV_IND_RATE_SCH_ID" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="INV_IND_RATE_SCH_ID" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="COST_IND_SCH_FIXED_DATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="REV_IND_SCH_FIXED_DATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="INV_IND_SCH_FIXED_DATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="LABOR_SCH_TYPE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="NON_LABOR_SCH_TYPE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ACTUAL_START_DATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ACTUAL_FINISH_DATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="EARLY_START_DATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="EARLY_FINISH_DATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="LATE_START_DATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="LATE_FINISH_DATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="SCHEDULED_START_DATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="SCHEDULED_FINISH_DATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE1" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE2" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="SERVICE_CODE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="PL_OBJECT" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="PROJECT_CUSTOMER_CONTACT" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="INVOICE_CUSTOMER_CONTACT" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE7" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE8" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE9" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE10" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE11" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE12" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE13" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE14" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE15" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ALLOW_CROSS_CHARGE_FLAG" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="PROJECT_RATE_DATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="PROJECT_RATE_TYPE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="CC_PROCESS_LABOR_FLAG" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="LABOR_TP_SCHEDULE_ID" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="LABOR_TP_FIXED_DATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="CC_PROCESS_NL_FLAG" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="NL_TP_SCHEDULE_ID" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="NL_TP_FIXED_DATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="IC_LABOR_TP_SCHEDULE_ID" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="IC_LABOR_TP_FIXED_DATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="IC_NL_TP_SCHEDULE_ID" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="IC_NL_TP_FIXED_DATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="RECEIVE_PROJECT_INVOICE_FLAG" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="WORK_TYPE_ID" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="EMP_BILL_RATE_SCHEDULE_ID" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="JOB_BILL_RATE_SCHEDULE_ID" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="NON_LAB_STD_BILL_RT_SCH_ID" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="TASKFUNC_COST_RATE_TYPE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="TASKFUNC_COST_RATE_DATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="DISPLAY_SEQUENCE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="WBS_LEVEL" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="OBLIGATION_START_DATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="OBLIGATION_FINISH_DATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ESTIMATED_START_DATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ESTIMATED_FINISH_DATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="BASELINE_START_DATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="BASELINE_FINISH_DATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="CLOSED_DATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="WQ_UOM_CODE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="WQ_ITEM_CODE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="STATUS_CODE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="WF_STATUS_CODE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="PM_SOURCE_CODE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="PRIORITY_CODE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="MILESTONE_FLAG" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="CRITICAL_FLAG" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="INC_PROJ_PROGRESS_FLAG" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="LINK_TASK_FLAG" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="CALENDAR_ID" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="PLANNED_EFFORT" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="DURATION" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="PLANNED_WORK_QUANTITY" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="TASK_TYPE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="LABOR_DISC_REASON_CODE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="NON_LABOR_DISC_REASON_CODE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="RETIREMENT_COST_FLAG" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="CINT_ELIGIBLE_FLAG" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="CINT_STOP_DATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="PRED_STRING" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="PRED_DELIMITER" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="BASE_PERCENT_COMP_DERIV_CODE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="SCH_TOOL_TSK_TYPE_CODE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="CONSTRAINT_TYPE_CODE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="CONSTRAINT_DATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="FREE_SLACK" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="TOTAL_SLACK" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="EFFORT_DRIVEN_FLAG" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="LEVEL_ASSIGNMENTS_FLAG" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="INVOICE_METHOD" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="CUSTOMER_ID" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="GEN_ETC_SOURCE_CODE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="FINANCIAL_TASK_FLAG" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="MAPPED_TASK_ID" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="MAPPED_TASK_REFERENCE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="DELIVERABLE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="DELIVERABLE_ID" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="EXT_ACT_DURATION" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="EXT_REMAIN_DURATION" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="EXT_SCH_DURATION" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ETC_EFFORT" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="PERCENT_COMPLETE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ADJ_ON_STD_INV" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="COST_PLUS_FIXED_FEE_FLAG" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="PROGRESS_PAYMENT_FLAG" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="RETENTION_PERCENTAGE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="RATE_PERCENTAGE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="LIQUIDATION_RATE_PERCENTAGE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ALT_LIQUIDATION_RATE_PER" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="WITHHOLD_AMOUNT" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="FEE_RATE_SCHEDULE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="OVR_FEE_RATE_SCHEDULE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="FEE_REVENUE_SCHEDULE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="INV_LINE_GROUP" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="BILL_GROUP_NAME" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="FEE_PERCENTAGE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="FEE_RATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="BILLING_EXTENSIONS">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element minOccurs="0" maxOccurs="unbounded" name="BILLING_EXTENSION">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element minOccurs="1" maxOccurs="1" name="BILLING_EXT_NAME" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="AMOUNT" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="PERCENT" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="ACTIVE" type="xs:string" />
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element minOccurs="0" maxOccurs="1" name="NL_BILL_RATE_OVERRIDES">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element minOccurs="0" maxOccurs="unbounded" name="NL_BILL_RATE_OVERRIDE">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="NL_BILL_RATE_OVERRIDE_ID" type="xs:string" />
+                                                  <xs:element minOccurs="1" maxOccurs="1" name="EXPENDITURE_TYPE" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="NON_LABOR_RESOURCE" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="MARKUP_PERCENTAGE" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="BILL_RATE" type="xs:string" />
+                                                  <xs:element minOccurs="1" maxOccurs="1" name="START_DATE_ACTIVE" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="END_DATE_ACTIVE" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="RATE_CURRENCY_CODE" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="DISCOUNT_PERCENTAGE" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="RATE_DISC_REASON_CODE" type="xs:string" />
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element minOccurs="0" maxOccurs="1" name="EMP_BILL_RATE_OVERRIDES">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element minOccurs="0" maxOccurs="unbounded" name="EMP_BILL_RATE_OVERRIDE">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="EMP_BILL_RATE_OVERRIDE_ID" type="xs:string" />
+                                                  <xs:element minOccurs="1" maxOccurs="1" name="PERSON_ID" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="RATE" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="BILL_RATE_UNIT" type="xs:string" />
+                                                  <xs:element minOccurs="1" maxOccurs="1" name="START_DATE_ACTIVE" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="END_DATE_ACTIVE" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="RATE_CURRENCY_CODE" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="DISCOUNT_PERCENTAGE" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="RATE_DISC_REASON_CODE" type="xs:string" />
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element minOccurs="0" maxOccurs="1" name="JOB_ASSIGNMENT_OVERRIDES">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element minOccurs="0" maxOccurs="unbounded" name="JOB_ASSIGNMENT_OVERRIDE">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="JOB_ASSIGNMENT_OVERRIDE_ID" type="xs:string" />
+                                                  <xs:element minOccurs="1" maxOccurs="1" name="PERSON_ID" type="xs:string" />
+                                                  <xs:element minOccurs="1" maxOccurs="1" name="START_DATE_ACTIVE" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="END_DATE_ACTIVE" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="BILLING_TITLE" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="JOB_ID" type="xs:string" />
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element minOccurs="0" maxOccurs="1" name="JOB_BILL_TITLE_OVERRIDES">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element minOccurs="0" maxOccurs="unbounded" name="JOB_BILL_TITLE_OVERRIDE">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="JOB_BILL_TITLE_OVERRIDE_ID" type="xs:string" />
+                                                  <xs:element minOccurs="1" maxOccurs="1" name="START_DATE_ACTIVE" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="END_DATE_ACTIVE" type="xs:string" />
+                                                  <xs:element minOccurs="1" maxOccurs="1" name="BILLING_TITLE" type="xs:string" />
+                                                  <xs:element minOccurs="1" maxOccurs="1" name="JOB_ID" type="xs:string" />
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element minOccurs="0" maxOccurs="1" name="JOB_BILL_RATE_OVERRIDES">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element minOccurs="0" maxOccurs="unbounded" name="JOB_BILL_RATE_OVERRIDE">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="JOB_BILL_RATE_OVERRIDE_ID" type="xs:string" />
+                                                  <xs:element minOccurs="1" maxOccurs="1" name="JOB_ID" type="xs:string" />
+                                                  <xs:element minOccurs="1" maxOccurs="1" name="START_DATE_ACTIVE" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="END_DATE_ACTIVE" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="RATE" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="BILL_RATE_UNIT" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="RATE_CURRENCY_CODE" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="DISCOUNT_PERCENTAGE" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="RATE_DISC_REASON_CODE" type="xs:string" />
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element minOccurs="1" maxOccurs="1" name="CUSTOMERS">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element minOccurs="1" maxOccurs="unbounded" name="CUSTOMER">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element minOccurs="1" maxOccurs="1" name="CUSTOMER_ID" type="xs:string" />
+                                      <xs:element minOccurs="1" maxOccurs="1" name="PROJECT_RELATIONSHIP_CODE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="BILL_TO_ADDRESS_ID" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="SHIP_TO_ADDRESS_ID" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="BILL_TO_CUSTOMER_ID" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="SHIP_TO_CUSTOMER_ID" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="CONTACT_ID" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="PROJECT_CONTACT_TYPE_CODE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="CUSTOMER_BILL_SPLIT" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ALLOW_INV_USER_RATE_TYPE_FLAG" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="INV_RATE_DATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="INV_RATE_TYPE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="INV_CURRENCY_CODE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="INV_EXCHANGE_RATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ENABLE_TOP_TASK_CUSTOMER_FLAG" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="BILL_ANOTHER_PROJECT_FLAG" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="RECEIVER_TASK_ID" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="RECEIVER_TASK_NUMBER" type="xs:string" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element minOccurs="1" maxOccurs="1" name="KEY_MEMBERS">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element minOccurs="1" maxOccurs="unbounded" name="KEY_MEMBER">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element minOccurs="1" maxOccurs="1" name="PROJECT_ROLE_TYPE" type="xs:string" />
+                                      <xs:element minOccurs="1" maxOccurs="1" name="START_DATE_ACTIVE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="END_DATE_ACTIVE" type="xs:string" />
+                                      <xs:element minOccurs="1" maxOccurs="1" name="PERSON_ID" type="xs:string" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element minOccurs="0" maxOccurs="1" name="CLASSIFICATIONS">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element minOccurs="0" maxOccurs="unbounded" name="CLASSIFICATION">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element minOccurs="0" maxOccurs="1" name="CLASS_CATEGORY" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="CLASS_CODE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="CODE_PERCENTAGE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="NEW_CLASS_CODE" type="xs:string" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element minOccurs="0" maxOccurs="1" name="BUDGETS">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element minOccurs="0" maxOccurs="unbounded" name="BUDGET">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element minOccurs="0" maxOccurs="1" name="PM_BUDGET_REFERENCE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="BUDGET_VERSION_NAME" type="xs:string" />
+                                      <xs:element minOccurs="1" maxOccurs="1" name="BUDGET_TYPE_CODE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="BUDGET_CHANGE_REASON" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="BUDGET_DESCRIPTION" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ENTRY_METHOD_CODE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="RESOURCE_LIST_ID" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="RESOURCE_LIST_NAME" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE1" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE2" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE3" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE4" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE5" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE6" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE7" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE8" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE9" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE10" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE11" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE12" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE13" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE14" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE15" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="BUDGET_LINES">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element minOccurs="0" maxOccurs="unbounded" name="BUDGET_LINE">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="RESOURCE_ALIAS" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="RESOURCE_LIST_MEMBER_ID" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="PM_TASK_REFERENCE" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="COST_CODE" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="CBS_ELEMENT_ID" type="xs:string" />
+                                                  <xs:element minOccurs="1" maxOccurs="1" name="BUDGET_START_DATE" type="xs:string" />
+                                                  <xs:element minOccurs="1" maxOccurs="1" name="BUDGET_END_DATE" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="PERIOD_NAME" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="DESCRIPTION" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="RAW_COST" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="BURDENED_COST" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="REVENUE" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="QUANTITY" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="PM_BUDGET_LINE_REFERENCE" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="CHANGE_REASON_CODE" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE1" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE2" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE3" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE4" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE5" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE6" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE7" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE8" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE9" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE10" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE11" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE12" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE13" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE14" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE15" type="xs:string" />
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element minOccurs="0" maxOccurs="1" name="AGREEMENTS">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element minOccurs="0" maxOccurs="unbounded" name="AGREEMENT">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element minOccurs="1" maxOccurs="1" name="PM_AGREEMENT_REFERENCE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="AGREEMENT_NUM" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="AGREEMENT_TYPE" type="xs:string" />
+                                      <xs:element minOccurs="1" maxOccurs="1" name="CUSTOMER_ID" type="xs:string" />
+                                      <xs:element minOccurs="1" maxOccurs="1" name="AMOUNT" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="TERM_ID" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="START_DATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="EXPIRATION_DATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="AGREEMENT_DESCRIPTION" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="OWNED_BY_PERSON_ID" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="REVENUE_LIMIT_FLAG" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="INVOICE_LIMIT_FLAG" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="OWNING_ORGANIZATION_ID" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="AGREEMENT_CURRENCY_CODE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="CUSTOMER_ORDER_NUMBER" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ADVANCE_REQUIRED" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="BILLING_SEQUENCE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="LINE_OF_ACCOUNT" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE1" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE2" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE3" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE4" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE5" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE6" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE7" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE8" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE9" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE10" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE11" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE12" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE13" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE14" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE15" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE16" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE17" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE18" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE19" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE20" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE21" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE22" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE23" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE24" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE25" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="FUNDINGS">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element minOccurs="0" maxOccurs="unbounded" name="FUNDING">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element minOccurs="1" maxOccurs="1" name="PM_FUNDING_REFERENCE" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="TASK_NUMBER" type="xs:string" />
+                                                  <xs:element minOccurs="1" maxOccurs="1" name="ALLOCATED_AMOUNT" type="xs:string" />
+                                                  <xs:element minOccurs="1" maxOccurs="1" name="DATE_ALLOCATED" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="FUNDING_CATEGORY" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE1" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE2" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE3" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE4" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE5" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE6" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE7" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE8" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE9" type="xs:string" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="ATTRIBUTE10" type="xs:string" />
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element minOccurs="0" maxOccurs="1" name="BILLING_EXTENSIONS">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element minOccurs="0" maxOccurs="unbounded" name="BILLING_EXTENSION">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element minOccurs="1" maxOccurs="1" name="BILLING_EXT_NAME" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="AMOUNT" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="PERCENT" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ACTIVE" type="xs:string" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element minOccurs="0" maxOccurs="1" name="NL_BILL_RATE_OVERRIDES">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element minOccurs="0" maxOccurs="unbounded" name="NL_BILL_RATE_OVERRIDE">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element minOccurs="0" maxOccurs="1" name="NL_BILL_RATE_OVERRIDE_ID" type="xs:string" />
+                                      <xs:element minOccurs="1" maxOccurs="1" name="EXPENDITURE_TYPE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="NON_LABOR_RESOURCE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="MARKUP_PERCENTAGE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="BILL_RATE" type="xs:string" />
+                                      <xs:element minOccurs="1" maxOccurs="1" name="START_DATE_ACTIVE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="END_DATE_ACTIVE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="RATE_CURRENCY_CODE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="DISCOUNT_PERCENTAGE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="RATE_DISC_REASON_CODE" type="xs:string" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element minOccurs="0" maxOccurs="1" name="EMP_BILL_RATE_OVERRIDES">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element minOccurs="0" maxOccurs="unbounded" name="EMP_BILL_RATE_OVERRIDE">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element minOccurs="0" maxOccurs="1" name="EMP_BILL_RATE_OVERRIDE_ID" type="xs:string" />
+                                      <xs:element minOccurs="1" maxOccurs="1" name="PERSON_ID" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="RATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="BILL_RATE_UNIT" type="xs:string" />
+                                      <xs:element minOccurs="1" maxOccurs="1" name="START_DATE_ACTIVE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="END_DATE_ACTIVE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="RATE_CURRENCY_CODE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="DISCOUNT_PERCENTAGE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="RATE_DISC_REASON_CODE" type="xs:string" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element minOccurs="0" maxOccurs="1" name="JOB_ASSIGNMENT_OVERRIDES">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element minOccurs="0" maxOccurs="unbounded" name="JOB_ASSIGNMENT_OVERRIDE">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element minOccurs="0" maxOccurs="1" name="JOB_ASSIGNMENT_OVERRIDE_ID" type="xs:string" />
+                                      <xs:element minOccurs="1" maxOccurs="1" name="PERSON_ID" type="xs:string" />
+                                      <xs:element minOccurs="1" maxOccurs="1" name="START_DATE_ACTIVE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="END_DATE_ACTIVE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="BILLING_TITLE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="JOB_ID" type="xs:string" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element minOccurs="0" maxOccurs="1" name="JOB_BILL_TITLE_OVERRIDES">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element minOccurs="0" maxOccurs="unbounded" name="JOB_BILL_TITLE_OVERRIDE">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element minOccurs="0" maxOccurs="1" name="JOB_BILL_TITLE_OVERRIDE_ID" type="xs:string" />
+                                      <xs:element minOccurs="1" maxOccurs="1" name="JOB_ID" type="xs:string" />
+                                      <xs:element minOccurs="1" maxOccurs="1" name="START_DATE_ACTIVE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="END_DATE_ACTIVE" type="xs:string" />
+                                      <xs:element minOccurs="1" maxOccurs="1" name="BILLING_TITLE" type="xs:string" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element minOccurs="0" maxOccurs="1" name="JOB_BILL_RATE_OVERRIDES">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element minOccurs="0" maxOccurs="unbounded" name="JOB_BILL_RATE_OVERRIDE">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element minOccurs="0" maxOccurs="1" name="JOB_BILL_RATE_OVERRIDE_ID" type="xs:string" />
+                                      <xs:element minOccurs="1" maxOccurs="1" name="JOB_ID" type="xs:string" />
+                                      <xs:element minOccurs="1" maxOccurs="1" name="START_DATE_ACTIVE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="END_DATE_ACTIVE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="RATE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="BILL_RATE_UNIT" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="RATE_CURRENCY_CODE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="DISCOUNT_PERCENTAGE" type="xs:string" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="RATE_DISC_REASON_CODE" type="xs:string" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

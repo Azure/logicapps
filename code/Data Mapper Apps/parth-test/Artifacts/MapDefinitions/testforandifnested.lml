@@ -1,0 +1,26 @@
+$version: 1
+$input: XML
+$output: XML
+$sourceSchema: api_projectrequest.xsd
+$targetSchema: oebs_projectrequest_header.xsd
+$sourceNamespaces:
+  ns4: https://SchProjectGBO.SchProjectGBO
+  pjc: http://SchCustomerReference.SchCustomerReference
+  b: http://schemas.microsoft.com/BizTalk/2003
+  ns0: https://SchProjectGBO.PropertySchema
+  xs: http://www.w3.org/2001/XMLSchema
+$targetNamespaces:
+  soapenv: http://schemas.xmlsoap.org/soap/envelope/
+  ns0: http://www.dnvgl.com/EBS_Integration/masterdata/ProjectInbound
+  xs: http://www.w3.org/2001/XMLSchema
+soapenv:Envelope:
+  soapenv:Body:
+    ns0:PROJECT_REQUEST_ROOT:
+      ns0:PROJECT_REQUEST:
+        ns0:INTEGRATION_HEADER:
+          ns0:MessageID: pmProjectReference
+        ns0:PROJINTRF:
+          $for(/ns4:projectGBO/project):
+            $for(/ns4:projectGBO/project):
+              ns0:PROJECT:
+                ns0:PM_PROJECT_REFERENCE: pmProjectReference
