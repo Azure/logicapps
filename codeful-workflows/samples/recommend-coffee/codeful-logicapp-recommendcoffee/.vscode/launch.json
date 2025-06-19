@@ -1,7 +1,12 @@
 {
+  "version": "0.2.0",
+  "configurations": [
+    {
    "name": "Run/Debug logic app codeful-logicapp",
    "type": "logicapp",
    "request": "launch",
    "funcRuntime": "coreclr",
    "customCodeRuntime": "clr"
+   }
+   ]
 }
