@@ -2,7 +2,7 @@
 
 ## Bundle and NuGet version 1.127.x
 - **Compose XML with schema** and **Parse XML with schema** actions: Add support to choose XML schema.
-- **Logic Apps Rules Engine**: General availability. For more information, see https://go.microsoft.com/fwlink/?linkid=2325117
+- **Azure Logic Apps Rules Engine**: General availability. For more information, see [Azure Logic Apps Rules Engine - Overview](https://go.microsoft.com/fwlink/?linkid=2325117).
 - Various bug fixes and improvements
 <br><br>
 
