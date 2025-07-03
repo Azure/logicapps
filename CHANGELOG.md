@@ -1,5 +1,16 @@
 # Azure Logic Apps (Standard)
 
+## Bundle and NuGet version 1.131.x
+- Model Context Protocol (MCP) support: Create logic apps as remote MCP servers that use Server-Sent Events (SSE) and streamable HTTP transports for client-server communication.
+- Various bug fixes and improvements
+<br><br>
+
+## Bundle and NuGet version 1.127.x
+- **Compose XML with schema** and **Parse XML with schema** actions: Add support to choose XML schema.
+- **Logic Apps Rules Engine**: General availability. For more information, see https://go.microsoft.com/fwlink/?linkid=2325117
+- Various bug fixes and improvements
+<br><br>
+
 ## Bundle and NuGet version 1.123.x
 - **Agent workflows**: Public preview for running agents in Standard workflows created with the **Agent** type. For more information, see https://go.microsoft.com/fwlink/?linkid=2320014.
 - Various bug fixes and improvements
