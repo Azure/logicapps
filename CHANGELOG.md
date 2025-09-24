@@ -5,7 +5,7 @@
 - **Autonomous agent workflows**: Build independent agent workflows that run with any available trigger. Start with new workflows or convert existing workflows by adding agent loops.
 - **Conversational agents**: Build agent workflows with native chat client support using the Agent-to-Agent (A2A) protocol. Includes standalone chat client secured with Easy Auth and Microsoft Entra ID.
 - **Per user connections**: Build conversational agent workflows with user-scoped context so tools run with the identity of the signed-in user.
-- **Nested agents**: Delegate tasks to other agents as tools by using the new action **Send task to nested agent**.
+- **Nested agents**: Delegate tasks to other agents as tools by using the new action **Send a task to a nested agent**.
 - **Agent handoff**: Support multi-agent patterns with capability to delegate task execution to specific agents.
 - Various bug fixes and improvements
 <br><br>
