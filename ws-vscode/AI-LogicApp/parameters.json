@@ -1,0 +1,26 @@
+{
+  "AISearchIndex_Chat_With_Documents_Ai": {
+    "type": "String",
+    "value": ""
+  },
+  "OpenAIEmbeddingModel_Chat_With_Documents_Ai": {
+    "type": "String",
+    "value": ""
+  },
+  "OpenAIChatModel_Chat_With_Documents_Ai": {
+    "type": "String",
+    "value": ""
+  },
+  "conversionservice-ConnectionRuntimeUrl": {
+    "type": "String",
+    "value": "@appsetting('conversionservice-ConnectionRuntimeUrl')"
+  },
+  "conversionservice-Authentication": {
+    "type": "Object",
+    "value": {
+      "type": "Raw",
+      "scheme": "Key",
+      "parameter": "@appsetting('conversionservice-connectionKey')"
+    }
+  }
+}

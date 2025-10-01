@@ -1,0 +1,90 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "actions": {
+      "Agent": {
+        "type": "Agent",
+        "inputs": {
+          "parameters": {
+            "deploymentId": "model-9ab08",
+            "messages": [
+              {
+                "role": "system",
+                "content": "You are a helpful assistant, answering questions about specific documents. When a question is asked, follow these steps in order: \nUse the agent parameter body prompt to pass in the user's questions to the Document search tool. Use this tool to do a vector search of the user's question, the output of the vector search tool will have the related information to answer the question. The output will be in the form of a json array. Each array object will have a \"content\" property, use the \"content\" property to generate an answer. Use only information to answer the user's question and cite the source using the page number you found it on. No other data or information should be used to answer the question."
+              }
+            ],
+            "agentModelType": "AzureOpenAI",
+            "agentModelSettings": {
+              "agentHistoryReductionSettings": {
+                "agentHistoryReductionType": "maximumTokenCountReduction",
+                "maximumTokenCount": 128000
+              },
+              "deploymentModelProperties": {
+                "name": "gpt-4o",
+                "format": "OpenAI",
+                "version": "2024-08-06"
+              }
+            }
+          },
+          "modelConfigurations": {
+            "model1": {
+              "referenceName": "agent"
+            }
+          }
+        },
+        "tools": {
+          "Tool": {
+            "actions": {
+              "Search_vectors_with_natural_language": {
+                "type": "ServiceProvider",
+                "inputs": {
+                  "parameters": {
+                    "indexName": "demo-chunk-parse",
+                    "searchText": "@agentParameters('Body prompt')",
+                    "kNearestNeighbors": 2
+                  },
+                  "serviceProviderConfiguration": {
+                    "connectionName": "azureaisearch-1_Chat_With_Documents_Ai",
+                    "operationId": "integratedVectorSearch",
+                    "serviceProviderId": "/serviceProviders/azureaisearch"
+                  }
+                }
+              }
+            },
+            "description": "This is the workflow that accepts the prompt from the chat as input to the workflow and uses the search index to find the right answer to the question",
+            "agentParameterSchema": {
+              "type": "object",
+              "properties": {
+                "Body prompt": {
+                  "type": "string",
+                  "description": "Body prompt"
+                }
+              },
+              "required": [
+                "Body prompt"
+              ]
+            }
+          }
+        },
+        "runAfter": {
+          "When_a_new_chat_session_starts": [
+            "Succeeded"
+          ]
+        }
+      }
+    },
+    "outputs": {},
+    "triggers": {
+      "When_a_new_chat_session_starts": {
+        "type": "Request",
+        "kind": "Agent",
+        "inputs": {
+          "agentName": "Sales agent",
+          "agentDescription": "Responds to questions on contract agreements"
+        }
+      }
+    }
+  },
+  "kind": "Agent"
+}

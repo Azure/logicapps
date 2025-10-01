@@ -1,0 +1,48 @@
+{
+  "serviceProviderConnections": {
+    "openai": {
+      "parameterValues": {
+        "openAIEndpoint": "@appsetting('openai_openAIEndpoint')",
+        "openAIKey": "@appsetting('openai_openAIKey')"
+      },
+      "parameterSetName": "KeyAndEndpointConnection",
+      "serviceProvider": {
+        "id": "/serviceProviders/openai"
+      },
+      "displayName": "new-sampleconnection"
+    },
+    "azureaisearch-1_Chat_With_Documents_Ai": {
+      "parameterValues": {
+        "searchServiceEndpoint": "@appsetting('azureaisearch_11_Chat_With_Documents_Ai_searchServiceEndpoint')",
+        "searchServiceAdminKey": "@appsetting('azureaisearch_11_Chat_With_Documents_Ai_searchServiceAdminKey')"
+      },
+      "parameterSetName": "ConnectionString",
+      "serviceProvider": {
+        "id": "/serviceProviders/azureaisearch"
+      },
+      "displayName": "new_conn_5f962"
+    },
+    "AzureBlob-2": {
+      "parameterValues": {
+        "connectionString": "@appsetting('AzureBlob_12_connectionString')"
+      },
+      "parameterSetName": "connectionString",
+      "serviceProvider": {
+        "id": "/serviceProviders/AzureBlob"
+      },
+      "displayName": "new_conn_db48f"
+    }
+  },
+  "agentConnections": {
+    "agent": {
+      "displayName": "new_conn_19bd1",
+      "authentication": {
+        "type": "Key",
+        "key": "@appsetting('agent_openAIKey')"
+      },
+      "endpoint": "@appsetting('agent_openAIEndpoint')",
+      "resourceId": "",
+      "type": "model"
+    }
+  }
+}

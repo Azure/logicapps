@@ -1,0 +1,16 @@
+{
+  "folders": [
+    {
+      "name": "AI-LogicApp",
+      "path": "./AI-LogicApp"
+    }
+  ],
+  "settings": {
+    "terminal.integrated.env.windows": {
+      "PATH": "C:\\Users\\shahparth\\.azurelogicapps\\dependencies\\DotNetSDK;${env:PATH}"
+    },
+    "omnisharp.dotNetCliPaths": [
+      "C:\\Users\\shahparth\\.azurelogicapps\\dependencies\\DotNetSDK"
+    ]
+  }
+}

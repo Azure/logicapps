@@ -1,0 +1,23 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "WORKFLOWS_SUBSCRIPTION_ID": "",
+    "WORKFLOWS_LOCATION_NAME": "",
+    "WORKFLOWS_RESOURCE_GROUP_NAME": "",
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_INPROC_NET8_ENABLED": "1",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "APP_KIND": "workflowApp",
+    "ProjectDirectoryPath": "",
+    "AzureBlob_12_connectionString": "",
+    "FUNCTIONS_EXTENSION_VERSION": "~4",
+    "agent_openAIEndpoint": "",
+    "openai_openAIKey": "",
+    "AzureFunctionsJobHost__extensionBundle__id": "Microsoft.Azure.Functions.ExtensionBundle.Workflows",
+    "agent_openAIKey": "",
+    "openai_openAIEndpoint": "",
+    "AzureFunctionsJobHost__extensionBundle__version": "[1.*, 2.0.0)",
+    "AzureBlob_connectionString": "",
+    "APPLICATIONINSIGHTS_CONNECTION_STRING": ""
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "actions": {
+      "Get_multiple_embeddings": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "deploymentId": "text-embedding-3-small",
+            "input": "@body('Select')"
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "openai",
+            "operationId": "getArrayEmbeddings",
+            "serviceProviderId": "/serviceProviders/openai"
+          }
+        },
+        "runAfter": {
+          "Select": [
+            "SUCCEEDED"
+          ]
+        }
+      },
+      "Select_index_objects": {
+        "type": "Select",
+        "inputs": {
+          "from": "@range(0,length(body('Chunk_text_with_metadata')['value']))",
+          "select": {
+            "content": "@body('Chunk_text_with_metadata')['value'][item()]['text']",
+            "documentName": "SalesDoc.pdf",
+            "embeddings": "@body('Get_multiple_embeddings')['embeddings'][item()]",
+            "id": "@guid()"
+          }
+        },
+        "runAfter": {
+          "Get_multiple_embeddings": [
+            "SUCCEEDED"
+          ]
+        }
+      },
+      "Index_multiple_documents": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "indexName": "demo-chunk-parse",
+            "documents": "@body('Select_index_objects')"
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "azureaisearch-1_Chat_With_Documents_Ai",
+            "operationId": "indexDocuments",
+            "serviceProviderId": "/serviceProviders/azureaisearch"
+          }
+        },
+        "runAfter": {
+          "Select_index_objects": [
+            "SUCCEEDED"
+          ]
+        }
+      },
+      "Parse_document_with_Metadata": {
+        "type": "ParseDocumentWithMetadata",
+        "inputs": {
+          "content": "@body('Read_blob_content')?['content']",
+          "fileType": "PDF"
+        },
+        "runAfter": {
+          "Read_blob_content": [
+            "SUCCEEDED"
+          ]
+        }
+      },
+      "Chunk_text_with_metadata": {
+        "type": "ChunkTextWithMetadata",
+        "inputs": {
+          "tokenSize": 500,
+          "chunkOverlapLength": 0,
+          "pageText": "@body('Parse_document_with_Metadata')?['value']"
+        },
+        "runAfter": {
+          "Parse_document_with_Metadata": [
+            "SUCCEEDED"
+          ]
+        }
+      },
+      "Select": {
+        "type": "Select",
+        "inputs": {
+          "from": "@body('Chunk_text_with_metadata')?['value']",
+          "select": "@item()['text']"
+        },
+        "runAfter": {
+          "Chunk_text_with_metadata": [
+            "SUCCEEDED"
+          ]
+        }
+      },
+      "Read_blob_content": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "containerName": "pdfblob",
+            "blobName": "@triggerBody()?['name']"
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "AzureBlob-2",
+            "operationId": "readBlob",
+            "serviceProviderId": "/serviceProviders/AzureBlob"
+          }
+        },
+        "runAfter": {}
+      }
+    },
+    "outputs": {},
+    "triggers": {
+      "When_a_blob_is_added_or_updated": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "path": "pdfblob"
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "AzureBlob-2",
+            "operationId": "whenABlobIsAddedOrModified",
+            "serviceProviderId": "/serviceProviders/AzureBlob"
+          }
+        }
+      }
+    }
+  },
+  "kind": "Stateful"
+}

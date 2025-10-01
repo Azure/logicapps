@@ -1,0 +1,9 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "APP_KIND": "workflowapp",
+    "ProjectDirectoryPath": "c:\\Users\\shahparth\\Desktop\\space\\ws-vscode\\AI-LogicApp",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "AzureWebJobsSecretStorageType": "Files"
+  }
+}
