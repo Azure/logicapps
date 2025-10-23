@@ -1,5 +1,13 @@
 # Azure Logic Apps (Standard)
 
+## Bundle and NuGet version 1.145.x
+- **SAP** connector operations: Added the **Gateway without work process** setting to enable SAP topologies with standalone gateways or with message server plus gateway-only instances. Helps resolve the following errors: "Gateway without R/3 connectivity" and "Gateway without work processes".
+- **trimByteOrderMark()**: This new expression function removes the Byte Order Mark (BOM) characters from the beginning of strings or binary content and is especially useful for processing XML content.
+- **Visual Studio Code designer**: Support dynamic schema-defined inputs and outputs for the **Compose XML with schema** and **Parse XML with schema** actions.
+- **Compose XML with schema** and **Parse XML with schema** actions: Added support for more XML schema constructs.
+- Various bug fixes and improvements
+<br><br>
+
 ## Bundle and NuGet version 1.138.x
 - **AI Foundry support**: Build agent workflows that run with AI Foundry models. Centrally manage agents and use AI Foundry capabilities like tools, threads, and more.
 - **Autonomous agent workflows**: Build independent agent workflows that run with any available trigger. Start with new workflows or convert existing workflows by adding agent loops.
