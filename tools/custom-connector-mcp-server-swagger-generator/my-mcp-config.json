@@ -1,5 +1,0 @@
-{
-    "url": "https://arjun-bus-tt.azurewebsites.net/api/mcp",
-    "mcpServerName": "OAuth TestCustomerTenant MCP Server",
-    "mcpServerDescription": "A MCP server in test customer tenant."
-}
