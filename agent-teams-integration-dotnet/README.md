@@ -29,7 +29,7 @@ Save the OAuth connection. Open it again and click "test". This should let you l
 - Open the relevant LA workflow and click on the trigger. You should see an agent URL. Copy that into LOGICAPP_AGENT_URL
 - Now run the project.
 - Expose the local service using ngrok or devtunnel. For example: `.\devtunnel.exe host -p 3978 --allow-anonymous`
-- Note the URL exposed by devtunnels and append the suffix `\api\messages` to form the full messaging endpoint
+- Note the URL exposed by devtunnels and append the suffix `/api/messages` to form the full messaging endpoint
 - Go to Azure Bot Service, configuration, and put in the full messaging endpoint there
 
 Now you can "test in web chat" in Azure Bot Service - you should be able to interact with the agent. Ensure sign-in works and messages are flowing through
