@@ -1,0 +1,24 @@
+{
+  "name": "auto-signin",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -b",
+    "prestart": "npm run build",
+    "start": "node --env-file .env dist/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@a2a-js/sdk": "^0.3.4",
+    "@microsoft/agents-hosting-express": "^1.0.0",
+    "@microsoft/microsoft-graph-client": "^3.0.7",
+    "adaptivecards-templating": "^2.3.1",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@microsoft/microsoft-graph-types": "^2.40.0"
+  }
+}
