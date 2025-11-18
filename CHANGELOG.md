@@ -1,5 +1,23 @@
 # Azure Logic Apps (Standard)
 
+## Bundle and NuGet version 1.149.x
+- **SAP** built-in trigger: Fixed support for large messages. Reduced CPU and memory overhead for SAP built-in trigger.
+- **MCP servers in agents**: Preview capability for adding remote MCP servers to agents in workflows. Agents can then call tools in these MCP servers.
+- **On-Behalf-Of (OBO) updates**: Expanded OBO authentication with dynamic connections and improved per-user context for agent workflows. Better CORS and preflight (OPTIONS request) support for A2A and agent endpoints.
+- **RabbitMQ GA**: RabbitMQ connector operations are generally available (GA) and ready for production use.
+- **Execute PowerShell GA**: Run inline PowerShell is generally available (GA) and lets you select the PowerShell version plus improved error handling. 
+- **Security and authentication**: Improved security for agents and workflow authentication by excluding refresh tokens from API responses. Expanded support for Okta as an identity provider alongside Microsoft Entra.
+- **HL7 and SAP messaging**: Enhanced HL7 support for more flexible line-endings and schema compatibility. SAP connector operations are more reliable and provide explicit exception handling for advanced integration scenarios.
+- **API and workflow management**: Improved validation and state management for agent and A2A loop workflows. Workflow cloning, type switching, session controls, and token usage limits are now more robust, enabling safer workflow evolution and management.
+- **Metrics, billing, and performance**: Enhanced in-memory cache usage and support for new metrics, including detailed billing and usage tracking for agent-based execution.
+- **Parse document action with metadata GA**: The **Parse document with metadata** action is generally available (GA) and ready for production use.
+- **Azure AI Document Intelligence GA**: The **Document Intelligence** connector operations are generally available (GA) and ready for production use.
+- **Chunk text with metadata GA**: The **Chunk text with metadata** action is generally available (GA) and ready for production use.
+- **Execute C# scripts GA**: Run inline C# is generally available (GA) and ready for production use. Added capability to use isolated worker process for running scripts. 
+- [**Azure Logic Apps Labs**](https://aka.ms/lalabs): Refreshed content for Agent Loop, including support for Consumption workflows, bring your Azure API Management AI Gateway, Microsoft Team chat clients, MCP servers, and Easy Auth with Okta.
+- Various bug fixes and general improvements.
+<br><br>
+
 ## Bundle and NuGet version 1.145.x
 - **SAP** connector operations: Added the **Gateway without work process** setting to enable SAP topologies with standalone gateways or with message server plus gateway-only instances. Helps resolve the following errors: "Gateway without R/3 connectivity" and "Gateway without work processes".
 - **trimByteOrderMark()**: This new expression function removes the Byte Order Mark (BOM) characters from the beginning of strings or binary content and is especially useful for processing XML content.
