@@ -1,5 +1,11 @@
 # Azure Logic Apps (Standard)
 
+## Bundle and NuGet version 1.156.x
+- Agent and workflow improvements: Enhanced reliability for agent workflows, including better caching and validation for agent handoff and tool calls.
+- Confluent connector: Now generally available and ready for production use.
+- Various bug fixes and improvements
+<br><br>
+
 ## Bundle and NuGet version 1.149.x
 - **SAP** built-in trigger: Fixed support for large messages. Reduced CPU and memory overhead for SAP built-in trigger.
 - **MCP servers in agents**: Preview capability for adding remote MCP servers to agents in workflows. Agents can then call tools in these MCP servers.
