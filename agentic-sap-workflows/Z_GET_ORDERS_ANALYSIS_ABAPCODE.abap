@@ -14,7 +14,7 @@ FUNCTION Z_GET_ORDERS_ANALYSIS.
 *"      SENDEXCEPTIONTOSAPSERVER
 *"----------------------------------------------------------------------
 
-* SUBMITs ZCREATE_ONLINEORDER_IDOC for each CSV line, passing parameters.
+* Calls remote function Z_GET_ORDERS_ANALYSIS, passing IT_CSV and returning ANALYSIS and RETURN.
 *-----------------------------------------------------------------------
 
 CALL FUNCTION 'Z_GET_ORDERS_ANALYSIS' DESTINATION DEST
