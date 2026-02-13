@@ -1,0 +1,72 @@
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "contentVersion": "1.0.0.0",
+        "actions": {
+            "Read_CSV_orders_from_blob": {
+                "type": "ServiceProvider",
+                "inputs": {
+                    "parameters": {
+                        "containerName": "onlinestoreorders",
+                        "blobName": "@parameters('DataFileName')"
+                    },
+                    "serviceProviderConfiguration": {
+                        "connectionName": "AzureBlob",
+                        "operationId": "readBlob",
+                        "serviceProviderId": "/serviceProviders/AzureBlob"
+                    }
+                },
+                "runAfter": {}
+            },
+            "Extract_rows_skip_titles": {
+                "type": "Compose",
+                "inputs": "@skip(split(string(body('Read_CSV_orders_from_blob')?['content']), '\r\n'),1)",
+                "runAfter": {
+                    "Read_CSV_orders_from_blob": [
+                        "SUCCEEDED"
+                    ]
+                }
+            },
+            "Transform_CSV_to_XML": {
+                "type": "JavaScriptCode",
+                "inputs": {
+                    "code": "const lines = workflowContext.actions.Extract_rows_skip_titles.outputs;\n\nfunction xmlEscape(value) {\n  return String(value)\n    .replace(/&/g, \"&amp;\")\n    .replace(/</g, \"&lt;\")\n    .replace(/>/g, \"&gt;\")\n    .replace(/\"/g, \"&quot;\")\n    .replace(/'/g, \"&apos;\");\n}\n\n  // NOTE: We keep empty strings to produce <LINE></LINE> nodes as requested.\n  const xml = lines\n    .map(line => `<ZTY_CSV_LINE><LINE>${xmlEscape(line)}</LINE></ZTY_CSV_LINE>`)\n    .join(\"\");\n\n  return { xml };\n"
+                },
+                "runAfter": {
+                    "Extract_rows_skip_titles": [
+                        "SUCCEEDED"
+                    ]
+                }
+            },
+            "[RFC]_Create_all_IDocs": {
+                "type": "ServiceProvider",
+                "inputs": {
+                    "parameters": {
+                        "inputBodyType": "XML",
+                        "rfcName": "Z_RUN_ONLINE_ORDER_REPORT",
+                        "outputBodyType": "XML",
+                        "body": "<Z_CREATE_ONLINEORDER_IDOC xmlns=\"http://Microsoft.LobServices.Sap/2007/03/Rfc/\">\n<IV_DIRECTION>O</IV_DIRECTION>\n<IV_SNDPRT>LS</IV_SNDPRT>\n<IV_SNDPRN>BTSSERVER</IV_SNDPRN>\n<IV_RCVPRT>LS</IV_RCVPRT>\n<IV_RCVPRN>BTSSERVER</IV_RCVPRN>\n    <IT_CSV>@{outputs('Transform_CSV_to_XML')['xml']}\n    </IT_CSV>\n<ET_RETURN></ET_RETURN>\n<ET_DOCNUMS></ET_DOCNUMS>\n</Z_CREATE_ONLINEORDER_IDOC>"
+                    },
+                    "serviceProviderConfiguration": {
+                        "connectionName": "sap",
+                        "operationId": "callRfc",
+                        "serviceProviderId": "/serviceProviders/sap"
+                    }
+                },
+                "runAfter": {
+                    "Transform_CSV_to_XML": [
+                        "SUCCEEDED"
+                    ]
+                }
+            }
+        },
+        "outputs": {},
+        "triggers": {
+            "When_an_HTTP_request_is_received": {
+                "type": "Request",
+                "kind": "Http"
+            }
+        }
+    },
+    "kind": "Stateful"
+}

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_IDOC" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <IDOC>
+    <ATTRIBUTES>
+     <DESCRP>Custom IDoc for online orders</DESCRP>
+     <FIRSTTYP>ZONLINEORDERIDOC</FIRSTTYP>
+     <LASTTYP>ZONLINEORDERIDOC</LASTTYP>
+    </ATTRIBUTES>
+    <T_SYNTAX>
+     <EDI_IAPI02>
+      <NR>0001</NR>
+      <SEGTYP>ZONLINEORDER</SEGTYP>
+      <MUSTFL>X</MUSTFL>
+      <OCCMIN>0000000001</OCCMIN>
+      <OCCMAX>0000000001</OCCMAX>
+      <HLEVEL>01</HLEVEL>
+     </EDI_IAPI02>
+    </T_SYNTAX>
+   </IDOC>
+  </asx:values>
+ </asx:abap>
+</abapGit>

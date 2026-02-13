@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:ns3="http://Microsoft.LobServices.Sap/2007/03/Types/Rfc/" elementFormDefault="qualified" targetNamespace="http://Microsoft.LobServices.Sap/2007/03/Types/Rfc/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:annotation>
+    <xs:appinfo>
+      <fileNameHint xmlns="http://schemas.microsoft.com/servicemodel/adapters/metadata/xsd">Types</fileNameHint>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:complexType name="ArrayOfZTY_CSV_LINE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ZTY_CSV_LINE" nillable="true" type="ns3:ZTY_CSV_LINE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfZTY_CSV_LINE" nillable="true" type="ns3:ArrayOfZTY_CSV_LINE" />
+  <xs:complexType name="ZTY_CSV_LINE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="LINE" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Character field 2048 places</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2048" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ZTY_CSV_LINE" nillable="true" type="ns3:ZTY_CSV_LINE" />
+  <xs:complexType name="BAPIRET2">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="TYPE" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Message type: S Success, E Error, W Warning, I Info, A Abort</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="1" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="ID" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Message Class</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="20" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="NUMBER" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Message Number</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="3" />
+            <xs:pattern value="[0-9]*" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MESSAGE" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Message Text</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="220" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="LOG_NO" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Application log: log number</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="20" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="LOG_MSG_NO" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Application log: Internal message serial number</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="6" />
+            <xs:pattern value="[0-9]*" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MESSAGE_V1" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Message Variable</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MESSAGE_V2" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Message Variable</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MESSAGE_V3" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Message Variable</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="MESSAGE_V4" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Message Variable</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="PARAMETER" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Parameter Name</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="ROW" nillable="true" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Lines in parameter</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="FIELD" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Field in parameter</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="30" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="SYSTEM" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Logical system from which message originates</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="10" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BAPIRET2" nillable="true" type="ns3:BAPIRET2" />
+</xs:schema>

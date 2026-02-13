@@ -1,0 +1,673 @@
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "contentVersion": "1.0.0.0",
+        "actions": {
+            "Validate_requested_action": {
+                "type": "If",
+                "expression": {
+                    "and": [
+                        {
+                            "equals": [
+                                "@triggerBody()?['rfcServerContext']?['FunctionName']",
+                                "Z_GET_ORDERS_ANALYSIS"
+                            ]
+                        }
+                    ]
+                },
+                "actions": {},
+                "else": {
+                    "actions": {
+                        "Send_exception_to_SAP_server": {
+                            "type": "ServiceProvider",
+                            "inputs": {
+                                "parameters": {
+                                    "SendExceptionToSapServerErrorMessage": "Unexpected action in request: @{triggerBody()?['rfcServerContext']?['FunctionName']}"
+                                },
+                                "serviceProviderConfiguration": {
+                                    "connectionName": "sap",
+                                    "operationId": "sendExceptionToSapServer",
+                                    "serviceProviderId": "/serviceProviders/sap"
+                                }
+                            }
+                        },
+                        "Terminate": {
+                            "type": "Terminate",
+                            "inputs": {
+                                "runStatus": "Failed",
+                                "runError": {
+                                    "code": "Unexpected action requested",
+                                    "message": "Action @{triggerBody()?['rfcServerContext']?['FunctionName']}was not expected."
+                                }
+                            },
+                            "runAfter": {
+                                "Send_exception_to_SAP_server": [
+                                    "SUCCEEDED"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "runAfter": {}
+            },
+            "Email_analysis": {
+                "type": "ApiConnection",
+                "inputs": {
+                    "host": {
+                        "connection": {
+                            "referenceName": "office365"
+                        }
+                    },
+                    "method": "post",
+                    "body": {
+                        "To": "@parameters('EmailTo')",
+                        "Subject": "Analysis",
+                        "Body": "<p class=\"editor-paragraph\">@{outputs('Format_markdown_to_html')['html']}</p>",
+                        "Importance": "Normal"
+                    },
+                    "path": "/v2/Mail"
+                },
+                "runAfter": {
+                    "Process_analysis_results": [
+                        "SUCCEEDED"
+                    ]
+                }
+            },
+            "Respond_to_SAP_server": {
+                "type": "ServiceProvider",
+                "inputs": {
+                    "parameters": {
+                        "body": "<Z_GET_ORDERS_ANALYSISResponse xmlns=\"http://Microsoft.LobServices.Sap/2007/03/Rfc/\"><RETURN><TYPE xmlns=\"http://Microsoft.LobServices.Sap/2007/03/Types/Rfc/\"></TYPE><ID xmlns=\"http://Microsoft.LobServices.Sap/2007/03/Types/Rfc/\"></ID><NUMBER xmlns=\"http://Microsoft.LobServices.Sap/2007/03/Types/Rfc/\">000</NUMBER><MESSAGE xmlns=\"http://Microsoft.LobServices.Sap/2007/03/Types/Rfc/\"></MESSAGE><LOG_NO xmlns=\"http://Microsoft.LobServices.Sap/2007/03/Types/Rfc/\"></LOG_NO><LOG_MSG_NO xmlns=\"http://Microsoft.LobServices.Sap/2007/03/Types/Rfc/\">000000</LOG_MSG_NO><MESSAGE_V1 xmlns=\"http://Microsoft.LobServices.Sap/2007/03/Types/Rfc/\"></MESSAGE_V1><MESSAGE_V2 xmlns=\"http://Microsoft.LobServices.Sap/2007/03/Types/Rfc/\"></MESSAGE_V2><MESSAGE_V3 xmlns=\"http://Microsoft.LobServices.Sap/2007/03/Types/Rfc/\"></MESSAGE_V3><MESSAGE_V4 xmlns=\"http://Microsoft.LobServices.Sap/2007/03/Types/Rfc/\"></MESSAGE_V4><PARAMETER xmlns=\"http://Microsoft.LobServices.Sap/2007/03/Types/Rfc/\"></PARAMETER><ROW xmlns=\"http://Microsoft.LobServices.Sap/2007/03/Types/Rfc/\">0</ROW><FIELD xmlns=\"http://Microsoft.LobServices.Sap/2007/03/Types/Rfc/\"></FIELD><SYSTEM xmlns=\"http://Microsoft.LobServices.Sap/2007/03/Types/Rfc/\"></SYSTEM></RETURN><ANALYSIS><![CDATA[<p class=\"editor-paragraph\">@{outputs('Format_markdown_to_html')['html']}</p>]]></ANALYSIS></Z_GET_ORDERS_ANALYSISResponse>"
+                    },
+                    "serviceProviderConfiguration": {
+                        "connectionName": "sap",
+                        "operationId": "respondToSapServer",
+                        "serviceProviderId": "/serviceProviders/sap"
+                    }
+                },
+                "runAfter": {
+                    "Process_analysis_results": [
+                        "SUCCEEDED"
+                    ]
+                }
+            },
+            "Analyze_data": {
+                "type": "ApiConnection",
+                "inputs": {
+                    "host": {
+                        "connection": {
+                            "referenceName": "azureopenai-2"
+                        }
+                    },
+                    "method": "post",
+                    "body": {
+                        "messages": [
+                            {
+                                "role": "system",
+                                "content": "You are a data analyst. Analyze the following dataset and provide trends and predictions. Do not include the rows corresponding to the excluded orderids in the analysis."
+                            },
+                            {
+                                "role": "user",
+                                "content": "@{outputs('Create_CSV_payload')}"
+                            },
+                            {
+                                "role": "user",
+                                "content": "Excluded orderids: @{join(variables('ArrayOfInvalidOrderIDs'),',')}."
+                            }
+                        ],
+                        "temperature": 1,
+                        "top_p": 1,
+                        "stream": false,
+                        "max_tokens": 16384,
+                        "presence_penalty": 0,
+                        "frequency_penalty": 0,
+                        "n": 1,
+                        "seed": 0,
+                        "logprobs": false,
+                        "response_format": {
+                            "type": "text"
+                        }
+                    },
+                    "path": "/2024-02-15-preview/deployments/@{encodeURIComponent('gpt-4o-5')}/chat/completions",
+                    "queries": {
+                        "api-version": "2025-01-01-preview"
+                    }
+                },
+                "runAfter": {
+                    "Data_Validation_Agent": [
+                        "SUCCEEDED"
+                    ]
+                }
+            },
+            "Data_Validation_Agent": {
+                "type": "Agent",
+                "inputs": {
+                    "parameters": {
+                        "deploymentId": "gpt-5-3",
+                        "messages": [
+                            {
+                                "role": "system",
+                                "content": "You are a data analyst. You make sure that the received CSV payload from SAP follows the validation rules.\n\nPlease follow business process:\n1) Get validation rules. Rules are defined in @{parameters('ValidationRules')}\n2) Get CSV payload\n3) Summarize the CSV payload review. Ensure that you use the validation rules from the validation document."
+                            }
+                        ],
+                        "agentModelType": "AzureOpenAI",
+                        "agentModelSettings": {
+                            "agentHistoryReductionSettings": {
+                                "agentHistoryReductionType": "maximumTokenCountReduction",
+                                "maximumTokenCount": 128000
+                            },
+                            "deploymentModelProperties": {
+                                "name": "gpt-5-3",
+                                "format": "OpenAI",
+                                "version": "2025-04-14"
+                            }
+                        }
+                    },
+                    "modelConfigurations": {
+                        "model1": {
+                            "referenceName": "agent-2"
+                        }
+                    }
+                },
+                "tools": {
+                    "Get_validation_rules": {
+                        "actions": {
+                            "Get_validation_document": {
+                                "type": "ApiConnection",
+                                "inputs": {
+                                    "host": {
+                                        "connection": {
+                                            "referenceName": "sharepointonline"
+                                        }
+                                    },
+                                    "method": "get",
+                                    "path": "/SOMESHAREDFOLDERPATH/@{encodeURIComponent(encodeURIComponent('YOURSITEHERE'))}/GetFileContentByPath",
+                                    "queries": {
+                                        "path": "@parameters('ValidationRules')",
+                                        "inferContentType": true,
+                                        "queryParametersSingleEncoded": true
+                                    }
+                                }
+                            }
+                        },
+                        "description": "Get validation rules"
+                    },
+                    "Get_CSV_payload": {
+                        "actions": {
+                            "CSV_payload": {
+                                "type": "Compose",
+                                "inputs": "@outputs('Create_CSV_payload')"
+                            }
+                        },
+                        "description": "Get CSV payload",
+                        "agentParameterSchema": {
+                            "type": "object",
+                            "properties": {
+                                "CSV Payload": {
+                                    "type": "string",
+                                    "description": "The CSV payload received from SAP and that we validate based on the validation rules."
+                                }
+                            },
+                            "required": [
+                                "CSV Payload"
+                            ]
+                        }
+                    },
+                    "Summarize_CSV_payload_review": {
+                        "actions": {
+                            "Summary": {
+                                "type": "Compose",
+                                "inputs": "@agentParameters('Validation summary')"
+                            },
+                            "Invalid_order_ids": {
+                                "type": "Compose",
+                                "inputs": "@agentParameters('InvalidOrderIds')",
+                                "runAfter": {
+                                    "Summary": [
+                                        "SUCCEEDED"
+                                    ]
+                                }
+                            },
+                            "Invalid_CSV_payload": {
+                                "type": "Compose",
+                                "inputs": "@agentParameters('Invalid CSV payload')",
+                                "runAfter": {
+                                    "Save_invalid_order_ids": [
+                                        "SUCCEEDED"
+                                    ]
+                                }
+                            },
+                            "Save_invalid_order_ids": {
+                                "type": "SetVariable",
+                                "inputs": {
+                                    "name": "ArrayOfInvalidOrderIDs",
+                                    "value": "@split(agentParameters('InvalidOrderIds'), ',')"
+                                },
+                                "runAfter": {
+                                    "Invalid_order_ids": [
+                                        "SUCCEEDED"
+                                    ]
+                                }
+                            },
+                            "Transform_CSV_to_XML": {
+                                "type": "JavaScriptCode",
+                                "inputs": {
+                                    "code": "const lines = workflowContext.actions.Invalid_CSV_payload.outputs.split('\\n');\n\nfunction xmlEscape(value) {\n  return String(value)\n    .replace(/&/g, \"&amp;\")\n    .replace(/</g, \"&lt;\")\n    .replace(/>/g, \"&gt;\")\n    .replace(/\"/g, \"&quot;\")\n    .replace(/'/g, \"&apos;\");\n}\n\n  // NOTE: We keep empty strings to produce <LINE></LINE> nodes as requested.\n  const xml = lines\n    .map(line => `<ZTY_CSV_LINE><LINE>${xmlEscape(line)}</LINE></ZTY_CSV_LINE>`)\n    .join(\"\");\n\n  return { xml };\n"
+                                },
+                                "runAfter": {
+                                    "Send_verification_summary": [
+                                        "SUCCEEDED"
+                                    ]
+                                }
+                            },
+                            "Send_verification_summary": {
+                                "type": "ApiConnection",
+                                "inputs": {
+                                    "host": {
+                                        "connection": {
+                                            "referenceName": "office365"
+                                        }
+                                    },
+                                    "method": "post",
+                                    "body": {
+                                        "To": "@parameters('EmailTo')",
+                                        "Subject": "CSV document from SAP contains invalid data",
+                                        "Body": "<p class=\"editor-paragraph\">Validation Summary</p><p class=\"editor-paragraph\">@{agentParameters('Validation summary')}</p><br><p class=\"editor-paragraph\">Invalid order ids:</p><p class=\"editor-paragraph\">@{agentParameters('InvalidOrderIds')}</p><br><p class=\"editor-paragraph\">CSV payload:</p><p class=\"editor-paragraph\">@{agentParameters('Invalid CSV payload')}</p>",
+                                        "Importance": "Normal"
+                                    },
+                                    "path": "/v2/Mail"
+                                },
+                                "runAfter": {
+                                    "Invalid_CSV_payload": [
+                                        "SUCCEEDED"
+                                    ]
+                                }
+                            },
+                            "[RFC]_Create_all_IDocs": {
+                                "type": "ServiceProvider",
+                                "inputs": {
+                                    "parameters": {
+                                        "inputBodyType": "XML",
+                                        "rfcName": "Z_CREATE_ONLINEORDER_IDOC",
+                                        "outputBodyType": "XML",
+                                        "body": "<Z_CREATE_ONLINEORDER_IDOC xmlns=\"http://Microsoft.LobServices.Sap/2007/03/Rfc/\">\n<IV_DIRECTION>O</IV_DIRECTION>\n<IV_SNDPRT>LS</IV_SNDPRT>\n<IV_SNDPRN>BTSSERVER</IV_SNDPRN>\n<IV_RCVPRT>LS</IV_RCVPRT>\n<IV_RCVPRN>BTSSERVER</IV_RCVPRN>\n    <IT_CSV>@{outputs('Transform_CSV_to_XML')}\n    </IT_CSV>\n<ET_RETURN></ET_RETURN>\n<ET_DOCNUMS></ET_DOCNUMS>\n</Z_CREATE_ONLINEORDER_IDOC>"
+                                    },
+                                    "serviceProviderConfiguration": {
+                                        "connectionName": "sap",
+                                        "operationId": "callRfc",
+                                        "serviceProviderId": "/serviceProviders/sap"
+                                    }
+                                },
+                                "runAfter": {
+                                    "Transform_CSV_to_XML": [
+                                        "SUCCEEDED"
+                                    ]
+                                }
+                            }
+                        },
+                        "description": "This tool will summarize the CSV payload review",
+                        "agentParameterSchema": {
+                            "type": "object",
+                            "properties": {
+                                "Validation summary": {
+                                    "type": "string",
+                                    "description": "The AI summary provided by the LLM after the CSV payload was reviewed against the validation rules.The expected format is an HTML table. Create a list of all orderids that have failed. Create a CSV document that contains the original CSV payload but only for the orderid values that failed validation, and each row on a separate line. Include title row only in the email body."
+                                },
+                                "InvalidOrderIds": {
+                                    "type": "string",
+                                    "description": "The orderid values contained in the AI summary provided by the LLM and that failed validation. The format is CSV."
+                                },
+                                "Invalid CSV payload": {
+                                    "type": "string",
+                                    "description": "The original CSV rows of the CSV payload for the orderid values that failed validation. Each row must be on a separate line. Keep the title row only for the email body and remove it otherwise."
+                                }
+                            },
+                            "required": [
+                                "Validation summary",
+                                "InvalidOrderIds",
+                                "Invalid CSV payload"
+                            ]
+                        }
+                    }
+                },
+                "runAfter": {
+                    "Initialize_array_of_invalid_order_ids": [
+                        "SUCCEEDED"
+                    ]
+                },
+                "limit": {
+                    "count": 100
+                }
+            },
+            "Process_analysis_results": {
+                "type": "Scope",
+                "actions": {
+                    "Parse_results": {
+                        "type": "ParseJson",
+                        "inputs": {
+                            "content": "@body('Analyze_data')['choices'][0]",
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "choices": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "content_filter_results": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "hate": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "filtered": {
+                                                                    "type": "boolean"
+                                                                },
+                                                                "severity": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "protected_material_code": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "filtered": {
+                                                                    "type": "boolean"
+                                                                },
+                                                                "detected": {
+                                                                    "type": "boolean"
+                                                                }
+                                                            }
+                                                        },
+                                                        "protected_material_text": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "filtered": {
+                                                                    "type": "boolean"
+                                                                },
+                                                                "detected": {
+                                                                    "type": "boolean"
+                                                                }
+                                                            }
+                                                        },
+                                                        "self_harm": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "filtered": {
+                                                                    "type": "boolean"
+                                                                },
+                                                                "severity": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "sexual": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "filtered": {
+                                                                    "type": "boolean"
+                                                                },
+                                                                "severity": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "violence": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "filtered": {
+                                                                    "type": "boolean"
+                                                                },
+                                                                "severity": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "finish_reason": {
+                                                    "type": "string"
+                                                },
+                                                "index": {
+                                                    "type": "integer"
+                                                },
+                                                "logprobs": {},
+                                                "message": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "annotations": {
+                                                            "type": "array"
+                                                        },
+                                                        "content": {
+                                                            "type": "string"
+                                                        },
+                                                        "refusal": {},
+                                                        "role": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "required": [
+                                                "content_filter_results",
+                                                "finish_reason",
+                                                "index",
+                                                "logprobs",
+                                                "message"
+                                            ]
+                                        }
+                                    },
+                                    "created": {
+                                        "type": "integer"
+                                    },
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "model": {
+                                        "type": "string"
+                                    },
+                                    "object": {
+                                        "type": "string"
+                                    },
+                                    "prompt_filter_results": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "prompt_index": {
+                                                    "type": "integer"
+                                                },
+                                                "content_filter_results": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "hate": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "filtered": {
+                                                                    "type": "boolean"
+                                                                },
+                                                                "severity": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "jailbreak": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "filtered": {
+                                                                    "type": "boolean"
+                                                                },
+                                                                "detected": {
+                                                                    "type": "boolean"
+                                                                }
+                                                            }
+                                                        },
+                                                        "self_harm": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "filtered": {
+                                                                    "type": "boolean"
+                                                                },
+                                                                "severity": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "sexual": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "filtered": {
+                                                                    "type": "boolean"
+                                                                },
+                                                                "severity": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        },
+                                                        "violence": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "filtered": {
+                                                                    "type": "boolean"
+                                                                },
+                                                                "severity": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "required": [
+                                                "prompt_index",
+                                                "content_filter_results"
+                                            ]
+                                        }
+                                    },
+                                    "system_fingerprint": {
+                                        "type": "string"
+                                    },
+                                    "usage": {
+                                        "type": "object",
+                                        "properties": {
+                                            "completion_tokens": {
+                                                "type": "integer"
+                                            },
+                                            "completion_tokens_details": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "accepted_prediction_tokens": {
+                                                        "type": "integer"
+                                                    },
+                                                    "audio_tokens": {
+                                                        "type": "integer"
+                                                    },
+                                                    "reasoning_tokens": {
+                                                        "type": "integer"
+                                                    },
+                                                    "rejected_prediction_tokens": {
+                                                        "type": "integer"
+                                                    }
+                                                }
+                                            },
+                                            "prompt_tokens": {
+                                                "type": "integer"
+                                            },
+                                            "prompt_tokens_details": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "audio_tokens": {
+                                                        "type": "integer"
+                                                    },
+                                                    "cached_tokens": {
+                                                        "type": "integer"
+                                                    }
+                                                }
+                                            },
+                                            "total_tokens": {
+                                                "type": "integer"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "Extract_analysis": {
+                        "type": "Compose",
+                        "inputs": "@body('Parse_results')['message']['content']",
+                        "runAfter": {
+                            "Parse_results": [
+                                "SUCCEEDED"
+                            ]
+                        }
+                    },
+                    "Format_markdown_to_html": {
+                        "type": "JavaScriptCode",
+                        "inputs": {
+                            "code": "const raw = workflowContext.actions.Extract_analysis.outputs;\n\n// Basic HTML escaping for safety (keeps <code> blocks clean)\nconst escapeHtml = s => s.replace(/[&<>\"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]));\n\n// Normalize line endings\nlet md = raw; // raw.replace(/\\r\\n/g, '\\n').trim();\n\n// Convert code blocks (``` ... ```)\nmd = md.replace(/```([\\s\\S]*?)```/g, (m, p1) => `<pre><code>${escapeHtml(p1)}</code></pre>`);\n\n// Horizontal rules --- or ***\n//md = md.replace(/(?:^|\\n)---+(?:\\n|$)/g, '\\n<hr/>\\n');\nmd = md.replace(/(?:^|\\n)---+(?:\\n|$)/g, '<hr/>');\n\n// Headings ###### to #\nfor (let i = 6; i >= 1; i--) {\n  const re = new RegExp(`(?:^|\\\\n)${'#'.repeat(i)}\\\\s+(.+?)\\\\s*(?=\\\\n|$)`, 'g');\n  //md = md.replace(re, (m, p1) => `\\n<h${i}>${p1.trim()}</h${i}>`);\n  md = md.replace(re, (m, p1) => `<h${i}>${p1.trim()}</h${i}>`);\n}\n\n// Bold and italic\nmd = md.replace(/\\*\\*([^*]+)\\*\\*/g, '<strong>$1</strong>');\nmd = md.replace(/\\*([^*]+)\\*/g, '<em>$1</em>');\n\n// Unordered lists (lines starting with -, *, +)\nmd = md.replace(/(?:^|\\n)([-*+]\\s.+(?:\\n[-*+]\\s.+)*)/g, (m) => {\n  const items = m.trim().split(/\\n/).map(l => l.replace(/^[-*+]\\s+/, '').trim());\n  //return '\\n<ul>\\n' + items.map(i => `<li>${i}</li>`).join('\\n') + '\\n</ul>';\n  return '\\n<ul>' + items.map(i => `<li>${i}</li>`).join('\\n') + '</ul>';\n});\n\n// Paragraphs: wrap remaining text blocks in <p>...</p>\nconst blocks = md.split(/\\n{2,}/).map(b => {\n  if (/^<h\\d>|^<ul>|^<pre>|^<hr\\/>/.test(b.trim())) return b;\n  return `<p>${b.replace(/\\n/g, '<br/>')}</p>`;\n});\n//const html = blocks.join('\\n');\nconst html = blocks.join('');\n\nreturn { html };\n"
+                        },
+                        "runAfter": {
+                            "Extract_analysis": [
+                                "SUCCEEDED"
+                            ]
+                        }
+                    }
+                },
+                "runAfter": {
+                    "Analyze_data": [
+                        "SUCCEEDED"
+                    ]
+                }
+            },
+            "Create_CSV_payload": {
+                "type": "Compose",
+                "inputs": "@\r\nconcat('OrderID,Date,CustomerID,Product,Quantity,UnitPrice,ShippingAddress,PaymentMethod,OrderStatus,TrackingNumber,ItemsInCart,CouponCode,ReferralSource,TotalPrice\r\n',join(\r\n  xpath(\r\n    xml(triggerBody()?['content']),\r\n    '/*[local-name()=\"Z_GET_ORDERS_ANALYSIS\"]/*[local-name()=\"IT_CSV\"]/*[local-name()=\"ZTY_CSV_LINE\"]/*[local-name()=\"LINE\"]/text()'\r\n  ),\r\n  '\r\n'))\r\n",
+                "runAfter": {
+                    "Validate_requested_action": [
+                        "SUCCEEDED"
+                    ]
+                }
+            },
+            "Initialize_array_of_invalid_order_ids": {
+                "type": "InitializeVariable",
+                "inputs": {
+                    "variables": [
+                        {
+                            "name": "ArrayOfInvalidOrderIDs",
+                            "type": "array"
+                        }
+                    ]
+                },
+                "runAfter": {
+                    "Create_CSV_payload": [
+                        "SUCCEEDED"
+                    ]
+                }
+            }
+        },
+        "outputs": {},
+        "triggers": {
+            "When_a_message_is_received": {
+                "type": "ServiceProvider",
+                "inputs": {
+                    "parameters": {
+                        "idocFormat": "MicrosoftLobNamespaceXml",
+                        "DegreeOfParallelism": 1,
+                        "GatewayHost": "10.7.0.10",
+                        "GatewayService": "sapgw00",
+                        "ProgramId": "YOURPROGRAMIDHERE",
+                        "ReceiveIDocsWithUnreleasedSegmentsV2": true,
+                        "GatewayWithoutWorkProcess": false
+                    },
+                    "serviceProviderConfiguration": {
+                        "connectionName": "sap",
+                        "operationId": "SapTrigger",
+                        "serviceProviderId": "/serviceProviders/sap"
+                    }
+                }
+            }
+        }
+    },
+    "kind": "Stateful"
+}

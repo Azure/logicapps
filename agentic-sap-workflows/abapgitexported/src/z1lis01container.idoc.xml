@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_IDOC" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <IDOC>
+    <ATTRIBUTES>
+     <DESCRP>Test custom idoc for a Z1LIS01 segment type</DESCRP>
+     <CLOSED>X</CLOSED>
+     <RELEASED>750</RELEASED>
+     <FIRSTTYP>Z1LIS01CONTAINER</FIRSTTYP>
+     <LASTTYP>Z1LIS01CONTAINER</LASTTYP>
+    </ATTRIBUTES>
+    <T_SYNTAX>
+     <EDI_IAPI02>
+      <NR>0001</NR>
+      <SEGTYP>Z1PMMVIDS</SEGTYP>
+      <OCCMIN>0000000001</OCCMIN>
+      <OCCMAX>0000000100</OCCMAX>
+      <HLEVEL>02</HLEVEL>
+     </EDI_IAPI02>
+     <EDI_IAPI02>
+      <NR>0002</NR>
+      <SEGTYP>Z1MATEXT</SEGTYP>
+      <OCCMIN>0000000001</OCCMIN>
+      <OCCMAX>0000000100</OCCMAX>
+      <HLEVEL>02</HLEVEL>
+     </EDI_IAPI02>
+     <EDI_IAPI02>
+      <NR>0003</NR>
+      <SEGTYP>Z1OPER</SEGTYP>
+      <MUSTFL>X</MUSTFL>
+      <OCCMIN>0000000001</OCCMIN>
+      <OCCMAX>0000000100</OCCMAX>
+      <HLEVEL>02</HLEVEL>
+     </EDI_IAPI02>
+     <EDI_IAPI02>
+      <NR>0004</NR>
+      <SEGTYP>Z1LIS01</SEGTYP>
+      <MUSTFL>X</MUSTFL>
+      <OCCMIN>0000000001</OCCMIN>
+      <OCCMAX>0000000100</OCCMAX>
+      <HLEVEL>02</HLEVEL>
+     </EDI_IAPI02>
+    </T_SYNTAX>
+   </IDOC>
+  </asx:values>
+ </asx:abap>
+</abapGit>

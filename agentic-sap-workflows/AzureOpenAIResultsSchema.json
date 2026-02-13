@@ -1,0 +1,245 @@
+{
+  "type": "object",
+  "properties": {
+    "choices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "content_filter_results": {
+            "type": "object",
+            "properties": {
+              "hate": {
+                "type": "object",
+                "properties": {
+                  "filtered": {
+                    "type": "boolean"
+                  },
+                  "severity": {
+                    "type": "string"
+                  }
+                }
+              },
+              "protected_material_code": {
+                "type": "object",
+                "properties": {
+                  "filtered": {
+                    "type": "boolean"
+                  },
+                  "detected": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "protected_material_text": {
+                "type": "object",
+                "properties": {
+                  "filtered": {
+                    "type": "boolean"
+                  },
+                  "detected": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "self_harm": {
+                "type": "object",
+                "properties": {
+                  "filtered": {
+                    "type": "boolean"
+                  },
+                  "severity": {
+                    "type": "string"
+                  }
+                }
+              },
+              "sexual": {
+                "type": "object",
+                "properties": {
+                  "filtered": {
+                    "type": "boolean"
+                  },
+                  "severity": {
+                    "type": "string"
+                  }
+                }
+              },
+              "violence": {
+                "type": "object",
+                "properties": {
+                  "filtered": {
+                    "type": "boolean"
+                  },
+                  "severity": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "finish_reason": {
+            "type": "string"
+          },
+          "index": {
+            "type": "integer"
+          },
+          "logprobs": {},
+          "message": {
+            "type": "object",
+            "properties": {
+              "annotations": {
+                "type": "array"
+              },
+              "content": {
+                "type": "string"
+              },
+              "refusal": {},
+              "role": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "required": [
+          "content_filter_results",
+          "finish_reason",
+          "index",
+          "logprobs",
+          "message"
+        ]
+      }
+    },
+    "created": {
+      "type": "integer"
+    },
+    "id": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "object": {
+      "type": "string"
+    },
+    "prompt_filter_results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "prompt_index": {
+            "type": "integer"
+          },
+          "content_filter_results": {
+            "type": "object",
+            "properties": {
+              "hate": {
+                "type": "object",
+                "properties": {
+                  "filtered": {
+                    "type": "boolean"
+                  },
+                  "severity": {
+                    "type": "string"
+                  }
+                }
+              },
+              "jailbreak": {
+                "type": "object",
+                "properties": {
+                  "filtered": {
+                    "type": "boolean"
+                  },
+                  "detected": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "self_harm": {
+                "type": "object",
+                "properties": {
+                  "filtered": {
+                    "type": "boolean"
+                  },
+                  "severity": {
+                    "type": "string"
+                  }
+                }
+              },
+              "sexual": {
+                "type": "object",
+                "properties": {
+                  "filtered": {
+                    "type": "boolean"
+                  },
+                  "severity": {
+                    "type": "string"
+                  }
+                }
+              },
+              "violence": {
+                "type": "object",
+                "properties": {
+                  "filtered": {
+                    "type": "boolean"
+                  },
+                  "severity": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "prompt_index",
+          "content_filter_results"
+        ]
+      }
+    },
+    "system_fingerprint": {
+      "type": "string"
+    },
+    "usage": {
+      "type": "object",
+      "properties": {
+        "completion_tokens": {
+          "type": "integer"
+        },
+        "completion_tokens_details": {
+          "type": "object",
+          "properties": {
+            "accepted_prediction_tokens": {
+              "type": "integer"
+            },
+            "audio_tokens": {
+              "type": "integer"
+            },
+            "reasoning_tokens": {
+              "type": "integer"
+            },
+            "rejected_prediction_tokens": {
+              "type": "integer"
+            }
+          }
+        },
+        "prompt_tokens": {
+          "type": "integer"
+        },
+        "prompt_tokens_details": {
+          "type": "object",
+          "properties": {
+            "audio_tokens": {
+              "type": "integer"
+            },
+            "cached_tokens": {
+              "type": "integer"
+            }
+          }
+        },
+        "total_tokens": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

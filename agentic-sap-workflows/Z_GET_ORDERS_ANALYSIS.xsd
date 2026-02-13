@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:ns2="http://Microsoft.LobServices.Sap/2007/03/Rfc/" xmlns:ns3="http://Microsoft.LobServices.Sap/2007/03/Types/Rfc/" elementFormDefault="qualified" targetNamespace="http://Microsoft.LobServices.Sap/2007/03/Rfc/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://Microsoft.LobServices.Sap/2007/03/Types/Rfc/" schemaLocation="RfcTypes.xsd"/>
+  <xs:annotation>
+    <xs:appinfo>
+      <fileNameHint xmlns="http://schemas.microsoft.com/servicemodel/adapters/metadata/xsd">Rfc</fileNameHint>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Z_GET_ORDERS_ANALYSIS">
+    <xs:annotation>
+      <xs:documentation>
+        <doc:action xmlns:doc="http://schemas.microsoft.com/servicemodel/adapters/metadata/documentation">http://Microsoft.LobServices.Sap/2007/03/Rfc/Z_GET_ORDERS_ANALYSIS</doc:action>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="RETURN" nillable="true" type="ns3:BAPIRET2">
+          <xs:annotation>
+            <xs:documentation>Return Parameter</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="DEST" nillable="true">
+          <xs:annotation>
+            <xs:documentation>Char 20</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="20" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="1" maxOccurs="1" name="IT_CSV" type="ns3:ArrayOfZTY_CSV_LINE">
+          <xs:annotation>
+            <xs:documentation>Structure for CSV lines</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Z_GET_ORDERS_ANALYSISResponse">
+    <xs:annotation>
+      <xs:documentation>
+        <doc:action xmlns:doc="http://schemas.microsoft.com/servicemodel/adapters/metadata/documentation">http://Microsoft.LobServices.Sap/2007/03/Rfc/Z_GET_ORDERS_ANALYSIS/response</doc:action>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="RETURN" nillable="true" type="ns3:BAPIRET2">
+          <xs:annotation>
+            <xs:documentation>Return Parameter</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="1" maxOccurs="1" name="ANALYSIS" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Free text or value</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="1" maxOccurs="1" name="EXCEPTIONMSG">
+          <xs:annotation>
+            <xs:documentation>large fixed-size string</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="1000" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="1" maxOccurs="1" name="IT_CSV" type="ns3:ArrayOfZTY_CSV_LINE">
+          <xs:annotation>
+            <xs:documentation>Structure for CSV lines</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

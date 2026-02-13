@@ -1,0 +1,175 @@
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "contentVersion": "1.0.0.0",
+        "actions": {
+            "Read_CSV_orders_from_blob": {
+                "type": "ServiceProvider",
+                "inputs": {
+                    "parameters": {
+                        "containerName": "onlinestoreorders",
+                        "blobName": "@parameters('DataFileName')"
+                    },
+                    "serviceProviderConfiguration": {
+                        "connectionName": "AzureBlob",
+                        "operationId": "readBlob",
+                        "serviceProviderId": "/serviceProviders/AzureBlob"
+                    }
+                },
+                "runAfter": {}
+            },
+            "Extract_rows": {
+                "type": "Compose",
+                "inputs": "@split(string(body('Read_CSV_orders_from_blob')?['content']), '\r\n')",
+                "runAfter": {
+                    "Read_CSV_orders_from_blob": [
+                        "SUCCEEDED"
+                    ]
+                }
+            },
+            "Transform_CSV_to_XML": {
+                "type": "JavaScriptCode",
+                "inputs": {
+                    "code": "const lines = workflowContext.actions.Extract_rows.outputs;\n\nfunction xmlEscape(value) {\n  return String(value)\n    .replace(/&/g, \"&amp;\")\n    .replace(/</g, \"&lt;\")\n    .replace(/>/g, \"&gt;\")\n    .replace(/\"/g, \"&quot;\")\n    .replace(/'/g, \"&apos;\");\n}\n\n  // NOTE: We keep empty strings to produce <LINE></LINE> nodes as requested.\n  const xml = lines\n    .map(line => `<ZTY_CSV_LINE><LINE>${xmlEscape(line)}</LINE></ZTY_CSV_LINE>`)\n    .join(\"\");\n\n  return { xml };\n"
+                },
+                "runAfter": {
+                    "Extract_rows": [
+                        "SUCCEEDED"
+                    ]
+                }
+            },
+            "[RFC]_Call_Z_GET_ORDERS_ANALYSIS": {
+                "type": "ServiceProvider",
+                "inputs": {
+                    "parameters": {
+                        "inputBodyType": "XML",
+                        "rfcName": "Z_GET_ORDERS_ANALYSIS",
+                        "outputBodyType": "XML",
+                        "body": "<Z_GET_ORDERS_ANALYSIS><IT_CSV>@{outputs('Transform_CSV_to_XML')['xml']}</IT_CSV></Z_GET_ORDERS_ANALYSIS>"
+                    },
+                    "serviceProviderConfiguration": {
+                        "connectionName": "sap",
+                        "operationId": "callRfc",
+                        "serviceProviderId": "/serviceProviders/sap"
+                    }
+                },
+                "runAfter": {
+                    "Transform_CSV_to_XML": [
+                        "SUCCEEDED"
+                    ]
+                }
+            },
+            "Save_EXCEPTION_message": {
+                "type": "Compose",
+                "inputs": "@xpath(body('[RFC]_Call_Z_GET_ORDERS_ANALYSIS')?['content'], \r\n      'string(/*[local-name()=\"Z_GET_ORDERS_ANALYSISResponse\"]/*[local-name()=\"EXCEPTIONMSG\"])')\r\n",
+                "runAfter": {
+                    "[RFC]_Call_Z_GET_ORDERS_ANALYSIS": [
+                        "SUCCEEDED"
+                    ]
+                }
+            },
+            "Save_RETURN_message": {
+                "type": "Compose",
+                "inputs": "@xpath(body('[RFC]_Call_Z_GET_ORDERS_ANALYSIS')?['content'], \r\n      'string(/*[local-name()=\"Z_GET_ORDERS_ANALYSISResponse\"]/*[local-name()=\"RETURN\"]/*[local-name()=\"MESSAGE\"])')",
+                "runAfter": {
+                    "Save_EXCEPTION_message": [
+                        "SUCCEEDED"
+                    ]
+                }
+            },
+            "Has_errors": {
+                "type": "If",
+                "expression": {
+                    "or": [
+                        {
+                            "not": {
+                                "equals": [
+                                    "@outputs('Save_EXCEPTION_message')",
+                                    "ok"
+                                ]
+                            }
+                        },
+                        {
+                            "equals": [
+                                "@not(empty(outputs('Save_RETURN_message')))",
+                                true
+                            ]
+                        }
+                    ]
+                },
+                "actions": {
+                    "Set_email_body_(failure)": {
+                        "type": "SetVariable",
+                        "inputs": {
+                            "name": "EmailBody",
+                            "value": "@concat(\r\n  'Error message: ', outputs('Save_RETURN_message'), ', details: ',\r\n  xpath(body('[RFC]_Call_Z_GET_ORDERS_ANALYSIS')?['content'], 'string(//*[local-name()=\"MESSAGE_V1\"])'),\r\n  xpath(body('[RFC]_Call_Z_GET_ORDERS_ANALYSIS')?['content'], 'string(//*[local-name()=\"MESSAGE_V2\"])'),\r\n  xpath(body('[RFC]_Call_Z_GET_ORDERS_ANALYSIS')?['content'], 'string(//*[local-name()=\"MESSAGE_V3\"])'),\r\n  xpath(body('[RFC]_Call_Z_GET_ORDERS_ANALYSIS')?['content'], 'string(//*[local-name()=\"MESSAGE_V4\"])'),\r\n  '; ',\r\n  'Exception message: ', outputs('Save_EXCEPTION_message'), '.')"
+                        }
+                    }
+                },
+                "else": {
+                    "actions": {
+                        "Set_email_body_(success)": {
+                            "type": "SetVariable",
+                            "inputs": {
+                                "name": "EmailBody",
+                                "value": "@xpath(body('[RFC]_Call_Z_GET_ORDERS_ANALYSIS')?['content'], \n      'string(/*[local-name()=\"Z_GET_ORDERS_ANALYSISResponse\"]/*[local-name()=\"ANALYSIS\"])')"
+                            }
+                        }
+                    }
+                },
+                "runAfter": {
+                    "Initialize_email_body": [
+                        "SUCCEEDED"
+                    ]
+                }
+            },
+            "Send_an_email_(V2)": {
+                "type": "ApiConnection",
+                "inputs": {
+                    "host": {
+                        "connection": {
+                            "referenceName": "office365"
+                        }
+                    },
+                    "method": "post",
+                    "body": {
+                        "To": "@parameters('EmailTo')",
+                        "Subject": "Received Analysis",
+                        "Body": "<p class=\"editor-paragraph\">@{variables('EmailBody')}</p>",
+                        "Importance": "Normal"
+                    },
+                    "path": "/v2/Mail"
+                },
+                "runAfter": {
+                    "Has_errors": [
+                        "SUCCEEDED"
+                    ]
+                }
+            },
+            "Initialize_email_body": {
+                "type": "InitializeVariable",
+                "inputs": {
+                    "variables": [
+                        {
+                            "name": "EmailBody",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "runAfter": {
+                    "Save_RETURN_message": [
+                        "SUCCEEDED"
+                    ]
+                }
+            }
+        },
+        "outputs": {},
+        "triggers": {
+            "When_an_HTTP_request_is_received": {
+                "type": "Request",
+                "kind": "Http"
+            }
+        }
+    },
+    "kind": "Stateful"
+}
