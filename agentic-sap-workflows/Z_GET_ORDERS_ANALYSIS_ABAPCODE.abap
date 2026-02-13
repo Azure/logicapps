@@ -35,7 +35,8 @@ CASE sy-subrc.
     EXCEPTIONMSG = 'ok'.
   WHEN 1.
     EXCEPTIONMSG = |Exception from workflow: SENDEXCEPTIONTOSAPSERVER { sy-msgv1 }{ sy-msgv2 }{ sy-msgv3 }{ sy-msgv4 } |.
-  WHEN 2 or 3.
+  WHEN 2 OR 3.
+    EXCEPTIONMSG = |System or communication failure while calling Z_GET_ORDERS_ANALYSIS: { sy-msgv1 }{ sy-msgv2 }{ sy-msgv3 }{ sy-msgv4 } |.
   WHEN OTHERS.
     EXCEPTIONMSG = |Error in workflow: { sy-msgv1 }{ sy-msgv2 }{ sy-msgv3 }{ sy-msgv4 } |.
 ENDCASE.
