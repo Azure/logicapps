@@ -91,54 +91,6 @@
                     ]
                 }
             },
-            "Analyze_data": {
-                "type": "ApiConnection",
-                "inputs": {
-                    "host": {
-                        "connection": {
-                            "referenceName": "azureopenai-2"
-                        }
-                    },
-                    "method": "post",
-                    "body": {
-                        "messages": [
-                            {
-                                "role": "system",
-                                "content": "You are a data analyst. Analyze the following dataset and provide trends and predictions. Do not include the rows corresponding to the excluded orderids in the analysis."
-                            },
-                            {
-                                "role": "user",
-                                "content": "@{outputs('Create_CSV_payload')}"
-                            },
-                            {
-                                "role": "user",
-                                "content": "Excluded orderids: @{join(variables('ArrayOfInvalidOrderIDs'),',')}."
-                            }
-                        ],
-                        "temperature": 1,
-                        "top_p": 1,
-                        "stream": false,
-                        "max_tokens": 16384,
-                        "presence_penalty": 0,
-                        "frequency_penalty": 0,
-                        "n": 1,
-                        "seed": 0,
-                        "logprobs": false,
-                        "response_format": {
-                            "type": "text"
-                        }
-                    },
-                    "path": "/2024-02-15-preview/deployments/@{encodeURIComponent('gpt-4o-5')}/chat/completions",
-                    "queries": {
-                        "api-version": "2025-01-01-preview"
-                    }
-                },
-                "runAfter": {
-                    "Data_Validation_Agent": [
-                        "SUCCEEDED"
-                    ]
-                }
-            },
             "Data_Validation_Agent": {
                 "type": "Agent",
                 "inputs": {
@@ -252,7 +204,7 @@
                             "Transform_CSV_to_XML": {
                                 "type": "JavaScriptCode",
                                 "inputs": {
-                                    "code": "const lines = workflowContext.actions.Invalid_CSV_payload.outputs.split('\\n');\n\nfunction xmlEscape(value) {\n  return String(value)\n    .replace(/&/g, \"&amp;\")\n    .replace(/</g, \"&lt;\")\n    .replace(/>/g, \"&gt;\")\n    .replace(/\"/g, \"&quot;\")\n    .replace(/'/g, \"&apos;\");\n}\n\n// NOTE: we don't want to keep empty lines (which can be produced by reading the blobs)\n// the reason being that if the recipient uses a schema to validate the xml,\n// it may reject it if it does not allow empty nodes.\nconst xml = lines\n  .filter(line => line && line.trim() !== '') // keep only non-empty lines\n  .map(line => `<ZTY_CSV_LINE><LINE>${xmlEscape(line)}</LINE></ZTY_CSV_LINE>`)\n  .join('');\n\n  return { xml };"
+                                    "code": "const lines = workflowContext.actions.Invalid_CSV_payload.outputs.split('\\n');\n\nfunction xmlEscape(value) {\n  return String(value)\n    .replace(/&/g, \"&amp;\")\n    .replace(/</g, \"&lt;\")\n    .replace(/>/g, \"&gt;\")\n    .replace(/\"/g, \"&quot;\")\n    .replace(/'/g, \"&apos;\");\n}\n\n  // NOTE: We keep empty strings to produce <LINE></LINE> nodes as requested.\n  const xml = lines\n    .map(line => `<ZTY_CSV_LINE><LINE>${xmlEscape(line)}</LINE></ZTY_CSV_LINE>`)\n    .join(\"\");\n\n  return { xml };\n"
                                 },
                                 "runAfter": {
                                     "Send_verification_summary": [
@@ -331,7 +283,7 @@
                     }
                 },
                 "runAfter": {
-                    "Initialize_array_of_invalid_order_ids": [
+                    "Create_CSV_payload": [
                         "SUCCEEDED"
                     ]
                 },
@@ -620,27 +572,127 @@
                     ]
                 }
             },
-            "Create_CSV_payload": {
-                "type": "Compose",
-                "inputs": "@\njoin(\n  xpath(\n    xml(triggerBody()?['content']),\n    '/*[local-name()=\"Z_GET_ORDERS_ANALYSIS\"]/*[local-name()=\"IT_CSV\"]/*[local-name()=\"ZTY_CSV_LINE\"]/*[local-name()=\"LINE\"]/text()'\n  ),\n  '\r\n')\n",
+            "Parse_Z_GET_ORDERS_ANALYSIS_request": {
+                "type": "XmlParse",
+                "inputs": {
+                    "content": "@triggerBody()?['content']",
+                    "schema": {
+                        "source": "LogicApp",
+                        "name": "Z_GET_ORDERS_ANALYSIS.xsd"
+                    },
+                    "xmlReaderSettings": {
+                        "dtdProcessing": "Prohibit",
+                        "xmlNormalization": true,
+                        "ignoreWhitespace": true,
+                        "ignoreProcessingInstructions": true
+                    },
+                    "jsonWriterSettings": {
+                        "ignoreAttributes": true,
+                        "useFullyQualifiedNames": false
+                    }
+                },
                 "runAfter": {
                     "Validate_requested_action": [
                         "SUCCEEDED"
                     ]
                 }
             },
-            "Initialize_array_of_invalid_order_ids": {
+            "Analyze_data": {
+                "type": "ApiConnection",
+                "inputs": {
+                    "host": {
+                        "connection": {
+                            "referenceName": "azureopenai-2"
+                        }
+                    },
+                    "method": "post",
+                    "body": {
+                        "messages": [
+                            {
+                                "role": "system",
+                                "content": "You are a data analyst. Analyze the following dataset and provide trends and predictions. Do not include the rows corresponding to the excluded orderids in the analysis."
+                            },
+                            {
+                                "role": "user",
+                                "content": "@{outputs('Create_CSV_payload')}"
+                            },
+                            {
+                                "role": "user",
+                                "content": "Excluded orderids: @{join(variables('ArrayOfInvalidOrderIDs'),',')}"
+                            }
+                        ],
+                        "temperature": 1,
+                        "top_p": 1,
+                        "stream": false,
+                        "max_tokens": 16384,
+                        "presence_penalty": 0,
+                        "frequency_penalty": 0,
+                        "n": 1,
+                        "seed": 0,
+                        "logprobs": false,
+                        "response_format": {
+                            "type": "text"
+                        }
+                    },
+                    "path": "/2024-02-15-preview/deployments/@{encodeURIComponent('gpt-4o-5')}/chat/completions",
+                    "queries": {
+                        "api-version": "2025-01-01-preview"
+                    }
+                },
+                "runAfter": {
+                    "Data_Validation_Agent": [
+                        "SUCCEEDED"
+                    ]
+                }
+            },
+            "Create_CSV_payload": {
+                "type": "Compose",
+                "inputs": "@join(variables('CSVPayload'),'\r\n')",
+                "runAfter": {
+                    "For_each_CSV_row": [
+                        "SUCCEEDED"
+                    ]
+                }
+            },
+            "For_each_CSV_row": {
+                "type": "foreach",
+                "foreach": "@outputs('Parse_Z_GET_ORDERS_ANALYSIS_request')?['body']?['json']?['IT_CSV']",
+                "actions": {
+                    "Append_to_CSV_payload": {
+                        "type": "AppendToArrayVariable",
+                        "inputs": {
+                            "name": "CSVPayload",
+                            "value": "@item()?['LINE']"
+                        }
+                    }
+                },
+                "runAfter": {
+                    "Initialize_variables": [
+                        "SUCCEEDED"
+                    ]
+                },
+                "runtimeConfiguration": {
+                    "concurrency": {
+                        "repetitions": 1
+                    }
+                }
+            },
+            "Initialize_variables": {
                 "type": "InitializeVariable",
                 "inputs": {
                     "variables": [
                         {
                             "name": "ArrayOfInvalidOrderIDs",
                             "type": "array"
+                        },
+                        {
+                            "name": "CSVpayload",
+                            "type": "array"
                         }
                     ]
                 },
                 "runAfter": {
-                    "Create_CSV_payload": [
+                    "Parse_Z_GET_ORDERS_ANALYSIS_request": [
                         "SUCCEEDED"
                     ]
                 }

@@ -30,7 +30,7 @@
             "Transform_CSV_to_XML": {
                 "type": "JavaScriptCode",
                 "inputs": {
-                    "code": "const lines = workflowContext.actions.Extract_rows.outputs;\n\nfunction xmlEscape(value) {\n  return String(value)\n    .replace(/&/g, \"&amp;\")\n    .replace(/</g, \"&lt;\")\n    .replace(/>/g, \"&gt;\")\n    .replace(/\"/g, \"&quot;\")\n    .replace(/'/g, \"&apos;\");\n}\n\n  // NOTE: We keep empty strings to produce <LINE></LINE> nodes as requested.\n  const xml = lines\n    .map(line => `<ZTY_CSV_LINE><LINE>${xmlEscape(line)}</LINE></ZTY_CSV_LINE>`)\n    .join(\"\");\n\n  return { xml };\n"
+                    "code": "const lines = workflowContext.actions.Extract_rows.outputs;\n\nfunction xmlEscape(value) {\n  return String(value)\n    .replace(/&/g, \"&amp;\")\n    .replace(/</g, \"&lt;\")\n    .replace(/>/g, \"&gt;\")\n    .replace(/\"/g, \"&quot;\")\n    .replace(/'/g, \"&apos;\");\n}\n\n// NOTE: we don't want to keep empty lines (which can be produced by reading the blobs)\n// the reason being that if the recipient uses a schema to validate the xml,\n// it may reject it if it does not allow empty nodes.\nconst xml = lines\n  .filter(line => line && line.trim() !== '') // keep only non-empty lines\n  .map(line => `<ZTY_CSV_LINE><LINE>${xmlEscape(line)}</LINE></ZTY_CSV_LINE>`)\n  .join('');\n\n  return { xml };"
                 },
                 "runAfter": {
                     "Extract_rows": [
