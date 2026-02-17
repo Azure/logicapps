@@ -1,0 +1,455 @@
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "contentVersion": "1.0.0.0",
+        "actions": {
+            "Validate_requested_action": {
+                "type": "If",
+                "expression": {
+                    "and": [
+                        {
+                            "equals": [
+                                "@triggerBody()?['rfcServerContext']?['FunctionName']",
+                                "IDOC_INBOUND_ASYNCHRONOUS"
+                            ]
+                        }
+                    ]
+                },
+                "actions": {},
+                "else": {
+                    "actions": {
+                        "Send_exception_to_SAP_server": {
+                            "type": "ServiceProvider",
+                            "inputs": {
+                                "parameters": {
+                                    "SendExceptionToSapServerErrorMessage": "Unexpected action in request: @{triggerBody()?['rfcServerContext']?['FunctionName']}"
+                                },
+                                "serviceProviderConfiguration": {
+                                    "connectionName": "sap",
+                                    "operationId": "sendExceptionToSapServer",
+                                    "serviceProviderId": "/serviceProviders/sap"
+                                }
+                            }
+                        },
+                        "Terminate": {
+                            "type": "Terminate",
+                            "inputs": {
+                                "runStatus": "Failed",
+                                "runError": {
+                                    "code": "Unexpected action requested",
+                                    "message": "Action @{triggerBody()?['rfcServerContext']?['FunctionName']}was not expected."
+                                }
+                            },
+                            "runAfter": {
+                                "Send_exception_to_SAP_server": [
+                                    "SUCCEEDED"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "runAfter": {}
+            },
+            "Data_Validation_Agent": {
+                "type": "Agent",
+                "inputs": {
+                    "parameters": {
+                        "deploymentId": "gpt-5-3",
+                        "messages": [
+                            {
+                                "role": "system",
+                                "content": "You are a data analyst. You make sure that the received CSV data from SAP follows the validation rules.\n\nPlease follow business process:\n1) Get validation rules. Rules are defined in @{parameters('ValidationRules')}\n2) Validate the CSV data @{outputs('Create_CSV_data')}with the validation rules from the validation document.\n3) Save validation output in the following format:\nDOCNUM: @{variables('DOCNUM')} followed by OrderId and the validations rules that failed. "
+                            }
+                        ],
+                        "agentModelType": "AzureOpenAI",
+                        "agentModelSettings": {
+                            "agentHistoryReductionSettings": {
+                                "agentHistoryReductionType": "maximumTokenCountReduction",
+                                "maximumTokenCount": 128000
+                            },
+                            "deploymentModelProperties": {
+                                "name": "gpt-5-3",
+                                "format": "OpenAI",
+                                "version": "2025-04-14"
+                            }
+                        }
+                    },
+                    "modelConfigurations": {
+                        "model1": {
+                            "referenceName": "agent-2"
+                        }
+                    }
+                },
+                "tools": {
+                    "Get_validation_rules": {
+                        "actions": {
+                            "Get_validation_document": {
+                                "type": "ApiConnection",
+                                "inputs": {
+                                    "host": {
+                                        "connection": {
+                                            "referenceName": "sharepointonline"
+                                        }
+                                    },
+                                    "method": "get",
+                                    "path": "/datasets/@{encodeURIComponent(encodeURIComponent('https://microsoft.sharepoint.com/teams/LogicApps'))}/GetFileContentByPath",
+                                    "queries": {
+                                        "path": "@parameters('ValidationRules')",
+                                        "inferContentType": true,
+                                        "queryParametersSingleEncoded": true
+                                    }
+                                }
+                            }
+                        },
+                        "description": "Get validation rules"
+                    },
+                    "Get_CSV_payload": {
+                        "actions": {
+                            "CSV_data": {
+                                "type": "Compose",
+                                "inputs": "@agentParameters('CSV Payload')"
+                            }
+                        },
+                        "description": "Get CSV payload",
+                        "agentParameterSchema": {
+                            "type": "object",
+                            "properties": {
+                                "CSV Payload": {
+                                    "type": "string",
+                                    "description": "The CSV payload received from SAP and that we validate based on the validation rules."
+                                }
+                            },
+                            "required": [
+                                "CSV Payload"
+                            ]
+                        }
+                    },
+                    "Summarize_CSV_payload_review": {
+                        "actions": {
+                            "VerificationInfo": {
+                                "type": "Compose",
+                                "inputs": "@agentParameters('VerificationInfo')"
+                            },
+                            "Save_verification_info": {
+                                "type": "SetVariable",
+                                "inputs": {
+                                    "name": "FailedVerificationInfo",
+                                    "value": "@concat(outputs('VerificationInfo'),'\r\n')"
+                                },
+                                "runAfter": {
+                                    "VerificationInfo": [
+                                        "SUCCEEDED"
+                                    ]
+                                }
+                            }
+                        },
+                        "description": "Save validation failures",
+                        "agentParameterSchema": {
+                            "type": "object",
+                            "properties": {
+                                "VerificationInfo": {
+                                    "type": "string",
+                                    "description": "Line containing the DOCNUM value and the corresponding  validations for the corresponding CSV payload. The line format should be:\nDOCNUM: @{variables('DOCNUM')} followed by OrderId and the rules that failed."
+                                }
+                            },
+                            "required": [
+                                "VerificationInfo"
+                            ]
+                        }
+                    }
+                },
+                "runAfter": {
+                    "Initializations": [
+                        "SUCCEEDED"
+                    ]
+                },
+                "limit": {
+                    "count": 100
+                }
+            },
+            "Create_CSV_data": {
+                "type": "Compose",
+                "inputs": "@concat('OrderID,Date,CustomerID,Product,Quantity,UnitPrice,ShippingAddress,PaymentMethod,OrderStatus,TrackingNumber,ItemsInCart,CouponCode,ReferralSource,TotalPrice\r\n',\njoin(\n  xpath(\n    xml(triggerBody()?['content']),\n    '/*[local-name()=\"Receive\"]/*[local-name()=\"idocData\"]/*[local-name()=\"ZONLINEORDER000\"]/*[\r\n       local-name()=\"ORDER_ID\" or\r\n       local-name()=\"ORDER_DATE\" or\r\n       local-name()=\"CUSTOMER_ID\" or\r\n       local-name()=\"PRODUCT\" or\r\n       local-name()=\"QUANTITY\" or\r\n       local-name()=\"UNIT_PRICE\" or\r\n       local-name()=\"SHIP_ADDRESS\" or\r\n       local-name()=\"PAYMENT_METHOD\" or\r\n       local-name()=\"ORDER_STATUS\" or\r\n       local-name()=\"TRACKING_NUMBER\" or\r\n       local-name()=\"ITEMS_IN_CART\" or\r\n       local-name()=\"COUPON_CODE\" or\r\n       local-name()=\"REFERRAL_SOURCE\" or\r\n       local-name()=\"TOTAL_PRICE\"\r\n    ]/text()'\n  ),\n  ','\n))\n",
+                "runAfter": {
+                    "Validate_requested_action": [
+                        "SUCCEEDED"
+                    ]
+                }
+            },
+            "Initializations": {
+                "type": "InitializeVariable",
+                "inputs": {
+                    "variables": [
+                        {
+                            "name": "FailedVerificationInfo",
+                            "type": "string"
+                        },
+                        {
+                            "name": "ValidationErrors",
+                            "type": "string",
+                            "value": "@{concat('ValidationErrors', formatDateTime(utcNow(), 'yyyyMMdd'), '.txt')}"
+                        },
+                        {
+                            "name": "DOCNUM",
+                            "type": "string",
+                            "value": "@{xpath(xml(triggerBody()?['content']),  'string(/*[local-name()=\"Receive\"]           /*[local-name()=\"idocData\"]           /*[local-name()=\"EDI_DC40\"]           /*[local-name()=\"DOCNUM\"])')}"
+                        }
+                    ]
+                },
+                "runAfter": {
+                    "Create_CSV_data": [
+                        "SUCCEEDED"
+                    ]
+                }
+            },
+            "Initialize_variables": {
+                "type": "InitializeVariable",
+                "inputs": {
+                    "variables": [
+                        {
+                            "name": "leaseId",
+                            "type": "string"
+                        },
+                        {
+                            "name": "statusCode",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "runAfter": {
+                    "Data_Validation_Agent": [
+                        "SUCCEEDED"
+                    ]
+                }
+            },
+            "Check_whether_blob_exists": {
+                "type": "ServiceProvider",
+                "inputs": {
+                    "parameters": {
+                        "containerName": "onlinestoreorders",
+                        "blobName": "@variables('ValidationErrors')"
+                    },
+                    "serviceProviderConfiguration": {
+                        "connectionName": "AzureBlob",
+                        "operationId": "blobExists",
+                        "serviceProviderId": "/serviceProviders/AzureBlob"
+                    }
+                },
+                "runAfter": {
+                    "Initialize_variables": [
+                        "SUCCEEDED"
+                    ]
+                }
+            },
+            "Does_blob_exist": {
+                "type": "If",
+                "expression": {
+                    "and": [
+                        {
+                            "equals": [
+                                "@body('Check_whether_blob_exists')?['isBlobExists']",
+                                true
+                            ]
+                        }
+                    ]
+                },
+                "actions": {},
+                "else": {
+                    "actions": {
+                        "Create_blob_for_appending": {
+                            "type": "Http",
+                            "inputs": {
+                                "uri": "YOURBLOBURIHERE",
+                                "method": "PUT",
+                                "headers": {
+                                    "x-ms-version": "2023-11-03",
+                                    "x-ms-date": "@{formatDateTime(utcNow(),'r')}",
+                                    "x-ms-blob-type": "AppendBlob",
+                                    "Content-Length": "0"
+                                },
+                                "authentication": {
+                                    "type": "ManagedServiceIdentity",
+                                    "audience": "https://storage.azure.com/"
+                                },
+                                "retryPolicy": {
+                                    "type": "exponential",
+                                    "count": 50,
+                                    "interval": "PT10S",
+                                    "minimumInterval": "PT10S",
+                                    "maximumInterval": "PT120S"
+                                }
+                            },
+                            "runtimeConfiguration": {
+                                "contentTransfer": {
+                                    "transferMode": "Chunked"
+                                }
+                            }
+                        }
+                    }
+                },
+                "runAfter": {
+                    "Check_whether_blob_exists": [
+                        "SUCCEEDED"
+                    ]
+                }
+            },
+            "Until_lease_is_acquired": {
+                "type": "Until",
+                "expression": "@not(equals(variables('statusCode'), string(409)))",
+                "limit": {
+                    "count": 120,
+                    "timeout": "PT15M"
+                },
+                "actions": {
+                    "Acquire_validation_errors_blob_lease": {
+                        "type": "Http",
+                        "inputs": {
+                            "uri": "YOURBLOBURIHERE?comp=lease",
+                            "method": "PUT",
+                            "headers": {
+                                "x-ms-lease-action": "acquire",
+                                "x-ms-lease-duration": "30",
+                                "x-ms-version": "2023-11-03",
+                                "x-ms-date": "@{formatDateTime(utcNow(),'r')}"
+                            },
+                            "authentication": {
+                                "type": "ManagedServiceIdentity",
+                                "audience": "https://storage.azure.com/"
+                            }
+                        },
+                        "runAfter": {
+                            "Delay": [
+                                "SUCCEEDED"
+                            ]
+                        },
+                        "runtimeConfiguration": {
+                            "contentTransfer": {
+                                "transferMode": "Chunked"
+                            }
+                        }
+                    },
+                    "Delay": {
+                        "type": "Wait",
+                        "inputs": {
+                            "interval": {
+                                "count": "@rand(1,10)",
+                                "unit": "Second"
+                            }
+                        }
+                    },
+                    "Set_status_code": {
+                        "type": "SetVariable",
+                        "inputs": {
+                            "name": "statusCode",
+                            "value": "@{outputs('Acquire_validation_errors_blob_lease')?['statusCode']}"
+                        },
+                        "runAfter": {
+                            "Acquire_validation_errors_blob_lease": [
+                                "SUCCEEDED",
+                                "FAILED",
+                                "TIMEDOUT",
+                                "SKIPPED"
+                            ]
+                        }
+                    }
+                },
+                "runAfter": {
+                    "Does_blob_exist": [
+                        "SUCCEEDED"
+                    ]
+                }
+            },
+            "Save_lease_id": {
+                "type": "SetVariable",
+                "inputs": {
+                    "name": "leaseId",
+                    "value": "@outputs('Acquire_validation_errors_blob_lease')?['headers']['x-ms-lease-id']"
+                },
+                "runAfter": {
+                    "Until_lease_is_acquired": [
+                        "SUCCEEDED"
+                    ]
+                }
+            },
+            "Append_verification_results": {
+                "type": "Http",
+                "inputs": {
+                    "uri": "YOURBLOBNAMEHERE with append",
+                    "method": "PUT",
+                    "headers": {
+                        "x-ms-version": "2023-11-03",
+                        "Content-Length": "@{length(variables('FailedVerificationInfo'))}",
+                        "content-type": "text/plain",
+                        "x-ms-lease-id": "@{outputs('Acquire_validation_errors_blob_lease')?['headers']['x-ms-lease-id']}"
+                    },
+                    "body": "@variables('FailedVerificationInfo')",
+                    "authentication": {
+                        "type": "ManagedServiceIdentity",
+                        "audience": "https://storage.azure.com/"
+                    }
+                },
+                "runAfter": {
+                    "Save_lease_id": [
+                        "SUCCEEDED"
+                    ]
+                },
+                "runtimeConfiguration": {
+                    "contentTransfer": {
+                        "transferMode": "Chunked"
+                    }
+                }
+            },
+            "Release_the_lease": {
+                "type": "Http",
+                "inputs": {
+                    "uri": "YOURBLOBNAMEHERE with proper parameters to release the lease",
+                    "method": "PUT",
+                    "headers": {
+                        "x-ms-lease-action": "release",
+                        "x-ms-version": "2023-11-03",
+                        "x-ms-date": "@{formatDateTime(utcNow(),'r')}",
+                        "x-ms-lease-id": "@{variables('leaseId')}"
+                    },
+                    "authentication": {
+                        "type": "ManagedServiceIdentity",
+                        "audience": "https://storage.azure.com/"
+                    }
+                },
+                "runAfter": {
+                    "Append_verification_results": [
+                        "SUCCEEDED"
+                    ]
+                },
+                "runtimeConfiguration": {
+                    "contentTransfer": {
+                        "transferMode": "Chunked"
+                    }
+                }
+            }
+        },
+        "outputs": {},
+        "triggers": {
+            "When_a_message_is_received": {
+                "type": "ServiceProvider",
+                "inputs": {
+                    "parameters": {
+                        "idocFormat": "MicrosoftLobNamespaceXml",
+                        "DegreeOfParallelism": 100,
+                        "GatewayHost": "YOURHOSTNAMEHERE",
+                        "GatewayService": "YOURGATEWAYSERVICEHERE",
+                        "ProgramId": "YOURPROGRAMIDHERE",
+                        "ReceiveIDocsWithUnreleasedSegmentsV2": true,
+                        "GatewayWithoutWorkProcess": false
+                    },
+                    "serviceProviderConfiguration": {
+                        "connectionName": "sap",
+                        "operationId": "SapTrigger",
+                        "serviceProviderId": "/serviceProviders/sap"
+                    }
+                },
+                "conditions": []
+            }
+        }
+    },
+    "kind": "Stateful"
+}

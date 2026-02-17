@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:rfc="http://Microsoft.LobServices.Sap/2007/03/Rfc/"
+    xmlns:types="http://Microsoft.LobServices.Sap/2007/03/Types/Rfc/"
+    targetNamespace="http://Microsoft.LobServices.Sap/2007/03/Rfc/"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified">
+
+  <!-- If you save the first schema as rfc-types.xsd, add schemaLocation: -->
+  <xs:import namespace="http://Microsoft.LobServices.Sap/2007/03/Types/Rfc/"
+             schemaLocation="rfcTypes.xsd"/>
+
+  <!-- Root response element -->
+  <xs:element name="Z_GET_ORDERS_ANALYSISResponse">
+    <xs:complexType>
+      <xs:sequence>
+
+        <!-- RETURN: container in RFC ns; its children are from the Types ns -->
+        <xs:element name="RETURN" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="types:TYPE"       minOccurs="0"/>
+              <xs:element ref="types:ID"         minOccurs="0"/>
+              <xs:element ref="types:NUMBER"     minOccurs="0"/>
+              <xs:element ref="types:MESSAGE"    minOccurs="0"/>
+              <xs:element ref="types:LOG_NO"     minOccurs="0"/>
+              <xs:element ref="types:LOG_MSG_NO" minOccurs="0"/>
+              <xs:element ref="types:MESSAGE_V1" minOccurs="0"/>
+              <xs:element ref="types:MESSAGE_V2" minOccurs="0"/>
+              <xs:element ref="types:MESSAGE_V3" minOccurs="0"/>
+              <xs:element ref="types:MESSAGE_V4" minOccurs="0"/>
+              <xs:element ref="types:PARAMETER"  minOccurs="0"/>
+              <xs:element ref="types:ROW"        minOccurs="0"/>
+              <xs:element ref="types:FIELD"      minOccurs="0"/>
+              <xs:element ref="types:SYSTEM"     minOccurs="0"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <!-- ANALYSIS: allow embedded markup (mixed content) -->
+        <xs:element name="ANALYSIS" minOccurs="0">
+          <xs:complexType mixed="true">
+            <xs:sequence>
+              <!-- Accept any nested elements from any namespace, e.g., HTML/XHTML or RFC -->
+              <xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:anyAttribute namespace="##any" processContents="lax"/>
+          </xs:complexType>
+        </xs:element>
+
+        <!-- EXCEPTIONMSG: 'ok' or error text -->
+        <xs:element name="EXCEPTIONMSG" type="xs:string" minOccurs="0"/>
+
+        <!-- IT_CSV: a sequence of Types:ZTY_CSV_LINE -->
+        <xs:element name="IT_CSV" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="types:ZTY_CSV_LINE" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

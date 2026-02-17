@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:types="http://Microsoft.LobServices.Sap/2007/03/Types/Rfc/"
+    targetNamespace="http://Microsoft.LobServices.Sap/2007/03/Types/Rfc/"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified">
+
+  <!--
+    Elements that appear as children of <RETURN> in the RFC payload.
+    Types are kept lenient (xs:string) because they were empty or mixed in the sample.
+    You can tighten these (e.g., xs:integer) later if desired.
+  -->
+  <xs:element name="TYPE"       type="xs:string"/>
+  <xs:element name="ID"         type="xs:string"/>
+  <xs:element name="NUMBER"     type="xs:string"/>
+  <xs:element name="MESSAGE"    type="xs:string"/>
+  <xs:element name="LOG_NO"     type="xs:string"/>
+  <xs:element name="LOG_MSG_NO" type="xs:string"/>
+  <xs:element name="MESSAGE_V1" type="xs:string"/>
+  <xs:element name="MESSAGE_V2" type="xs:string"/>
+  <xs:element name="MESSAGE_V3" type="xs:string"/>
+  <xs:element name="MESSAGE_V4" type="xs:string"/>
+  <xs:element name="PARAMETER"  type="xs:string"/>
+  <xs:element name="ROW"        type="xs:string"/>
+  <xs:element name="FIELD"      type="xs:string"/>
+  <xs:element name="SYSTEM"     type="xs:string"/>
+
+  <!-- CSV line wrapper used under <IT_CSV> -->
+  <xs:element name="ZTY_CSV_LINE">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="LINE" type="xs:string" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

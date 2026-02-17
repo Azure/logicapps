@@ -1,0 +1,11 @@
+Validation Rules 
+
+Here are the validation rules we want to enforce. It is to ensure the quality of the order data that we save. The format is:
+Field name: condition.
+
+PaymentMethod: PaymentMethod field value must exist. 
+PaymentMethod: PaymentMethod field value cannot be “Cash”. 
+OrderStatus: OrderStatus field value must be different from “Cancelled”.  
+CouponCode: CouponCode field value must have at least 1 character. 
+OrderID: OrderID field value must be unique in the CSV array.
+Do not validate the Date field.

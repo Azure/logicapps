@@ -1,0 +1,47 @@
+DOCNUM: 0000000002552570 | OrderID: ORD200007 | Failed Rules: PaymentMethod: PaymentMethod field value cannot be “Cash”.
+DOCNUM: 0000000002552565 OrderID: ORD200002 Failed Rules: OrderStatus: OrderStatus field value must be different from “Cancelled”.
+DOCNUM: 0000000002552567 | OrderID: ORD200004 | Failed rules: None
+DOCNUM: 0000000002552563 OrderId: ORD200000 FailedRules: None
+DOCNUM: 0000000002552562 | OrderID: ORD200002 | Failed Rules: OrderStatus: OrderStatus field value must be different from 'Cancelled'.
+DOCNUM: 0000000002552573 OrderId: ORD200010 FailedRules: None
+DOCNUM: 0000000002552568 OrderId: ORD200005 - No validation failures
+DOCNUM: 0000000002552574 OrderId: ORD200011 Failed Rules: None
+DOCNUM: 0000000002552566 OrderID: ORD200003 Failed Rules: None
+DOCNUM: 0000000002552576 OrderID: ORD200013 - No validation rules failed
+DOCNUM: 0000000002552575, OrderId: ORD200012, Failed rules: None
+DOCNUM: 0000000002552578 | OrderId: ORD200015 | Failed Rules: PaymentMethod - PaymentMethod field value cannot be "Cash".
+DOCNUM: 0000000002552572 | OrderID: ORD200009 | Failed rules: None
+DOCNUM: 0000000002552561 | OrderId: ORD200001 | FailedRules: None
+DOCNUM: 0000000002552560 | OrderId: ORD200000 | No validation rule failures
+DOCNUM: 0000000002552564 OrderId: ORD200001 - No validation failures
+DOCNUM: 0000000002552569 OrderID: ORD200006 FailedRules: None
+DOCNUM: 0000000002552571 | OrderID: ORD200008 | Failed rules: OrderStatus must be different from “Cancelled”.
+DOCNUM: 0000000002552577 OrderID: ORD200014 - No validation rule failures.
+DOCNUM: 0000000002552605 OrderID: ORD200004 - FailedRules: None
+DOCNUM: 0000000002552607 OrderId: ORD200006 FailedRules: None
+DOCNUM: 0000000002552603 OrderId: ORD200002 Failed Rules: OrderStatus: OrderStatus field value must be different from “Cancelled”.
+DOCNUM: 0000000002552610 OrderId: ORD200009 - No validation rule failures.
+DOCNUM: 0000000002552612 OrderID: ORD200011 FailedRules: None
+DOCNUM: 0000000002552608 | OrderId: ORD200007 | Failed Rules: PaymentMethod: PaymentMethod field value cannot be “Cash”.
+DOCNUM: 0000000002552616 | OrderId: ORD200015 | FailedRules: PaymentMethod: PaymentMethod field value cannot be “Cash”.
+DOCNUM: 0000000002552615 OrderId: ORD200014 | Failed Rules: None
+DOCNUM: 0000000002552599 OrderId: ORD200001 No validation failures
+DOCNUM: 0000000002552601 OrderId: ORD200000 FailedRules: None
+DOCNUM: 0000000002552611 | OrderID: ORD200010 | Failed validation rules: None
+DOCNUM: 0000000002552606 OrderId: ORD200005 Failed rules: None
+DOCNUM: 0000000002552598 | OrderId: ORD200000 | No validation failures
+DOCNUM: 0000000002552600 | OrderID: ORD200002 | Failed validations: OrderStatus must be different from 'Cancelled'.
+DOCNUM: 0000000002552614 OrderID: ORD200013 Failed Rules: None
+DOCNUM: 0000000002552602 | OrderID: ORD200001 | No validation rule failures
+DOCNUM: 0000000002552604 OrderId: ORD200003 FailedRules: None
+DOCNUM: 0000000002552613, OrderID: ORD200012, Failed Rules: None
+DOCNUM: 0000000002552609 OrderID: ORD200008 Failed Rules: OrderStatus must be different from 'Cancelled'.
+DOCNUM: 0000000002552623 OrderID: ORD200007 Failed rules: PaymentMethod field value cannot be "Cash".
+DOCNUM: 0000000002552617 | OrderID: ORD200000 | FailedRules: None
+DOCNUM: 0000000002552621 OrderId: ORD200001 FailedRules: None
+DOCNUM: 0000000002552619 | OrderID: ORD200002 | Failed Rules: OrderStatus field value must be different from 'Cancelled'.
+DOCNUM: 0000000002552620 OrderID: ORD200000 - No validation failures.
+DOCNUM: 0000000002552622 OrderID: ORD200002 | Failed Rules: OrderStatus: OrderStatus field value must be different from “Cancelled”.
+DOCNUM: 0000000002552625 OrderID: ORD200015 Failed Rules: PaymentMethod field value cannot be "Cash".
+DOCNUM: 0000000002552618 OrderId: ORD200001 Failed rules: None
+DOCNUM: 0000000002552624 | OrderID: ORD200008 | Failed rules: OrderStatus: OrderStatus field value must be different from “Cancelled”.
