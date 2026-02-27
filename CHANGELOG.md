@@ -1,5 +1,20 @@
 # Azure Logic Apps (Standard)
 
+## Bundle and NuGet version 1.160.21
+- Platform library update for Logic App Runtime.
+- Various bug fixes and improvements
+<br><br>
+
+## Bundle and NuGet version 1.160.9
+- **Agent workflows**: Added reasoning effort parameter, expanded model support, improved retry logic, and enhanced response format validation.
+- **HL7 messaging**: Fixed MSH header parsing for large content, added custom target namespace support, and improved error handling.
+- **SAP connector**: Fixed IDoc reception issue for unreleased segments.
+- **FTP built-in connector**: Disabled EPSV (Extended Passive Mode) to improve compatibility.
+- **MLLP connector**: Added Send message operation for HL7 message transmission.
+- **MCP (Model Context Protocol)**: Improved tool call response handling with structured content support.
+- Various bug fixes and improvements
+<br><br>
+
 ## Bundle and NuGet version 1.156.x
 - Agent and workflow improvements: Enhanced reliability for agent workflows, including better caching and validation for agent handoff and tool calls.
 - Confluent connector: Now generally available and ready for production use.
