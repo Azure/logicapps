@@ -1,5 +1,10 @@
 # Azure Logic Apps (Standard)
 
+## Bundle and NuGet version 1.161.x
+- **Parse XML with schema**: Fixed broken dynamic list that shows root nodes after schema selection.
+- Various bug fixes and improvements
+<br><br>
+
 ## Bundle and NuGet version 1.160.21
 - Platform library update for Logic App Runtime.
 - Various bug fixes and improvements
