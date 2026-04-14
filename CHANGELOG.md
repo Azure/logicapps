@@ -1,5 +1,11 @@
 # Azure Logic Apps (Standard)
 
+## Bundle and NuGet version 1.165.x
+- Added `pow()` built-in expression function for computing power/exponentiation (Math.Pow).
+- **Portal designer integration**: Added Foundry proxy endpoint.
+- Various bug fixes and improvements
+<br><br>
+
 ## Bundle and NuGet version 1.161.x
 - **Parse XML with schema**: Fixed broken dynamic list that shows root nodes after schema selection.
 - Various bug fixes and improvements
