@@ -1,5 +1,10 @@
 # Azure Logic Apps (Standard)
 
+## Bundle and NuGet version 1.170.x
+- **HL7 Decode** (breaking change): HL7 Decode action processing now supports both batched and single-message modes. As a result, there is a breaking change in the response format—the disassembled output is returned as an array, which may contain one or multiple messages depending on the input.
+- Various bug fixes and improvements
+<br><br>
+
 ## Bundle and NuGet version 1.165.x
 - Added `pow()` built-in expression function for computing power/exponentiation (Math.Pow).
 - **Portal designer integration**: Added Foundry proxy endpoint.
