@@ -1,11 +1,21 @@
 
 param (
-    	[string]$LOCATION,
-    	[string]$GROUP_NAME,
-   	[string]$SUBSCRIPTION,
-	[string]$KUBE_CLUSTER_NAME,
-	[string]$LOGANALYTICS_WORKSPACE_NAME
+    [string]$LOCATION = "eastus",
+    [string]$NODE_VM_SIZE = "Standard_D2s_v3",
+    [Parameter(Mandatory = $true)]
+    [ValidateNotNullOrEmpty()]
+    [string]$INDEX
 )
+
+$ErrorActionPreference = "Stop"
+
+if ([string]::IsNullOrWhiteSpace($env:USERNAME)) {
+    throw "USERNAME environment variable is not set."
+}
+
+$GROUP_NAME = "$($env:USERNAME)-$INDEX"
+$KUBE_CLUSTER_NAME = "$($env:USERNAME)-aks-$INDEX"
+$LOGANALYTICS_WORKSPACE_NAME = "$($env:USERNAME)-log-$INDEX"
 
 $EXTENSION_NAME_ACA="logicapps-aca-extension"
 $NAMESPACE="logicapps-aca-ns"
@@ -14,8 +24,6 @@ $CUSTOM_LOCATION_NAME="custom-location-"+$KUBE_CLUSTER_NAME
 
 #Change the below value, if you would like to provide different name for your connected cluster
 $CONNECTED_CLUSTER_NAME= $KUBE_CLUSTER_NAME
-
-$ErrorActionPreference = "Stop"
 
 function Test-Administrator {
     $User = [Security.Principal.WindowsIdentity]::GetCurrent()
@@ -52,12 +60,50 @@ Write-ColorOutput green ("Preparing to login to your Azure account")
 # Log into Azure
 az login
 
-# Set Azure subscription
-Write-ColorOutput green ("using the subscription '$SUBSCRIPTION'.")
-az account set --subscription $SUBSCRIPTION
+$SUBSCRIPTION = az account show --query name --output tsv
+if ([string]::IsNullOrWhiteSpace($SUBSCRIPTION)) {
+    throw "Unable to determine the default Azure subscription from the current Azure CLI context."
+}
 
-#Write-ColorOutput green ("creating or using the resource group '$GROUP_NAME'.")
-#az group create --name $GROUP_NAME --location $LOCATION
+Write-ColorOutput green ("Using the default subscription '$SUBSCRIPTION'.")
+
+Write-ColorOutput green ("Using resource group '$GROUP_NAME' and AKS cluster '$KUBE_CLUSTER_NAME'.")
+
+$GROUP_EXISTS = az group exists --name $GROUP_NAME --output tsv
+if ($LASTEXITCODE -ne 0) {
+    throw "Unable to check whether resource group '$GROUP_NAME' exists."
+}
+
+if ($GROUP_EXISTS -ne "true") {
+    Write-ColorOutput green ("Creating resource group '$GROUP_NAME' in '$LOCATION'.")
+    az group create --name $GROUP_NAME --location $LOCATION --output none
+    if ($LASTEXITCODE -ne 0) {
+        throw "Unable to create resource group '$GROUP_NAME'."
+    }
+}
+
+$AKS_CLUSTER = az aks list `
+    --resource-group $GROUP_NAME `
+    --query "[?name=='$KUBE_CLUSTER_NAME'].name | [0]" `
+    --output tsv
+if ($LASTEXITCODE -ne 0) {
+    throw "Unable to check whether AKS cluster '$KUBE_CLUSTER_NAME' exists."
+}
+
+if ([string]::IsNullOrWhiteSpace($AKS_CLUSTER)) {
+    Write-ColorOutput green ("Creating AKS cluster '$KUBE_CLUSTER_NAME' in '$LOCATION' with node size '$NODE_VM_SIZE'.")
+    az aks create `
+        --resource-group $GROUP_NAME `
+        --name $KUBE_CLUSTER_NAME `
+        --location $LOCATION `
+        --node-vm-size $NODE_VM_SIZE `
+        --enable-managed-identity `
+        --generate-ssh-keys `
+        --output none
+    if ($LASTEXITCODE -ne 0) {
+        throw "Unable to create AKS cluster '$KUBE_CLUSTER_NAME' with node size '$NODE_VM_SIZE'. Use -NODE_VM_SIZE to select a SKU allowed by your subscription."
+    }
+}
 
 # installing kubectl
 Write-ColorOutput green ("installing kubectl")
@@ -68,9 +114,15 @@ choco install kubernetes-cli -y
 
 Write-ColorOutput green ("Getting the AKS credentials for kubectl access")
 az aks get-credentials --resource-group $GROUP_NAME --name $KUBE_CLUSTER_NAME --admin
+if ($LASTEXITCODE -ne 0) {
+    throw "Unable to get credentials for AKS cluster '$KUBE_CLUSTER_NAME'."
+}
 
 Write-ColorOutput green ("Merging the kubeconfig")
 kubectl get ns
+if ($LASTEXITCODE -ne 0) {
+    throw "Unable to connect to AKS cluster '$KUBE_CLUSTER_NAME' with kubectl."
+}
 
 # Install helm
 Write-ColorOutput green ("Installing helm.")
