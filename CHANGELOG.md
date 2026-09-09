@@ -1,7 +1,57 @@
 # Azure Logic Apps (Standard)
 
+## Bundle and NuGet version 1.186.x
+- **Hosted Model Context Protocol (MCP) servers** (breaking change): Unified file inputs with the main configuration schema. Move existing file inputs from the separate file input section into the configuration as Base64-encoded content.
+- **Confluent built-in connector**: Fixed **Send messages to Kafka topic** action to correctly serialize string content, such as XML, as raw UTF-8 bytes, not JSON-escaped text.
+- **Execute JavaScript Code action**: Fixed a problem where this action failed with 'InternalServerError' in a non-previously published draft workflow.
+- **Default MCP server**: The 'McpServerEndpoints.EnableRootMcpServer' setting in 'host.json' now controls the default MCP server. Configuring specific MCP servers in 'mcpservers.json' disables the default server unless you set 'EnableRootMcpServer' to 'true'.
+- **Custom .NET Framework code**:
+   - Fixed startup failures in the custom code worker. Incompatible Microsoft.Extensions 10.x assemblies in the extension bundle caused these failures.
+   - Fixed SQL Server connection failures. These failures returned 'PlatformNotSupportedException'.
+   - Fixed assembly loading failures caused by required runtime assemblies not being discovered.
+   - Fixed dependency conflicts between the .NET custom code environment and customer-provided libraries.
+- **SAP built-in connector**: Added a trigger option to use the IDoc extension type (`CIMTYP`) as the `SapPlainXml` root node when receiving extended IDocs.
+- **HL7 Decode and HL7 Encode built-in actions**: Are now generally available (moved from preview).
+- **Agent loop MCP tools**: Fixed a problem that blocked saving workflows using a managed identity MCP server connection when 'connectionProperties.authentication.audience' was missing.
+- **SFTP built-in connector**: Fixed a problem where operations failed with 'Cannot access a disposed object' until the connection was refreshed. Failed connections are now automatically replaced on the next request.
+- **Workflow debugger**: Fixed a problem where the debugger failed to start.
+- **JMS/NMS receive operations**: Fixed a problem where a `maximumBatchSizeInMB` of 2048 or greater returned only one message per batch instead of honoring the requested size.
+- **NMS built-in connector**: Fixed a problem where an undocumented 100 MB limit was applied to received message batches when the optional maximum batch size was not specified. Omitting the option now applies no size limit, and invalid non-positive values are rejected instead of being silently replaced.
+- **Extract archive operations**: Improved validation of ZIP archive entry paths for the Azure Blob, Azure File, FTP, SFTP, and file system built-in connectors.
+- **Apache NMS operations**: Fixed a problem where operations failed before accessing the requested destination when the broker denied an internal synthetic validation queue.
+- **Rules Engine**: Added a workflow action for executing business rules against supplied facts.
+- **Workflow unit testing**: Fixed trigger mock validation. Unsupported trigger statuses now return a validation error, not an unexpected failure. Only the 'Succeeded' status is supported.
+- **Run-from-storage ZIP deployment**: Added append mode to deploy new workflows without replacing existing workflows. Deployments remain atomic, and duplicate workflows return an error.
+- **Workflow designer Copilot**: Added support for multi-turn workflow editing.
+- **Platform runtime**:
+   - Fixed soft restart failures that might cause workflow downtime. These failures occurred in the isolated function host during workflow updates.
+   - Fixed restart failures caused by worker listener port conflicts.
+- **Azure Cosmos DB built-in connector**: Operations are generally available (GA) and ready for production use.
+- **Workflow execution**: Improved workflow job-dispatch reliability. Memory-based throttling is now disabled by default.
+- **MCP tool calls**: Fixed session reuse across workflows that might cause session-not-found errors when workflows use different identities. Each call now initializes its own session.
+- **Microsoft Teams Webhook V2 trigger**: Fixed workflow template validation for workflows that use this trigger.
+- **Codeful workflows**: Fixed a problem that might prevent codeful workflows from starting.
+- **Target-based scaling**: Improved worker count stability during invalid concurrency metrics and transient storage failures.
+- **SWIFT built-in actions**: Fixed a problem where missing artifacts in customer-provided storage returned an unexpected error, rather than be recognized as missing.
+- **Model Context Protocol (MCP) servers**: Fixed a problem where an invalid client state token caused an unhandled error.
+- **MLLP built-in connector**: Added a trigger to receive HL7 messages over TCP.
+- **Agent MCP tools**: Added curated Teams, SharePoint Online, OneDrive for Business, and Office 365 Outlook operations that agents can invoke, with supporting dropdowns and pickers. Fixed workflow validation for missing connection references. Invalid definitions now return a clear validation error, not a server error.
+- **PowerShell inline code**: Fixed a problem where an unavailable PowerShell worker caused a generic server error and repeated retries. The action now returns a terminal service unavailable error that instructs customers to restart the logic app.
+- **Workflow configuration**: Added runtime settings for trigger concurrency, run retention, action execution, Hypertext Transfer Protocol (HTTP) and webhook operations, Azure Functions operations, managed connector operations, and retry policies. Relevant configuration groups now appear based on workflow action types. Internal-only settings are hidden.
+- **Draft workflow run history**: Fixed a problem where listing runs or run history for superseded draft workflow versions returned a server error.
+- **Workflow designer**: Fixed a problem where the **Batch trigger** and **Send to batch** operations appeared in search for stateless workflows. These operations now appear only for stateful workflows.
+- **Microsoft Dataverse row triggers**: Generated trigger metadata now includes the required dataset and table inputs for Connector Namespace configurations.
+- **Connector Namespace custom connectors**: Fixed a problem where calls without managed identity authentication failed before reaching the connector.
+- **Bring-your-own Model Context Protocol (MCP) tools**: Fixed a problem where parallel or retried tool calls failed with Hypertext Transfer Protocol (HTTP) 400 'BadRequest' because of duplicate authorization headers.
+- **Managed connector Model Context Protocol (MCP) servers**: Improved regional discovery to include eligible embedded MCP operations, such as GitHub's MCP server invocation operation.
+- **Automation projects Model Context Protocol (MCP) connector operations**: Fixed a problem where operation listings showed blank connector identifiers and operation names for some managed connector references.
+- **Workflow runs**: Fixed a problem where runs might remain stuck when a referenced workflow version isn't found. Affected runs now fail with 'WorkflowVersionNotFound'.
+- **Azure Blob** built-in connector: Added each blob's last modified time to blob listing results.
+- Various bug fixes and improvements
+<br><br>
+
 ## Bundle and NuGet version 1.170.x
-- **HL7 Decode** (breaking change): HL7 Decode action processing now supports both batched and single-message modes. As a result, there is a breaking change in the response format—the disassembled output is returned as an array, which may contain one or multiple messages depending on the input.
+- **HL7 Decode** (breaking change): HL7 Decode action processing now supports both batched and single-message modes. As a result, a breaking change exists in the response format. Disassembled output is returned as an array, which might contain one or more messages, based on the input.
 - Various bug fixes and improvements
 <br><br>
 
