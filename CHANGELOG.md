@@ -1,5 +1,32 @@
 # Azure Logic Apps (Standard)
 
+## Bundle and NuGet version 1.194.44
+- **Workflow unit testing** (breaking change): Codeless assertion-based unit tests are no longer supported. Migrate affected tests to programmatic unit tests with explicit trigger and action mocks. Test results now include agent action outputs, such as chat history and tool call results.
+- **Node.js**: Updated the default runtime version to 22 for local development and generated infrastructure templates.
+- **Logic Apps Standard local development**: Fixed a problem where changing Azurite service ports caused existing run history to become inaccessible.
+- **Workflow action resubmission**: Added support to resubmit workflow runs from actions in parallel branches.
+- **Workflow configuration**: Improved the organization, descriptions, and value bounds for runtime settings. Additional storage and content settings now appear, renamed trigger settings remain visible, and missing named workflows return an empty settings list.
+- **Execute JavaScript Code action**: Fixed a problem where transient startup failures might leave workflows that use this action unavailable and cause request endpoints to return Hypertext Transfer Protocol (HTTP) '404'.
+- **Integration accounts**: Added support for partners and agreements in semi-disconnected mode. Actions that use schemas or maps can now use cached artifact content when cloud content is unavailable.
+- **Target-based scaling**: Is now enabled by default for production slots.
+- **HL7 Decode action**: Fixed message parsing when adjacent escape sequences precede segment terminators. Output now reports the acknowledgement mode used to process each message.
+- **Agent actions**: Fixed a problem where a missing connection application programming interface (API) key caused a null reference error. The action now reports a descriptive error.
+- **NMS** built-in connector: Added support to exchange messages with Apache ActiveMQ and compatible brokers, an action to check access to named queues, and optional prefetch settings. Improved client certificate and timeout handling, trigger and message settlement reliability, durable subscription behavior, binary content and custom property handling, validation, and error responses.
+- **Hosted Model Context Protocol (MCP) servers**: Fixed a problem where an invalid tool reference blocked all workflows in a logic app from loading. Workflows now continue to load when a tool reference is invalid.
+- **SMTP** built-in connector: Fixed a problem where asynchronous operations interpreted timeout values in seconds as milliseconds, causing premature connection and authentication failures.
+- **Custom code**: Added C# template expressions and support for Logic Apps software development kit (SDK) types in expressions. Supported .NET results now convert to workflow-compatible values, while unsupported types return a clear error. Fixed workflow state handling and retries for asynchronous custom code functions, with error details and call stacks now included in retry history.
+- **MQ** built-in connector: Fixed a problem where the affinity browse-lock trigger stopped after a transient network error. The trigger now retries transient errors.
+- **Workflow action limits**: Fixed a problem where an invalid timeout format returned a server error. Invalid values now return a validation error.
+- **Service Bus** built-in connector: Fixed a problem where connectivity failures returned 'InternalServerError'. These failures now return 'BadGateway'.
+- **SFTP** built-in connector: Fixed a failure when transferring files larger than 2 GB.
+- **Workflow validation**: Fixed a problem where workflows that use application programming interface (API) connection operations might be incorrectly rejected and return Hypertext Transfer Protocol (HTTP) '404'.
+- **Workflow state**: Fixed a problem where a disabled workflow's trigger might continue to run when trigger concurrency was removed in the same update.
+- **Workflow runs**: Fixed a problem where failed runs might retry finalization indefinitely. Failed runs now complete finalization and can be removed by retention. Split On trigger processing now provides more consistent retries.
+- **XML Compose action**: Fixed schema generation for repeated choices of complex elements. Empty child elements are now preserved when composing parsed JavaScript Object Notation (JSON).
+- **Platform runtime**: Fixed a problem where fatal errors might stop workflow job processing while the app continued running. Processing now recovers automatically.
+- Various bug fixes and improvements
+<br><br>
+
 ## Bundle and NuGet version 1.186.x
 - **Hosted Model Context Protocol (MCP) servers** (breaking change): Unified file inputs with the main configuration schema. Move existing file inputs from the separate file input section into the configuration as Base64-encoded content.
 - **Confluent built-in connector**: Fixed **Send messages to Kafka topic** action to correctly serialize string content, such as XML, as raw UTF-8 bytes, not JSON-escaped text.
