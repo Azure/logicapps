@@ -1,0 +1,7 @@
+// Parameters: replace {{startUtc}}, {{endUtc}}, {{workflowName}} (urgent) and {{lowWorkflowName}} (bulk). Run-Queries.ps1 in this pattern does this.
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let high = '{{workflowName}}';
+let low = '{{lowWorkflowName}}';
+// Host instances per app: peak per minute and instance-minutes (sum over minutes of distinct instances that logged).
+union requests, traces | where timestamp between (startTime .. endTime) | summarize instances = dcount(cloud_RoleInstance) by minute = bin(timestamp, 1m), app = cloud_RoleName | summarize minutes = count(), maxInstances = max(instances), avgInstances = round(avg(instances), 2), instanceMinutes = sum(instances) by app

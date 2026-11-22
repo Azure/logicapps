@@ -1,0 +1,15 @@
+// Parameters: replace the {{...}} tokens with literal values to run this query in the
+// portal (Application Insights > Logs). Pattern 7 queries cover both workflows.
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+// Redelivery check: how many times each messageId reached the final child call, and the
+// highest Service Bus deliveryCount seen. A count above 1 means the message ran twice.
+requests
+| where timestamp between (startTime .. endTime)
+| where customDimensions.Category == 'Workflow.Operations.Actions'
+| extend tp = parse_json(tostring(customDimensions.trackedProperties))
+| where tp.pattern == '7-long-running'
+| extend workflowName = tostring(parse_json(tostring(customDimensions.resource)).workflowName)
+| summarize processed = count(), maxDelivery = max(toint(tp.deliveryCount)) by workflowName, messageId = tostring(tp.messageId)
+| summarize messages = count(), duplicated = countif(processed > 1), extraRuns = sum(processed - 1),
+    redelivered = countif(maxDelivery > 1), maxDeliveryCount = max(maxDelivery) by workflowName

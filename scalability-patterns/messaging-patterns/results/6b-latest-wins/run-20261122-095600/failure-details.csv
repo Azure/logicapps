@@ -1,0 +1,7 @@
+"source","name","detail","count"
+"exception","Workflow.Operations.Actions","Unable to process template language expressions for action 'For_each_message' at line '0' and column '0': 'The number of foreach items limit exceeded for action 'For_each_message': maximum '100' and a","602"
+"action","For_each_message","Failed","602"
+"run","orders-latest-wins-fn","{""code"":""ActionFailed"",""message"":""An action failed. No dependent actions succeeded.""}","602"
+"exception","Workflow.Operations.Actions","NotFound","100"
+"action","Read_latest","Failed","100"
+"exception","ScaleControllerLogs","Failed to initialize scale monitoring for 'orders-latest-wins-fn' function.","1"

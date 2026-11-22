@@ -1,0 +1,11 @@
+.staging/
+.staging-*
+.tools/
+*.log
+bin/
+obj/
+__pycache__/
+
+# Custom code build output
+shared/logicapp/lib/custom/net8/*.dll
+shared/logicapp/lib/custom/net8/*.pdb

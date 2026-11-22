@@ -1,0 +1,107 @@
+[
+  {
+    "minute": "2026-11-22T10:38:00.000Z",
+    "runs": 274,
+    "succeeded": 274,
+    "failed": 0,
+    "runsPerSecond": 4.57
+  },
+  {
+    "minute": "2026-11-22T10:39:00.000Z",
+    "runs": 298,
+    "succeeded": 298,
+    "failed": 0,
+    "runsPerSecond": 4.97
+  },
+  {
+    "minute": "2026-11-22T10:40:00.000Z",
+    "runs": 437,
+    "succeeded": 437,
+    "failed": 0,
+    "runsPerSecond": 7.28
+  },
+  {
+    "minute": "2026-11-22T10:41:00.000Z",
+    "runs": 538,
+    "succeeded": 538,
+    "failed": 0,
+    "runsPerSecond": 8.97
+  },
+  {
+    "minute": "2026-11-22T10:42:00.000Z",
+    "runs": 980,
+    "succeeded": 980,
+    "failed": 0,
+    "runsPerSecond": 16.33
+  },
+  {
+    "minute": "2026-11-22T10:43:00.000Z",
+    "runs": 1111,
+    "succeeded": 1111,
+    "failed": 0,
+    "runsPerSecond": 18.52
+  },
+  {
+    "minute": "2026-11-22T10:44:00.000Z",
+    "runs": 1412,
+    "succeeded": 1412,
+    "failed": 0,
+    "runsPerSecond": 23.53
+  },
+  {
+    "minute": "2026-11-22T10:45:00.000Z",
+    "runs": 1412,
+    "succeeded": 1412,
+    "failed": 0,
+    "runsPerSecond": 23.53
+  },
+  {
+    "minute": "2026-11-22T10:46:00.000Z",
+    "runs": 1997,
+    "succeeded": 1997,
+    "failed": 0,
+    "runsPerSecond": 33.28
+  },
+  {
+    "minute": "2026-11-22T10:47:00.000Z",
+    "runs": 1004,
+    "succeeded": 1004,
+    "failed": 0,
+    "runsPerSecond": 16.73
+  },
+  {
+    "minute": "2026-11-22T10:48:00.000Z",
+    "runs": 1941,
+    "succeeded": 1941,
+    "failed": 0,
+    "runsPerSecond": 32.35
+  },
+  {
+    "minute": "2026-11-22T10:49:00.000Z",
+    "runs": 1894,
+    "succeeded": 1894,
+    "failed": 0,
+    "runsPerSecond": 31.57
+  },
+  {
+    "minute": "2026-11-22T10:50:00.000Z",
+    "runs": 1719,
+    "succeeded": 1719,
+    "failed": 0,
+    "runsPerSecond": 28.65
+  },
+  {
+    "minute": "2026-11-22T10:51:00.000Z",
+    "runs": 1923,
+    "succeeded": 1922,
+    "failed": 1,
+    "runsPerSecond": 32.05
+  },
+  {
+    "minute": "2026-11-22T10:52:00.000Z",
+    "runs": 49,
+    "succeeded": 49,
+    "failed": 0,
+    "runsPerSecond": 0.82
+  }
+]

@@ -1,0 +1,75 @@
+{
+  "tables": [
+    {
+      "columns": [
+        {
+          "name": "workflowName",
+          "type": "string"
+        },
+        {
+          "name": "status",
+          "type": "string"
+        },
+        {
+          "name": "runs",
+          "type": "long"
+        },
+        {
+          "name": "p50",
+          "type": "real"
+        },
+        {
+          "name": "p95",
+          "type": "real"
+        },
+        {
+          "name": "p99",
+          "type": "real"
+        },
+        {
+          "name": "maxMs",
+          "type": "real"
+        }
+      ],
+      "name": "PrimaryResult",
+      "rows": [
+        [
+          "process-order",
+          "Succeeded",
+          17142,
+          30.075581395348838,
+          159.06137946864095,
+          690.5555555555555,
+          6115
+        ],
+        [
+          "rr-back",
+          "Succeeded",
+          17142,
+          111.8913043478261,
+          487.9802410581408,
+          1194.0533333333335,
+          9901
+        ],
+        [
+          "rr-front",
+          "Succeeded",
+          16988,
+          326.97970081828083,
+          4532.75232600135,
+          17477.416666666668,
+          207880
+        ],
+        [
+          "rr-front",
+          "Failed",
+          1,
+          227614,
+          227614,
+          227614,
+          227614
+        ]
+      ]
+    }
+  ]
+}

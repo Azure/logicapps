@@ -1,0 +1,9 @@
+{
+  "extensions": {
+    "serviceBus": {
+      "maxMessageBatchSize": 20,
+      "prefetchCount": 0,
+      "maxAutoLockRenewalDuration": "00:05:00"
+    }
+  }
+}

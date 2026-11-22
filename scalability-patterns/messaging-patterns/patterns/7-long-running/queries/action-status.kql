@@ -1,0 +1,15 @@
+// Parameters: replace the {{...}} tokens with literal values to run this query in the
+// portal (Application Insights > Logs). Pattern 7 queries cover both workflows.
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+// Status of every action in the pattern 7 workflows: Wait, renew lock, child call, complete, abandon.
+// Failed Renew_lock_* or Complete_message actions mean the lock was lost.
+requests
+| where timestamp between (startTime .. endTime)
+| where customDimensions.Category == 'Workflow.Operations.Actions'
+| extend workflowName = tostring(parse_json(tostring(customDimensions.resource)).workflowName)
+| where workflowName startswith 'long-running-'
+| extend actionName = tostring(parse_json(tostring(customDimensions.resource)).actionName)
+| extend step = iff(actionName startswith 'Renew_lock_', 'Renew_lock_*', iff(actionName startswith 'Wait_', 'Wait_*', actionName))
+| summarize total = count(), succeeded = countif(success == true), failed = countif(success == false), p50Ms = percentile(duration, 50), p95Ms = percentile(duration, 95), maxMs = max(duration) by workflowName, step, resultCode
+| order by workflowName asc, step asc

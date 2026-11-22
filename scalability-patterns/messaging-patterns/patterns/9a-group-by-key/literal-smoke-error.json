@@ -1,0 +1,1 @@
+{"statusCode":"BadRequest","body":{"code":"ServiceProviderActionFailed","message":"The service provider action failed with error code 'VNetPrivatePortsNotConfigured' and error message 'Using this service provider action in stateful workflows requires VNet integration and the site configuration vnetPrivatePortsCount to be set to a value greater than or equal to 2.'."}}

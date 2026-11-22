@@ -1,0 +1,178 @@
+[
+  {
+    "minute": "2026-11-22T11:42:00Z",
+    "instances": 1,
+    "runs": 10,
+    "upsertsOk": 10,
+    "upsertsFailed": 0,
+    "p95E2eMs": 6151
+  },
+  {
+    "minute": "2026-11-22T11:43:00Z",
+    "instances": 1,
+    "runs": 100,
+    "upsertsOk": 100,
+    "upsertsFailed": 0,
+    "p95E2eMs": 71026
+  },
+  {
+    "minute": "2026-11-22T11:44:00Z",
+    "instances": 1,
+    "runs": 99,
+    "upsertsOk": 99,
+    "upsertsFailed": 0,
+    "p95E2eMs": 130745
+  },
+  {
+    "minute": "2026-11-22T11:45:00Z",
+    "instances": 1,
+    "runs": 51,
+    "upsertsOk": 51,
+    "upsertsFailed": 0,
+    "p95E2eMs": 161798
+  },
+  {
+    "minute": "2026-11-22T11:46:00Z",
+    "instances": 1,
+    "runs": 100,
+    "upsertsOk": 100,
+    "upsertsFailed": 0,
+    "p95E2eMs": 221125
+  },
+  {
+    "minute": "2026-11-22T11:47:00Z",
+    "instances": 1,
+    "runs": 100,
+    "upsertsOk": 100,
+    "upsertsFailed": 0,
+    "p95E2eMs": 280649
+  },
+  {
+    "minute": "2026-11-22T11:48:00Z",
+    "instances": 1,
+    "runs": 70,
+    "upsertsOk": 70,
+    "upsertsFailed": 0,
+    "p95E2eMs": 338960
+  },
+  {
+    "minute": "2026-11-22T11:49:00Z",
+    "instances": 1,
+    "runs": 80,
+    "upsertsOk": 80,
+    "upsertsFailed": 0,
+    "p95E2eMs": 370965
+  },
+  {
+    "minute": "2026-11-22T11:50:00Z",
+    "instances": 1,
+    "runs": 100,
+    "upsertsOk": 100,
+    "upsertsFailed": 0,
+    "p95E2eMs": 431571
+  },
+  {
+    "minute": "2026-11-22T11:51:00Z",
+    "instances": 1,
+    "runs": 97,
+    "upsertsOk": 98,
+    "upsertsFailed": 0,
+    "p95E2eMs": 491239
+  },
+  {
+    "minute": "2026-11-22T11:52:00Z",
+    "instances": 1,
+    "runs": 53,
+    "upsertsOk": 52,
+    "upsertsFailed": 0,
+    "p95E2eMs": 521338
+  },
+  {
+    "minute": "2026-11-22T11:53:00Z",
+    "instances": 1,
+    "runs": 100,
+    "upsertsOk": 100,
+    "upsertsFailed": 0,
+    "p95E2eMs": 581713
+  },
+  {
+    "minute": "2026-11-22T11:54:00Z",
+    "instances": 1,
+    "runs": 100,
+    "upsertsOk": 100,
+    "upsertsFailed": 0,
+    "p95E2eMs": 641493
+  },
+  {
+    "minute": "2026-11-22T11:55:00Z",
+    "instances": 1,
+    "runs": 72,
+    "upsertsOk": 73,
+    "upsertsFailed": 0,
+    "p95E2eMs": 698832
+  },
+  {
+    "minute": "2026-11-22T11:56:00Z",
+    "instances": 1,
+    "runs": 78,
+    "upsertsOk": 77,
+    "upsertsFailed": 0,
+    "p95E2eMs": 731823
+  },
+  {
+    "minute": "2026-11-22T11:57:00Z",
+    "instances": 1,
+    "runs": 100,
+    "upsertsOk": 100,
+    "upsertsFailed": 0,
+    "p95E2eMs": 791448
+  },
+  {
+    "minute": "2026-11-22T11:58:00Z",
+    "instances": 1,
+    "runs": 98,
+    "upsertsOk": 98,
+    "upsertsFailed": 0,
+    "p95E2eMs": 851040
+  },
+  {
+    "minute": "2026-11-22T11:59:00Z",
+    "instances": 1,
+    "runs": 52,
+    "upsertsOk": 52,
+    "upsertsFailed": 0,
+    "p95E2eMs": 882002
+  },
+  {
+    "minute": "2026-11-22T12:00:00Z",
+    "instances": 1,
+    "runs": 100,
+    "upsertsOk": 100,
+    "upsertsFailed": 0,
+    "p95E2eMs": 941120
+  },
+  {
+    "minute": "2026-11-22T12:01:00Z",
+    "instances": 1,
+    "runs": 100,
+    "upsertsOk": 100,
+    "upsertsFailed": 0,
+    "p95E2eMs": 1002141
+  },
+  {
+    "minute": "2026-11-22T12:02:00Z",
+    "instances": 1,
+    "runs": 70,
+    "upsertsOk": 70,
+    "upsertsFailed": 0,
+    "p95E2eMs": 1059025
+  },
+  {
+    "minute": "2026-11-22T12:03:00Z",
+    "instances": 1,
+    "runs": 80,
+    "upsertsOk": 80,
+    "upsertsFailed": 0,
+    "p95E2eMs": 1092080
+  }
+]

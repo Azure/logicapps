@@ -1,0 +1,38 @@
+{
+  "pattern": "1b-low-cost",
+  "runId": "run-20261122-081111",
+  "workflowName": "orders-low-cost",
+  "windowStartUtc": "2026-11-22T08:10:11Z",
+  "windowEndUtc": "2026-11-22T08:31:02Z",
+  "targetMessagesPerSecond": 50,
+  "loadDurationMinutes": 10,
+  "loadTestStatus": "DONE",
+  "loadTestResult": "NOT_APPLICABLE",
+  "loadEntity": "orders",
+  "messagesSent": 30040,
+  "messagesCompletedByBroker": 24363,
+  "peakQueueBacklog": 15667,
+  "deadletteredAtEnd": 0,
+  "runsCompleted": 42,
+  "runsSucceeded": 42,
+  "runsFailed": 0,
+  "avgMessagesPerSecond": 4.43,
+  "peakRunsPerSecond": 0.1,
+  "runDurationMs": {
+    "p50": 850183,
+    "p95": 1212568,
+    "p99": 1266627
+  },
+  "endToEndLatencyMs": {
+    "p50": 744213,
+    "p95": 1153072,
+    "p99": 1426238
+  },
+  "maxInstances": 1,
+  "firstSentUtc": "2026-11-22T07:57:01.740Z",
+  "lastFinishedUtc": "2026-11-22T08:31:45.525Z",
+  "drainSeconds": 2084,
+  "failedActions": 0,
+  "exceptions": 0,
+  "portalUrl": "https://portal.azure.com/#blade/Microsoft_Azure_CloudNativeTesting/TestRunReport.ReactView//resourceId/%2fsubscriptions%2f00000000-0000-0000-0000-000000000000%2fresourcegroups%2frg-msgpat-1b-low-cost%2fproviders%2fmicrosoft.loadtestservice%2floadtests%2falt-msgpat-1blowcost-ofwbn4/testId/msgpat-1b-low-cost/testRunId/run-20261122-081111"
+}

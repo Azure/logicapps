@@ -1,0 +1,23 @@
+[
+  {
+    "resource": "la-msgpat-12bperwork-2waf5d",
+    "metric": "MemoryWorkingSetMB",
+    "avg": 421.0,
+    "max": 731.0,
+    "points": 27
+  },
+  {
+    "resource": "asp-msgpat-12bperwork-2waf5d",
+    "metric": "CpuPercentage",
+    "avg": 83.7,
+    "max": 100.0,
+    "points": 27
+  },
+  {
+    "resource": "asp-msgpat-12bperwork-2waf5d",
+    "metric": "MemoryPercentage",
+    "avg": 59.9,
+    "max": 68.0,
+    "points": 27
+  }
+]

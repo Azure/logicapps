@@ -1,0 +1,28 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "triggers": {
+      "manual": {
+        "type": "Request",
+        "kind": "Http",
+        "inputs": { "schema": { "type": "object", "properties": { "seconds": { "type": "integer" } } } }
+      }
+    },
+    "actions": {
+      "Simulate_slow_downstream": {
+        "type": "Wait",
+        "inputs": { "interval": { "count": "@coalesce(triggerBody()?['seconds'], 40)", "unit": "Second" } },
+        "runAfter": {}
+      },
+      "Response": {
+        "type": "Response",
+        "kind": "Http",
+        "inputs": { "statusCode": 200, "body": { "waitedSeconds": "@coalesce(triggerBody()?['seconds'], 40)" } },
+        "runAfter": { "Simulate_slow_downstream": [ "Succeeded" ] }
+      }
+    },
+    "outputs": {}
+  },
+  "kind": "Stateful"
+}

@@ -1,0 +1,38 @@
+{
+  "pattern": "8a-split-messages",
+  "runId": "run-20261122-105132",
+  "workflowName": "items-fanout",
+  "windowStartUtc": "2026-11-22T10:50:30Z",
+  "windowEndUtc": "2026-11-22T11:12:00Z",
+  "targetMessagesPerSecond": 0.2,
+  "loadDurationMinutes": 5,
+  "loadTestStatus": "DONE",
+  "loadTestResult": "NOT_APPLICABLE",
+  "loadEntity": "orders",
+  "messagesSent": 61,
+  "messagesCompletedByBroker": 61,
+  "peakQueueBacklog": 6,
+  "deadletteredAtEnd": 0,
+  "runsCompleted": 4603,
+  "runsSucceeded": 4398,
+  "runsFailed": 205,
+  "avgMessagesPerSecond": 3.04,
+  "peakRunsPerSecond": 13.35,
+  "runDurationMs": {
+    "p50": 19179.454239155486,
+    "p95": 58195.64979753806,
+    "p99": 110695
+  },
+  "endToEndLatencyMs": {
+    "p50": 43719,
+    "p95": 915731,
+    "p99": 940815
+  },
+  "maxInstances": 1,
+  "firstSentUtc": "2026-11-22T10:36:28.955Z",
+  "lastFinishedUtc": "2026-11-22T11:00:39.076Z",
+  "drainSeconds": 1451,
+  "failedActions": 1202,
+  "exceptions": 1222,
+  "portalUrl": "https://portal.azure.com/#blade/Microsoft_Azure_CloudNativeTesting/TestRunReport.ReactView//resourceId/%2fsubscriptions%2f00000000-0000-0000-0000-000000000000%2fresourcegroups%2frg-msgpat-8a-split-messages%2fproviders%2fmicrosoft.loadtestservice%2floadtests%2falt-msgpat-8asplitmes-crggkm/testId/msgpat-8a-split-messages/testRunId/run-20261122-105132"
+}

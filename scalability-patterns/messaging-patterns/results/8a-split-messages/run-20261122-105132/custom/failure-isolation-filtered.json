@@ -1,0 +1,59 @@
+{
+  "columns": [
+    {
+      "name": "items",
+      "type": "long"
+    },
+    {
+      "name": "childCalls",
+      "type": "long"
+    },
+    {
+      "name": "itemsOk",
+      "type": "long"
+    },
+    {
+      "name": "itemsFailed",
+      "type": "long"
+    },
+    {
+      "name": "runsSeen",
+      "type": "long"
+    },
+    {
+      "name": "runsFailed",
+      "type": "long"
+    },
+    {
+      "name": "runsSucceeded",
+      "type": "long"
+    },
+    {
+      "name": "goodItemsInFailedRuns",
+      "type": "long"
+    },
+    {
+      "name": "batchesSeen",
+      "type": "long"
+    },
+    {
+      "name": "batchesWithBadItem",
+      "type": "long"
+    }
+  ],
+  "name": "PrimaryResult",
+  "rows": [
+    [
+      3048,
+      3050,
+      2916,
+      126,
+      3037,
+      126,
+      2920,
+      0,
+      61,
+      53
+    ]
+  ]
+}

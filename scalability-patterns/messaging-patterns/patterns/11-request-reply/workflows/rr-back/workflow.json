@@ -1,0 +1,51 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "triggers": {
+      "When_request_arrives": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {"queueName": "requests", "isSessionsEnabled": false, "maxMessageBatchSize": 100},
+          "serviceProviderConfiguration": {"connectionName": "serviceBus", "operationId": "receiveQueueMessages", "serviceProviderId": "/serviceProviders/serviceBus"}
+        },
+        "splitOn": "@triggerOutputs()?['body']"
+      }
+    },
+    "actions": {
+      "Process_order": {
+        "type": "Workflow",
+        "inputs": {
+          "host": {"workflow": {"id": "process-order"}},
+          "body": {"messageId": "@{triggerBody()?['messageId']}", "pattern": "11-request-reply", "order": "@triggerBody()?['contentData']"}
+        },
+        "trackedProperties": {
+          "messageId": "@{triggerBody()?['messageId']}",
+          "enqueuedTimeUtc": "@{triggerBody()?['enqueuedTimeUtc']}",
+          "sentAtUtc": "@{triggerBody()?['contentData']?['sentAtUtc']}",
+          "pattern": "11-request-reply"
+        },
+        "runAfter": {}
+      },
+      "Send_reply": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "entityName": "@{coalesce(triggerBody()?['replyTo'], 'replies')}",
+            "message": {
+              "contentData": "@body('Process_order')",
+              "contentType": "application/json",
+              "sessionId": "@{coalesce(triggerBody()?['replyToSessionId'], triggerBody()?['correlationId'], triggerBody()?['messageId'])}",
+              "correlationId": "@{triggerBody()?['messageId']}",
+              "timeToLive": "3000000000"
+            }
+          },
+          "serviceProviderConfiguration": {"connectionName": "serviceBus", "operationId": "sendMessage", "serviceProviderId": "/serviceProviders/serviceBus"}
+        },
+        "runAfter": {"Process_order": ["Succeeded"]}
+      }
+    },
+    "outputs": {}
+  },
+  "kind": "Stateful"
+}

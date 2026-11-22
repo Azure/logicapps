@@ -1,0 +1,35 @@
+[
+  {
+    "wf": "items-fanout",
+    "runs": 4603,
+    "succeeded": 4398,
+    "failed": 205,
+    "other": 0,
+    "p50Ms": 19179.454239155486,
+    "p95Ms": 58195.64979753806,
+    "maxMs": 146854,
+    "unusedWorkflowToken": "items-fanout"
+  },
+  {
+    "wf": "orders-splitter",
+    "runs": 61,
+    "succeeded": 61,
+    "failed": 0,
+    "other": 0,
+    "p50Ms": 1156,
+    "p95Ms": 1517,
+    "maxMs": 1803,
+    "unusedWorkflowToken": "items-fanout"
+  },
+  {
+    "wf": "process-order",
+    "runs": 5417,
+    "succeeded": 4398,
+    "failed": 1019,
+    "other": 0,
+    "p50Ms": 5377.579357206134,
+    "p95Ms": 12808.254761904762,
+    "maxMs": 40757,
+    "unusedWorkflowToken": "items-fanout"
+  }
+]

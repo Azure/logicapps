@@ -1,0 +1,17 @@
+// Parameters: Export-Results.ps1 replaces the {{...}} tokens. To run this query in the
+// portal (Application Insights > Logs), replace them with literal values.
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';
+// Completed runs of the entry workflow per minute, split by status.
+// Source: v2 telemetry traces, Category 'Workflow.Operations.Runs', EventName 'WorkflowRunEnd'.
+traces
+| where timestamp between (startTime .. endTime)
+| where customDimensions.Category == 'Workflow.Operations.Runs'
+| where customDimensions.EventName == 'WorkflowRunEnd'
+| extend workflowName = tostring(parse_json(tostring(customDimensions.resource)).workflowName)
+| where workflowName == workflow
+| extend status = tostring(parse_json(tostring(customDimensions.prop__properties)).status)
+| summarize runs = count(), succeeded = countif(status == 'Succeeded'), failed = countif(status != 'Succeeded') by minute = bin(timestamp, 1m)
+| extend runsPerSecond = round(runs / 60.0, 2)
+| order by minute asc

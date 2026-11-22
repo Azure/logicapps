@@ -1,0 +1,44 @@
+[
+  {
+    "minute": "2026-11-22T08:07:00.000Z",
+    "runs": 345,
+    "succeeded": 345,
+    "failed": 0,
+    "runsPerSecond": 5.75
+  },
+  {
+    "minute": "2026-11-22T08:08:00.000Z",
+    "runs": 588,
+    "succeeded": 588,
+    "failed": 0,
+    "runsPerSecond": 9.8
+  },
+  {
+    "minute": "2026-11-22T08:09:00.000Z",
+    "runs": 553,
+    "succeeded": 553,
+    "failed": 0,
+    "runsPerSecond": 9.22
+  },
+  {
+    "minute": "2026-11-22T08:10:00.000Z",
+    "runs": 494,
+    "succeeded": 494,
+    "failed": 0,
+    "runsPerSecond": 8.23
+  },
+  {
+    "minute": "2026-11-22T08:11:00.000Z",
+    "runs": 619,
+    "succeeded": 619,
+    "failed": 0,
+    "runsPerSecond": 10.32
+  },
+  {
+    "minute": "2026-11-22T08:12:00.000Z",
+    "runs": 501,
+    "succeeded": 501,
+    "failed": 0,
+    "runsPerSecond": 8.35
+  }
+]

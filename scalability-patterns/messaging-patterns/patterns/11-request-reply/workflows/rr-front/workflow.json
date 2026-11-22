@@ -1,0 +1,86 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "triggers": {
+      "manual": {"type": "Request", "kind": "Http", "inputs": {"schema": {"type": "object"}}}
+    },
+    "actions": {
+      "Request_id": {"type": "Compose", "inputs": "@guid()", "runAfter": {}},
+      "Send_request": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "entityName": "requests",
+            "message": {
+              "contentData": "@setProperty(coalesce(triggerBody(), json('{}')), 'frontReceivedUtc', utcNow())",
+              "contentType": "application/json",
+              "messageId": "@{outputs('Request_id')}",
+              "correlationId": "@{outputs('Request_id')}",
+              "replyTo": "replies",
+              "replyToSession": "@{outputs('Request_id')}"
+            }
+          },
+          "serviceProviderConfiguration": {"connectionName": "serviceBus", "operationId": "sendMessage", "serviceProviderId": "/serviceProviders/serviceBus"}
+        },
+        "runAfter": {"Request_id": ["Succeeded"]}
+      },
+      "Get_reply": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {"queueName": "replies", "sessionId": "@{outputs('Request_id')}", "maxMessages": 1, "acquireNewSession": true},
+          "serviceProviderConfiguration": {"connectionName": "serviceBus", "operationId": "getMessagesFromQueueSession", "serviceProviderId": "/serviceProviders/serviceBus"}
+        },
+        "runAfter": {"Send_request": ["Succeeded"]}
+      },
+      "Has_reply": {
+        "type": "If",
+        "expression": {"and": [{"greater": ["@length(coalesce(body('Get_reply'), json('[]')))", 0]}]},
+        "actions": {
+          "Complete_reply": {
+            "type": "ServiceProvider",
+            "inputs": {
+              "parameters": {"queueName": "replies", "sessionId": "@{outputs('Request_id')}", "messageId": "@{body('Get_reply')?[0]?['messageId']}", "lockToken": "@{body('Get_reply')?[0]?['lockToken']}"},
+              "serviceProviderConfiguration": {"connectionName": "serviceBus", "operationId": "completeMessageInSession", "serviceProviderId": "/serviceProviders/serviceBus"}
+            },
+            "runAfter": {}
+          },
+          "Response_ok": {
+            "type": "Response",
+            "kind": "Http",
+            "inputs": {
+              "statusCode": 200,
+              "headers": {"Content-Type": "application/json"},
+              "body": {
+                "requestId": "@{outputs('Request_id')}",
+                "correlationId": "@{body('Get_reply')?[0]?['correlationId']}",
+                "replySessionId": "@{body('Get_reply')?[0]?['sessionId']}",
+                "reply": "@body('Get_reply')?[0]?['contentData']"
+              }
+            },
+            "runAfter": {"Complete_reply": ["Succeeded", "Failed"]}
+          }
+        },
+        "else": {
+          "actions": {
+            "Response_no_reply": {
+              "type": "Response",
+              "kind": "Http",
+              "inputs": {"statusCode": 504, "body": {"requestId": "@{outputs('Request_id')}", "error": "No reply before the receive timeout."}},
+              "runAfter": {}
+            }
+          }
+        },
+        "runAfter": {"Get_reply": ["Succeeded"]}
+      },
+      "Response_failed": {
+        "type": "Response",
+        "kind": "Http",
+        "inputs": {"statusCode": 502, "body": {"requestId": "@{outputs('Request_id')}", "error": "Send or receive failed."}},
+        "runAfter": {"Get_reply": ["Failed", "TimedOut"]}
+      }
+    },
+    "outputs": {}
+  },
+  "kind": "Stateless"
+}

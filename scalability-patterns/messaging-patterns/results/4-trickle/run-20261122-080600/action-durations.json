@@ -1,0 +1,79 @@
+[
+  {
+    "workflowName": "process-order",
+    "action": "Upsert_order",
+    "actionType": "ServiceProvider",
+    "apiName": "AzureCosmosDB",
+    "count": 68,
+    "failed": 0,
+    "p50": 10.7653,
+    "p95": 18.5904,
+    "p99": 2483.0957
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Enrich_order",
+    "actionType": "InvokeFunction",
+    "apiName": "",
+    "count": 68,
+    "failed": 0,
+    "p50": 3.6724,
+    "p95": 14.8878,
+    "p99": 160.8075
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Response",
+    "actionType": "Response",
+    "apiName": "",
+    "count": 68,
+    "failed": 0,
+    "p50": 3.4018,
+    "p95": 9.2478,
+    "p99": 596.0186
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Transform_order",
+    "actionType": "Liquid",
+    "apiName": "",
+    "count": 68,
+    "failed": 0,
+    "p50": 2.1616,
+    "p95": 7.2731,
+    "p99": 368.1675
+  },
+  {
+    "workflowName": "trickle-stateful",
+    "action": "Process_order",
+    "actionType": "Workflow",
+    "apiName": "",
+    "count": 34,
+    "failed": 0,
+    "p50": 35.4716,
+    "p95": 64.4044,
+    "p99": 3783.204
+  },
+  {
+    "workflowName": "trickle-stateless",
+    "action": "Process_order",
+    "actionType": "Workflow",
+    "apiName": "",
+    "count": 34,
+    "failed": 0,
+    "p50": 36.4827,
+    "p95": 54.4497,
+    "p99": 4220.0993
+  },
+  {
+    "workflowName": "trickle-stateless",
+    "action": "For_each_message",
+    "actionType": "Foreach",
+    "apiName": "",
+    "count": 34,
+    "failed": 0,
+    "p50": 1.8289,
+    "p95": 7.6465,
+    "p99": 39.3269
+  }
+]

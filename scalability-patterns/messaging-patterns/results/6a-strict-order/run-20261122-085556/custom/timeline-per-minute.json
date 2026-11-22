@@ -1,0 +1,146 @@
+[
+  {
+    "minute": "2026-11-22T08:58:00Z",
+    "instances": 1,
+    "runs": 12,
+    "upserts": 12
+  },
+  {
+    "minute": "2026-11-22T08:59:00Z",
+    "instances": 1,
+    "runs": 60,
+    "upserts": 60
+  },
+  {
+    "minute": "2026-11-22T09:00:00Z",
+    "instances": 1,
+    "runs": 60,
+    "upserts": 60
+  },
+  {
+    "minute": "2026-11-22T09:01:00Z",
+    "instances": 1,
+    "runs": 60,
+    "upserts": 60
+  },
+  {
+    "minute": "2026-11-22T09:02:00Z",
+    "instances": 1,
+    "runs": 60,
+    "upserts": 60
+  },
+  {
+    "minute": "2026-11-22T09:03:00Z",
+    "instances": 1,
+    "runs": 56,
+    "upserts": 350
+  },
+  {
+    "minute": "2026-11-22T09:04:00Z",
+    "instances": 1,
+    "runs": 36,
+    "upserts": 1555
+  },
+  {
+    "minute": "2026-11-22T09:05:00Z",
+    "instances": 1,
+    "runs": 41,
+    "upserts": 1756
+  },
+  {
+    "minute": "2026-11-22T09:06:00Z",
+    "instances": 1,
+    "runs": 36,
+    "upserts": 1564
+  },
+  {
+    "minute": "2026-11-22T09:07:00Z",
+    "instances": 1,
+    "runs": 39,
+    "upserts": 1735
+  },
+  {
+    "minute": "2026-11-22T09:08:00Z",
+    "instances": 1,
+    "runs": 37,
+    "upserts": 1517
+  },
+  {
+    "minute": "2026-11-22T09:09:00Z",
+    "instances": 1,
+    "runs": 42,
+    "upserts": 1806
+  },
+  {
+    "minute": "2026-11-22T09:10:00Z",
+    "instances": 1,
+    "runs": 35,
+    "upserts": 1535
+  },
+  {
+    "minute": "2026-11-22T09:11:00Z",
+    "instances": 1,
+    "runs": 42,
+    "upserts": 1776
+  },
+  {
+    "minute": "2026-11-22T09:12:00Z",
+    "instances": 1,
+    "runs": 35,
+    "upserts": 1505
+  },
+  {
+    "minute": "2026-11-22T09:13:00Z",
+    "instances": 1,
+    "runs": 37,
+    "upserts": 1651
+  },
+  {
+    "minute": "2026-11-22T09:14:00Z",
+    "instances": 1,
+    "runs": 40,
+    "upserts": 1660
+  },
+  {
+    "minute": "2026-11-22T09:15:00Z",
+    "instances": 1,
+    "runs": 38,
+    "upserts": 1703
+  },
+  {
+    "minute": "2026-11-22T09:16:00Z",
+    "instances": 1,
+    "runs": 39,
+    "upserts": 1608
+  },
+  {
+    "minute": "2026-11-22T09:17:00Z",
+    "instances": 1,
+    "runs": 35,
+    "upserts": 1505
+  },
+  {
+    "minute": "2026-11-22T09:18:00Z",
+    "instances": 1,
+    "runs": 37,
+    "upserts": 1628
+  },
+  {
+    "minute": "2026-11-22T09:19:00Z",
+    "instances": 1,
+    "runs": 40,
+    "upserts": 1683
+  },
+  {
+    "minute": "2026-11-22T09:20:00Z",
+    "instances": 1,
+    "runs": 34,
+    "upserts": 1661
+  },
+  {
+    "minute": "2026-11-22T09:21:00Z",
+    "instances": 1,
+    "runs": 33,
+    "upserts": 1640
+  }
+]

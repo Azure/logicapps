@@ -1,0 +1,19 @@
+{
+  "serviceProviderConnections": {
+    "blob": {
+      "displayName": "Blob (managed identity)",
+      "parameterSetName": "ManagedServiceIdentity",
+      "parameterValues": {
+        "blobStorageEndpoint": "@appsetting('blob_endpoint')",
+        "managedIdentityType": "UserAssigned",
+        "authProvider": {
+          "Type": "ManagedServiceIdentity",
+          "Identity": "@appsetting('UAMI_RESOURCE_ID')"
+        }
+      },
+      "serviceProvider": {
+        "id": "/serviceProviders/AzureBlob"
+      }
+    }
+  }
+}

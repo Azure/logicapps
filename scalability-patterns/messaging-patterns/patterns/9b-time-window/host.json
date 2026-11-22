@@ -1,0 +1,11 @@
+{
+  "extensions": {
+    "serviceBus": {
+      "maxMessageBatchSize": 100,
+      "prefetchCount": 0,
+      "clientRetryOptions": {
+        "tryTimeout": "00:00:05"
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "$comment": "Pattern 9a: fan-in, group by key. Session-enabled queue, sessionId = orderId, each order has LINE_COUNT line messages. Measured workflow orders-group-by-key uses the built-in session trigger (receiveQueueMessages, isSessionsEnabled true) and writes one part document per line; check-groups.py builds each group from Cosmos. orders-group-literal is the docs-literal stateful design (session polling trigger, Until get-from-session, complete, close) on queue orders-literal, smoke-tested only. See README.md.",
+  "location": "westus3",
+  "fallbackLocation": "swedencentral",
+  "planSku": "WS1",
+  "maximumElasticWorkerCount": 20,
+  "minimumElasticInstanceCount": 1,
+  "serviceBusSku": "Standard",
+  "queues": [
+    {
+      "name": "orders",
+      "requiresSession": true,
+      "lockDuration": "PT5M",
+      "maxDeliveryCount": 5,
+      "maxSizeInMegabytes": 5120
+    },
+    {
+      "name": "orders-literal",
+      "requiresSession": true,
+      "lockDuration": "PT5M",
+      "maxDeliveryCount": 5,
+      "maxSizeInMegabytes": 1024
+    }
+  ],
+  "topics": [],
+  "extraAppSettings": {},
+  "hostSettings": {},
+  "loadTest": {
+    "queueName": "orders",
+    "engineInstances": 1,
+    "users": 20,
+    "spawnRate": 20,
+    "batchSize": 10,
+    "batchesPerUserPerSecond": 0.25,
+    "durationMinutes": 10,
+    "env": {
+      "LINE_COUNT": "10"
+    }
+  },
+  "drainMinutes": 15,
+  "measurement": {
+    "workflowName": "orders-group-by-key"
+  }
+}

@@ -1,0 +1,56 @@
+[
+  {
+    "minute": "2026-11-22T08:28:00.000Z",
+    "workflowName": "orders-claim-check",
+    "runs": 7,
+    "p50": 990648,
+    "p95": 1002041,
+    "p99": 1002041,
+    "maxMs": 1002041
+  },
+  {
+    "minute": "2026-11-22T08:29:00.000Z",
+    "workflowName": "orders-claim-check",
+    "runs": 1,
+    "p50": 991522,
+    "p95": 991522,
+    "p99": 991522,
+    "maxMs": 991522
+  },
+  {
+    "minute": "2026-11-22T08:31:00.000Z",
+    "workflowName": "orders-claim-check",
+    "runs": 15,
+    "p50": 891000,
+    "p95": 1181227,
+    "p99": 1181227,
+    "maxMs": 1181227
+  },
+  {
+    "minute": "2026-11-22T08:31:00.000Z",
+    "workflowName": "process-order",
+    "runs": 15,
+    "p50": 8291,
+    "p95": 17256,
+    "p99": 17256,
+    "maxMs": 17256
+  },
+  {
+    "minute": "2026-11-22T08:32:00.000Z",
+    "workflowName": "orders-claim-check",
+    "runs": 41,
+    "p50": 13079,
+    "p95": 1082930,
+    "p99": 1184539,
+    "maxMs": 1184539
+  },
+  {
+    "minute": "2026-11-22T08:32:00.000Z",
+    "workflowName": "process-order",
+    "runs": 44,
+    "p50": 3435,
+    "p95": 23781,
+    "p99": 24886,
+    "maxMs": 24886
+  }
+]

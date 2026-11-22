@@ -1,0 +1,41 @@
+{
+  "$comment": "Pattern 6a: strict order per key. Session-enabled queue, sessionId = key, built-in Service Bus trigger (receiveQueueMessages, isSessionsEnabled true) with a sequential For each that upserts each update to Cosmos; the Functions host completes the batch. See README.md.",
+  "location": "westus3",
+  "fallbackLocation": "swedencentral",
+  "planSku": "WS1",
+  "maximumElasticWorkerCount": 20,
+  "minimumElasticInstanceCount": 1,
+  "serviceBusSku": "Standard",
+  "queues": [
+    {
+      "name": "orders",
+      "requiresSession": true,
+      "lockDuration": "PT1M",
+      "maxDeliveryCount": 5,
+      "maxSizeInMegabytes": 5120
+    }
+  ],
+  "topics": [],
+  "extraAppSettings": {},
+  "hostSettings": {},
+  "loadTest": {
+    "queueName": "orders",
+    "engineInstances": 1,
+    "users": 20,
+    "spawnRate": 20,
+    "batchSize": 5,
+    "batchesPerUserPerSecond": 1,
+    "durationMinutes": 5,
+    "env": {
+      "KEY_COUNT": "100",
+      "TOTAL_USERS": "20",
+      "USE_SESSIONS": "1"
+    }
+  },
+  "drainMinutes": 15,
+  "measurement": {
+    "workflowName": "orders-strict-order-fn"
+  }
+}
+
+

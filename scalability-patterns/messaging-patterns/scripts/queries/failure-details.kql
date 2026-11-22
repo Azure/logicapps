@@ -1,0 +1,22 @@
+// Parameters: Export-Results.ps1 replaces the {{...}} tokens. To run this query in the
+// portal (Application Insights > Logs), replace them with literal values.
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';
+// Top failure reasons for failed runs and actions.
+union
+(traces
+ | where timestamp between (startTime .. endTime)
+ | where customDimensions.Category == 'Workflow.Operations.Runs' and customDimensions.EventName == 'WorkflowRunEnd'
+ | extend props = parse_json(tostring(customDimensions.prop__properties))
+ | where tostring(props.status) != 'Succeeded'
+ | project source = 'run', name = tostring(parse_json(tostring(customDimensions.resource)).workflowName), detail = tostring(customDimensions.prop__error)),
+(requests
+ | where timestamp between (startTime .. endTime)
+ | where customDimensions.Category == 'Workflow.Operations.Actions' and success == false
+ | project source = 'action', name, detail = tostring(resultCode)),
+(exceptions
+ | where timestamp between (startTime .. endTime)
+ | project source = 'exception', name = tostring(customDimensions.Category), detail = substring(outerMessage, 0, 200))
+| summarize count = count() by source, name, detail
+| order by count desc

@@ -1,0 +1,38 @@
+[
+  {
+    "minute": "2026-11-22T08:07:00Z",
+    "instances": 1,
+    "runs": 345,
+    "upserts": 380
+  },
+  {
+    "minute": "2026-11-22T08:08:00Z",
+    "instances": 1,
+    "runs": 588,
+    "upserts": 660
+  },
+  {
+    "minute": "2026-11-22T08:09:00Z",
+    "instances": 1,
+    "runs": 553,
+    "upserts": 536
+  },
+  {
+    "minute": "2026-11-22T08:10:00Z",
+    "instances": 1,
+    "runs": 494,
+    "upserts": 523
+  },
+  {
+    "minute": "2026-11-22T08:11:00Z",
+    "instances": 1,
+    "runs": 619,
+    "upserts": 580
+  },
+  {
+    "minute": "2026-11-22T08:12:00Z",
+    "instances": 1,
+    "runs": 501,
+    "upserts": 421
+  }
+]

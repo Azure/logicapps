@@ -1,0 +1,6 @@
+{
+  "source": "Azure Monitor TotalRequests by StatusCode, PT1M",
+  "status429": 12116,
+  "status429PeakPerMinute": 1440,
+  "status201": 1810
+}

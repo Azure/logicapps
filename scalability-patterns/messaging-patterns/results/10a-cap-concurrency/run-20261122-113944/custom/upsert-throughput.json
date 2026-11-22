@@ -1,0 +1,11 @@
+{
+  "succeeded": 1810,
+  "messages": 1816,
+  "firstOk": "2026-11-22T11:42:34.3511581Z",
+  "lastOk": "2026-11-22T12:03:41.047827Z",
+  "activeSeconds": 1267,
+  "avgPerSecond": 1.4,
+  "peakPerSecond": 10,
+  "p50PerActiveSecond": 5,
+  "peakPerMinute": 100
+}

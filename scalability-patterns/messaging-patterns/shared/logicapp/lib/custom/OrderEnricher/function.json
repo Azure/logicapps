@@ -1,0 +1,108 @@
+{
+  "Name": "OrderEnricher",
+  "ScriptFile": "OrderEnricher.dll",
+  "FunctionDirectory": null,
+  "EntryPoint": "MsgPat.CustomCode.OrderEnricher.Run",
+  "Language": "net8",
+  "Properties": {},
+  "Bindings": [
+    {
+      "Name": "orderId",
+      "Connection": null,
+      "Type": "workflowActionTrigger",
+      "Properties": {},
+      "Direction": "In",
+      "DataType": "String",
+      "Cardinality": null,
+      "IsTrigger": true,
+      "IsReturn": false,
+      "Raw": null
+    }
+  ],
+  "InputBindings": [
+    {
+      "Name": "orderId",
+      "Connection": null,
+      "Type": "workflowActionTrigger",
+      "Properties": {},
+      "Direction": "In",
+      "DataType": "String",
+      "Cardinality": null,
+      "IsTrigger": true,
+      "IsReturn": false,
+      "Raw": null
+    }
+  ],
+  "OutputBindings": [],
+  "Trigger": {
+    "Name": "orderId",
+    "Connection": null,
+    "Type": "workflowActionTrigger",
+    "Properties": {},
+    "Direction": "In",
+    "DataType": "String",
+    "Cardinality": null,
+    "IsTrigger": true,
+    "IsReturn": false,
+    "Raw": null
+  },
+  "InputSchema": {
+    "type": "object",
+    "properties": {
+      "orderId": {
+        "type": "string"
+      },
+      "quantity": {
+        "type": "integer"
+      },
+      "unitPrice": {
+        "type": "number"
+      },
+      "region": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "orderId",
+      "quantity",
+      "unitPrice",
+      "region"
+    ]
+  },
+  "OutputSchema": {
+    "type": "object",
+    "properties": {
+      "OrderId": {
+        "type": "string"
+      },
+      "Subtotal": {
+        "type": "number"
+      },
+      "TaxRate": {
+        "type": "number"
+      },
+      "Discount": {
+        "type": "number"
+      },
+      "Total": {
+        "type": "number"
+      },
+      "Tier": {
+        "type": "string"
+      },
+      "EnrichedAtUtc": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "required": [
+      "OrderId",
+      "Subtotal",
+      "TaxRate",
+      "Discount",
+      "Total",
+      "Tier",
+      "EnrichedAtUtc"
+    ]
+  }
+}

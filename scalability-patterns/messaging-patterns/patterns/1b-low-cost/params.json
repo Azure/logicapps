@@ -1,0 +1,33 @@
+{
+  "$comment": "Pattern 1b overrides for infra/main.bicep and the run loop. See README.md.",
+  "location": "westus3",
+  "fallbackLocation": "swedencentral",
+  "planSku": "WS1",
+  "maximumElasticWorkerCount": 3,
+  "minimumElasticInstanceCount": 1,
+  "serviceBusSku": "Standard",
+  "queues": [
+    {
+      "name": "orders",
+      "lockDuration": "PT5M",
+      "maxDeliveryCount": 10,
+      "maxSizeInMegabytes": 5120
+    }
+  ],
+  "topics": [],
+  "extraAppSettings": {},
+  "hostSettings": {},
+  "loadTest": {
+    "queueName": "orders",
+    "engineInstances": 1,
+    "users": 5,
+    "spawnRate": 5,
+    "batchSize": 10,
+    "batchesPerUserPerSecond": 1,
+    "durationMinutes": 10
+  },
+  "drainMinutes": 5,
+  "measurement": {
+    "workflowName": "orders-low-cost"
+  }
+}

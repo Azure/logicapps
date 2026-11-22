@@ -1,0 +1,3 @@
+"workflowName","status","runs","p50","p95","maxMs"
+"trickle-stateless","","34","59","78","6350"
+"trickle-stateful","","34","78","131","5635"

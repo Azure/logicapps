@@ -1,0 +1,9 @@
+// Run starts and ends per workflow and status for the run window (all workflows, including the process-order child).
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+traces
+| where timestamp between (startTime .. endTime)
+| where customDimensions.Category == 'Workflow.Operations.Runs'
+| extend ev = tostring(customDimensions.EventName), wf = tostring(parse_json(tostring(customDimensions.resource)).workflowName), status = tostring(parse_json(tostring(customDimensions.prop__properties)).status), durationMs = todouble(customDimensions.prop__durationInMilliseconds)
+| summarize n = count(), p50 = percentile(durationMs, 50), p95 = percentile(durationMs, 95), firstAt = min(timestamp), lastAt = max(timestamp) by ev, wf, status
+

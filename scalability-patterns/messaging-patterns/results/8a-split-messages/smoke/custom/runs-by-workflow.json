@@ -1,0 +1,35 @@
+[
+  {
+    "wf": "items-process",
+    "runs": 829,
+    "succeeded": 804,
+    "failed": 25,
+    "other": 0,
+    "p50Ms": 1468.25,
+    "p95Ms": 6381,
+    "maxMs": 25866,
+    "unusedWorkflowToken": "items-process"
+  },
+  {
+    "wf": "orders-splitter",
+    "runs": 61,
+    "succeeded": 61,
+    "failed": 0,
+    "other": 0,
+    "p50Ms": 2024,
+    "p95Ms": 2591,
+    "maxMs": 2977,
+    "unusedWorkflowToken": "items-process"
+  },
+  {
+    "wf": "process-order",
+    "runs": 933,
+    "succeeded": 806,
+    "failed": 127,
+    "other": 0,
+    "p50Ms": 510.275,
+    "p95Ms": 2359,
+    "maxMs": 7154,
+    "unusedWorkflowToken": "items-process"
+  }
+]

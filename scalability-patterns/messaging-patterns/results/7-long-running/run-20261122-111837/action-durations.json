@@ -1,0 +1,189 @@
+[
+  {
+    "workflowName": "long-running-peeklock-stateless",
+    "action": "Slow_call_1",
+    "actionType": "Http",
+    "apiName": "",
+    "count": 181,
+    "failed": 0,
+    "p50": 41275.2209,
+    "p95": 49035.7909,
+    "p99": 49630.0919
+  },
+  {
+    "workflowName": "long-running-peeklock-stateless",
+    "action": "Slow_call_3",
+    "actionType": "Http",
+    "apiName": "",
+    "count": 181,
+    "failed": 0,
+    "p50": 41028.5795,
+    "p95": 48930.7371,
+    "p99": 49299.5162
+  },
+  {
+    "workflowName": "long-running-peeklock-stateless",
+    "action": "Slow_call_2",
+    "actionType": "Http",
+    "apiName": "",
+    "count": 181,
+    "failed": 0,
+    "p50": 41156.5945,
+    "p95": 48910.9121,
+    "p99": 49164.9672
+  },
+  {
+    "workflowName": "long-running-peeklock-stateless",
+    "action": "Slow_call_4",
+    "actionType": "Http",
+    "apiName": "",
+    "count": 181,
+    "failed": 0,
+    "p50": 40894.2416,
+    "p95": 48602.7828,
+    "p99": 49049.3559
+  },
+  {
+    "workflowName": "long-running-peeklock-stateless",
+    "action": "Process_order",
+    "actionType": "Workflow",
+    "apiName": "",
+    "count": 181,
+    "failed": 0,
+    "p50": 63.9438,
+    "p95": 3714.1153,
+    "p99": 4353.9297
+  },
+  {
+    "workflowName": "long-running-peeklock-stateless",
+    "action": "Renew_lock_1",
+    "actionType": "ServiceProvider",
+    "apiName": "serviceBus",
+    "count": 181,
+    "failed": 0,
+    "p50": 11.2023,
+    "p95": 555.8387,
+    "p99": 607.5039
+  },
+  {
+    "workflowName": "long-running-peeklock-stateless",
+    "action": "Complete_message",
+    "actionType": "ServiceProvider",
+    "apiName": "serviceBus",
+    "count": 181,
+    "failed": 0,
+    "p50": 88.3662,
+    "p95": 175.6716,
+    "p99": 598.255
+  },
+  {
+    "workflowName": "long-running-peeklock-stateless",
+    "action": "Renew_lock_2",
+    "actionType": "ServiceProvider",
+    "apiName": "serviceBus",
+    "count": 181,
+    "failed": 0,
+    "p50": 5.2601,
+    "p95": 172.8966,
+    "p99": 245.4872
+  },
+  {
+    "workflowName": "long-running-peeklock-stateless",
+    "action": "Renew_lock_4",
+    "actionType": "ServiceProvider",
+    "apiName": "serviceBus",
+    "count": 181,
+    "failed": 0,
+    "p50": 8.1294,
+    "p95": 75.2758,
+    "p99": 482.5199
+  },
+  {
+    "workflowName": "long-running-peeklock-stateless",
+    "action": "Renew_lock_3",
+    "actionType": "ServiceProvider",
+    "apiName": "serviceBus",
+    "count": 181,
+    "failed": 0,
+    "p50": 4.0055,
+    "p95": 49.6504,
+    "p99": 64.5489
+  },
+  {
+    "workflowName": "long-running-peeklock-stateless",
+    "action": "For_each_message",
+    "actionType": "Foreach",
+    "apiName": "",
+    "count": 10,
+    "failed": 0,
+    "p50": 6.6154,
+    "p95": 19.9033,
+    "p99": 19.9033
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Upsert_order",
+    "actionType": "ServiceProvider",
+    "apiName": "AzureCosmosDB",
+    "count": 181,
+    "failed": 0,
+    "p50": 17.4251,
+    "p95": 2923.0035,
+    "p99": 3964.3305
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Enrich_order",
+    "actionType": "InvokeFunction",
+    "apiName": "",
+    "count": 181,
+    "failed": 0,
+    "p50": 5.5837,
+    "p95": 371.8543,
+    "p99": 1192.3846
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Response",
+    "actionType": "Response",
+    "apiName": "",
+    "count": 181,
+    "failed": 0,
+    "p50": 3.91,
+    "p95": 200.9547,
+    "p99": 640.6754
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Transform_order",
+    "actionType": "Liquid",
+    "apiName": "",
+    "count": 181,
+    "failed": 0,
+    "p50": 1.8767,
+    "p95": 77.0866,
+    "p99": 332.8129
+  },
+  {
+    "workflowName": "slow-downstream",
+    "action": "Simulate_slow_downstream",
+    "actionType": "Wait",
+    "apiName": "",
+    "count": 724,
+    "failed": 0,
+    "p50": 40331.11712466666,
+    "p95": 40577.7692,
+    "p99": 40672.795
+  },
+  {
+    "workflowName": "slow-downstream",
+    "action": "Response",
+    "actionType": "Response",
+    "apiName": "",
+    "count": 724,
+    "failed": 0,
+    "p50": 14.551815333333334,
+    "p95": 151.6062,
+    "p99": 204.2749
+  }
+]

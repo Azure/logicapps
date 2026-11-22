@@ -1,0 +1,32 @@
+[
+  {
+    "minute": "2026-11-22T11:04:00Z",
+    "highDone": 94,
+    "highP50Ms": 1617,
+    "highP95Ms": 6928,
+    "highMaxMs": 8010,
+    "lowDone": null,
+    "instancesByApp": "{\"la-msgpat-12aseparat-ninruf-hi\":1,\"la-msgpat-12aseparat-ninruf\":1}",
+    "instancesTotal": 2
+  },
+  {
+    "minute": "2026-11-22T11:05:00Z",
+    "highDone": 120,
+    "highP50Ms": 1798,
+    "highP95Ms": 2127,
+    "highMaxMs": 2234,
+    "lowDone": 500,
+    "instancesByApp": "{\"la-msgpat-12aseparat-ninruf\":1,\"la-msgpat-12aseparat-ninruf-hi\":1}",
+    "instancesTotal": 2
+  },
+  {
+    "minute": "2026-11-22T11:06:00Z",
+    "highDone": 28,
+    "highP50Ms": 1488,
+    "highP95Ms": 1532,
+    "highMaxMs": 1541,
+    "lowDone": null,
+    "instancesByApp": "{\"la-msgpat-12aseparat-ninruf-hi\":1}",
+    "instancesTotal": 1
+  }
+]

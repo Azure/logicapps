@@ -1,0 +1,9 @@
+// Parameters: replace {{startUtc}}, {{endUtc}}, {{workflowName}} (urgent) and {{lowWorkflowName}} (bulk). Run-Queries.ps1 in this pattern does this.
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let high = '{{workflowName}}';
+let low = '{{lowWorkflowName}}';
+// Per minute: urgent latency, urgent and bulk completions, and host instances per app (cloud_RoleName).
+let e2e = requests | where timestamp between (startTime .. endTime) | where customDimensions.Category == 'Workflow.Operations.Actions' | extend tp = parse_json(tostring(customDimensions.trackedProperties)) | where isnotempty(tp.sentAtUtc) | extend wf = tostring(parse_json(tostring(customDimensions.resource)).workflowName) | where wf in (high, low) | summarize finishedAt = max(timestamp + totimespan(duration * 10000)), sentAt = min(todatetime(tp.sentAtUtc)) by wf, messageId = tostring(tp.messageId) | where sentAt >= startTime | extend e2eMs = datetime_diff('millisecond', finishedAt, sentAt);
+let inst = union requests, traces | where timestamp between (startTime .. endTime) | summarize instances = dcount(cloud_RoleInstance) by minute = bin(timestamp, 1m), app = cloud_RoleName | summarize instancesByApp = make_bag(bag_pack(app, instances)), instancesTotal = sum(instances) by minute;
+let hi = e2e | where wf == high | summarize highDone = count(), highP50Ms = percentile(e2eMs, 50), highP95Ms = percentile(e2eMs, 95), highMaxMs = max(e2eMs) by minute = bin(finishedAt, 1m); let lo = e2e | where wf == low | summarize lowDone = count() by minute = bin(finishedAt, 1m); hi | join kind=fullouter lo on minute | extend minute = coalesce(minute, minute1) | project-away minute1 | join kind=fullouter inst on minute | extend minute = coalesce(minute, minute1) | project-away minute1 | order by minute asc

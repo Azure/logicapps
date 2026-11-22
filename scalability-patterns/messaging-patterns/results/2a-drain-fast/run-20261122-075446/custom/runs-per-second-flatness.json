@@ -1,0 +1,11 @@
+{
+  "buckets": 278,
+  "firstBucket": "2026-11-22T07:57:40Z",
+  "lastBucket": "2026-11-22T08:44:00Z",
+  "meanRps": 10.97,
+  "stdevRps": 4.69,
+  "p10Rps": 5,
+  "p90Rps": 18,
+  "peakRps": 23.7,
+  "cv": 0.428
+}

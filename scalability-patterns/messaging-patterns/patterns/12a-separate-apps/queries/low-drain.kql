@@ -1,0 +1,10 @@
+// Parameters: replace {{startUtc}}, {{endUtc}}, {{workflowName}} (urgent) and {{lowWorkflowName}} (bulk). Run-Queries.ps1 in this pattern does this.
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let high = '{{workflowName}}';
+let low = '{{lowWorkflowName}}';
+// Bulk burst: messages, send window, drain time (first send to last completion) and bulk end-to-end latency.
+let e2e = requests | where timestamp between (startTime .. endTime) | where customDimensions.Category == 'Workflow.Operations.Actions' | extend tp = parse_json(tostring(customDimensions.trackedProperties)) | where isnotempty(tp.sentAtUtc) | extend wf = tostring(parse_json(tostring(customDimensions.resource)).workflowName) | where wf in (high, low) | summarize finishedAt = max(timestamp + totimespan(duration * 10000)), sentAt = min(todatetime(tp.sentAtUtc)) by wf, messageId = tostring(tp.messageId) | extend e2eMs = datetime_diff('millisecond', finishedAt, sentAt);
+let burstStart = toscalar(e2e | where wf == low | summarize min(sentAt));
+let burstEnd = toscalar(e2e | where wf == low | summarize max(finishedAt));
+e2e | where wf == low | summarize messages = count(), firstSent = min(sentAt), lastSent = max(sentAt), lastFinished = max(finishedAt), p50Ms = percentile(e2eMs, 50), p95Ms = percentile(e2eMs, 95), maxMs = max(e2eMs) | extend sendSeconds = datetime_diff('second', lastSent, firstSent), drainSeconds = datetime_diff('second', lastFinished, firstSent), avgMessagesPerSecond = round(todouble(messages) / iif(datetime_diff('second', lastFinished, firstSent) > 0, datetime_diff('second', lastFinished, firstSent), 1), 1)

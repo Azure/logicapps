@@ -1,0 +1,46 @@
+{
+  "$comment": "Pattern 4-trickle: low, irregular traffic with idle gaps. Two workflows (stateless and stateful) on two queues in the same app. See README.md.",
+  "location": "westus3",
+  "fallbackLocation": "swedencentral",
+  "planSku": "WS1",
+  "maximumElasticWorkerCount": 3,
+  "minimumElasticInstanceCount": 1,
+  "serviceBusSku": "Standard",
+  "queues": [
+    {
+      "name": "trickle-stateful",
+      "lockDuration": "PT5M",
+      "maxDeliveryCount": 10,
+      "maxSizeInMegabytes": 5120
+    },
+    {
+      "name": "trickle-stateless",
+      "lockDuration": "PT5M",
+      "maxDeliveryCount": 10,
+      "maxSizeInMegabytes": 5120
+    }
+  ],
+  "topics": [],
+  "extraAppSettings": {},
+  "hostSettings": {},
+  "loadTest": {
+    "queueName": "trickle-stateful",
+    "engineInstances": 1,
+    "users": 1,
+    "spawnRate": 1,
+    "batchSize": 1,
+    "batchesPerUserPerSecond": 1,
+    "durationMinutes": 15,
+    "env": {
+      "SB_QUEUE2": "trickle-stateless",
+      "MIN_WAIT_SECONDS": "1",
+      "MAX_WAIT_SECONDS": "30",
+      "IDLE_GAP_START_SECONDS": "240",
+      "IDLE_GAP_SECONDS": "360"
+    }
+  },
+  "drainMinutes": 3,
+  "measurement": {
+    "workflowName": "trickle-stateful"
+  }
+}

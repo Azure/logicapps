@@ -1,0 +1,9 @@
+// Parameters: replace the {{...}} tokens with literal values to run this query in the
+// portal (Application Insights > Logs). Pattern 7 queries cover both workflows.
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+// Distinct worker instances per minute that emitted any telemetry.
+union traces, requests
+| where timestamp between (startTime .. endTime)
+| summarize instances = dcount(cloud_RoleInstance) by minute = bin(timestamp, 1m)
+| order by minute asc

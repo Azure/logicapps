@@ -1,0 +1,24 @@
+[
+  {
+    "workflowName": "orders-strict-order-fn",
+    "action": "Upsert_order",
+    "actionType": "ServiceProvider",
+    "apiName": "AzureCosmosDB",
+    "count": 24631,
+    "failed": 0,
+    "p50": 7.20889103739497,
+    "p95": 15.503894780709354,
+    "p99": 104.29219313066667
+  },
+  {
+    "workflowName": "orders-strict-order-fn",
+    "action": "For_each_message_in_order",
+    "actionType": "Foreach",
+    "apiName": "",
+    "count": 860,
+    "failed": 0,
+    "p50": 0.541324387755102,
+    "p95": 0.7977,
+    "p99": 2.5876
+  }
+]

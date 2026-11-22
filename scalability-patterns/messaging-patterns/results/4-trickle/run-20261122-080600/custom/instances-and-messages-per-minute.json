@@ -1,0 +1,57 @@
+[
+  {
+    "minute": "2026-11-22T08:08:00Z",
+    "instances": 1,
+    "messages": 2
+  },
+  {
+    "minute": "2026-11-22T08:09:00Z",
+    "instances": 1,
+    "messages": 10
+  },
+  {
+    "minute": "2026-11-22T08:10:00Z",
+    "instances": 1,
+    "messages": 6
+  },
+  {
+    "minute": "2026-11-22T08:11:00Z",
+    "instances": 1,
+    "messages": 10
+  },
+  {
+    "minute": "2026-11-22T08:12:00Z",
+    "instances": 1,
+    "messages": 4
+  },
+  {
+    "minute": "2026-11-22T08:18:00Z",
+    "instances": 1,
+    "messages": 2
+  },
+  {
+    "minute": "2026-11-22T08:19:00Z",
+    "instances": 1,
+    "messages": 8
+  },
+  {
+    "minute": "2026-11-22T08:20:00Z",
+    "instances": 1,
+    "messages": 6
+  },
+  {
+    "minute": "2026-11-22T08:21:00Z",
+    "instances": 1,
+    "messages": 8
+  },
+  {
+    "minute": "2026-11-22T08:22:00Z",
+    "instances": 1,
+    "messages": 6
+  },
+  {
+    "minute": "2026-11-22T08:23:00Z",
+    "instances": 1,
+    "messages": 6
+  }
+]

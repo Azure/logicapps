@@ -1,0 +1,50 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "triggers": {
+      "When_messages_are_available_in_orders": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "queueName": "orders",
+            "isSessionsEnabled": false,
+            "maxMessageBatchSize": 100
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "serviceBus",
+            "operationId": "receiveQueueMessages",
+            "serviceProviderId": "/serviceProviders/serviceBus"
+          }
+        },
+        "splitOn": "@triggerOutputs()?['body']"
+      }
+    },
+    "actions": {
+      "Process_order": {
+        "type": "Workflow",
+        "inputs": {
+          "host": {
+            "workflow": {
+              "id": "process-order"
+            }
+          },
+          "body": {
+            "messageId": "@{triggerBody()?['messageId']}",
+            "pattern": "2a-drain-fast",
+            "order": "@triggerBody()?['contentData']"
+          }
+        },
+        "runAfter": {},
+        "trackedProperties": {
+          "messageId": "@{triggerBody()?['messageId']}",
+          "enqueuedTimeUtc": "@{triggerBody()?['enqueuedTimeUtc']}",
+          "sentAtUtc": "@{triggerBody()?['contentData']?['sentAtUtc']}",
+          "pattern": "2a-drain-fast"
+        }
+      }
+    },
+    "outputs": {}
+  },
+  "kind": "Stateful"
+}

@@ -1,0 +1,192 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "triggers": {
+      "Every_minute": {
+        "type": "Recurrence",
+        "recurrence": {
+          "frequency": "Minute",
+          "interval": 1
+        },
+        "runtimeConfiguration": {
+          "concurrency": {
+            "runs": 1
+          }
+        }
+      }
+    },
+    "actions": {
+      "Init_acc": {
+        "type": "InitializeVariable",
+        "inputs": { "variables": [ { "name": "acc", "type": "array", "value": "@json('[]')" } ] },
+        "runAfter": {}
+      },
+      "Init_tmp": {
+        "type": "InitializeVariable",
+        "inputs": { "variables": [ { "name": "tmp", "type": "array", "value": "@json('[]')" } ] },
+        "runAfter": { "Init_acc": [ "Succeeded" ] }
+      },
+      "Init_calls": {
+        "type": "InitializeVariable",
+        "inputs": { "variables": [ { "name": "calls", "type": "integer", "value": 0 } ] },
+        "runAfter": { "Init_tmp": [ "Succeeded" ] }
+      },
+      "Init_lastCount": {
+        "type": "InitializeVariable",
+        "inputs": { "variables": [ { "name": "lastCount", "type": "integer", "value": -1 } ] },
+        "runAfter": { "Init_calls": [ "Succeeded" ] }
+      },
+      "Init_windowStart": {
+        "type": "InitializeVariable",
+        "inputs": { "variables": [ { "name": "windowStart", "type": "string", "value": "@{utcNow()}" } ] },
+        "runAfter": { "Init_lastCount": [ "Succeeded" ] }
+      },
+      "Until_queue_empty_or_cap": {
+        "type": "Until",
+        "expression": "@or(equals(variables('lastCount'), 0), greaterOrEquals(variables('calls'), 30), greater(ticks(utcNow()), ticks(addSeconds(variables('windowStart'), 40))))",
+        "limit": {
+          "count": 30,
+          "timeout": "PT3M"
+        },
+        "actions": {
+          "Get_messages": {
+            "type": "ServiceProvider",
+            "inputs": {
+              "parameters": {
+                "queueName": "items",
+                "maxMessages": 100
+              },
+              "serviceProviderConfiguration": {
+                "connectionName": "serviceBus",
+                "operationId": "getMessagesFromQueueV2",
+                "serviceProviderId": "/serviceProviders/serviceBus"
+              }
+            },
+            "runAfter": {}
+          },
+          "Select_items": {
+            "type": "Select",
+            "inputs": {
+              "from": "@coalesce(body('Get_messages'), json('[]'))",
+              "select": {
+                "itemId": "@item()?['contentData']?['itemId']",
+                "sentAtUtc": "@item()?['contentData']?['sentAtUtc']",
+                "messageId": "@item()?['messageId']",
+                "lockToken": "@item()?['lockToken']",
+                "enqueuedTimeUtc": "@item()?['enqueuedTimeUtc']",
+                "deliveryCount": "@item()?['deliveryCount']"
+              }
+            },
+            "runAfter": { "Get_messages": [ "Succeeded" ] }
+          },
+          "Set_tmp": {
+            "type": "SetVariable",
+            "inputs": { "name": "tmp", "value": "@union(variables('acc'), body('Select_items'))" },
+            "runAfter": { "Select_items": [ "Succeeded" ] }
+          },
+          "Set_acc": {
+            "type": "SetVariable",
+            "inputs": { "name": "acc", "value": "@variables('tmp')" },
+            "runAfter": { "Set_tmp": [ "Succeeded" ] }
+          },
+          "Set_lastCount": {
+            "type": "SetVariable",
+            "inputs": { "name": "lastCount", "value": "@length(body('Select_items'))" },
+            "runAfter": { "Set_acc": [ "Succeeded" ] }
+          },
+          "Increment_calls": {
+            "type": "IncrementVariable",
+            "inputs": { "name": "calls", "value": 1 },
+            "runAfter": { "Set_lastCount": [ "Succeeded" ] }
+          }
+        },
+        "runAfter": { "Init_windowStart": [ "Succeeded" ] }
+      },
+      "If_window_has_items": {
+        "type": "If",
+        "expression": {
+          "and": [ { "greater": [ "@length(variables('acc'))", 0 ] } ]
+        },
+        "actions": {
+          "Select_window_items": {
+            "type": "Select",
+            "inputs": {
+              "from": "@variables('acc')",
+              "select": {
+                "itemId": "@item()?['itemId']",
+                "sentAtUtc": "@item()?['sentAtUtc']",
+                "enqueuedTimeUtc": "@item()?['enqueuedTimeUtc']",
+                "deliveryCount": "@item()?['deliveryCount']"
+              }
+            },
+            "runAfter": {}
+          },
+          "Write_window": {
+            "type": "ServiceProvider",
+            "inputs": {
+              "parameters": {
+                "databaseId": "msgpat",
+                "containerId": "items",
+                "item": {
+                  "id": "@{workflow()?['run']?['name']}",
+                  "pk": "@{workflow()?['run']?['name']}",
+                  "pattern": "9b-time-window",
+                  "docType": "window",
+                  "windowId": "@{workflow()?['run']?['name']}",
+                  "scheduledTimeUtc": "@{trigger()?['scheduledTime']}",
+                  "windowStartUtc": "@{variables('windowStart')}",
+                  "receiveCalls": "@variables('calls')",
+                  "itemCount": "@length(variables('acc'))",
+                  "items": "@body('Select_window_items')",
+                  "writtenAtUtc": "@{utcNow()}"
+                },
+                "isUpsert": true
+              },
+              "serviceProviderConfiguration": {
+                "connectionName": "cosmos",
+                "operationId": "CreateOrUpdateDocument",
+                "serviceProviderId": "/serviceProviders/AzureCosmosDB"
+              }
+            },
+            "runAfter": { "Select_window_items": [ "Succeeded" ] },
+            "trackedProperties": {
+              "pattern": "9b-time-window"
+            }
+          },
+          "Complete_each": {
+            "type": "Foreach",
+            "foreach": "@variables('acc')",
+            "runtimeConfiguration": {
+              "concurrency": {
+                "repetitions": 50
+              }
+            },
+            "actions": {
+              "Complete_message": {
+                "type": "ServiceProvider",
+                "inputs": {
+                  "parameters": {
+                    "queueName": "items",
+                    "lockToken": "@{items('Complete_each')?['lockToken']}"
+                  },
+                  "serviceProviderConfiguration": {
+                    "connectionName": "serviceBus",
+                    "operationId": "completeQueueMessageV2",
+                    "serviceProviderId": "/serviceProviders/serviceBus"
+                  }
+                },
+                "runAfter": {}
+              }
+            },
+            "runAfter": { "Write_window": [ "Succeeded" ] }
+          }
+        },
+        "else": { "actions": {} },
+        "runAfter": { "Until_queue_empty_or_cap": [ "Succeeded" ] }
+      }
+    },
+    "outputs": {}
+  },
+  "kind": "Stateful"
+}

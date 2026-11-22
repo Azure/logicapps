@@ -1,0 +1,51 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "triggers": {
+      "When_messages_are_available_in_items": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "queueName": "items",
+            "isSessionsEnabled": false,
+            "maxMessageBatchSize": 50
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "serviceBus",
+            "operationId": "receiveQueueMessages",
+            "serviceProviderId": "/serviceProviders/serviceBus"
+          }
+        },
+        "splitOn": "@triggerOutputs()?['body']"
+      }
+    },
+    "actions": {
+      "Process_order": {
+        "type": "Workflow",
+        "inputs": {
+          "host": {
+            "workflow": {
+              "id": "process-order"
+            }
+          },
+          "body": {
+            "messageId": "@{triggerBody()?['messageId']}",
+            "pattern": "8a-split-messages",
+            "order": "@triggerBody()?['contentData']"
+          }
+        },
+        "trackedProperties": {
+          "messageId": "@{triggerBody()?['messageId']}",
+          "enqueuedTimeUtc": "@{triggerBody()?['enqueuedTimeUtc']}",
+          "sentAtUtc": "@{triggerBody()?['contentData']?['sentAtUtc']}",
+          "batchId": "@{triggerBody()?['correlationId']}",
+          "pattern": "8a-split-messages"
+        },
+        "runAfter": {}
+      }
+    },
+    "outputs": {}
+  },
+  "kind": "Stateful"
+}

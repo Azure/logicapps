@@ -1,0 +1,19 @@
+// Parameters: replace {{startUtc}}, {{endUtc}} and {{workflowName}} (tools\Run-Queries.ps1 does this).
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';
+// Completion time of the drop: from the first producer send to the last finished entry run,
+// with end-to-end latency percentiles. Compare completionMinutes with the deadline or window.
+requests
+| where timestamp between (startTime .. endTime)
+| where customDimensions.Category == 'Workflow.Operations.Actions'
+| extend tp = parse_json(tostring(customDimensions.trackedProperties))
+| where isnotempty(tp.sentAtUtc)
+| where tostring(parse_json(tostring(customDimensions.resource)).workflowName) == workflow
+| extend messageId = tostring(tp.messageId), sentAt = todatetime(tp.sentAtUtc)
+| extend finishedAt = timestamp + totimespan(duration * 10000)
+| summarize finishedAt = max(finishedAt), sentAt = min(sentAt) by messageId
+| extend e2eMs = datetime_diff('millisecond', finishedAt, sentAt)
+| summarize messages = count(), firstSent = min(sentAt), lastSent = max(sentAt), lastFinished = max(finishedAt),
+    e2eP50 = percentile(e2eMs, 50), e2eP95 = percentile(e2eMs, 95), e2eP99 = percentile(e2eMs, 99), e2eMax = max(e2eMs)
+| extend completionMinutes = round(datetime_diff('second', lastFinished, firstSent) / 60.0, 2)

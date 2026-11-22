@@ -1,0 +1,14 @@
+// Parameters: Export-Results.ps1 replaces the {{...}} tokens. To run this query in the
+// portal (Application Insights > Logs), replace them with literal values.
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';
+// ILogger output from the C# custom code function. The function host writes it with
+// Category 'Function.<FunctionName>.User'; for this kit 'Function.OrderEnricher.User'.
+traces
+| where timestamp between (startTime .. endTime)
+| where tostring(customDimensions.Category) startswith 'Function.' and tostring(customDimensions.Category) endswith '.User'
+| project timestamp, category = tostring(customDimensions.Category), severityLevel, message,
+    invocationId = tostring(customDimensions.InvocationId), cloud_RoleInstance
+| order by timestamp desc
+| take 200

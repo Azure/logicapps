@@ -1,0 +1,170 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "triggers": {
+      "When_messages_are_available_in_orders_lock_peek_lock": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "queueName": "orders-lock",
+            "isSessionsEnabled": false,
+            "maxMessageBatchSize": 20
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "serviceBus",
+            "operationId": "peekLockQueueMessages",
+            "serviceProviderId": "/serviceProviders/serviceBus"
+          }
+        }
+      }
+    },
+    "actions": {
+      "For_each_message": {
+        "type": "Foreach",
+        "foreach": "@triggerOutputs()?['body']",
+        "actions": {
+          "Slow_call_1": {
+            "type": "Http",
+            "inputs": { "method": "POST", "uri": "@appsetting('SlowDownstreamUrl')", "body": { "seconds": 40 } },
+            "runAfter": {}
+          },
+          "Renew_lock_1": {
+            "type": "ServiceProvider",
+            "inputs": {
+              "parameters": {
+                "messageId": "@item()?['messageId']",
+                "lockToken": "@item()?['lockToken']"
+              },
+              "serviceProviderConfiguration": {
+                "connectionName": "serviceBus",
+                "operationId": "renewLockMessage",
+                "serviceProviderId": "/serviceProviders/serviceBus"
+              }
+            },
+            "runAfter": { "Slow_call_1": [ "Succeeded" ] }
+          },          "Slow_call_2": {
+            "type": "Http",
+            "inputs": { "method": "POST", "uri": "@appsetting('SlowDownstreamUrl')", "body": { "seconds": 40 } },
+            "runAfter": { "Renew_lock_1": [ "Succeeded" ] }
+          },
+          "Renew_lock_2": {
+            "type": "ServiceProvider",
+            "inputs": {
+              "parameters": {
+                "messageId": "@item()?['messageId']",
+                "lockToken": "@item()?['lockToken']"
+              },
+              "serviceProviderConfiguration": {
+                "connectionName": "serviceBus",
+                "operationId": "renewLockMessage",
+                "serviceProviderId": "/serviceProviders/serviceBus"
+              }
+            },
+            "runAfter": { "Slow_call_2": [ "Succeeded" ] }
+          },          "Slow_call_3": {
+            "type": "Http",
+            "inputs": { "method": "POST", "uri": "@appsetting('SlowDownstreamUrl')", "body": { "seconds": 40 } },
+            "runAfter": { "Renew_lock_2": [ "Succeeded" ] }
+          },
+          "Renew_lock_3": {
+            "type": "ServiceProvider",
+            "inputs": {
+              "parameters": {
+                "messageId": "@item()?['messageId']",
+                "lockToken": "@item()?['lockToken']"
+              },
+              "serviceProviderConfiguration": {
+                "connectionName": "serviceBus",
+                "operationId": "renewLockMessage",
+                "serviceProviderId": "/serviceProviders/serviceBus"
+              }
+            },
+            "runAfter": { "Slow_call_3": [ "Succeeded" ] }
+          },          "Slow_call_4": {
+            "type": "Http",
+            "inputs": { "method": "POST", "uri": "@appsetting('SlowDownstreamUrl')", "body": { "seconds": 40 } },
+            "runAfter": { "Renew_lock_3": [ "Succeeded" ] }
+          },
+          "Renew_lock_4": {
+            "type": "ServiceProvider",
+            "inputs": {
+              "parameters": {
+                "messageId": "@item()?['messageId']",
+                "lockToken": "@item()?['lockToken']"
+              },
+              "serviceProviderConfiguration": {
+                "connectionName": "serviceBus",
+                "operationId": "renewLockMessage",
+                "serviceProviderId": "/serviceProviders/serviceBus"
+              }
+            },
+            "runAfter": { "Slow_call_4": [ "Succeeded" ] }
+          },
+          "Process_order": {
+            "type": "Workflow",
+            "inputs": {
+              "host": {
+                "workflow": {
+                  "id": "process-order"
+                }
+              },
+              "body": {
+                "messageId": "@{item()?['messageId']}",
+                "pattern": "7-long-running",
+                "deliveryCount": "@{item()?['deliveryCount']}",
+                "enqueuedTimeUtc": "@{item()?['enqueuedTimeUtc']}",
+                "order": "@item()?['contentData']"
+              }
+            },
+            "trackedProperties": {
+              "messageId": "@{action()?['inputs']?['body']?['messageId']}",
+              "sentAtUtc": "@{action()?['inputs']?['body']?['order']?['sentAtUtc']}",
+              "enqueuedTimeUtc": "@{action()?['inputs']?['body']?['enqueuedTimeUtc']}",
+              "deliveryCount": "@{action()?['inputs']?['body']?['deliveryCount']}",
+              "pattern": "7-long-running"
+            },
+            "runAfter": { "Renew_lock_4": [ "Succeeded" ] }
+          },
+          "Complete_message": {
+            "type": "ServiceProvider",
+            "inputs": {
+              "parameters": {
+                "messageId": "@item()?['messageId']",
+                "lockToken": "@item()?['lockToken']"
+              },
+              "serviceProviderConfiguration": {
+                "connectionName": "serviceBus",
+                "operationId": "completeMessage",
+                "serviceProviderId": "/serviceProviders/serviceBus"
+              }
+            },
+            "runAfter": { "Process_order": [ "Succeeded" ] }
+          },
+          "Abandon_message": {
+            "type": "ServiceProvider",
+            "inputs": {
+              "parameters": {
+                "messageId": "@item()?['messageId']",
+                "lockToken": "@item()?['lockToken']"
+              },
+              "serviceProviderConfiguration": {
+                "connectionName": "serviceBus",
+                "operationId": "abandonMessage",
+                "serviceProviderId": "/serviceProviders/serviceBus"
+              }
+            },
+            "runAfter": { "Process_order": [ "Failed", "TimedOut" ] }
+          }
+        },
+        "runAfter": {},
+        "runtimeConfiguration": { "concurrency": { "repetitions": 20 } }
+      }
+    },
+    "outputs": {}
+  },
+  "kind": "Stateless"
+}
+
+
+

@@ -1,0 +1,34 @@
+version: v0.1
+testId: __TEST_ID__
+displayName: __DISPLAY_NAME__
+description: Logic Apps Standard + Service Bus pattern __PATTERN_ID__
+testType: Locust
+testPlan: locustfile.py
+engineInstances: __ENGINE_INSTANCES__
+configurationFiles:
+  - requirements.txt
+properties:
+  userPropertyFile: locust.conf
+env:
+  - name: SB_NAMESPACE
+    value: __SB_FQDN__
+  - name: SB_QUEUE
+    value: __SB_QUEUE__
+  - name: AZURE_CLIENT_ID
+    value: __CLIENT_ID__
+  - name: PATTERN_ID
+    value: __PATTERN_ID__
+  - name: BATCH_SIZE
+    value: "__BATCH_SIZE__"
+  - name: BATCHES_PER_USER_PER_SECOND
+    value: "__BATCHES_PER_USER_PER_SECOND__"
+referenceIdentities:
+  - kind: Engine
+    type: UserAssigned
+    value: __IDENTITY_ID__
+failureCriteria:
+  clientMetrics:
+    - percentage(error) > 5
+autoStop:
+  errorPercentage: 50
+  timeWindow: 60

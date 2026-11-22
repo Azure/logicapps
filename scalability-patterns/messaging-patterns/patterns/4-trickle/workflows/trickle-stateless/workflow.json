@@ -1,0 +1,56 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "triggers": {
+      "When_messages_are_available_in_trickle_stateless": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "queueName": "trickle-stateless",
+            "isSessionsEnabled": false,
+            "maxMessageBatchSize": 10
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "serviceBus",
+            "operationId": "receiveQueueMessages",
+            "serviceProviderId": "/serviceProviders/serviceBus"
+          }
+        }
+      }
+    },
+    "actions": {
+      "For_each_message": {
+        "type": "Foreach",
+        "foreach": "@triggerOutputs()?['body']",
+        "actions": {
+          "Process_order": {
+            "type": "Workflow",
+            "inputs": {
+              "host": {
+                "workflow": {
+                  "id": "process-order"
+                }
+              },
+              "body": {
+                "messageId": "@{items('For_each_message')?['messageId']}",
+                "pattern": "4-trickle-stateless",
+                "order": "@items('For_each_message')?['contentData']"
+              }
+            },
+            "trackedProperties": {
+              "messageId": "@{items('For_each_message')?['messageId']}",
+              "enqueuedTimeUtc": "@{items('For_each_message')?['enqueuedTimeUtc']}",
+              "sentAtUtc": "@{items('For_each_message')?['contentData']?['sentAtUtc']}",
+              "pattern": "4-trickle-stateless"
+            },
+            "runAfter": {}
+          }
+        },
+        "runAfter": {}
+      }
+    },
+    "outputs": {}
+  },
+  "kind": "Stateless"
+}

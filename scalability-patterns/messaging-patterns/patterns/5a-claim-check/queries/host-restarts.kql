@@ -1,0 +1,6 @@
+// Host starts and instance count per 10 minutes. A host start after the first one is a restart.
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+union traces, requests
+| where timestamp between (startTime .. endTime)
+| summarize instances = dcount(cloud_RoleInstance), hostStarts = countif(message startswith 'Host started' or message has 'Job host started') by bin(timestamp, 10m)

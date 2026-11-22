@@ -1,0 +1,13 @@
+[
+  {
+    "workflowName": "orders-retry-backoff",
+    "action": "Upsert_limited",
+    "actionType": "ServiceProvider",
+    "apiName": "AzureCosmosDB",
+    "count": 1810,
+    "failed": 0,
+    "p50": 10211.90084423115,
+    "p95": 24072.6741,
+    "p99": 25183.1509
+  }
+]

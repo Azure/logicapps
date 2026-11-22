@@ -1,0 +1,33 @@
+{
+  "serviceProviderConnections": {
+    "serviceBus": {
+      "displayName": "Service Bus (managed identity)",
+      "parameterSetName": "ManagedServiceIdentity",
+      "parameterValues": {
+        "fullyQualifiedNamespace": "@appsetting('serviceBus_fullyQualifiedNamespace')",
+        "authProvider": {
+          "Type": "ManagedServiceIdentity",
+          "Identity": "@appsetting('UAMI_RESOURCE_ID')"
+        }
+      },
+      "serviceProvider": {
+        "id": "/serviceProviders/serviceBus"
+      }
+    },
+    "cosmos": {
+      "displayName": "Cosmos DB (managed identity)",
+      "parameterSetName": "ManagedServiceIdentity",
+      "parameterValues": {
+        "accountURI": "@appsetting('cosmos_endpoint')",
+        "managedIdentityType": "UserAssigned",
+        "authProvider": {
+          "Type": "ManagedServiceIdentity",
+          "Identity": "@appsetting('UAMI_RESOURCE_ID')"
+        }
+      },
+      "serviceProvider": {
+        "id": "/serviceProviders/AzureCosmosDB"
+      }
+    }
+  }
+}

@@ -1,0 +1,3 @@
+"source","name","detail","count"
+"exception","ScaleControllerLogs","Failed to initialize scale monitoring for 'orders-high' function.","1"
+"exception","ScaleControllerLogs","Failed to initialize scale monitoring for 'orders-low' function.","1"

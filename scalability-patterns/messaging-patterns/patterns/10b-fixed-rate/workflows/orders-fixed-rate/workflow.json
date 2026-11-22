@@ -1,0 +1,130 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "triggers": {
+      "Every_5_seconds": {
+        "type": "Recurrence",
+        "recurrence": {
+          "frequency": "Second",
+          "interval": 5
+        },
+        "runtimeConfiguration": {
+          "concurrency": {
+            "runs": 1,
+            "maximumWaitingRuns": 1
+          }
+        }
+      }
+    },
+    "actions": {
+      "Get_messages": {
+        "type": "ServiceProvider",
+        "runAfter": {},
+        "inputs": {
+          "parameters": {
+            "queueName": "orders",
+            "maxMessages": 200
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "serviceBus",
+            "operationId": "getMessagesFromQueueV2",
+            "serviceProviderId": "/serviceProviders/serviceBus"
+          }
+        }
+      },
+      "For_each_message": {
+        "type": "Foreach",
+        "foreach": "@body('Get_messages')",
+        "runAfter": {
+          "Get_messages": [
+            "Succeeded"
+          ]
+        },
+        "runtimeConfiguration": {
+          "concurrency": {
+            "repetitions": 50
+          }
+        },
+        "actions": {
+          "Upsert_limited": {
+            "type": "ServiceProvider",
+            "runAfter": {},
+            "inputs": {
+              "parameters": {
+                "databaseId": "limited",
+                "containerId": "items",
+                "item": {
+                  "id": "@{items('For_each_message')?['messageId']}",
+                  "pk": "@{items('For_each_message')?['messageId']}",
+                  "pattern": "10b-fixed-rate",
+                  "messageId": "@{items('For_each_message')?['messageId']}",
+                  "sentAtUtc": "@{items('For_each_message')?['contentData']?['sentAtUtc']}",
+                  "deliveryCount": "@items('For_each_message')?['deliveryCount']",
+                  "processedAtUtc": "@{utcNow()}",
+                  "padding": "@range(0, 400)"
+                },
+                "isUpsert": true
+              },
+              "serviceProviderConfiguration": {
+                "connectionName": "cosmosLimited",
+                "operationId": "CreateOrUpdateDocument",
+                "serviceProviderId": "/serviceProviders/AzureCosmosDB"
+              }
+            },
+            "trackedProperties": {
+              "messageId": "@{items('For_each_message')?['messageId']}",
+              "enqueuedTimeUtc": "@{items('For_each_message')?['enqueuedTimeUtc']}",
+              "sentAtUtc": "@{items('For_each_message')?['contentData']?['sentAtUtc']}",
+              "deliveryCount": "@{items('For_each_message')?['deliveryCount']}",
+              "pattern": "10b-fixed-rate"
+            }
+          },
+          "Complete_message": {
+            "type": "ServiceProvider",
+            "runAfter": {
+              "Upsert_limited": [
+                "Succeeded"
+              ]
+            },
+            "inputs": {
+              "parameters": {
+                "queueName": "orders",
+                "lockToken": "@items('For_each_message')?['lockToken']"
+              },
+              "serviceProviderConfiguration": {
+                "connectionName": "serviceBus",
+                "operationId": "completeQueueMessageV2",
+                "serviceProviderId": "/serviceProviders/serviceBus"
+              }
+            }
+          },
+          "Abandon_message": {
+            "type": "ServiceProvider",
+            "runAfter": {
+              "Upsert_limited": [
+                "Failed",
+                "TimedOut"
+              ]
+            },
+            "inputs": {
+              "parameters": {
+                "queueName": "orders",
+                "lockToken": "@items('For_each_message')?['lockToken']"
+              },
+              "serviceProviderConfiguration": {
+                "connectionName": "serviceBus",
+                "operationId": "abandonQueueMessageV2",
+                "serviceProviderId": "/serviceProviders/serviceBus"
+              }
+            }
+          }
+        }
+      }
+    },
+    "outputs": {}
+  },
+  "kind": "Stateful"
+}
+
+

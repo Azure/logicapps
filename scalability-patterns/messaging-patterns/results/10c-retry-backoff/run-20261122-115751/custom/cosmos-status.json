@@ -1,0 +1,8 @@
+{
+  "source": "Azure Monitor TotalRequests by StatusCode, cosldk5hl5w66pfr",
+  "status429": 19655.0,
+  "window": "2026-11-22T11:57:00Z/2026-11-22T12:12:00Z",
+  "status429PeakPerMinute": 2314.0,
+  "status200": 0.0,
+  "status201": 1747.0
+}

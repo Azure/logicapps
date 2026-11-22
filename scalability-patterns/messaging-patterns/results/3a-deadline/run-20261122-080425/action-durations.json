@@ -1,0 +1,57 @@
+[
+  {
+    "workflowName": "orders-deadline",
+    "action": "Process_order",
+    "actionType": "Workflow",
+    "apiName": "",
+    "count": 3100,
+    "failed": 0,
+    "p50": 16088.43070226653,
+    "p95": 31191.997127375,
+    "p99": 39827.4684
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Upsert_order",
+    "actionType": "ServiceProvider",
+    "apiName": "AzureCosmosDB",
+    "count": 3100,
+    "failed": 0,
+    "p50": 5333.684294156165,
+    "p95": 14003.534916249999,
+    "p99": 22089.9653
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Transform_order",
+    "actionType": "Liquid",
+    "apiName": "",
+    "count": 3100,
+    "failed": 0,
+    "p50": 4652.926377260623,
+    "p95": 9185.015790416666,
+    "p99": 16481.6562
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Enrich_order",
+    "actionType": "InvokeFunction",
+    "apiName": "",
+    "count": 3100,
+    "failed": 0,
+    "p50": 5292.5823722833775,
+    "p95": 9155.18588225,
+    "p99": 14751.1187
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Response",
+    "actionType": "Response",
+    "apiName": "",
+    "count": 3100,
+    "failed": 0,
+    "p50": 10.244210399182686,
+    "p95": 6584.238445749999,
+    "p99": 13255.9511
+  }
+]

@@ -1,0 +1,128 @@
+[
+  {
+    "minute": "2026-11-22T09:33:00Z",
+    "instances": 1,
+    "runs": 8,
+    "upserts": 14
+  },
+  {
+    "minute": "2026-11-22T09:34:00Z",
+    "instances": 1,
+    "runs": 60,
+    "upserts": 60
+  },
+  {
+    "minute": "2026-11-22T09:35:00Z",
+    "instances": 1,
+    "runs": 60,
+    "upserts": 60
+  },
+  {
+    "minute": "2026-11-22T09:36:00Z",
+    "instances": 1,
+    "runs": 60,
+    "upserts": 60
+  },
+  {
+    "minute": "2026-11-22T09:37:00Z",
+    "instances": 1,
+    "runs": 60,
+    "upserts": 60
+  },
+  {
+    "minute": "2026-11-22T09:38:00Z",
+    "instances": 1,
+    "runs": 54,
+    "upserts": 348
+  },
+  {
+    "minute": "2026-11-22T09:39:00Z",
+    "instances": 1,
+    "runs": 36,
+    "upserts": 1605
+  },
+  {
+    "minute": "2026-11-22T09:40:00Z",
+    "instances": 1,
+    "runs": 41,
+    "upserts": 1706
+  },
+  {
+    "minute": "2026-11-22T09:41:00Z",
+    "instances": 1,
+    "runs": 35,
+    "upserts": 1536
+  },
+  {
+    "minute": "2026-11-22T09:42:00Z",
+    "instances": 1,
+    "runs": 39,
+    "upserts": 1698
+  },
+  {
+    "minute": "2026-11-22T09:43:00Z",
+    "instances": 1,
+    "runs": 38,
+    "upserts": 1582
+  },
+  {
+    "minute": "2026-11-22T09:44:00Z",
+    "instances": 1,
+    "runs": 36,
+    "upserts": 1598
+  },
+  {
+    "minute": "2026-11-22T09:45:00Z",
+    "instances": 1,
+    "runs": 41,
+    "upserts": 1713
+  },
+  {
+    "minute": "2026-11-22T09:46:00Z",
+    "instances": 1,
+    "runs": 35,
+    "upserts": 1505
+  },
+  {
+    "minute": "2026-11-22T09:47:00Z",
+    "instances": 1,
+    "runs": 35,
+    "upserts": 1542
+  },
+  {
+    "minute": "2026-11-22T09:48:00Z",
+    "instances": 1,
+    "runs": 39,
+    "upserts": 1674
+  },
+  {
+    "minute": "2026-11-22T09:49:00Z",
+    "instances": 1,
+    "runs": 38,
+    "upserts": 1600
+  },
+  {
+    "minute": "2026-11-22T09:50:00Z",
+    "instances": 1,
+    "runs": 39,
+    "upserts": 1720
+  },
+  {
+    "minute": "2026-11-22T09:51:00Z",
+    "instances": 1,
+    "runs": 38,
+    "upserts": 1591
+  },
+  {
+    "minute": "2026-11-22T09:52:00Z",
+    "instances": 1,
+    "runs": 35,
+    "upserts": 1505
+  },
+  {
+    "minute": "2026-11-22T09:53:00Z",
+    "instances": 1,
+    "runs": 33,
+    "upserts": 1454
+  }
+]

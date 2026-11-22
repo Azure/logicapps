@@ -1,0 +1,29 @@
+{
+  "$comment": "Pattern 5b-premium-large: the sender puts the same 1-5 MB JSON payload directly in the message. Premium Service Bus, 1 MU; setup.ps1 raises the queue maximum message size after every deployment. See README.md.",
+  "location": "westus3",
+  "fallbackLocation": "swedencentral",
+  "planSku": "WS1",
+  "maximumElasticWorkerCount": 20,
+  "minimumElasticInstanceCount": 2,
+  "serviceBusSku": "Premium",
+  "serviceBusPremiumCapacity": 1,
+  "queues": [
+    { "name": "orders", "lockDuration": "PT5M", "maxDeliveryCount": 10, "maxSizeInMegabytes": 5120 }
+  ],
+  "topics": [],
+  "extraAppSettings": {},
+  "hostSettings": {},
+  "loadTest": {
+    "queueName": "orders",
+    "engineInstances": 1,
+    "users": 2,
+    "spawnRate": 2,
+    "batchSize": 1,
+    "batchesPerUserPerSecond": 1,
+    "durationMinutes": 10,
+    "env": { "PAYLOAD_SIZES_KB": "1024,2560,5120" }
+  },
+  "drainMinutes": 10,
+  "measurement": { "workflowName": "orders-premium-large" },
+  "maxMessageSizeInKilobytes": 10240
+}

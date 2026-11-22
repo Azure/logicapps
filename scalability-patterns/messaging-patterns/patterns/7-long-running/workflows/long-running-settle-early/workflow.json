@@ -1,0 +1,63 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "triggers": {
+      "When_messages_are_available_in_orders_early": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "queueName": "orders-early",
+            "isSessionsEnabled": false,
+            "maxMessageBatchSize": 20
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "serviceBus",
+            "operationId": "receiveQueueMessages",
+            "serviceProviderId": "/serviceProviders/serviceBus"
+          }
+        },
+        "splitOn": "@triggerOutputs()?['body']"
+      }
+    },
+    "actions": {
+      "Wait_for_slow_downstream": {
+        "type": "Wait",
+        "inputs": {
+          "interval": {
+            "count": 3,
+            "unit": "Minute"
+          }
+        },
+        "runAfter": {}
+      },
+      "Process_order": {
+        "type": "Workflow",
+        "inputs": {
+          "host": {
+            "workflow": {
+              "id": "process-order"
+            }
+          },
+          "body": {
+            "messageId": "@{triggerBody()?['messageId']}",
+            "pattern": "7-long-running",
+            "order": "@triggerBody()?['contentData']"
+          }
+        },
+        "trackedProperties": {
+          "messageId": "@{triggerBody()?['messageId']}",
+          "enqueuedTimeUtc": "@{triggerBody()?['enqueuedTimeUtc']}",
+          "sentAtUtc": "@{triggerBody()?['contentData']?['sentAtUtc']}",
+          "deliveryCount": "@{triggerBody()?['deliveryCount']}",
+          "pattern": "7-long-running"
+        },
+        "runAfter": {
+          "Wait_for_slow_downstream": [ "Succeeded" ]
+        }
+      }
+    },
+    "outputs": {}
+  },
+  "kind": "Stateful"
+}

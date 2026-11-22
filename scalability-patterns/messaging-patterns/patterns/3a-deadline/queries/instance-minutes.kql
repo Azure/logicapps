@@ -1,0 +1,11 @@
+// Parameters: replace {{startUtc}}, {{endUtc}} and {{workflowName}} (tools\Run-Queries.ps1 does this).
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';
+// Instance-minutes: the sum over minutes of distinct host instances that sent telemetry.
+// It approximates billed WS1 instance time for the window; idle prewarmed instances count too.
+union requests, traces
+| where timestamp between (startTime .. endTime)
+| where cloud_RoleInstance != ''
+| summarize instances = dcount(cloud_RoleInstance) by minute = bin(timestamp, 1m)
+| summarize instanceMinutes = sum(instances), peakInstances = max(instances), minutes = count(), firstMinute = min(minute), lastMinute = max(minute)

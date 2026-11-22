@@ -1,0 +1,14 @@
+{
+  "pattern": "6a-strict-order",
+  "windowStartUtc": "2026-11-22T09:30:52Z",
+  "windowEndUtc": "2026-11-22T09:55:00Z",
+  "documents": 24631,
+  "keys": 82,
+  "runs": 860,
+  "inversions": 0,
+  "keysWithInversions": 0,
+  "gaps": 0,
+  "redeliveredDocuments": 0,
+  "processedAtTies": 0,
+  "worstKeys": []
+}

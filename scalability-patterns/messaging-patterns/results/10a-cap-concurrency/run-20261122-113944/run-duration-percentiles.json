@@ -1,0 +1,200 @@
+[
+  {
+    "minute": "2026-11-22T11:42:00.000Z",
+    "workflowName": "orders-cap-concurrency",
+    "runs": 10,
+    "p50": 3899,
+    "p95": 4140,
+    "p99": 4140,
+    "maxMs": 4140
+  },
+  {
+    "minute": "2026-11-22T11:43:00.000Z",
+    "workflowName": "orders-cap-concurrency",
+    "runs": 100,
+    "p50": 1280,
+    "p95": 2136,
+    "p99": 8652,
+    "maxMs": 9911
+  },
+  {
+    "minute": "2026-11-22T11:44:00.000Z",
+    "workflowName": "orders-cap-concurrency",
+    "runs": 99,
+    "p50": 1179,
+    "p95": 2013,
+    "p99": 2720,
+    "maxMs": 2720
+  },
+  {
+    "minute": "2026-11-22T11:45:00.000Z",
+    "workflowName": "orders-cap-concurrency",
+    "runs": 51,
+    "p50": 1188,
+    "p95": 2619,
+    "p99": 8976,
+    "maxMs": 8976
+  },
+  {
+    "minute": "2026-11-22T11:46:00.000Z",
+    "workflowName": "orders-cap-concurrency",
+    "runs": 100,
+    "p50": 1323,
+    "p95": 2210,
+    "p99": 3033,
+    "maxMs": 3080
+  },
+  {
+    "minute": "2026-11-22T11:47:00.000Z",
+    "workflowName": "orders-cap-concurrency",
+    "runs": 100,
+    "p50": 1182,
+    "p95": 2030,
+    "p99": 7916,
+    "maxMs": 9069
+  },
+  {
+    "minute": "2026-11-22T11:48:00.000Z",
+    "workflowName": "orders-cap-concurrency",
+    "runs": 70,
+    "p50": 1053,
+    "p95": 1785,
+    "p99": 10786,
+    "maxMs": 10786
+  },
+  {
+    "minute": "2026-11-22T11:49:00.000Z",
+    "workflowName": "orders-cap-concurrency",
+    "runs": 80,
+    "p50": 1234,
+    "p95": 2386,
+    "p99": 8809,
+    "maxMs": 8809
+  },
+  {
+    "minute": "2026-11-22T11:50:00.000Z",
+    "workflowName": "orders-cap-concurrency",
+    "runs": 100,
+    "p50": 1165,
+    "p95": 2107,
+    "p99": 2783,
+    "maxMs": 8769
+  },
+  {
+    "minute": "2026-11-22T11:51:00.000Z",
+    "workflowName": "orders-cap-concurrency",
+    "runs": 97,
+    "p50": 1329,
+    "p95": 2330,
+    "p99": 2861,
+    "maxMs": 2861
+  },
+  {
+    "minute": "2026-11-22T11:52:00.000Z",
+    "workflowName": "orders-cap-concurrency",
+    "runs": 53,
+    "p50": 1073,
+    "p95": 2564,
+    "p99": 8020,
+    "maxMs": 8020
+  },
+  {
+    "minute": "2026-11-22T11:53:00.000Z",
+    "workflowName": "orders-cap-concurrency",
+    "runs": 100,
+    "p50": 1160,
+    "p95": 1982,
+    "p99": 3299,
+    "maxMs": 8924
+  },
+  {
+    "minute": "2026-11-22T11:54:00.000Z",
+    "workflowName": "orders-cap-concurrency",
+    "runs": 100,
+    "p50": 1214,
+    "p95": 1930,
+    "p99": 3258,
+    "maxMs": 7943
+  },
+  {
+    "minute": "2026-11-22T11:55:00.000Z",
+    "workflowName": "orders-cap-concurrency",
+    "runs": 72,
+    "p50": 989,
+    "p95": 2000,
+    "p99": 9031,
+    "maxMs": 9031
+  },
+  {
+    "minute": "2026-11-22T11:56:00.000Z",
+    "workflowName": "orders-cap-concurrency",
+    "runs": 78,
+    "p50": 1212,
+    "p95": 2265,
+    "p99": 8807,
+    "maxMs": 8807
+  },
+  {
+    "minute": "2026-11-22T11:57:00.000Z",
+    "workflowName": "orders-cap-concurrency",
+    "runs": 100,
+    "p50": 1074,
+    "p95": 1981,
+    "p99": 2365,
+    "maxMs": 7931
+  },
+  {
+    "minute": "2026-11-22T11:58:00.000Z",
+    "workflowName": "orders-cap-concurrency",
+    "runs": 98,
+    "p50": 1184,
+    "p95": 2611,
+    "p99": 9017,
+    "maxMs": 9017
+  },
+  {
+    "minute": "2026-11-22T11:59:00.000Z",
+    "workflowName": "orders-cap-concurrency",
+    "runs": 52,
+    "p50": 1254,
+    "p95": 2153,
+    "p99": 2213,
+    "maxMs": 2213
+  },
+  {
+    "minute": "2026-11-22T12:00:00.000Z",
+    "workflowName": "orders-cap-concurrency",
+    "runs": 100,
+    "p50": 1319,
+    "p95": 2422,
+    "p99": 3175,
+    "maxMs": 3562
+  },
+  {
+    "minute": "2026-11-22T12:01:00.000Z",
+    "workflowName": "orders-cap-concurrency",
+    "runs": 100,
+    "p50": 1211,
+    "p95": 2398,
+    "p99": 2660,
+    "maxMs": 2863
+  },
+  {
+    "minute": "2026-11-22T12:02:00.000Z",
+    "workflowName": "orders-cap-concurrency",
+    "runs": 70,
+    "p50": 1031,
+    "p95": 2350,
+    "p99": 3125,
+    "maxMs": 3125
+  },
+  {
+    "minute": "2026-11-22T12:03:00.000Z",
+    "workflowName": "orders-cap-concurrency",
+    "runs": 80,
+    "p50": 1252,
+    "p95": 2431,
+    "p99": 7713,
+    "maxMs": 7713
+  }
+]

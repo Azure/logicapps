@@ -1,0 +1,20 @@
+[
+  {
+    "minute": "2026-11-22T07:45:00.000Z",
+    "workflowName": "orders-max-throughput",
+    "runs": 14,
+    "p50": 4238,
+    "p95": 533206,
+    "p99": 533206,
+    "maxMs": 533206
+  },
+  {
+    "minute": "2026-11-22T07:45:00.000Z",
+    "workflowName": "process-order",
+    "runs": 14,
+    "p50": 3955,
+    "p95": 5414,
+    "p99": 5414,
+    "maxMs": 5414
+  }
+]

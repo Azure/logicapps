@@ -1,0 +1,9 @@
+[
+  {
+    "minute": "2026-11-22T06:17:00.000Z",
+    "runs": 20,
+    "succeeded": 20,
+    "failed": 0,
+    "runsPerSecond": 0.33
+  }
+]

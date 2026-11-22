@@ -1,0 +1,12 @@
+{
+  "items": 3071,
+  "childCalls": 3050,
+  "itemsOk": 0,
+  "itemsFailed": 0,
+  "runsSeen": 61,
+  "runsFailed": 52,
+  "runsSucceeded": 9,
+  "goodItemsInFailedRuns": 0,
+  "batchesSeen": 61,
+  "batchesWithBadItem": 52
+}

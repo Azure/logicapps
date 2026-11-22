@@ -1,0 +1,38 @@
+{
+  "pattern": "11-request-reply",
+  "runId": "run-20261122-103515",
+  "workflowName": "rr-front",
+  "windowStartUtc": "2026-11-22T10:37:00Z",
+  "windowEndUtc": "2026-11-22T11:05:00Z",
+  "targetMessagesPerSecond": 200,
+  "loadDurationMinutes": 2,
+  "loadTestStatus": "DONE",
+  "loadTestResult": "NOT_APPLICABLE",
+  "loadEntity": "requests",
+  "messagesSent": 17142,
+  "messagesCompletedByBroker": 17142,
+  "peakQueueBacklog": 4,
+  "deadletteredAtEnd": 0,
+  "runsCompleted": 16989,
+  "runsSucceeded": 16988,
+  "runsFailed": 1,
+  "avgMessagesPerSecond": 0,
+  "peakRunsPerSecond": 33.28,
+  "runDurationMs": {
+    "p50": 327.110174583345,
+    "p95": 4541.361819727891,
+    "p99": 17180.5
+  },
+  "endToEndLatencyMs": {
+    "p50": null,
+    "p95": null,
+    "p99": null
+  },
+  "maxInstances": 15,
+  "firstSentUtc": null,
+  "lastFinishedUtc": null,
+  "drainSeconds": null,
+  "failedActions": 2,
+  "exceptions": 2,
+  "portalUrl": "https://portal.azure.com/#blade/Microsoft_Azure_CloudNativeTesting/TestRunReport.ReactView//resourceId/%2fsubscriptions%2f00000000-0000-0000-0000-000000000000%2fresourcegroups%2frg-msgpat-11-request-reply%2fproviders%2fmicrosoft.loadtestservice%2floadtests%2falt-msgpat-11requestr-bpqo34/testId/msgpat-11-request-reply/testRunId/run-20261122-103515"
+}

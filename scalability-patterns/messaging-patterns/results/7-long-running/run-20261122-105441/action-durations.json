@@ -1,0 +1,68 @@
+[
+  {
+    "workflowName": "long-running-settle-early",
+    "action": "Wait_for_slow_downstream",
+    "actionType": "Wait",
+    "apiName": "",
+    "count": 602,
+    "failed": 0,
+    "p50": 180814.929519,
+    "p95": 180930.0043,
+    "p99": 180942.0625
+  },
+  {
+    "workflowName": "long-running-settle-early",
+    "action": "Process_order",
+    "actionType": "Workflow",
+    "apiName": "",
+    "count": 602,
+    "failed": 0,
+    "p50": 49.963618999999994,
+    "p95": 80.4115,
+    "p99": 117.5738
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Upsert_order",
+    "actionType": "ServiceProvider",
+    "apiName": "AzureCosmosDB",
+    "count": 602,
+    "failed": 0,
+    "p50": 13.38235,
+    "p95": 29.5256,
+    "p99": 40.4763
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Enrich_order",
+    "actionType": "InvokeFunction",
+    "apiName": "",
+    "count": 602,
+    "failed": 0,
+    "p50": 6.073216666666666,
+    "p95": 22.8637,
+    "p99": 40.803
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Response",
+    "actionType": "Response",
+    "apiName": "",
+    "count": 602,
+    "failed": 0,
+    "p50": 7.925431944444444,
+    "p95": 16.1493,
+    "p99": 22.821
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Transform_order",
+    "actionType": "Liquid",
+    "apiName": "",
+    "count": 602,
+    "failed": 0,
+    "p50": 2.471877777777778,
+    "p95": 9.1173,
+    "p99": 15.0494
+  }
+]

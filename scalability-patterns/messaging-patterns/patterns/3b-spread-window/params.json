@@ -1,0 +1,38 @@
+{
+  "$comment": "Pattern 3b overrides for infra/main.bicep and the run loop. The same 3,000-message drop is sent in 1 minute with ScheduledEnqueueTimeUtc spread over a 10-minute window. See README.md.",
+  "location": "westus3",
+  "fallbackLocation": "swedencentral",
+  "planSku": "WS1",
+  "maximumElasticWorkerCount": 2,
+  "minimumElasticInstanceCount": 1,
+  "serviceBusSku": "Standard",
+  "queues": [
+    {
+      "name": "orders",
+      "lockDuration": "PT5M",
+      "maxDeliveryCount": 10,
+      "maxSizeInMegabytes": 5120
+    }
+  ],
+  "topics": [],
+  "extraAppSettings": {},
+  "hostSettings": {},
+  "loadTest": {
+    "queueName": "orders",
+    "engineInstances": 1,
+    "users": 10,
+    "spawnRate": 10,
+    "batchSize": 10,
+    "batchesPerUserPerSecond": 0.5,
+    "durationMinutes": 1,
+    "env": {
+      "SPREAD_WINDOW_SECONDS": "600",
+      "SEND_SECONDS": "60"
+    }
+  },
+  "drainMinutes": 11,
+  "measurement": {
+    "workflowName": "orders-spread-window-v2",
+    "windowMinutes": 10
+  }
+}

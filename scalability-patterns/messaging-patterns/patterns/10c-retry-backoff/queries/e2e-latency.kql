@@ -1,0 +1,5 @@
+// Parameters: replace {{startUtc}}, {{endUtc}} and {{workflowName}} (Run-Queries.ps1 in this folder does this).
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';// End-to-end latency per message: producer sentAtUtc to the end of the successful Upsert_limited.
+requests | where timestamp between (startTime .. endTime) | where customDimensions.Category == 'Workflow.Operations.Actions' | where tostring(parse_json(tostring(customDimensions.resource)).workflowName) == workflow | where tostring(parse_json(tostring(customDimensions.resource)).actionName) == 'Upsert_limited' and resultCode == 'Succeeded' | extend tp = parse_json(tostring(customDimensions.trackedProperties)) | where isnotempty(tp.sentAtUtc) | summarize finishedAt = max(timestamp + totimespan(duration * 10000)), sentAt = min(todatetime(tp.sentAtUtc)) by messageId = tostring(tp.messageId) | extend e2eMs = datetime_diff('millisecond', finishedAt, sentAt) | summarize messages = count(), p50Ms = percentile(e2eMs, 50), p95Ms = percentile(e2eMs, 95), p99Ms = percentile(e2eMs, 99), maxMs = max(e2eMs), lastFinished = max(finishedAt)

@@ -1,0 +1,79 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "triggers": {
+      "When_messages_are_available_in_session": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "queueName": "orders",
+            "isSessionsEnabled": true,
+            "maxMessageBatchSize": 50
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "serviceBus",
+            "operationId": "receiveQueueMessages",
+            "serviceProviderId": "/serviceProviders/serviceBus"
+          }
+        }
+      }
+    },
+    "actions": {
+      "For_each_line": {
+        "type": "Foreach",
+        "foreach": "@triggerOutputs()?['body']",
+        "runtimeConfiguration": {
+          "concurrency": {
+            "repetitions": 20
+          }
+        },
+        "actions": {
+          "Write_part": {
+            "type": "ServiceProvider",
+            "inputs": {
+              "parameters": {
+                "databaseId": "msgpat",
+                "containerId": "items",
+                "item": {
+                  "id": "@{items('For_each_line')?['contentData']?['orderId']}-@{items('For_each_line')?['contentData']?['lineNo']}-@{guid()}",
+                  "pk": "@{items('For_each_line')?['contentData']?['orderId']}",
+                  "pattern": "9a-group-by-key",
+                  "docType": "part",
+                  "orderId": "@{items('For_each_line')?['contentData']?['orderId']}",
+                  "lineNo": "@items('For_each_line')?['contentData']?['lineNo']",
+                  "lineCount": "@items('For_each_line')?['contentData']?['lineCount']",
+                  "amount": "@items('For_each_line')?['contentData']?['amount']",
+                  "sessionId": "@{items('For_each_line')?['sessionId']}",
+                  "messageId": "@{items('For_each_line')?['messageId']}",
+                  "deliveryCount": "@items('For_each_line')?['deliveryCount']",
+                  "batchSize": "@length(triggerOutputs()?['body'])",
+                  "sentAtUtc": "@{items('For_each_line')?['contentData']?['sentAtUtc']}",
+                  "enqueuedTimeUtc": "@{items('For_each_line')?['enqueuedTimeUtc']}",
+                  "runId": "@{workflow()?['run']?['name']}",
+                  "processedAtUtc": "@{utcNow()}"
+                },
+                "isUpsert": true
+              },
+              "serviceProviderConfiguration": {
+                "connectionName": "cosmos",
+                "operationId": "CreateOrUpdateDocument",
+                "serviceProviderId": "/serviceProviders/AzureCosmosDB"
+              }
+            },
+            "runAfter": {},
+            "trackedProperties": {
+              "orderId": "@{items('For_each_line')?['contentData']?['orderId']}",
+              "lineNo": "@{items('For_each_line')?['contentData']?['lineNo']}",
+              "sentAtUtc": "@{items('For_each_line')?['contentData']?['sentAtUtc']}",
+              "pattern": "9a-group-by-key"
+            }
+          }
+        },
+        "runAfter": {}
+      }
+    },
+    "outputs": {}
+  },
+  "kind": "Stateless"
+}

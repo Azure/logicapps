@@ -1,0 +1,41 @@
+{
+  "$comment": "Pattern 2a: drain a burst as fast as possible. No trigger concurrency cap, so the job queue grows and the plan scales out to maximumElasticWorkerCount. See README.md.",
+  "location": "westus3",
+  "fallbackLocation": "swedencentral",
+  "planSku": "WS1",
+  "maximumElasticWorkerCount": 20,
+  "minimumElasticInstanceCount": 1,
+  "serviceBusSku": "Standard",
+  "queues": [
+    {
+      "name": "orders",
+      "lockDuration": "PT5M",
+      "maxDeliveryCount": 10,
+      "maxSizeInMegabytes": 5120
+    }
+  ],
+  "topics": [],
+  "extraAppSettings": {},
+  "hostSettings": {},
+  "loadTest": {
+    "queueName": "orders",
+    "engineInstances": 1,
+    "users": 5,
+    "spawnRate": 5,
+    "batchSize": 50,
+    "batchesPerUserPerSecond": 1,
+    "durationMinutes": 5,
+    "env": {
+      "BASELINE_USERS": "1",
+      "BASELINE_SECONDS": "60",
+      "BASELINE_BATCH_SIZE": "5",
+      "BURST_USERS": "5",
+      "BURST_SECONDS": "120",
+      "QUIET_SECONDS": "60"
+    }
+  },
+  "drainMinutes": 10,
+  "measurement": {
+    "workflowName": "orders-drain-fast"
+  }
+}

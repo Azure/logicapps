@@ -1,0 +1,93 @@
+[
+  {
+    "minute": "2026-11-22T08:08:00.000Z",
+    "failedRuns": 0,
+    "failedActions": 0,
+    "failedTriggers": 0,
+    "exceptions": 0
+  },
+  {
+    "minute": "2026-11-22T08:09:00.000Z",
+    "failedRuns": 1,
+    "failedActions": 1,
+    "failedTriggers": 0,
+    "exceptions": 2
+  },
+  {
+    "minute": "2026-11-22T08:10:00.000Z",
+    "failedRuns": 0,
+    "failedActions": 0,
+    "failedTriggers": 0,
+    "exceptions": 0
+  },
+  {
+    "minute": "2026-11-22T08:11:00.000Z",
+    "failedRuns": 0,
+    "failedActions": 0,
+    "failedTriggers": 0,
+    "exceptions": 0
+  },
+  {
+    "minute": "2026-11-22T08:12:00.000Z",
+    "failedRuns": 0,
+    "failedActions": 0,
+    "failedTriggers": 0,
+    "exceptions": 0
+  },
+  {
+    "minute": "2026-11-22T08:13:00.000Z",
+    "failedRuns": 0,
+    "failedActions": 0,
+    "failedTriggers": 0,
+    "exceptions": 0
+  },
+  {
+    "minute": "2026-11-22T08:14:00.000Z",
+    "failedRuns": 0,
+    "failedActions": 0,
+    "failedTriggers": 0,
+    "exceptions": 0
+  },
+  {
+    "minute": "2026-11-22T08:15:00.000Z",
+    "failedRuns": 0,
+    "failedActions": 0,
+    "failedTriggers": 0,
+    "exceptions": 0
+  },
+  {
+    "minute": "2026-11-22T08:16:00.000Z",
+    "failedRuns": 0,
+    "failedActions": 0,
+    "failedTriggers": 0,
+    "exceptions": 0
+  },
+  {
+    "minute": "2026-11-22T08:17:00.000Z",
+    "failedRuns": 0,
+    "failedActions": 0,
+    "failedTriggers": 0,
+    "exceptions": 0
+  },
+  {
+    "minute": "2026-11-22T08:18:00.000Z",
+    "failedRuns": 0,
+    "failedActions": 0,
+    "failedTriggers": 0,
+    "exceptions": 0
+  },
+  {
+    "minute": "2026-11-22T08:19:00.000Z",
+    "failedRuns": 0,
+    "failedActions": 0,
+    "failedTriggers": 0,
+    "exceptions": 0
+  },
+  {
+    "minute": "2026-11-22T08:20:00.000Z",
+    "failedRuns": 0,
+    "failedActions": 0,
+    "failedTriggers": 0,
+    "exceptions": 0
+  }
+]

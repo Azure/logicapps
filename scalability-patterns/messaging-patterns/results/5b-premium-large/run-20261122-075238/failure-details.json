@@ -1,0 +1,32 @@
+[
+  {
+    "source": "action",
+    "name": "Process_order",
+    "detail": "Failed",
+    "count": 85
+  },
+  {
+    "source": "run",
+    "name": "orders-premium-large",
+    "detail": "{\"code\":\"ActionFailed\",\"message\":\"An action failed. No dependent actions succeeded.\"}",
+    "count": 82
+  },
+  {
+    "source": "exception",
+    "name": "Workflow.Operations.Actions",
+    "detail": "Unable to process template language expressions in action 'Process_order' inputs at line '0' and column '0': 'The template language function 'createArray' expects a comma separated list of parameters.",
+    "count": 79
+  },
+  {
+    "source": "exception",
+    "name": "Workflow.Operations.Actions",
+    "detail": "Unable to process template language expressions in action 'Process_order' inputs at line '1' and column '11': 'The template language function 'createArray' expects a comma separated list of parameters",
+    "count": 3
+  },
+  {
+    "source": "exception",
+    "name": "ScaleControllerLogs",
+    "detail": "Failed to initialize scale monitoring for 'orders-premium-large' function.",
+    "count": 2
+  }
+]

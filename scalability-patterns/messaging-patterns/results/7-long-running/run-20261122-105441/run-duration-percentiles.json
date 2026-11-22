@@ -1,0 +1,110 @@
+[
+  {
+    "minute": "2026-11-22T11:00:00.000Z",
+    "workflowName": "long-running-settle-early",
+    "runs": 40,
+    "p50": 181798,
+    "p95": 181819,
+    "p99": 181836,
+    "maxMs": 181836
+  },
+  {
+    "minute": "2026-11-22T11:00:00.000Z",
+    "workflowName": "process-order",
+    "runs": 40,
+    "p50": 58,
+    "p95": 112,
+    "p99": 143,
+    "maxMs": 143
+  },
+  {
+    "minute": "2026-11-22T11:01:00.000Z",
+    "workflowName": "long-running-settle-early",
+    "runs": 120,
+    "p50": 181842,
+    "p95": 181915,
+    "p99": 181968,
+    "maxMs": 181986
+  },
+  {
+    "minute": "2026-11-22T11:01:00.000Z",
+    "workflowName": "process-order",
+    "runs": 120,
+    "p50": 52,
+    "p95": 84,
+    "p99": 115,
+    "maxMs": 122
+  },
+  {
+    "minute": "2026-11-22T11:02:00.000Z",
+    "workflowName": "long-running-settle-early",
+    "runs": 120,
+    "p50": 181835,
+    "p95": 181868,
+    "p99": 181874,
+    "maxMs": 181877
+  },
+  {
+    "minute": "2026-11-22T11:02:00.000Z",
+    "workflowName": "process-order",
+    "runs": 120,
+    "p50": 44,
+    "p95": 65,
+    "p99": 72,
+    "maxMs": 73
+  },
+  {
+    "minute": "2026-11-22T11:03:00.000Z",
+    "workflowName": "long-running-settle-early",
+    "runs": 120,
+    "p50": 181879.5,
+    "p95": 181968,
+    "p99": 181991,
+    "maxMs": 182000
+  },
+  {
+    "minute": "2026-11-22T11:03:00.000Z",
+    "workflowName": "process-order",
+    "runs": 120,
+    "p50": 35,
+    "p95": 64,
+    "p99": 95,
+    "maxMs": 102
+  },
+  {
+    "minute": "2026-11-22T11:04:00.000Z",
+    "workflowName": "long-running-settle-early",
+    "runs": 118,
+    "p50": 181879.5,
+    "p95": 181915,
+    "p99": 182025,
+    "maxMs": 182032
+  },
+  {
+    "minute": "2026-11-22T11:04:00.000Z",
+    "workflowName": "process-order",
+    "runs": 118,
+    "p50": 36,
+    "p95": 54,
+    "p99": 86,
+    "maxMs": 97
+  },
+  {
+    "minute": "2026-11-22T11:05:00.000Z",
+    "workflowName": "long-running-settle-early",
+    "runs": 84,
+    "p50": 181957,
+    "p95": 182033,
+    "p99": 182091,
+    "maxMs": 182091
+  },
+  {
+    "minute": "2026-11-22T11:05:00.000Z",
+    "workflowName": "process-order",
+    "runs": 84,
+    "p50": 39,
+    "p95": 63,
+    "p99": 106,
+    "maxMs": 106
+  }
+]

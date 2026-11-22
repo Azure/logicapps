@@ -1,0 +1,46 @@
+{
+  "startUtc": "2026-11-22T11:17:19Z",
+  "endUtc": "2026-11-22T11:41:50Z",
+  "windows": 5,
+  "itemsTotal": 12100,
+  "distinctItems": 12100,
+  "expectedItems": 12100,
+  "missingVsExpected": 0,
+  "sequenceGaps": 0,
+  "gapExamples": [],
+  "duplicateItems": 0,
+  "duplicateExamples": {},
+  "redeliveredItems": 0,
+  "senders": 10,
+  "itemsPerWindow": {
+    "count": 5,
+    "p50": 3000,
+    "p95": 3000,
+    "max": 3000,
+    "mean": 2420
+  },
+  "receiveCallsPerWindow": {
+    "count": 5,
+    "p50": 30,
+    "p95": 30,
+    "max": 30,
+    "mean": 24.8
+  },
+  "itemSendToWindowWriteSeconds": {
+    "count": 12100,
+    "p50": 193.699467,
+    "p95": 431.565627,
+    "max": 461.567138,
+    "mean": 202.4
+  },
+  "firstItemToWindowWriteSeconds": {
+    "count": 5,
+    "p50": 263.71144,
+    "p95": 461.567138,
+    "max": 461.567138,
+    "mean": 264.37
+  },
+  "firstWriteUtc": "2026-11-22T11:21:39.419657",
+  "lastWriteUtc": "2026-11-22T11:36:54.516013",
+  "aggregatedItemsPerSecondOverWriteSpan": 13.22
+}

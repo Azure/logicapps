@@ -1,0 +1,130 @@
+[
+  {
+    "minute": "2026-11-22T11:39:00Z",
+    "instances": 1,
+    "runs": 1,
+    "upsertsOk": null,
+    "upsertsFailed": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-22T11:40:00Z",
+    "instances": 1,
+    "runs": 2,
+    "upsertsOk": null,
+    "upsertsFailed": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-22T11:41:00Z",
+    "instances": 1,
+    "runs": 2,
+    "upsertsOk": null,
+    "upsertsFailed": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-22T11:42:00Z",
+    "instances": 1,
+    "runs": 2,
+    "upsertsOk": 53,
+    "upsertsFailed": 0,
+    "p95E2eMs": 20951
+  },
+  {
+    "minute": "2026-11-22T11:43:00Z",
+    "instances": 1,
+    "runs": 1,
+    "upsertsOk": 216,
+    "upsertsFailed": 0,
+    "p95E2eMs": 65360
+  },
+  {
+    "minute": "2026-11-22T11:44:00Z",
+    "instances": 1,
+    "runs": 1,
+    "upsertsOk": 171,
+    "upsertsFailed": 0,
+    "p95E2eMs": 106172
+  },
+  {
+    "minute": "2026-11-22T11:45:00Z",
+    "instances": 1,
+    "runs": 1,
+    "upsertsOk": 169,
+    "upsertsFailed": 0,
+    "p95E2eMs": 140563
+  },
+  {
+    "minute": "2026-11-22T11:46:00Z",
+    "instances": 1,
+    "runs": 1,
+    "upsertsOk": 127,
+    "upsertsFailed": 0,
+    "p95E2eMs": 189386
+  },
+  {
+    "minute": "2026-11-22T11:47:00Z",
+    "instances": 1,
+    "runs": null,
+    "upsertsOk": 174,
+    "upsertsFailed": 0,
+    "p95E2eMs": 234555
+  },
+  {
+    "minute": "2026-11-22T11:48:00Z",
+    "instances": 1,
+    "runs": 1,
+    "upsertsOk": 188,
+    "upsertsFailed": 0,
+    "p95E2eMs": 280171
+  },
+  {
+    "minute": "2026-11-22T11:49:00Z",
+    "instances": 1,
+    "runs": 1,
+    "upsertsOk": 199,
+    "upsertsFailed": 0,
+    "p95E2eMs": 311906
+  },
+  {
+    "minute": "2026-11-22T11:50:00Z",
+    "instances": 1,
+    "runs": 1,
+    "upsertsOk": 187,
+    "upsertsFailed": 0,
+    "p95E2eMs": 361445
+  },
+  {
+    "minute": "2026-11-22T11:51:00Z",
+    "instances": 1,
+    "runs": 1,
+    "upsertsOk": 203,
+    "upsertsFailed": 0,
+    "p95E2eMs": 402401
+  },
+  {
+    "minute": "2026-11-22T11:52:00Z",
+    "instances": 1,
+    "runs": 2,
+    "upsertsOk": 123,
+    "upsertsFailed": 0,
+    "p95E2eMs": 436954
+  },
+  {
+    "minute": "2026-11-22T11:53:00Z",
+    "instances": 1,
+    "runs": 2,
+    "upsertsOk": null,
+    "upsertsFailed": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-22T11:54:00Z",
+    "instances": 1,
+    "runs": 1,
+    "upsertsOk": null,
+    "upsertsFailed": null,
+    "p95E2eMs": null
+  }
+]

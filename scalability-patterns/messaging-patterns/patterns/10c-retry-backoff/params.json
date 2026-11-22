@@ -1,0 +1,39 @@
+{
+  "$comment": "Pattern 10c: no throttling in the workflow; an exponential retry policy absorbs 429s from a 400 RU/s Cosmos DB container. See README.md.",
+  "location": "westus3",
+  "fallbackLocation": "swedencentral",
+  "planSku": "WS1",
+  "maximumElasticWorkerCount": 20,
+  "minimumElasticInstanceCount": 1,
+  "serviceBusSku": "Standard",
+  "queues": [
+    {
+      "name": "orders",
+      "lockDuration": "PT5M",
+      "maxDeliveryCount": 10,
+      "maxSizeInMegabytes": 5120
+    }
+  ],
+  "topics": [],
+  "extraAppSettings": {},
+  "hostSettings": {},
+  "loadTest": {
+    "queueName": "orders",
+    "engineInstances": 1,
+    "users": 1,
+    "spawnRate": 1,
+    "batchSize": 10,
+    "batchesPerUserPerSecond": 1,
+    "durationMinutes": 3
+  },
+  "drainMinutes": 25,
+  "measurement": {
+    "workflowName": "orders-retry-backoff"
+  },
+  "cosmosLimited": {
+    "databaseId": "limited",
+    "containerId": "items",
+    "throughputRUs": 400,
+    "partitionKeyPath": "/pk"
+  }
+}

@@ -1,0 +1,10 @@
+// Run duration (WorkflowRunEnd) per workflow. The stateless workflow has one run per trigger batch.
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+traces
+| where timestamp between (startTime .. endTime)
+| where customDimensions.Category == 'Workflow.Operations.Runs' and customDimensions.EventName == 'WorkflowRunEnd'
+| extend workflowName = tostring(parse_json(tostring(customDimensions.resource)).workflowName)
+| where workflowName startswith 'trickle'
+| extend durationMs = todouble(customDimensions.prop__durationInMilliseconds), status = tostring(customDimensions.prop__status)
+| summarize runs = count(), p50 = percentile(durationMs, 50), p95 = percentile(durationMs, 95), maxMs = max(durationMs) by workflowName, status

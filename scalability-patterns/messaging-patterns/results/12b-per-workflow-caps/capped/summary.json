@@ -1,0 +1,38 @@
+{
+  "pattern": "12b-per-workflow-caps",
+  "runId": "capped",
+  "workflowName": "orders-high",
+  "windowStartUtc": "2026-11-22T10:39:53Z",
+  "windowEndUtc": "2026-11-22T11:57:00Z",
+  "targetMessagesPerSecond": null,
+  "loadDurationMinutes": null,
+  "loadTestStatus": null,
+  "loadTestResult": null,
+  "loadEntity": "orders-high",
+  "messagesSent": 1202,
+  "messagesCompletedByBroker": 1202,
+  "peakQueueBacklog": 2,
+  "deadletteredAtEnd": 0,
+  "runsCompleted": 1202,
+  "runsSucceeded": 1202,
+  "runsFailed": 0,
+  "avgMessagesPerSecond": 2,
+  "peakRunsPerSecond": 2.03,
+  "runDurationMs": {
+    "p50": 1041,
+    "p95": 1249.75,
+    "p99": 1912
+  },
+  "endToEndLatencyMs": {
+    "p50": 1551,
+    "p95": 2116,
+    "p99": 2591
+  },
+  "maxInstances": 1,
+  "firstSentUtc": "2026-11-22T10:42:39.306Z",
+  "lastFinishedUtc": "2026-11-22T10:52:40.177Z",
+  "drainSeconds": 601,
+  "failedActions": 0,
+  "exceptions": 2,
+  "portalUrl": null
+}

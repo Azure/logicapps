@@ -1,0 +1,1082 @@
+[
+  {
+    "minute": "2026-11-22T07:57:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 2,
+    "p50": 4164,
+    "p95": 4216,
+    "p99": 4216,
+    "maxMs": 4216
+  },
+  {
+    "minute": "2026-11-22T07:57:00.000Z",
+    "workflowName": "process-order",
+    "runs": 10,
+    "p50": 178,
+    "p95": 277,
+    "p99": 277,
+    "maxMs": 277
+  },
+  {
+    "minute": "2026-11-22T07:58:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 17,
+    "p50": 4145,
+    "p95": 11403,
+    "p99": 11403,
+    "maxMs": 11403
+  },
+  {
+    "minute": "2026-11-22T07:58:00.000Z",
+    "workflowName": "process-order",
+    "runs": 175,
+    "p50": 383,
+    "p95": 1029,
+    "p99": 1113,
+    "maxMs": 1120
+  },
+  {
+    "minute": "2026-11-22T07:59:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 12,
+    "p50": 10750,
+    "p95": 12666,
+    "p99": 12666,
+    "maxMs": 12666
+  },
+  {
+    "minute": "2026-11-22T07:59:00.000Z",
+    "workflowName": "process-order",
+    "runs": 415,
+    "p50": 556.5555555555555,
+    "p95": 1056,
+    "p99": 1163,
+    "maxMs": 1220
+  },
+  {
+    "minute": "2026-11-22T08:00:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 11850,
+    "p95": 12740,
+    "p99": 12740,
+    "maxMs": 12740
+  },
+  {
+    "minute": "2026-11-22T08:00:00.000Z",
+    "workflowName": "process-order",
+    "runs": 500,
+    "p50": 473.14351851851853,
+    "p95": 960,
+    "p99": 1098,
+    "maxMs": 1579
+  },
+  {
+    "minute": "2026-11-22T08:01:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 10993,
+    "p95": 12131,
+    "p99": 12131,
+    "maxMs": 12131
+  },
+  {
+    "minute": "2026-11-22T08:01:00.000Z",
+    "workflowName": "process-order",
+    "runs": 500,
+    "p50": 617.875,
+    "p95": 1037,
+    "p99": 1141,
+    "maxMs": 1157
+  },
+  {
+    "minute": "2026-11-22T08:02:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 10989,
+    "p95": 11492,
+    "p99": 11492,
+    "maxMs": 11492
+  },
+  {
+    "minute": "2026-11-22T08:02:00.000Z",
+    "workflowName": "process-order",
+    "runs": 509,
+    "p50": 591.6875,
+    "p95": 1053,
+    "p99": 1087,
+    "maxMs": 1201
+  },
+  {
+    "minute": "2026-11-22T08:03:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 11000,
+    "p95": 11969,
+    "p99": 11969,
+    "maxMs": 11969
+  },
+  {
+    "minute": "2026-11-22T08:03:00.000Z",
+    "workflowName": "process-order",
+    "runs": 516,
+    "p50": 584.8,
+    "p95": 1050,
+    "p99": 1153,
+    "maxMs": 1242
+  },
+  {
+    "minute": "2026-11-22T08:04:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 10887,
+    "p95": 11308,
+    "p99": 11308,
+    "maxMs": 11308
+  },
+  {
+    "minute": "2026-11-22T08:04:00.000Z",
+    "workflowName": "process-order",
+    "runs": 535,
+    "p50": 601.2,
+    "p95": 986,
+    "p99": 1072,
+    "maxMs": 1141
+  },
+  {
+    "minute": "2026-11-22T08:05:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 12,
+    "p50": 10742,
+    "p95": 11009,
+    "p99": 11009,
+    "maxMs": 11009
+  },
+  {
+    "minute": "2026-11-22T08:05:00.000Z",
+    "workflowName": "process-order",
+    "runs": 540,
+    "p50": 606.75,
+    "p95": 972,
+    "p99": 1112,
+    "maxMs": 1199
+  },
+  {
+    "minute": "2026-11-22T08:06:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 9,
+    "p50": 11530,
+    "p95": 11618,
+    "p99": 11618,
+    "maxMs": 11618
+  },
+  {
+    "minute": "2026-11-22T08:06:00.000Z",
+    "workflowName": "process-order",
+    "runs": 500,
+    "p50": 643.7638888888889,
+    "p95": 1070,
+    "p99": 1281,
+    "maxMs": 1329
+  },
+  {
+    "minute": "2026-11-22T08:07:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 11,
+    "p50": 11162,
+    "p95": 12205,
+    "p99": 12205,
+    "maxMs": 12205
+  },
+  {
+    "minute": "2026-11-22T08:07:00.000Z",
+    "workflowName": "process-order",
+    "runs": 500,
+    "p50": 636.2777777777778,
+    "p95": 1020,
+    "p99": 1096,
+    "maxMs": 1201
+  },
+  {
+    "minute": "2026-11-22T08:08:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 10970,
+    "p95": 11176,
+    "p99": 11176,
+    "maxMs": 11176
+  },
+  {
+    "minute": "2026-11-22T08:08:00.000Z",
+    "workflowName": "process-order",
+    "runs": 520,
+    "p50": 607.6,
+    "p95": 1014,
+    "p99": 1148,
+    "maxMs": 1791
+  },
+  {
+    "minute": "2026-11-22T08:09:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 10438,
+    "p95": 12164,
+    "p99": 12164,
+    "maxMs": 12164
+  },
+  {
+    "minute": "2026-11-22T08:09:00.000Z",
+    "workflowName": "process-order",
+    "runs": 521,
+    "p50": 634.3819444444445,
+    "p95": 1014,
+    "p99": 1179,
+    "maxMs": 1201
+  },
+  {
+    "minute": "2026-11-22T08:10:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 11046,
+    "p95": 11660,
+    "p99": 11660,
+    "maxMs": 11660
+  },
+  {
+    "minute": "2026-11-22T08:10:00.000Z",
+    "workflowName": "process-order",
+    "runs": 533,
+    "p50": 591.8454861111111,
+    "p95": 1012,
+    "p99": 1065,
+    "maxMs": 1227
+  },
+  {
+    "minute": "2026-11-22T08:11:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 11057,
+    "p95": 12091,
+    "p99": 12091,
+    "maxMs": 12091
+  },
+  {
+    "minute": "2026-11-22T08:11:00.000Z",
+    "workflowName": "process-order",
+    "runs": 500,
+    "p50": 569.0381944444446,
+    "p95": 980,
+    "p99": 1112,
+    "maxMs": 1415
+  },
+  {
+    "minute": "2026-11-22T08:12:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 11502,
+    "p95": 12493,
+    "p99": 12493,
+    "maxMs": 12493
+  },
+  {
+    "minute": "2026-11-22T08:12:00.000Z",
+    "workflowName": "process-order",
+    "runs": 486,
+    "p50": 620.0768229166666,
+    "p95": 1033,
+    "p99": 1162,
+    "maxMs": 1286
+  },
+  {
+    "minute": "2026-11-22T08:13:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 11074,
+    "p95": 11956,
+    "p99": 11956,
+    "maxMs": 11956
+  },
+  {
+    "minute": "2026-11-22T08:13:00.000Z",
+    "workflowName": "process-order",
+    "runs": 522,
+    "p50": 618.86,
+    "p95": 1008,
+    "p99": 1084,
+    "maxMs": 1180
+  },
+  {
+    "minute": "2026-11-22T08:14:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 12,
+    "p50": 10702,
+    "p95": 12225,
+    "p99": 12225,
+    "maxMs": 12225
+  },
+  {
+    "minute": "2026-11-22T08:14:00.000Z",
+    "workflowName": "process-order",
+    "runs": 518,
+    "p50": 600.6444444444444,
+    "p95": 1001,
+    "p99": 1130,
+    "maxMs": 1520
+  },
+  {
+    "minute": "2026-11-22T08:15:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 10948,
+    "p95": 11499,
+    "p99": 11499,
+    "maxMs": 11499
+  },
+  {
+    "minute": "2026-11-22T08:15:00.000Z",
+    "workflowName": "process-order",
+    "runs": 500,
+    "p50": 571.12890625,
+    "p95": 1035,
+    "p99": 1125,
+    "maxMs": 1470
+  },
+  {
+    "minute": "2026-11-22T08:16:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 11095,
+    "p95": 12761,
+    "p99": 12761,
+    "maxMs": 12761
+  },
+  {
+    "minute": "2026-11-22T08:16:00.000Z",
+    "workflowName": "process-order",
+    "runs": 500,
+    "p50": 576.8055555555555,
+    "p95": 1028,
+    "p99": 1115,
+    "maxMs": 1361
+  },
+  {
+    "minute": "2026-11-22T08:17:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 11161,
+    "p95": 11845,
+    "p99": 11845,
+    "maxMs": 11845
+  },
+  {
+    "minute": "2026-11-22T08:17:00.000Z",
+    "workflowName": "process-order",
+    "runs": 520,
+    "p50": 588.6111111111111,
+    "p95": 1004,
+    "p99": 1062,
+    "maxMs": 1236
+  },
+  {
+    "minute": "2026-11-22T08:18:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 11069,
+    "p95": 11275,
+    "p99": 11275,
+    "maxMs": 11275
+  },
+  {
+    "minute": "2026-11-22T08:18:00.000Z",
+    "workflowName": "process-order",
+    "runs": 540,
+    "p50": 570.2962962962963,
+    "p95": 999,
+    "p99": 1095,
+    "maxMs": 1119
+  },
+  {
+    "minute": "2026-11-22T08:19:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 11085,
+    "p95": 11728,
+    "p99": 11728,
+    "maxMs": 11728
+  },
+  {
+    "minute": "2026-11-22T08:19:00.000Z",
+    "workflowName": "process-order",
+    "runs": 520,
+    "p50": 601.8799999999999,
+    "p95": 1003,
+    "p99": 1125,
+    "maxMs": 1192
+  },
+  {
+    "minute": "2026-11-22T08:20:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 12,
+    "p50": 10832,
+    "p95": 11490,
+    "p99": 11490,
+    "maxMs": 11490
+  },
+  {
+    "minute": "2026-11-22T08:20:00.000Z",
+    "workflowName": "process-order",
+    "runs": 520,
+    "p50": 650.9105555555557,
+    "p95": 1027,
+    "p99": 1114,
+    "maxMs": 1179
+  },
+  {
+    "minute": "2026-11-22T08:21:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 8,
+    "p50": 11337,
+    "p95": 11921,
+    "p99": 11921,
+    "maxMs": 11921
+  },
+  {
+    "minute": "2026-11-22T08:21:00.000Z",
+    "workflowName": "process-order",
+    "runs": 495,
+    "p50": 617.4444444444445,
+    "p95": 1031,
+    "p99": 1123,
+    "maxMs": 1519
+  },
+  {
+    "minute": "2026-11-22T08:22:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 12,
+    "p50": 9714,
+    "p95": 12426,
+    "p99": 12426,
+    "maxMs": 12426
+  },
+  {
+    "minute": "2026-11-22T08:22:00.000Z",
+    "workflowName": "process-order",
+    "runs": 557,
+    "p50": 575.3518518518518,
+    "p95": 984,
+    "p99": 1051,
+    "maxMs": 1107
+  },
+  {
+    "minute": "2026-11-22T08:23:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 12,
+    "p50": 10003,
+    "p95": 11631,
+    "p99": 11631,
+    "maxMs": 11631
+  },
+  {
+    "minute": "2026-11-22T08:23:00.000Z",
+    "workflowName": "process-order",
+    "runs": 548,
+    "p50": 582.3166666666666,
+    "p95": 1031,
+    "p99": 1130,
+    "maxMs": 1553
+  },
+  {
+    "minute": "2026-11-22T08:24:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 10303,
+    "p95": 11257,
+    "p99": 11257,
+    "maxMs": 11257
+  },
+  {
+    "minute": "2026-11-22T08:24:00.000Z",
+    "workflowName": "process-order",
+    "runs": 546,
+    "p50": 579.1833333333334,
+    "p95": 996,
+    "p99": 1073,
+    "maxMs": 1114
+  },
+  {
+    "minute": "2026-11-22T08:25:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 12,
+    "p50": 10096,
+    "p95": 11433,
+    "p99": 11433,
+    "maxMs": 11433
+  },
+  {
+    "minute": "2026-11-22T08:25:00.000Z",
+    "workflowName": "process-order",
+    "runs": 554,
+    "p50": 546.95,
+    "p95": 989,
+    "p99": 1088,
+    "maxMs": 1189
+  },
+  {
+    "minute": "2026-11-22T08:26:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 10538,
+    "p95": 11421,
+    "p99": 11421,
+    "maxMs": 11421
+  },
+  {
+    "minute": "2026-11-22T08:26:00.000Z",
+    "workflowName": "process-order",
+    "runs": 530,
+    "p50": 591.2222222222223,
+    "p95": 1007,
+    "p99": 1146,
+    "maxMs": 1208
+  },
+  {
+    "minute": "2026-11-22T08:27:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 10125,
+    "p95": 11292,
+    "p99": 11292,
+    "maxMs": 11292
+  },
+  {
+    "minute": "2026-11-22T08:27:00.000Z",
+    "workflowName": "process-order",
+    "runs": 562,
+    "p50": 568.5500000000001,
+    "p95": 983,
+    "p99": 1094,
+    "maxMs": 1263
+  },
+  {
+    "minute": "2026-11-22T08:28:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 12,
+    "p50": 10984,
+    "p95": 11871,
+    "p99": 11871,
+    "maxMs": 11871
+  },
+  {
+    "minute": "2026-11-22T08:28:00.000Z",
+    "workflowName": "process-order",
+    "runs": 508,
+    "p50": 597.6875,
+    "p95": 994,
+    "p99": 1137,
+    "maxMs": 1204
+  },
+  {
+    "minute": "2026-11-22T08:29:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 10600,
+    "p95": 11446,
+    "p99": 11446,
+    "maxMs": 11446
+  },
+  {
+    "minute": "2026-11-22T08:29:00.000Z",
+    "workflowName": "process-order",
+    "runs": 520,
+    "p50": 629.4791666666666,
+    "p95": 1017,
+    "p99": 1123,
+    "maxMs": 1176
+  },
+  {
+    "minute": "2026-11-22T08:30:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 10985,
+    "p95": 11693,
+    "p99": 11693,
+    "maxMs": 11693
+  },
+  {
+    "minute": "2026-11-22T08:30:00.000Z",
+    "workflowName": "process-order",
+    "runs": 520,
+    "p50": 590.375,
+    "p95": 1015,
+    "p99": 1142,
+    "maxMs": 1458
+  },
+  {
+    "minute": "2026-11-22T08:31:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 11555,
+    "p95": 12024,
+    "p99": 12024,
+    "maxMs": 12024
+  },
+  {
+    "minute": "2026-11-22T08:31:00.000Z",
+    "workflowName": "process-order",
+    "runs": 500,
+    "p50": 601.4114583333333,
+    "p95": 1014,
+    "p99": 1252,
+    "maxMs": 1573
+  },
+  {
+    "minute": "2026-11-22T08:32:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 11040,
+    "p95": 12051,
+    "p99": 12051,
+    "maxMs": 12051
+  },
+  {
+    "minute": "2026-11-22T08:32:00.000Z",
+    "workflowName": "process-order",
+    "runs": 520,
+    "p50": 611.8125,
+    "p95": 1025,
+    "p99": 1115,
+    "maxMs": 1173
+  },
+  {
+    "minute": "2026-11-22T08:33:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 12,
+    "p50": 10795,
+    "p95": 11516,
+    "p99": 11516,
+    "maxMs": 11516
+  },
+  {
+    "minute": "2026-11-22T08:33:00.000Z",
+    "workflowName": "process-order",
+    "runs": 540,
+    "p50": 621.6,
+    "p95": 1001.5,
+    "p99": 1095,
+    "maxMs": 1367
+  },
+  {
+    "minute": "2026-11-22T08:34:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 11165,
+    "p95": 11857,
+    "p99": 11857,
+    "maxMs": 11857
+  },
+  {
+    "minute": "2026-11-22T08:34:00.000Z",
+    "workflowName": "process-order",
+    "runs": 500,
+    "p50": 601.3333333333333,
+    "p95": 1011,
+    "p99": 1086,
+    "maxMs": 1170
+  },
+  {
+    "minute": "2026-11-22T08:35:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 10468,
+    "p95": 11220,
+    "p99": 11220,
+    "maxMs": 11220
+  },
+  {
+    "minute": "2026-11-22T08:35:00.000Z",
+    "workflowName": "process-order",
+    "runs": 531,
+    "p50": 607.5859375,
+    "p95": 993,
+    "p99": 1050,
+    "maxMs": 1106
+  },
+  {
+    "minute": "2026-11-22T08:36:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 12,
+    "p50": 9557,
+    "p95": 10297,
+    "p99": 10297,
+    "maxMs": 10297
+  },
+  {
+    "minute": "2026-11-22T08:36:00.000Z",
+    "workflowName": "process-order",
+    "runs": 590,
+    "p50": 467.5416666666667,
+    "p95": 892,
+    "p99": 1044,
+    "maxMs": 1096
+  },
+  {
+    "minute": "2026-11-22T08:37:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 12,
+    "p50": 9279,
+    "p95": 10412,
+    "p99": 10412,
+    "maxMs": 10412
+  },
+  {
+    "minute": "2026-11-22T08:37:00.000Z",
+    "workflowName": "process-order",
+    "runs": 609,
+    "p50": 364.752,
+    "p95": 684.5,
+    "p99": 875,
+    "maxMs": 939
+  },
+  {
+    "minute": "2026-11-22T08:38:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 11,
+    "p50": 9793,
+    "p95": 12931,
+    "p99": 12931,
+    "maxMs": 12931
+  },
+  {
+    "minute": "2026-11-22T08:38:00.000Z",
+    "workflowName": "process-order",
+    "runs": 560,
+    "p50": 460.175,
+    "p95": 947.5,
+    "p99": 1052,
+    "maxMs": 1675
+  },
+  {
+    "minute": "2026-11-22T08:39:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 12,
+    "p50": 9400,
+    "p95": 10337,
+    "p99": 10337,
+    "maxMs": 10337
+  },
+  {
+    "minute": "2026-11-22T08:39:00.000Z",
+    "workflowName": "process-order",
+    "runs": 590,
+    "p50": 471.8125,
+    "p95": 955,
+    "p99": 1050,
+    "maxMs": 1152
+  },
+  {
+    "minute": "2026-11-22T08:40:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 13,
+    "p50": 9024,
+    "p95": 9515,
+    "p99": 9515,
+    "maxMs": 9515
+  },
+  {
+    "minute": "2026-11-22T08:40:00.000Z",
+    "workflowName": "process-order",
+    "runs": 620,
+    "p50": 508.08,
+    "p95": 941.5,
+    "p99": 1090,
+    "maxMs": 1138
+  },
+  {
+    "minute": "2026-11-22T08:41:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 10800,
+    "p95": 11129,
+    "p99": 11129,
+    "maxMs": 11129
+  },
+  {
+    "minute": "2026-11-22T08:41:00.000Z",
+    "workflowName": "process-order",
+    "runs": 520,
+    "p50": 606.5944444444444,
+    "p95": 1023,
+    "p99": 1240,
+    "maxMs": 1534
+  },
+  {
+    "minute": "2026-11-22T08:42:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 11300,
+    "p95": 13543,
+    "p99": 13543,
+    "maxMs": 13543
+  },
+  {
+    "minute": "2026-11-22T08:42:00.000Z",
+    "workflowName": "process-order",
+    "runs": 486,
+    "p50": 551.609375,
+    "p95": 1026,
+    "p99": 1268,
+    "maxMs": 1899
+  },
+  {
+    "minute": "2026-11-22T08:43:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 10614,
+    "p95": 11462,
+    "p99": 11462,
+    "maxMs": 11462
+  },
+  {
+    "minute": "2026-11-22T08:43:00.000Z",
+    "workflowName": "process-order",
+    "runs": 559,
+    "p50": 589,
+    "p95": 966,
+    "p99": 1050,
+    "maxMs": 1699
+  },
+  {
+    "minute": "2026-11-22T08:44:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 12,
+    "p50": 10437,
+    "p95": 11595,
+    "p99": 11595,
+    "maxMs": 11595
+  },
+  {
+    "minute": "2026-11-22T08:44:00.000Z",
+    "workflowName": "process-order",
+    "runs": 535,
+    "p50": 576.6666666666666,
+    "p95": 1009,
+    "p99": 1068,
+    "maxMs": 1145
+  },
+  {
+    "minute": "2026-11-22T08:45:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 10060,
+    "p95": 11195,
+    "p99": 11195,
+    "maxMs": 11195
+  },
+  {
+    "minute": "2026-11-22T08:45:00.000Z",
+    "workflowName": "process-order",
+    "runs": 562,
+    "p50": 548.225,
+    "p95": 959,
+    "p99": 1044,
+    "maxMs": 1108
+  },
+  {
+    "minute": "2026-11-22T08:46:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 11044,
+    "p95": 11761,
+    "p99": 11761,
+    "maxMs": 11761
+  },
+  {
+    "minute": "2026-11-22T08:46:00.000Z",
+    "workflowName": "process-order",
+    "runs": 519,
+    "p50": 588.5,
+    "p95": 1004,
+    "p99": 1098,
+    "maxMs": 1195
+  },
+  {
+    "minute": "2026-11-22T08:47:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 11388,
+    "p95": 12520,
+    "p99": 12520,
+    "maxMs": 12520
+  },
+  {
+    "minute": "2026-11-22T08:47:00.000Z",
+    "workflowName": "process-order",
+    "runs": 513,
+    "p50": 578.6666666666666,
+    "p95": 1048,
+    "p99": 1180,
+    "maxMs": 1638
+  },
+  {
+    "minute": "2026-11-22T08:48:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 12,
+    "p50": 11013,
+    "p95": 11698,
+    "p99": 11698,
+    "maxMs": 11698
+  },
+  {
+    "minute": "2026-11-22T08:48:00.000Z",
+    "workflowName": "process-order",
+    "runs": 506,
+    "p50": 593.7345679012346,
+    "p95": 961,
+    "p99": 1020,
+    "maxMs": 1114
+  },
+  {
+    "minute": "2026-11-22T08:49:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 10572,
+    "p95": 11339,
+    "p99": 11339,
+    "maxMs": 11339
+  },
+  {
+    "minute": "2026-11-22T08:49:00.000Z",
+    "workflowName": "process-order",
+    "runs": 542,
+    "p50": 631.75,
+    "p95": 1061,
+    "p99": 1148,
+    "maxMs": 1377
+  },
+  {
+    "minute": "2026-11-22T08:50:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 10693,
+    "p95": 11324,
+    "p99": 11324,
+    "maxMs": 11324
+  },
+  {
+    "minute": "2026-11-22T08:50:00.000Z",
+    "workflowName": "process-order",
+    "runs": 521,
+    "p50": 599.8,
+    "p95": 1015,
+    "p99": 1192,
+    "maxMs": 1319
+  },
+  {
+    "minute": "2026-11-22T08:51:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 10568,
+    "p95": 11289,
+    "p99": 11289,
+    "maxMs": 11289
+  },
+  {
+    "minute": "2026-11-22T08:51:00.000Z",
+    "workflowName": "process-order",
+    "runs": 537,
+    "p50": 571.6666666666666,
+    "p95": 933,
+    "p99": 1029,
+    "maxMs": 1273
+  },
+  {
+    "minute": "2026-11-22T08:52:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 12,
+    "p50": 11032,
+    "p95": 13443,
+    "p99": 13443,
+    "maxMs": 13443
+  },
+  {
+    "minute": "2026-11-22T08:52:00.000Z",
+    "workflowName": "process-order",
+    "runs": 500,
+    "p50": 616,
+    "p95": 982,
+    "p99": 1050,
+    "maxMs": 1095
+  },
+  {
+    "minute": "2026-11-22T08:53:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 11039,
+    "p95": 11496,
+    "p99": 11496,
+    "maxMs": 11496
+  },
+  {
+    "minute": "2026-11-22T08:53:00.000Z",
+    "workflowName": "process-order",
+    "runs": 519,
+    "p50": 574,
+    "p95": 983,
+    "p99": 1103,
+    "maxMs": 1126
+  },
+  {
+    "minute": "2026-11-22T08:54:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 10246,
+    "p95": 11936,
+    "p99": 11936,
+    "maxMs": 11936
+  },
+  {
+    "minute": "2026-11-22T08:54:00.000Z",
+    "workflowName": "process-order",
+    "runs": 548,
+    "p50": 607.2,
+    "p95": 1014,
+    "p99": 1137,
+    "maxMs": 1221
+  },
+  {
+    "minute": "2026-11-22T08:55:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 10,
+    "p50": 11326,
+    "p95": 11439,
+    "p99": 11439,
+    "maxMs": 11439
+  },
+  {
+    "minute": "2026-11-22T08:55:00.000Z",
+    "workflowName": "process-order",
+    "runs": 533,
+    "p50": 576.09,
+    "p95": 1010,
+    "p99": 1162,
+    "maxMs": 1240
+  },
+  {
+    "minute": "2026-11-22T08:56:00.000Z",
+    "workflowName": "orders-steady-drain",
+    "runs": 8,
+    "p50": 11405,
+    "p95": 11975,
+    "p99": 11975,
+    "maxMs": 11975
+  },
+  {
+    "minute": "2026-11-22T08:56:00.000Z",
+    "workflowName": "process-order",
+    "runs": 300,
+    "p50": 579.75,
+    "p95": 905,
+    "p99": 1008,
+    "maxMs": 1077
+  }
+]

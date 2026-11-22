@@ -1,0 +1,38 @@
+// Parameters: Export-Results.ps1 replaces the {{...}} tokens. To run this query in the
+// portal (Application Insights > Logs), replace them with literal values.
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';
+// One-row summary for the run window (entry workflow).
+let ends = traces
+| where timestamp between (startTime .. endTime)
+| where customDimensions.Category == 'Workflow.Operations.Runs' and customDimensions.EventName == 'WorkflowRunEnd'
+| extend workflowName = tostring(parse_json(tostring(customDimensions.resource)).workflowName)
+| where workflowName == workflow
+| extend status = tostring(parse_json(tostring(customDimensions.prop__properties)).status), durationMs = todouble(customDimensions.prop__durationInMilliseconds);
+let e2e = requests
+| where timestamp between (startTime .. endTime)
+| where customDimensions.Category == 'Workflow.Operations.Actions'
+| extend tp = parse_json(tostring(customDimensions.trackedProperties))
+| where isnotempty(tp.sentAtUtc)
+| where tostring(parse_json(tostring(customDimensions.resource)).workflowName) == workflow
+| summarize finishedAt = max(timestamp + totimespan(duration * 10000)), sentAt = min(todatetime(tp.sentAtUtc)) by messageId = tostring(tp.messageId)
+| extend e2eMs = datetime_diff('millisecond', finishedAt, sentAt)
+| summarize e2eP50 = percentile(e2eMs, 50), e2eP95 = percentile(e2eMs, 95), e2eP99 = percentile(e2eMs, 99), firstSent = min(sentAt), lastFinished = max(finishedAt), trackedMessages = count();
+let inst = union requests, traces
+| where timestamp between (startTime .. endTime)
+| summarize instances = dcount(cloud_RoleInstance) by bin(timestamp, 1m)
+| summarize maxInstances = max(instances);
+ends
+| summarize runsCompleted = count(), runsSucceeded = countif(status == 'Succeeded'), runsFailed = countif(status != 'Succeeded'),
+    runP50 = percentile(durationMs, 50), runP95 = percentile(durationMs, 95), runP99 = percentile(durationMs, 99),
+    firstEnd = min(timestamp), lastEnd = max(timestamp)
+| extend peakRunsPerMinute = toscalar(ends | summarize count() by bin(timestamp, 1m) | summarize max(count_))
+| extend k = 1
+| join kind=inner (e2e | extend k = 1) on k
+| join kind=inner (inst | extend k = 1) on k
+| extend drainSeconds = datetime_diff('second', lastFinished, firstSent)
+| extend avgMessagesPerSecond = round(todouble(trackedMessages) / iif(drainSeconds > 0, drainSeconds, 1), 2),
+    peakRunsPerSecond = round(peakRunsPerMinute / 60.0, 2)
+| project runsCompleted, runsSucceeded, runsFailed, trackedMessages, avgMessagesPerSecond, peakRunsPerSecond,
+    runP50, runP95, runP99, e2eP50, e2eP95, e2eP99, maxInstances, firstSent, lastFinished, drainSeconds

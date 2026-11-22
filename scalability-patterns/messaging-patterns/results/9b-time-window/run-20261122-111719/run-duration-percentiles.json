@@ -1,0 +1,101 @@
+[
+  {
+    "minute": "2026-11-22T11:18:00.000Z",
+    "workflowName": "items-time-window",
+    "runs": 1,
+    "p50": 34878,
+    "p95": 34878,
+    "p99": 34878,
+    "maxMs": 34878
+  },
+  {
+    "minute": "2026-11-22T11:19:00.000Z",
+    "workflowName": "items-time-window",
+    "runs": 1,
+    "p50": 32306,
+    "p95": 32306,
+    "p99": 32306,
+    "maxMs": 32306
+  },
+  {
+    "minute": "2026-11-22T11:20:00.000Z",
+    "workflowName": "items-time-window",
+    "runs": 1,
+    "p50": 32275,
+    "p95": 32275,
+    "p99": 32275,
+    "maxMs": 32275
+  },
+  {
+    "minute": "2026-11-22T11:23:00.000Z",
+    "workflowName": "items-time-window",
+    "runs": 1,
+    "p50": 137341,
+    "p95": 137341,
+    "p99": 137341,
+    "maxMs": 137341
+  },
+  {
+    "minute": "2026-11-22T11:27:00.000Z",
+    "workflowName": "items-time-window",
+    "runs": 1,
+    "p50": 223728,
+    "p95": 223728,
+    "p99": 223728,
+    "maxMs": 223728
+  },
+  {
+    "minute": "2026-11-22T11:31:00.000Z",
+    "workflowName": "items-time-window",
+    "runs": 1,
+    "p50": 219669,
+    "p95": 219669,
+    "p99": 219669,
+    "maxMs": 219669
+  },
+  {
+    "minute": "2026-11-22T11:35:00.000Z",
+    "workflowName": "items-time-window",
+    "runs": 1,
+    "p50": 219305,
+    "p95": 219305,
+    "p99": 219305,
+    "maxMs": 219305
+  },
+  {
+    "minute": "2026-11-22T11:38:00.000Z",
+    "workflowName": "items-time-window",
+    "runs": 1,
+    "p50": 142124,
+    "p95": 142124,
+    "p99": 142124,
+    "maxMs": 142124
+  },
+  {
+    "minute": "2026-11-22T11:39:00.000Z",
+    "workflowName": "items-time-window",
+    "runs": 1,
+    "p50": 32283,
+    "p95": 32283,
+    "p99": 32283,
+    "maxMs": 32283
+  },
+  {
+    "minute": "2026-11-22T11:40:00.000Z",
+    "workflowName": "items-time-window",
+    "runs": 1,
+    "p50": 31287,
+    "p95": 31287,
+    "p99": 31287,
+    "maxMs": 31287
+  },
+  {
+    "minute": "2026-11-22T11:41:00.000Z",
+    "workflowName": "items-time-window",
+    "runs": 1,
+    "p50": 32253,
+    "p95": 32253,
+    "p99": 32253,
+    "maxMs": 32253
+  }
+]

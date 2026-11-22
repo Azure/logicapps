@@ -1,0 +1,155 @@
+[
+  {
+    "minute": "2026-11-22T08:09:00.000Z",
+    "workflowName": "orders-premium-large",
+    "runs": 1,
+    "p50": 3929,
+    "p95": 3929,
+    "p99": 3929,
+    "maxMs": 3929
+  },
+  {
+    "minute": "2026-11-22T08:13:00.000Z",
+    "workflowName": "orders-premium-large",
+    "runs": 17,
+    "p50": 8755,
+    "p95": 34435,
+    "p99": 34435,
+    "maxMs": 34435
+  },
+  {
+    "minute": "2026-11-22T08:13:00.000Z",
+    "workflowName": "process-order",
+    "runs": 17,
+    "p50": 4600,
+    "p95": 25984,
+    "p99": 25984,
+    "maxMs": 25984
+  },
+  {
+    "minute": "2026-11-22T08:14:00.000Z",
+    "workflowName": "orders-premium-large",
+    "runs": 18,
+    "p50": 6669,
+    "p95": 11932,
+    "p99": 11932,
+    "maxMs": 11932
+  },
+  {
+    "minute": "2026-11-22T08:14:00.000Z",
+    "workflowName": "process-order",
+    "runs": 18,
+    "p50": 1894,
+    "p95": 3417,
+    "p99": 3417,
+    "maxMs": 3417
+  },
+  {
+    "minute": "2026-11-22T08:15:00.000Z",
+    "workflowName": "orders-premium-large",
+    "runs": 16,
+    "p50": 7147,
+    "p95": 11332,
+    "p99": 11332,
+    "maxMs": 11332
+  },
+  {
+    "minute": "2026-11-22T08:15:00.000Z",
+    "workflowName": "process-order",
+    "runs": 16,
+    "p50": 2174,
+    "p95": 6451,
+    "p99": 6451,
+    "maxMs": 6451
+  },
+  {
+    "minute": "2026-11-22T08:16:00.000Z",
+    "workflowName": "orders-premium-large",
+    "runs": 17,
+    "p50": 6916,
+    "p95": 8648,
+    "p99": 8648,
+    "maxMs": 8648
+  },
+  {
+    "minute": "2026-11-22T08:16:00.000Z",
+    "workflowName": "process-order",
+    "runs": 17,
+    "p50": 1748,
+    "p95": 3144,
+    "p99": 3144,
+    "maxMs": 3144
+  },
+  {
+    "minute": "2026-11-22T08:17:00.000Z",
+    "workflowName": "orders-premium-large",
+    "runs": 13,
+    "p50": 6236,
+    "p95": 7852,
+    "p99": 7852,
+    "maxMs": 7852
+  },
+  {
+    "minute": "2026-11-22T08:17:00.000Z",
+    "workflowName": "process-order",
+    "runs": 13,
+    "p50": 1144,
+    "p95": 2880,
+    "p99": 2880,
+    "maxMs": 2880
+  },
+  {
+    "minute": "2026-11-22T08:18:00.000Z",
+    "workflowName": "orders-premium-large",
+    "runs": 19,
+    "p50": 6550,
+    "p95": 12031,
+    "p99": 12031,
+    "maxMs": 12031
+  },
+  {
+    "minute": "2026-11-22T08:18:00.000Z",
+    "workflowName": "process-order",
+    "runs": 19,
+    "p50": 800,
+    "p95": 5976,
+    "p99": 5976,
+    "maxMs": 5976
+  },
+  {
+    "minute": "2026-11-22T08:19:00.000Z",
+    "workflowName": "orders-premium-large",
+    "runs": 15,
+    "p50": 5347,
+    "p95": 7778,
+    "p99": 7778,
+    "maxMs": 7778
+  },
+  {
+    "minute": "2026-11-22T08:19:00.000Z",
+    "workflowName": "process-order",
+    "runs": 15,
+    "p50": 880,
+    "p95": 1947,
+    "p99": 1947,
+    "maxMs": 1947
+  },
+  {
+    "minute": "2026-11-22T08:20:00.000Z",
+    "workflowName": "orders-premium-large",
+    "runs": 14,
+    "p50": 6353,
+    "p95": 8285,
+    "p99": 8285,
+    "maxMs": 8285
+  },
+  {
+    "minute": "2026-11-22T08:20:00.000Z",
+    "workflowName": "process-order",
+    "runs": 14,
+    "p50": 694,
+    "p95": 3952,
+    "p99": 3952,
+    "maxMs": 3952
+  }
+]

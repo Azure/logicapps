@@ -1,0 +1,5 @@
+// Parameters: replace {{startUtc}}, {{endUtc}} and {{workflowName}} (Run-Queries.ps1 in this folder does this).
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';// Receive calls and completes per minute: messages settled per second.
+requests | where timestamp between (startTime .. endTime) | where customDimensions.Category == 'Workflow.Operations.Actions' | where tostring(parse_json(tostring(customDimensions.resource)).workflowName) == workflow | extend actionName = tostring(parse_json(tostring(customDimensions.resource)).actionName) | where actionName in ('Get_messages', 'Complete_message', 'Write_window') | summarize count() by minute = bin(timestamp, 1m), actionName | evaluate pivot(actionName, sum(count_)) | extend completesPerSecond = round(todouble(column_ifexists('Complete_message', 0)) / 60.0, 2) | order by minute asc

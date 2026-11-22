@@ -1,0 +1,93 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "triggers": {
+      "When_messages_are_available_in_orders": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "queueName": "orders",
+            "isSessionsEnabled": false,
+            "maxMessageBatchSize": 10
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "serviceBus",
+            "operationId": "receiveQueueMessages",
+            "serviceProviderId": "/serviceProviders/serviceBus"
+          }
+        },
+        "splitOn": "@triggerOutputs()?['body']"
+      }
+    },
+    "actions": {
+      "Read_blob": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "containerName": "@{triggerBody()?['contentData']?['container']}",
+            "blobName": "@{triggerBody()?['contentData']?['blobName']}",
+            "inferContentType": true
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "blob",
+            "operationId": "readBlob",
+            "serviceProviderId": "/serviceProviders/AzureBlob"
+          }
+        },
+        "runAfter": {}
+      },
+      "Process_order": {
+        "type": "Workflow",
+        "inputs": {
+          "host": {
+            "workflow": {
+              "id": "process-order"
+            }
+          },
+          "body": {
+            "messageId": "@{triggerBody()?['messageId']}",
+            "pattern": "5a-claim-check",
+            "order": "@setProperty(json(string(body('Read_blob')?['content'])), 'lines', json('[]'))"
+          }
+        },
+        "trackedProperties": {
+          "messageId": "@{triggerBody()?['messageId']}",
+          "enqueuedTimeUtc": "@{triggerBody()?['enqueuedTimeUtc']}",
+          "sentAtUtc": "@{triggerBody()?['contentData']?['sentAtUtc']}",
+          "payloadKb": "@{triggerBody()?['contentData']?['payloadKb']}",
+          "pattern": "5a-claim-check"
+        },
+        "runAfter": {
+          "Read_blob": [ "Succeeded" ]
+        }
+      },
+      "Delete_blob": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "containerName": "@{triggerBody()?['contentData']?['container']}",
+            "blobName": "@{triggerBody()?['contentData']?['blobName']}"
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "blob",
+            "operationId": "deleteBlob",
+            "serviceProviderId": "/serviceProviders/AzureBlob"
+          }
+        },
+        "trackedProperties": {
+          "messageId": "@{triggerBody()?['messageId']}",
+          "enqueuedTimeUtc": "@{triggerBody()?['enqueuedTimeUtc']}",
+          "sentAtUtc": "@{triggerBody()?['contentData']?['sentAtUtc']}",
+          "payloadKb": "@{triggerBody()?['contentData']?['payloadKb']}",
+          "pattern": "5a-claim-check"
+        },
+        "runAfter": {
+          "Process_order": [ "Succeeded" ]
+        }
+      }
+    },
+    "outputs": {}
+  },
+  "kind": "Stateful"
+}

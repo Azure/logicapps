@@ -1,0 +1,10 @@
+// Parameters: replace {{startUtc}}, {{endUtc}} and {{workflowName}} (Run-Queries.ps1 in this folder does this).
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';// Per minute: host instances, runs, successful and failed upserts, and p95 e2e latency of the messages finished in that minute.
+let inst = union requests, traces | where timestamp between (startTime .. endTime) | where cloud_RoleInstance != '' | summarize instances = dcount(cloud_RoleInstance) by minute = bin(timestamp, 1m);
+let runs = traces | where timestamp between (startTime .. endTime) | where customDimensions.Category == 'Workflow.Operations.Runs' and customDimensions.EventName == 'WorkflowRunEnd' | where tostring(parse_json(tostring(customDimensions.resource)).workflowName) == workflow | summarize runs = count() by minute = bin(timestamp, 1m);
+let ups = requests | where timestamp between (startTime .. endTime) | where customDimensions.Category == 'Workflow.Operations.Actions' | where tostring(parse_json(tostring(customDimensions.resource)).workflowName) == workflow | where tostring(parse_json(tostring(customDimensions.resource)).actionName) == 'Upsert_limited' | extend tp = parse_json(tostring(customDimensions.trackedProperties)), ok = resultCode == 'Succeeded', endAt = timestamp + totimespan(duration * 10000) | extend e2eMs = iff(ok, datetime_diff('millisecond', endAt, todatetime(tp.sentAtUtc)), long(null)) | summarize upsertsOk = countif(ok), upsertsFailed = countif(not(ok)), p95E2eMs = percentile(e2eMs, 95) by minute = bin(endAt, 1m);
+inst | join kind=fullouter runs on minute | join kind=fullouter ups on minute
+| project minute = coalesce(minute, minute1, minute2), instances, runs, upsertsOk, upsertsFailed, p95E2eMs
+| order by minute asc

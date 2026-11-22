@@ -1,0 +1,8 @@
+// Parameters: replace {{startUtc}}, {{endUtc}} and {{workflowName}} (Run-Queries.ps1 in this folder does this).
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';// Successful Cosmos DB upserts: count, span and average per second over the active window, and peak minute and second.
+let ok = requests | where timestamp between (startTime .. endTime) | where customDimensions.Category == 'Workflow.Operations.Actions' | where tostring(parse_json(tostring(customDimensions.resource)).workflowName) == workflow | where tostring(parse_json(tostring(customDimensions.resource)).actionName) == 'Upsert_limited' | where resultCode == 'Succeeded' | extend endAt = timestamp + totimespan(duration * 10000);
+let perSecond = ok | summarize n = count() by s = bin(endAt, 1s) | summarize peakPerSecond = max(n), p50PerActiveSecond = percentile(n, 50);
+let perMinute = ok | summarize n = count() by m = bin(endAt, 1m) | summarize peakPerMinute = max(n);
+ok | summarize succeeded = count(), messages = dcount(tostring(parse_json(tostring(customDimensions.trackedProperties)).messageId)), firstOk = min(endAt), lastOk = max(endAt) | extend activeSeconds = datetime_diff('second', lastOk, firstOk), avgPerSecond = round(todouble(succeeded) / datetime_diff('second', lastOk, firstOk), 1) | extend k = 1 | join kind=inner (perSecond | extend k = 1) on k | join kind=inner (perMinute | extend k = 1) on k | project-away k, k1, k2

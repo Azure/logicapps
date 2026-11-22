@@ -1,0 +1,12 @@
+{
+  "messages": 500,
+  "firstSent": "2026-11-22T11:04:52.365908Z",
+  "lastSent": "2026-11-22T11:04:53.246589Z",
+  "lastFinished": "2026-11-22T11:05:41.0164162Z",
+  "p50Ms": 36951,
+  "p95Ms": 47443,
+  "maxMs": 48562,
+  "sendSeconds": 1,
+  "drainSeconds": 49,
+  "avgMessagesPerSecond": 10.2
+}

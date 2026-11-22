@@ -1,0 +1,32 @@
+// Parameters: Export-Results.ps1 replaces the {{...}} tokens. To run this query in the
+// portal (Application Insights > Logs), replace them with literal values.
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';
+// Failures per minute: failed runs, failed actions, failed trigger fires (excluding empty polls)
+// and exceptions.
+let failedRuns = traces
+| where timestamp between (startTime .. endTime)
+| where customDimensions.Category == 'Workflow.Operations.Runs' and customDimensions.EventName == 'WorkflowRunEnd'
+| extend status = tostring(parse_json(tostring(customDimensions.prop__properties)).status)
+| where status != 'Succeeded'
+| summarize failedRuns = count() by minute = bin(timestamp, 1m);
+let failedActions = requests
+| where timestamp between (startTime .. endTime)
+| where customDimensions.Category == 'Workflow.Operations.Actions' and success == false
+| summarize failedActions = count() by minute = bin(timestamp, 1m);
+let failedTriggers = requests
+| where timestamp between (startTime .. endTime)
+| where customDimensions.Category == 'Workflow.Operations.Triggers' and success == false and resultCode != '0'
+| summarize failedTriggers = count() by minute = bin(timestamp, 1m);
+let exceptionsPerMinute = exceptions
+| where timestamp between (startTime .. endTime)
+| summarize exceptions = count() by minute = bin(timestamp, 1m);
+range minute from bin(startTime, 1m) to bin(endTime, 1m) step 1m
+| join kind=leftouter failedRuns on minute
+| join kind=leftouter failedActions on minute
+| join kind=leftouter failedTriggers on minute
+| join kind=leftouter exceptionsPerMinute on minute
+| project minute, failedRuns = coalesce(failedRuns, 0), failedActions = coalesce(failedActions, 0),
+    failedTriggers = coalesce(failedTriggers, 0), exceptions = coalesce(exceptions, 0)
+| order by minute asc

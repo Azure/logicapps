@@ -1,0 +1,272 @@
+[
+  {
+    "minute": "2026-11-22T10:37:00.000Z",
+    "workflowName": "orders-group-by-key",
+    "runs": 1,
+    "p50": 122,
+    "p95": 122,
+    "p99": 122,
+    "maxMs": 122
+  },
+  {
+    "minute": "2026-11-22T10:38:00.000Z",
+    "workflowName": "orders-group-by-key",
+    "runs": 12,
+    "p50": 100,
+    "p95": 125,
+    "p99": 125,
+    "maxMs": 125
+  },
+  {
+    "minute": "2026-11-22T10:39:00.000Z",
+    "workflowName": "orders-group-by-key",
+    "runs": 11,
+    "p50": 102,
+    "p95": 108,
+    "p99": 108,
+    "maxMs": 108
+  },
+  {
+    "minute": "2026-11-22T10:40:00.000Z",
+    "workflowName": "orders-group-by-key",
+    "runs": 12,
+    "p50": 101,
+    "p95": 121,
+    "p99": 121,
+    "maxMs": 121
+  },
+  {
+    "minute": "2026-11-22T10:41:00.000Z",
+    "workflowName": "orders-group-by-key",
+    "runs": 11,
+    "p50": 102,
+    "p95": 109,
+    "p99": 109,
+    "maxMs": 109
+  },
+  {
+    "minute": "2026-11-22T10:42:00.000Z",
+    "workflowName": "orders-group-by-key",
+    "runs": 12,
+    "p50": 103,
+    "p95": 163,
+    "p99": 163,
+    "maxMs": 163
+  },
+  {
+    "minute": "2026-11-22T10:43:00.000Z",
+    "workflowName": "orders-group-by-key",
+    "runs": 11,
+    "p50": 102,
+    "p95": 109,
+    "p99": 109,
+    "maxMs": 109
+  },
+  {
+    "minute": "2026-11-22T10:44:00.000Z",
+    "workflowName": "orders-group-by-key",
+    "runs": 11,
+    "p50": 103,
+    "p95": 113,
+    "p99": 113,
+    "maxMs": 113
+  },
+  {
+    "minute": "2026-11-22T10:45:00.000Z",
+    "workflowName": "orders-group-by-key",
+    "runs": 12,
+    "p50": 102,
+    "p95": 108,
+    "p99": 108,
+    "maxMs": 108
+  },
+  {
+    "minute": "2026-11-22T10:46:00.000Z",
+    "workflowName": "orders-group-by-key",
+    "runs": 11,
+    "p50": 103,
+    "p95": 117,
+    "p99": 117,
+    "maxMs": 117
+  },
+  {
+    "minute": "2026-11-22T10:47:00.000Z",
+    "workflowName": "orders-group-by-key",
+    "runs": 12,
+    "p50": 101,
+    "p95": 110,
+    "p99": 110,
+    "maxMs": 110
+  },
+  {
+    "minute": "2026-11-22T10:48:00.000Z",
+    "workflowName": "orders-group-by-key",
+    "runs": 12,
+    "p50": 101,
+    "p95": 113,
+    "p99": 113,
+    "maxMs": 113
+  },
+  {
+    "minute": "2026-11-22T10:49:00.000Z",
+    "workflowName": "orders-group-by-key",
+    "runs": 11,
+    "p50": 102,
+    "p95": 138,
+    "p99": 138,
+    "maxMs": 138
+  },
+  {
+    "minute": "2026-11-22T10:50:00.000Z",
+    "workflowName": "orders-group-by-key",
+    "runs": 12,
+    "p50": 101,
+    "p95": 111,
+    "p99": 111,
+    "maxMs": 111
+  },
+  {
+    "minute": "2026-11-22T10:51:00.000Z",
+    "workflowName": "orders-group-by-key",
+    "runs": 11,
+    "p50": 102,
+    "p95": 214,
+    "p99": 214,
+    "maxMs": 214
+  },
+  {
+    "minute": "2026-11-22T10:52:00.000Z",
+    "workflowName": "orders-group-by-key",
+    "runs": 11,
+    "p50": 101,
+    "p95": 109,
+    "p99": 109,
+    "maxMs": 109
+  },
+  {
+    "minute": "2026-11-22T10:53:00.000Z",
+    "workflowName": "orders-group-by-key",
+    "runs": 12,
+    "p50": 103,
+    "p95": 123,
+    "p99": 123,
+    "maxMs": 123
+  },
+  {
+    "minute": "2026-11-22T10:54:00.000Z",
+    "workflowName": "orders-group-by-key",
+    "runs": 11,
+    "p50": 102,
+    "p95": 110,
+    "p99": 110,
+    "maxMs": 110
+  },
+  {
+    "minute": "2026-11-22T10:55:00.000Z",
+    "workflowName": "orders-group-by-key",
+    "runs": 12,
+    "p50": 103,
+    "p95": 112,
+    "p99": 112,
+    "maxMs": 112
+  },
+  {
+    "minute": "2026-11-22T10:56:00.000Z",
+    "workflowName": "orders-group-by-key",
+    "runs": 11,
+    "p50": 104,
+    "p95": 152,
+    "p99": 152,
+    "maxMs": 152
+  },
+  {
+    "minute": "2026-11-22T10:57:00.000Z",
+    "workflowName": "orders-group-by-key",
+    "runs": 12,
+    "p50": 100,
+    "p95": 111,
+    "p99": 111,
+    "maxMs": 111
+  },
+  {
+    "minute": "2026-11-22T10:58:00.000Z",
+    "workflowName": "orders-group-by-key",
+    "runs": 11,
+    "p50": 102,
+    "p95": 122,
+    "p99": 122,
+    "maxMs": 122
+  },
+  {
+    "minute": "2026-11-22T10:59:00.000Z",
+    "workflowName": "orders-group-by-key",
+    "runs": 12,
+    "p50": 101,
+    "p95": 106,
+    "p99": 106,
+    "maxMs": 106
+  },
+  {
+    "minute": "2026-11-22T11:00:00.000Z",
+    "workflowName": "orders-group-by-key",
+    "runs": 11,
+    "p50": 104,
+    "p95": 132,
+    "p99": 132,
+    "maxMs": 132
+  },
+  {
+    "minute": "2026-11-22T11:01:00.000Z",
+    "workflowName": "orders-group-by-key",
+    "runs": 12,
+    "p50": 101,
+    "p95": 106,
+    "p99": 106,
+    "maxMs": 106
+  },
+  {
+    "minute": "2026-11-22T11:02:00.000Z",
+    "workflowName": "orders-group-by-key",
+    "runs": 11,
+    "p50": 102,
+    "p95": 116,
+    "p99": 116,
+    "maxMs": 116
+  },
+  {
+    "minute": "2026-11-22T11:03:00.000Z",
+    "workflowName": "orders-group-by-key",
+    "runs": 12,
+    "p50": 100,
+    "p95": 109,
+    "p99": 109,
+    "maxMs": 109
+  },
+  {
+    "minute": "2026-11-22T11:04:00.000Z",
+    "workflowName": "orders-group-by-key",
+    "runs": 11,
+    "p50": 105,
+    "p95": 161,
+    "p99": 161,
+    "maxMs": 161
+  },
+  {
+    "minute": "2026-11-22T11:05:00.000Z",
+    "workflowName": "orders-group-by-key",
+    "runs": 12,
+    "p50": 102,
+    "p95": 109,
+    "p99": 109,
+    "maxMs": 109
+  },
+  {
+    "minute": "2026-11-22T11:06:00.000Z",
+    "workflowName": "orders-group-by-key",
+    "runs": 2,
+    "p50": 98,
+    "p95": 100,
+    "p99": 100,
+    "maxMs": 100
+  }
+]

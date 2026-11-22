@@ -1,0 +1,38 @@
+{
+  "pattern": "5a-claim-check",
+  "runId": "run-20261122-080927",
+  "workflowName": "orders-claim-check",
+  "windowStartUtc": "2026-11-22T08:08:27Z",
+  "windowEndUtc": "2026-11-22T08:20:33Z",
+  "targetMessagesPerSecond": 2,
+  "loadDurationMinutes": 2,
+  "loadTestStatus": "DONE",
+  "loadTestResult": "NOT_APPLICABLE",
+  "loadEntity": "orders",
+  "messagesSent": 240,
+  "messagesCompletedByBroker": 176,
+  "peakQueueBacklog": 154,
+  "deadletteredAtEnd": 0,
+  "runsCompleted": 0,
+  "runsSucceeded": 0,
+  "runsFailed": 0,
+  "avgMessagesPerSecond": 0,
+  "peakRunsPerSecond": null,
+  "runDurationMs": {
+    "p50": null,
+    "p95": null,
+    "p99": null
+  },
+  "endToEndLatencyMs": {
+    "p50": null,
+    "p95": null,
+    "p99": null
+  },
+  "maxInstances": 1,
+  "firstSentUtc": null,
+  "lastFinishedUtc": null,
+  "drainSeconds": null,
+  "failedActions": 0,
+  "exceptions": 1,
+  "portalUrl": "https://portal.azure.com/#blade/Microsoft_Azure_CloudNativeTesting/TestRunReport.ReactView//resourceId/%2fsubscriptions%2f00000000-0000-0000-0000-000000000000%2fresourcegroups%2frg-msgpat-5a-claim-check%2fproviders%2fmicrosoft.loadtestservice%2floadtests%2falt-msgpat-5aclaimche-z4hoik/testId/msgpat-5a-claim-check/testRunId/run-20261122-080927"
+}

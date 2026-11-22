@@ -1,0 +1,200 @@
+[
+  {
+    "minute": "2026-11-22T09:03:00.000Z",
+    "workflowName": "orders-spread-window-v2",
+    "runs": 132,
+    "p50": 92,
+    "p95": 211,
+    "p99": 250,
+    "maxMs": 259
+  },
+  {
+    "minute": "2026-11-22T09:03:00.000Z",
+    "workflowName": "process-order",
+    "runs": 132,
+    "p50": 46.5,
+    "p95": 148,
+    "p99": 192,
+    "maxMs": 196
+  },
+  {
+    "minute": "2026-11-22T09:04:00.000Z",
+    "workflowName": "orders-spread-window-v2",
+    "runs": 302,
+    "p50": 134.33333333333334,
+    "p95": 246,
+    "p99": 300,
+    "maxMs": 324
+  },
+  {
+    "minute": "2026-11-22T09:04:00.000Z",
+    "workflowName": "process-order",
+    "runs": 302,
+    "p50": 78,
+    "p95": 149,
+    "p99": 224,
+    "maxMs": 259
+  },
+  {
+    "minute": "2026-11-22T09:05:00.000Z",
+    "workflowName": "orders-spread-window-v2",
+    "runs": 302,
+    "p50": 131,
+    "p95": 267,
+    "p99": 360,
+    "maxMs": 400
+  },
+  {
+    "minute": "2026-11-22T09:05:00.000Z",
+    "workflowName": "process-order",
+    "runs": 302,
+    "p50": 75,
+    "p95": 163,
+    "p99": 293,
+    "maxMs": 331
+  },
+  {
+    "minute": "2026-11-22T09:06:00.000Z",
+    "workflowName": "orders-spread-window-v2",
+    "runs": 299,
+    "p50": 132,
+    "p95": 207,
+    "p99": 241,
+    "maxMs": 246
+  },
+  {
+    "minute": "2026-11-22T09:06:00.000Z",
+    "workflowName": "process-order",
+    "runs": 299,
+    "p50": 73,
+    "p95": 140,
+    "p99": 169,
+    "maxMs": 184
+  },
+  {
+    "minute": "2026-11-22T09:07:00.000Z",
+    "workflowName": "orders-spread-window-v2",
+    "runs": 301,
+    "p50": 134.66666666666666,
+    "p95": 231,
+    "p99": 487,
+    "maxMs": 687
+  },
+  {
+    "minute": "2026-11-22T09:07:00.000Z",
+    "workflowName": "process-order",
+    "runs": 302,
+    "p50": 77.5,
+    "p95": 158,
+    "p99": 401,
+    "maxMs": 441
+  },
+  {
+    "minute": "2026-11-22T09:08:00.000Z",
+    "workflowName": "orders-spread-window-v2",
+    "runs": 301,
+    "p50": 140,
+    "p95": 259,
+    "p99": 411,
+    "maxMs": 418
+  },
+  {
+    "minute": "2026-11-22T09:08:00.000Z",
+    "workflowName": "process-order",
+    "runs": 300,
+    "p50": 81,
+    "p95": 165,
+    "p99": 222,
+    "maxMs": 369
+  },
+  {
+    "minute": "2026-11-22T09:09:00.000Z",
+    "workflowName": "orders-spread-window-v2",
+    "runs": 297,
+    "p50": 126,
+    "p95": 262,
+    "p99": 309,
+    "maxMs": 319
+  },
+  {
+    "minute": "2026-11-22T09:09:00.000Z",
+    "workflowName": "process-order",
+    "runs": 297,
+    "p50": 71,
+    "p95": 176,
+    "p99": 266,
+    "maxMs": 267
+  },
+  {
+    "minute": "2026-11-22T09:10:00.000Z",
+    "workflowName": "orders-spread-window-v2",
+    "runs": 302,
+    "p50": 132.66666666666666,
+    "p95": 271,
+    "p99": 338,
+    "maxMs": 408
+  },
+  {
+    "minute": "2026-11-22T09:10:00.000Z",
+    "workflowName": "process-order",
+    "runs": 302,
+    "p50": 72,
+    "p95": 163,
+    "p99": 214,
+    "maxMs": 282
+  },
+  {
+    "minute": "2026-11-22T09:11:00.000Z",
+    "workflowName": "orders-spread-window-v2",
+    "runs": 301,
+    "p50": 128.33333333333334,
+    "p95": 243,
+    "p99": 291,
+    "maxMs": 394
+  },
+  {
+    "minute": "2026-11-22T09:11:00.000Z",
+    "workflowName": "process-order",
+    "runs": 301,
+    "p50": 73.5,
+    "p95": 162,
+    "p99": 207,
+    "maxMs": 251
+  },
+  {
+    "minute": "2026-11-22T09:12:00.000Z",
+    "workflowName": "orders-spread-window-v2",
+    "runs": 298,
+    "p50": 127,
+    "p95": 293,
+    "p99": 631,
+    "maxMs": 659
+  },
+  {
+    "minute": "2026-11-22T09:12:00.000Z",
+    "workflowName": "process-order",
+    "runs": 298,
+    "p50": 67,
+    "p95": 188,
+    "p99": 357,
+    "maxMs": 361
+  },
+  {
+    "minute": "2026-11-22T09:13:00.000Z",
+    "workflowName": "orders-spread-window-v2",
+    "runs": 265,
+    "p50": 160.5,
+    "p95": 3420,
+    "p99": 3849,
+    "maxMs": 4597
+  },
+  {
+    "minute": "2026-11-22T09:13:00.000Z",
+    "workflowName": "process-order",
+    "runs": 265,
+    "p50": 99.5,
+    "p95": 2866,
+    "p99": 3446,
+    "maxMs": 4455
+  }
+]

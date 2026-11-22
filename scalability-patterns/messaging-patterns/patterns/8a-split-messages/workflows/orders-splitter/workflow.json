@@ -1,0 +1,75 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "triggers": {
+      "When_messages_are_available_in_orders": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "queueName": "orders",
+            "isSessionsEnabled": false,
+            "maxMessageBatchSize": 10
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "serviceBus",
+            "operationId": "receiveQueueMessages",
+            "serviceProviderId": "/serviceProviders/serviceBus"
+          }
+        },
+        "splitOn": "@triggerOutputs()?['body']",
+        "runtimeConfiguration": {
+          "concurrency": {
+            "runs": 10,
+            "maximumWaitingRuns": 20
+          }
+        }
+      }
+    },
+    "actions": {
+      "Build_item_messages": {
+        "type": "Select",
+        "inputs": {
+          "from": "@coalesce(triggerBody()?['contentData']?['items'], json('[]'))",
+          "select": {
+            "contentData": "@item()",
+            "contentType": "application/json",
+            "messageId": "@{item()?['itemId']}",
+            "correlationId": "@{triggerBody()?['contentData']?['batchId']}",
+            "userProperties": {
+              "batchId": "@{triggerBody()?['contentData']?['batchId']}",
+              "batchEnqueuedTimeUtc": "@{triggerBody()?['enqueuedTimeUtc']}"
+            }
+          }
+        },
+        "runAfter": {}
+      },
+      "Send_items": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "entityName": "items",
+            "messages": "@body('Build_item_messages')"
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "serviceBus",
+            "operationId": "sendMessages",
+            "serviceProviderId": "/serviceProviders/serviceBus"
+          }
+        },
+        "trackedProperties": {
+          "messageId": "@{triggerBody()?['messageId']}",
+          "enqueuedTimeUtc": "@{triggerBody()?['enqueuedTimeUtc']}",
+          "sentAtUtc": "@{triggerBody()?['contentData']?['sentAtUtc']}",
+          "itemCount": "@{length(coalesce(triggerBody()?['contentData']?['items'], json('[]')))}",
+          "pattern": "8a-split-messages"
+        },
+        "runAfter": {
+          "Build_item_messages": [ "Succeeded" ]
+        }
+      }
+    },
+    "outputs": {}
+  },
+  "kind": "Stateful"
+}

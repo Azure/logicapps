@@ -1,0 +1,15 @@
+// Parameters: replace the {{...}} tokens with literal values to run this query in the
+// portal (Application Insights > Logs). Pattern 7 queries cover both workflows.
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+// Runs in flight per minute for each pattern 7 workflow: started minus ended, cumulative.
+traces
+| where timestamp between (startTime .. endTime)
+| where customDimensions.Category == 'Workflow.Operations.Runs'
+| extend ev = tostring(customDimensions.EventName)
+| where ev in ('WorkflowRunStart', 'WorkflowRunEnd')
+| extend workflowName = tostring(parse_json(tostring(customDimensions.resource)).workflowName)
+| where workflowName startswith 'long-running-'
+| summarize started = countif(ev == 'WorkflowRunStart'), ended = countif(ev == 'WorkflowRunEnd') by workflowName, minute = bin(timestamp, 1m)
+| order by workflowName asc, minute asc
+| extend inFlight = row_cumsum(started - ended, workflowName != prev(workflowName))

@@ -1,0 +1,79 @@
+[
+  {
+    "workflowName": "orders-claim-check",
+    "action": "Delete_blob",
+    "actionType": "ServiceProvider",
+    "apiName": "AzureBlob",
+    "count": 64,
+    "failed": 0,
+    "p50": 415.1411,
+    "p95": 29108.0914,
+    "p99": 29306.7569
+  },
+  {
+    "workflowName": "orders-claim-check",
+    "action": "Process_order",
+    "actionType": "Workflow",
+    "apiName": "",
+    "count": 59,
+    "failed": 0,
+    "p50": 8109.1266,
+    "p95": 28626.9604,
+    "p99": 29923.0275
+  },
+  {
+    "workflowName": "orders-claim-check",
+    "action": "Read_blob",
+    "actionType": "ServiceProvider",
+    "apiName": "AzureBlob",
+    "count": 82,
+    "failed": 0,
+    "p50": 4852.0367,
+    "p95": 26612.0713,
+    "p99": 30781.7431
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Transform_order",
+    "actionType": "Liquid",
+    "apiName": "",
+    "count": 148,
+    "failed": 0,
+    "p50": 482.3671,
+    "p95": 13432.9099,
+    "p99": 16252.1596
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Upsert_order",
+    "actionType": "ServiceProvider",
+    "apiName": "AzureCosmosDB",
+    "count": 62,
+    "failed": 0,
+    "p50": 2374.0414,
+    "p95": 7832.9561,
+    "p99": 7896.7176
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Enrich_order",
+    "actionType": "InvokeFunction",
+    "apiName": "",
+    "count": 86,
+    "failed": 0,
+    "p50": 1281.438,
+    "p95": 7797.9804,
+    "p99": 8910.594
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Response",
+    "actionType": "Response",
+    "apiName": "",
+    "count": 59,
+    "failed": 0,
+    "p50": 57.0046,
+    "p95": 620.6893,
+    "p99": 5338.409
+  }
+]

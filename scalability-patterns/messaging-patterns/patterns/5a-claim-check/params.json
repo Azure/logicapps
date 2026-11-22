@@ -1,0 +1,38 @@
+{
+  "$comment": "Pattern 5a-claim-check: the sender uploads a 1-5 MB JSON payload to Blob Storage and sends a small Service Bus message with the blob reference. Run setup.ps1 after every deployment. See README.md.",
+  "location": "westus3",
+  "fallbackLocation": "swedencentral",
+  "planSku": "WS1",
+  "maximumElasticWorkerCount": 20,
+  "minimumElasticInstanceCount": 2,
+  "serviceBusSku": "Standard",
+  "queues": [
+    {
+      "name": "orders",
+      "lockDuration": "PT5M",
+      "maxDeliveryCount": 10,
+      "maxSizeInMegabytes": 5120
+    }
+  ],
+  "topics": [],
+  "extraAppSettings": {},
+  "hostSettings": {},
+  "loadTest": {
+    "queueName": "orders",
+    "engineInstances": 1,
+    "users": 2,
+    "spawnRate": 2,
+    "batchSize": 1,
+    "batchesPerUserPerSecond": 1,
+    "durationMinutes": 10,
+    "env": {
+      "PAYLOAD_SIZES_KB": "1024,2560,5120",
+      "BLOB_CONTAINER": "claims",
+      "BLOB_ACCOUNT": "st5aclaimchez4hoik743m5q"
+    }
+  },
+  "drainMinutes": 10,
+  "measurement": {
+    "workflowName": "orders-claim-check"
+  }
+}

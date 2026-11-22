@@ -1,0 +1,272 @@
+[
+  {
+    "minute": "2026-11-22T12:26:00Z",
+    "highDone": null,
+    "highP50Ms": null,
+    "highP95Ms": null,
+    "highMaxMs": null,
+    "lowDone": null,
+    "instancesByApp": "{\"la-msgpat-12bperwork-2waf5d\":1}",
+    "instancesTotal": 1
+  },
+  {
+    "minute": "2026-11-22T12:27:00Z",
+    "highDone": null,
+    "highP50Ms": null,
+    "highP95Ms": null,
+    "highMaxMs": null,
+    "lowDone": null,
+    "instancesByApp": "{\"la-msgpat-12bperwork-2waf5d\":1}",
+    "instancesTotal": 1
+  },
+  {
+    "minute": "2026-11-22T12:28:00Z",
+    "highDone": null,
+    "highP50Ms": null,
+    "highP95Ms": null,
+    "highMaxMs": null,
+    "lowDone": null,
+    "instancesByApp": "{\"la-msgpat-12bperwork-2waf5d\":1}",
+    "instancesTotal": 1
+  },
+  {
+    "minute": "2026-11-22T12:29:00Z",
+    "highDone": 36,
+    "highP50Ms": 1488,
+    "highP95Ms": 2586,
+    "highMaxMs": 2663,
+    "lowDone": null,
+    "instancesByApp": "{\"la-msgpat-12bperwork-2waf5d\":1}",
+    "instancesTotal": 1
+  },
+  {
+    "minute": "2026-11-22T12:30:00Z",
+    "highDone": 120,
+    "highP50Ms": 1692,
+    "highP95Ms": 2138,
+    "highMaxMs": 2222,
+    "lowDone": null,
+    "instancesByApp": "{\"la-msgpat-12bperwork-2waf5d\":1}",
+    "instancesTotal": 1
+  },
+  {
+    "minute": "2026-11-22T12:31:00Z",
+    "highDone": 120,
+    "highP50Ms": 1685,
+    "highP95Ms": 2093,
+    "highMaxMs": 2190,
+    "lowDone": null,
+    "instancesByApp": "{\"la-msgpat-12bperwork-2waf5d\":1}",
+    "instancesTotal": 1
+  },
+  {
+    "minute": "2026-11-22T12:32:00Z",
+    "highDone": 88,
+    "highP50Ms": 1797,
+    "highP95Ms": 2158,
+    "highMaxMs": 16200,
+    "lowDone": 189,
+    "instancesByApp": "{\"la-msgpat-12bperwork-2waf5d\":1}",
+    "instancesTotal": 1
+  },
+  {
+    "minute": "2026-11-22T12:33:00Z",
+    "highDone": 42,
+    "highP50Ms": 44769,
+    "highP95Ms": 64702,
+    "highMaxMs": 73327,
+    "lowDone": 502,
+    "instancesByApp": "{\"la-msgpat-12bperwork-2waf5d\":1}",
+    "instancesTotal": 1
+  },
+  {
+    "minute": "2026-11-22T12:34:00Z",
+    "highDone": 23,
+    "highP50Ms": 87685,
+    "highP95Ms": 102480,
+    "highMaxMs": 104390,
+    "lowDone": 785,
+    "instancesByApp": "{\"la-msgpat-12bperwork-2waf5d\":1}",
+    "instancesTotal": 1
+  },
+  {
+    "minute": "2026-11-22T12:35:00Z",
+    "highDone": 64,
+    "highP50Ms": 128045,
+    "highP95Ms": 156185,
+    "highMaxMs": 157693,
+    "lowDone": 414,
+    "instancesByApp": "{\"la-msgpat-12bperwork-2waf5d\":1}",
+    "instancesTotal": 1
+  },
+  {
+    "minute": "2026-11-22T12:36:00Z",
+    "highDone": 51,
+    "highP50Ms": 133334,
+    "highP95Ms": 161985,
+    "highMaxMs": 164067,
+    "lowDone": 695,
+    "instancesByApp": "{\"la-msgpat-12bperwork-2waf5d\":1}",
+    "instancesTotal": 1
+  },
+  {
+    "minute": "2026-11-22T12:37:00Z",
+    "highDone": 47,
+    "highP50Ms": 202985,
+    "highP95Ms": 213329,
+    "highMaxMs": 213755,
+    "lowDone": 828,
+    "instancesByApp": "{\"la-msgpat-12bperwork-2waf5d\":1}",
+    "instancesTotal": 1
+  },
+  {
+    "minute": "2026-11-22T12:38:00Z",
+    "highDone": 12,
+    "highP50Ms": 223364,
+    "highP95Ms": 254678,
+    "highMaxMs": 254678,
+    "lowDone": 605,
+    "instancesByApp": "{\"la-msgpat-12bperwork-2waf5d\":1}",
+    "instancesTotal": 1
+  },
+  {
+    "minute": "2026-11-22T12:39:00Z",
+    "highDone": 11,
+    "highP50Ms": 282490,
+    "highP95Ms": 355180,
+    "highMaxMs": 355180,
+    "lowDone": 406,
+    "instancesByApp": "{\"la-msgpat-12bperwork-2waf5d\":1}",
+    "instancesTotal": 1
+  },
+  {
+    "minute": "2026-11-22T12:40:00Z",
+    "highDone": 30,
+    "highP50Ms": 318357,
+    "highP95Ms": 360967,
+    "highMaxMs": 361235,
+    "lowDone": 286,
+    "instancesByApp": "{\"la-msgpat-12bperwork-2waf5d\":1}",
+    "instancesTotal": 1
+  },
+  {
+    "minute": "2026-11-22T12:41:00Z",
+    "highDone": 1,
+    "highP50Ms": 364320,
+    "highP95Ms": 364320,
+    "highMaxMs": 364320,
+    "lowDone": 547,
+    "instancesByApp": "{\"la-msgpat-12bperwork-2waf5d\":1}",
+    "instancesTotal": 1
+  },
+  {
+    "minute": "2026-11-22T12:42:00Z",
+    "highDone": 69,
+    "highP50Ms": 435378,
+    "highP95Ms": 465986,
+    "highMaxMs": 473272,
+    "lowDone": 513,
+    "instancesByApp": "{\"la-msgpat-12bperwork-2waf5d\":1}",
+    "instancesTotal": 1
+  },
+  {
+    "minute": "2026-11-22T12:43:00Z",
+    "highDone": 37,
+    "highP50Ms": 456517,
+    "highP95Ms": 486028,
+    "highMaxMs": 487410,
+    "lowDone": 599,
+    "instancesByApp": "{\"la-msgpat-12bperwork-2waf5d\":1}",
+    "instancesTotal": 1
+  },
+  {
+    "minute": "2026-11-22T12:44:00Z",
+    "highDone": 45,
+    "highP50Ms": 495425,
+    "highP95Ms": 544494,
+    "highMaxMs": 586065,
+    "lowDone": 639,
+    "instancesByApp": "{\"la-msgpat-12bperwork-2waf5d\":1}",
+    "instancesTotal": 1
+  },
+  {
+    "minute": "2026-11-22T12:45:00Z",
+    "highDone": 13,
+    "highP50Ms": 550312,
+    "highP95Ms": 559749,
+    "highMaxMs": 559749,
+    "lowDone": 682,
+    "instancesByApp": "{\"la-msgpat-12bperwork-2waf5d\":1}",
+    "instancesTotal": 1
+  },
+  {
+    "minute": "2026-11-22T12:46:00Z",
+    "highDone": 29,
+    "highP50Ms": 563797,
+    "highP95Ms": 582152,
+    "highMaxMs": 582482,
+    "lowDone": 637,
+    "instancesByApp": "{\"la-msgpat-12bperwork-2waf5d\":1}",
+    "instancesTotal": 1
+  },
+  {
+    "minute": "2026-11-22T12:47:00Z",
+    "highDone": 78,
+    "highP50Ms": 580898,
+    "highP95Ms": 600870,
+    "highMaxMs": 604854,
+    "lowDone": 633,
+    "instancesByApp": "{\"la-msgpat-12bperwork-2waf5d\":1}",
+    "instancesTotal": 1
+  },
+  {
+    "minute": "2026-11-22T12:48:00Z",
+    "highDone": 37,
+    "highP50Ms": 660068,
+    "highP95Ms": 670321,
+    "highMaxMs": 670331,
+    "lowDone": 749,
+    "instancesByApp": "{\"la-msgpat-12bperwork-2waf5d\":1}",
+    "instancesTotal": 1
+  },
+  {
+    "minute": "2026-11-22T12:49:00Z",
+    "highDone": 87,
+    "highP50Ms": 649808,
+    "highP95Ms": 672159,
+    "highMaxMs": 675613,
+    "lowDone": 695,
+    "instancesByApp": "{\"la-msgpat-12bperwork-2waf5d\":1}",
+    "instancesTotal": 1
+  },
+  {
+    "minute": "2026-11-22T12:50:00Z",
+    "highDone": 75,
+    "highP50Ms": 656647,
+    "highP95Ms": 901750,
+    "highMaxMs": 909191,
+    "lowDone": 634,
+    "instancesByApp": "{\"la-msgpat-12bperwork-2waf5d\":1}",
+    "instancesTotal": 1
+  },
+  {
+    "minute": "2026-11-22T12:51:00Z",
+    "highDone": 71,
+    "highP50Ms": 800435,
+    "highP95Ms": 887074,
+    "highMaxMs": 935386,
+    "lowDone": 913,
+    "instancesByApp": "{\"la-msgpat-12bperwork-2waf5d\":1}",
+    "instancesTotal": 1
+  },
+  {
+    "minute": "2026-11-22T12:52:00Z",
+    "highDone": 16,
+    "highP50Ms": 744675,
+    "highP95Ms": 935328,
+    "highMaxMs": 935328,
+    "lowDone": 49,
+    "instancesByApp": "{\"la-msgpat-12bperwork-2waf5d\":1}",
+    "instancesTotal": 1
+  }
+]

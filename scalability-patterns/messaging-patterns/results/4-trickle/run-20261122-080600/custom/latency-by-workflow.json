@@ -1,0 +1,68 @@
+[
+  {
+    "workflowName": "trickle-stateful",
+    "bucket": "after-idle (>120s gap or first)",
+    "messages": 2,
+    "p50": 232,
+    "p95": 7836,
+    "maxMs": 7836,
+    "minMs": 232,
+    "enqueueP50": 233,
+    "enqueueP95": 7093
+  },
+  {
+    "workflowName": "trickle-stateful",
+    "bucket": "all",
+    "messages": 34,
+    "p50": 160,
+    "p95": 269,
+    "maxMs": 7836,
+    "minMs": 136,
+    "enqueueP50": 166,
+    "enqueueP95": 255
+  },
+  {
+    "workflowName": "trickle-stateful",
+    "bucket": "steady (<=120s gap)",
+    "messages": 32,
+    "p50": 159,
+    "p95": 195,
+    "maxMs": 269,
+    "minMs": 136,
+    "enqueueP50": 166,
+    "enqueueP95": 200
+  },
+  {
+    "workflowName": "trickle-stateless",
+    "bucket": "after-idle (>120s gap or first)",
+    "messages": 2,
+    "p50": 165,
+    "p95": 7846,
+    "maxMs": 7846,
+    "minMs": 165,
+    "enqueueP50": 159,
+    "enqueueP95": 6587
+  },
+  {
+    "workflowName": "trickle-stateless",
+    "bucket": "all",
+    "messages": 34,
+    "p50": 108,
+    "p95": 165,
+    "maxMs": 7846,
+    "minMs": 86,
+    "enqueueP50": 96,
+    "enqueueP95": 159
+  },
+  {
+    "workflowName": "trickle-stateless",
+    "bucket": "steady (<=120s gap)",
+    "messages": 32,
+    "p50": 106,
+    "p95": 126,
+    "maxMs": 129,
+    "minMs": 86,
+    "enqueueP50": 95,
+    "enqueueP95": 117
+  }
+]

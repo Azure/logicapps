@@ -1,0 +1,134 @@
+[
+  {
+    "workflowName": "process-order",
+    "action": "Upsert_order",
+    "actionType": "ServiceProvider",
+    "apiName": "AzureCosmosDB",
+    "count": 17142,
+    "failed": 0,
+    "p50": 9.722570435705586,
+    "p95": 48.018338724668,
+    "p99": 262.2319708333333
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Enrich_order",
+    "actionType": "InvokeFunction",
+    "apiName": "",
+    "count": 17142,
+    "failed": 0,
+    "p50": 3.173490317805237,
+    "p95": 45.82886975667515,
+    "p99": 243.34797
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Response",
+    "actionType": "Response",
+    "apiName": "",
+    "count": 17142,
+    "failed": 0,
+    "p50": 3.560238568984119,
+    "p95": 28.696185865800867,
+    "p99": 151.55842333333334
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Transform_order",
+    "actionType": "Liquid",
+    "apiName": "",
+    "count": 17142,
+    "failed": 0,
+    "p50": 1.9825314835796861,
+    "p95": 19.393346960355434,
+    "p99": 65.95025393518519
+  },
+  {
+    "workflowName": "rr-back",
+    "action": "Process_order",
+    "actionType": "Workflow",
+    "apiName": "",
+    "count": 17142,
+    "failed": 0,
+    "p50": 38.07524809334982,
+    "p95": 194.81050836172375,
+    "p99": 810.3769011111111
+  },
+  {
+    "workflowName": "rr-back",
+    "action": "Send_reply",
+    "actionType": "ServiceProvider",
+    "apiName": "serviceBus",
+    "count": 17142,
+    "failed": 0,
+    "p50": 16.437554626601482,
+    "p95": 77.73058174551892,
+    "p99": 324.48765
+  },
+  {
+    "workflowName": "rr-front",
+    "action": "Get_reply",
+    "actionType": "ServiceProvider",
+    "apiName": "serviceBus",
+    "count": 16989,
+    "failed": 0,
+    "p50": 201.19663405953077,
+    "p95": 4248.852603034013,
+    "p99": 17253.15655
+  },
+  {
+    "workflowName": "rr-front",
+    "action": "Complete_reply",
+    "actionType": "ServiceProvider",
+    "apiName": "serviceBus",
+    "count": 16989,
+    "failed": 0,
+    "p50": 59.81429144580655,
+    "p95": 134.20745302971483,
+    "p99": 265.31352585185186
+  },
+  {
+    "workflowName": "rr-front",
+    "action": "Send_request",
+    "actionType": "ServiceProvider",
+    "apiName": "serviceBus",
+    "count": 17142,
+    "failed": 0,
+    "p50": 19.35252329602944,
+    "p95": 72.04586143614759,
+    "p99": 266.26326666666665
+  },
+  {
+    "workflowName": "rr-front",
+    "action": "Request_id",
+    "actionType": "Compose",
+    "apiName": "",
+    "count": 17142,
+    "failed": 0,
+    "p50": 0.8844596828514748,
+    "p95": 12.808268748730283,
+    "p99": 36.979928799999996
+  },
+  {
+    "workflowName": "rr-front",
+    "action": "Response_ok",
+    "actionType": "Response",
+    "apiName": "",
+    "count": 16989,
+    "failed": 1,
+    "p50": 1.445042391064364,
+    "p95": 11.384959044595616,
+    "p99": 29.04558472222222
+  },
+  {
+    "workflowName": "rr-front",
+    "action": "Has_reply",
+    "actionType": "If",
+    "apiName": "",
+    "count": 16989,
+    "failed": 1,
+    "p50": 0.7589721585494892,
+    "p95": 10.390995520104894,
+    "p99": 25.061400000000003
+  }
+]

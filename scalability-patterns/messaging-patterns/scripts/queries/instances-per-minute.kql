@@ -1,0 +1,12 @@
+// Parameters: Export-Results.ps1 replaces the {{...}} tokens. To run this query in the
+// portal (Application Insights > Logs), replace them with literal values.
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';
+// Number of distinct Logic App host instances that sent telemetry per minute.
+// This approximates the instance count of the elastic Workflow Standard plan.
+union requests, traces
+| where timestamp between (startTime .. endTime)
+| where cloud_RoleInstance != ''
+| summarize instances = dcount(cloud_RoleInstance) by minute = bin(timestamp, 1m)
+| order by minute asc

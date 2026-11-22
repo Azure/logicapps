@@ -1,0 +1,69 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "triggers": {
+      "When_messages_are_available_in_orders": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "queueName": "orders",
+            "isSessionsEnabled": false,
+            "maxMessageBatchSize": 10
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "serviceBus",
+            "operationId": "receiveQueueMessages",
+            "serviceProviderId": "/serviceProviders/serviceBus"
+          }
+        },
+        "splitOn": "@triggerOutputs()?['body']",
+        "runtimeConfiguration": {
+          "concurrency": {
+            "runs": 10,
+            "maximumWaitingRuns": 20
+          }
+        }
+      }
+    },
+    "actions": {
+      "For_each_item": {
+        "type": "Foreach",
+        "foreach": "@coalesce(triggerBody()?['contentData']?['items'], json('[]'))",
+        "runtimeConfiguration": {
+          "concurrency": {
+            "repetitions": 20
+          }
+        },
+        "actions": {
+          "Process_order": {
+            "type": "Workflow",
+            "inputs": {
+              "host": {
+                "workflow": {
+                  "id": "process-order"
+                }
+              },
+              "body": {
+                "messageId": "@{items('For_each_item')?['itemId']}",
+                "pattern": "8b-loop-in-run",
+                "order": "@items('For_each_item')"
+              }
+            },
+            "runAfter": {},
+            "trackedProperties": {
+              "messageId": "@{items('For_each_item')?['itemId']}",
+              "enqueuedTimeUtc": "@{triggerBody()?['enqueuedTimeUtc']}",
+              "sentAtUtc": "@{items('For_each_item')?['sentAtUtc']}",
+              "batchId": "@{triggerBody()?['contentData']?['batchId']}",
+              "pattern": "8b-loop-in-run"
+            }
+          }
+        },
+        "runAfter": {}
+      }
+    },
+    "outputs": {}
+  },
+  "kind": "Stateful"
+}

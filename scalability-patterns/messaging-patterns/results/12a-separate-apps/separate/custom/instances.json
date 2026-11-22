@@ -1,0 +1,16 @@
+[
+  {
+    "app": "la-msgpat-12aseparat-ninruf-hi",
+    "minutes": 11,
+    "maxInstances": 1,
+    "avgInstances": 1,
+    "instanceMinutes": 11
+  },
+  {
+    "app": "la-msgpat-12aseparat-ninruf",
+    "minutes": 20,
+    "maxInstances": 1,
+    "avgInstances": 1,
+    "instanceMinutes": 20
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "totalCalls": 30500,
+  "meanCps": 8.66,
+  "stdevCps": 1.47,
+  "peakCps": 12,
+  "firstBucket": "2026-11-22T07:57:50Z",
+  "lastBucket": "2026-11-22T08:56:30Z"
+}

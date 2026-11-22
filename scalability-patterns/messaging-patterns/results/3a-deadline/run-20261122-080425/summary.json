@@ -1,0 +1,38 @@
+{
+  "pattern": "3a-deadline",
+  "runId": "run-20261122-080425",
+  "workflowName": "orders-deadline",
+  "windowStartUtc": "2026-11-22T08:03:25Z",
+  "windowEndUtc": "2026-11-22T08:20:29Z",
+  "targetMessagesPerSecond": 50.0,
+  "loadDurationMinutes": 1,
+  "loadTestStatus": "DONE",
+  "loadTestResult": "NOT_APPLICABLE",
+  "loadEntity": "orders",
+  "messagesSent": 3100,
+  "messagesCompletedByBroker": 3100,
+  "peakQueueBacklog": 1200,
+  "deadletteredAtEnd": 0,
+  "runsCompleted": 3100,
+  "runsSucceeded": 3100,
+  "runsFailed": 0,
+  "avgMessagesPerSecond": 9.72,
+  "peakRunsPerSecond": 10.32,
+  "runDurationMs": {
+    "p50": 65393.345703125,
+    "p95": 129103,
+    "p99": 140407
+  },
+  "endToEndLatencyMs": {
+    "p50": 140234,
+    "p95": 257072,
+    "p99": 269942
+  },
+  "maxInstances": 1,
+  "firstSentUtc": "2026-11-22T08:07:19.641Z",
+  "lastFinishedUtc": "2026-11-22T08:12:38.490Z",
+  "drainSeconds": 319,
+  "failedActions": 0,
+  "exceptions": 0,
+  "portalUrl": "https://portal.azure.com/#blade/Microsoft_Azure_CloudNativeTesting/TestRunReport.ReactView//resourceId/%2fsubscriptions%2f00000000-0000-0000-0000-000000000000%2fresourcegroups%2frg-msgpat-3a-deadline%2fproviders%2fmicrosoft.loadtestservice%2floadtests%2falt-msgpat-3adeadline-oimh3b/testId/msgpat-3a-deadline/testRunId/run-20261122-080425"
+}

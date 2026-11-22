@@ -1,0 +1,5 @@
+// Parameters: replace {{startUtc}}, {{endUtc}} and {{workflowName}} (Run-Queries.ps1 in this folder does this).
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';// Runs and arrival writes per 10 s bucket while work is flowing: mean, p90 and peak per second.
+requests | where timestamp between (startTime .. endTime) | where customDimensions.Category == 'Workflow.Operations.Actions' | where tostring(parse_json(tostring(customDimensions.resource)).workflowName) == workflow | where name endswith 'Write_arrival' or tostring(parse_json(tostring(customDimensions.resource)).actionName) == 'Write_arrival' | summarize upserts = count() by bucket = bin(timestamp, 10s) | extend perSecond = upserts / 10.0 | summarize buckets = count(), meanPerSecond = round(avg(perSecond), 2), p90PerSecond = percentile(perSecond, 90), peakPerSecond = max(perSecond)

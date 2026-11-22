@@ -1,0 +1,38 @@
+{
+  "pattern": "10b-fixed-rate",
+  "runId": "run-20261122-113943",
+  "workflowName": "orders-fixed-rate",
+  "windowStartUtc": "2026-11-22T11:39:00Z",
+  "windowEndUtc": "2026-11-22T11:55:00Z",
+  "targetMessagesPerSecond": null,
+  "loadDurationMinutes": null,
+  "loadTestStatus": null,
+  "loadTestResult": null,
+  "loadEntity": "orders",
+  "messagesSent": 1810,
+  "messagesCompletedByBroker": 1810,
+  "peakQueueBacklog": 1182,
+  "deadletteredAtEnd": 0,
+  "runsCompleted": 20,
+  "runsSucceeded": 20,
+  "runsFailed": 0,
+  "avgMessagesPerSecond": 2.96,
+  "peakRunsPerSecond": 0.03,
+  "runDurationMs": {
+    "p50": 33230,
+    "p95": 68429,
+    "p99": 77119
+  },
+  "endToEndLatencyMs": {
+    "p50": 230487,
+    "p95": 408545,
+    "p99": 431939
+  },
+  "maxInstances": 1,
+  "firstSentUtc": "2026-11-22T11:42:36.464Z",
+  "lastFinishedUtc": "2026-11-22T11:52:48.934Z",
+  "drainSeconds": 612,
+  "failedActions": 0,
+  "exceptions": 0,
+  "portalUrl": null
+}

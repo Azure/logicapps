@@ -1,0 +1,12 @@
+// Parameters: replace {{startUtc}}, {{endUtc}} and {{workflowName}} (Run-Queries.ps1 in this folder does this).
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';
+// Cosmos DB upserts (action Upsert_order in the child process-order) per 10 s bucket, as calls/s, plus overall stats.
+requests
+| where timestamp between (startTime .. endTime)
+| where customDimensions.Category == 'Workflow.Operations.Actions'
+| where tostring(customDimensions.prop__actionName) == 'Upsert_order' or name endswith 'Upsert_order'
+| summarize calls = count() by bucket = bin(timestamp, 10s)
+| extend callsPerSecond = calls / 10.0
+| summarize totalCalls = sum(calls), meanCps = round(avg(callsPerSecond), 2), stdevCps = round(stdev(callsPerSecond), 2), peakCps = max(callsPerSecond), firstBucket = min(bucket), lastBucket = max(bucket)

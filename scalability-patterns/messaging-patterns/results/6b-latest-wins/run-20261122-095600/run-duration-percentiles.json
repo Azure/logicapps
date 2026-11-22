@@ -1,0 +1,56 @@
+[
+  {
+    "minute": "2026-11-22T09:59:00.000Z",
+    "workflowName": "orders-latest-wins-fn",
+    "runs": 89,
+    "p50": 113,
+    "p95": 328,
+    "p99": 5935,
+    "maxMs": 5935
+  },
+  {
+    "minute": "2026-11-22T10:00:00.000Z",
+    "workflowName": "orders-latest-wins-fn",
+    "runs": 122,
+    "p50": 115.5,
+    "p95": 320,
+    "p99": 386,
+    "maxMs": 770
+  },
+  {
+    "minute": "2026-11-22T10:01:00.000Z",
+    "workflowName": "orders-latest-wins-fn",
+    "runs": 123,
+    "p50": 119,
+    "p95": 315,
+    "p99": 399,
+    "maxMs": 518
+  },
+  {
+    "minute": "2026-11-22T10:02:00.000Z",
+    "workflowName": "orders-latest-wins-fn",
+    "runs": 122,
+    "p50": 122,
+    "p95": 339,
+    "p99": 351,
+    "maxMs": 387
+  },
+  {
+    "minute": "2026-11-22T10:03:00.000Z",
+    "workflowName": "orders-latest-wins-fn",
+    "runs": 123,
+    "p50": 117,
+    "p95": 293,
+    "p99": 341,
+    "maxMs": 358
+  },
+  {
+    "minute": "2026-11-22T10:04:00.000Z",
+    "workflowName": "orders-latest-wins-fn",
+    "runs": 29,
+    "p50": 150,
+    "p95": 10592,
+    "p99": 12214,
+    "maxMs": 12214
+  }
+]

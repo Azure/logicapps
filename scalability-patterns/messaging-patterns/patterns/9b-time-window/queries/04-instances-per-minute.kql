@@ -1,0 +1,5 @@
+// Parameters: replace {{startUtc}}, {{endUtc}} and {{workflowName}} (Run-Queries.ps1 in this folder does this).
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';// Per minute: host instances.
+union requests, traces | where timestamp between (startTime .. endTime) | where cloud_RoleInstance != '' | summarize instances = dcount(cloud_RoleInstance) by minute = bin(timestamp, 1m) | order by minute asc

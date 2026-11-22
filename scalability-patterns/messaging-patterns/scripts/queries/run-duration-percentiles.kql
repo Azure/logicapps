@@ -1,0 +1,16 @@
+// Parameters: Export-Results.ps1 replaces the {{...}} tokens. To run this query in the
+// portal (Application Insights > Logs), replace them with literal values.
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';
+// Run duration (run start to run end, in ms) per minute for every workflow in the app.
+// The entry workflow's duration excludes queue wait time; see end-to-end-latency.kql.
+traces
+| where timestamp between (startTime .. endTime)
+| where customDimensions.Category == 'Workflow.Operations.Runs'
+| where customDimensions.EventName == 'WorkflowRunEnd'
+| extend workflowName = tostring(parse_json(tostring(customDimensions.resource)).workflowName)
+| extend durationMs = todouble(customDimensions.prop__durationInMilliseconds)
+| summarize runs = count(), p50 = percentile(durationMs, 50), p95 = percentile(durationMs, 95), p99 = percentile(durationMs, 99), maxMs = max(durationMs)
+    by minute = bin(timestamp, 1m), workflowName
+| order by minute asc, workflowName asc

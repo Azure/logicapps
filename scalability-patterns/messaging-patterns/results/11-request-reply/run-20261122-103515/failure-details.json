@@ -1,0 +1,32 @@
+[
+  {
+    "source": "exception",
+    "name": "Workflow.Operations.Actions",
+    "detail": "The execution of template action 'Response_ok' is failed: the client application timed out waiting for a response from service. This means that workflow took longer to respond than the alloted timeout",
+    "count": 1
+  },
+  {
+    "source": "exception",
+    "name": "Workflow.Operations.Actions",
+    "detail": "An action failed. No dependent actions succeeded.",
+    "count": 1
+  },
+  {
+    "source": "action",
+    "name": "Response_ok",
+    "detail": "Failed",
+    "count": 1
+  },
+  {
+    "source": "action",
+    "name": "Has_reply",
+    "detail": "Failed",
+    "count": 1
+  },
+  {
+    "source": "run",
+    "name": "rr-front",
+    "detail": "{\"code\":\"ActionFailed\",\"message\":\"An action failed. No dependent actions succeeded.\"}",
+    "count": 1
+  }
+]

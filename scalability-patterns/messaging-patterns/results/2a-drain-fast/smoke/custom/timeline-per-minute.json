@@ -1,0 +1,20 @@
+[
+  {
+    "minute": "2026-11-22T07:48:00Z",
+    "instances": 1,
+    "runs": null,
+    "upserts": null
+  },
+  {
+    "minute": "2026-11-22T07:49:00Z",
+    "instances": 1,
+    "runs": null,
+    "upserts": null
+  },
+  {
+    "minute": "2026-11-22T07:50:00Z",
+    "instances": 1,
+    "runs": 120,
+    "upserts": 120
+  }
+]

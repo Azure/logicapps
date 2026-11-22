@@ -1,0 +1,11 @@
+// Parameters: replace {{startUtc}}, {{endUtc}} and {{workflowName}} (Run-Queries.ps1 in this folder does this).
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';
+// Per minute: entry runs, arrival writes and host instances, for a side-by-side timeline.
+let runs = traces | where timestamp between (startTime .. endTime) | where customDimensions.Category == 'Workflow.Operations.Runs' and customDimensions.EventName == 'WorkflowRunEnd' | where tostring(parse_json(tostring(customDimensions.resource)).workflowName) == workflow | summarize runs = count() by minute = bin(timestamp, 1m);
+let ups = requests | where timestamp between (startTime .. endTime) | where customDimensions.Category == 'Workflow.Operations.Actions' | where tostring(customDimensions.prop__actionName) == 'Write_arrival' or name endswith 'Write_arrival' | summarize upserts = count() by minute = bin(timestamp, 1m);
+let inst = union requests, traces | where timestamp between (startTime .. endTime) | where cloud_RoleInstance != '' | summarize instances = dcount(cloud_RoleInstance) by minute = bin(timestamp, 1m);
+inst | join kind=fullouter runs on minute | join kind=fullouter ups on minute
+| project minute = coalesce(minute, minute1, minute2), instances, runs, upserts
+| order by minute asc

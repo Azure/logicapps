@@ -1,0 +1,8 @@
+// Exceptions and error traces that mention size or memory limits.
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+union exceptions, traces
+| where timestamp between (startTime .. endTime)
+| where severityLevel >= 3 or itemType == 'exception'
+| extend text = strcat(tostring(type), ' ', tostring(outerMessage), ' ', message)
+| summarize n = count(), sample = take_any(substring(text, 0, 200)) by sizeOrMemory = text has_any ('SizeExceeded', 'OutOfMemory', 'too large', 'MessageSizeExceeded', 'QuotaExceeded', 'JobSizeExceeded'), itemType

@@ -1,0 +1,254 @@
+[
+  {
+    "bucket": "2026-11-22T10:36:30Z",
+    "itemCalls": 43,
+    "itemFailures": 0,
+    "upserts": 43,
+    "itemsPerSecond": 4.3
+  },
+  {
+    "bucket": "2026-11-22T10:36:50Z",
+    "itemCalls": 4,
+    "itemFailures": 3,
+    "upserts": 1,
+    "itemsPerSecond": 0.4
+  },
+  {
+    "bucket": "2026-11-22T10:37:00Z",
+    "itemCalls": 57,
+    "itemFailures": 0,
+    "upserts": 60,
+    "itemsPerSecond": 5.7
+  },
+  {
+    "bucket": "2026-11-22T10:37:10Z",
+    "itemCalls": 72,
+    "itemFailures": 0,
+    "upserts": 69,
+    "itemsPerSecond": 7.2
+  },
+  {
+    "bucket": "2026-11-22T10:37:20Z",
+    "itemCalls": 160,
+    "itemFailures": 0,
+    "upserts": 160,
+    "itemsPerSecond": 16
+  },
+  {
+    "bucket": "2026-11-22T10:37:30Z",
+    "itemCalls": 89,
+    "itemFailures": 4,
+    "upserts": 92,
+    "itemsPerSecond": 8.9
+  },
+  {
+    "bucket": "2026-11-22T10:37:40Z",
+    "itemCalls": 81,
+    "itemFailures": 6,
+    "upserts": 69,
+    "itemsPerSecond": 8.1
+  },
+  {
+    "bucket": "2026-11-22T10:37:50Z",
+    "itemCalls": 97,
+    "itemFailures": 8,
+    "upserts": 88,
+    "itemsPerSecond": 9.7
+  },
+  {
+    "bucket": "2026-11-22T10:38:00Z",
+    "itemCalls": 89,
+    "itemFailures": 7,
+    "upserts": 91,
+    "itemsPerSecond": 8.9
+  },
+  {
+    "bucket": "2026-11-22T10:38:10Z",
+    "itemCalls": 74,
+    "itemFailures": 3,
+    "upserts": 62,
+    "itemsPerSecond": 7.4
+  },
+  {
+    "bucket": "2026-11-22T10:38:20Z",
+    "itemCalls": 138,
+    "itemFailures": 2,
+    "upserts": 136,
+    "itemsPerSecond": 13.8
+  },
+  {
+    "bucket": "2026-11-22T10:38:30Z",
+    "itemCalls": 62,
+    "itemFailures": 2,
+    "upserts": 83,
+    "itemsPerSecond": 6.2
+  },
+  {
+    "bucket": "2026-11-22T10:38:40Z",
+    "itemCalls": 104,
+    "itemFailures": 2,
+    "upserts": 91,
+    "itemsPerSecond": 10.4
+  },
+  {
+    "bucket": "2026-11-22T10:38:50Z",
+    "itemCalls": 75,
+    "itemFailures": 1,
+    "upserts": 63,
+    "itemsPerSecond": 7.5
+  },
+  {
+    "bucket": "2026-11-22T10:39:00Z",
+    "itemCalls": 122,
+    "itemFailures": 2,
+    "upserts": 119,
+    "itemsPerSecond": 12.2
+  },
+  {
+    "bucket": "2026-11-22T10:39:10Z",
+    "itemCalls": 88,
+    "itemFailures": 3,
+    "upserts": 85,
+    "itemsPerSecond": 8.8
+  },
+  {
+    "bucket": "2026-11-22T10:39:20Z",
+    "itemCalls": 88,
+    "itemFailures": 6,
+    "upserts": 82,
+    "itemsPerSecond": 8.8
+  },
+  {
+    "bucket": "2026-11-22T10:39:30Z",
+    "itemCalls": 110,
+    "itemFailures": 2,
+    "upserts": 108,
+    "itemsPerSecond": 11
+  },
+  {
+    "bucket": "2026-11-22T10:39:40Z",
+    "itemCalls": 78,
+    "itemFailures": 4,
+    "upserts": 74,
+    "itemsPerSecond": 7.8
+  },
+  {
+    "bucket": "2026-11-22T10:39:50Z",
+    "itemCalls": 88,
+    "itemFailures": 3,
+    "upserts": 85,
+    "itemsPerSecond": 8.8
+  },
+  {
+    "bucket": "2026-11-22T10:40:00Z",
+    "itemCalls": 92,
+    "itemFailures": 3,
+    "upserts": 94,
+    "itemsPerSecond": 9.2
+  },
+  {
+    "bucket": "2026-11-22T10:40:10Z",
+    "itemCalls": 101,
+    "itemFailures": 5,
+    "upserts": 91,
+    "itemsPerSecond": 10.1
+  },
+  {
+    "bucket": "2026-11-22T10:40:20Z",
+    "itemCalls": 82,
+    "itemFailures": 3,
+    "upserts": 102,
+    "itemsPerSecond": 8.2
+  },
+  {
+    "bucket": "2026-11-22T10:40:30Z",
+    "itemCalls": 85,
+    "itemFailures": 3,
+    "upserts": 60,
+    "itemsPerSecond": 8.5
+  },
+  {
+    "bucket": "2026-11-22T10:40:40Z",
+    "itemCalls": 119,
+    "itemFailures": 5,
+    "upserts": 128,
+    "itemsPerSecond": 11.9
+  },
+  {
+    "bucket": "2026-11-22T10:40:50Z",
+    "itemCalls": 85,
+    "itemFailures": 6,
+    "upserts": 64,
+    "itemsPerSecond": 8.5
+  },
+  {
+    "bucket": "2026-11-22T10:41:00Z",
+    "itemCalls": 86,
+    "itemFailures": 5,
+    "upserts": 81,
+    "itemsPerSecond": 8.6
+  },
+  {
+    "bucket": "2026-11-22T10:41:10Z",
+    "itemCalls": 86,
+    "itemFailures": 1,
+    "upserts": 90,
+    "itemsPerSecond": 8.6
+  },
+  {
+    "bucket": "2026-11-22T10:41:20Z",
+    "itemCalls": 111,
+    "itemFailures": 8,
+    "upserts": 98,
+    "itemsPerSecond": 11.1
+  },
+  {
+    "bucket": "2026-11-22T10:41:30Z",
+    "itemCalls": 104,
+    "itemFailures": 5,
+    "upserts": 99,
+    "itemsPerSecond": 10.4
+  },
+  {
+    "bucket": "2026-11-22T10:41:40Z",
+    "itemCalls": 90,
+    "itemFailures": 2,
+    "upserts": 88,
+    "itemsPerSecond": 9
+  },
+  {
+    "bucket": "2026-11-22T10:41:50Z",
+    "itemCalls": 62,
+    "itemFailures": 2,
+    "upserts": 65,
+    "itemsPerSecond": 6.2
+  },
+  {
+    "bucket": "2026-11-22T10:42:00Z",
+    "itemCalls": 96,
+    "itemFailures": 3,
+    "upserts": 119,
+    "itemsPerSecond": 9.6
+  },
+  {
+    "bucket": "2026-11-22T10:42:10Z",
+    "itemCalls": 112,
+    "itemFailures": 3,
+    "upserts": 83,
+    "itemsPerSecond": 11.2
+  },
+  {
+    "bucket": "2026-11-22T10:42:20Z",
+    "itemCalls": 15,
+    "itemFailures": 7,
+    "upserts": 3,
+    "itemsPerSecond": 1.5
+  },
+  {
+    "bucket": "2026-11-22T10:42:30Z",
+    "itemCalls": 5,
+    "itemFailures": 2,
+    "upserts": 3,
+    "itemsPerSecond": 0.5
+  }
+]

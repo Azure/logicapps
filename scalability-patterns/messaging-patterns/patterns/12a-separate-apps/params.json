@@ -1,0 +1,55 @@
+{
+  "$comment": "Pattern 12a: urgent and bulk workflows in two Logic Apps on two plans. Deploy-Pattern.ps1 deploys the bulk app (workflows\\). setup.ps1 deploys the urgent app (app-high\\) on its own plan. See README.md.",
+  "location": "westus3",
+  "fallbackLocation": "swedencentral",
+  "planSku": "WS1",
+  "maximumElasticWorkerCount": 10,
+  "minimumElasticInstanceCount": 1,
+  "serviceBusSku": "Standard",
+  "queues": [
+    {
+      "name": "orders-high",
+      "lockDuration": "PT5M",
+      "maxDeliveryCount": 10,
+      "maxSizeInMegabytes": 5120
+    },
+    {
+      "name": "orders-low",
+      "lockDuration": "PT5M",
+      "maxDeliveryCount": 10,
+      "maxSizeInMegabytes": 5120
+    }
+  ],
+  "topics": [],
+  "extraAppSettings": {},
+  "hostSettings": {},
+  "highApp": {
+    "$comment": "Urgent app deployed by setup.ps1: own plan, same storage, identity, Service Bus, Cosmos and App Insights.",
+    "planSku": "WS1",
+    "maximumElasticWorkerCount": 5,
+    "minimumElasticInstanceCount": 1
+  },
+  "loadTest": {
+    "queueName": "orders-high",
+    "engineInstances": 1,
+    "users": 6,
+    "spawnRate": 6,
+    "batchSize": 2,
+    "batchesPerUserPerSecond": 1,
+    "durationMinutes": 10,
+    "env": {
+      "SB_QUEUE_LOW": "orders-low",
+      "HIGH_USERS": "1",
+      "LOW_USERS": "5",
+      "LOW_BATCH_SIZE": "50",
+      "BURST_START_SEC": "180",
+      "BURST_MESSAGES": "12000",
+      "SMOKE_BURST_MESSAGES": "500"
+    }
+  },
+  "drainMinutes": 5,
+  "measurement": {
+    "workflowName": "orders-high",
+    "lowWorkflowName": "orders-low"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "pattern": "4-trickle",
+  "runId": "run-20261122-080600",
+  "workflowName": "trickle-stateful",
+  "windowStartUtc": "2026-11-22T08:05:00Z",
+  "windowEndUtc": "2026-11-22T08:29:20Z",
+  "targetMessagesPerSecond": 1,
+  "loadDurationMinutes": 15,
+  "loadTestStatus": "DONE",
+  "loadTestResult": "NOT_APPLICABLE",
+  "loadEntity": "trickle-stateful",
+  "messagesSent": 34,
+  "messagesCompletedByBroker": 34,
+  "peakQueueBacklog": 0,
+  "deadletteredAtEnd": 0,
+  "runsCompleted": 34,
+  "runsSucceeded": 34,
+  "runsFailed": 0,
+  "avgMessagesPerSecond": 0.04,
+  "peakRunsPerSecond": 0.1,
+  "runDurationMs": {
+    "p50": 78,
+    "p95": 131,
+    "p99": 5635
+  },
+  "endToEndLatencyMs": {
+    "p50": 160,
+    "p95": 269,
+    "p99": 7836
+  },
+  "maxInstances": 1,
+  "firstSentUtc": "2026-11-22T08:08:53.401Z",
+  "lastFinishedUtc": "2026-11-22T08:23:49.554Z",
+  "drainSeconds": 896,
+  "failedActions": 0,
+  "exceptions": 0,
+  "portalUrl": "https://portal.azure.com/#blade/Microsoft_Azure_CloudNativeTesting/TestRunReport.ReactView//resourceId/%2fsubscriptions%2f00000000-0000-0000-0000-000000000000%2fresourcegroups%2frg-msgpat-4-trickle%2fproviders%2fmicrosoft.loadtestservice%2floadtests%2falt-msgpat-4trickle-a6xcrg/testId/msgpat-4-trickle/testRunId/run-20261122-080600"
+}

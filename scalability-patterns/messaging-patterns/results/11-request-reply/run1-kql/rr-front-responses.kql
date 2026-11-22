@@ -1,0 +1,3 @@
+// Replace startTime and endTime with your run window (UTC) before you run this in Application Insights > Logs.
+// Which response the front workflow sent each minute: Response_ok (200), Response_no_reply (504) or Response_failed (502).
+let startTime = datetime(2026-01-01T00:00:00Z); let endTime = datetime(2026-01-01T01:00:00Z); requests | where timestamp between (startTime .. endTime) | where customDimensions.Category == 'Workflow.Operations.Actions' | extend workflowName = tostring(parse_json(tostring(customDimensions.resource)).workflowName) | where workflowName == 'rr-front' and name startswith 'Response' | summarize count() by minute = bin(timestamp, 1m), name | order by minute asc

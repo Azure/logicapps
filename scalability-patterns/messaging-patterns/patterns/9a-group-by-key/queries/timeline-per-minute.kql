@@ -1,0 +1,13 @@
+// Parameters: replace {{startUtc}}, {{endUtc}} and {{workflowName}} (Run-Queries.ps1 in this folder does this).
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';
+// Per minute: entry runs, Cosmos writes and host instances, for a side-by-side timeline.
+let runs = traces | where timestamp between (startTime .. endTime) | where customDimensions.Category == 'Workflow.Operations.Runs' and customDimensions.EventName == 'WorkflowRunEnd' | where tostring(parse_json(tostring(customDimensions.resource)).workflowName) == workflow | summarize runs = count() by minute = bin(timestamp, 1m);
+let wr = requests | where timestamp between (startTime .. endTime) | where customDimensions.Category == 'Workflow.Operations.Actions' | where tostring(customDimensions.prop__actionName) == 'Write_part' or name endswith 'Write_part' | summarize writes = count() by minute = bin(timestamp, 1m);
+let inst = union requests, traces | where timestamp between (startTime .. endTime) | where cloud_RoleInstance != '' | summarize instances = dcount(cloud_RoleInstance) by minute = bin(timestamp, 1m);
+inst | join kind=fullouter runs on minute | join kind=fullouter wr on minute
+| project minute = coalesce(minute, minute1, minute2), instances, runs, writes
+| order by minute asc
+
+

@@ -1,0 +1,45 @@
+{
+  "$comment": "Pattern 11 request-reply over Service Bus. See README.md.",
+  "location": "westus3",
+  "fallbackLocation": "swedencentral",
+  "planSku": "WS1",
+  "maximumElasticWorkerCount": 20,
+  "minimumElasticInstanceCount": 2,
+  "serviceBusSku": "Standard",
+  "queues": [
+    {
+      "name": "requests",
+      "lockDuration": "PT5M",
+      "maxDeliveryCount": 10,
+      "maxSizeInMegabytes": 1024
+    },
+    {
+      "name": "replies",
+      "requiresSession": true,
+      "lockDuration": "PT1M",
+      "maxDeliveryCount": 5,
+      "maxSizeInMegabytes": 1024
+    }
+  ],
+  "topics": [],
+  "extraAppSettings": {},
+  "hostSettings": {},
+  "measurement": {
+    "workflowName": "rr-front"
+  },
+  "loadTest": {
+    "queueName": "requests",
+    "engineInstances": 1,
+    "users": 200,
+    "spawnRate": 10,
+    "batchSize": 1,
+    "batchesPerUserPerSecond": 1,
+    "durationMinutes": 14,
+    "env": {
+      "CALLBACK_URL": "<set by Invoke-LoadTest from listCallbackUrl; do not commit>",
+      "STAGES": "5:120,10:120,20:120,40:120,60:120,80:120,120:120"
+    }
+  },
+  "drainMinutes": 5
+}
+

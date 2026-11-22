@@ -1,0 +1,10 @@
+{
+  "messages": 1810,
+  "messagesWithRedelivery": 0,
+  "messagesWithActionRetry": 18,
+  "avgExecutions": 1,
+  "maxExecutions": 1,
+  "avgActionRetries": 0.01,
+  "maxActionRetries": 1,
+  "neverSucceeded": 0
+}

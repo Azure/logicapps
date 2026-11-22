@@ -1,0 +1,65 @@
+[
+  {
+    "minute": "2026-11-22T07:55:00.000Z",
+    "workflowName": "orders-claim-check",
+    "runs": 32,
+    "p50": 6369,
+    "p95": 10805,
+    "p99": 13229,
+    "maxMs": 13229
+  },
+  {
+    "minute": "2026-11-22T07:56:00.000Z",
+    "workflowName": "orders-claim-check",
+    "runs": 58,
+    "p50": 11963,
+    "p95": 21817,
+    "p99": 27731,
+    "maxMs": 27731
+  },
+  {
+    "minute": "2026-11-22T07:57:00.000Z",
+    "workflowName": "orders-claim-check",
+    "runs": 1,
+    "p50": 33243,
+    "p95": 33243,
+    "p99": 33243,
+    "maxMs": 33243
+  },
+  {
+    "minute": "2026-11-22T07:58:00.000Z",
+    "workflowName": "orders-claim-check",
+    "runs": 1,
+    "p50": 4819,
+    "p95": 4819,
+    "p99": 4819,
+    "maxMs": 4819
+  },
+  {
+    "minute": "2026-11-22T08:00:00.000Z",
+    "workflowName": "orders-claim-check",
+    "runs": 24,
+    "p50": 263008,
+    "p95": 279727,
+    "p99": 281685,
+    "maxMs": 281685
+  },
+  {
+    "minute": "2026-11-22T08:01:00.000Z",
+    "workflowName": "orders-claim-check",
+    "runs": 56,
+    "p50": 267290,
+    "p95": 296142,
+    "p99": 300321,
+    "maxMs": 300321
+  },
+  {
+    "minute": "2026-11-22T08:02:00.000Z",
+    "workflowName": "orders-claim-check",
+    "runs": 65,
+    "p50": 274700,
+    "p95": 302591,
+    "p99": 304602,
+    "maxMs": 304602
+  }
+]

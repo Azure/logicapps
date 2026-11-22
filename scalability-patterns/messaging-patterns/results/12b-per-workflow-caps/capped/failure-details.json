@@ -1,0 +1,14 @@
+[
+  {
+    "source": "exception",
+    "name": "ScaleControllerLogs",
+    "detail": "Failed to initialize scale monitoring for 'orders-high' function.",
+    "count": 1
+  },
+  {
+    "source": "exception",
+    "name": "ScaleControllerLogs",
+    "detail": "Failed to initialize scale monitoring for 'orders-low' function.",
+    "count": 1
+  }
+]

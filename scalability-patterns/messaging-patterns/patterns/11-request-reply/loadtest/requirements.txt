@@ -1,0 +1,2 @@
+# The HTTP test only needs requests, which ships with Locust.
+

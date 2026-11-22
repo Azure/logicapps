@@ -1,0 +1,38 @@
+{
+  "pattern": "6b-latest-wins",
+  "runId": "run-20261122-091756",
+  "workflowName": "orders-latest-wins-fn",
+  "windowStartUtc": "2026-11-22T09:17:56Z",
+  "windowEndUtc": "2026-11-22T09:50:00Z",
+  "targetMessagesPerSecond": 100.0,
+  "loadDurationMinutes": 5,
+  "loadTestStatus": "DONE",
+  "loadTestResult": "NOT_APPLICABLE",
+  "loadEntity": "orders",
+  "messagesSent": 30010,
+  "messagesCompletedByBroker": 9820,
+  "peakQueueBacklog": 27840,
+  "deadletteredAtEnd": 0,
+  "runsCompleted": 198,
+  "runsSucceeded": 198,
+  "runsFailed": 0,
+  "avgMessagesPerSecond": 0,
+  "peakRunsPerSecond": 0.15,
+  "runDurationMs": {
+    "p50": 6675,
+    "p95": 7460,
+    "p99": 7958
+  },
+  "endToEndLatencyMs": {
+    "p50": null,
+    "p95": null,
+    "p99": null
+  },
+  "maxInstances": 1,
+  "firstSentUtc": null,
+  "lastFinishedUtc": null,
+  "drainSeconds": null,
+  "failedActions": 270,
+  "exceptions": 270,
+  "portalUrl": "https://portal.azure.com/#blade/Microsoft_Azure_CloudNativeTesting/TestRunReport.ReactView//resourceId/%2fsubscriptions%2f00000000-0000-0000-0000-000000000000%2fresourcegroups%2frg-msgpat-6b-latest-wins%2fproviders%2fmicrosoft.loadtestservice%2floadtests%2falt-msgpat-6blatestwi-4iqdng/testId/msgpat-6b-latest-wins/testRunId/run-20261122-091756"
+}

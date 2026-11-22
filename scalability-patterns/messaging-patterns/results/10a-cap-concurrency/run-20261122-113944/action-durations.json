@@ -1,0 +1,13 @@
+[
+  {
+    "workflowName": "orders-cap-concurrency",
+    "action": "Upsert_limited",
+    "actionType": "ServiceProvider",
+    "apiName": "AzureCosmosDB",
+    "count": 1810,
+    "failed": 0,
+    "p50": 347.9430494841207,
+    "p95": 1526.9133000000002,
+    "p99": 3228.59
+  }
+]

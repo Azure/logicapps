@@ -1,0 +1,8 @@
+// Action duration percentiles per workflow and action, including the child workflow.
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+requests
+| where timestamp between (startTime .. endTime)
+| where customDimensions.Category == 'Workflow.Operations.Actions'
+| extend wf = tostring(parse_json(tostring(customDimensions.resource)).workflowName), action = tostring(parse_json(tostring(customDimensions.resource)).actionName)
+| summarize n = count(), failed = countif(success == false), p50 = percentile(duration, 50), p95 = percentile(duration, 95) by wf, action

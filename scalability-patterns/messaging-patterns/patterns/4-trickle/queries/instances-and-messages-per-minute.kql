@@ -1,0 +1,14 @@
+// Workflow host instances (distinct cloud_RoleInstance across all telemetry) and processed messages per minute.
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let inst = union requests, traces
+| where timestamp between (startTime .. endTime)
+| summarize instances = dcount(cloud_RoleInstance) by minute = bin(timestamp, 1m);
+let msgs = requests
+| where timestamp between (startTime .. endTime)
+| where customDimensions.Category == 'Workflow.Operations.Actions' and isnotempty(parse_json(tostring(customDimensions.trackedProperties)).sentAtUtc)
+| summarize messages = count() by minute = bin(timestamp, 1m);
+inst
+| join kind=leftouter msgs on minute
+| project minute, instances, messages = coalesce(messages, 0)
+| order by minute asc

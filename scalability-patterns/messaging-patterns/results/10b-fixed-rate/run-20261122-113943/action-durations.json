@@ -1,0 +1,46 @@
+[
+  {
+    "workflowName": "orders-fixed-rate",
+    "action": "Get_messages",
+    "actionType": "ServiceProvider",
+    "apiName": "serviceBus",
+    "count": 20,
+    "failed": 0,
+    "p50": 119.6917,
+    "p95": 30011.4163,
+    "p99": 30012.4625
+  },
+  {
+    "workflowName": "orders-fixed-rate",
+    "action": "Upsert_limited",
+    "actionType": "ServiceProvider",
+    "apiName": "AzureCosmosDB",
+    "count": 1810,
+    "failed": 0,
+    "p50": 1276.5983866883118,
+    "p95": 27157.6887,
+    "p99": 48297.637
+  },
+  {
+    "workflowName": "orders-fixed-rate",
+    "action": "Complete_message",
+    "actionType": "ServiceProvider",
+    "apiName": "serviceBus",
+    "count": 1810,
+    "failed": 0,
+    "p50": 61.377256038868545,
+    "p95": 136.2162,
+    "p99": 224.6918
+  },
+  {
+    "workflowName": "orders-fixed-rate",
+    "action": "For_each_message",
+    "actionType": "Foreach",
+    "apiName": "",
+    "count": 20,
+    "failed": 0,
+    "p50": 7.3472,
+    "p95": 8.3674,
+    "p99": 10.1014
+  }
+]

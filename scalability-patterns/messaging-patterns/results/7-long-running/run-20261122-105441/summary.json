@@ -1,0 +1,38 @@
+{
+  "pattern": "7-long-running",
+  "runId": "run-20261122-105441",
+  "workflowName": "long-running-settle-early",
+  "windowStartUtc": "2026-11-22T10:53:41Z",
+  "windowEndUtc": "2026-11-22T11:13:36Z",
+  "targetMessagesPerSecond": 2,
+  "loadDurationMinutes": 5,
+  "loadTestStatus": "DONE",
+  "loadTestResult": "NOT_APPLICABLE",
+  "loadEntity": "orders-early",
+  "messagesSent": 602,
+  "messagesCompletedByBroker": 602,
+  "peakQueueBacklog": 0,
+  "deadletteredAtEnd": 0,
+  "runsCompleted": 602,
+  "runsSucceeded": 602,
+  "runsFailed": 0,
+  "avgMessagesPerSecond": 1.25,
+  "peakRunsPerSecond": 2,
+  "runDurationMs": {
+    "p50": 181862.5,
+    "p95": 181968,
+    "p99": 182032
+  },
+  "endToEndLatencyMs": {
+    "p50": 182464,
+    "p95": 182958,
+    "p99": 183061
+  },
+  "maxInstances": 2,
+  "firstSentUtc": "2026-11-22T10:57:39.072Z",
+  "lastFinishedUtc": "2026-11-22T11:05:40.619Z",
+  "drainSeconds": 481,
+  "failedActions": 0,
+  "exceptions": 0,
+  "portalUrl": "https://portal.azure.com/#blade/Microsoft_Azure_CloudNativeTesting/TestRunReport.ReactView//resourceId/%2fsubscriptions%2f00000000-0000-0000-0000-000000000000%2fresourcegroups%2frg-msgpat-7-long-running%2fproviders%2fmicrosoft.loadtestservice%2floadtests%2falt-msgpat-7longrunni-puj7dr/testId/msgpat-7-long-running/testRunId/run-20261122-105441"
+}

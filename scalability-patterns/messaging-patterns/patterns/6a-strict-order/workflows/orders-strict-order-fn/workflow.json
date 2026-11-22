@@ -1,0 +1,77 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "triggers": {
+      "When_messages_are_available_in_session": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "queueName": "orders",
+            "isSessionsEnabled": true,
+            "maxMessageBatchSize": 50
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "serviceBus",
+            "operationId": "receiveQueueMessages",
+            "serviceProviderId": "/serviceProviders/serviceBus"
+          }
+        }
+      }
+    },
+    "actions": {
+      "For_each_message_in_order": {
+        "type": "Foreach",
+        "foreach": "@triggerOutputs()?['body']",
+        "runtimeConfiguration": {
+          "concurrency": {
+            "repetitions": 1
+          }
+        },
+        "actions": {
+          "Upsert_order": {
+            "type": "ServiceProvider",
+            "inputs": {
+              "parameters": {
+                "databaseId": "msgpat",
+                "containerId": "items",
+                "item": {
+                  "id": "@{items('For_each_message_in_order')?['contentData']?['key']}-@{items('For_each_message_in_order')?['contentData']?['seq']}",
+                  "pk": "@{items('For_each_message_in_order')?['contentData']?['key']}",
+                  "pattern": "6a-strict-order",
+                  "key": "@{items('For_each_message_in_order')?['contentData']?['key']}",
+                  "seq": "@items('For_each_message_in_order')?['contentData']?['seq']",
+                  "sessionId": "@{items('For_each_message_in_order')?['sessionId']}",
+                  "messageId": "@{items('For_each_message_in_order')?['messageId']}",
+                  "deliveryCount": "@items('For_each_message_in_order')?['deliveryCount']",
+                  "sentAtUtc": "@{items('For_each_message_in_order')?['contentData']?['sentAtUtc']}",
+                  "enqueuedTimeUtc": "@{items('For_each_message_in_order')?['enqueuedTimeUtc']}",
+                  "runId": "@{workflow()?['run']?['name']}",
+                  "processedAtUtc": "@{utcNow()}"
+                },
+                "isUpsert": true
+              },
+              "serviceProviderConfiguration": {
+                "connectionName": "cosmos",
+                "operationId": "CreateOrUpdateDocument",
+                "serviceProviderId": "/serviceProviders/AzureCosmosDB"
+              }
+            },
+            "runAfter": {},
+            "trackedProperties": {
+              "messageId": "@{items('For_each_message_in_order')?['messageId']}",
+              "enqueuedTimeUtc": "@{items('For_each_message_in_order')?['enqueuedTimeUtc']}",
+              "sentAtUtc": "@{items('For_each_message_in_order')?['contentData']?['sentAtUtc']}",
+              "key": "@{items('For_each_message_in_order')?['contentData']?['key']}",
+              "seq": "@{items('For_each_message_in_order')?['contentData']?['seq']}",
+              "pattern": "6a-strict-order"
+            }
+          }
+        },
+        "runAfter": {}
+      }
+    },
+    "outputs": {}
+  },
+  "kind": "Stateless"
+}

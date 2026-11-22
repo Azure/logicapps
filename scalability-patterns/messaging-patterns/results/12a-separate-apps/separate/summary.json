@@ -1,0 +1,38 @@
+{
+  "pattern": "12a-separate-apps",
+  "runId": "separate",
+  "workflowName": "orders-high",
+  "windowStartUtc": "2026-11-22T11:11:59Z",
+  "windowEndUtc": "2026-11-22T11:45:00Z",
+  "targetMessagesPerSecond": null,
+  "loadDurationMinutes": null,
+  "loadTestStatus": null,
+  "loadTestResult": null,
+  "loadEntity": "orders-high",
+  "messagesSent": 1202,
+  "messagesCompletedByBroker": 1202,
+  "peakQueueBacklog": 2,
+  "deadletteredAtEnd": 0,
+  "runsCompleted": 1202,
+  "runsSucceeded": 1202,
+  "runsFailed": 0,
+  "avgMessagesPerSecond": 2,
+  "peakRunsPerSecond": 2.03,
+  "runDurationMs": {
+    "p50": 1042,
+    "p95": 1083.5,
+    "p99": 1140
+  },
+  "endToEndLatencyMs": {
+    "p50": 1606,
+    "p95": 2106,
+    "p99": 2189
+  },
+  "maxInstances": 2,
+  "firstSentUtc": "2026-11-22T11:14:48.226Z",
+  "lastFinishedUtc": "2026-11-22T11:24:48.958Z",
+  "drainSeconds": 600,
+  "failedActions": 0,
+  "exceptions": 0,
+  "portalUrl": null
+}

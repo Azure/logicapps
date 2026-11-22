@@ -1,0 +1,35 @@
+[
+  {
+    "workflowName": "orders-claim-check",
+    "action": "Read_blob",
+    "actionType": "ServiceProvider",
+    "apiName": "AzureBlob",
+    "count": 17,
+    "failed": 0,
+    "p50": 4211.0071,
+    "p95": 10572.1755,
+    "p99": 10572.1755
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Transform_order",
+    "actionType": "Liquid",
+    "apiName": "",
+    "count": 56,
+    "failed": 0,
+    "p50": 3438.9435,
+    "p95": 12172.3268,
+    "p99": 13956.3663
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Enrich_order",
+    "actionType": "InvokeFunction",
+    "apiName": "",
+    "count": 10,
+    "failed": 0,
+    "p50": 1942.6863,
+    "p95": 7522.1631,
+    "p99": 7522.1631
+  }
+]

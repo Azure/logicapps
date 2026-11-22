@@ -1,0 +1,7 @@
+{
+  "runs": 984,
+  "avgMessagesPerRun": 30.58,
+  "p50": 50,
+  "p95": 50,
+  "maxMessages": 50
+}

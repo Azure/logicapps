@@ -1,0 +1,112 @@
+[
+  {
+    "workflowName": "orders-latest-wins-fn",
+    "action": "Replace_latest",
+    "actionType": "ServiceProvider",
+    "apiName": "AzureCosmosDB",
+    "count": 94,
+    "failed": 0,
+    "p50": 521.5319,
+    "p95": 3558.3669,
+    "p99": 5715.2054
+  },
+  {
+    "workflowName": "orders-latest-wins-fn",
+    "action": "Read_latest",
+    "actionType": "ServiceProvider",
+    "apiName": "AzureCosmosDB",
+    "count": 195,
+    "failed": 100,
+    "p50": 629.3735,
+    "p95": 1767.4328,
+    "p99": 6017.3295
+  },
+  {
+    "workflowName": "orders-latest-wins-fn",
+    "action": "Create_latest",
+    "actionType": "ServiceProvider",
+    "apiName": "AzureCosmosDB",
+    "count": 100,
+    "failed": 0,
+    "p50": 518.9163,
+    "p95": 1089.2851,
+    "p99": 1805.4291
+  },
+  {
+    "workflowName": "orders-latest-wins-fn",
+    "action": "Write_arrival",
+    "actionType": "ServiceProvider",
+    "apiName": "AzureCosmosDB",
+    "count": 195,
+    "failed": 0,
+    "p50": 468.9352,
+    "p95": 989.2505,
+    "p99": 2177.4713
+  },
+  {
+    "workflowName": "orders-latest-wins-fn",
+    "action": "Apply_if_newer",
+    "actionType": "Until",
+    "apiName": "",
+    "count": 195,
+    "failed": 0,
+    "p50": 107.6662,
+    "p95": 749.0323,
+    "p99": 878.0544
+  },
+  {
+    "workflowName": "orders-latest-wins-fn",
+    "action": "Outcome",
+    "actionType": "Compose",
+    "apiName": "",
+    "count": 195,
+    "failed": 0,
+    "p50": 91.4642,
+    "p95": 702.9438,
+    "p99": 7298.5937
+  },
+  {
+    "workflowName": "orders-latest-wins-fn",
+    "action": "Arrived",
+    "actionType": "Compose",
+    "apiName": "",
+    "count": 195,
+    "failed": 0,
+    "p50": 341.1559,
+    "p95": 656.0776,
+    "p99": 684.5329
+  },
+  {
+    "workflowName": "orders-latest-wins-fn",
+    "action": "Attempt",
+    "actionType": "Compose",
+    "apiName": "",
+    "count": 195,
+    "failed": 0,
+    "p50": 92.0316,
+    "p95": 419.8144,
+    "p99": 715.1648
+  },
+  {
+    "workflowName": "orders-latest-wins-fn",
+    "action": "Is_newer",
+    "actionType": "If",
+    "apiName": "",
+    "count": 95,
+    "failed": 0,
+    "p50": 124.7477,
+    "p95": 397.3903,
+    "p99": 1086.819
+  },
+  {
+    "workflowName": "orders-latest-wins-fn",
+    "action": "For_each_message",
+    "actionType": "Foreach",
+    "apiName": "",
+    "count": 608,
+    "failed": 602,
+    "p50": 0.8025955555555555,
+    "p95": 1.2041,
+    "p99": 20.4824
+  }
+]

@@ -1,0 +1,38 @@
+{
+  "pattern": "8b-loop-in-run",
+  "runId": "run-20261122-105136",
+  "workflowName": "orders-loop",
+  "windowStartUtc": "2026-11-22T10:50:30Z",
+  "windowEndUtc": "2026-11-22T11:12:00Z",
+  "targetMessagesPerSecond": 0.2,
+  "loadDurationMinutes": 5,
+  "loadTestStatus": "DONE",
+  "loadTestResult": "NOT_APPLICABLE",
+  "loadEntity": "orders",
+  "messagesSent": 61,
+  "messagesCompletedByBroker": 61,
+  "peakQueueBacklog": 6,
+  "deadletteredAtEnd": 0,
+  "runsCompleted": 61,
+  "runsSucceeded": 4,
+  "runsFailed": 57,
+  "avgMessagesPerSecond": 7.74,
+  "peakRunsPerSecond": 0.22,
+  "runDurationMs": {
+    "p50": 52542,
+    "p95": 68205,
+    "p99": 88776
+  },
+  "endToEndLatencyMs": {
+    "p50": 51972,
+    "p95": 80165,
+    "p99": 96007
+  },
+  "maxInstances": 1,
+  "firstSentUtc": "2026-11-22T10:54:42.670Z",
+  "lastFinishedUtc": "2026-11-22T11:01:16.715Z",
+  "drainSeconds": 394,
+  "failedActions": 843,
+  "exceptions": 843,
+  "portalUrl": "https://portal.azure.com/#blade/Microsoft_Azure_CloudNativeTesting/TestRunReport.ReactView//resourceId/%2fsubscriptions%2f00000000-0000-0000-0000-000000000000%2fresourcegroups%2frg-msgpat-8b-loop-in-run%2fproviders%2fmicrosoft.loadtestservice%2floadtests%2falt-msgpat-8bloopinru-czhon6/testId/msgpat-8b-loop-in-run/testRunId/run-20261122-105136"
+}

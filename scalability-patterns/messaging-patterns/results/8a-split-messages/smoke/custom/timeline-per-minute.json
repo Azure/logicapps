@@ -1,0 +1,62 @@
+[
+  {
+    "minute": "2026-11-22T10:36:00Z",
+    "instances": 1,
+    "runs": 143,
+    "upserts": 138
+  },
+  {
+    "minute": "2026-11-22T10:37:00Z",
+    "instances": 1,
+    "runs": 57,
+    "upserts": 54
+  },
+  {
+    "minute": "2026-11-22T10:38:00Z",
+    "instances": 1,
+    "runs": 98,
+    "upserts": 96
+  },
+  {
+    "minute": "2026-11-22T10:39:00Z",
+    "instances": 1,
+    "runs": 100,
+    "upserts": 97
+  },
+  {
+    "minute": "2026-11-22T10:40:00Z",
+    "instances": 1,
+    "runs": 52,
+    "upserts": 49
+  },
+  {
+    "minute": "2026-11-22T10:41:00Z",
+    "instances": 1,
+    "runs": 100,
+    "upserts": 99
+  },
+  {
+    "minute": "2026-11-22T10:42:00Z",
+    "instances": 1,
+    "runs": 97,
+    "upserts": 95
+  },
+  {
+    "minute": "2026-11-22T10:43:00Z",
+    "instances": 1,
+    "runs": 102,
+    "upserts": 98
+  },
+  {
+    "minute": "2026-11-22T10:44:00Z",
+    "instances": 1,
+    "runs": 51,
+    "upserts": 49
+  },
+  {
+    "minute": "2026-11-22T10:45:00Z",
+    "instances": 1,
+    "runs": 29,
+    "upserts": 32
+  }
+]

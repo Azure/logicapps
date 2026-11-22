@@ -1,0 +1,44 @@
+[
+  {
+    "resource": "la-msgpat-12aseparat-ninruf",
+    "metric": "MemoryWorkingSetMB",
+    "avg": 289.0,
+    "max": 643.0,
+    "points": 34
+  },
+  {
+    "resource": "la-msgpat-12aseparat-ninruf-hi",
+    "metric": "MemoryWorkingSetMB",
+    "avg": 53.0,
+    "max": 151.0,
+    "points": 34
+  },
+  {
+    "resource": "asp-msgpat-12aseparat-ninruf",
+    "metric": "CpuPercentage",
+    "avg": 67.3,
+    "max": 99.0,
+    "points": 27
+  },
+  {
+    "resource": "asp-msgpat-12aseparat-ninruf",
+    "metric": "MemoryPercentage",
+    "avg": 58.0,
+    "max": 66.0,
+    "points": 27
+  },
+  {
+    "resource": "asp-msgpat-12aseparat-ninruf-hi",
+    "metric": "CpuPercentage",
+    "avg": 5.8,
+    "max": 16.0,
+    "points": 24
+  },
+  {
+    "resource": "asp-msgpat-12aseparat-ninruf-hi",
+    "metric": "MemoryPercentage",
+    "avg": 50.7,
+    "max": 55.0,
+    "points": 24
+  }
+]

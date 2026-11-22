@@ -1,0 +1,18 @@
+[
+  {
+    "workflowName": "trickle-stateless",
+    "status": "",
+    "runs": 34,
+    "p50": 59,
+    "p95": 78,
+    "maxMs": 6350
+  },
+  {
+    "workflowName": "trickle-stateful",
+    "status": "",
+    "runs": 34,
+    "p50": 78,
+    "p95": 131,
+    "maxMs": 5635
+  }
+]
