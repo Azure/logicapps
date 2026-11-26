@@ -1,0 +1,38 @@
+{
+  "pattern": "batch-steady-drain",
+  "runId": "run-20261125-230231",
+  "workflowName": "process-batch-item",
+  "windowStartUtc": "2026-11-25T23:02:31Z",
+  "windowEndUtc": "2026-11-25T23:35:00Z",
+  "targetMessagesPerSecond": null,
+  "loadDurationMinutes": null,
+  "loadTestStatus": null,
+  "loadTestResult": null,
+  "loadEntity": "orders",
+  "messagesSent": 60800,
+  "messagesCompletedByBroker": 60800,
+  "peakQueueBacklog": 54900,
+  "deadletteredAtEnd": 0,
+  "runsCompleted": 1176,
+  "runsSucceeded": 1176,
+  "runsFailed": 0,
+  "avgMessagesPerSecond": 0.67,
+  "peakRunsPerSecond": 3.45,
+  "runDurationMs": {
+    "p50": 270723.8214285714,
+    "p95": 691698,
+    "p99": 693372
+  },
+  "endToEndLatencyMs": {
+    "p50": 630447,
+    "p95": 1701475,
+    "p99": 1702763
+  },
+  "maxInstances": 1,
+  "firstSentUtc": "2026-11-25T23:05:32.779Z",
+  "lastFinishedUtc": "2026-11-25T23:34:55.704Z",
+  "drainSeconds": 1763,
+  "failedActions": 0,
+  "exceptions": 0,
+  "portalUrl": null
+}

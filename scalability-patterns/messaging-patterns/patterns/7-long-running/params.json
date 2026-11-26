@@ -1,5 +1,5 @@
 {
-  "$comment": "Pattern 7 overrides for infra/main.bicep and the run loop. Two queues: orders-early (settle early, Stateful run holds the state) and orders-lock (peek-lock, lock renewed in the run). See README.md.",
+  "$comment": "Pattern 7 overrides for infra/main.bicep and the run loop. Three queues: orders-early (settle early, Stateful run holds the state), orders-lock (peek-lock, lock renewed in a Stateless run) and orders-lock-stateful (peek-lock, lock renewed in a Stateful run; needs VNet integration with vnetPrivatePortsCount >= 2, see Set-VnetPorts.ps1). See README.md.",
   "location": "westus3",
   "fallbackLocation": "swedencentral",
   "planSku": "WS1",
@@ -15,6 +15,12 @@
     },
     {
       "name": "orders-lock",
+      "lockDuration": "PT1M",
+      "maxDeliveryCount": 10,
+      "maxSizeInMegabytes": 5120
+    },
+    {
+      "name": "orders-lock-stateful",
       "lockDuration": "PT1M",
       "maxDeliveryCount": 10,
       "maxSizeInMegabytes": 5120

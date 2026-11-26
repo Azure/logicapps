@@ -1,0 +1,16 @@
+// Parameters: replace {{startUtc}}, {{endUtc}} and {{workflowName}} (Run-Queries.ps1 in this folder does this).
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';
+// Per minute: host instances, receiver releases, messages pushed and processed, the largest release and p50/p95 end-to-end latency of the messages finished in that minute.
+let processed = requests | where timestamp between (startTime .. endTime) | where customDimensions.Category == 'Workflow.Operations.Actions' | where tostring(parse_json(tostring(customDimensions.resource)).workflowName) == workflow | where tostring(parse_json(tostring(customDimensions.resource)).actionName) == 'Process_order' | extend tp = parse_json(tostring(customDimensions.trackedProperties)) | where tostring(tp.pattern) == 'batch-steady-drain' | extend ok = resultCode == 'Succeeded', startAt = timestamp, endAt = timestamp + totimespan(duration * 10000), sentAt = todatetime(tp.sentAtUtc), messageId = tostring(tp.messageId);
+let pushed = requests | where timestamp between (startTime .. endTime) | where customDimensions.Category == 'Workflow.Operations.Actions' | where tostring(parse_json(tostring(customDimensions.resource)).workflowName) == 'orders-ingress' | where tostring(parse_json(tostring(customDimensions.resource)).actionName) == 'Send_to_batch' | where resultCode == 'Succeeded' | extend endAt = timestamp + totimespan(duration * 10000);
+let inst = union requests, traces | where timestamp between (startTime .. endTime) | where cloud_RoleInstance != '' | summarize instances = dcount(cloud_RoleInstance) by minute = bin(timestamp, 1m);
+let rel = traces | where timestamp between (startTime .. endTime) | where customDimensions.Category == 'Workflow.Operations.Runs' and customDimensions.EventName == 'WorkflowRunEnd' | where tostring(parse_json(tostring(customDimensions.resource)).workflowName) == 'orders-receiver' | summarize releases = count() by minute = bin(timestamp, 1m);
+let pu = pushed | summarize pushed = count() by minute = bin(endAt, 1m);
+let pr = processed | where ok | extend e2eMs = datetime_diff('millisecond', endAt, sentAt) | summarize processed = count(), p50E2eMs = percentile(e2eMs, 50), p95E2eMs = percentile(e2eMs, 95) by minute = bin(startAt, 1m);
+let mx = processed | summarize n = count() by s = bin(startAt, 1s) | summarize maxPerSecond = max(n) by minute = bin(s, 1m);
+inst | join kind=fullouter rel on minute | join kind=fullouter pu on minute | join kind=fullouter pr on minute | join kind=fullouter mx on minute
+| project minute = coalesce(minute, minute1, minute2, minute3, minute4), instances, releases, pushed, processed, maxPerSecond, p50E2eMs, p95E2eMs
+| order by minute asc
+

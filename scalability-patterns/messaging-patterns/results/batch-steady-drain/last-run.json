@@ -1,0 +1,20 @@
+{
+  "pattern": "batch-steady-drain",
+  "testId": "msgpat-batch-steady-drain",
+  "testRunId": "run-20261126-015557",
+  "label": "w4-20261126-0155",
+  "targetMessagesPerSecond": 500,
+  "users": 5,
+  "engineInstances": 1,
+  "batchSize": 100,
+  "batchesPerUserPerSecond": 1,
+  "durationMinutes": 11,
+  "drainMinutes": 22,
+  "startUtc": "2026-11-26T01:55:57.6302337Z",
+  "loadEndUtc": "2026-11-26T02:06:36Z",
+  "endUtc": "2026-11-26T02:28:43.0246574Z",
+  "status": "DONE",
+  "testResult": "NOT_APPLICABLE",
+  "loadStartUtc": "2026-11-26T01:56:05Z",
+  "portalUrl": "https://portal.azure.com/#blade/Microsoft_Azure_CloudNativeTesting/TestRunReport.ReactView//resourceId/%2fsubscriptions%2f21196cdf-abb2-4697-9f73-feef0db7cb2a%2fresourcegroups%2frg-msgpat-batch-steady-drain%2fproviders%2fmicrosoft.loadtestservice%2floadtests%2falt-msgpat-batchstead-qd4g52/testId/msgpat-batch-steady-drain/testRunId/run-20261126-015557"
+}

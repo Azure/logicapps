@@ -1,0 +1,1442 @@
+[
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:07:40Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 328.2297,
+    "callP95Ms": 4625.8898,
+    "itemsReleased": 1555
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:07:40Z",
+    "releases": 18,
+    "ok": 18,
+    "callP50Ms": 136.8625,
+    "callP95Ms": 4782.7393,
+    "itemsReleased": 1555
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:08:20Z",
+    "releases": 12,
+    "ok": 12,
+    "callP50Ms": 93.9337,
+    "callP95Ms": 801.091,
+    "itemsReleased": 1569
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:08:20Z",
+    "releases": 12,
+    "ok": 12,
+    "callP50Ms": 146.9627,
+    "callP95Ms": 8218.0168,
+    "itemsReleased": 1569
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:08:30Z",
+    "releases": 18,
+    "ok": 18,
+    "callP50Ms": 137.3118,
+    "callP95Ms": 11654.3952,
+    "itemsReleased": 1166
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:08:30Z",
+    "releases": 14,
+    "ok": 14,
+    "callP50Ms": 100.3356,
+    "callP95Ms": 4631.2826,
+    "itemsReleased": 1166
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:08:40Z",
+    "releases": 14,
+    "ok": 14,
+    "callP50Ms": 95.3832,
+    "callP95Ms": 21164.3387,
+    "itemsReleased": 1308
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:08:40Z",
+    "releases": 6,
+    "ok": 6,
+    "callP50Ms": 1210.8786,
+    "callP95Ms": 20719.5647,
+    "itemsReleased": 1308
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:08:50Z",
+    "releases": 4,
+    "ok": 4,
+    "callP50Ms": 183.1944,
+    "callP95Ms": 302.6367,
+    "itemsReleased": 748
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:08:50Z",
+    "releases": 8,
+    "ok": 8,
+    "callP50Ms": 90.858,
+    "callP95Ms": 2364.8584,
+    "itemsReleased": 748
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:09:10Z",
+    "releases": 8,
+    "ok": 8,
+    "callP50Ms": 96.3391,
+    "callP95Ms": 203.9636,
+    "itemsReleased": 1044
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:09:10Z",
+    "releases": 10,
+    "ok": 10,
+    "callP50Ms": 94.4269,
+    "callP95Ms": 3813.3695,
+    "itemsReleased": 1044
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:09:20Z",
+    "releases": 12,
+    "ok": 12,
+    "callP50Ms": 599.032,
+    "callP95Ms": 5647.1232,
+    "itemsReleased": 1217
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:09:20Z",
+    "releases": 18,
+    "ok": 18,
+    "callP50Ms": 235.4532,
+    "callP95Ms": 12459.7202,
+    "itemsReleased": 1217
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:09:30Z",
+    "releases": 8,
+    "ok": 8,
+    "callP50Ms": 146.5775,
+    "callP95Ms": 514.0308,
+    "itemsReleased": 1382
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:09:30Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 243.7793,
+    "callP95Ms": 852.4695,
+    "itemsReleased": 1382
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:09:40Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 177.1043,
+    "callP95Ms": 5899.4285,
+    "itemsReleased": 1781
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:09:40Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 314.2135,
+    "callP95Ms": 1673.4339,
+    "itemsReleased": 1781
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:09:50Z",
+    "releases": 8,
+    "ok": 8,
+    "callP50Ms": 124.5512,
+    "callP95Ms": 2713.2991,
+    "itemsReleased": 921
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:09:50Z",
+    "releases": 18,
+    "ok": 18,
+    "callP50Ms": 228.5773,
+    "callP95Ms": 4423.4778,
+    "itemsReleased": 921
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:10:00Z",
+    "releases": 14,
+    "ok": 14,
+    "callP50Ms": 91.7234,
+    "callP95Ms": 584.1291,
+    "itemsReleased": 1582
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:10:00Z",
+    "releases": 14,
+    "ok": 14,
+    "callP50Ms": 591.6966,
+    "callP95Ms": 14435.4769,
+    "itemsReleased": 1582
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:10:10Z",
+    "releases": 14,
+    "ok": 14,
+    "callP50Ms": 512.3456,
+    "callP95Ms": 3629.5162,
+    "itemsReleased": 1393
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:10:10Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 140.7337,
+    "callP95Ms": 4309.9354,
+    "itemsReleased": 1393
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:10:50Z",
+    "releases": 2,
+    "ok": 2,
+    "callP50Ms": 4720.9671,
+    "callP95Ms": 12958.95,
+    "itemsReleased": 1036
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:10:50Z",
+    "releases": 10,
+    "ok": 10,
+    "callP50Ms": 593.6816,
+    "callP95Ms": 2682.1663,
+    "itemsReleased": 1036
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:11:00Z",
+    "releases": 18,
+    "ok": 18,
+    "callP50Ms": 100.1259,
+    "callP95Ms": 7516.5003,
+    "itemsReleased": 1311
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:11:00Z",
+    "releases": 4,
+    "ok": 4,
+    "callP50Ms": 71.608,
+    "callP95Ms": 147.562,
+    "itemsReleased": 1311
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:11:20Z",
+    "releases": 18,
+    "ok": 18,
+    "callP50Ms": 161.0669,
+    "callP95Ms": 4083.5169,
+    "itemsReleased": 1179
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:11:20Z",
+    "releases": 12,
+    "ok": 12,
+    "callP50Ms": 106.3558,
+    "callP95Ms": 5152.2432,
+    "itemsReleased": 1179
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:11:30Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 146.6062,
+    "callP95Ms": 2912.5473,
+    "itemsReleased": 1599
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:11:30Z",
+    "releases": 14,
+    "ok": 14,
+    "callP50Ms": 104.4864,
+    "callP95Ms": 1820.358,
+    "itemsReleased": 1599
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:11:40Z",
+    "releases": 12,
+    "ok": 12,
+    "callP50Ms": 96.5101,
+    "callP95Ms": 2380.0896,
+    "itemsReleased": 1296
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:11:40Z",
+    "releases": 14,
+    "ok": 14,
+    "callP50Ms": 501.8341,
+    "callP95Ms": 9659.4013,
+    "itemsReleased": 1296
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:11:50Z",
+    "releases": 18,
+    "ok": 18,
+    "callP50Ms": 99.4243,
+    "callP95Ms": 1179.2702,
+    "itemsReleased": 1491
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:11:50Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 211.6407,
+    "callP95Ms": 4691.4959,
+    "itemsReleased": 1491
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:07:10Z",
+    "releases": 4,
+    "ok": 4,
+    "callP50Ms": 103.2836,
+    "callP95Ms": 19901.4512,
+    "itemsReleased": 425
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:07:10Z",
+    "releases": 2,
+    "ok": 2,
+    "callP50Ms": 529.3924,
+    "callP95Ms": 14268.0798,
+    "itemsReleased": 425
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:07:20Z",
+    "releases": 18,
+    "ok": 18,
+    "callP50Ms": 97.0215,
+    "callP95Ms": 2782.927,
+    "itemsReleased": 1181
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:07:20Z",
+    "releases": 6,
+    "ok": 6,
+    "callP50Ms": 101.931,
+    "callP95Ms": 661.0959,
+    "itemsReleased": 1181
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:07:50Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 1227.9765,
+    "callP95Ms": 18556.458,
+    "itemsReleased": 1264
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:07:50Z",
+    "releases": 6,
+    "ok": 6,
+    "callP50Ms": 96.5074,
+    "callP95Ms": 11478.6528,
+    "itemsReleased": 1264
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:09:00Z",
+    "releases": 14,
+    "ok": 14,
+    "callP50Ms": 93.5977,
+    "callP95Ms": 14299.4804,
+    "itemsReleased": 998
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:09:00Z",
+    "releases": 4,
+    "ok": 4,
+    "callP50Ms": 136.5049,
+    "callP95Ms": 383.7254,
+    "itemsReleased": 998
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:10:20Z",
+    "releases": 14,
+    "ok": 14,
+    "callP50Ms": 132.1809,
+    "callP95Ms": 2117.9509,
+    "itemsReleased": 1695
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:10:20Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 1139.8641,
+    "callP95Ms": 8318.3238,
+    "itemsReleased": 1695
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:10:30Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 152.8678,
+    "callP95Ms": 2901.5881,
+    "itemsReleased": 1583
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:10:30Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 171.6497,
+    "callP95Ms": 6820.8553,
+    "itemsReleased": 1583
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:10:40Z",
+    "releases": 20,
+    "ok": 20,
+    "callP50Ms": 278.9438,
+    "callP95Ms": 6677.2612,
+    "itemsReleased": 1336
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:10:40Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 285.9545,
+    "callP95Ms": 14955.9356,
+    "itemsReleased": 1336
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:11:10Z",
+    "releases": 4,
+    "ok": 4,
+    "callP50Ms": 96.2376,
+    "callP95Ms": 7170.366,
+    "itemsReleased": 446
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:11:10Z",
+    "releases": 2,
+    "ok": 2,
+    "callP50Ms": 98.4714,
+    "callP95Ms": 435.5004,
+    "itemsReleased": 446
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:12:00Z",
+    "releases": 2,
+    "ok": 2,
+    "callP50Ms": 20.761,
+    "callP95Ms": 62.8366,
+    "itemsReleased": 755
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:12:00Z",
+    "releases": 4,
+    "ok": 4,
+    "callP50Ms": 111.3776,
+    "callP95Ms": 409.1781,
+    "itemsReleased": 755
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:07:30Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 197.0833,
+    "callP95Ms": 5489.349,
+    "itemsReleased": 1412
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:07:30Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 157.891,
+    "callP95Ms": 14829.6285,
+    "itemsReleased": 1412
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:07:00Z",
+    "releases": 14,
+    "ok": 14,
+    "callP50Ms": 114.5987,
+    "callP95Ms": 20929.5646,
+    "itemsReleased": 623
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:07:00Z",
+    "releases": 4,
+    "ok": 4,
+    "callP50Ms": 476.0814,
+    "callP95Ms": 9853.9592,
+    "itemsReleased": 623
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:08:00Z",
+    "releases": 8,
+    "ok": 8,
+    "callP50Ms": 169.593,
+    "callP95Ms": 17181.428,
+    "itemsReleased": 705
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:08:00Z",
+    "releases": 4,
+    "ok": 4,
+    "callP50Ms": 99.5148,
+    "callP95Ms": 229.0405,
+    "itemsReleased": 705
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:08:10Z",
+    "releases": 14,
+    "ok": 14,
+    "callP50Ms": 336.6465,
+    "callP95Ms": 7073.0306,
+    "itemsReleased": 997
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:08:10Z",
+    "releases": 12,
+    "ok": 12,
+    "callP50Ms": 337.8481,
+    "callP95Ms": 8234.7231,
+    "itemsReleased": 997
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:06:50Z",
+    "releases": 12,
+    "ok": 12,
+    "callP50Ms": 276.4738,
+    "callP95Ms": 20157.1847,
+    "itemsReleased": 1307
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:06:50Z",
+    "releases": 14,
+    "ok": 14,
+    "callP50Ms": 102.1039,
+    "callP95Ms": 10783.5777,
+    "itemsReleased": 1307
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T01:54:40Z",
+    "releases": 2,
+    "ok": 2,
+    "callP50Ms": 3249.6066,
+    "callP95Ms": 6007.2824,
+    "itemsReleased": 1
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T01:55:10Z",
+    "releases": 2,
+    "ok": 2,
+    "callP50Ms": 6016.2404,
+    "callP95Ms": 40242.7592,
+    "itemsReleased": 101
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T01:55:40Z",
+    "releases": 2,
+    "ok": 2,
+    "callP50Ms": 3416.0614,
+    "callP95Ms": 5384.5009,
+    "itemsReleased": 3
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T01:55:40Z",
+    "releases": 4,
+    "ok": 4,
+    "callP50Ms": 6566.9301,
+    "callP95Ms": 11308.1166,
+    "itemsReleased": 3
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T01:56:20Z",
+    "releases": 2,
+    "ok": 2,
+    "callP50Ms": 5288.7939,
+    "callP95Ms": 9568.3559,
+    "itemsReleased": 11
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T01:56:40Z",
+    "releases": 2,
+    "ok": 2,
+    "callP50Ms": 2593.1317,
+    "callP95Ms": 7708.1572,
+    "itemsReleased": 120
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T01:56:40Z",
+    "releases": 2,
+    "ok": 2,
+    "callP50Ms": 2913.9196,
+    "callP95Ms": 10219.2531,
+    "itemsReleased": 120
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T01:57:40Z",
+    "releases": 2,
+    "ok": 2,
+    "callP50Ms": 4692.2064,
+    "callP95Ms": 8887.5919,
+    "itemsReleased": 1
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T01:58:20Z",
+    "releases": 2,
+    "ok": 2,
+    "callP50Ms": 5237.2256,
+    "callP95Ms": 8912.5251,
+    "itemsReleased": 1
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T01:58:30Z",
+    "releases": 4,
+    "ok": 4,
+    "callP50Ms": 81.1667,
+    "callP95Ms": 453.5726,
+    "itemsReleased": 196
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T01:58:40Z",
+    "releases": 2,
+    "ok": 2,
+    "callP50Ms": 90.5691,
+    "callP95Ms": 240.1863,
+    "itemsReleased": 105
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T01:59:20Z",
+    "releases": 4,
+    "ok": 4,
+    "callP50Ms": 196.4678,
+    "callP95Ms": 536.2446,
+    "itemsReleased": 273
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T01:59:40Z",
+    "releases": 14,
+    "ok": 14,
+    "callP50Ms": 107.161,
+    "callP95Ms": 1823.7631,
+    "itemsReleased": 1265
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T01:59:40Z",
+    "releases": 14,
+    "ok": 14,
+    "callP50Ms": 96.1502,
+    "callP95Ms": 282.4382,
+    "itemsReleased": 1265
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T01:59:50Z",
+    "releases": 14,
+    "ok": 14,
+    "callP50Ms": 63.1421,
+    "callP95Ms": 571.5047,
+    "itemsReleased": 1459
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T01:59:50Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 108.4719,
+    "callP95Ms": 1802.8285,
+    "itemsReleased": 1459
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:00:00Z",
+    "releases": 14,
+    "ok": 14,
+    "callP50Ms": 101.2973,
+    "callP95Ms": 2003.7212,
+    "itemsReleased": 1322
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:00:00Z",
+    "releases": 14,
+    "ok": 14,
+    "callP50Ms": 101.0414,
+    "callP95Ms": 1594.61,
+    "itemsReleased": 1322
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:00:10Z",
+    "releases": 18,
+    "ok": 18,
+    "callP50Ms": 94.8008,
+    "callP95Ms": 505.4073,
+    "itemsReleased": 1909
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:00:10Z",
+    "releases": 18,
+    "ok": 18,
+    "callP50Ms": 62.6744,
+    "callP95Ms": 337.3744,
+    "itemsReleased": 1909
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:00:20Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 573.5759,
+    "callP95Ms": 2785.2864,
+    "itemsReleased": 1451
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:00:20Z",
+    "releases": 14,
+    "ok": 14,
+    "callP50Ms": 97.19,
+    "callP95Ms": 1024.6288,
+    "itemsReleased": 1451
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:00:30Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 91.0791,
+    "callP95Ms": 1188.4378,
+    "itemsReleased": 1523
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:00:30Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 238.9434,
+    "callP95Ms": 5350.5439,
+    "itemsReleased": 1523
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:00:40Z",
+    "releases": 18,
+    "ok": 18,
+    "callP50Ms": 89.0241,
+    "callP95Ms": 970.2662,
+    "itemsReleased": 1769
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:00:40Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 312.6539,
+    "callP95Ms": 1625.754,
+    "itemsReleased": 1769
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:00:50Z",
+    "releases": 14,
+    "ok": 14,
+    "callP50Ms": 366.7171,
+    "callP95Ms": 3751.1456,
+    "itemsReleased": 1554
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:00:50Z",
+    "releases": 14,
+    "ok": 14,
+    "callP50Ms": 97.0985,
+    "callP95Ms": 1735.3378,
+    "itemsReleased": 1554
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:01:00Z",
+    "releases": 18,
+    "ok": 18,
+    "callP50Ms": 116.0618,
+    "callP95Ms": 1856.0943,
+    "itemsReleased": 1533
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:01:00Z",
+    "releases": 18,
+    "ok": 18,
+    "callP50Ms": 112.0822,
+    "callP95Ms": 1923.0176,
+    "itemsReleased": 1533
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:01:10Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 102.6477,
+    "callP95Ms": 3697.7483,
+    "itemsReleased": 1830
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:01:10Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 110.7467,
+    "callP95Ms": 2889.9505,
+    "itemsReleased": 1830
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:01:20Z",
+    "releases": 18,
+    "ok": 18,
+    "callP50Ms": 98.5459,
+    "callP95Ms": 1196.7054,
+    "itemsReleased": 1398
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:01:20Z",
+    "releases": 10,
+    "ok": 10,
+    "callP50Ms": 92.7653,
+    "callP95Ms": 2684.7071,
+    "itemsReleased": 1398
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:01:30Z",
+    "releases": 14,
+    "ok": 14,
+    "callP50Ms": 398.3308,
+    "callP95Ms": 1664.4274,
+    "itemsReleased": 1272
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:01:30Z",
+    "releases": 14,
+    "ok": 14,
+    "callP50Ms": 96.5006,
+    "callP95Ms": 1002.7846,
+    "itemsReleased": 1272
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:01:40Z",
+    "releases": 14,
+    "ok": 14,
+    "callP50Ms": 87.4405,
+    "callP95Ms": 480.9445,
+    "itemsReleased": 1698
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:01:40Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 97.6212,
+    "callP95Ms": 3275.4751,
+    "itemsReleased": 1698
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:01:50Z",
+    "releases": 20,
+    "ok": 20,
+    "callP50Ms": 101.9729,
+    "callP95Ms": 256.9229,
+    "itemsReleased": 1835
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:01:50Z",
+    "releases": 20,
+    "ok": 20,
+    "callP50Ms": 217.3179,
+    "callP95Ms": 2365.0133,
+    "itemsReleased": 1835
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:02:00Z",
+    "releases": 18,
+    "ok": 18,
+    "callP50Ms": 102.5038,
+    "callP95Ms": 4223.2809,
+    "itemsReleased": 1413
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:02:00Z",
+    "releases": 18,
+    "ok": 18,
+    "callP50Ms": 207.4527,
+    "callP95Ms": 2765.3866,
+    "itemsReleased": 1413
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:02:10Z",
+    "releases": 14,
+    "ok": 14,
+    "callP50Ms": 89.4658,
+    "callP95Ms": 477.2261,
+    "itemsReleased": 2068
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:02:10Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 102.6456,
+    "callP95Ms": 2602.2425,
+    "itemsReleased": 2068
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:02:20Z",
+    "releases": 20,
+    "ok": 20,
+    "callP50Ms": 92.6042,
+    "callP95Ms": 1268.676,
+    "itemsReleased": 1775
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:02:20Z",
+    "releases": 14,
+    "ok": 14,
+    "callP50Ms": 232.8218,
+    "callP95Ms": 2480.7397,
+    "itemsReleased": 1775
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:02:30Z",
+    "releases": 10,
+    "ok": 10,
+    "callP50Ms": 440.8105,
+    "callP95Ms": 5099.0794,
+    "itemsReleased": 964
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:02:30Z",
+    "releases": 14,
+    "ok": 14,
+    "callP50Ms": 179.7667,
+    "callP95Ms": 10318.7546,
+    "itemsReleased": 964
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:02:40Z",
+    "releases": 10,
+    "ok": 10,
+    "callP50Ms": 106.3707,
+    "callP95Ms": 1869.4934,
+    "itemsReleased": 1575
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:02:40Z",
+    "releases": 18,
+    "ok": 18,
+    "callP50Ms": 95.8647,
+    "callP95Ms": 659.4475,
+    "itemsReleased": 1575
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:02:50Z",
+    "releases": 20,
+    "ok": 20,
+    "callP50Ms": 100.8771,
+    "callP95Ms": 1271.2688,
+    "itemsReleased": 1821
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:02:50Z",
+    "releases": 18,
+    "ok": 18,
+    "callP50Ms": 401.0977,
+    "callP95Ms": 2768.4615,
+    "itemsReleased": 1821
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:03:00Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 100.2528,
+    "callP95Ms": 1679.6147,
+    "itemsReleased": 1528
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:03:00Z",
+    "releases": 14,
+    "ok": 14,
+    "callP50Ms": 447.3875,
+    "callP95Ms": 4004.0767,
+    "itemsReleased": 1528
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:03:10Z",
+    "releases": 12,
+    "ok": 12,
+    "callP50Ms": 213.4653,
+    "callP95Ms": 2477.3399,
+    "itemsReleased": 1573
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:03:10Z",
+    "releases": 14,
+    "ok": 14,
+    "callP50Ms": 93.189,
+    "callP95Ms": 3816.5185,
+    "itemsReleased": 1573
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:03:20Z",
+    "releases": 18,
+    "ok": 18,
+    "callP50Ms": 90.9989,
+    "callP95Ms": 2929.6934,
+    "itemsReleased": 1638
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:03:20Z",
+    "releases": 18,
+    "ok": 18,
+    "callP50Ms": 102.55,
+    "callP95Ms": 2565.0635,
+    "itemsReleased": 1638
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:03:30Z",
+    "releases": 14,
+    "ok": 14,
+    "callP50Ms": 656.2708,
+    "callP95Ms": 24894.4338,
+    "itemsReleased": 813
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:03:30Z",
+    "releases": 18,
+    "ok": 18,
+    "callP50Ms": 252.7766,
+    "callP95Ms": 33968.6235,
+    "itemsReleased": 813
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:03:40Z",
+    "releases": 14,
+    "ok": 14,
+    "callP50Ms": 94.8176,
+    "callP95Ms": 12370.7951,
+    "itemsReleased": 1613
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:03:40Z",
+    "releases": 12,
+    "ok": 12,
+    "callP50Ms": 90.8746,
+    "callP95Ms": 12612.8264,
+    "itemsReleased": 1613
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:03:50Z",
+    "releases": 14,
+    "ok": 14,
+    "callP50Ms": 99.6596,
+    "callP95Ms": 22793.6476,
+    "itemsReleased": 1616
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:03:50Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 144.172,
+    "callP95Ms": 7671.9498,
+    "itemsReleased": 1616
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:04:00Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 98.4174,
+    "callP95Ms": 18629.6065,
+    "itemsReleased": 1008
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:04:10Z",
+    "releases": 14,
+    "ok": 14,
+    "callP50Ms": 387.2121,
+    "callP95Ms": 13022.6739,
+    "itemsReleased": 1525
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:04:10Z",
+    "releases": 20,
+    "ok": 20,
+    "callP50Ms": 97.5897,
+    "callP95Ms": 444.2974,
+    "itemsReleased": 1525
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:04:20Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 100.0116,
+    "callP95Ms": 1938.3449,
+    "itemsReleased": 993
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:04:30Z",
+    "releases": 12,
+    "ok": 12,
+    "callP50Ms": 77.3825,
+    "callP95Ms": 368.3735,
+    "itemsReleased": 886
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:04:30Z",
+    "releases": 8,
+    "ok": 8,
+    "callP50Ms": 104.9492,
+    "callP95Ms": 10735.9165,
+    "itemsReleased": 886
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:04:40Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 103.0379,
+    "callP95Ms": 201.787,
+    "itemsReleased": 1563
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:04:40Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 81.7569,
+    "callP95Ms": 325.0304,
+    "itemsReleased": 1563
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:04:50Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 184.3079,
+    "callP95Ms": 5599.8649,
+    "itemsReleased": 1748
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:04:50Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 162.3122,
+    "callP95Ms": 3538.9551,
+    "itemsReleased": 1748
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:05:00Z",
+    "releases": 8,
+    "ok": 8,
+    "callP50Ms": 1880.2346,
+    "callP95Ms": 3849.3652,
+    "itemsReleased": 1221
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:05:00Z",
+    "releases": 12,
+    "ok": 12,
+    "callP50Ms": 296.4387,
+    "callP95Ms": 1491.7111,
+    "itemsReleased": 1221
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:05:10Z",
+    "releases": 4,
+    "ok": 4,
+    "callP50Ms": 396.8629,
+    "callP95Ms": 538.8724,
+    "itemsReleased": 766
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:05:10Z",
+    "releases": 6,
+    "ok": 6,
+    "callP50Ms": 682.9272,
+    "callP95Ms": 4783.2895,
+    "itemsReleased": 766
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:05:20Z",
+    "releases": 12,
+    "ok": 12,
+    "callP50Ms": 103.4602,
+    "callP95Ms": 224.9727,
+    "itemsReleased": 1089
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:05:20Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 130.8239,
+    "callP95Ms": 1871.2755,
+    "itemsReleased": 1089
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:05:30Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 149.9587,
+    "callP95Ms": 4564.9326,
+    "itemsReleased": 1235
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:05:30Z",
+    "releases": 6,
+    "ok": 6,
+    "callP50Ms": 165.9409,
+    "callP95Ms": 4349.761,
+    "itemsReleased": 1235
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:05:40Z",
+    "releases": 18,
+    "ok": 18,
+    "callP50Ms": 94.2279,
+    "callP95Ms": 2429.4281,
+    "itemsReleased": 1576
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:05:40Z",
+    "releases": 14,
+    "ok": 14,
+    "callP50Ms": 115.3329,
+    "callP95Ms": 2273.6259,
+    "itemsReleased": 1576
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:05:50Z",
+    "releases": 2,
+    "ok": 2,
+    "callP50Ms": 509.075,
+    "callP95Ms": 600.5073,
+    "itemsReleased": 313
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:05:50Z",
+    "releases": 2,
+    "ok": 2,
+    "callP50Ms": 458.6017,
+    "callP95Ms": 648.8924,
+    "itemsReleased": 313
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:06:00Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 100.332,
+    "callP95Ms": 1866.0029,
+    "itemsReleased": 1458
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:06:00Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 96.4996,
+    "callP95Ms": 1658.0173,
+    "itemsReleased": 1458
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:06:10Z",
+    "releases": 18,
+    "ok": 18,
+    "callP50Ms": 162.1896,
+    "callP95Ms": 4211.7117,
+    "itemsReleased": 1400
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:06:10Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 100.0467,
+    "callP95Ms": 3758.9377,
+    "itemsReleased": 1400
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:06:20Z",
+    "releases": 4,
+    "ok": 4,
+    "callP50Ms": 266.4763,
+    "callP95Ms": 419.0072,
+    "itemsReleased": 1583
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:06:20Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 98.2032,
+    "callP95Ms": 3019.2303,
+    "itemsReleased": 1583
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:06:30Z",
+    "releases": 14,
+    "ok": 14,
+    "callP50Ms": 101.0402,
+    "callP95Ms": 1671.7978,
+    "itemsReleased": 1286
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:06:30Z",
+    "releases": 16,
+    "ok": 16,
+    "callP50Ms": 351.9603,
+    "callP95Ms": 3912.669,
+    "itemsReleased": 1286
+  },
+  {
+    "wf": "orders-receiver-2",
+    "bin10": "2026-11-26T02:06:40Z",
+    "releases": 12,
+    "ok": 12,
+    "callP50Ms": 96.6851,
+    "callP95Ms": 6642.3585,
+    "itemsReleased": 1159
+  },
+  {
+    "wf": "orders-receiver",
+    "bin10": "2026-11-26T02:06:40Z",
+    "releases": 10,
+    "ok": 10,
+    "callP50Ms": 524.8842,
+    "callP95Ms": 3185.4053,
+    "itemsReleased": 1159
+  }
+]

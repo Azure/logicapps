@@ -1,0 +1,12 @@
+{
+  "messages": 29130,
+  "firstSent": "2026-11-26T01:57:00.046764Z",
+  "lastSent": "2026-11-26T01:57:58.874114Z",
+  "firstFinished": "2026-11-26T01:58:34.9803184Z",
+  "lastFinished": "2026-11-26T02:32:26.0941288Z",
+  "e2eP50": 1100749,
+  "e2eP95": 1988310,
+  "e2eMax": 2108654,
+  "completionMinutes": 35.43,
+  "processingMinutes": 33.87
+}

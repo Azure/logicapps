@@ -1,0 +1,40 @@
+// Parameters: replace {{startUtc}}, {{endUtc}} and {{workflowName}} (tools\Run-Queries.ps1 does this).
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';
+// Per minute: messages added to the batch (orders-ingress runs), messages released, releases,
+// messages processed (process-order runs), host instances and send-to-finish latency.
+let runEnds = traces
+| where timestamp between (startTime .. endTime)
+| where customDimensions.Category == 'Workflow.Operations.Runs' and customDimensions.EventName == 'WorkflowRunEnd'
+| extend wf = tostring(parse_json(tostring(customDimensions.resource)).workflowName);
+let batched = runEnds | where wf == 'orders-ingress' | summarize batched = count() by minute = bin(timestamp, 1m);
+let processed = runEnds | where wf == 'process-order' | summarize processed = count() by minute = bin(timestamp, 1m);
+let released = traces
+| where timestamp between (startTime .. endTime)
+| where customDimensions.EventName == 'WorkflowBatchMessageRelease'
+| extend runId = tostring(parse_json(tostring(customDimensions.resource)).runId)
+| summarize size = count(), at = min(timestamp) by runId
+| summarize released = sum(size), releases = count() by minute = bin(at, 1m);
+let latency = requests
+| where timestamp between (startTime .. endTime)
+| where customDimensions.Category == 'Workflow.Operations.Actions'
+| where tostring(parse_json(tostring(customDimensions.resource)).workflowName) == workflow
+| extend tp = parse_json(tostring(customDimensions.trackedProperties))
+| where isnotempty(tp.sentAtUtc)
+| extend finishedAt = timestamp + totimespan(duration * 10000)
+| extend e2eSeconds = datetime_diff('millisecond', finishedAt, todatetime(tp.sentAtUtc)) / 1000.0
+| summarize e2eP50 = percentile(e2eSeconds, 50), e2eP95 = percentile(e2eSeconds, 95) by minute = bin(finishedAt, 1m);
+let inst = union requests, traces
+| where timestamp between (startTime .. endTime)
+| where cloud_RoleInstance != ''
+| summarize instances = dcount(cloud_RoleInstance) by minute = bin(timestamp, 1m);
+range minute from bin(startTime, 1m) to bin(endTime, 1m) step 1m
+| join kind=leftouter batched on minute
+| join kind=leftouter released on minute
+| join kind=leftouter processed on minute
+| join kind=leftouter latency on minute
+| join kind=leftouter inst on minute
+| project minute, batched = coalesce(batched, 0), released = coalesce(released, 0), releases = coalesce(releases, 0),
+    processed = coalesce(processed, 0), instances = coalesce(instances, 0), e2eP50, e2eP95
+| order by minute asc

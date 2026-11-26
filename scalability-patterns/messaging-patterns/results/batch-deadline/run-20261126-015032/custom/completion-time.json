@@ -1,0 +1,15 @@
+{
+  "messages": 100000,
+  "firstSent": "2026-11-26T01:50:41.576875Z",
+  "lastSent": "2026-11-26T01:52:10.002383Z",
+  "firstFinished": "2026-11-26T01:55:40.4305869Z",
+  "lastFinished": "2026-11-26T02:12:28.8504869Z",
+  "sinceStartP50": 794589,
+  "sinceStartP95": 1179644,
+  "e2eP50": 826819,
+  "e2eP95": 1183851,
+  "e2eMax": 1274171,
+  "childP50": 5789.435787301609,
+  "childP95": 14409.179370854104,
+  "finishMinutesAfterStart": 20.47
+}

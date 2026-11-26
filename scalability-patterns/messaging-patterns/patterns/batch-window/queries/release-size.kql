@@ -1,0 +1,15 @@
+// Parameters: replace {{startUtc}}, {{endUtc}} and {{workflowName}} (tools\Run-Queries.ps1 does this).
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';
+// Batch releases per minute. The runtime logs one WorkflowBatchMessageRelease event per released
+// message, so group the events by the orders-receiver run ID to get one row per release.
+// The configured cap is recurrence.messageCountLimit = 17.
+traces
+| where timestamp between (startTime .. endTime)
+| where customDimensions.EventName == 'WorkflowBatchMessageRelease'
+| extend runId = tostring(parse_json(tostring(customDimensions.resource)).runId)
+| summarize releaseSize = count(), releasedAt = min(timestamp) by runId
+| summarize releases = count(), items = sum(releaseSize), avgSize = round(avg(releaseSize), 2), minSize = min(releaseSize), maxSize = max(releaseSize)
+    by minute = bin(releasedAt, 1m)
+| order by minute asc

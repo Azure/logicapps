@@ -1,0 +1,17 @@
+{
+  "pattern": "batch-trickle",
+  "testId": "msgpat-batch-trickle",
+  "testRunId": "run-20261126-020000",
+  "label": "w4-20261126-015936",
+  "targetMessagesPerSecond": 50,
+  "users": 5,
+  "engineInstances": 1,
+  "batchSize": 10,
+  "batchesPerUserPerSecond": 1,
+  "durationMinutes": 5,
+  "drainMinutes": 20,
+  "startUtc": "2026-11-26T02:00:00.1763312Z",
+  "loadEndUtc": null,
+  "endUtc": null,
+  "status": "EXECUTING"
+}

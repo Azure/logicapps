@@ -1,0 +1,572 @@
+[
+  {
+    "sec": "2026-11-25T23:52:11Z",
+    "releases": 2,
+    "items": 0,
+    "p50ReleaseActionMs": 2678.9595
+  },
+  {
+    "sec": "2026-11-25T23:52:12Z",
+    "releases": 4,
+    "items": 0,
+    "p50ReleaseActionMs": 2432.9237
+  },
+  {
+    "sec": "2026-11-25T23:52:13Z",
+    "releases": 2,
+    "items": 0,
+    "p50ReleaseActionMs": 585.2401
+  },
+  {
+    "sec": "2026-11-25T23:52:16Z",
+    "releases": 4,
+    "items": 0,
+    "p50ReleaseActionMs": 240.5707
+  },
+  {
+    "sec": "2026-11-25T23:52:29Z",
+    "releases": 2,
+    "items": 0,
+    "p50ReleaseActionMs": 1551.5197
+  },
+  {
+    "sec": "2026-11-25T23:52:54Z",
+    "releases": 2,
+    "items": 0,
+    "p50ReleaseActionMs": 125.5468
+  },
+  {
+    "sec": "2026-11-25T23:52:58Z",
+    "releases": 2,
+    "items": 0,
+    "p50ReleaseActionMs": 672.68
+  },
+  {
+    "sec": "2026-11-25T23:53:13Z",
+    "releases": 2,
+    "items": 0,
+    "p50ReleaseActionMs": 4557.7893
+  },
+  {
+    "sec": "2026-11-25T23:53:20Z",
+    "releases": 2,
+    "items": 0,
+    "p50ReleaseActionMs": 4768.2993
+  },
+  {
+    "sec": "2026-11-25T23:53:51Z",
+    "releases": 2,
+    "items": 0,
+    "p50ReleaseActionMs": 418.7782
+  },
+  {
+    "sec": "2026-11-25T23:54:04Z",
+    "releases": 2,
+    "items": 0,
+    "p50ReleaseActionMs": 4865.0942
+  },
+  {
+    "sec": "2026-11-25T23:54:28Z",
+    "releases": 0,
+    "items": 10,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:54:29Z",
+    "releases": 0,
+    "items": 9,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:54:31Z",
+    "releases": 0,
+    "items": 4,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:54:32Z",
+    "releases": 0,
+    "items": 3,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:54:33Z",
+    "releases": 0,
+    "items": 5,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:54:34Z",
+    "releases": 0,
+    "items": 6,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:54:35Z",
+    "releases": 0,
+    "items": 4,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:54:36Z",
+    "releases": 0,
+    "items": 2,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:54:40Z",
+    "releases": 0,
+    "items": 4,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:54:41Z",
+    "releases": 0,
+    "items": 4,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:54:42Z",
+    "releases": 0,
+    "items": 8,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:54:43Z",
+    "releases": 0,
+    "items": 2,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:54:45Z",
+    "releases": 0,
+    "items": 4,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:54:46Z",
+    "releases": 0,
+    "items": 4,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:54:47Z",
+    "releases": 0,
+    "items": 10,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:54:48Z",
+    "releases": 0,
+    "items": 3,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:54:50Z",
+    "releases": 0,
+    "items": 4,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:54:51Z",
+    "releases": 0,
+    "items": 1,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:54:57Z",
+    "releases": 2,
+    "items": 0,
+    "p50ReleaseActionMs": 6164.2011
+  },
+  {
+    "sec": "2026-11-25T23:56:17Z",
+    "releases": 2,
+    "items": 0,
+    "p50ReleaseActionMs": 560.4847
+  },
+  {
+    "sec": "2026-11-25T23:56:20Z",
+    "releases": 2,
+    "items": 0,
+    "p50ReleaseActionMs": 945.0805
+  },
+  {
+    "sec": "2026-11-25T23:56:46Z",
+    "releases": 2,
+    "items": 0,
+    "p50ReleaseActionMs": 744.9996
+  },
+  {
+    "sec": "2026-11-25T23:56:52Z",
+    "releases": 2,
+    "items": 0,
+    "p50ReleaseActionMs": 2779.1359
+  },
+  {
+    "sec": "2026-11-25T23:56:59Z",
+    "releases": 2,
+    "items": 0,
+    "p50ReleaseActionMs": 3051.2995
+  },
+  {
+    "sec": "2026-11-25T23:57:15Z",
+    "releases": 0,
+    "items": 1,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:57:17Z",
+    "releases": 0,
+    "items": 6,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:57:18Z",
+    "releases": 0,
+    "items": 50,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:57:19Z",
+    "releases": 0,
+    "items": 50,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:57:20Z",
+    "releases": 0,
+    "items": 32,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:57:21Z",
+    "releases": 0,
+    "items": 9,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:57:25Z",
+    "releases": 0,
+    "items": 1,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:57:28Z",
+    "releases": 0,
+    "items": 17,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:57:30Z",
+    "releases": 0,
+    "items": 1,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:57:31Z",
+    "releases": 0,
+    "items": 35,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:57:32Z",
+    "releases": 0,
+    "items": 27,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:57:33Z",
+    "releases": 0,
+    "items": 34,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:57:34Z",
+    "releases": 0,
+    "items": 2,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:57:36Z",
+    "releases": 0,
+    "items": 9,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:57:37Z",
+    "releases": 0,
+    "items": 21,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:57:39Z",
+    "releases": 0,
+    "items": 40,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:57:40Z",
+    "releases": 0,
+    "items": 1,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:57:47Z",
+    "releases": 0,
+    "items": 6,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:57:48Z",
+    "releases": 0,
+    "items": 35,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:57:49Z",
+    "releases": 0,
+    "items": 30,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:57:50Z",
+    "releases": 0,
+    "items": 9,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:57:51Z",
+    "releases": 0,
+    "items": 14,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:57:52Z",
+    "releases": 0,
+    "items": 14,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:57:53Z",
+    "releases": 0,
+    "items": 11,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:57:54Z",
+    "releases": 0,
+    "items": 23,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:57:55Z",
+    "releases": 0,
+    "items": 51,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:57:56Z",
+    "releases": 0,
+    "items": 45,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:57:57Z",
+    "releases": 0,
+    "items": 2,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:57:58Z",
+    "releases": 0,
+    "items": 3,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:57:59Z",
+    "releases": 0,
+    "items": 14,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:58:00Z",
+    "releases": 0,
+    "items": 1,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:58:03Z",
+    "releases": 0,
+    "items": 22,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:58:04Z",
+    "releases": 0,
+    "items": 35,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:58:05Z",
+    "releases": 0,
+    "items": 15,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:58:08Z",
+    "releases": 0,
+    "items": 1,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:58:12Z",
+    "releases": 0,
+    "items": 44,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:58:13Z",
+    "releases": 0,
+    "items": 35,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:58:14Z",
+    "releases": 0,
+    "items": 23,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:58:15Z",
+    "releases": 0,
+    "items": 11,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:58:16Z",
+    "releases": 0,
+    "items": 1,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:58:28Z",
+    "releases": 0,
+    "items": 22,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:58:29Z",
+    "releases": 0,
+    "items": 33,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:58:30Z",
+    "releases": 0,
+    "items": 48,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:58:31Z",
+    "releases": 0,
+    "items": 35,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:58:32Z",
+    "releases": 0,
+    "items": 24,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:58:33Z",
+    "releases": 0,
+    "items": 6,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:58:37Z",
+    "releases": 0,
+    "items": 26,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:58:38Z",
+    "releases": 0,
+    "items": 4,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:58:45Z",
+    "releases": 0,
+    "items": 1,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:58:54Z",
+    "releases": 2,
+    "items": 0,
+    "p50ReleaseActionMs": 70.0005
+  },
+  {
+    "sec": "2026-11-25T23:59:52Z",
+    "releases": 0,
+    "items": 9,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:59:53Z",
+    "releases": 0,
+    "items": 17,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:59:54Z",
+    "releases": 0,
+    "items": 19,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:59:55Z",
+    "releases": 0,
+    "items": 23,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:59:56Z",
+    "releases": 2,
+    "items": 36,
+    "p50ReleaseActionMs": 886.0873
+  },
+  {
+    "sec": "2026-11-25T23:59:57Z",
+    "releases": 0,
+    "items": 22,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:59:58Z",
+    "releases": 0,
+    "items": 21,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-25T23:59:59Z",
+    "releases": 0,
+    "items": 26,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-26T00:00:02Z",
+    "releases": 0,
+    "items": 17,
+    "p50ReleaseActionMs": null
+  },
+  {
+    "sec": "2026-11-26T00:00:03Z",
+    "releases": 0,
+    "items": 10,
+    "p50ReleaseActionMs": null
+  }
+]

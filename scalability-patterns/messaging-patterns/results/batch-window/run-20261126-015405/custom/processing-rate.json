@@ -1,0 +1,10 @@
+{
+  "steadyMinutes": 33,
+  "totalRuns": 28678,
+  "meanPerMinute": 869,
+  "stdevPerMinute": 128.6,
+  "minPerMinute": 169,
+  "maxPerMinute": 942,
+  "meanPerSecond": 14.48,
+  "cv": 0.148
+}

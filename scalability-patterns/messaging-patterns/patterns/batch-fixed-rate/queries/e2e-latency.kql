@@ -1,0 +1,7 @@
+// Parameters: replace {{startUtc}}, {{endUtc}} and {{workflowName}} (Run-Queries.ps1 in this folder does this).
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';
+// End-to-end latency per message: producer sentAtUtc to the end of Process_order. Also the batch wait: sentAtUtc to the start of Process_order.
+let processed = requests | where timestamp between (startTime .. endTime) | where customDimensions.Category == 'Workflow.Operations.Actions' | where tostring(parse_json(tostring(customDimensions.resource)).workflowName) == workflow | where tostring(parse_json(tostring(customDimensions.resource)).actionName) == 'Process_order' | extend tp = parse_json(tostring(customDimensions.trackedProperties)) | where tostring(tp.pattern) == 'batch-fixed-rate' | extend ok = resultCode == 'Succeeded', startAt = timestamp, endAt = timestamp + totimespan(duration * 10000), sentAt = todatetime(tp.sentAtUtc), messageId = tostring(tp.messageId);
+processed | where ok and isnotnull(sentAt) | summarize endAt = max(endAt), startAt = min(startAt), sentAt = min(sentAt) by messageId | extend e2eMs = datetime_diff('millisecond', endAt, sentAt), waitMs = datetime_diff('millisecond', startAt, sentAt) | summarize messages = count(), p50Ms = percentile(e2eMs, 50), p95Ms = percentile(e2eMs, 95), p99Ms = percentile(e2eMs, 99), maxMs = max(e2eMs), p50WaitMs = percentile(waitMs, 50), p95WaitMs = percentile(waitMs, 95)

@@ -1,0 +1,38 @@
+{
+  "pattern": "concurrency-vs-batch",
+  "runId": "run-20261125-231420",
+  "workflowName": "orders-concurrency",
+  "windowStartUtc": "2026-11-25T23:13:56Z",
+  "windowEndUtc": "2026-11-25T23:34:42Z",
+  "targetMessagesPerSecond": 500.0,
+  "loadDurationMinutes": 4,
+  "loadTestStatus": "DONE",
+  "loadTestResult": "NOT_APPLICABLE",
+  "loadEntity": "orders-concurrency",
+  "messagesSent": 119100,
+  "messagesCompletedByBroker": 5411,
+  "peakQueueBacklog": 117489,
+  "deadletteredAtEnd": 0,
+  "runsCompleted": 5976,
+  "runsSucceeded": 5976,
+  "runsFailed": 0,
+  "avgMessagesPerSecond": 5.65,
+  "peakRunsPerSecond": 6.85,
+  "runDurationMs": {
+    "p50": 728.5170313779001,
+    "p95": 1278.3625000000002,
+    "p99": 1905
+  },
+  "endToEndLatencyMs": {
+    "p50": 505680,
+    "p95": 984464,
+    "p99": 1020849
+  },
+  "maxInstances": 2,
+  "firstSentUtc": "2026-11-25T23:16:59.825Z",
+  "lastFinishedUtc": "2026-11-25T23:34:42.700Z",
+  "drainSeconds": 1063,
+  "failedActions": 0,
+  "exceptions": 0,
+  "portalUrl": "https://portal.azure.com/#blade/Microsoft_Azure_CloudNativeTesting/TestRunReport.ReactView//resourceId/%2fsubscriptions%2f21196cdf-abb2-4697-9f73-feef0db7cb2a%2fresourcegroups%2frg-msgpat-concurrency-vs-batch%2fproviders%2fmicrosoft.loadtestservice%2floadtests%2falt-msgpat-concurrenc-7i7dx5/testId/msgpat-concurrency-vs-batch/testRunId/run-20261125-231420"
+}

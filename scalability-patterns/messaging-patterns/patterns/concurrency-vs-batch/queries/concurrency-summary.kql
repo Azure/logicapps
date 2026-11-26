@@ -1,0 +1,9 @@
+// Parameters: replace {{startUtc}}, {{endUtc}} and {{workflowName}} (tools\Run-Queries.ps1 does this).
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';// Peak and percentile runs in flight per second, per instance and for the whole app.
+let runs = traces | where timestamp between (startTime .. endTime) | where customDimensions.Category == 'Workflow.Operations.Runs' and customDimensions.EventName == 'WorkflowRunEnd' | where tostring(parse_json(tostring(customDimensions.resource)).workflowName) == workflow | extend durationMs = todouble(customDimensions.prop__durationInMilliseconds) | extend runEnd = timestamp, runStart = timestamp - totimespan(durationMs * 10000), instance = cloud_RoleInstance;
+let perInstance = runs | extend sec = range(bin(runStart, 1s), bin(runEnd, 1s), 1s) | mv-expand sec to typeof(datetime) | summarize inFlight = count() by sec, instance;
+let app = perInstance | summarize inFlight = sum(inFlight) by sec | summarize maxInFlight = max(inFlight), p50InFlight = percentile(inFlight, 50), p95InFlight = percentile(inFlight, 95), seconds = count() | extend scope = 'app';
+let inst = perInstance | summarize maxInFlight = max(inFlight), p50InFlight = percentile(inFlight, 50), p95InFlight = percentile(inFlight, 95), seconds = count() by scope = instance;
+union app, inst

@@ -1,6 +1,0 @@
-"workflowName","action","actionType","apiName","count","failed","p50","p95","p99"
-"orders-deadline","Process_order","Workflow","","3100","0","16088.43070226653","31191.997127375","39827.4684"
-"process-order","Upsert_order","ServiceProvider","AzureCosmosDB","3100","0","5333.684294156165","14003.534916249999","22089.9653"
-"process-order","Transform_order","Liquid","","3100","0","4652.926377260623","9185.015790416666","16481.6562"
-"process-order","Enrich_order","InvokeFunction","","3100","0","5292.5823722833775","9155.18588225","14751.1187"
-"process-order","Response","Response","","3100","0","10.244210399182686","6584.238445749999","13255.9511"

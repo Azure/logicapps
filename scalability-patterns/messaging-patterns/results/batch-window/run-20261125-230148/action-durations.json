@@ -1,0 +1,79 @@
+[
+  {
+    "workflowName": "orders-ingress",
+    "action": "Send_to_batch",
+    "actionType": "SendToBatch",
+    "apiName": "",
+    "count": 29300,
+    "failed": 0,
+    "p50": 1234.4065092492533,
+    "p95": 5217.107198264996,
+    "p99": 12748.418277166666
+  },
+  {
+    "workflowName": "orders-receiver",
+    "action": "Process_batch_items",
+    "actionType": "Workflow",
+    "apiName": "",
+    "count": 3448,
+    "failed": 0,
+    "p50": 115.8808126337226,
+    "p95": 656.6767955555556,
+    "p99": 1090.2666
+  },
+  {
+    "workflowName": "process-batch-item",
+    "action": "Process_order",
+    "actionType": "Workflow",
+    "apiName": "",
+    "count": 29300,
+    "failed": 0,
+    "p50": 1018.3849506713068,
+    "p95": 2184.198516911645,
+    "p99": 2932.6383833333334
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Enrich_order",
+    "actionType": "InvokeFunction",
+    "apiName": "",
+    "count": 29300,
+    "failed": 0,
+    "p50": 292.79164222850073,
+    "p95": 927.5355140763337,
+    "p99": 1276.3061341422222
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Upsert_order",
+    "actionType": "ServiceProvider",
+    "apiName": "AzureCosmosDB",
+    "count": 29300,
+    "failed": 0,
+    "p50": 196.57161944125784,
+    "p95": 629.5396687711848,
+    "p99": 1173.6301056620234
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Response",
+    "actionType": "Response",
+    "apiName": "",
+    "count": 29300,
+    "failed": 0,
+    "p50": 144.26992406066393,
+    "p95": 582.1763735915175,
+    "p99": 1024.73043125
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Transform_order",
+    "actionType": "Liquid",
+    "apiName": "",
+    "count": 29300,
+    "failed": 0,
+    "p50": 63.72964238046172,
+    "p95": 403.00337469302934,
+    "p99": 590.3988008524398
+  }
+]

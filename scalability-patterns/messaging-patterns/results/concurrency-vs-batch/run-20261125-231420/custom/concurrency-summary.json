@@ -1,0 +1,23 @@
+[
+  {
+    "maxInFlight": 33,
+    "p50InFlight": 15,
+    "p95InFlight": 24,
+    "seconds": 370,
+    "scope": "b7dcf004f15dda535106ec7b7341b7fd11b63ce675449675db8c0ee04328c99f"
+  },
+  {
+    "maxInFlight": 36,
+    "p50InFlight": 14,
+    "p95InFlight": 24,
+    "seconds": 377,
+    "scope": "0f889e7a1bfd6bc4dac55503b14982269e42e82c6477592ed08f29e5ffd9384f"
+  },
+  {
+    "maxInFlight": 49,
+    "p50InFlight": 28,
+    "p95InFlight": 40,
+    "seconds": 387,
+    "scope": "app"
+  }
+]

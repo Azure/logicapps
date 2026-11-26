@@ -1,0 +1,572 @@
+[
+  {
+    "minute": "2026-11-25T23:07:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": null,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:08:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": null,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:09:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": null,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:10:00Z",
+    "instances": 1,
+    "releases": 8,
+    "pushed": 262,
+    "processed": 185,
+    "maxPerSecond": 44,
+    "p50E2eMs": 11100,
+    "p95E2eMs": 15538
+  },
+  {
+    "minute": "2026-11-25T23:11:00Z",
+    "instances": 1,
+    "releases": 16,
+    "pushed": 597,
+    "processed": 416,
+    "maxPerSecond": 36,
+    "p50E2eMs": 22919,
+    "p95E2eMs": 53247
+  },
+  {
+    "minute": "2026-11-25T23:12:00Z",
+    "instances": 1,
+    "releases": 4,
+    "pushed": 1272,
+    "processed": 55,
+    "maxPerSecond": 14,
+    "p50E2eMs": 51717,
+    "p95E2eMs": 57511
+  },
+  {
+    "minute": "2026-11-25T23:13:00Z",
+    "instances": 1,
+    "releases": 2,
+    "pushed": 1217,
+    "processed": 150,
+    "maxPerSecond": 22,
+    "p50E2eMs": 113257,
+    "p95E2eMs": 129789
+  },
+  {
+    "minute": "2026-11-25T23:14:00Z",
+    "instances": 1,
+    "releases": 1,
+    "pushed": 1349,
+    "processed": 50,
+    "maxPerSecond": 29,
+    "p50E2eMs": 170679,
+    "p95E2eMs": 172285
+  },
+  {
+    "minute": "2026-11-25T23:15:00Z",
+    "instances": 1,
+    "releases": 1,
+    "pushed": 1005,
+    "processed": 50,
+    "maxPerSecond": 40,
+    "p50E2eMs": 209680,
+    "p95E2eMs": 214847
+  },
+  {
+    "minute": "2026-11-25T23:16:00Z",
+    "instances": 1,
+    "releases": 1,
+    "pushed": 944,
+    "processed": 50,
+    "maxPerSecond": 17,
+    "p50E2eMs": 321139,
+    "p95E2eMs": 354932
+  },
+  {
+    "minute": "2026-11-25T23:17:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": 1401,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:18:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": 1349,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:19:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": 1428,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:20:00Z",
+    "instances": 1,
+    "releases": 1,
+    "pushed": 1822,
+    "processed": 50,
+    "maxPerSecond": 10,
+    "p50E2eMs": 514101,
+    "p95E2eMs": 521054
+  },
+  {
+    "minute": "2026-11-25T23:21:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": 1060,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:22:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": 1687,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:23:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": 842,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:24:00Z",
+    "instances": 1,
+    "releases": 1,
+    "pushed": 965,
+    "processed": 50,
+    "maxPerSecond": 24,
+    "p50E2eMs": 779919,
+    "p95E2eMs": 786015
+  },
+  {
+    "minute": "2026-11-25T23:25:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": null,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:26:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": 922,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:27:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": 1086,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:28:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": 890,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:29:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": 212,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:30:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": 2028,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:31:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": 688,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:32:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": 977,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:33:00Z",
+    "instances": 1,
+    "releases": 1,
+    "pushed": 894,
+    "processed": 47,
+    "maxPerSecond": 22,
+    "p50E2eMs": 1319445,
+    "p95E2eMs": 1327502
+  },
+  {
+    "minute": "2026-11-25T23:34:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": 1776,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:35:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": 2134,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:36:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": 2194,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:37:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": 1895,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:38:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": 1395,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:39:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": 2097,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:40:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": 1281,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:41:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": 2354,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:42:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": 2246,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:43:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": 2223,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:44:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": 2174,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:45:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": 2144,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:46:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": 2286,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:47:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": 2248,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:48:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": 2240,
+    "processed": 10,
+    "maxPerSecond": 5,
+    "p50E2eMs": 2233796,
+    "p95E2eMs": 2239701
+  },
+  {
+    "minute": "2026-11-25T23:49:00Z",
+    "instances": 1,
+    "releases": 1,
+    "pushed": 2122,
+    "processed": 43,
+    "maxPerSecond": 10,
+    "p50E2eMs": 2254052,
+    "p95E2eMs": 2264072
+  },
+  {
+    "minute": "2026-11-25T23:50:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": 1947,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:51:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": 1536,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:52:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": 2100,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:53:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": 1649,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:54:00Z",
+    "instances": 1,
+    "releases": null,
+    "pushed": 670,
+    "processed": null,
+    "maxPerSecond": null,
+    "p50E2eMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:56:00Z",
+    "instances": 1,
+    "releases": 1,
+    "pushed": 2,
+    "processed": 50,
+    "maxPerSecond": 23,
+    "p50E2eMs": 2668631,
+    "p95E2eMs": 2680529
+  },
+  {
+    "minute": "2026-11-25T23:57:00Z",
+    "instances": 1,
+    "releases": 12,
+    "pushed": null,
+    "processed": 626,
+    "maxPerSecond": 43,
+    "p50E2eMs": 2742051,
+    "p95E2eMs": 2756259
+  },
+  {
+    "minute": "2026-11-25T23:58:00Z",
+    "instances": 1,
+    "releases": 14,
+    "pushed": null,
+    "processed": 733,
+    "maxPerSecond": 50,
+    "p50E2eMs": 2779466,
+    "p95E2eMs": 2793851
+  },
+  {
+    "minute": "2026-11-25T23:59:00Z",
+    "instances": 1,
+    "releases": 16,
+    "pushed": null,
+    "processed": 691,
+    "maxPerSecond": 42,
+    "p50E2eMs": 2808258,
+    "p95E2eMs": 2826052
+  },
+  {
+    "minute": "2026-11-26T00:00:00Z",
+    "instances": 1,
+    "releases": 14,
+    "pushed": null,
+    "processed": 742,
+    "maxPerSecond": 40,
+    "p50E2eMs": 2847906,
+    "p95E2eMs": 2867702
+  },
+  {
+    "minute": "2026-11-26T00:01:00Z",
+    "instances": 1,
+    "releases": 14,
+    "pushed": null,
+    "processed": 719,
+    "maxPerSecond": 45,
+    "p50E2eMs": 2882090,
+    "p95E2eMs": 2901064
+  },
+  {
+    "minute": "2026-11-26T00:02:00Z",
+    "instances": 1,
+    "releases": 13,
+    "pushed": null,
+    "processed": 697,
+    "maxPerSecond": 48,
+    "p50E2eMs": 2930688,
+    "p95E2eMs": 2966609
+  },
+  {
+    "minute": "2026-11-26T00:03:00Z",
+    "instances": 1,
+    "releases": 11,
+    "pushed": null,
+    "processed": 541,
+    "maxPerSecond": 35,
+    "p50E2eMs": 2988240,
+    "p95E2eMs": 3014133
+  },
+  {
+    "minute": "2026-11-26T00:04:00Z",
+    "instances": 1,
+    "releases": 11,
+    "pushed": null,
+    "processed": 543,
+    "maxPerSecond": 33,
+    "p50E2eMs": 3034450,
+    "p95E2eMs": 3062473
+  }
+]

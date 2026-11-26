@@ -1,0 +1,178 @@
+[
+  {
+    "workflowName": "long-running-peeklock-stateful",
+    "action": "Slow_call_1",
+    "actionType": "Http",
+    "apiName": "",
+    "count": 181,
+    "failed": 0,
+    "p50": 40568.601,
+    "p95": 41078.716,
+    "p99": 41104.8863
+  },
+  {
+    "workflowName": "long-running-peeklock-stateful",
+    "action": "Slow_call_2",
+    "actionType": "Http",
+    "apiName": "",
+    "count": 181,
+    "failed": 0,
+    "p50": 40431.7337,
+    "p95": 40583.9778,
+    "p99": 40606.0271
+  },
+  {
+    "workflowName": "long-running-peeklock-stateful",
+    "action": "Slow_call_4",
+    "actionType": "Http",
+    "apiName": "",
+    "count": 181,
+    "failed": 0,
+    "p50": 40401.8676,
+    "p95": 40577.7855,
+    "p99": 40592.9857
+  },
+  {
+    "workflowName": "long-running-peeklock-stateful",
+    "action": "Slow_call_3",
+    "actionType": "Http",
+    "apiName": "",
+    "count": 181,
+    "failed": 0,
+    "p50": 40425.0463,
+    "p95": 40576.6083,
+    "p99": 40643.7954
+  },
+  {
+    "workflowName": "long-running-peeklock-stateful",
+    "action": "Complete_message",
+    "actionType": "ServiceProvider",
+    "apiName": "serviceBus",
+    "count": 181,
+    "failed": 0,
+    "p50": 60.1021,
+    "p95": 125.7331,
+    "p99": 146.3159
+  },
+  {
+    "workflowName": "long-running-peeklock-stateful",
+    "action": "Process_order",
+    "actionType": "Workflow",
+    "apiName": "",
+    "count": 181,
+    "failed": 0,
+    "p50": 55.6218,
+    "p95": 93.0242,
+    "p99": 148.1723
+  },
+  {
+    "workflowName": "long-running-peeklock-stateful",
+    "action": "Renew_lock_3",
+    "actionType": "ServiceProvider",
+    "apiName": "serviceBus",
+    "count": 181,
+    "failed": 0,
+    "p50": 7.0066,
+    "p95": 21.2793,
+    "p99": 31.3811
+  },
+  {
+    "workflowName": "long-running-peeklock-stateful",
+    "action": "Renew_lock_2",
+    "actionType": "ServiceProvider",
+    "apiName": "serviceBus",
+    "count": 181,
+    "failed": 0,
+    "p50": 7.0572,
+    "p95": 21.2347,
+    "p99": 45.8074
+  },
+  {
+    "workflowName": "long-running-peeklock-stateful",
+    "action": "Renew_lock_1",
+    "actionType": "ServiceProvider",
+    "apiName": "serviceBus",
+    "count": 181,
+    "failed": 0,
+    "p50": 6.1219,
+    "p95": 19.0379,
+    "p99": 34.8681
+  },
+  {
+    "workflowName": "long-running-peeklock-stateful",
+    "action": "Renew_lock_4",
+    "actionType": "ServiceProvider",
+    "apiName": "serviceBus",
+    "count": 181,
+    "failed": 0,
+    "p50": 5.2284,
+    "p95": 18.5352,
+    "p99": 44.2259
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Upsert_order",
+    "actionType": "ServiceProvider",
+    "apiName": "AzureCosmosDB",
+    "count": 181,
+    "failed": 0,
+    "p50": 28.4568,
+    "p95": 43.6945,
+    "p99": 61.3347
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Enrich_order",
+    "actionType": "InvokeFunction",
+    "apiName": "",
+    "count": 181,
+    "failed": 0,
+    "p50": 4.003,
+    "p95": 21.8607,
+    "p99": 43.271
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Response",
+    "actionType": "Response",
+    "apiName": "",
+    "count": 181,
+    "failed": 0,
+    "p50": 4.1499,
+    "p95": 7.6219,
+    "p99": 19.4767
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Transform_order",
+    "actionType": "Liquid",
+    "apiName": "",
+    "count": 181,
+    "failed": 0,
+    "p50": 2.9155,
+    "p95": 7.2961,
+    "p99": 27.3512
+  },
+  {
+    "workflowName": "slow-downstream",
+    "action": "Simulate_slow_downstream",
+    "actionType": "Wait",
+    "apiName": "",
+    "count": 724,
+    "failed": 0,
+    "p50": 40326.337128,
+    "p95": 40825.2704,
+    "p99": 40977.777
+  },
+  {
+    "workflowName": "slow-downstream",
+    "action": "Response",
+    "actionType": "Response",
+    "apiName": "",
+    "count": 724,
+    "failed": 0,
+    "p50": 8.223534600529101,
+    "p95": 15.0386,
+    "p99": 23.6952
+  }
+]

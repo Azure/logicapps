@@ -1,0 +1,98 @@
+{
+  "autoStopCriteria": {
+    "autoStopDisabled": false,
+    "errorRate": 50.0,
+    "errorRateTimeWindowInSeconds": 60,
+    "maximumVirtualUsersPerEngine": 5000
+  },
+  "createdBy": "rohithah@microsoft.com",
+  "createdByType": "User",
+  "createdDateTime": "2026-11-25T23:00:14.23Z",
+  "debugLogsEnabled": false,
+  "displayName": "A-stateless",
+  "endDateTime": "2026-11-25T23:08:11Z",
+  "environmentVariables": {
+    "AZURE_CLIENT_ID": "9058891d-e407-48c2-95bb-b3106661f7bd",
+    "BATCHES_PER_USER_PER_SECOND": "1",
+    "BATCH_SIZE": "10",
+    "PATTERN_ID": "child-type",
+    "SB_NAMESPACE": "sb-msgpat-childtype-yyw6jt.servicebus.windows.net",
+    "SB_QUEUE": "orders-a"
+  },
+  "estimatedVirtualUserHours": 2.0,
+  "executedDateTime": "2026-11-25T23:00:10.618Z",
+  "kind": "Locust",
+  "lastModifiedBy": "rohithah@microsoft.com",
+  "lastModifiedDateTime": "2026-11-25T23:08:22.11Z",
+  "loadTestConfiguration": {
+    "engineInstances": 1,
+    "quickStartTest": false,
+    "splitAllCSVs": false
+  },
+  "passFailCriteria": {
+    "passFailMetrics": {
+      "a280f34e-e81d-4dd2-a1b9-7bfaa63afadf": {
+        "action": "continue",
+        "aggregate": "percentage",
+        "clientMetric": "error",
+        "condition": ">",
+        "value": 5.0
+      }
+    },
+    "passFailServerMetrics": {}
+  },
+  "portalUrl": "https://portal.azure.com/#blade/Microsoft_Azure_CloudNativeTesting/TestRunReport.ReactView//resourceId/%2fsubscriptions%2f21196cdf-abb2-4697-9f73-feef0db7cb2a%2fresourcegroups%2frg-msgpat-child-type%2fproviders%2fmicrosoft.loadtestservice%2floadtests%2falt-msgpat-childtype-yyw6jt/testId/msgpat-child-type/testRunId/run-20261125-230008",
+  "requestDataLevel": "NONE",
+  "startDateTime": "2026-11-25T23:00:14Z",
+  "status": "DONE",
+  "testArtifacts": {
+    "inputArtifacts": {
+      "additionalFileInfo": [
+        {
+          "expireDateTime": "2026-11-26T00:08:39.6374063Z",
+          "fileName": "requirements.txt",
+          "fileType": "ADDITIONAL_ARTIFACTS",
+          "url": "https://r92fl8yc79fif89ebn8n57ge.z25.blob.storage.azure.net/3e8b1707-c4f4-425b-8d6a-a79bcf1110e3/14e62609-250f-45af-acf6-3ba25c5924c7?REDACTED",
+          "validationStatus": "VALIDATION_NOT_REQUIRED"
+        }
+      ],
+      "configFileInfo": {
+        "expireDateTime": "2026-11-26T00:08:39.6373467Z",
+        "fileName": "config.yaml",
+        "fileType": "ADDITIONAL_ARTIFACTS",
+        "url": "https://r92fl8yc79fif89ebn8n57ge.z25.blob.storage.azure.net/3e8b1707-c4f4-425b-8d6a-a79bcf1110e3/ff78a1b9-0a8f-4cdb-bd6b-ede05ba7d7e5?REDACTED",
+        "validationStatus": "VALIDATION_NOT_REQUIRED"
+      },
+      "inputArtifactsZipFileInfo": {
+        "expireDateTime": "2026-11-26T00:08:39.6373769Z",
+        "fileName": "inputartifacts.zip",
+        "fileType": "ADDITIONAL_ARTIFACTS",
+        "url": "https://r92fl8yc79fif89ebn8n57ge.z25.blob.storage.azure.net/3e8b1707-c4f4-425b-8d6a-a79bcf1110e3/6d83347c-393c-4f85-b87b-c06c3890a46b?REDACTED",
+        "validationStatus": "VALIDATION_NOT_REQUIRED"
+      },
+      "testScriptFileInfo": {
+        "expireDateTime": "2026-11-26T00:08:39.6371555Z",
+        "fileName": "locustfile.py",
+        "fileType": "TEST_SCRIPT",
+        "url": "https://r92fl8yc79fif89ebn8n57ge.z25.blob.storage.azure.net/3e8b1707-c4f4-425b-8d6a-a79bcf1110e3/a9aa5fcb-004c-47fe-8364-9f4435c86fb2?REDACTED",
+        "validationStatus": "VALIDATION_SUCCESS"
+      },
+      "userPropFileInfo": {
+        "expireDateTime": "2026-11-26T00:08:39.6372741Z",
+        "fileName": "locust.conf",
+        "fileType": "USER_PROPERTIES",
+        "url": "https://r92fl8yc79fif89ebn8n57ge.z25.blob.storage.azure.net/3e8b1707-c4f4-425b-8d6a-a79bcf1110e3/e34ea849-b0cc-462f-8dc5-3f5bd415b44b?REDACTED",
+        "validationStatus": "VALIDATION_NOT_REQUIRED"
+      }
+    },
+    "outputArtifacts": {
+      "artifactsContainerInfo": {
+        "expireDateTime": "2026-11-26T00:08:39.6374398Z",
+        "url": "https://r92fl8yc79fif89ebn8n57ge.z25.blob.storage.azure.net/3ea7d17a-383a-4e0c-9ef8-421c5f6a32c7?REDACTED"
+      }
+    }
+  },
+  "testId": "msgpat-child-type",
+  "testResult": "NOT_APPLICABLE",
+  "testRunId": "run-20261125-230008"
+}

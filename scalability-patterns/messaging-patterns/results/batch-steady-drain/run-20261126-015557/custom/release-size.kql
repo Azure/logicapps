@@ -1,0 +1,8 @@
+// Parameters: replace {{startUtc}}, {{endUtc}} and {{workflowName}} (Run-Queries.ps1 in this folder does this).
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';
+// Release size: Process_order starts grouped by the second they started. The receiver releases once a second, so this is the size of each release.
+let processed = requests | where timestamp between (startTime .. endTime) | where customDimensions.Category == 'Workflow.Operations.Actions' | where tostring(parse_json(tostring(customDimensions.resource)).workflowName) == workflow | where tostring(parse_json(tostring(customDimensions.resource)).actionName) == 'Process_order' | extend tp = parse_json(tostring(customDimensions.trackedProperties)) | where tostring(tp.pattern) == 'batch-steady-drain' | extend ok = resultCode == 'Succeeded', startAt = timestamp, endAt = timestamp + totimespan(duration * 10000), sentAt = todatetime(tp.sentAtUtc), messageId = tostring(tp.messageId);
+processed | summarize size = dcount(messageId) by s = bin(startAt, 1s) | summarize releases = count(), avgSize = round(avg(size), 1), p50Size = percentile(size, 50), p95Size = percentile(size, 95), maxSize = max(size), releasesAt200 = countif(size >= 200), releasesAbove200 = countif(size > 200)
+

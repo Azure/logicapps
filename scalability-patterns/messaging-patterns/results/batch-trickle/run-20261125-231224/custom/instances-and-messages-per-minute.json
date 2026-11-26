@@ -1,0 +1,147 @@
+[
+  {
+    "minute": "2026-11-25T23:12:00Z",
+    "instances": 1,
+    "messages": 0
+  },
+  {
+    "minute": "2026-11-25T23:13:00Z",
+    "instances": 1,
+    "messages": 0
+  },
+  {
+    "minute": "2026-11-25T23:14:00Z",
+    "instances": 1,
+    "messages": 0
+  },
+  {
+    "minute": "2026-11-25T23:15:00Z",
+    "instances": 1,
+    "messages": 15
+  },
+  {
+    "minute": "2026-11-25T23:16:00Z",
+    "instances": 1,
+    "messages": 10
+  },
+  {
+    "minute": "2026-11-25T23:17:00Z",
+    "instances": 1,
+    "messages": 15
+  },
+  {
+    "minute": "2026-11-25T23:18:00Z",
+    "instances": 1,
+    "messages": 0
+  },
+  {
+    "minute": "2026-11-25T23:19:00Z",
+    "instances": 1,
+    "messages": 5
+  },
+  {
+    "minute": "2026-11-25T23:20:00Z",
+    "instances": 1,
+    "messages": 0
+  },
+  {
+    "minute": "2026-11-25T23:21:00Z",
+    "instances": 1,
+    "messages": 0
+  },
+  {
+    "minute": "2026-11-25T23:22:00Z",
+    "instances": 1,
+    "messages": 5
+  },
+  {
+    "minute": "2026-11-25T23:23:00Z",
+    "instances": 1,
+    "messages": 0
+  },
+  {
+    "minute": "2026-11-25T23:24:00Z",
+    "instances": 1,
+    "messages": 10
+  },
+  {
+    "minute": "2026-11-25T23:25:00Z",
+    "instances": 1,
+    "messages": 160
+  },
+  {
+    "minute": "2026-11-25T23:26:00Z",
+    "instances": 1,
+    "messages": 160
+  },
+  {
+    "minute": "2026-11-25T23:27:00Z",
+    "instances": 1,
+    "messages": 165
+  },
+  {
+    "minute": "2026-11-25T23:28:00Z",
+    "instances": 1,
+    "messages": 160
+  },
+  {
+    "minute": "2026-11-25T23:29:00Z",
+    "instances": 1,
+    "messages": 170
+  },
+  {
+    "minute": "2026-11-25T23:30:00Z",
+    "instances": 1,
+    "messages": 155
+  },
+  {
+    "minute": "2026-11-25T23:31:00Z",
+    "instances": 1,
+    "messages": 162
+  },
+  {
+    "minute": "2026-11-25T23:32:00Z",
+    "instances": 1,
+    "messages": 163
+  },
+  {
+    "minute": "2026-11-25T23:33:00Z",
+    "instances": 1,
+    "messages": 160
+  },
+  {
+    "minute": "2026-11-25T23:34:00Z",
+    "instances": 1,
+    "messages": 160
+  },
+  {
+    "minute": "2026-11-25T23:35:00Z",
+    "instances": 1,
+    "messages": 160
+  },
+  {
+    "minute": "2026-11-25T23:36:00Z",
+    "instances": 1,
+    "messages": 165
+  },
+  {
+    "minute": "2026-11-25T23:37:00Z",
+    "instances": 1,
+    "messages": 160
+  },
+  {
+    "minute": "2026-11-25T23:38:00Z",
+    "instances": 1,
+    "messages": 160
+  },
+  {
+    "minute": "2026-11-25T23:39:00Z",
+    "instances": 1,
+    "messages": 160
+  },
+  {
+    "minute": "2026-11-25T23:40:00Z",
+    "instances": 1,
+    "messages": 160
+  }
+]

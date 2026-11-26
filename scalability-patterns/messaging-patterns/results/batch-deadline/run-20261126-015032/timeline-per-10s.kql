@@ -1,0 +1,14 @@
+// Parameters: replace {{startUtc}}, {{endUtc}} and {{workflowName}} (tools\Run-Queries.ps1 does this).
+// Set startUtc to the moment the workflows were enabled (T0) so the "since start" columns measure the deadline.
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';// Per 10 seconds: messages pushed into the batch (Send_to_batch), releases (Process_batch), messages
+// finished by the child (Process_order) and host instances. One row per bin and workflow role.
+let acts = requests | where timestamp between (startTime .. endTime) | where customDimensions.Category == 'Workflow.Operations.Actions' | extend wf = tostring(parse_json(tostring(customDimensions.resource)).workflowName), act = tostring(parse_json(tostring(customDimensions.resource)).actionName) | extend finishedAt = timestamp + totimespan(duration * 10000);
+let pushed = acts | where act == 'Send_to_batch' | summarize pushed = count(), pushed1 = countif(wf == 'orders-ingress'), pushed2 = countif(wf == 'orders-ingress-2') by bin10 = bin(finishedAt, 10s);
+let released = acts | where act == 'Process_batch' | summarize releases = count(), releases1 = countif(wf == 'orders-receiver'), releases2 = countif(wf == 'orders-receiver-2') by bin10 = bin(timestamp, 10s);
+let processed = acts | where act == 'Process_order' and wf == workflow | summarize processed = count(), failed = countif(success == false) by bin10 = bin(finishedAt, 10s);
+let inst = union requests, traces | where timestamp between (startTime .. endTime) | where cloud_RoleInstance != '' | summarize instances = dcount(cloud_RoleInstance) by bin10 = bin(timestamp, 10s);
+inst | join kind=fullouter pushed on bin10 | join kind=fullouter released on bin10 | join kind=fullouter processed on bin10
+| project bin10 = coalesce(bin10, bin101, bin102, bin103), instances, pushed, pushed1, pushed2, releases, releases1, releases2, processed, failed
+| order by bin10 asc

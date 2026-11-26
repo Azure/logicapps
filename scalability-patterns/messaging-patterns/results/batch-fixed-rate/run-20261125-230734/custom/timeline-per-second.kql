@@ -1,0 +1,12 @@
+// Parameters: replace {{startUtc}}, {{endUtc}} and {{workflowName}} (Run-Queries.ps1 in this folder does this).
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';
+// Per second: messages the producer sent (sentAtUtc of processed messages), pushed to the batch (Send_to_batch), started by the receiver (Process_order start) and the backlog held in the batch (pushed minus started, cumulative).
+let processed = requests | where timestamp between (startTime .. endTime) | where customDimensions.Category == 'Workflow.Operations.Actions' | where tostring(parse_json(tostring(customDimensions.resource)).workflowName) == workflow | where tostring(parse_json(tostring(customDimensions.resource)).actionName) == 'Process_order' | extend tp = parse_json(tostring(customDimensions.trackedProperties)) | where tostring(tp.pattern) == 'batch-fixed-rate' | extend ok = resultCode == 'Succeeded', startAt = timestamp, endAt = timestamp + totimespan(duration * 10000), sentAt = todatetime(tp.sentAtUtc), messageId = tostring(tp.messageId);
+let pushed = requests | where timestamp between (startTime .. endTime) | where customDimensions.Category == 'Workflow.Operations.Actions' | where tostring(parse_json(tostring(customDimensions.resource)).workflowName) == 'orders-ingress' | where tostring(parse_json(tostring(customDimensions.resource)).actionName) == 'Send_to_batch' | where resultCode == 'Succeeded' | extend endAt = timestamp + totimespan(duration * 10000);
+let sent = processed | where isnotnull(sentAt) | summarize sent = dcount(messageId) by s = bin(sentAt, 1s);
+let pushedS = pushed | summarize pushed = count() by s = bin(endAt, 1s);
+let started = processed | summarize started = dcount(messageId) by s = bin(startAt, 1s);
+let failed = processed | where not(ok) | summarize failed = count() by s = bin(endAt, 1s);
+range s from bin(startTime, 1s) to bin(endTime, 1s) step 1s | join kind=leftouter sent on s | join kind=leftouter pushedS on s | join kind=leftouter started on s | join kind=leftouter failed on s | project s, sent = coalesce(sent, 0), pushed = coalesce(pushed, 0), started = coalesce(started, 0), failed = coalesce(failed, 0) | order by s asc | extend backlog = row_cumsum(pushed) - row_cumsum(started) | where s <= now()

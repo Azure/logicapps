@@ -1,0 +1,12 @@
+// Parameters: replace {{startUtc}}, {{endUtc}} and {{workflowName}} (tools\Run-Queries.ps1 does this).
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';
+// Runs in flight, counted exactly: each run adds 1 at its start (end minus duration) and removes 1 at its end. A running sum over these events, ordered by time with ends before starts at the same instant, gives the true count at every instant. Each second reports the peak count seen in that second. Percentiles are over the per-second peaks.
+let runs = traces | where timestamp between (startTime .. endTime) | where customDimensions.Category == 'Workflow.Operations.Runs' and customDimensions.EventName == 'WorkflowRunEnd' | where tostring(parse_json(tostring(customDimensions.resource)).workflowName) == workflow | extend durationMs = todouble(customDimensions.prop__durationInMilliseconds) | extend runEnd = timestamp, runStart = timestamp - totimespan(durationMs * 10000), instance = cloud_RoleInstance;
+let events = union (runs | project t = runStart, d = 1, instance), (runs | project t = runEnd, d = -1, instance);
+let appSweep = events | order by t asc, d asc | extend inFlight = row_cumsum(d);
+let instSweep = events | order by instance asc, t asc, d asc | extend inFlight = row_cumsum(d, instance != prev(instance));
+let app = appSweep | summarize peak = max(inFlight) by sec = bin(t, 1s) | summarize maxInFlight = max(peak), p50InFlight = percentile(peak, 50), p95InFlight = percentile(peak, 95), secondsOver10 = countif(peak > 10), seconds = count() | extend scope = 'app';
+let inst = instSweep | summarize peak = max(inFlight) by sec = bin(t, 1s), instance | summarize maxInFlight = max(peak), p50InFlight = percentile(peak, 50), p95InFlight = percentile(peak, 95), secondsOver10 = countif(peak > 10), seconds = count() by scope = instance;
+union app, inst

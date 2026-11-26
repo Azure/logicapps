@@ -1,0 +1,12 @@
+{
+  "buckets": 19,
+  "meanPerSecond": 53.3,
+  "stdevPerSecond": 67.3,
+  "p10PerSecond": 0,
+  "p50PerSecond": 9.2,
+  "p90PerSecond": 152.78333333333333,
+  "peakPerSecond": 159.31666666666666,
+  "drainStart": "2026-11-26T01:59:00Z",
+  "drainEnd": "2026-11-26T02:17:00Z",
+  "cv": 1.263
+}

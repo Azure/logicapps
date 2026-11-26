@@ -1,0 +1,12 @@
+{
+  "releases": 143,
+  "avgSize": 45.4,
+  "p50Size": 50,
+  "p95Size": 50,
+  "maxSize": 50,
+  "releasesAt50": 120,
+  "releasesAbove50": 0,
+  "p50GapSeconds": 3.86,
+  "p95GapSeconds": 57.2,
+  "maxGapSeconds": 944.73
+}

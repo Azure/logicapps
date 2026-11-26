@@ -1,0 +1,38 @@
+{
+  "pattern": "batch-steady-drain",
+  "runId": "run-20261126-015557",
+  "workflowName": "process-batch-item",
+  "windowStartUtc": "2026-11-26T01:54:57Z",
+  "windowEndUtc": "2026-11-26T02:28:43Z",
+  "targetMessagesPerSecond": 500,
+  "loadDurationMinutes": 11,
+  "loadTestStatus": "DONE",
+  "loadTestResult": "NOT_APPLICABLE",
+  "loadEntity": "orders",
+  "messagesSent": 60800,
+  "messagesCompletedByBroker": 60800,
+  "peakQueueBacklog": 35600,
+  "deadletteredAtEnd": 0,
+  "runsCompleted": 60800,
+  "runsSucceeded": 60800,
+  "runsFailed": 0,
+  "avgMessagesPerSecond": 50.54,
+  "peakRunsPerSecond": 171.43,
+  "runDurationMs": {
+    "p50": 9409.352241211878,
+    "p95": 18429.128102800954,
+    "p99": 50979.42213976249
+  },
+  "endToEndLatencyMs": {
+    "p50": 398485,
+    "p95": 556189,
+    "p99": 589750
+  },
+  "maxInstances": 20,
+  "firstSentUtc": "2026-11-26T01:59:03.410Z",
+  "lastFinishedUtc": "2026-11-26T02:19:06.412Z",
+  "drainSeconds": 1203,
+  "failedActions": 112,
+  "exceptions": 0,
+  "portalUrl": "https://portal.azure.com/#blade/Microsoft_Azure_CloudNativeTesting/TestRunReport.ReactView//resourceId/%2fsubscriptions%2f21196cdf-abb2-4697-9f73-feef0db7cb2a%2fresourcegroups%2frg-msgpat-batch-steady-drain%2fproviders%2fmicrosoft.loadtestservice%2floadtests%2falt-msgpat-batchstead-qd4g52/testId/msgpat-batch-steady-drain/testRunId/run-20261126-015557"
+}

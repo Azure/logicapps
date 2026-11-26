@@ -1,0 +1,18 @@
+// Parameters: replace {{startUtc}}, {{endUtc}} and {{workflowName}} (tools\Run-Queries.ps1 does this).
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';
+// Item runs finished per minute (messages per second), then flatness over the steady minutes:
+// mean, standard deviation and coefficient of variation (stdev / mean).
+let perMinute = traces
+| where timestamp between (startTime .. endTime)
+| where customDimensions.Category == 'Workflow.Operations.Runs' and customDimensions.EventName == 'WorkflowRunEnd'
+| where tostring(parse_json(tostring(customDimensions.resource)).workflowName) == workflow
+| summarize runs = count() by minute = bin(timestamp, 1m);
+let bounds = perMinute | summarize startMinute = min(minute), endMinute = max(minute);
+perMinute
+| extend k = 1 | join kind=inner (bounds | extend k = 1) on k
+| where minute > startMinute and minute < endMinute
+| summarize steadyMinutes = count(), totalRuns = sum(runs), meanPerMinute = round(avg(runs), 1), stdevPerMinute = round(stdev(runs), 1),
+    minPerMinute = min(runs), maxPerMinute = max(runs)
+| extend meanPerSecond = round(meanPerMinute / 60.0, 2), cv = round(stdevPerMinute / meanPerMinute, 3)

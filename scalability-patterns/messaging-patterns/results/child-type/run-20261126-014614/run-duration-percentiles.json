@@ -1,0 +1,344 @@
+[
+  {
+    "minute": "2026-11-26T01:50:00.000Z",
+    "workflowName": "orders-stateful-child",
+    "runs": 434,
+    "p50": 73404.375,
+    "p95": 84179,
+    "p99": 86100,
+    "maxMs": 87218
+  },
+  {
+    "minute": "2026-11-26T01:50:00.000Z",
+    "workflowName": "process-order-stateful",
+    "runs": 659,
+    "p50": 54803.25,
+    "p95": 75093,
+    "p99": 78263,
+    "maxMs": 81329
+  },
+  {
+    "minute": "2026-11-26T01:51:00.000Z",
+    "workflowName": "orders-stateful-child",
+    "runs": 688,
+    "p50": 105131.8425925926,
+    "p95": 130825,
+    "p99": 142392,
+    "maxMs": 147136
+  },
+  {
+    "minute": "2026-11-26T01:51:00.000Z",
+    "workflowName": "process-order-stateful",
+    "runs": 971,
+    "p50": 58836.85959729571,
+    "p95": 110212,
+    "p99": 132370,
+    "maxMs": 136504
+  },
+  {
+    "minute": "2026-11-26T01:52:00.000Z",
+    "workflowName": "orders-stateful-child",
+    "runs": 1852,
+    "p50": 116894.7282051282,
+    "p95": 167027.5,
+    "p99": 181985,
+    "maxMs": 204043
+  },
+  {
+    "minute": "2026-11-26T01:52:00.000Z",
+    "workflowName": "process-order-stateful",
+    "runs": 2218,
+    "p50": 77813.06265400437,
+    "p95": 140474.02777777778,
+    "p99": 163362,
+    "maxMs": 179207
+  },
+  {
+    "minute": "2026-11-26T01:53:00.000Z",
+    "workflowName": "orders-stateful-child",
+    "runs": 2615,
+    "p50": 153544.39566657454,
+    "p95": 200728.45833333334,
+    "p99": 224225,
+    "maxMs": 249942
+  },
+  {
+    "minute": "2026-11-26T01:53:00.000Z",
+    "workflowName": "process-order-stateful",
+    "runs": 2867,
+    "p50": 99214.23521557858,
+    "p95": 159731.66666666666,
+    "p99": 181157,
+    "maxMs": 224655
+  },
+  {
+    "minute": "2026-11-26T01:54:00.000Z",
+    "workflowName": "orders-stateful-child",
+    "runs": 4315,
+    "p50": 184593.28729081218,
+    "p95": 236088.075,
+    "p99": 254827,
+    "maxMs": 306407
+  },
+  {
+    "minute": "2026-11-26T01:54:00.000Z",
+    "workflowName": "process-order-stateful",
+    "runs": 4541,
+    "p50": 123789.47439034388,
+    "p95": 191940.38541666666,
+    "p99": 213674,
+    "maxMs": 255193
+  },
+  {
+    "minute": "2026-11-26T01:55:00.000Z",
+    "workflowName": "orders-stateful-child",
+    "runs": 6551,
+    "p50": 208622.42397267406,
+    "p95": 283274.4666418651,
+    "p99": 300340.5,
+    "maxMs": 345232
+  },
+  {
+    "minute": "2026-11-26T01:55:00.000Z",
+    "workflowName": "process-order-stateful",
+    "runs": 6936,
+    "p50": 137151.4574916784,
+    "p95": 225250.8325617284,
+    "p99": 253335.25,
+    "maxMs": 285288
+  },
+  {
+    "minute": "2026-11-26T01:56:00.000Z",
+    "workflowName": "orders-stateful-child",
+    "runs": 8136,
+    "p50": 237044.8910441722,
+    "p95": 316018.74481267744,
+    "p99": 348653.875,
+    "maxMs": 411290
+  },
+  {
+    "minute": "2026-11-26T01:56:00.000Z",
+    "workflowName": "process-order-stateful",
+    "runs": 9016,
+    "p50": 143415.4121420721,
+    "p95": 246813.6074980473,
+    "p99": 280834.25,
+    "maxMs": 325607
+  },
+  {
+    "minute": "2026-11-26T01:57:00.000Z",
+    "workflowName": "orders-stateful-child",
+    "runs": 12040,
+    "p50": 256135.5844059277,
+    "p95": 337050.68675299885,
+    "p99": 370485.1041666667,
+    "maxMs": 415450
+  },
+  {
+    "minute": "2026-11-26T01:57:00.000Z",
+    "workflowName": "process-order-stateful",
+    "runs": 12639,
+    "p50": 163835.83837728246,
+    "p95": 254773.14080298788,
+    "p99": 296423.625,
+    "maxMs": 338281
+  },
+  {
+    "minute": "2026-11-26T01:58:00.000Z",
+    "workflowName": "orders-stateful-child",
+    "runs": 17068,
+    "p50": 281362.0374988159,
+    "p95": 352015.5011708313,
+    "p99": 379845.7208333333,
+    "maxMs": 489897
+  },
+  {
+    "minute": "2026-11-26T01:58:00.000Z",
+    "workflowName": "process-order-stateful",
+    "runs": 14137,
+    "p50": 162845.05010540033,
+    "p95": 252534.69355277088,
+    "p99": 296768.92,
+    "maxMs": 439183
+  },
+  {
+    "minute": "2026-11-26T01:59:00.000Z",
+    "workflowName": "orders-stateful-child",
+    "runs": 6,
+    "p50": 351722,
+    "p95": 430082,
+    "p99": 430082,
+    "maxMs": 430082
+  },
+  {
+    "minute": "2026-11-26T01:59:00.000Z",
+    "workflowName": "process-order-stateful",
+    "runs": 6,
+    "p50": 259158,
+    "p95": 395690,
+    "p99": 395690,
+    "maxMs": 395690
+  },
+  {
+    "minute": "2026-11-26T02:00:00.000Z",
+    "workflowName": "orders-stateful-child",
+    "runs": 11,
+    "p50": 425573,
+    "p95": 454886,
+    "p99": 454886,
+    "maxMs": 454886
+  },
+  {
+    "minute": "2026-11-26T02:00:00.000Z",
+    "workflowName": "process-order-stateful",
+    "runs": 11,
+    "p50": 344691,
+    "p95": 396432,
+    "p99": 396432,
+    "maxMs": 396432
+  },
+  {
+    "minute": "2026-11-26T02:01:00.000Z",
+    "workflowName": "orders-stateful-child",
+    "runs": 4,
+    "p50": 491760,
+    "p95": 531786,
+    "p99": 531786,
+    "maxMs": 531786
+  },
+  {
+    "minute": "2026-11-26T02:01:00.000Z",
+    "workflowName": "process-order-stateful",
+    "runs": 9,
+    "p50": 431476,
+    "p95": 556160,
+    "p99": 556160,
+    "maxMs": 556160
+  },
+  {
+    "minute": "2026-11-26T02:02:00.000Z",
+    "workflowName": "orders-stateful-child",
+    "runs": 8,
+    "p50": 639579,
+    "p95": 700660,
+    "p99": 700660,
+    "maxMs": 700660
+  },
+  {
+    "minute": "2026-11-26T02:02:00.000Z",
+    "workflowName": "process-order-stateful",
+    "runs": 11,
+    "p50": 601374,
+    "p95": 666085,
+    "p99": 666085,
+    "maxMs": 666085
+  },
+  {
+    "minute": "2026-11-26T02:03:00.000Z",
+    "workflowName": "orders-stateful-child",
+    "runs": 1,
+    "p50": 592835,
+    "p95": 592835,
+    "p99": 592835,
+    "maxMs": 592835
+  },
+  {
+    "minute": "2026-11-26T02:03:00.000Z",
+    "workflowName": "process-order-stateful",
+    "runs": 1,
+    "p50": 539637,
+    "p95": 539637,
+    "p99": 539637,
+    "maxMs": 539637
+  },
+  {
+    "minute": "2026-11-26T02:04:00.000Z",
+    "workflowName": "orders-stateful-child",
+    "runs": 1,
+    "p50": 827700,
+    "p95": 827700,
+    "p99": 827700,
+    "maxMs": 827700
+  },
+  {
+    "minute": "2026-11-26T02:04:00.000Z",
+    "workflowName": "process-order-stateful",
+    "runs": 1,
+    "p50": 791624,
+    "p95": 791624,
+    "p99": 791624,
+    "maxMs": 791624
+  },
+  {
+    "minute": "2026-11-26T02:05:00.000Z",
+    "workflowName": "orders-stateful-child",
+    "runs": 112,
+    "p50": 865225,
+    "p95": 905903,
+    "p99": 912964,
+    "maxMs": 931921
+  },
+  {
+    "minute": "2026-11-26T02:05:00.000Z",
+    "workflowName": "process-order-stateful",
+    "runs": 146,
+    "p50": 818491,
+    "p95": 878373,
+    "p99": 891262,
+    "maxMs": 892951
+  },
+  {
+    "minute": "2026-11-26T02:06:00.000Z",
+    "workflowName": "orders-stateful-child",
+    "runs": 49,
+    "p50": 916424,
+    "p95": 951575,
+    "p99": 967084,
+    "maxMs": 967084
+  },
+  {
+    "minute": "2026-11-26T02:06:00.000Z",
+    "workflowName": "process-order-stateful",
+    "runs": 60,
+    "p50": 872339,
+    "p95": 915831,
+    "p99": 925245,
+    "maxMs": 925245
+  },
+  {
+    "minute": "2026-11-26T02:07:00.000Z",
+    "workflowName": "orders-stateful-child",
+    "runs": 23,
+    "p50": 972124,
+    "p95": 1034322,
+    "p99": 1034328,
+    "maxMs": 1034328
+  },
+  {
+    "minute": "2026-11-26T02:07:00.000Z",
+    "workflowName": "process-order-stateful",
+    "runs": 31,
+    "p50": 934468,
+    "p95": 972952,
+    "p99": 1013966,
+    "maxMs": 1013966
+  },
+  {
+    "minute": "2026-11-26T02:08:00.000Z",
+    "workflowName": "orders-stateful-child",
+    "runs": 2,
+    "p50": 1007342,
+    "p95": 1036839,
+    "p99": 1036839,
+    "maxMs": 1036839
+  },
+  {
+    "minute": "2026-11-26T02:08:00.000Z",
+    "workflowName": "process-order-stateful",
+    "runs": 1,
+    "p50": 1010555,
+    "p95": 1010555,
+    "p99": 1010555,
+    "maxMs": 1010555
+  }
+]

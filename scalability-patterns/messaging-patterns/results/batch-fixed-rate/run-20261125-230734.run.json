@@ -1,0 +1,20 @@
+{
+  "pattern": "batch-fixed-rate",
+  "testId": "msgpat-batch-fixed-rate",
+  "testRunId": "run-20261125-230734",
+  "label": "run1",
+  "targetMessagesPerSecond": 150,
+  "users": 15,
+  "engineInstances": 1,
+  "batchSize": 10,
+  "batchesPerUserPerSecond": 1,
+  "durationMinutes": 15,
+  "drainMinutes": 20,
+  "startUtc": "2026-11-25T23:07:34.4440037Z",
+  "loadEndUtc": "2026-11-25T23:27:38Z",
+  "endUtc": "2026-11-25T23:47:47.2791472Z",
+  "status": "DONE",
+  "testResult": "NOT_APPLICABLE",
+  "loadStartUtc": "2026-11-25T23:07:44Z",
+  "portalUrl": "https://portal.azure.com/#blade/Microsoft_Azure_CloudNativeTesting/TestRunReport.ReactView//resourceId/%2fsubscriptions%2f21196cdf-abb2-4697-9f73-feef0db7cb2a%2fresourcegroups%2frg-msgpat-batch-fixed-rate%2fproviders%2fmicrosoft.loadtestservice%2floadtests%2falt-msgpat-batchfixed-xzxie6/testId/msgpat-batch-fixed-rate/testRunId/run-20261125-230734"
+}

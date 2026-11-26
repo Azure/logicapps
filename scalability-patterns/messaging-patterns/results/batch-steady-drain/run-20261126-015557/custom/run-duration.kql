@@ -1,0 +1,7 @@
+// Parameters: replace {{startUtc}}, {{endUtc}} and {{workflowName}} (Run-Queries.ps1 in this folder does this).
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';
+// Run duration and status of every run, by workflow.
+traces | where timestamp between (startTime .. endTime) | where customDimensions.Category == 'Workflow.Operations.Runs' and customDimensions.EventName == 'WorkflowRunEnd' | extend wf = tostring(parse_json(tostring(customDimensions.resource)).workflowName) | where wf in ('orders-ingress', 'orders-receiver', 'process-batch-item', 'process-order') | extend status = tostring(parse_json(tostring(customDimensions.prop__properties)).status), durationMs = todouble(customDimensions.prop__durationInMilliseconds) | summarize runs = count(), p50Ms = percentile(durationMs, 50), p95Ms = percentile(durationMs, 95), maxMs = max(durationMs), firstEnd = min(timestamp), lastEnd = max(timestamp) by wf, status | order by wf asc
+

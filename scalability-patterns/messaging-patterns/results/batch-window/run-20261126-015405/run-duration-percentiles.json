@@ -1,0 +1,1001 @@
+[
+  {
+    "minute": "2026-11-26T01:57:00.000Z",
+    "workflowName": "orders-ingress",
+    "runs": 1994,
+    "p50": 8252.55300439581,
+    "p95": 17880.333333333332,
+    "p99": 23247,
+    "maxMs": 35437
+  },
+  {
+    "minute": "2026-11-26T01:57:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 1,
+    "p50": 8232,
+    "p95": 8232,
+    "p99": 8232,
+    "maxMs": 8232
+  },
+  {
+    "minute": "2026-11-26T01:58:00.000Z",
+    "workflowName": "orders-ingress",
+    "runs": 9853,
+    "p50": 10188.427493863854,
+    "p95": 22639.491281512604,
+    "p99": 28631.25925925926,
+    "maxMs": 46676
+  },
+  {
+    "minute": "2026-11-26T01:58:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 8,
+    "p50": 6496,
+    "p95": 26020,
+    "p99": 26020,
+    "maxMs": 26020
+  },
+  {
+    "minute": "2026-11-26T01:58:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 69,
+    "p50": 34983,
+    "p95": 37414,
+    "p99": 43665,
+    "maxMs": 43665
+  },
+  {
+    "minute": "2026-11-26T01:58:00.000Z",
+    "workflowName": "process-order",
+    "runs": 69,
+    "p50": 26839,
+    "p95": 30770,
+    "p99": 31501,
+    "maxMs": 31501
+  },
+  {
+    "minute": "2026-11-26T01:59:00.000Z",
+    "workflowName": "orders-ingress",
+    "runs": 17281,
+    "p50": 10368.803774096756,
+    "p95": 30995.438186105264,
+    "p99": 39638.625,
+    "maxMs": 79001
+  },
+  {
+    "minute": "2026-11-26T01:59:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 6,
+    "p50": 325,
+    "p95": 9850,
+    "p99": 9850,
+    "maxMs": 9850
+  },
+  {
+    "minute": "2026-11-26T01:59:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 169,
+    "p50": 9999,
+    "p95": 81295,
+    "p99": 81316,
+    "maxMs": 81323
+  },
+  {
+    "minute": "2026-11-26T01:59:00.000Z",
+    "workflowName": "process-order",
+    "runs": 169,
+    "p50": 4971,
+    "p95": 74876,
+    "p99": 75249,
+    "maxMs": 75423
+  },
+  {
+    "minute": "2026-11-26T02:00:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 50,
+    "p50": 99,
+    "p95": 1953,
+    "p99": 2226,
+    "maxMs": 2226
+  },
+  {
+    "minute": "2026-11-26T02:00:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 850,
+    "p50": 771.4052083333333,
+    "p95": 5120,
+    "p99": 6206,
+    "maxMs": 6377
+  },
+  {
+    "minute": "2026-11-26T02:00:00.000Z",
+    "workflowName": "process-order",
+    "runs": 850,
+    "p50": 605.2857142857143,
+    "p95": 4585,
+    "p99": 5308,
+    "maxMs": 5889
+  },
+  {
+    "minute": "2026-11-26T02:01:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 52,
+    "p50": 96,
+    "p95": 160,
+    "p99": 218,
+    "maxMs": 218
+  },
+  {
+    "minute": "2026-11-26T02:01:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 894,
+    "p50": 658.5277777777778,
+    "p95": 934,
+    "p99": 1050,
+    "maxMs": 1108
+  },
+  {
+    "minute": "2026-11-26T02:01:00.000Z",
+    "workflowName": "process-order",
+    "runs": 897,
+    "p50": 484.1,
+    "p95": 736,
+    "p99": 833,
+    "maxMs": 986
+  },
+  {
+    "minute": "2026-11-26T02:02:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 55,
+    "p50": 100,
+    "p95": 218,
+    "p99": 1888,
+    "maxMs": 1888
+  },
+  {
+    "minute": "2026-11-26T02:02:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 942,
+    "p50": 666.1944444444445,
+    "p95": 910,
+    "p99": 4706,
+    "maxMs": 5153
+  },
+  {
+    "minute": "2026-11-26T02:02:00.000Z",
+    "workflowName": "process-order",
+    "runs": 939,
+    "p50": 487.5476190476191,
+    "p95": 745,
+    "p99": 4077,
+    "maxMs": 4500
+  },
+  {
+    "minute": "2026-11-26T02:03:00.000Z",
+    "workflowName": "orders-ingress",
+    "runs": 1,
+    "p50": 258104,
+    "p95": 258104,
+    "p99": 258104,
+    "maxMs": 258104
+  },
+  {
+    "minute": "2026-11-26T02:03:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 55,
+    "p50": 98,
+    "p95": 184,
+    "p99": 405,
+    "maxMs": 405
+  },
+  {
+    "minute": "2026-11-26T02:03:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 918,
+    "p50": 684.3087962962964,
+    "p95": 950,
+    "p99": 1100,
+    "maxMs": 1145
+  },
+  {
+    "minute": "2026-11-26T02:03:00.000Z",
+    "workflowName": "process-order",
+    "runs": 918,
+    "p50": 508.86226851851853,
+    "p95": 763,
+    "p99": 973,
+    "maxMs": 1013
+  },
+  {
+    "minute": "2026-11-26T02:04:00.000Z",
+    "workflowName": "orders-ingress",
+    "runs": 1,
+    "p50": 299111,
+    "p95": 299111,
+    "p99": 299111,
+    "maxMs": 299111
+  },
+  {
+    "minute": "2026-11-26T02:04:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 53,
+    "p50": 97,
+    "p95": 135,
+    "p99": 261,
+    "maxMs": 261
+  },
+  {
+    "minute": "2026-11-26T02:04:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 901,
+    "p50": 694.5819618055555,
+    "p95": 920.5,
+    "p99": 1036,
+    "maxMs": 1130
+  },
+  {
+    "minute": "2026-11-26T02:04:00.000Z",
+    "workflowName": "process-order",
+    "runs": 901,
+    "p50": 527.0500000000001,
+    "p95": 781,
+    "p99": 874,
+    "maxMs": 958
+  },
+  {
+    "minute": "2026-11-26T02:05:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 54,
+    "p50": 99,
+    "p95": 185,
+    "p99": 273,
+    "maxMs": 273
+  },
+  {
+    "minute": "2026-11-26T02:05:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 918,
+    "p50": 692.4038710722385,
+    "p95": 939,
+    "p99": 1010,
+    "maxMs": 1120
+  },
+  {
+    "minute": "2026-11-26T02:05:00.000Z",
+    "workflowName": "process-order",
+    "runs": 918,
+    "p50": 525.9455357142858,
+    "p95": 789,
+    "p99": 874,
+    "maxMs": 1026
+  },
+  {
+    "minute": "2026-11-26T02:06:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 54,
+    "p50": 100,
+    "p95": 171,
+    "p99": 183,
+    "maxMs": 183
+  },
+  {
+    "minute": "2026-11-26T02:06:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 919,
+    "p50": 665.2816666666666,
+    "p95": 918,
+    "p99": 1056,
+    "maxMs": 1244
+  },
+  {
+    "minute": "2026-11-26T02:06:00.000Z",
+    "workflowName": "process-order",
+    "runs": 919,
+    "p50": 497.125,
+    "p95": 772.5,
+    "p99": 895,
+    "maxMs": 1017
+  },
+  {
+    "minute": "2026-11-26T02:07:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 54,
+    "p50": 94,
+    "p95": 135,
+    "p99": 232,
+    "maxMs": 232
+  },
+  {
+    "minute": "2026-11-26T02:07:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 926,
+    "p50": 665.8781221130428,
+    "p95": 910,
+    "p99": 1018,
+    "maxMs": 1097
+  },
+  {
+    "minute": "2026-11-26T02:07:00.000Z",
+    "workflowName": "process-order",
+    "runs": 927,
+    "p50": 497.16326530612247,
+    "p95": 777,
+    "p99": 847,
+    "maxMs": 997
+  },
+  {
+    "minute": "2026-11-26T02:08:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 54,
+    "p50": 101,
+    "p95": 122,
+    "p99": 175,
+    "maxMs": 175
+  },
+  {
+    "minute": "2026-11-26T02:08:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 909,
+    "p50": 678.3209722222222,
+    "p95": 921,
+    "p99": 1005,
+    "maxMs": 1329
+  },
+  {
+    "minute": "2026-11-26T02:08:00.000Z",
+    "workflowName": "process-order",
+    "runs": 908,
+    "p50": 515.3466666666667,
+    "p95": 770,
+    "p99": 850,
+    "maxMs": 1132
+  },
+  {
+    "minute": "2026-11-26T02:09:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 53,
+    "p50": 96,
+    "p95": 128,
+    "p99": 272,
+    "maxMs": 272
+  },
+  {
+    "minute": "2026-11-26T02:09:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 901,
+    "p50": 673.6666666666667,
+    "p95": 924,
+    "p99": 1028,
+    "maxMs": 1101
+  },
+  {
+    "minute": "2026-11-26T02:09:00.000Z",
+    "workflowName": "process-order",
+    "runs": 901,
+    "p50": 509.63922902494335,
+    "p95": 778,
+    "p99": 893,
+    "maxMs": 1017
+  },
+  {
+    "minute": "2026-11-26T02:10:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 53,
+    "p50": 95,
+    "p95": 127,
+    "p99": 227,
+    "maxMs": 227
+  },
+  {
+    "minute": "2026-11-26T02:10:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 901,
+    "p50": 657.8925925925926,
+    "p95": 922,
+    "p99": 1014,
+    "maxMs": 1174
+  },
+  {
+    "minute": "2026-11-26T02:10:00.000Z",
+    "workflowName": "process-order",
+    "runs": 901,
+    "p50": 493.25,
+    "p95": 758,
+    "p99": 852,
+    "maxMs": 945
+  },
+  {
+    "minute": "2026-11-26T02:11:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 52,
+    "p50": 97,
+    "p95": 130,
+    "p99": 227,
+    "maxMs": 227
+  },
+  {
+    "minute": "2026-11-26T02:11:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 886,
+    "p50": 707.9671296296295,
+    "p95": 963.5,
+    "p99": 1052,
+    "maxMs": 1129
+  },
+  {
+    "minute": "2026-11-26T02:11:00.000Z",
+    "workflowName": "process-order",
+    "runs": 887,
+    "p50": 534.0223214285714,
+    "p95": 812,
+    "p99": 907,
+    "maxMs": 993
+  },
+  {
+    "minute": "2026-11-26T02:12:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 46,
+    "p50": 99,
+    "p95": 1962,
+    "p99": 2149,
+    "maxMs": 2149
+  },
+  {
+    "minute": "2026-11-26T02:12:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 797,
+    "p50": 708.18,
+    "p95": 4834,
+    "p99": 5894,
+    "maxMs": 6136
+  },
+  {
+    "minute": "2026-11-26T02:12:00.000Z",
+    "workflowName": "process-order",
+    "runs": 796,
+    "p50": 536.2227513227514,
+    "p95": 4173,
+    "p99": 5279,
+    "maxMs": 5686
+  },
+  {
+    "minute": "2026-11-26T02:13:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 53,
+    "p50": 100,
+    "p95": 140,
+    "p99": 156,
+    "maxMs": 156
+  },
+  {
+    "minute": "2026-11-26T02:13:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 894,
+    "p50": 668.175,
+    "p95": 934.5,
+    "p99": 1043,
+    "maxMs": 1146
+  },
+  {
+    "minute": "2026-11-26T02:13:00.000Z",
+    "workflowName": "process-order",
+    "runs": 897,
+    "p50": 506.3587037037037,
+    "p95": 789,
+    "p99": 877,
+    "maxMs": 1058
+  },
+  {
+    "minute": "2026-11-26T02:14:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 53,
+    "p50": 101,
+    "p95": 286,
+    "p99": 556,
+    "maxMs": 556
+  },
+  {
+    "minute": "2026-11-26T02:14:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 901,
+    "p50": 671.2900793650794,
+    "p95": 938.5,
+    "p99": 1074,
+    "maxMs": 1186
+  },
+  {
+    "minute": "2026-11-26T02:14:00.000Z",
+    "workflowName": "process-order",
+    "runs": 898,
+    "p50": 502.4348958333333,
+    "p95": 778.5,
+    "p99": 896,
+    "maxMs": 1040
+  },
+  {
+    "minute": "2026-11-26T02:15:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 53,
+    "p50": 97,
+    "p95": 122,
+    "p99": 258,
+    "maxMs": 258
+  },
+  {
+    "minute": "2026-11-26T02:15:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 895,
+    "p50": 665.4380952380952,
+    "p95": 915,
+    "p99": 1015,
+    "maxMs": 1178
+  },
+  {
+    "minute": "2026-11-26T02:15:00.000Z",
+    "workflowName": "process-order",
+    "runs": 896,
+    "p50": 495.5,
+    "p95": 782,
+    "p99": 867,
+    "maxMs": 953
+  },
+  {
+    "minute": "2026-11-26T02:16:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 54,
+    "p50": 98,
+    "p95": 176,
+    "p99": 416,
+    "maxMs": 416
+  },
+  {
+    "minute": "2026-11-26T02:16:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 921,
+    "p50": 641.000992063492,
+    "p95": 943,
+    "p99": 1060,
+    "maxMs": 1107
+  },
+  {
+    "minute": "2026-11-26T02:16:00.000Z",
+    "workflowName": "process-order",
+    "runs": 922,
+    "p50": 468.5978835978836,
+    "p95": 797.5,
+    "p99": 905,
+    "maxMs": 978
+  },
+  {
+    "minute": "2026-11-26T02:17:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 54,
+    "p50": 95,
+    "p95": 142,
+    "p99": 283,
+    "maxMs": 283
+  },
+  {
+    "minute": "2026-11-26T02:17:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 911,
+    "p50": 730.6734693877551,
+    "p95": 994,
+    "p99": 1176,
+    "maxMs": 1299
+  },
+  {
+    "minute": "2026-11-26T02:17:00.000Z",
+    "workflowName": "process-order",
+    "runs": 909,
+    "p50": 556.2416666666667,
+    "p95": 853,
+    "p99": 1025,
+    "maxMs": 1198
+  },
+  {
+    "minute": "2026-11-26T02:18:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 52,
+    "p50": 99,
+    "p95": 139,
+    "p99": 234,
+    "maxMs": 234
+  },
+  {
+    "minute": "2026-11-26T02:18:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 896,
+    "p50": 691.6038095238096,
+    "p95": 935.5,
+    "p99": 1079,
+    "maxMs": 1190
+  },
+  {
+    "minute": "2026-11-26T02:18:00.000Z",
+    "workflowName": "process-order",
+    "runs": 899,
+    "p50": 529.7079365079364,
+    "p95": 786,
+    "p99": 945,
+    "maxMs": 1038
+  },
+  {
+    "minute": "2026-11-26T02:19:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 53,
+    "p50": 98,
+    "p95": 127,
+    "p99": 181,
+    "maxMs": 181
+  },
+  {
+    "minute": "2026-11-26T02:19:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 904,
+    "p50": 665.53125,
+    "p95": 940,
+    "p99": 1045,
+    "maxMs": 1189
+  },
+  {
+    "minute": "2026-11-26T02:19:00.000Z",
+    "workflowName": "process-order",
+    "runs": 902,
+    "p50": 490.47916666666663,
+    "p95": 794.5,
+    "p99": 879,
+    "maxMs": 1074
+  },
+  {
+    "minute": "2026-11-26T02:20:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 52,
+    "p50": 97,
+    "p95": 140,
+    "p99": 172,
+    "maxMs": 172
+  },
+  {
+    "minute": "2026-11-26T02:20:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 884,
+    "p50": 684.2809523809524,
+    "p95": 935,
+    "p99": 1043,
+    "maxMs": 1097
+  },
+  {
+    "minute": "2026-11-26T02:20:00.000Z",
+    "workflowName": "process-order",
+    "runs": 885,
+    "p50": 514.9603174603174,
+    "p95": 786,
+    "p99": 837,
+    "maxMs": 975
+  },
+  {
+    "minute": "2026-11-26T02:21:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 52,
+    "p50": 102,
+    "p95": 125,
+    "p99": 191,
+    "maxMs": 191
+  },
+  {
+    "minute": "2026-11-26T02:21:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 869,
+    "p50": 674.2291666666666,
+    "p95": 952.5,
+    "p99": 1008,
+    "maxMs": 1181
+  },
+  {
+    "minute": "2026-11-26T02:21:00.000Z",
+    "workflowName": "process-order",
+    "runs": 867,
+    "p50": 497.84183673469386,
+    "p95": 791,
+    "p99": 840,
+    "maxMs": 976
+  },
+  {
+    "minute": "2026-11-26T02:22:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 51,
+    "p50": 95,
+    "p95": 117,
+    "p99": 264,
+    "maxMs": 264
+  },
+  {
+    "minute": "2026-11-26T02:22:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 867,
+    "p50": 722.1122448979593,
+    "p95": 936,
+    "p99": 1070,
+    "maxMs": 1211
+  },
+  {
+    "minute": "2026-11-26T02:22:00.000Z",
+    "workflowName": "process-order",
+    "runs": 867,
+    "p50": 554.2940476190477,
+    "p95": 799,
+    "p99": 922,
+    "maxMs": 1009
+  },
+  {
+    "minute": "2026-11-26T02:23:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 49,
+    "p50": 94,
+    "p95": 287,
+    "p99": 2311,
+    "maxMs": 2311
+  },
+  {
+    "minute": "2026-11-26T02:23:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 836,
+    "p50": 728.2833333333333,
+    "p95": 1210,
+    "p99": 5943,
+    "maxMs": 6414
+  },
+  {
+    "minute": "2026-11-26T02:23:00.000Z",
+    "workflowName": "process-order",
+    "runs": 837,
+    "p50": 558.2054687499999,
+    "p95": 1009,
+    "p99": 5181,
+    "maxMs": 5831
+  },
+  {
+    "minute": "2026-11-26T02:24:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 52,
+    "p50": 97,
+    "p95": 168,
+    "p99": 430,
+    "maxMs": 430
+  },
+  {
+    "minute": "2026-11-26T02:24:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 881,
+    "p50": 706.3752976190476,
+    "p95": 939.5,
+    "p99": 1017,
+    "maxMs": 1184
+  },
+  {
+    "minute": "2026-11-26T02:24:00.000Z",
+    "workflowName": "process-order",
+    "runs": 880,
+    "p50": 547.55,
+    "p95": 813,
+    "p99": 917,
+    "maxMs": 1099
+  },
+  {
+    "minute": "2026-11-26T02:25:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 51,
+    "p50": 100,
+    "p95": 141,
+    "p99": 243,
+    "maxMs": 243
+  },
+  {
+    "minute": "2026-11-26T02:25:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 884,
+    "p50": 728.6,
+    "p95": 934.5,
+    "p99": 988,
+    "maxMs": 1122
+  },
+  {
+    "minute": "2026-11-26T02:25:00.000Z",
+    "workflowName": "process-order",
+    "runs": 884,
+    "p50": 562.7222222222223,
+    "p95": 777,
+    "p99": 845,
+    "maxMs": 1045
+  },
+  {
+    "minute": "2026-11-26T02:26:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 53,
+    "p50": 96,
+    "p95": 205,
+    "p99": 285,
+    "maxMs": 285
+  },
+  {
+    "minute": "2026-11-26T02:26:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 898,
+    "p50": 695.3095238095237,
+    "p95": 959,
+    "p99": 1071,
+    "maxMs": 1344
+  },
+  {
+    "minute": "2026-11-26T02:26:00.000Z",
+    "workflowName": "process-order",
+    "runs": 900,
+    "p50": 520.6750000000001,
+    "p95": 813.5,
+    "p99": 929,
+    "maxMs": 1115
+  },
+  {
+    "minute": "2026-11-26T02:27:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 53,
+    "p50": 99,
+    "p95": 234,
+    "p99": 333,
+    "maxMs": 333
+  },
+  {
+    "minute": "2026-11-26T02:27:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 887,
+    "p50": 684.9200000000001,
+    "p95": 973,
+    "p99": 1153,
+    "maxMs": 1518
+  },
+  {
+    "minute": "2026-11-26T02:27:00.000Z",
+    "workflowName": "process-order",
+    "runs": 885,
+    "p50": 507.2678571428571,
+    "p95": 793,
+    "p99": 978,
+    "maxMs": 1084
+  },
+  {
+    "minute": "2026-11-26T02:28:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 51,
+    "p50": 98,
+    "p95": 131,
+    "p99": 280,
+    "maxMs": 280
+  },
+  {
+    "minute": "2026-11-26T02:28:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 884,
+    "p50": 697.0752551020407,
+    "p95": 1034,
+    "p99": 1252,
+    "maxMs": 1423
+  },
+  {
+    "minute": "2026-11-26T02:28:00.000Z",
+    "workflowName": "process-order",
+    "runs": 884,
+    "p50": 525.7936507936508,
+    "p95": 846.5,
+    "p99": 1045,
+    "maxMs": 1264
+  },
+  {
+    "minute": "2026-11-26T02:29:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 52,
+    "p50": 96,
+    "p95": 135,
+    "p99": 151,
+    "maxMs": 151
+  },
+  {
+    "minute": "2026-11-26T02:29:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 879,
+    "p50": 694.4472222222222,
+    "p95": 933.5,
+    "p99": 988,
+    "maxMs": 1200
+  },
+  {
+    "minute": "2026-11-26T02:29:00.000Z",
+    "workflowName": "process-order",
+    "runs": 880,
+    "p50": 522.5892857142858,
+    "p95": 780,
+    "p99": 856,
+    "maxMs": 1116
+  },
+  {
+    "minute": "2026-11-26T02:30:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 52,
+    "p50": 97,
+    "p95": 282,
+    "p99": 409,
+    "maxMs": 409
+  },
+  {
+    "minute": "2026-11-26T02:30:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 889,
+    "p50": 678.3483560090702,
+    "p95": 1024,
+    "p99": 1233,
+    "maxMs": 1284
+  },
+  {
+    "minute": "2026-11-26T02:30:00.000Z",
+    "workflowName": "process-order",
+    "runs": 888,
+    "p50": 500.7291666666667,
+    "p95": 859,
+    "p99": 1056,
+    "maxMs": 1180
+  },
+  {
+    "minute": "2026-11-26T02:31:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 52,
+    "p50": 99,
+    "p95": 137,
+    "p99": 432,
+    "maxMs": 432
+  },
+  {
+    "minute": "2026-11-26T02:31:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 867,
+    "p50": 697.5833333333334,
+    "p95": 955,
+    "p99": 1105,
+    "maxMs": 1211
+  },
+  {
+    "minute": "2026-11-26T02:31:00.000Z",
+    "workflowName": "process-order",
+    "runs": 867,
+    "p50": 528.1395238095239,
+    "p95": 804,
+    "p99": 941,
+    "maxMs": 999
+  },
+  {
+    "minute": "2026-11-26T02:32:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 22,
+    "p50": 102,
+    "p95": 177,
+    "p99": 244,
+    "maxMs": 244
+  },
+  {
+    "minute": "2026-11-26T02:32:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 383,
+    "p50": 714,
+    "p95": 917,
+    "p99": 1077,
+    "maxMs": 1139
+  },
+  {
+    "minute": "2026-11-26T02:32:00.000Z",
+    "workflowName": "process-order",
+    "runs": 383,
+    "p50": 562.3888888888889,
+    "p95": 759,
+    "p99": 856,
+    "maxMs": 1038
+  }
+]

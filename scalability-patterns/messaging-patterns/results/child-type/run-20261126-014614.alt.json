@@ -1,0 +1,112 @@
+{
+  "autoStopCriteria": {
+    "autoStopDisabled": false,
+    "errorRate": 50.0,
+    "errorRateTimeWindowInSeconds": 60,
+    "maximumVirtualUsersPerEngine": 5000
+  },
+  "createdBy": "rohithah@microsoft.com",
+  "createdByType": "User",
+  "createdDateTime": "2026-11-26T01:46:22.134Z",
+  "debugLogsEnabled": false,
+  "displayName": "B-stateful-w4-solo",
+  "endDateTime": "2026-11-26T01:57:03Z",
+  "environmentVariables": {
+    "AZURE_CLIENT_ID": "9058891d-e407-48c2-95bb-b3106661f7bd",
+    "BATCHES_PER_USER_PER_SECOND": "1",
+    "BATCH_SIZE": "10",
+    "PATTERN_ID": "child-type",
+    "SB_NAMESPACE": "sb-msgpat-childtype-yyw6jt.servicebus.windows.net",
+    "SB_QUEUE": "orders-b"
+  },
+  "estimatedVirtualUserHours": 2.0,
+  "executedDateTime": "2026-11-26T01:46:18.421Z",
+  "kind": "Locust",
+  "lastModifiedBy": "rohithah@microsoft.com",
+  "lastModifiedDateTime": "2026-11-26T01:57:14.18Z",
+  "loadTestConfiguration": {
+    "engineInstances": 1,
+    "quickStartTest": false,
+    "splitAllCSVs": false
+  },
+  "passFailCriteria": {
+    "passFailMetrics": {
+      "28e1059d-7253-4a8f-824c-949ddf94f317": {
+        "action": "continue",
+        "aggregate": "percentage",
+        "clientMetric": "error",
+        "condition": ">",
+        "value": 5.0
+      }
+    },
+    "passFailServerMetrics": {}
+  },
+  "portalUrl": "https://portal.azure.com/#blade/Microsoft_Azure_CloudNativeTesting/TestRunReport.ReactView//resourceId/%2fsubscriptions%2f21196cdf-abb2-4697-9f73-feef0db7cb2a%2fresourcegroups%2frg-msgpat-child-type%2fproviders%2fmicrosoft.loadtestservice%2floadtests%2falt-msgpat-childtype-yyw6jt/testId/msgpat-child-type/testRunId/run-20261126-014614",
+  "requestDataLevel": "NONE",
+  "startDateTime": "2026-11-26T01:46:23Z",
+  "status": "DONE",
+  "testArtifacts": {
+    "inputArtifacts": {
+      "additionalFileInfo": [
+        {
+          "expireDateTime": "2026-11-26T02:57:36.498498Z",
+          "fileName": "requirements.txt",
+          "fileType": "ADDITIONAL_ARTIFACTS",
+          "url": "https://r92fl8yc79fif89ebn8n57ge.z25.blob.storage.azure.net/3e8b1707-c4f4-425b-8d6a-a79bcf1110e3/b3298a1d-2e34-4b4f-95c2-140812b30039?REDACTED",
+          "validationStatus": "VALIDATION_NOT_REQUIRED"
+        }
+      ],
+      "configFileInfo": {
+        "expireDateTime": "2026-11-26T02:57:36.4984548Z",
+        "fileName": "config.yaml",
+        "fileType": "ADDITIONAL_ARTIFACTS",
+        "url": "https://r92fl8yc79fif89ebn8n57ge.z25.blob.storage.azure.net/3e8b1707-c4f4-425b-8d6a-a79bcf1110e3/aee3f798-6137-472c-9274-826d0909340d?REDACTED",
+        "validationStatus": "VALIDATION_NOT_REQUIRED"
+      },
+      "inputArtifactsZipFileInfo": {
+        "expireDateTime": "2026-11-26T02:57:36.4984775Z",
+        "fileName": "inputartifacts.zip",
+        "fileType": "ADDITIONAL_ARTIFACTS",
+        "url": "https://r92fl8yc79fif89ebn8n57ge.z25.blob.storage.azure.net/3e8b1707-c4f4-425b-8d6a-a79bcf1110e3/5b690426-fcd5-4d42-9357-46e4b1c3f595?REDACTED",
+        "validationStatus": "VALIDATION_NOT_REQUIRED"
+      },
+      "testScriptFileInfo": {
+        "expireDateTime": "2026-11-26T02:57:36.4982785Z",
+        "fileName": "locustfile.py",
+        "fileType": "TEST_SCRIPT",
+        "url": "https://r92fl8yc79fif89ebn8n57ge.z25.blob.storage.azure.net/3e8b1707-c4f4-425b-8d6a-a79bcf1110e3/78f1e1ae-415d-4821-b75c-4396a4c77d64?REDACTED",
+        "validationStatus": "VALIDATION_SUCCESS"
+      },
+      "userPropFileInfo": {
+        "expireDateTime": "2026-11-26T02:57:36.4983872Z",
+        "fileName": "locust.conf",
+        "fileType": "USER_PROPERTIES",
+        "url": "https://r92fl8yc79fif89ebn8n57ge.z25.blob.storage.azure.net/3e8b1707-c4f4-425b-8d6a-a79bcf1110e3/fbec7e50-a519-433b-9cdf-af11b398513a?REDACTED",
+        "validationStatus": "VALIDATION_NOT_REQUIRED"
+      }
+    },
+    "outputArtifacts": {
+      "artifactsContainerInfo": {
+        "expireDateTime": "2026-11-26T02:57:36.49856Z",
+        "url": "https://r92fl8yc79fif89ebn8n57ge.z25.blob.storage.azure.net/4139ac39-916f-435f-b546-fb7b94b52be5?REDACTED"
+      },
+      "logsFileInfo": {
+        "expireDateTime": "2026-11-26T02:57:36.4985392Z",
+        "fileName": "logs.zip",
+        "fileType": "ADDITIONAL_ARTIFACTS",
+        "url": "https://r92fl8yc79fif89ebn8n57ge.z25.blob.storage.azure.net/3e8b1707-c4f4-425b-8d6a-a79bcf1110e3/4139ac39-916f-435f-b546-fb7b94b52be5_logs.zip?REDACTED",
+        "validationStatus": "VALIDATION_NOT_REQUIRED"
+      },
+      "resultFileInfo": {
+        "expireDateTime": "2026-11-26T02:57:36.4985193Z",
+        "fileName": "csv.zip",
+        "fileType": "ADDITIONAL_ARTIFACTS",
+        "url": "https://r92fl8yc79fif89ebn8n57ge.z25.blob.storage.azure.net/3e8b1707-c4f4-425b-8d6a-a79bcf1110e3/4139ac39-916f-435f-b546-fb7b94b52be5_results.zip?REDACTED",
+        "validationStatus": "VALIDATION_NOT_REQUIRED"
+      }
+    }
+  },
+  "testId": "msgpat-child-type",
+  "testResult": "NOT_APPLICABLE",
+  "testRunId": "run-20261126-014614"
+}

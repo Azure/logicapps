@@ -1,7 +1,0 @@
-"workflowName","bucket","messages","p50","p95","maxMs","minMs","enqueueP50","enqueueP95"
-"trickle-stateful","after-idle (>120s gap or first)","2","232","7836","7836","232","233","7093"
-"trickle-stateful","all","34","160","269","7836","136","166","255"
-"trickle-stateful","steady (<=120s gap)","32","159","195","269","136","166","200"
-"trickle-stateless","after-idle (>120s gap or first)","2","165","7846","7846","165","159","6587"
-"trickle-stateless","all","34","108","165","7846","86","96","159"
-"trickle-stateless","steady (<=120s gap)","32","106","126","129","86","95","117"

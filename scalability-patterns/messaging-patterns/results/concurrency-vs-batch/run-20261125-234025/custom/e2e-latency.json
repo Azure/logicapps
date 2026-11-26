@@ -1,0 +1,13 @@
+{
+  "actions": 1267,
+  "succeeded": 1267,
+  "distinctMessages": 1270,
+  "p50WaitMs": 886382,
+  "p95WaitMs": 1007010,
+  "p50ActionMs": 11328.464441686316,
+  "p95ActionMs": 22967.5092,
+  "p50E2eMs": 899534,
+  "p95E2eMs": 1021043,
+  "p99E2eMs": 1028467,
+  "maxE2eMs": 1031126
+}

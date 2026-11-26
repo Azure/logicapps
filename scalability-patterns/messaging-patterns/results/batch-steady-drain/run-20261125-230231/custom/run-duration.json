@@ -1,0 +1,42 @@
+[
+  {
+    "wf": "orders-ingress",
+    "status": "Succeeded",
+    "runs": 37298,
+    "p50Ms": 308005.8352918703,
+    "p95Ms": 665124.5148400615,
+    "maxMs": 978639,
+    "firstEnd": "2026-11-25T23:05:35.1771614Z",
+    "lastEnd": "2026-11-25T23:34:59.9388521Z"
+  },
+  {
+    "wf": "orders-receiver",
+    "status": "Succeeded",
+    "runs": 39,
+    "p50Ms": 949,
+    "p95Ms": 269676,
+    "maxMs": 367788,
+    "firstEnd": "2026-11-25T23:05:42.8621009Z",
+    "lastEnd": "2026-11-25T23:23:53.4103937Z"
+  },
+  {
+    "wf": "process-batch-item",
+    "status": "Succeeded",
+    "runs": 1176,
+    "p50Ms": 270723.8214285714,
+    "p95Ms": 691698,
+    "maxMs": 1031981,
+    "firstEnd": "2026-11-25T23:05:51.9686134Z",
+    "lastEnd": "2026-11-25T23:34:56.4236937Z"
+  },
+  {
+    "wf": "process-order",
+    "status": "Succeeded",
+    "runs": 1176,
+    "p50Ms": 8245.172222222223,
+    "p95Ms": 25508.5,
+    "maxMs": 42109,
+    "firstEnd": "2026-11-25T23:05:51.8903242Z",
+    "lastEnd": "2026-11-25T23:34:55.7024522Z"
+  }
+]

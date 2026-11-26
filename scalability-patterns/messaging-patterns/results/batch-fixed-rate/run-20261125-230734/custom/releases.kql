@@ -1,0 +1,8 @@
+// Parameters: replace {{startUtc}}, {{endUtc}} and {{workflowName}} (Run-Queries.ps1 in this folder does this).
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';
+// One row per release (orders-receiver run): when its first item started, how many messages it held and the gap since the previous release.
+let processed = requests | where timestamp between (startTime .. endTime) | where customDimensions.Category == 'Workflow.Operations.Actions' | where tostring(parse_json(tostring(customDimensions.resource)).workflowName) == workflow | where tostring(parse_json(tostring(customDimensions.resource)).actionName) == 'Process_order' | extend tp = parse_json(tostring(customDimensions.trackedProperties)) | where tostring(tp.pattern) == 'batch-fixed-rate' | extend releaseId = tostring(parse_json(tostring(customDimensions.correlation)).clientTrackingId), startAt = timestamp, messageId = tostring(tp.messageId);
+let releases = processed | summarize size = dcount(messageId), releaseAt = min(startAt) by releaseId | order by releaseAt asc | extend gapSeconds = round(datetime_diff('millisecond', releaseAt, prev(releaseAt)) / 1000.0, 2);
+releases | project releaseAt, size, gapSeconds, releaseId

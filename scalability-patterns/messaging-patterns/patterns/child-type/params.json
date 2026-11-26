@@ -1,0 +1,40 @@
+{
+  "$comment": "Pattern child-type: a 1a-style parent (Stateful, splitOn, no concurrency cap) calls a stateless child (variant A, queue orders-a) or a stateful child (variant B, queue orders-b). Run A and B one after the other; switch loadTest.queueName and measurement.workflowName between runs. See README.md.",
+  "location": "westus3",
+  "fallbackLocation": "swedencentral",
+  "planSku": "WS1",
+  "maximumElasticWorkerCount": 20,
+  "minimumElasticInstanceCount": 2,
+  "functionsRuntimeScaleMonitoringEnabled": true,
+  "serviceBusSku": "Standard",
+  "queues": [
+    {
+      "name": "orders-a",
+      "lockDuration": "PT5M",
+      "maxDeliveryCount": 10,
+      "maxSizeInMegabytes": 5120
+    },
+    {
+      "name": "orders-b",
+      "lockDuration": "PT5M",
+      "maxDeliveryCount": 10,
+      "maxSizeInMegabytes": 5120
+    }
+  ],
+  "topics": [],
+  "extraAppSettings": {},
+  "hostSettings": {},
+  "loadTest": {
+    "queueName": "orders-a",
+    "engineInstances": 1,
+    "users": 30,
+    "spawnRate": 30,
+    "batchSize": 10,
+    "batchesPerUserPerSecond": 1,
+    "durationMinutes": 3
+  },
+  "drainMinutes": 15,
+  "measurement": {
+    "workflowName": "orders-stateless-child"
+  }
+}

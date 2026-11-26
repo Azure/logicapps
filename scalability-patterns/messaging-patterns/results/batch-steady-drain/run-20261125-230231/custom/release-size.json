@@ -1,0 +1,9 @@
+{
+  "releases": 108,
+  "avgSize": 10.9,
+  "p50Size": 9,
+  "p95Size": 25,
+  "maxSize": 44,
+  "releasesAt200": 0,
+  "releasesAbove200": 0
+}

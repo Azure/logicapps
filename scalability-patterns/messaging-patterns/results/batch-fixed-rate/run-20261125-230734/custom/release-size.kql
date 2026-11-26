@@ -1,0 +1,8 @@
+// Parameters: replace {{startUtc}}, {{endUtc}} and {{workflowName}} (Run-Queries.ps1 in this folder does this).
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';
+// Release size: one release is one orders-receiver run. Its child runs carry the receiver run id as clientTrackingId, so items are grouped by it. Also the gap between releases.
+let processed = requests | where timestamp between (startTime .. endTime) | where customDimensions.Category == 'Workflow.Operations.Actions' | where tostring(parse_json(tostring(customDimensions.resource)).workflowName) == workflow | where tostring(parse_json(tostring(customDimensions.resource)).actionName) == 'Process_order' | extend tp = parse_json(tostring(customDimensions.trackedProperties)) | where tostring(tp.pattern) == 'batch-fixed-rate' | extend releaseId = tostring(parse_json(tostring(customDimensions.correlation)).clientTrackingId), startAt = timestamp, messageId = tostring(tp.messageId);
+let releases = processed | summarize size = dcount(messageId), releaseAt = min(startAt) by releaseId | order by releaseAt asc | extend gapSeconds = round(datetime_diff('millisecond', releaseAt, prev(releaseAt)) / 1000.0, 2);
+releases | summarize releases = count(), avgSize = round(avg(size), 1), p50Size = percentile(size, 50), p95Size = percentile(size, 95), maxSize = max(size), releasesAt50 = countif(size == 50), releasesAbove50 = countif(size > 50), p50GapSeconds = percentile(gapSeconds, 50), p95GapSeconds = percentile(gapSeconds, 95), maxGapSeconds = max(gapSeconds)

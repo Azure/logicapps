@@ -1,0 +1,13 @@
+// One row per processed message: e2e latency from producer sentAtUtc, and time from enqueue, to the end of Process_order.
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+requests
+| where timestamp between (startTime .. endTime)
+| where customDimensions.Category == 'Workflow.Operations.Actions'
+| extend tp = parse_json(tostring(customDimensions.trackedProperties))
+| where isnotempty(tp.sentAtUtc)
+| extend messageId = tostring(tp.messageId), sentAt = todatetime(tp.sentAtUtc), enqueuedAt = todatetime(tp.enqueuedTimeUtc)
+| extend finishedAt = timestamp + totimespan(duration * 10000)
+| summarize finishedAt = max(finishedAt), sentAt = min(sentAt), enqueuedAt = min(enqueuedAt), executions = count() by messageId
+| extend e2eMs = datetime_diff('millisecond', finishedAt, sentAt), fromEnqueueMs = datetime_diff('millisecond', finishedAt, enqueuedAt)
+| order by finishedAt asc

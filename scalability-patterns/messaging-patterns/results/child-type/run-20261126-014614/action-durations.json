@@ -1,0 +1,57 @@
+[
+  {
+    "workflowName": "orders-stateful-child",
+    "action": "Process_order",
+    "actionType": "Workflow",
+    "apiName": "",
+    "count": 107846,
+    "failed": 5,
+    "p50": 40468.31169936619,
+    "p95": 249183.82397445917,
+    "p99": 295244.7831910997
+  },
+  {
+    "workflowName": "process-order-stateful",
+    "action": "Enrich_order",
+    "actionType": "InvokeFunction",
+    "apiName": "",
+    "count": 53900,
+    "failed": 0,
+    "p50": 7232.01204806771,
+    "p95": 17116.116490161545,
+    "p99": 36898.895280755605
+  },
+  {
+    "workflowName": "process-order-stateful",
+    "action": "Upsert_order",
+    "actionType": "ServiceProvider",
+    "apiName": "AzureCosmosDB",
+    "count": 53910,
+    "failed": 0,
+    "p50": 1206.8797490758873,
+    "p95": 10043.383097208423,
+    "p99": 38061.27663006175
+  },
+  {
+    "workflowName": "process-order-stateful",
+    "action": "Response",
+    "actionType": "Response",
+    "apiName": "",
+    "count": 53901,
+    "failed": 0,
+    "p50": 1048.1025257058166,
+    "p95": 6432.962337089203,
+    "p99": 12197.18809007236
+  },
+  {
+    "workflowName": "process-order-stateful",
+    "action": "Transform_order",
+    "actionType": "Liquid",
+    "apiName": "",
+    "count": 53900,
+    "failed": 0,
+    "p50": 1021.3960671855401,
+    "p95": 5849.9576133226265,
+    "p99": 9521.89624104762
+  }
+]

@@ -1,0 +1,110 @@
+[
+  {
+    "minute": "2026-11-25T23:50:00Z",
+    "instances": 1,
+    "runsStarted": null,
+    "runsEnded": null,
+    "maxInFlight": null,
+    "p50RunMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:51:00Z",
+    "instances": 1,
+    "runsStarted": null,
+    "runsEnded": null,
+    "maxInFlight": null,
+    "p50RunMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:52:00Z",
+    "instances": 1,
+    "runsStarted": null,
+    "runsEnded": null,
+    "maxInFlight": null,
+    "p50RunMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:53:00Z",
+    "instances": 1,
+    "runsStarted": 88,
+    "runsEnded": null,
+    "maxInFlight": 88,
+    "p50RunMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:54:00Z",
+    "instances": 1,
+    "runsStarted": 977,
+    "runsEnded": null,
+    "maxInFlight": 1065,
+    "p50RunMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:55:00Z",
+    "instances": 1,
+    "runsStarted": null,
+    "runsEnded": 87,
+    "maxInFlight": 1065,
+    "p50RunMs": 117584,
+    "p95E2eMs": 717470
+  },
+  {
+    "minute": "2026-11-25T23:56:00Z",
+    "instances": 1,
+    "runsStarted": 200,
+    "runsEnded": null,
+    "maxInFlight": 1178,
+    "p50RunMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:57:00Z",
+    "instances": 1,
+    "runsStarted": null,
+    "runsEnded": 406,
+    "maxInFlight": 1178,
+    "p50RunMs": 215618.22222222222,
+    "p95E2eMs": 885365
+  },
+  {
+    "minute": "2026-11-25T23:58:00Z",
+    "instances": 1,
+    "runsStarted": null,
+    "runsEnded": 572,
+    "maxInFlight": 772,
+    "p50RunMs": 245776.46666666667,
+    "p95E2eMs": 933056
+  },
+  {
+    "minute": "2026-11-25T23:59:00Z",
+    "instances": 1,
+    "runsStarted": null,
+    "runsEnded": 24,
+    "maxInFlight": 200,
+    "p50RunMs": 231664,
+    "p95E2eMs": 1010471
+  },
+  {
+    "minute": "2026-11-26T00:00:00Z",
+    "instances": 1,
+    "runsStarted": null,
+    "runsEnded": 176,
+    "maxInFlight": 176,
+    "p50RunMs": 242681,
+    "p95E2eMs": 1028922
+  },
+  {
+    "minute": "2026-11-26T00:01:00Z",
+    "instances": 1,
+    "runsStarted": null,
+    "runsEnded": null,
+    "maxInFlight": null,
+    "p50RunMs": null,
+    "p95E2eMs": null
+  }
+]

@@ -1,0 +1,11 @@
+// Parameters: replace {{startUtc}}, {{endUtc}} and {{workflowName}} (Run-Queries.ps1 in this folder does this).
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';
+// Flatness of the processing rate: Process_order starts per minute between the first and last minute with work, with mean, stdev and coefficient of variation.
+let processed = requests | where timestamp between (startTime .. endTime) | where customDimensions.Category == 'Workflow.Operations.Actions' | where tostring(parse_json(tostring(customDimensions.resource)).workflowName) == workflow | where tostring(parse_json(tostring(customDimensions.resource)).actionName) == 'Process_order' | extend tp = parse_json(tostring(customDimensions.trackedProperties)) | where tostring(tp.pattern) == 'batch-steady-drain' | where resultCode == 'Succeeded';
+let perBucket = range bucket from bin(startTime, 1m) to bin(endTime, 1m) step 1m | join kind=leftouter (processed | summarize n = count() by bucket = bin(timestamp, 1m)) on bucket | extend n = coalesce(n, 0) | extend perSecond = n / 60.0;
+let busy = perBucket | where n > 0 | summarize a = min(bucket), b = max(bucket);
+perBucket | extend k = 1 | join kind=inner (busy | extend k = 1) on k | where bucket >= a and bucket <= b
+| summarize buckets = count(), meanPerSecond = round(avg(perSecond), 1), stdevPerSecond = round(stdev(perSecond), 1), p10PerSecond = percentile(perSecond, 10), p50PerSecond = percentile(perSecond, 50), p90PerSecond = percentile(perSecond, 90), peakPerSecond = max(perSecond), drainStart = min(bucket), drainEnd = max(bucket)
+| extend cv = round(stdevPerSecond / meanPerSecond, 3)

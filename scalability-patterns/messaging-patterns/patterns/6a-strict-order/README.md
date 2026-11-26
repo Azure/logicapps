@@ -7,8 +7,6 @@ session-enabled Service Bus queue, and what that order costs in throughput. Each
 session. Each run handles one batch from one session, writes the messages to Cosmos one at a
 time, and records when it processed each one. A checker then counts ordering violations per key.
 
-Pattern 6b (`..\6b-latest-wins`) uses the same keys and load without sessions, for comparison.
-
 ## Flow
 
 ```

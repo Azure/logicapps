@@ -1,0 +1,6896 @@
+[
+  {
+    "second": "2026-11-25T23:15:19Z",
+    "incoming": 41,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:15:20Z",
+    "incoming": 39,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:15:21Z",
+    "incoming": 9,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:15:22Z",
+    "incoming": 32,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:15:23Z",
+    "incoming": 22,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:15:24Z",
+    "incoming": 49,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:15:25Z",
+    "incoming": 31,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:15:26Z",
+    "incoming": 21,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:15:27Z",
+    "incoming": 28,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:15:28Z",
+    "incoming": 2,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:15:29Z",
+    "incoming": 9,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:15:30Z",
+    "incoming": 22,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:15:31Z",
+    "incoming": 32,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:15:32Z",
+    "incoming": 28,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:15:33Z",
+    "incoming": 42,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:15:34Z",
+    "incoming": 17,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:15:35Z",
+    "incoming": 43,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:15:36Z",
+    "incoming": 45,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:15:37Z",
+    "incoming": 7,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:15:39Z",
+    "incoming": 12,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:15:40Z",
+    "incoming": 8,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:15:41Z",
+    "incoming": 1,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:15:42Z",
+    "incoming": 35,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:15:43Z",
+    "incoming": 37,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:15:44Z",
+    "incoming": 12,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:15:45Z",
+    "incoming": 64,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:15:46Z",
+    "incoming": 21,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:15:47Z",
+    "incoming": 36,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:15:48Z",
+    "incoming": 29,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:15:49Z",
+    "incoming": 18,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:15:50Z",
+    "incoming": 12,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:15:51Z",
+    "incoming": 12,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:15:52Z",
+    "incoming": 13,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:15:53Z",
+    "incoming": 6,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:15:54Z",
+    "incoming": 20,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:15:55Z",
+    "incoming": 36,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:15:56Z",
+    "incoming": 35,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:15:57Z",
+    "incoming": 33,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:15:58Z",
+    "incoming": 35,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:15:59Z",
+    "incoming": 34,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:16:00Z",
+    "incoming": 23,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:01Z",
+    "incoming": 36,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:02Z",
+    "incoming": 39,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:03Z",
+    "incoming": 44,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:04Z",
+    "incoming": 51,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:05Z",
+    "incoming": 67,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:06Z",
+    "incoming": 28,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:07Z",
+    "incoming": 17,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:08Z",
+    "incoming": 1,
+    "processed": 1,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:16:09Z",
+    "incoming": 3,
+    "processed": 9,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:11Z",
+    "incoming": 3,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:13Z",
+    "incoming": 7,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:14Z",
+    "incoming": 44,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:16:15Z",
+    "incoming": 25,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:16Z",
+    "incoming": 24,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:17Z",
+    "incoming": 5,
+    "processed": 4,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:20Z",
+    "incoming": 9,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:27Z",
+    "incoming": 30,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:28Z",
+    "incoming": 76,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:29Z",
+    "incoming": 0,
+    "processed": 1,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:30Z",
+    "incoming": 37,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:31Z",
+    "incoming": 33,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:32Z",
+    "incoming": 9,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:33Z",
+    "incoming": 59,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:34Z",
+    "incoming": 25,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:35Z",
+    "incoming": 5,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:36Z",
+    "incoming": 8,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:16:37Z",
+    "incoming": 36,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:16:38Z",
+    "incoming": 26,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:39Z",
+    "incoming": 37,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:40Z",
+    "incoming": 37,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:41Z",
+    "incoming": 26,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:42Z",
+    "incoming": 41,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:43Z",
+    "incoming": 69,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:44Z",
+    "incoming": 44,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:45Z",
+    "incoming": 22,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:46Z",
+    "incoming": 24,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:47Z",
+    "incoming": 21,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:48Z",
+    "incoming": 61,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:49Z",
+    "incoming": 38,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:50Z",
+    "incoming": 40,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:51Z",
+    "incoming": 28,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:52Z",
+    "incoming": 36,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:53Z",
+    "incoming": 41,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:54Z",
+    "incoming": 26,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:55Z",
+    "incoming": 49,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:56Z",
+    "incoming": 40,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:57Z",
+    "incoming": 45,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:58Z",
+    "incoming": 40,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:16:59Z",
+    "incoming": 27,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:17:00Z",
+    "incoming": 20,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:17:01Z",
+    "incoming": 9,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:17:02Z",
+    "incoming": 18,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:17:03Z",
+    "incoming": 3,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:17:04Z",
+    "incoming": 2,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:17:05Z",
+    "incoming": 63,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:17:06Z",
+    "incoming": 43,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:17:07Z",
+    "incoming": 51,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:17:08Z",
+    "incoming": 27,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:17:09Z",
+    "incoming": 28,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:17:10Z",
+    "incoming": 27,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:17:11Z",
+    "incoming": 6,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:17:12Z",
+    "incoming": 23,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:17:13Z",
+    "incoming": 28,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:17:14Z",
+    "incoming": 32,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:17:15Z",
+    "incoming": 17,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:17:17Z",
+    "incoming": 2,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:17:18Z",
+    "incoming": 29,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:17:19Z",
+    "incoming": 37,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:17:20Z",
+    "incoming": 34,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:17:21Z",
+    "incoming": 46,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:17:22Z",
+    "incoming": 34,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:17:23Z",
+    "incoming": 26,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:17:24Z",
+    "incoming": 55,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:17:25Z",
+    "incoming": 25,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:17:26Z",
+    "incoming": 12,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:17:27Z",
+    "incoming": 3,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:17:33Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:17:35Z",
+    "incoming": 0,
+    "processed": 1,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:17:36Z",
+    "incoming": 0,
+    "processed": 3,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:17:51Z",
+    "incoming": 23,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:17:52Z",
+    "incoming": 36,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:17:53Z",
+    "incoming": 20,
+    "processed": 1,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:17:55Z",
+    "incoming": 19,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:17:56Z",
+    "incoming": 2,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:00Z",
+    "incoming": 27,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:01Z",
+    "incoming": 27,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:02Z",
+    "incoming": 34,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:03Z",
+    "incoming": 20,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:04Z",
+    "incoming": 39,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:05Z",
+    "incoming": 46,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:06Z",
+    "incoming": 29,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:07Z",
+    "incoming": 35,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:08Z",
+    "incoming": 38,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:09Z",
+    "incoming": 27,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:10Z",
+    "incoming": 33,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:11Z",
+    "incoming": 48,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:12Z",
+    "incoming": 30,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:13Z",
+    "incoming": 42,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:14Z",
+    "incoming": 12,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:15Z",
+    "incoming": 12,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:16Z",
+    "incoming": 59,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:17Z",
+    "incoming": 39,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:18Z",
+    "incoming": 38,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:19Z",
+    "incoming": 31,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:20Z",
+    "incoming": 9,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:21Z",
+    "incoming": 98,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:22Z",
+    "incoming": 18,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:23Z",
+    "incoming": 9,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:24Z",
+    "incoming": 5,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:25Z",
+    "incoming": 22,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:26Z",
+    "incoming": 19,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:27Z",
+    "incoming": 46,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:28Z",
+    "incoming": 35,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:29Z",
+    "incoming": 31,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:30Z",
+    "incoming": 62,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:31Z",
+    "incoming": 59,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:32Z",
+    "incoming": 44,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:33Z",
+    "incoming": 37,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:34Z",
+    "incoming": 31,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:35Z",
+    "incoming": 35,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:36Z",
+    "incoming": 29,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:37Z",
+    "incoming": 34,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:38Z",
+    "incoming": 36,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:39Z",
+    "incoming": 55,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:40Z",
+    "incoming": 49,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:41Z",
+    "incoming": 27,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:42Z",
+    "incoming": 29,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:43Z",
+    "incoming": 38,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:44Z",
+    "incoming": 49,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:45Z",
+    "incoming": 26,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:46Z",
+    "incoming": 32,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:47Z",
+    "incoming": 28,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:48Z",
+    "incoming": 43,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:49Z",
+    "incoming": 35,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:50Z",
+    "incoming": 101,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:51Z",
+    "incoming": 5,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:52Z",
+    "incoming": 38,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:53Z",
+    "incoming": 39,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:54Z",
+    "incoming": 30,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:55Z",
+    "incoming": 33,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:56Z",
+    "incoming": 38,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:57Z",
+    "incoming": 21,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:58Z",
+    "incoming": 42,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:18:59Z",
+    "incoming": 61,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:00Z",
+    "incoming": 48,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:01Z",
+    "incoming": 49,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:02Z",
+    "incoming": 38,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:03Z",
+    "incoming": 24,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:04Z",
+    "incoming": 29,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:05Z",
+    "incoming": 21,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:06Z",
+    "incoming": 25,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:07Z",
+    "incoming": 86,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:08Z",
+    "incoming": 15,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:09Z",
+    "incoming": 18,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:12Z",
+    "incoming": 15,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:13Z",
+    "incoming": 40,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:14Z",
+    "incoming": 51,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:15Z",
+    "incoming": 65,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:16Z",
+    "incoming": 16,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:18Z",
+    "incoming": 22,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:19Z",
+    "incoming": 10,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:20Z",
+    "incoming": 7,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:21Z",
+    "incoming": 12,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:23Z",
+    "incoming": 1,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:24Z",
+    "incoming": 6,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:25Z",
+    "incoming": 12,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:26Z",
+    "incoming": 54,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:27Z",
+    "incoming": 62,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:28Z",
+    "incoming": 42,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:29Z",
+    "incoming": 26,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:30Z",
+    "incoming": 10,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:31Z",
+    "incoming": 6,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:32Z",
+    "incoming": 5,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:33Z",
+    "incoming": 16,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:35Z",
+    "incoming": 1,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:36Z",
+    "incoming": 29,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:37Z",
+    "incoming": 44,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:38Z",
+    "incoming": 23,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:39Z",
+    "incoming": 34,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:40Z",
+    "incoming": 26,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:41Z",
+    "incoming": 1,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:42Z",
+    "incoming": 3,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:43Z",
+    "incoming": 52,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:44Z",
+    "incoming": 31,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:45Z",
+    "incoming": 39,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:46Z",
+    "incoming": 8,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:47Z",
+    "incoming": 1,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:48Z",
+    "incoming": 12,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:49Z",
+    "incoming": 29,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:50Z",
+    "incoming": 30,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:51Z",
+    "incoming": 29,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:52Z",
+    "incoming": 18,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:19:53Z",
+    "incoming": 22,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:54Z",
+    "incoming": 2,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:55Z",
+    "incoming": 33,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:19:56Z",
+    "incoming": 48,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:19:57Z",
+    "incoming": 3,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:06Z",
+    "incoming": 2,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:10Z",
+    "incoming": 1,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:15Z",
+    "incoming": 29,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:16Z",
+    "incoming": 37,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:17Z",
+    "incoming": 41,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:18Z",
+    "incoming": 47,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:19Z",
+    "incoming": 36,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:20Z",
+    "incoming": 30,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:21Z",
+    "incoming": 44,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:22Z",
+    "incoming": 12,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:23Z",
+    "incoming": 15,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:24Z",
+    "incoming": 49,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:20:25Z",
+    "incoming": 35,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:20:26Z",
+    "incoming": 38,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:27Z",
+    "incoming": 42,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:28Z",
+    "incoming": 32,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:29Z",
+    "incoming": 28,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:30Z",
+    "incoming": 28,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:31Z",
+    "incoming": 45,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:32Z",
+    "incoming": 28,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:33Z",
+    "incoming": 39,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:34Z",
+    "incoming": 68,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:35Z",
+    "incoming": 48,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:36Z",
+    "incoming": 47,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:37Z",
+    "incoming": 42,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:38Z",
+    "incoming": 11,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:39Z",
+    "incoming": 39,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:40Z",
+    "incoming": 62,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:41Z",
+    "incoming": 35,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:42Z",
+    "incoming": 34,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:43Z",
+    "incoming": 36,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:44Z",
+    "incoming": 36,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:45Z",
+    "incoming": 35,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:46Z",
+    "incoming": 44,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:47Z",
+    "incoming": 37,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:48Z",
+    "incoming": 41,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:49Z",
+    "incoming": 32,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:50Z",
+    "incoming": 48,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:51Z",
+    "incoming": 28,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:52Z",
+    "incoming": 32,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:53Z",
+    "incoming": 53,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:54Z",
+    "incoming": 37,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:55Z",
+    "incoming": 42,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:56Z",
+    "incoming": 53,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:57Z",
+    "incoming": 35,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:58Z",
+    "incoming": 26,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:20:59Z",
+    "incoming": 42,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:00Z",
+    "incoming": 38,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:01Z",
+    "incoming": 33,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:02Z",
+    "incoming": 41,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:03Z",
+    "incoming": 46,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:04Z",
+    "incoming": 28,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:05Z",
+    "incoming": 30,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:06Z",
+    "incoming": 12,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:07Z",
+    "incoming": 6,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:08Z",
+    "incoming": 8,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:09Z",
+    "incoming": 11,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:10Z",
+    "incoming": 20,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:11Z",
+    "incoming": 37,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:12Z",
+    "incoming": 60,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:13Z",
+    "incoming": 5,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:15Z",
+    "incoming": 10,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:16Z",
+    "incoming": 11,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:17Z",
+    "incoming": 28,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:18Z",
+    "incoming": 16,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:21:19Z",
+    "incoming": 50,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:20Z",
+    "incoming": 51,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:21Z",
+    "incoming": 59,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:21:22Z",
+    "incoming": 19,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:23Z",
+    "incoming": 19,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:24Z",
+    "incoming": 30,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:25Z",
+    "incoming": 17,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:31Z",
+    "incoming": 14,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:32Z",
+    "incoming": 3,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:33Z",
+    "incoming": 4,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:34Z",
+    "incoming": 32,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:35Z",
+    "incoming": 24,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:36Z",
+    "incoming": 5,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:37Z",
+    "incoming": 62,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:38Z",
+    "incoming": 68,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:39Z",
+    "incoming": 8,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:40Z",
+    "incoming": 42,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:41Z",
+    "incoming": 29,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:42Z",
+    "incoming": 46,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:43Z",
+    "incoming": 25,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:44Z",
+    "incoming": 29,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:48Z",
+    "incoming": 21,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:57Z",
+    "incoming": 44,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:21:58Z",
+    "incoming": 30,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:01Z",
+    "incoming": 7,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:03Z",
+    "incoming": 21,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:04Z",
+    "incoming": 45,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:05Z",
+    "incoming": 30,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:06Z",
+    "incoming": 24,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:07Z",
+    "incoming": 1,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:08Z",
+    "incoming": 21,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:11Z",
+    "incoming": 21,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:12Z",
+    "incoming": 40,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:13Z",
+    "incoming": 56,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:14Z",
+    "incoming": 46,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:15Z",
+    "incoming": 52,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:16Z",
+    "incoming": 17,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:17Z",
+    "incoming": 4,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:18Z",
+    "incoming": 31,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:19Z",
+    "incoming": 12,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:20Z",
+    "incoming": 15,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:21Z",
+    "incoming": 34,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:24Z",
+    "incoming": 1,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:25Z",
+    "incoming": 19,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:26Z",
+    "incoming": 6,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:27Z",
+    "incoming": 43,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:28Z",
+    "incoming": 25,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:29Z",
+    "incoming": 20,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:30Z",
+    "incoming": 34,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:31Z",
+    "incoming": 46,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:33Z",
+    "incoming": 2,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:39Z",
+    "incoming": 37,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:40Z",
+    "incoming": 41,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:41Z",
+    "incoming": 42,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:42Z",
+    "incoming": 31,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:43Z",
+    "incoming": 35,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:44Z",
+    "incoming": 51,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:45Z",
+    "incoming": 30,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:46Z",
+    "incoming": 32,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:47Z",
+    "incoming": 31,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:48Z",
+    "incoming": 30,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:49Z",
+    "incoming": 34,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:50Z",
+    "incoming": 47,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:51Z",
+    "incoming": 36,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:52Z",
+    "incoming": 38,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:53Z",
+    "incoming": 44,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:54Z",
+    "incoming": 35,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:55Z",
+    "incoming": 30,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:56Z",
+    "incoming": 39,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:57Z",
+    "incoming": 42,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:58Z",
+    "incoming": 32,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:22:59Z",
+    "incoming": 39,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:23:00Z",
+    "incoming": 34,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:23:01Z",
+    "incoming": 37,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:02Z",
+    "incoming": 34,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:03Z",
+    "incoming": 46,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:04Z",
+    "incoming": 40,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:05Z",
+    "incoming": 24,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:06Z",
+    "incoming": 57,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:07Z",
+    "incoming": 36,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:08Z",
+    "incoming": 30,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:09Z",
+    "incoming": 36,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:10Z",
+    "incoming": 40,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:11Z",
+    "incoming": 28,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:12Z",
+    "incoming": 34,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:13Z",
+    "incoming": 27,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:14Z",
+    "incoming": 38,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:15Z",
+    "incoming": 39,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:16Z",
+    "incoming": 51,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:17Z",
+    "incoming": 31,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:18Z",
+    "incoming": 39,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:19Z",
+    "incoming": 34,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:20Z",
+    "incoming": 38,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:21Z",
+    "incoming": 47,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:22Z",
+    "incoming": 63,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:23Z",
+    "incoming": 46,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:24Z",
+    "incoming": 11,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:25Z",
+    "incoming": 45,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:26Z",
+    "incoming": 28,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:27Z",
+    "incoming": 42,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:28Z",
+    "incoming": 40,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:29Z",
+    "incoming": 41,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:30Z",
+    "incoming": 29,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:31Z",
+    "incoming": 43,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:32Z",
+    "incoming": 38,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:33Z",
+    "incoming": 28,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:34Z",
+    "incoming": 46,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:35Z",
+    "incoming": 62,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:36Z",
+    "incoming": 34,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:37Z",
+    "incoming": 43,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:38Z",
+    "incoming": 35,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:39Z",
+    "incoming": 27,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:40Z",
+    "incoming": 32,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:41Z",
+    "incoming": 61,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:42Z",
+    "incoming": 53,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:43Z",
+    "incoming": 40,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:44Z",
+    "incoming": 50,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:45Z",
+    "incoming": 28,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:46Z",
+    "incoming": 31,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:47Z",
+    "incoming": 14,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:48Z",
+    "incoming": 36,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:49Z",
+    "incoming": 33,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:50Z",
+    "incoming": 66,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:51Z",
+    "incoming": 47,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:52Z",
+    "incoming": 41,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:53Z",
+    "incoming": 45,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:54Z",
+    "incoming": 37,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:55Z",
+    "incoming": 23,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:56Z",
+    "incoming": 33,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:57Z",
+    "incoming": 29,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:58Z",
+    "incoming": 29,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:23:59Z",
+    "incoming": 30,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:00Z",
+    "incoming": 6,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:01Z",
+    "incoming": 107,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:02Z",
+    "incoming": 12,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:03Z",
+    "incoming": 48,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:04Z",
+    "incoming": 44,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:05Z",
+    "incoming": 30,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:06Z",
+    "incoming": 25,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:07Z",
+    "incoming": 49,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:08Z",
+    "incoming": 34,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:09Z",
+    "incoming": 36,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:10Z",
+    "incoming": 32,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:11Z",
+    "incoming": 24,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:12Z",
+    "incoming": 37,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:13Z",
+    "incoming": 25,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:14Z",
+    "incoming": 12,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:15Z",
+    "incoming": 42,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:16Z",
+    "incoming": 45,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:17Z",
+    "incoming": 32,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:18Z",
+    "incoming": 47,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:19Z",
+    "incoming": 37,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:20Z",
+    "incoming": 30,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:21Z",
+    "incoming": 33,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:22Z",
+    "incoming": 45,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:23Z",
+    "incoming": 36,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:24Z",
+    "incoming": 30,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:25Z",
+    "incoming": 39,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:26Z",
+    "incoming": 43,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:27Z",
+    "incoming": 28,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:28Z",
+    "incoming": 33,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:29Z",
+    "incoming": 42,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:30Z",
+    "incoming": 30,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:31Z",
+    "incoming": 34,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:32Z",
+    "incoming": 27,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:33Z",
+    "incoming": 38,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:34Z",
+    "incoming": 64,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:35Z",
+    "incoming": 64,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:36Z",
+    "incoming": 35,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:37Z",
+    "incoming": 41,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:38Z",
+    "incoming": 33,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:39Z",
+    "incoming": 10,
+    "processed": 4,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:40Z",
+    "incoming": 0,
+    "processed": 1,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:43Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:44Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:24:47Z",
+    "incoming": 2,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:51Z",
+    "incoming": 2,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:53Z",
+    "incoming": 3,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:57Z",
+    "incoming": 17,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:58Z",
+    "incoming": 41,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:24:59Z",
+    "incoming": 32,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:25:03Z",
+    "incoming": 1,
+    "processed": 0,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:25:05Z",
+    "incoming": 0,
+    "processed": 10,
+    "releases": 2
+  },
+  {
+    "second": "2026-11-25T23:25:06Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 2
+  },
+  {
+    "second": "2026-11-25T23:25:07Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:25:08Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:25:09Z",
+    "incoming": 0,
+    "processed": 10,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:25:10Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:25:11Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:25:13Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:25:15Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:25:16Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:25:17Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:25:19Z",
+    "incoming": 0,
+    "processed": 3,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:25:20Z",
+    "incoming": 0,
+    "processed": 2,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:25:21Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:25:22Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:25:23Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:25:24Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:25:25Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:25:26Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:25:27Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:25:28Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:25:29Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:25:30Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:25:32Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:25:34Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:25:36Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 2
+  },
+  {
+    "second": "2026-11-25T23:25:38Z",
+    "incoming": 0,
+    "processed": 10,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:25:40Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:25:41Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:25:43Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:25:45Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:25:46Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:25:47Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:25:48Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:25:50Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:25:52Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:25:54Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:25:56Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:25:58Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 2
+  },
+  {
+    "second": "2026-11-25T23:25:59Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:26:00Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:26:01Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:26:03Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:26:05Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:26:06Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:26:07Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:26:08Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:26:10Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:26:12Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:26:14Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:26:16Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:26:18Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:26:20Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:26:22Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:26:23Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:26:24Z",
+    "incoming": 0,
+    "processed": 3,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:26:25Z",
+    "incoming": 0,
+    "processed": 6,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:26:26Z",
+    "incoming": 0,
+    "processed": 1,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:26:27Z",
+    "incoming": 0,
+    "processed": 4,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:26:28Z",
+    "incoming": 0,
+    "processed": 1,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:26:29Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:26:30Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:26:32Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:26:33Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:26:34Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:26:36Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:26:37Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:26:38Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:26:39Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:26:41Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:26:43Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:26:45Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 2
+  },
+  {
+    "second": "2026-11-25T23:26:47Z",
+    "incoming": 0,
+    "processed": 10,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:26:49Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:26:50Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:26:52Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:26:54Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:26:55Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:26:56Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:26:57Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:26:59Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:01Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:02Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:03Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:27:04Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:06Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:08Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:10Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:12Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:13Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:14Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:27:15Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:17Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:18Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:19Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:27:20Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:22Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:24Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:25Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:26Z",
+    "incoming": 0,
+    "processed": 10,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:27:27Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:28Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:30Z",
+    "incoming": 0,
+    "processed": 10,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:31Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:32Z",
+    "incoming": 0,
+    "processed": 1,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:27:33Z",
+    "incoming": 0,
+    "processed": 9,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:27:34Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:36Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:37Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:27:38Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:39Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:41Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:42Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:27:43Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:44Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:45Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:46Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:47Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:48Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:50Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:52Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:54Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:56Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:57Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:27:58Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:27:59Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:28:01Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:28:03Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:28:05Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:28:07Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:28:09Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:28:11Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:28:12Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:28:13Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:28:14Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:28:16Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:28:18Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:28:19Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:28:20Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:28:21Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:28:23Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:28:25Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:28:27Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:28:29Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:28:30Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:28:31Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:28:32Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:28:34Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:28:36Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:28:38Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:28:40Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:28:42Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:28:44Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:28:45Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:28:46Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:28:47Z",
+    "incoming": 0,
+    "processed": 10,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:28:48Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:28:49Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:28:51Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:28:52Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:28:54Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:28:56Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:28:57Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:28:58Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:28:59Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:29:00Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:29:01Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:29:02Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:29:03Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:29:05Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:29:06Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:29:08Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:29:09Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:29:10Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:29:11Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:29:12Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:29:13Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:29:14Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:29:15Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:29:16Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:29:17Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:29:18Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:29:19Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:29:20Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:29:21Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:29:22Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:29:23Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:29:24Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:29:25Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:29:27Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:29:29Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:29:31Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 2
+  },
+  {
+    "second": "2026-11-25T23:29:33Z",
+    "incoming": 0,
+    "processed": 10,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:29:35Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:29:37Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:29:38Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:29:40Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:29:42Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:29:43Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:29:44Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:29:45Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 2
+  },
+  {
+    "second": "2026-11-25T23:29:46Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:29:47Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:29:49Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:29:51Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:29:53Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:29:55Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:29:56Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:29:57Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:29:58Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:29:59Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:30:00Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:30:01Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:30:02Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:30:03Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:30:05Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:30:07Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:30:09Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:30:11Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:30:13Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:30:15Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:30:17Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:30:18Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:30:19Z",
+    "incoming": 0,
+    "processed": 4,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:30:20Z",
+    "incoming": 0,
+    "processed": 6,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:30:22Z",
+    "incoming": 0,
+    "processed": 2,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:30:23Z",
+    "incoming": 0,
+    "processed": 3,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:30:24Z",
+    "incoming": 0,
+    "processed": 2,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:30:25Z",
+    "incoming": 0,
+    "processed": 3,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:30:26Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:30:27Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:30:28Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:30:29Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 2
+  },
+  {
+    "second": "2026-11-25T23:30:31Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:30:32Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:30:34Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:30:36Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:30:38Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:30:40Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:30:42Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:30:43Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:30:44Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:30:45Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:30:47Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:30:49Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:30:50Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:30:51Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:30:52Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:30:54Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:30:56Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:30:58Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:00Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:01Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:02Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:31:03Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:05Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:06Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:07Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:31:08Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:10Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:12Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:14Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:15Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:16Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:31:17Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:19Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:21Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:23Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:25Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:26Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:27Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:31:28Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:30Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:32Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:34Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:36Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:38Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:40Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:42Z",
+    "incoming": 0,
+    "processed": 1,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:43Z",
+    "incoming": 0,
+    "processed": 4,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:31:44Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:45Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:46Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:47Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:48Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:31:49Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:51Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:52Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:31:53Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:54Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:31:55Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:56Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:57Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:58Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:31:59Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:32:00Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:32:01Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:32:02Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:32:03Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:32:04Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:32:05Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:32:07Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:32:09Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:32:11Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:32:13Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:32:15Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:32:17Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:32:19Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 2
+  },
+  {
+    "second": "2026-11-25T23:32:21Z",
+    "incoming": 0,
+    "processed": 10,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:32:23Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:32:24Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:32:26Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:32:28Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:32:30Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:32:32Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:32:33Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:32:34Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:32:35Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:32:37Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:32:39Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:32:41Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:32:42Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:32:43Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:32:44Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:32:46Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:32:48Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:32:50Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:32:51Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:32:52Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:32:53Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:32:54Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:32:56Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:32:57Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:32:59Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:33:01Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:33:03Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:33:04Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:33:05Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:33:06Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:33:08Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:33:10Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:33:12Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:33:14Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:33:15Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:33:16Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:33:17Z",
+    "incoming": 0,
+    "processed": 4,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:33:18Z",
+    "incoming": 0,
+    "processed": 1,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:33:19Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:33:21Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:33:23Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:33:24Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:33:25Z",
+    "incoming": 0,
+    "processed": 2,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:33:26Z",
+    "incoming": 0,
+    "processed": 4,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:33:27Z",
+    "incoming": 0,
+    "processed": 4,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:33:28Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:33:29Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:33:30Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:33:31Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:33:32Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:33:33Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 2
+  },
+  {
+    "second": "2026-11-25T23:33:35Z",
+    "incoming": 0,
+    "processed": 10,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:33:36Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:33:37Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:33:39Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:33:40Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:33:42Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:33:44Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:33:46Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:33:48Z",
+    "incoming": 0,
+    "processed": 2,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:33:49Z",
+    "incoming": 0,
+    "processed": 3,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:33:50Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 2
+  },
+  {
+    "second": "2026-11-25T23:33:51Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:33:53Z",
+    "incoming": 0,
+    "processed": 10,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:33:55Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:33:57Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:34:00Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:34:01Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:34:02Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:34:03Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:34:05Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:34:07Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:34:09Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:34:11Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:34:13Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:34:15Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:34:16Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:34:17Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:34:18Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:34:20Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:34:22Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:34:23Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:34:24Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:34:25Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:34:27Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:34:29Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:34:31Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:34:33Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:34:34Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:34:35Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:34:36Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:34:38Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:34:40Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:34:41Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:34:42Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:34:43Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:34:45Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:34:47Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:34:49Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:34:51Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:34:52Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:34:53Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:34:54Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:34:56Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:34:58Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:35:00Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:35:01Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:35:02Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:35:03Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:35:05Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:35:07Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:35:09Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:35:10Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:35:11Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:35:12Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:35:14Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:35:16Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:35:18Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:35:20Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:35:21Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:35:22Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:35:23Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:35:25Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:35:27Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:35:29Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:35:31Z",
+    "incoming": 0,
+    "processed": 4,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:35:32Z",
+    "incoming": 0,
+    "processed": 1,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:35:33Z",
+    "incoming": 0,
+    "processed": 1,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:35:34Z",
+    "incoming": 0,
+    "processed": 4,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:35:36Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:35:37Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:35:38Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:35:39Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:35:40Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:35:41Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:35:42Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:35:43Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:35:44Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:35:45Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:35:47Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:35:49Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:35:51Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:35:52Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:35:53Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:35:54Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:35:56Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:35:58Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:36:00Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:36:02Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:36:04Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:36:05Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:36:06Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:36:07Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:36:09Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:36:11Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:36:13Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:36:14Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:36:15Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:36:16Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:36:17Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:36:18Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:36:20Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:36:22Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:36:24Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:36:26Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:36:28Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:36:29Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:36:30Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:36:31Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:36:32Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:36:33Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:36:35Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:36:37Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:36:39Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:36:40Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:36:41Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:36:42Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:36:44Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:36:46Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:36:48Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:36:50Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:36:52Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:36:53Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:36:54Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:36:55Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:36:57Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:36:59Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:01Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:03Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:04Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:05Z",
+    "incoming": 0,
+    "processed": 2,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:37:06Z",
+    "incoming": 0,
+    "processed": 8,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:08Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:10Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:12Z",
+    "incoming": 0,
+    "processed": 4,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:13Z",
+    "incoming": 0,
+    "processed": 1,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:37:14Z",
+    "incoming": 0,
+    "processed": 2,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:15Z",
+    "incoming": 0,
+    "processed": 3,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:17Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:18Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:37:19Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:20Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:21Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:22Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:23Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:24Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:25Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:26Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:28Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:29Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:30Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:37:31Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:33Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:35Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:36Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:37Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:37:38Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:40Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:42Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:44Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:46Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:47Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:48Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:37:49Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:50Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:51Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:52Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:37:53Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:37:54Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:56Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:37:58Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:38:00Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:38:02Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:38:04Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:38:06Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:38:07Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:38:08Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:38:09Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:38:11Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:38:13Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:38:15Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:38:16Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:38:17Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:38:18Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:38:19Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:38:20Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:38:22Z",
+    "incoming": 0,
+    "processed": 1,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:38:23Z",
+    "incoming": 0,
+    "processed": 4,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:38:24Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:38:25Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:38:27Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:38:28Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:38:29Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:38:30Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:38:31Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:38:32Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:38:33Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:38:34Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:38:36Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:38:38Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:38:40Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:38:42Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:38:44Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:38:46Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:38:48Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:38:50Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:38:52Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:38:54Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:38:56Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:38:57Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:38:58Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:38:59Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:39:01Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:39:03Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:39:04Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:39:05Z",
+    "incoming": 0,
+    "processed": 2,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:39:06Z",
+    "incoming": 0,
+    "processed": 8,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:39:07Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:39:08Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:39:10Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:39:12Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:39:14Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:39:15Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:39:16Z",
+    "incoming": 0,
+    "processed": 2,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:39:17Z",
+    "incoming": 0,
+    "processed": 3,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:39:18Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:39:19Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:39:20Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:39:21Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:39:22Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:39:23Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:39:24Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:39:25Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:39:27Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:39:28Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:39:29Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:39:31Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:39:33Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:39:35Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:39:36Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:39:37Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:39:38Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:39:40Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:39:42Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:39:44Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:39:46Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:39:47Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:39:48Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:39:49Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:39:51Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:39:53Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:39:55Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:39:56Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:39:57Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:39:58Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:40:00Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:40:02Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:40:04Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:40:06Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:40:08Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:40:10Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:40:12Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:40:14Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:40:16Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:40:18Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:40:20Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:40:22Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:40:23Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:40:24Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:40:25Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:40:27Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:40:29Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:40:31Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:40:33Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:40:34Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:40:35Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:40:36Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:40:38Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:40:40Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:40:42Z",
+    "incoming": 0,
+    "processed": 2,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:40:43Z",
+    "incoming": 0,
+    "processed": 3,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:40:45Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:40:46Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:40:47Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:40:48Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:40:49Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:40:50Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:40:51Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:40:52Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:40:53Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:40:54Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 2
+  },
+  {
+    "second": "2026-11-25T23:40:55Z",
+    "incoming": 0,
+    "processed": 0,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:40:56Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 0
+  },
+  {
+    "second": "2026-11-25T23:40:57Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  },
+  {
+    "second": "2026-11-25T23:40:59Z",
+    "incoming": 0,
+    "processed": 5,
+    "releases": 1
+  }
+]

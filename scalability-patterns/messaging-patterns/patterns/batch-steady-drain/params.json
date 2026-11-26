@@ -1,0 +1,48 @@
+{
+  "$comment": "Batch steady drain: a burst lands in Service Bus; a batch trigger releases at most 200 messages every second, so the downstream sees a flat rate. Ingress -> batch receiver -> per-item child. See README.md.",
+  "location": "westus3",
+  "fallbackLocation": "swedencentral",
+  "planSku": "WS1",
+  "maximumElasticWorkerCount": 20,
+  "minimumElasticInstanceCount": 1,
+  "functionsRuntimeScaleMonitoringEnabled": true,
+  "serviceBusSku": "Standard",
+  "queues": [
+    {
+      "name": "orders",
+      "lockDuration": "PT5M",
+      "maxDeliveryCount": 10,
+      "maxSizeInMegabytes": 5120
+    }
+  ],
+  "topics": [],
+  "extraAppSettings": {},
+  "hostSettings": {
+    "Runtime.BatchConfiguration.MinimumRecurrenceInterval": "00:00:01",
+    "Runtime.BatchConfiguration.AllowMessageCountInRecurrence": "true",
+    "Runtime.FlowBatchTriggerReleaseJob.ExecutionInterval": "00:00:00.100",
+    "Runtime.FlowBatchTriggerPushJob.ExecutionInterval": "00:00:01",
+    "Runtime.FlowBatchTriggerPushJob.DisableSafetyLimitsRelease": "true"
+  },
+  "loadTest": {
+    "queueName": "orders",
+    "engineInstances": 1,
+    "users": 5,
+    "spawnRate": 5,
+    "batchSize": 100,
+    "batchesPerUserPerSecond": 1,
+    "durationMinutes": 5,
+    "env": {
+      "BASELINE_USERS": "1",
+      "BASELINE_SECONDS": "60",
+      "BASELINE_BATCH_SIZE": "5",
+      "BURST_USERS": "5",
+      "BURST_SECONDS": "120",
+      "QUIET_SECONDS": "60"
+    }
+  },
+  "drainMinutes": 15,
+  "measurement": {
+    "workflowName": "process-batch-item"
+  }
+}

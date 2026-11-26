@@ -1,0 +1,20 @@
+{
+  "pattern": "batch-window",
+  "testId": "msgpat-batch-window",
+  "testRunId": "run-20261125-230148",
+  "label": "batch-window 500 msg/s 1m",
+  "targetMessagesPerSecond": 500,
+  "users": 50,
+  "engineInstances": 1,
+  "batchSize": 10,
+  "batchesPerUserPerSecond": 1,
+  "durationMinutes": 1,
+  "drainMinutes": 36,
+  "startUtc": "2026-11-25T23:01:48.5874451Z",
+  "loadEndUtc": "2026-11-25T23:07:53Z",
+  "endUtc": "2026-11-25T23:44:08.7781176Z",
+  "status": "DONE",
+  "testResult": "NOT_APPLICABLE",
+  "loadStartUtc": "2026-11-25T23:01:55Z",
+  "portalUrl": "https://portal.azure.com/#blade/Microsoft_Azure_CloudNativeTesting/TestRunReport.ReactView//resourceId/%2fsubscriptions%2f21196cdf-abb2-4697-9f73-feef0db7cb2a%2fresourcegroups%2frg-msgpat-batch-window%2fproviders%2fmicrosoft.loadtestservice%2floadtests%2falt-msgpat-batchwindo-2g7ojh/testId/msgpat-batch-window/testRunId/run-20261125-230148"
+}

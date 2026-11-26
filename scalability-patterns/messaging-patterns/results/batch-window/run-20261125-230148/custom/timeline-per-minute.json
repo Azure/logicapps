@@ -1,0 +1,464 @@
+[
+  {
+    "minute": "2026-11-25T23:01:00Z",
+    "instances": 1,
+    "processed": null,
+    "releases": null
+  },
+  {
+    "minute": "2026-11-25T23:02:00Z",
+    "instances": 1,
+    "processed": null,
+    "releases": null
+  },
+  {
+    "minute": "2026-11-25T23:03:00Z",
+    "instances": 1,
+    "processed": null,
+    "releases": null
+  },
+  {
+    "minute": "2026-11-25T23:04:00Z",
+    "instances": 1,
+    "processed": null,
+    "releases": null
+  },
+  {
+    "minute": "2026-11-25T23:05:00Z",
+    "instances": 1,
+    "processed": null,
+    "releases": 1
+  },
+  {
+    "minute": "2026-11-25T23:06:00Z",
+    "instances": 1,
+    "processed": null,
+    "releases": 1
+  },
+  {
+    "minute": "2026-11-25T23:07:00Z",
+    "instances": 1,
+    "processed": 17,
+    "releases": 1
+  },
+  {
+    "minute": "2026-11-25T23:08:00Z",
+    "instances": 1,
+    "processed": null,
+    "releases": null
+  },
+  {
+    "minute": "2026-11-25T23:09:00Z",
+    "instances": 1,
+    "processed": 3,
+    "releases": 1
+  },
+  {
+    "minute": "2026-11-25T23:10:00Z",
+    "instances": 1,
+    "processed": 14,
+    "releases": null
+  },
+  {
+    "minute": "2026-11-25T23:11:00Z",
+    "instances": 1,
+    "processed": null,
+    "releases": null
+  },
+  {
+    "minute": "2026-11-25T23:12:00Z",
+    "instances": 1,
+    "processed": 17,
+    "releases": 1
+  },
+  {
+    "minute": "2026-11-25T23:13:00Z",
+    "instances": 1,
+    "processed": null,
+    "releases": null
+  },
+  {
+    "minute": "2026-11-25T23:14:00Z",
+    "instances": 1,
+    "processed": null,
+    "releases": null
+  },
+  {
+    "minute": "2026-11-25T23:15:00Z",
+    "instances": 1,
+    "processed": null,
+    "releases": null
+  },
+  {
+    "minute": "2026-11-25T23:16:00Z",
+    "instances": 1,
+    "processed": null,
+    "releases": null
+  },
+  {
+    "minute": "2026-11-25T23:17:00Z",
+    "instances": 1,
+    "processed": 17,
+    "releases": 1
+  },
+  {
+    "minute": "2026-11-25T23:18:00Z",
+    "instances": 1,
+    "processed": null,
+    "releases": null
+  },
+  {
+    "minute": "2026-11-25T23:19:00Z",
+    "instances": 1,
+    "processed": null,
+    "releases": null
+  },
+  {
+    "minute": "2026-11-25T23:20:00Z",
+    "instances": 1,
+    "processed": null,
+    "releases": null
+  },
+  {
+    "minute": "2026-11-25T23:21:00Z",
+    "instances": 1,
+    "processed": 17,
+    "releases": 1
+  },
+  {
+    "minute": "2026-11-25T23:22:00Z",
+    "instances": 1,
+    "processed": null,
+    "releases": null
+  },
+  {
+    "minute": "2026-11-25T23:23:00Z",
+    "instances": 1,
+    "processed": null,
+    "releases": null
+  },
+  {
+    "minute": "2026-11-25T23:24:00Z",
+    "instances": 1,
+    "processed": null,
+    "releases": null
+  },
+  {
+    "minute": "2026-11-25T23:25:00Z",
+    "instances": 1,
+    "processed": 17,
+    "releases": 1
+  },
+  {
+    "minute": "2026-11-25T23:26:00Z",
+    "instances": 1,
+    "processed": 374,
+    "releases": 22
+  },
+  {
+    "minute": "2026-11-25T23:27:00Z",
+    "instances": 1,
+    "processed": 629,
+    "releases": 37
+  },
+  {
+    "minute": "2026-11-25T23:28:00Z",
+    "instances": 1,
+    "processed": 629,
+    "releases": 36
+  },
+  {
+    "minute": "2026-11-25T23:29:00Z",
+    "instances": 1,
+    "processed": 648,
+    "releases": 39
+  },
+  {
+    "minute": "2026-11-25T23:30:00Z",
+    "instances": 1,
+    "processed": 593,
+    "releases": 36
+  },
+  {
+    "minute": "2026-11-25T23:31:00Z",
+    "instances": 1,
+    "processed": 646,
+    "releases": 36
+  },
+  {
+    "minute": "2026-11-25T23:32:00Z",
+    "instances": 1,
+    "processed": 561,
+    "releases": 34
+  },
+  {
+    "minute": "2026-11-25T23:33:00Z",
+    "instances": 1,
+    "processed": 646,
+    "releases": 37
+  },
+  {
+    "minute": "2026-11-25T23:34:00Z",
+    "instances": 1,
+    "processed": 578,
+    "releases": 35
+  },
+  {
+    "minute": "2026-11-25T23:35:00Z",
+    "instances": 1,
+    "processed": 626,
+    "releases": 36
+  },
+  {
+    "minute": "2026-11-25T23:36:00Z",
+    "instances": 1,
+    "processed": 632,
+    "releases": 36
+  },
+  {
+    "minute": "2026-11-25T23:37:00Z",
+    "instances": 1,
+    "processed": 568,
+    "releases": 36
+  },
+  {
+    "minute": "2026-11-25T23:38:00Z",
+    "instances": 1,
+    "processed": 656,
+    "releases": 38
+  },
+  {
+    "minute": "2026-11-25T23:39:00Z",
+    "instances": 1,
+    "processed": 612,
+    "releases": 35
+  },
+  {
+    "minute": "2026-11-25T23:40:00Z",
+    "instances": 1,
+    "processed": 612,
+    "releases": 36
+  },
+  {
+    "minute": "2026-11-25T23:41:00Z",
+    "instances": 1,
+    "processed": 595,
+    "releases": 35
+  },
+  {
+    "minute": "2026-11-25T23:42:00Z",
+    "instances": 1,
+    "processed": 593,
+    "releases": 36
+  },
+  {
+    "minute": "2026-11-25T23:43:00Z",
+    "instances": 1,
+    "processed": 654,
+    "releases": 38
+  },
+  {
+    "minute": "2026-11-25T23:44:00Z",
+    "instances": 1,
+    "processed": 622,
+    "releases": 36
+  },
+  {
+    "minute": "2026-11-25T23:45:00Z",
+    "instances": 1,
+    "processed": 619,
+    "releases": 37
+  },
+  {
+    "minute": "2026-11-25T23:46:00Z",
+    "instances": 1,
+    "processed": 633,
+    "releases": 38
+  },
+  {
+    "minute": "2026-11-25T23:47:00Z",
+    "instances": 1,
+    "processed": 607,
+    "releases": 35
+  },
+  {
+    "minute": "2026-11-25T23:48:00Z",
+    "instances": 1,
+    "processed": 607,
+    "releases": 35
+  },
+  {
+    "minute": "2026-11-25T23:49:00Z",
+    "instances": 1,
+    "processed": 627,
+    "releases": 37
+  },
+  {
+    "minute": "2026-11-25T23:50:00Z",
+    "instances": 1,
+    "processed": 594,
+    "releases": 35
+  },
+  {
+    "minute": "2026-11-25T23:51:00Z",
+    "instances": 1,
+    "processed": 621,
+    "releases": 36
+  },
+  {
+    "minute": "2026-11-25T23:52:00Z",
+    "instances": 1,
+    "processed": 606,
+    "releases": 37
+  },
+  {
+    "minute": "2026-11-25T23:53:00Z",
+    "instances": 1,
+    "processed": 629,
+    "releases": 36
+  },
+  {
+    "minute": "2026-11-25T23:54:00Z",
+    "instances": 1,
+    "processed": 595,
+    "releases": 36
+  },
+  {
+    "minute": "2026-11-25T23:55:00Z",
+    "instances": 1,
+    "processed": 610,
+    "releases": 35
+  },
+  {
+    "minute": "2026-11-25T23:56:00Z",
+    "instances": 1,
+    "processed": 597,
+    "releases": 34
+  },
+  {
+    "minute": "2026-11-25T23:57:00Z",
+    "instances": 1,
+    "processed": 590,
+    "releases": 36
+  },
+  {
+    "minute": "2026-11-25T23:58:00Z",
+    "instances": 1,
+    "processed": 617,
+    "releases": 37
+  },
+  {
+    "minute": "2026-11-25T23:59:00Z",
+    "instances": 1,
+    "processed": 626,
+    "releases": 36
+  },
+  {
+    "minute": "2026-11-26T00:00:00Z",
+    "instances": 1,
+    "processed": 616,
+    "releases": 38
+  },
+  {
+    "minute": "2026-11-26T00:01:00Z",
+    "instances": 1,
+    "processed": 641,
+    "releases": 36
+  },
+  {
+    "minute": "2026-11-26T00:02:00Z",
+    "instances": 1,
+    "processed": 616,
+    "releases": 37
+  },
+  {
+    "minute": "2026-11-26T00:03:00Z",
+    "instances": 1,
+    "processed": 629,
+    "releases": 36
+  },
+  {
+    "minute": "2026-11-26T00:04:00Z",
+    "instances": 1,
+    "processed": 586,
+    "releases": 35
+  },
+  {
+    "minute": "2026-11-26T00:05:00Z",
+    "instances": 1,
+    "processed": 621,
+    "releases": 36
+  },
+  {
+    "minute": "2026-11-26T00:06:00Z",
+    "instances": 1,
+    "processed": 610,
+    "releases": 37
+  },
+  {
+    "minute": "2026-11-26T00:07:00Z",
+    "instances": 1,
+    "processed": 614,
+    "releases": 36
+  },
+  {
+    "minute": "2026-11-26T00:08:00Z",
+    "instances": 1,
+    "processed": 629,
+    "releases": 37
+  },
+  {
+    "minute": "2026-11-26T00:09:00Z",
+    "instances": 1,
+    "processed": 591,
+    "releases": 34
+  },
+  {
+    "minute": "2026-11-26T00:10:00Z",
+    "instances": 1,
+    "processed": 616,
+    "releases": 36
+  },
+  {
+    "minute": "2026-11-26T00:11:00Z",
+    "instances": 1,
+    "processed": 561,
+    "releases": 34
+  },
+  {
+    "minute": "2026-11-26T00:12:00Z",
+    "instances": 1,
+    "processed": 599,
+    "releases": 37
+  },
+  {
+    "minute": "2026-11-26T00:13:00Z",
+    "instances": 1,
+    "processed": 617,
+    "releases": 33
+  },
+  {
+    "minute": "2026-11-26T00:14:00Z",
+    "instances": 1,
+    "processed": null,
+    "releases": null
+  },
+  {
+    "minute": "2026-11-26T00:15:00Z",
+    "instances": 1,
+    "processed": null,
+    "releases": null
+  },
+  {
+    "minute": "2026-11-26T00:16:00Z",
+    "instances": 1,
+    "processed": null,
+    "releases": null
+  },
+  {
+    "minute": "2026-11-26T00:17:00Z",
+    "instances": 1,
+    "processed": null,
+    "releases": null
+  }
+]

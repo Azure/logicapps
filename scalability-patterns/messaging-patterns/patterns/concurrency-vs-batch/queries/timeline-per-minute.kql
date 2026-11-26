@@ -1,0 +1,13 @@
+// Parameters: replace {{startUtc}}, {{endUtc}} and {{workflowName}} (tools\Run-Queries.ps1 does this).
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';// Per minute: host instances, runs started and ended, peak runs in flight, and p95 end-to-end latency of runs that ended.
+let runs = traces | where timestamp between (startTime .. endTime) | where customDimensions.Category == 'Workflow.Operations.Runs' and customDimensions.EventName == 'WorkflowRunEnd' | where tostring(parse_json(tostring(customDimensions.resource)).workflowName) == workflow | extend durationMs = todouble(customDimensions.prop__durationInMilliseconds) | extend runEnd = timestamp, runStart = timestamp - totimespan(durationMs * 10000), instance = cloud_RoleInstance;
+let inst = union requests, traces | where timestamp between (startTime .. endTime) | where cloud_RoleInstance != '' | summarize instances = dcount(cloud_RoleInstance) by minute = bin(timestamp, 1m);
+let started = runs | summarize runsStarted = count() by minute = bin(runStart, 1m);
+let ended = runs | summarize runsEnded = count(), p50RunMs = percentile(durationMs, 50) by minute = bin(runEnd, 1m);
+let peak = runs | extend sec = range(bin(runStart, 1s), bin(runEnd, 1s), 1s) | mv-expand sec to typeof(datetime) | summarize inFlight = count() by sec | summarize maxInFlight = max(inFlight) by minute = bin(sec, 1m);
+let e2e = requests | where timestamp between (startTime .. endTime) | where customDimensions.Category == 'Workflow.Operations.Actions' | where tostring(parse_json(tostring(customDimensions.resource)).workflowName) == workflow | where tostring(parse_json(tostring(customDimensions.resource)).actionName) == 'Process_order' | extend tp = parse_json(tostring(customDimensions.trackedProperties)), endAt = timestamp + totimespan(duration * 10000) | extend e2eMs = datetime_diff('millisecond', endAt, todatetime(tp.sentAtUtc)) | summarize p95E2eMs = percentile(e2eMs, 95) by minute = bin(endAt, 1m);
+inst | join kind=fullouter started on minute | join kind=fullouter ended on minute | join kind=fullouter peak on minute | join kind=fullouter e2e on minute
+| project minute = coalesce(minute, minute1, minute2, minute3, minute4), instances, runsStarted, runsEnded, maxInFlight, p50RunMs, p95E2eMs
+| order by minute asc

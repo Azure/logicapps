@@ -1,0 +1,10 @@
+// Parameters: replace {{startUtc}}, {{endUtc}} and {{workflowName}} (Run-Queries.ps1 in this folder does this).
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';
+// Processed messages (Process_order succeeded): count, average per second over the active window, peak second and minute, and the share of seconds above 50.
+let processed = requests | where timestamp between (startTime .. endTime) | where customDimensions.Category == 'Workflow.Operations.Actions' | where tostring(parse_json(tostring(customDimensions.resource)).workflowName) == workflow | where tostring(parse_json(tostring(customDimensions.resource)).actionName) == 'Process_order' | extend tp = parse_json(tostring(customDimensions.trackedProperties)) | where tostring(tp.pattern) == 'batch-fixed-rate' | extend ok = resultCode == 'Succeeded', startAt = timestamp, endAt = timestamp + totimespan(duration * 10000), sentAt = todatetime(tp.sentAtUtc), messageId = tostring(tp.messageId);
+let ok = processed | where ok;
+let perSecond = ok | summarize n = count() by s = bin(startAt, 1s) | summarize peakPerSecond = max(n), p50PerActiveSecond = percentile(n, 50), p95PerActiveSecond = percentile(n, 95), secondsAbove50 = countif(n > 50), secondsAbove55 = countif(n > 55), activeSeconds = count();
+let perMinute = ok | summarize n = count() by m = bin(startAt, 1m) | summarize peakPerMinute = max(n);
+ok | summarize succeeded = count(), messages = dcount(messageId), firstStart = min(startAt), lastStart = max(startAt), lastEnd = max(endAt) | extend spanSeconds = datetime_diff('second', lastStart, firstStart), avgPerSecond = round(todouble(succeeded) / datetime_diff('second', lastStart, firstStart), 1) | extend k = 1 | join kind=inner (perSecond | extend k = 1) on k | join kind=inner (perMinute | extend k = 1) on k | project-away k, k1, k2

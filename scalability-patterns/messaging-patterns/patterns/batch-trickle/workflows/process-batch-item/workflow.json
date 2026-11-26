@@ -1,0 +1,36 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "triggers": {
+      "When_a_batch_is_received": {
+        "type": "Request",
+        "kind": "Http",
+        "inputs": {},
+        "splitOn": "@triggerBody()?['items']"
+      }
+    },
+    "actions": {
+      "Process_order": {
+        "type": "Workflow",
+        "inputs": {
+          "host": { "workflow": { "id": "process-order" } },
+          "body": {
+            "messageId": "@{triggerBody()?['content']?['messageId']}",
+            "pattern": "batch-trickle",
+            "order": "@triggerBody()?['content']?['contentData']"
+          }
+        },
+        "runAfter": {},
+        "trackedProperties": {
+          "messageId": "@{triggerBody()?['content']?['messageId']}",
+          "enqueuedTimeUtc": "@{triggerBody()?['content']?['enqueuedTimeUtc']}",
+          "sentAtUtc": "@{triggerBody()?['content']?['contentData']?['sentAtUtc']}",
+          "pattern": "batch-trickle"
+        }
+      }
+    },
+    "outputs": {}
+  },
+  "kind": "Stateful"
+}

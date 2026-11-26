@@ -1,0 +1,40 @@
+{
+  "$comment": "Batch trickle: a batch receiver releases at most 5 messages every second, so a fragile downstream sees about 5 calls per second. See README.md.",
+  "location": "westus3",
+  "fallbackLocation": "swedencentral",
+  "planSku": "WS1",
+  "maximumElasticWorkerCount": 20,
+  "minimumElasticInstanceCount": 1,
+  "functionsRuntimeScaleMonitoringEnabled": true,
+  "serviceBusSku": "Standard",
+  "queues": [
+    {
+      "name": "orders",
+      "lockDuration": "PT5M",
+      "maxDeliveryCount": 10,
+      "maxSizeInMegabytes": 5120
+    }
+  ],
+  "topics": [],
+  "extraAppSettings": {},
+  "hostSettings": {
+    "Runtime.BatchConfiguration.MinimumRecurrenceInterval": "00:00:01",
+    "Runtime.FlowBatchTriggerReleaseJob.ExecutionInterval": "00:00:00.100",
+    "Runtime.FlowBatchTriggerPushJob.ExecutionInterval": "00:00:01",
+    "Runtime.FlowBatchTriggerPushJob.DisableSafetyLimitsRelease": "true",
+    "Runtime.BatchConfiguration.AllowMessageCountInRecurrence": "true"
+  },
+  "loadTest": {
+    "queueName": "orders",
+    "engineInstances": 1,
+    "users": 5,
+    "spawnRate": 5,
+    "batchSize": 10,
+    "batchesPerUserPerSecond": 1,
+    "durationMinutes": 5
+  },
+  "drainMinutes": 20,
+  "measurement": {
+    "workflowName": "process-batch-item"
+  }
+}

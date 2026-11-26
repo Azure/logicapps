@@ -1,0 +1,38 @@
+{
+  "pattern": "child-type",
+  "runId": "run-20261125-231852",
+  "workflowName": "orders-stateful-child",
+  "windowStartUtc": "2026-11-25T23:18:52Z",
+  "windowEndUtc": "2026-11-25T23:36:00Z",
+  "targetMessagesPerSecond": 300,
+  "loadDurationMinutes": 3,
+  "loadTestStatus": "DONE",
+  "loadTestResult": "NOT_APPLICABLE",
+  "loadEntity": "orders-b",
+  "messagesSent": 54020,
+  "messagesCompletedByBroker": 54020,
+  "peakQueueBacklog": 43720,
+  "deadletteredAtEnd": 0,
+  "runsCompleted": 0,
+  "runsSucceeded": 0,
+  "runsFailed": 0,
+  "avgMessagesPerSecond": 0.06,
+  "peakRunsPerSecond": null,
+  "runDurationMs": {
+    "p50": null,
+    "p95": null,
+    "p99": null
+  },
+  "endToEndLatencyMs": {
+    "p50": 996869,
+    "p95": 1028718,
+    "p99": 1034513
+  },
+  "maxInstances": 2,
+  "firstSentUtc": "2026-11-25T23:21:47.898Z",
+  "lastFinishedUtc": "2026-11-25T23:39:07.271Z",
+  "drainSeconds": 1040,
+  "failedActions": 0,
+  "exceptions": 0,
+  "portalUrl": "https://portal.azure.com/#blade/Microsoft_Azure_CloudNativeTesting/TestRunReport.ReactView//resourceId/%2fsubscriptions%2f21196cdf-abb2-4697-9f73-feef0db7cb2a%2fresourcegroups%2frg-msgpat-child-type%2fproviders%2fmicrosoft.loadtestservice%2floadtests%2falt-msgpat-childtype-yyw6jt/testId/msgpat-child-type/testRunId/run-20261125-231852"
+}

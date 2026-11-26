@@ -1,0 +1,20 @@
+{
+  "pattern": "child-type",
+  "testId": "msgpat-child-type",
+  "testRunId": "run-20261125-231852",
+  "label": "B-stateful",
+  "targetMessagesPerSecond": 300,
+  "users": 30,
+  "engineInstances": 1,
+  "batchSize": 10,
+  "batchesPerUserPerSecond": 1,
+  "durationMinutes": 3,
+  "drainMinutes": 0,
+  "startUtc": "2026-11-25T23:18:52.5026510Z",
+  "loadEndUtc": "2026-11-25T23:29:16Z",
+  "endUtc": "2026-11-25T23:29:27.7756027Z",
+  "status": "DONE",
+  "testResult": "NOT_APPLICABLE",
+  "loadStartUtc": "2026-11-25T23:18:57Z",
+  "portalUrl": "https://portal.azure.com/#blade/Microsoft_Azure_CloudNativeTesting/TestRunReport.ReactView//resourceId/%2fsubscriptions%2f21196cdf-abb2-4697-9f73-feef0db7cb2a%2fresourcegroups%2frg-msgpat-child-type%2fproviders%2fmicrosoft.loadtestservice%2floadtests%2falt-msgpat-childtype-yyw6jt/testId/msgpat-child-type/testRunId/run-20261125-231852"
+}

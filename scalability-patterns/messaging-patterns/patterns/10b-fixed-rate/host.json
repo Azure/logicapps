@@ -1,8 +1,0 @@
-{
-  "extensions": {
-    "serviceBus": {
-      "maxMessageBatchSize": 50,
-      "prefetchCount": 0
-    }
-  }
-}

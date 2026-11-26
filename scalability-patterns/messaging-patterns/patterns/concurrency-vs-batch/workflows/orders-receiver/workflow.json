@@ -1,0 +1,40 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "triggers": {
+      "Batch_messages": {
+        "type": "Batch",
+        "inputs": {
+          "mode": "Inline",
+          "configurations": {
+            "orders": {
+              "releaseCriteria": {
+                "recurrence": { "frequency": "Second", "interval": 1 },
+                "messageCount": 200
+              }
+            }
+          }
+        }
+      }
+    },
+    "actions": {
+      "Process_batch": {
+        "type": "Workflow",
+        "inputs": {
+          "host": { "workflow": { "id": "process-batch-item" } },
+          "body": "@triggerBody()",
+          "retryPolicy": { "type": "none" }
+        },
+        "operationOptions": "DisableAsyncPattern",
+        "runAfter": {},
+        "trackedProperties": {
+          "itemCount": "@{length(action()?['inputs']?['body']?['items'])}"
+        }
+      }
+    },
+    "outputs": {}
+  },
+  "kind": "Stateful"
+}
+

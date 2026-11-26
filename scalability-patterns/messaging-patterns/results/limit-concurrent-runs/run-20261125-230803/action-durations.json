@@ -1,0 +1,57 @@
+[
+  {
+    "workflowName": "orders-limited",
+    "action": "Process_order",
+    "actionType": "Workflow",
+    "apiName": "",
+    "count": 2340,
+    "failed": 0,
+    "p50": 211.0477022167981,
+    "p95": 292.4457333333333,
+    "p99": 352.3632
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Enrich_order",
+    "actionType": "InvokeFunction",
+    "apiName": "",
+    "count": 2340,
+    "failed": 0,
+    "p50": 46.38826476325758,
+    "p95": 127.50356666666667,
+    "p99": 167.0938
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Upsert_order",
+    "actionType": "ServiceProvider",
+    "apiName": "AzureCosmosDB",
+    "count": 2340,
+    "failed": 0,
+    "p50": 53.14450545097553,
+    "p95": 108.93987777777777,
+    "p99": 164.385
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Response",
+    "actionType": "Response",
+    "apiName": "",
+    "count": 2340,
+    "failed": 0,
+    "p50": 44.27576273719783,
+    "p95": 81.6134,
+    "p99": 121.7436
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Transform_order",
+    "actionType": "Liquid",
+    "apiName": "",
+    "count": 2340,
+    "failed": 0,
+    "p50": 13.186247619047618,
+    "p95": 35.2646625,
+    "p99": 48.751
+  }
+]

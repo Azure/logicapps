@@ -1,0 +1,20 @@
+{
+  "pattern": "limit-concurrent-runs",
+  "testId": "msgpat-limit-concurrent-runs",
+  "testRunId": "run-20261125-225429",
+  "label": "smoke",
+  "targetMessagesPerSecond": 20,
+  "users": 2,
+  "engineInstances": 1,
+  "batchSize": 10,
+  "batchesPerUserPerSecond": 1,
+  "durationMinutes": 1,
+  "drainMinutes": 3,
+  "startUtc": "2026-11-25T22:54:29.5465375Z",
+  "loadEndUtc": "2026-11-25T23:00:28Z",
+  "endUtc": "2026-11-25T23:03:41.5278567Z",
+  "status": "DONE",
+  "testResult": "NOT_APPLICABLE",
+  "loadStartUtc": "2026-11-25T22:54:36Z",
+  "portalUrl": "https://portal.azure.com/#blade/Microsoft_Azure_CloudNativeTesting/TestRunReport.ReactView//resourceId/%2fsubscriptions%2f21196cdf-abb2-4697-9f73-feef0db7cb2a%2fresourcegroups%2frg-msgpat-limit-concurrent-runs%2fproviders%2fmicrosoft.loadtestservice%2floadtests%2falt-msgpat-limitconcu-7ur2bh/testId/msgpat-limit-concurrent-runs/testRunId/run-20261125-225429"
+}

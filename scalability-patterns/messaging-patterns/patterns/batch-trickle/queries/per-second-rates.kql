@@ -1,0 +1,17 @@
+// Each Process_batch action logs two request records, so releases count distinct receiver runs.
+// Per second: messages accepted by orders-ingress (Send_to_batch), messages processed (Process_order) and batch releases (Process_batch).
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+requests
+| where timestamp between (startTime .. endTime)
+| where customDimensions.Category == 'Workflow.Operations.Actions'
+| extend res = parse_json(tostring(customDimensions.resource))
+| extend workflowName = tostring(res.workflowName), actionName = tostring(res.actionName)
+| extend tp = parse_json(tostring(customDimensions.trackedProperties))
+| extend rateKind = case(workflowName == 'orders-ingress' and actionName == 'Send_to_batch', 'incoming',
+                     workflowName == 'orders-receiver' and actionName == 'Process_batch', 'releases',
+                     isnotempty(tp.sentAtUtc), 'processed', '')
+| where rateKind != ''
+| extend finishedAt = timestamp + totimespan(duration * 10000)
+| summarize incoming = countif(rateKind == 'incoming'), processed = countif(rateKind == 'processed'), releases = dcountif(operation_Id, rateKind == 'releases') by second = bin(finishedAt, 1s)
+| order by second asc

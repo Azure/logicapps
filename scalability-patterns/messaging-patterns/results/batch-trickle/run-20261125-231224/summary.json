@@ -1,0 +1,81 @@
+{
+  "loadEndUtc": "2026-11-25T23:25:03+00:00",
+  "loadPhase": {
+    "seconds": 558,
+    "processed": 60,
+    "meanPerSecond": 0.108,
+    "maxPerSecond": 9,
+    "stdevPerSecond": 0.728,
+    "coefficientOfVariation": 6.768,
+    "secondsAbove5": 1,
+    "histogram": {
+      "0": 542,
+      "1": 5,
+      "3": 1,
+      "4": 2,
+      "5": 7,
+      "9": 1
+    }
+  },
+  "drainPhase": {
+    "seconds": 956,
+    "processed": 2580,
+    "meanPerSecond": 2.699,
+    "maxPerSecond": 10,
+    "stdevPerSecond": 2.587,
+    "coefficientOfVariation": 0.959,
+    "secondsAbove5": 16,
+    "histogram": {
+      "0": 435,
+      "1": 9,
+      "2": 10,
+      "3": 8,
+      "4": 10,
+      "5": 468,
+      "6": 2,
+      "8": 2,
+      "9": 1,
+      "10": 11
+    }
+  },
+  "firstProcessedUtc": "2026-11-25T23:15:46+00:00",
+  "lastProcessedUtc": "2026-11-25T23:40:59+00:00",
+  "incomingTotal": 15040,
+  "incomingPeakPerSecond": 107,
+  "processedTotal": 2640,
+  "processedMeanPerSecond": 1.744,
+  "processedMaxPerSecond": 10,
+  "processedMinPerSecond": 0,
+  "processedStdevPerSecond": 2.446,
+  "processedCoefficientOfVariation": 1.403,
+  "processedPerSecondHistogram": {
+    "0": 977,
+    "1": 14,
+    "2": 10,
+    "3": 9,
+    "4": 12,
+    "5": 475,
+    "6": 2,
+    "8": 2,
+    "9": 2,
+    "10": 11
+  },
+  "secondsAbove5": 17,
+  "releasesTotal": 579,
+  "meanReleaseSize": 4.56,
+  "backlogPeak": 14980,
+  "backlogAtEnd": 12400,
+  "latencySeconds": {
+    "p50": 1033.3,
+    "p95": 1446.2,
+    "p99": 1485.7,
+    "max": 1504.8
+  },
+  "duplicateExecutions": 0,
+  "maxInstances": 1,
+  "cpuAvgPercent": 43.4,
+  "cpuMaxPercent": 99.0,
+  "memoryAvgPercent": 51.9,
+  "memoryMaxPercent": 61.0,
+  "serviceBusDeadLetteredMax": 0.0
+}

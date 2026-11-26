@@ -5,6 +5,19 @@ and Azure Load Testing into one resource group per pattern. It drives load with 
 exports results and charts. The shared code stays the same for every pattern. Each pattern is
 defined only by the files in `patterns/<id>/`.
 
+## Pattern index
+
+| Pattern | Folders |
+|---|---|
+| 1 Process each message | `1a-max-throughput`, `2a-drain-fast`, `child-type` |
+| 2 Batch trigger | `batch-steady-drain`, `batch-deadline`, `batch-window`, `batch-trickle`, `batch-fixed-rate`, `concurrency-vs-batch` |
+| 3 Limit concurrent runs | `limit-concurrent-runs` |
+| 4 Large messages | `5a-claim-check`, `5b-premium-large` |
+| 5 Strict order | `6a-strict-order` |
+| 6 Peek-lock and long-running work | `7-long-running` |
+| 7 Retry with backoff | `10c-retry-backoff` |
+| 8 Request-reply | `11-request-reply` |
+| 9 Priority | `12a-separate-apps`, `12b-per-workflow-caps` |
 ## Layout
 
 | Path | Contents |

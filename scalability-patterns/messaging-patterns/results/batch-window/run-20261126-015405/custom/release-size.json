@@ -1,0 +1,290 @@
+[
+  {
+    "minute": "2026-11-26T01:57:00Z",
+    "releases": 4,
+    "items": 68,
+    "avgSize": 17,
+    "minSize": 17,
+    "maxSize": 17
+  },
+  {
+    "minute": "2026-11-26T01:58:00Z",
+    "releases": 5,
+    "items": 85,
+    "avgSize": 17,
+    "minSize": 17,
+    "maxSize": 17
+  },
+  {
+    "minute": "2026-11-26T01:59:00Z",
+    "releases": 7,
+    "items": 119,
+    "avgSize": 17,
+    "minSize": 17,
+    "maxSize": 17
+  },
+  {
+    "minute": "2026-11-26T02:00:00Z",
+    "releases": 49,
+    "items": 833,
+    "avgSize": 17,
+    "minSize": 17,
+    "maxSize": 17
+  },
+  {
+    "minute": "2026-11-26T02:01:00Z",
+    "releases": 53,
+    "items": 901,
+    "avgSize": 17,
+    "minSize": 17,
+    "maxSize": 17
+  },
+  {
+    "minute": "2026-11-26T02:02:00Z",
+    "releases": 54,
+    "items": 918,
+    "avgSize": 17,
+    "minSize": 17,
+    "maxSize": 17
+  },
+  {
+    "minute": "2026-11-26T02:03:00Z",
+    "releases": 55,
+    "items": 935,
+    "avgSize": 17,
+    "minSize": 17,
+    "maxSize": 17
+  },
+  {
+    "minute": "2026-11-26T02:04:00Z",
+    "releases": 53,
+    "items": 901,
+    "avgSize": 17,
+    "minSize": 17,
+    "maxSize": 17
+  },
+  {
+    "minute": "2026-11-26T02:05:00Z",
+    "releases": 54,
+    "items": 918,
+    "avgSize": 17,
+    "minSize": 17,
+    "maxSize": 17
+  },
+  {
+    "minute": "2026-11-26T02:06:00Z",
+    "releases": 54,
+    "items": 918,
+    "avgSize": 17,
+    "minSize": 17,
+    "maxSize": 17
+  },
+  {
+    "minute": "2026-11-26T02:07:00Z",
+    "releases": 54,
+    "items": 918,
+    "avgSize": 17,
+    "minSize": 17,
+    "maxSize": 17
+  },
+  {
+    "minute": "2026-11-26T02:08:00Z",
+    "releases": 54,
+    "items": 918,
+    "avgSize": 17,
+    "minSize": 17,
+    "maxSize": 17
+  },
+  {
+    "minute": "2026-11-26T02:09:00Z",
+    "releases": 53,
+    "items": 901,
+    "avgSize": 17,
+    "minSize": 17,
+    "maxSize": 17
+  },
+  {
+    "minute": "2026-11-26T02:10:00Z",
+    "releases": 53,
+    "items": 901,
+    "avgSize": 17,
+    "minSize": 17,
+    "maxSize": 17
+  },
+  {
+    "minute": "2026-11-26T02:11:00Z",
+    "releases": 52,
+    "items": 884,
+    "avgSize": 17,
+    "minSize": 17,
+    "maxSize": 17
+  },
+  {
+    "minute": "2026-11-26T02:12:00Z",
+    "releases": 47,
+    "items": 799,
+    "avgSize": 17,
+    "minSize": 17,
+    "maxSize": 17
+  },
+  {
+    "minute": "2026-11-26T02:13:00Z",
+    "releases": 52,
+    "items": 884,
+    "avgSize": 17,
+    "minSize": 17,
+    "maxSize": 17
+  },
+  {
+    "minute": "2026-11-26T02:14:00Z",
+    "releases": 53,
+    "items": 901,
+    "avgSize": 17,
+    "minSize": 17,
+    "maxSize": 17
+  },
+  {
+    "minute": "2026-11-26T02:15:00Z",
+    "releases": 53,
+    "items": 901,
+    "avgSize": 17,
+    "minSize": 17,
+    "maxSize": 17
+  },
+  {
+    "minute": "2026-11-26T02:16:00Z",
+    "releases": 54,
+    "items": 918,
+    "avgSize": 17,
+    "minSize": 17,
+    "maxSize": 17
+  },
+  {
+    "minute": "2026-11-26T02:17:00Z",
+    "releases": 54,
+    "items": 918,
+    "avgSize": 17,
+    "minSize": 17,
+    "maxSize": 17
+  },
+  {
+    "minute": "2026-11-26T02:18:00Z",
+    "releases": 52,
+    "items": 884,
+    "avgSize": 17,
+    "minSize": 17,
+    "maxSize": 17
+  },
+  {
+    "minute": "2026-11-26T02:19:00Z",
+    "releases": 53,
+    "items": 901,
+    "avgSize": 17,
+    "minSize": 17,
+    "maxSize": 17
+  },
+  {
+    "minute": "2026-11-26T02:20:00Z",
+    "releases": 52,
+    "items": 884,
+    "avgSize": 17,
+    "minSize": 17,
+    "maxSize": 17
+  },
+  {
+    "minute": "2026-11-26T02:21:00Z",
+    "releases": 52,
+    "items": 884,
+    "avgSize": 17,
+    "minSize": 17,
+    "maxSize": 17
+  },
+  {
+    "minute": "2026-11-26T02:22:00Z",
+    "releases": 51,
+    "items": 867,
+    "avgSize": 17,
+    "minSize": 17,
+    "maxSize": 17
+  },
+  {
+    "minute": "2026-11-26T02:23:00Z",
+    "releases": 49,
+    "items": 833,
+    "avgSize": 17,
+    "minSize": 17,
+    "maxSize": 17
+  },
+  {
+    "minute": "2026-11-26T02:24:00Z",
+    "releases": 52,
+    "items": 884,
+    "avgSize": 17,
+    "minSize": 17,
+    "maxSize": 17
+  },
+  {
+    "minute": "2026-11-26T02:25:00Z",
+    "releases": 51,
+    "items": 867,
+    "avgSize": 17,
+    "minSize": 17,
+    "maxSize": 17
+  },
+  {
+    "minute": "2026-11-26T02:26:00Z",
+    "releases": 53,
+    "items": 901,
+    "avgSize": 17,
+    "minSize": 17,
+    "maxSize": 17
+  },
+  {
+    "minute": "2026-11-26T02:27:00Z",
+    "releases": 53,
+    "items": 901,
+    "avgSize": 17,
+    "minSize": 17,
+    "maxSize": 17
+  },
+  {
+    "minute": "2026-11-26T02:28:00Z",
+    "releases": 52,
+    "items": 884,
+    "avgSize": 17,
+    "minSize": 17,
+    "maxSize": 17
+  },
+  {
+    "minute": "2026-11-26T02:29:00Z",
+    "releases": 51,
+    "items": 867,
+    "avgSize": 17,
+    "minSize": 17,
+    "maxSize": 17
+  },
+  {
+    "minute": "2026-11-26T02:30:00Z",
+    "releases": 52,
+    "items": 884,
+    "avgSize": 17,
+    "minSize": 17,
+    "maxSize": 17
+  },
+  {
+    "minute": "2026-11-26T02:31:00Z",
+    "releases": 52,
+    "items": 884,
+    "avgSize": 17,
+    "minSize": 17,
+    "maxSize": 17
+  },
+  {
+    "minute": "2026-11-26T02:32:00Z",
+    "releases": 22,
+    "items": 366,
+    "avgSize": 16.64,
+    "minSize": 9,
+    "maxSize": 17
+  }
+]

@@ -1,0 +1,38 @@
+{
+  "pattern": "7-long-running",
+  "runId": "run-20261125-231212",
+  "workflowName": "long-running-peeklock-stateful",
+  "windowStartUtc": "2026-11-25T23:11:12Z",
+  "windowEndUtc": "2026-11-25T23:37:00Z",
+  "targetMessagesPerSecond": 1,
+  "loadDurationMinutes": 3,
+  "loadTestStatus": "DONE",
+  "loadTestResult": "NOT_APPLICABLE",
+  "loadEntity": "orders-lock-stateful",
+  "messagesSent": 181,
+  "messagesCompletedByBroker": 181,
+  "peakQueueBacklog": 148,
+  "deadletteredAtEnd": 0,
+  "runsCompleted": 181,
+  "runsSucceeded": 181,
+  "runsFailed": 0,
+  "avgMessagesPerSecond": 0.53,
+  "peakRunsPerSecond": 1,
+  "runDurationMs": {
+    "p50": 162293,
+    "p95": 162837,
+    "p99": 162922
+  },
+  "endToEndLatencyMs": {
+    "p50": 162275,
+    "p95": 162796,
+    "p99": 162903
+  },
+  "maxInstances": 1,
+  "firstSentUtc": "2026-11-25T23:15:04.032Z",
+  "lastFinishedUtc": "2026-11-25T23:20:44.933Z",
+  "drainSeconds": 340,
+  "failedActions": 0,
+  "exceptions": 0,
+  "portalUrl": "https://portal.azure.com/#blade/Microsoft_Azure_CloudNativeTesting/TestRunReport.ReactView//resourceId/%2fsubscriptions%2f21196cdf-abb2-4697-9f73-feef0db7cb2a%2fresourcegroups%2frg-msgpat-7-long-running%2fproviders%2fmicrosoft.loadtestservice%2floadtests%2falt-msgpat-7longrunni-puj7dr/testId/msgpat-7-long-running/testRunId/run-20261125-231212"
+}

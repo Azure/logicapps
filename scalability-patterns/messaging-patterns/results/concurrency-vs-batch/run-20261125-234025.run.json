@@ -1,0 +1,20 @@
+{
+  "pattern": "concurrency-vs-batch",
+  "testId": "msgpat-concurrency-vs-batch",
+  "testRunId": "run-20261125-234025",
+  "label": "B-batch",
+  "targetMessagesPerSecond": 500.0,
+  "users": 50,
+  "engineInstances": 1,
+  "batchSize": 10,
+  "batchesPerUserPerSecond": 1.0,
+  "durationMinutes": 4,
+  "drainMinutes": 10,
+  "startUtc": "2026-11-25T23:40:25.6163446Z",
+  "loadEndUtc": "2026-11-25T23:50:37Z",
+  "endUtc": "2026-11-26T00:01:07.7474005Z",
+  "status": "DONE",
+  "testResult": "NOT_APPLICABLE",
+  "loadStartUtc": "2026-11-25T23:40:29Z",
+  "portalUrl": "https://portal.azure.com/#blade/Microsoft_Azure_CloudNativeTesting/TestRunReport.ReactView//resourceId/%2fsubscriptions%2f21196cdf-abb2-4697-9f73-feef0db7cb2a%2fresourcegroups%2frg-msgpat-concurrency-vs-batch%2fproviders%2fmicrosoft.loadtestservice%2floadtests%2falt-msgpat-concurrenc-7i7dx5/testId/msgpat-concurrency-vs-batch/testRunId/run-20261125-234025"
+}

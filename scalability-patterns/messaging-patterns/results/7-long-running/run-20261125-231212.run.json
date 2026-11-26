@@ -1,0 +1,20 @@
+{
+  "pattern": "7-long-running",
+  "testId": "msgpat-7-long-running",
+  "testRunId": "run-20261125-231212",
+  "label": "7-long-running 1 msg/s 3m",
+  "targetMessagesPerSecond": 1,
+  "users": 1,
+  "engineInstances": 1,
+  "batchSize": 1,
+  "batchesPerUserPerSecond": 1,
+  "durationMinutes": 3,
+  "drainMinutes": 14,
+  "startUtc": "2026-11-25T23:12:12.3232091Z",
+  "loadEndUtc": "2026-11-25T23:22:33Z",
+  "endUtc": "2026-11-25T23:37:00.8104155Z",
+  "status": "DONE",
+  "testResult": "NOT_APPLICABLE",
+  "loadStartUtc": "2026-11-25T23:12:16Z",
+  "portalUrl": "https://portal.azure.com/#blade/Microsoft_Azure_CloudNativeTesting/TestRunReport.ReactView//resourceId/%2fsubscriptions%2f21196cdf-abb2-4697-9f73-feef0db7cb2a%2fresourcegroups%2frg-msgpat-7-long-running%2fproviders%2fmicrosoft.loadtestservice%2floadtests%2falt-msgpat-7longrunni-puj7dr/testId/msgpat-7-long-running/testRunId/run-20261125-231212"
+}

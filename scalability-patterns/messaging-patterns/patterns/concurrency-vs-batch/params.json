@@ -1,0 +1,34 @@
+{
+  "$comment": "concurrency-vs-batch: two designs in one app. A = orders-concurrency (trigger concurrency 100). B = orders-ingress -> orders-receiver (Batch, 1 s, 200) -> process-batch-item. See README.md.",
+  "location": "westus3",
+  "fallbackLocation": "swedencentral",
+  "planSku": "WS1",
+  "maximumElasticWorkerCount": 10,
+  "minimumElasticInstanceCount": 2,
+  "serviceBusSku": "Standard",
+  "queues": [
+    { "name": "orders-concurrency", "lockDuration": "PT5M", "maxDeliveryCount": 10, "maxSizeInMegabytes": 5120 },
+    { "name": "orders-batch", "lockDuration": "PT5M", "maxDeliveryCount": 10, "maxSizeInMegabytes": 5120 }
+  ],
+  "topics": [],
+  "extraAppSettings": {},
+  "hostSettings": {
+    "Runtime.BatchConfiguration.MinimumRecurrenceInterval": "00:00:01",
+    "Runtime.FlowBatchTriggerReleaseJob.ExecutionInterval": "00:00:00.100",
+    "Runtime.FlowBatchTriggerPushJob.ExecutionInterval": "00:00:01",
+    "Runtime.FlowBatchTriggerPushJob.DisableSafetyLimitsRelease": "true"
+  },
+  "loadTest": {
+    "queueName": "orders-batch",
+    "engineInstances": 1,
+    "users": 50,
+    "spawnRate": 50,
+    "batchSize": 10,
+    "batchesPerUserPerSecond": 1,
+    "durationMinutes": 3
+  },
+  "drainMinutes": 10,
+  "measurement": {
+    "workflowName": "process-batch-item"
+  }
+}

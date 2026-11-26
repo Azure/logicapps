@@ -1,0 +1,21 @@
+// Parameters: replace {{startUtc}}, {{endUtc}} and {{workflowName}} (tools\Run-Queries.ps1 does this).
+// Set startUtc to the moment the workflows were enabled (T0) so the "since start" columns measure the deadline.
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';// Completion: last finished child action after T0, with latency percentiles. e2e is from the producer's
+// sentAtUtc (includes the preload wait); sinceStart is from T0, which is what the deadline measures.
+requests
+| where timestamp between (startTime .. endTime)
+| where customDimensions.Category == 'Workflow.Operations.Actions'
+| extend tp = parse_json(tostring(customDimensions.trackedProperties))
+| where isnotempty(tp.sentAtUtc)
+| where tostring(parse_json(tostring(customDimensions.resource)).workflowName) == workflow
+| extend messageId = tostring(tp.messageId), sentAt = todatetime(tp.sentAtUtc), enqueuedAt = todatetime(tp.enqueuedTimeUtc)
+| extend finishedAt = timestamp + totimespan(duration * 10000)
+| summarize finishedAt = max(finishedAt), sentAt = min(sentAt), enqueuedAt = min(enqueuedAt), actionMs = max(duration) by messageId
+| extend e2eMs = datetime_diff('millisecond', finishedAt, sentAt), sinceStartMs = datetime_diff('millisecond', finishedAt, startTime)
+| summarize messages = count(), firstSent = min(sentAt), lastSent = max(sentAt), firstFinished = min(finishedAt), lastFinished = max(finishedAt),
+    sinceStartP50 = percentile(sinceStartMs, 50), sinceStartP95 = percentile(sinceStartMs, 95),
+    e2eP50 = percentile(e2eMs, 50), e2eP95 = percentile(e2eMs, 95), e2eMax = max(e2eMs),
+    childP50 = percentile(actionMs, 50), childP95 = percentile(actionMs, 95)
+| extend finishMinutesAfterStart = round(datetime_diff('second', lastFinished, startTime) / 60.0, 2)

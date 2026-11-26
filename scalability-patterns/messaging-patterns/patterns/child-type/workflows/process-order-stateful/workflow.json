@@ -1,0 +1,104 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "triggers": {
+      "manual": {
+        "type": "Request",
+        "kind": "Http",
+        "inputs": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "messageId": { "type": "string" },
+              "pattern": { "type": "string" },
+              "order": { "type": "object" }
+            }
+          }
+        },
+        "correlation": {
+          "clientTrackingId": "@{coalesce(triggerBody()?['messageId'], guid())}"
+        }
+      }
+    },
+    "actions": {
+      "Transform_order": {
+        "type": "Liquid",
+        "kind": "JsonToJson",
+        "inputs": {
+          "content": "@triggerBody()?['order']",
+          "map": {
+            "source": "LogicApp",
+            "name": "order.liquid"
+          }
+        },
+        "runAfter": {}
+      },
+      "Enrich_order": {
+        "type": "InvokeFunction",
+        "inputs": {
+          "functionName": "OrderEnricher",
+          "parameters": {
+            "orderId": "@{body('Transform_order')?['orderId']}",
+            "quantity": "@int(body('Transform_order')?['quantity'])",
+            "unitPrice": "@float(body('Transform_order')?['unitPrice'])",
+            "region": "@{body('Transform_order')?['region']}"
+          }
+        },
+        "runAfter": {
+          "Transform_order": [ "Succeeded" ]
+        }
+      },
+      "Upsert_order": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "databaseId": "msgpat",
+            "containerId": "items",
+            "item": "@setProperty(setProperty(setProperty(body('Transform_order'), 'id', coalesce(triggerBody()?['messageId'], body('Transform_order')?['orderId'])), 'enrichment', body('Enrich_order')), 'processedAtUtc', utcNow())",
+            "isUpsert": true
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "cosmos",
+            "operationId": "CreateOrUpdateDocument",
+            "serviceProviderId": "/serviceProviders/AzureCosmosDB"
+          }
+        },
+        "runAfter": {
+          "Enrich_order": [ "Succeeded" ]
+        }
+      },
+      "Response": {
+        "type": "Response",
+        "kind": "Http",
+        "inputs": {
+          "statusCode": 200,
+          "body": {
+            "messageId": "@triggerBody()?['messageId']",
+            "orderId": "@body('Transform_order')?['orderId']",
+            "total": "@body('Enrich_order')?['total']"
+          }
+        },
+        "runAfter": {
+          "Upsert_order": [ "Succeeded" ]
+        }
+      },
+      "Response_failure": {
+        "type": "Response",
+        "kind": "Http",
+        "inputs": {
+          "statusCode": 500,
+          "body": {
+            "messageId": "@triggerBody()?['messageId']",
+            "error": "process-order failed"
+          }
+        },
+        "runAfter": {
+          "Upsert_order": [ "Failed", "TimedOut", "Skipped" ]
+        }
+      }
+    },
+    "outputs": {}
+  },
+  "kind": "Stateful"
+}

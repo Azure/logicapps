@@ -1,0 +1,16 @@
+{
+  "succeeded": 60800,
+  "messages": 61105,
+  "firstStart": "2026-11-26T01:59:13.8756949Z",
+  "lastStart": "2026-11-26T02:17:57.8415668Z",
+  "lastEnd": "2026-11-26T02:19:06.4123352Z",
+  "spanSeconds": 1124,
+  "avgPerSecond": 54.1,
+  "peakPerSecond": 401,
+  "p50PerActiveSecond": 95,
+  "p95PerActiveSecond": 262,
+  "secondsAbove200": 92,
+  "secondsAbove220": 59,
+  "activeSeconds": 566,
+  "peakPerMinute": 9559
+}

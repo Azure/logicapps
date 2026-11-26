@@ -1,0 +1,8 @@
+// Run outcomes and duration by workflow, from WorkflowRunEnd traces.
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+traces
+| where timestamp between (startTime .. endTime)
+| where customDimensions.Category == 'Workflow.Operations.Runs' and customDimensions.EventName == 'WorkflowRunEnd'
+| extend workflowName = tostring(parse_json(tostring(customDimensions.resource)).workflowName), status = replace_string(tostring(customDimensions.status), '"', ''), durationMs = todouble(customDimensions.prop__durationInMilliseconds)
+| summarize runs = count(), failed = countif(status != 'Succeeded'), p50Ms = percentile(durationMs, 50), p95Ms = percentile(durationMs, 95), maxMs = max(durationMs) by workflowName

@@ -1,0 +1,30 @@
+[
+  {
+    "minute": "2026-11-25T23:17:00.000Z",
+    "runs": 15,
+    "succeeded": 15,
+    "failed": 0,
+    "runsPerSecond": 0.25
+  },
+  {
+    "minute": "2026-11-25T23:18:00.000Z",
+    "runs": 60,
+    "succeeded": 60,
+    "failed": 0,
+    "runsPerSecond": 1
+  },
+  {
+    "minute": "2026-11-25T23:19:00.000Z",
+    "runs": 60,
+    "succeeded": 60,
+    "failed": 0,
+    "runsPerSecond": 1
+  },
+  {
+    "minute": "2026-11-25T23:20:00.000Z",
+    "runs": 46,
+    "succeeded": 46,
+    "failed": 0,
+    "runsPerSecond": 0.77
+  }
+]

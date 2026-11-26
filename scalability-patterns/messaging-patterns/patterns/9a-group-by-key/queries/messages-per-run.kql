@@ -1,6 +1,0 @@
-// Parameters: replace {{startUtc}}, {{endUtc}} and {{workflowName}} (Run-Queries.ps1 in this folder does this).
-let startTime = datetime({{startUtc}});
-let endTime = datetime({{endUtc}});
-let workflow = '{{workflowName}}';// Line messages written per run (one run handles one session batch): distribution of Write_part count per run.
-requests | where timestamp between (startTime .. endTime) | where customDimensions.Category == 'Workflow.Operations.Actions' | where tostring(parse_json(tostring(customDimensions.resource)).workflowName) == workflow | where name endswith 'Write_part' or tostring(parse_json(tostring(customDimensions.resource)).actionName) == 'Write_part' | summarize messages = count() by runId = tostring(parse_json(tostring(customDimensions.resource)).runId) | summarize runs = count(), avgMessagesPerRun = round(avg(messages), 2), p50 = percentile(messages, 50), p95 = percentile(messages, 95), maxMessages = max(messages)
-

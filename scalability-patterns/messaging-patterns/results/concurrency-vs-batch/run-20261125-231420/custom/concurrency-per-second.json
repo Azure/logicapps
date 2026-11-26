@@ -1,0 +1,2324 @@
+[
+  {
+    "sec": "2026-11-25T23:17:00Z",
+    "appInFlight": 2,
+    "maxInstanceInFlight": 2,
+    "activeInstances": 1
+  },
+  {
+    "sec": "2026-11-25T23:17:01Z",
+    "appInFlight": 11,
+    "maxInstanceInFlight": 10,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:17:09Z",
+    "appInFlight": 7,
+    "maxInstanceInFlight": 6,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:17:10Z",
+    "appInFlight": 25,
+    "maxInstanceInFlight": 15,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:17:11Z",
+    "appInFlight": 34,
+    "maxInstanceInFlight": 23,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:17:12Z",
+    "appInFlight": 21,
+    "maxInstanceInFlight": 12,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:17:13Z",
+    "appInFlight": 17,
+    "maxInstanceInFlight": 12,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:17:14Z",
+    "appInFlight": 33,
+    "maxInstanceInFlight": 24,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:17:15Z",
+    "appInFlight": 36,
+    "maxInstanceInFlight": 36,
+    "activeInstances": 1
+  },
+  {
+    "sec": "2026-11-25T23:17:16Z",
+    "appInFlight": 46,
+    "maxInstanceInFlight": 35,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:17:17Z",
+    "appInFlight": 40,
+    "maxInstanceInFlight": 29,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:17:18Z",
+    "appInFlight": 28,
+    "maxInstanceInFlight": 16,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:17:19Z",
+    "appInFlight": 30,
+    "maxInstanceInFlight": 16,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:17:20Z",
+    "appInFlight": 18,
+    "maxInstanceInFlight": 13,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:17:44Z",
+    "appInFlight": 4,
+    "maxInstanceInFlight": 4,
+    "activeInstances": 1
+  },
+  {
+    "sec": "2026-11-25T23:17:45Z",
+    "appInFlight": 24,
+    "maxInstanceInFlight": 16,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:17:46Z",
+    "appInFlight": 31,
+    "maxInstanceInFlight": 24,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:17:47Z",
+    "appInFlight": 29,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:17:48Z",
+    "appInFlight": 39,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:17:49Z",
+    "appInFlight": 35,
+    "maxInstanceInFlight": 18,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:17:50Z",
+    "appInFlight": 41,
+    "maxInstanceInFlight": 22,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:17:51Z",
+    "appInFlight": 47,
+    "maxInstanceInFlight": 25,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:17:52Z",
+    "appInFlight": 39,
+    "maxInstanceInFlight": 24,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:17:53Z",
+    "appInFlight": 27,
+    "maxInstanceInFlight": 15,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:17:54Z",
+    "appInFlight": 23,
+    "maxInstanceInFlight": 12,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:17:55Z",
+    "appInFlight": 33,
+    "maxInstanceInFlight": 18,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:17:56Z",
+    "appInFlight": 9,
+    "maxInstanceInFlight": 6,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:18:20Z",
+    "appInFlight": 16,
+    "maxInstanceInFlight": 8,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:18:21Z",
+    "appInFlight": 36,
+    "maxInstanceInFlight": 19,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:18:22Z",
+    "appInFlight": 37,
+    "maxInstanceInFlight": 19,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:18:23Z",
+    "appInFlight": 35,
+    "maxInstanceInFlight": 19,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:18:24Z",
+    "appInFlight": 30,
+    "maxInstanceInFlight": 16,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:18:25Z",
+    "appInFlight": 31,
+    "maxInstanceInFlight": 16,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:18:26Z",
+    "appInFlight": 33,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:18:27Z",
+    "appInFlight": 37,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:18:28Z",
+    "appInFlight": 30,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:18:29Z",
+    "appInFlight": 33,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:18:30Z",
+    "appInFlight": 28,
+    "maxInstanceInFlight": 15,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:18:31Z",
+    "appInFlight": 8,
+    "maxInstanceInFlight": 4,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:18:54Z",
+    "appInFlight": 5,
+    "maxInstanceInFlight": 4,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:18:55Z",
+    "appInFlight": 24,
+    "maxInstanceInFlight": 14,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:18:56Z",
+    "appInFlight": 31,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:18:57Z",
+    "appInFlight": 24,
+    "maxInstanceInFlight": 12,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:18:58Z",
+    "appInFlight": 23,
+    "maxInstanceInFlight": 13,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:18:59Z",
+    "appInFlight": 29,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:19:00Z",
+    "appInFlight": 29,
+    "maxInstanceInFlight": 15,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:19:01Z",
+    "appInFlight": 34,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:19:02Z",
+    "appInFlight": 31,
+    "maxInstanceInFlight": 23,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:19:03Z",
+    "appInFlight": 24,
+    "maxInstanceInFlight": 12,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:19:04Z",
+    "appInFlight": 22,
+    "maxInstanceInFlight": 12,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:19:05Z",
+    "appInFlight": 26,
+    "maxInstanceInFlight": 15,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:19:29Z",
+    "appInFlight": 1,
+    "maxInstanceInFlight": 1,
+    "activeInstances": 1
+  },
+  {
+    "sec": "2026-11-25T23:19:30Z",
+    "appInFlight": 20,
+    "maxInstanceInFlight": 12,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:19:31Z",
+    "appInFlight": 37,
+    "maxInstanceInFlight": 19,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:19:32Z",
+    "appInFlight": 39,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:19:33Z",
+    "appInFlight": 39,
+    "maxInstanceInFlight": 21,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:19:34Z",
+    "appInFlight": 36,
+    "maxInstanceInFlight": 18,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:19:35Z",
+    "appInFlight": 40,
+    "maxInstanceInFlight": 23,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:19:36Z",
+    "appInFlight": 49,
+    "maxInstanceInFlight": 27,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:19:37Z",
+    "appInFlight": 42,
+    "maxInstanceInFlight": 21,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:19:38Z",
+    "appInFlight": 32,
+    "maxInstanceInFlight": 18,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:19:39Z",
+    "appInFlight": 36,
+    "maxInstanceInFlight": 18,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:19:40Z",
+    "appInFlight": 20,
+    "maxInstanceInFlight": 10,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:20:05Z",
+    "appInFlight": 16,
+    "maxInstanceInFlight": 10,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:20:06Z",
+    "appInFlight": 33,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:20:07Z",
+    "appInFlight": 31,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:20:08Z",
+    "appInFlight": 34,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:20:09Z",
+    "appInFlight": 27,
+    "maxInstanceInFlight": 16,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:20:10Z",
+    "appInFlight": 30,
+    "maxInstanceInFlight": 18,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:20:11Z",
+    "appInFlight": 36,
+    "maxInstanceInFlight": 19,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:20:12Z",
+    "appInFlight": 32,
+    "maxInstanceInFlight": 16,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:20:13Z",
+    "appInFlight": 24,
+    "maxInstanceInFlight": 14,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:20:14Z",
+    "appInFlight": 27,
+    "maxInstanceInFlight": 19,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:20:15Z",
+    "appInFlight": 17,
+    "maxInstanceInFlight": 9,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:20:39Z",
+    "appInFlight": 6,
+    "maxInstanceInFlight": 6,
+    "activeInstances": 1
+  },
+  {
+    "sec": "2026-11-25T23:20:40Z",
+    "appInFlight": 23,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:20:41Z",
+    "appInFlight": 32,
+    "maxInstanceInFlight": 26,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:20:42Z",
+    "appInFlight": 24,
+    "maxInstanceInFlight": 13,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:20:43Z",
+    "appInFlight": 35,
+    "maxInstanceInFlight": 21,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:20:44Z",
+    "appInFlight": 25,
+    "maxInstanceInFlight": 13,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:20:45Z",
+    "appInFlight": 38,
+    "maxInstanceInFlight": 21,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:20:46Z",
+    "appInFlight": 43,
+    "maxInstanceInFlight": 23,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:20:47Z",
+    "appInFlight": 25,
+    "maxInstanceInFlight": 16,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:20:48Z",
+    "appInFlight": 31,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:20:49Z",
+    "appInFlight": 38,
+    "maxInstanceInFlight": 19,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:20:50Z",
+    "appInFlight": 24,
+    "maxInstanceInFlight": 12,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:21:15Z",
+    "appInFlight": 20,
+    "maxInstanceInFlight": 11,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:21:16Z",
+    "appInFlight": 38,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:21:17Z",
+    "appInFlight": 32,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:21:18Z",
+    "appInFlight": 32,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:21:19Z",
+    "appInFlight": 37,
+    "maxInstanceInFlight": 19,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:21:20Z",
+    "appInFlight": 32,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:21:21Z",
+    "appInFlight": 33,
+    "maxInstanceInFlight": 19,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:21:22Z",
+    "appInFlight": 34,
+    "maxInstanceInFlight": 21,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:21:23Z",
+    "appInFlight": 25,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:21:24Z",
+    "appInFlight": 28,
+    "maxInstanceInFlight": 14,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:21:25Z",
+    "appInFlight": 30,
+    "maxInstanceInFlight": 16,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:21:26Z",
+    "appInFlight": 18,
+    "maxInstanceInFlight": 11,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:21:49Z",
+    "appInFlight": 10,
+    "maxInstanceInFlight": 10,
+    "activeInstances": 1
+  },
+  {
+    "sec": "2026-11-25T23:21:50Z",
+    "appInFlight": 27,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:21:51Z",
+    "appInFlight": 28,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:21:52Z",
+    "appInFlight": 32,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:21:53Z",
+    "appInFlight": 25,
+    "maxInstanceInFlight": 14,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:21:54Z",
+    "appInFlight": 23,
+    "maxInstanceInFlight": 12,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:21:55Z",
+    "appInFlight": 29,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:21:56Z",
+    "appInFlight": 31,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:21:57Z",
+    "appInFlight": 30,
+    "maxInstanceInFlight": 16,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:21:58Z",
+    "appInFlight": 25,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:21:59Z",
+    "appInFlight": 28,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:22:00Z",
+    "appInFlight": 13,
+    "maxInstanceInFlight": 7,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:22:24Z",
+    "appInFlight": 2,
+    "maxInstanceInFlight": 1,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:22:25Z",
+    "appInFlight": 25,
+    "maxInstanceInFlight": 13,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:22:26Z",
+    "appInFlight": 39,
+    "maxInstanceInFlight": 21,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:22:27Z",
+    "appInFlight": 28,
+    "maxInstanceInFlight": 14,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:22:28Z",
+    "appInFlight": 36,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:22:29Z",
+    "appInFlight": 36,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:22:30Z",
+    "appInFlight": 39,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:22:31Z",
+    "appInFlight": 43,
+    "maxInstanceInFlight": 22,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:22:32Z",
+    "appInFlight": 38,
+    "maxInstanceInFlight": 19,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:22:33Z",
+    "appInFlight": 24,
+    "maxInstanceInFlight": 16,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:22:34Z",
+    "appInFlight": 25,
+    "maxInstanceInFlight": 24,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:22:35Z",
+    "appInFlight": 40,
+    "maxInstanceInFlight": 30,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:22:36Z",
+    "appInFlight": 20,
+    "maxInstanceInFlight": 13,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:22:59Z",
+    "appInFlight": 15,
+    "maxInstanceInFlight": 8,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:23:00Z",
+    "appInFlight": 32,
+    "maxInstanceInFlight": 23,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:23:01Z",
+    "appInFlight": 34,
+    "maxInstanceInFlight": 33,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:23:02Z",
+    "appInFlight": 24,
+    "maxInstanceInFlight": 24,
+    "activeInstances": 1
+  },
+  {
+    "sec": "2026-11-25T23:23:03Z",
+    "appInFlight": 30,
+    "maxInstanceInFlight": 27,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:23:04Z",
+    "appInFlight": 21,
+    "maxInstanceInFlight": 21,
+    "activeInstances": 1
+  },
+  {
+    "sec": "2026-11-25T23:23:05Z",
+    "appInFlight": 29,
+    "maxInstanceInFlight": 25,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:23:06Z",
+    "appInFlight": 27,
+    "maxInstanceInFlight": 16,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:23:07Z",
+    "appInFlight": 25,
+    "maxInstanceInFlight": 15,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:23:08Z",
+    "appInFlight": 25,
+    "maxInstanceInFlight": 13,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:23:09Z",
+    "appInFlight": 41,
+    "maxInstanceInFlight": 23,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:23:10Z",
+    "appInFlight": 25,
+    "maxInstanceInFlight": 19,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:23:11Z",
+    "appInFlight": 26,
+    "maxInstanceInFlight": 13,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:23:12Z",
+    "appInFlight": 24,
+    "maxInstanceInFlight": 13,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:23:34Z",
+    "appInFlight": 2,
+    "maxInstanceInFlight": 2,
+    "activeInstances": 1
+  },
+  {
+    "sec": "2026-11-25T23:23:35Z",
+    "appInFlight": 22,
+    "maxInstanceInFlight": 16,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:23:36Z",
+    "appInFlight": 39,
+    "maxInstanceInFlight": 27,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:23:37Z",
+    "appInFlight": 30,
+    "maxInstanceInFlight": 18,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:23:38Z",
+    "appInFlight": 34,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:23:39Z",
+    "appInFlight": 39,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:23:40Z",
+    "appInFlight": 29,
+    "maxInstanceInFlight": 16,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:23:41Z",
+    "appInFlight": 37,
+    "maxInstanceInFlight": 19,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:23:42Z",
+    "appInFlight": 43,
+    "maxInstanceInFlight": 24,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:23:43Z",
+    "appInFlight": 31,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:23:44Z",
+    "appInFlight": 33,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:23:45Z",
+    "appInFlight": 38,
+    "maxInstanceInFlight": 19,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:23:46Z",
+    "appInFlight": 15,
+    "maxInstanceInFlight": 8,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:24:09Z",
+    "appInFlight": 11,
+    "maxInstanceInFlight": 8,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:24:10Z",
+    "appInFlight": 22,
+    "maxInstanceInFlight": 22,
+    "activeInstances": 1
+  },
+  {
+    "sec": "2026-11-25T23:24:11Z",
+    "appInFlight": 25,
+    "maxInstanceInFlight": 25,
+    "activeInstances": 1
+  },
+  {
+    "sec": "2026-11-25T23:24:12Z",
+    "appInFlight": 20,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 1
+  },
+  {
+    "sec": "2026-11-25T23:24:13Z",
+    "appInFlight": 16,
+    "maxInstanceInFlight": 15,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:24:14Z",
+    "appInFlight": 22,
+    "maxInstanceInFlight": 18,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:24:15Z",
+    "appInFlight": 18,
+    "maxInstanceInFlight": 18,
+    "activeInstances": 1
+  },
+  {
+    "sec": "2026-11-25T23:24:16Z",
+    "appInFlight": 23,
+    "maxInstanceInFlight": 19,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:24:17Z",
+    "appInFlight": 36,
+    "maxInstanceInFlight": 26,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:24:18Z",
+    "appInFlight": 30,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:24:19Z",
+    "appInFlight": 27,
+    "maxInstanceInFlight": 14,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:24:20Z",
+    "appInFlight": 21,
+    "maxInstanceInFlight": 14,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:24:21Z",
+    "appInFlight": 30,
+    "maxInstanceInFlight": 22,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:24:22Z",
+    "appInFlight": 15,
+    "maxInstanceInFlight": 8,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:24:44Z",
+    "appInFlight": 3,
+    "maxInstanceInFlight": 3,
+    "activeInstances": 1
+  },
+  {
+    "sec": "2026-11-25T23:24:45Z",
+    "appInFlight": 33,
+    "maxInstanceInFlight": 24,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:24:46Z",
+    "appInFlight": 33,
+    "maxInstanceInFlight": 31,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:24:47Z",
+    "appInFlight": 26,
+    "maxInstanceInFlight": 19,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:24:48Z",
+    "appInFlight": 30,
+    "maxInstanceInFlight": 16,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:24:49Z",
+    "appInFlight": 34,
+    "maxInstanceInFlight": 18,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:24:50Z",
+    "appInFlight": 38,
+    "maxInstanceInFlight": 21,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:24:51Z",
+    "appInFlight": 38,
+    "maxInstanceInFlight": 21,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:24:52Z",
+    "appInFlight": 34,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:24:53Z",
+    "appInFlight": 34,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:24:54Z",
+    "appInFlight": 38,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:24:55Z",
+    "appInFlight": 30,
+    "maxInstanceInFlight": 15,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:24:56Z",
+    "appInFlight": 12,
+    "maxInstanceInFlight": 6,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:25:20Z",
+    "appInFlight": 13,
+    "maxInstanceInFlight": 11,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:25:21Z",
+    "appInFlight": 29,
+    "maxInstanceInFlight": 19,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:25:22Z",
+    "appInFlight": 26,
+    "maxInstanceInFlight": 14,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:25:23Z",
+    "appInFlight": 27,
+    "maxInstanceInFlight": 15,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:25:24Z",
+    "appInFlight": 32,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:25:25Z",
+    "appInFlight": 26,
+    "maxInstanceInFlight": 16,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:25:26Z",
+    "appInFlight": 26,
+    "maxInstanceInFlight": 15,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:25:27Z",
+    "appInFlight": 35,
+    "maxInstanceInFlight": 19,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:25:28Z",
+    "appInFlight": 32,
+    "maxInstanceInFlight": 16,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:25:29Z",
+    "appInFlight": 21,
+    "maxInstanceInFlight": 13,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:25:30Z",
+    "appInFlight": 21,
+    "maxInstanceInFlight": 11,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:25:31Z",
+    "appInFlight": 21,
+    "maxInstanceInFlight": 12,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:25:54Z",
+    "appInFlight": 4,
+    "maxInstanceInFlight": 3,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:25:55Z",
+    "appInFlight": 30,
+    "maxInstanceInFlight": 16,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:25:56Z",
+    "appInFlight": 39,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:25:57Z",
+    "appInFlight": 24,
+    "maxInstanceInFlight": 16,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:25:58Z",
+    "appInFlight": 22,
+    "maxInstanceInFlight": 12,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:25:59Z",
+    "appInFlight": 42,
+    "maxInstanceInFlight": 23,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:26:00Z",
+    "appInFlight": 37,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:26:01Z",
+    "appInFlight": 37,
+    "maxInstanceInFlight": 19,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:26:02Z",
+    "appInFlight": 40,
+    "maxInstanceInFlight": 21,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:26:03Z",
+    "appInFlight": 33,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:26:04Z",
+    "appInFlight": 33,
+    "maxInstanceInFlight": 19,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:26:05Z",
+    "appInFlight": 35,
+    "maxInstanceInFlight": 19,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:26:06Z",
+    "appInFlight": 15,
+    "maxInstanceInFlight": 8,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:26:30Z",
+    "appInFlight": 22,
+    "maxInstanceInFlight": 11,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:26:31Z",
+    "appInFlight": 38,
+    "maxInstanceInFlight": 21,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:26:32Z",
+    "appInFlight": 33,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:26:33Z",
+    "appInFlight": 34,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:26:34Z",
+    "appInFlight": 35,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:26:35Z",
+    "appInFlight": 34,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:26:36Z",
+    "appInFlight": 37,
+    "maxInstanceInFlight": 21,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:26:37Z",
+    "appInFlight": 31,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:26:38Z",
+    "appInFlight": 30,
+    "maxInstanceInFlight": 16,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:26:39Z",
+    "appInFlight": 31,
+    "maxInstanceInFlight": 16,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:26:40Z",
+    "appInFlight": 19,
+    "maxInstanceInFlight": 10,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:27:05Z",
+    "appInFlight": 7,
+    "maxInstanceInFlight": 6,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:27:06Z",
+    "appInFlight": 25,
+    "maxInstanceInFlight": 15,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:27:07Z",
+    "appInFlight": 27,
+    "maxInstanceInFlight": 14,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:27:08Z",
+    "appInFlight": 23,
+    "maxInstanceInFlight": 12,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:27:09Z",
+    "appInFlight": 24,
+    "maxInstanceInFlight": 13,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:27:10Z",
+    "appInFlight": 18,
+    "maxInstanceInFlight": 14,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:27:11Z",
+    "appInFlight": 26,
+    "maxInstanceInFlight": 14,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:27:12Z",
+    "appInFlight": 27,
+    "maxInstanceInFlight": 16,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:27:13Z",
+    "appInFlight": 22,
+    "maxInstanceInFlight": 15,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:27:14Z",
+    "appInFlight": 24,
+    "maxInstanceInFlight": 15,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:27:15Z",
+    "appInFlight": 31,
+    "maxInstanceInFlight": 21,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:27:16Z",
+    "appInFlight": 20,
+    "maxInstanceInFlight": 12,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:27:17Z",
+    "appInFlight": 22,
+    "maxInstanceInFlight": 14,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:27:18Z",
+    "appInFlight": 3,
+    "maxInstanceInFlight": 3,
+    "activeInstances": 1
+  },
+  {
+    "sec": "2026-11-25T23:27:39Z",
+    "appInFlight": 2,
+    "maxInstanceInFlight": 2,
+    "activeInstances": 1
+  },
+  {
+    "sec": "2026-11-25T23:27:40Z",
+    "appInFlight": 30,
+    "maxInstanceInFlight": 21,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:27:41Z",
+    "appInFlight": 37,
+    "maxInstanceInFlight": 24,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:27:42Z",
+    "appInFlight": 27,
+    "maxInstanceInFlight": 19,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:27:43Z",
+    "appInFlight": 29,
+    "maxInstanceInFlight": 23,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:27:44Z",
+    "appInFlight": 30,
+    "maxInstanceInFlight": 22,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:27:45Z",
+    "appInFlight": 30,
+    "maxInstanceInFlight": 22,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:27:46Z",
+    "appInFlight": 37,
+    "maxInstanceInFlight": 22,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:27:47Z",
+    "appInFlight": 38,
+    "maxInstanceInFlight": 22,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:27:48Z",
+    "appInFlight": 33,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:27:49Z",
+    "appInFlight": 36,
+    "maxInstanceInFlight": 21,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:27:50Z",
+    "appInFlight": 28,
+    "maxInstanceInFlight": 14,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:27:51Z",
+    "appInFlight": 20,
+    "maxInstanceInFlight": 16,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:27:52Z",
+    "appInFlight": 7,
+    "maxInstanceInFlight": 7,
+    "activeInstances": 1
+  },
+  {
+    "sec": "2026-11-25T23:28:15Z",
+    "appInFlight": 14,
+    "maxInstanceInFlight": 13,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:28:16Z",
+    "appInFlight": 26,
+    "maxInstanceInFlight": 24,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:28:17Z",
+    "appInFlight": 25,
+    "maxInstanceInFlight": 23,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:28:18Z",
+    "appInFlight": 22,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:28:19Z",
+    "appInFlight": 29,
+    "maxInstanceInFlight": 24,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:28:20Z",
+    "appInFlight": 27,
+    "maxInstanceInFlight": 18,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:28:21Z",
+    "appInFlight": 22,
+    "maxInstanceInFlight": 13,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:28:22Z",
+    "appInFlight": 27,
+    "maxInstanceInFlight": 16,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:28:23Z",
+    "appInFlight": 30,
+    "maxInstanceInFlight": 18,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:28:24Z",
+    "appInFlight": 22,
+    "maxInstanceInFlight": 14,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:28:25Z",
+    "appInFlight": 24,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:28:26Z",
+    "appInFlight": 23,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:28:27Z",
+    "appInFlight": 13,
+    "maxInstanceInFlight": 11,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:28:49Z",
+    "appInFlight": 10,
+    "maxInstanceInFlight": 6,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:28:50Z",
+    "appInFlight": 27,
+    "maxInstanceInFlight": 18,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:28:51Z",
+    "appInFlight": 37,
+    "maxInstanceInFlight": 22,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:28:52Z",
+    "appInFlight": 33,
+    "maxInstanceInFlight": 25,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:28:53Z",
+    "appInFlight": 31,
+    "maxInstanceInFlight": 16,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:28:54Z",
+    "appInFlight": 41,
+    "maxInstanceInFlight": 23,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:28:55Z",
+    "appInFlight": 41,
+    "maxInstanceInFlight": 21,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:28:56Z",
+    "appInFlight": 45,
+    "maxInstanceInFlight": 25,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:28:57Z",
+    "appInFlight": 34,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:28:58Z",
+    "appInFlight": 38,
+    "maxInstanceInFlight": 26,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:28:59Z",
+    "appInFlight": 44,
+    "maxInstanceInFlight": 23,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:29:00Z",
+    "appInFlight": 20,
+    "maxInstanceInFlight": 12,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:29:25Z",
+    "appInFlight": 15,
+    "maxInstanceInFlight": 10,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:29:26Z",
+    "appInFlight": 21,
+    "maxInstanceInFlight": 19,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:29:27Z",
+    "appInFlight": 18,
+    "maxInstanceInFlight": 18,
+    "activeInstances": 1
+  },
+  {
+    "sec": "2026-11-25T23:29:28Z",
+    "appInFlight": 23,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:29:29Z",
+    "appInFlight": 23,
+    "maxInstanceInFlight": 21,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:29:30Z",
+    "appInFlight": 29,
+    "maxInstanceInFlight": 28,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:29:31Z",
+    "appInFlight": 29,
+    "maxInstanceInFlight": 24,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:29:32Z",
+    "appInFlight": 33,
+    "maxInstanceInFlight": 29,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:29:33Z",
+    "appInFlight": 25,
+    "maxInstanceInFlight": 21,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:29:34Z",
+    "appInFlight": 33,
+    "maxInstanceInFlight": 28,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:29:35Z",
+    "appInFlight": 21,
+    "maxInstanceInFlight": 19,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:29:36Z",
+    "appInFlight": 25,
+    "maxInstanceInFlight": 19,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:29:37Z",
+    "appInFlight": 31,
+    "maxInstanceInFlight": 27,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:29:38Z",
+    "appInFlight": 18,
+    "maxInstanceInFlight": 10,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:29:59Z",
+    "appInFlight": 5,
+    "maxInstanceInFlight": 4,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:30:00Z",
+    "appInFlight": 29,
+    "maxInstanceInFlight": 15,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:30:01Z",
+    "appInFlight": 32,
+    "maxInstanceInFlight": 18,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:30:02Z",
+    "appInFlight": 42,
+    "maxInstanceInFlight": 25,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:30:03Z",
+    "appInFlight": 35,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:30:04Z",
+    "appInFlight": 30,
+    "maxInstanceInFlight": 22,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:30:05Z",
+    "appInFlight": 39,
+    "maxInstanceInFlight": 25,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:30:06Z",
+    "appInFlight": 37,
+    "maxInstanceInFlight": 23,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:30:07Z",
+    "appInFlight": 36,
+    "maxInstanceInFlight": 21,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:30:08Z",
+    "appInFlight": 39,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:30:09Z",
+    "appInFlight": 34,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:30:10Z",
+    "appInFlight": 24,
+    "maxInstanceInFlight": 14,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:30:11Z",
+    "appInFlight": 8,
+    "maxInstanceInFlight": 6,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:30:35Z",
+    "appInFlight": 10,
+    "maxInstanceInFlight": 10,
+    "activeInstances": 1
+  },
+  {
+    "sec": "2026-11-25T23:30:36Z",
+    "appInFlight": 30,
+    "maxInstanceInFlight": 22,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:30:37Z",
+    "appInFlight": 24,
+    "maxInstanceInFlight": 13,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:30:38Z",
+    "appInFlight": 22,
+    "maxInstanceInFlight": 13,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:30:39Z",
+    "appInFlight": 8,
+    "maxInstanceInFlight": 5,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:30:40Z",
+    "appInFlight": 11,
+    "maxInstanceInFlight": 6,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:30:41Z",
+    "appInFlight": 23,
+    "maxInstanceInFlight": 18,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:30:42Z",
+    "appInFlight": 26,
+    "maxInstanceInFlight": 15,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:30:43Z",
+    "appInFlight": 30,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:30:44Z",
+    "appInFlight": 36,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:30:45Z",
+    "appInFlight": 30,
+    "maxInstanceInFlight": 23,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:30:46Z",
+    "appInFlight": 26,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:30:47Z",
+    "appInFlight": 24,
+    "maxInstanceInFlight": 15,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:30:48Z",
+    "appInFlight": 9,
+    "maxInstanceInFlight": 7,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:31:09Z",
+    "appInFlight": 7,
+    "maxInstanceInFlight": 6,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:31:10Z",
+    "appInFlight": 29,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:31:11Z",
+    "appInFlight": 39,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:31:12Z",
+    "appInFlight": 34,
+    "maxInstanceInFlight": 21,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:31:13Z",
+    "appInFlight": 35,
+    "maxInstanceInFlight": 21,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:31:14Z",
+    "appInFlight": 44,
+    "maxInstanceInFlight": 23,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:31:15Z",
+    "appInFlight": 39,
+    "maxInstanceInFlight": 22,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:31:16Z",
+    "appInFlight": 43,
+    "maxInstanceInFlight": 24,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:31:17Z",
+    "appInFlight": 40,
+    "maxInstanceInFlight": 21,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:31:18Z",
+    "appInFlight": 37,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:31:19Z",
+    "appInFlight": 35,
+    "maxInstanceInFlight": 19,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:31:20Z",
+    "appInFlight": 18,
+    "maxInstanceInFlight": 11,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:31:21Z",
+    "appInFlight": 2,
+    "maxInstanceInFlight": 2,
+    "activeInstances": 1
+  },
+  {
+    "sec": "2026-11-25T23:31:45Z",
+    "appInFlight": 11,
+    "maxInstanceInFlight": 10,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:31:46Z",
+    "appInFlight": 25,
+    "maxInstanceInFlight": 21,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:31:47Z",
+    "appInFlight": 25,
+    "maxInstanceInFlight": 15,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:31:48Z",
+    "appInFlight": 30,
+    "maxInstanceInFlight": 16,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:31:49Z",
+    "appInFlight": 28,
+    "maxInstanceInFlight": 14,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:31:50Z",
+    "appInFlight": 32,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:31:51Z",
+    "appInFlight": 32,
+    "maxInstanceInFlight": 16,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:31:52Z",
+    "appInFlight": 30,
+    "maxInstanceInFlight": 16,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:31:53Z",
+    "appInFlight": 30,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:31:54Z",
+    "appInFlight": 28,
+    "maxInstanceInFlight": 14,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:31:55Z",
+    "appInFlight": 26,
+    "maxInstanceInFlight": 15,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:31:56Z",
+    "appInFlight": 10,
+    "maxInstanceInFlight": 6,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:32:20Z",
+    "appInFlight": 4,
+    "maxInstanceInFlight": 3,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:32:21Z",
+    "appInFlight": 27,
+    "maxInstanceInFlight": 14,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:32:22Z",
+    "appInFlight": 40,
+    "maxInstanceInFlight": 21,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:32:23Z",
+    "appInFlight": 35,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:32:24Z",
+    "appInFlight": 26,
+    "maxInstanceInFlight": 15,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:32:25Z",
+    "appInFlight": 38,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:32:26Z",
+    "appInFlight": 41,
+    "maxInstanceInFlight": 21,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:32:27Z",
+    "appInFlight": 41,
+    "maxInstanceInFlight": 22,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:32:28Z",
+    "appInFlight": 36,
+    "maxInstanceInFlight": 29,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:32:29Z",
+    "appInFlight": 28,
+    "maxInstanceInFlight": 27,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:32:30Z",
+    "appInFlight": 23,
+    "maxInstanceInFlight": 23,
+    "activeInstances": 1
+  },
+  {
+    "sec": "2026-11-25T23:32:31Z",
+    "appInFlight": 26,
+    "maxInstanceInFlight": 21,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:32:32Z",
+    "appInFlight": 12,
+    "maxInstanceInFlight": 8,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:32:33Z",
+    "appInFlight": 3,
+    "maxInstanceInFlight": 3,
+    "activeInstances": 1
+  },
+  {
+    "sec": "2026-11-25T23:32:55Z",
+    "appInFlight": 7,
+    "maxInstanceInFlight": 7,
+    "activeInstances": 1
+  },
+  {
+    "sec": "2026-11-25T23:32:56Z",
+    "appInFlight": 28,
+    "maxInstanceInFlight": 23,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:32:57Z",
+    "appInFlight": 34,
+    "maxInstanceInFlight": 32,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:32:58Z",
+    "appInFlight": 25,
+    "maxInstanceInFlight": 19,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:32:59Z",
+    "appInFlight": 21,
+    "maxInstanceInFlight": 16,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:33:00Z",
+    "appInFlight": 21,
+    "maxInstanceInFlight": 12,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:33:01Z",
+    "appInFlight": 31,
+    "maxInstanceInFlight": 22,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:33:02Z",
+    "appInFlight": 28,
+    "maxInstanceInFlight": 16,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:33:03Z",
+    "appInFlight": 37,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:33:04Z",
+    "appInFlight": 33,
+    "maxInstanceInFlight": 25,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:33:05Z",
+    "appInFlight": 24,
+    "maxInstanceInFlight": 15,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:33:06Z",
+    "appInFlight": 33,
+    "maxInstanceInFlight": 19,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:33:07Z",
+    "appInFlight": 14,
+    "maxInstanceInFlight": 9,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:33:29Z",
+    "appInFlight": 3,
+    "maxInstanceInFlight": 2,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:33:30Z",
+    "appInFlight": 28,
+    "maxInstanceInFlight": 16,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:33:31Z",
+    "appInFlight": 32,
+    "maxInstanceInFlight": 16,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:33:32Z",
+    "appInFlight": 35,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:33:33Z",
+    "appInFlight": 25,
+    "maxInstanceInFlight": 14,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:33:34Z",
+    "appInFlight": 24,
+    "maxInstanceInFlight": 15,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:33:35Z",
+    "appInFlight": 24,
+    "maxInstanceInFlight": 13,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:33:36Z",
+    "appInFlight": 35,
+    "maxInstanceInFlight": 29,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:33:37Z",
+    "appInFlight": 30,
+    "maxInstanceInFlight": 22,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:33:38Z",
+    "appInFlight": 25,
+    "maxInstanceInFlight": 18,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:33:39Z",
+    "appInFlight": 23,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:33:40Z",
+    "appInFlight": 21,
+    "maxInstanceInFlight": 16,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:33:41Z",
+    "appInFlight": 26,
+    "maxInstanceInFlight": 25,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:33:42Z",
+    "appInFlight": 23,
+    "maxInstanceInFlight": 21,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:33:43Z",
+    "appInFlight": 17,
+    "maxInstanceInFlight": 14,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:34:04Z",
+    "appInFlight": 15,
+    "maxInstanceInFlight": 15,
+    "activeInstances": 1
+  },
+  {
+    "sec": "2026-11-25T23:34:05Z",
+    "appInFlight": 32,
+    "maxInstanceInFlight": 25,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:34:06Z",
+    "appInFlight": 32,
+    "maxInstanceInFlight": 25,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:34:07Z",
+    "appInFlight": 30,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:34:08Z",
+    "appInFlight": 28,
+    "maxInstanceInFlight": 23,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:34:09Z",
+    "appInFlight": 31,
+    "maxInstanceInFlight": 26,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:34:10Z",
+    "appInFlight": 32,
+    "maxInstanceInFlight": 29,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:34:11Z",
+    "appInFlight": 23,
+    "maxInstanceInFlight": 20,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:34:12Z",
+    "appInFlight": 27,
+    "maxInstanceInFlight": 19,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:34:13Z",
+    "appInFlight": 23,
+    "maxInstanceInFlight": 17,
+    "activeInstances": 2
+  },
+  {
+    "sec": "2026-11-25T23:34:14Z",
+    "appInFlight": 4,
+    "maxInstanceInFlight": 4,
+    "activeInstances": 1
+  },
+  {
+    "sec": "2026-11-25T23:34:39Z",
+    "appInFlight": 8,
+    "maxInstanceInFlight": 8,
+    "activeInstances": 1
+  },
+  {
+    "sec": "2026-11-25T23:34:40Z",
+    "appInFlight": 10,
+    "maxInstanceInFlight": 10,
+    "activeInstances": 1
+  }
+]

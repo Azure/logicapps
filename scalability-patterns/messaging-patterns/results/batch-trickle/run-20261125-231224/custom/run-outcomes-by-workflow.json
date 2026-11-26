@@ -1,0 +1,34 @@
+[
+  {
+    "workflowName": "orders-ingress",
+    "runs": 15040,
+    "failed": 0,
+    "p50Ms": 76627.98448818049,
+    "p95Ms": 124933.01885010298,
+    "maxMs": 242766
+  },
+  {
+    "workflowName": "orders-receiver",
+    "runs": 529,
+    "failed": 0,
+    "p50Ms": 1090,
+    "p95Ms": 1204,
+    "maxMs": 138505
+  },
+  {
+    "workflowName": "process-order",
+    "runs": 2640,
+    "failed": 0,
+    "p50Ms": 113.3076923076923,
+    "p95Ms": 218,
+    "maxMs": 19429
+  },
+  {
+    "workflowName": "process-batch-item",
+    "runs": 2640,
+    "failed": 0,
+    "p50Ms": 1150.4583333333333,
+    "p95Ms": 1304.5833333333333,
+    "maxMs": 127602
+  }
+]

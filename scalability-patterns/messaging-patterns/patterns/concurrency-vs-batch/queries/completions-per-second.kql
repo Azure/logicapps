@@ -1,0 +1,5 @@
+// Parameters: replace {{startUtc}}, {{endUtc}} and {{workflowName}} (tools\Run-Queries.ps1 does this).
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';// Process_order actions that ended in each second, with the p95 end-to-end latency of those messages. Shows how flat the processing rate is.
+requests | where timestamp between (startTime .. endTime) | where customDimensions.Category == 'Workflow.Operations.Actions' | where tostring(parse_json(tostring(customDimensions.resource)).workflowName) == workflow | where tostring(parse_json(tostring(customDimensions.resource)).actionName) == 'Process_order' | extend tp = parse_json(tostring(customDimensions.trackedProperties)), endAt = timestamp + totimespan(duration * 10000) | extend e2eMs = datetime_diff('millisecond', endAt, todatetime(tp.sentAtUtc)) | summarize completed = count(), p95E2eMs = percentile(e2eMs, 95) by sec = bin(endAt, 1s) | order by sec asc

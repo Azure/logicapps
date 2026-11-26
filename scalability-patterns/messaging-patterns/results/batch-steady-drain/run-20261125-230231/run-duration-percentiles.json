@@ -1,0 +1,542 @@
+[
+  {
+    "minute": "2026-11-25T23:05:00.000Z",
+    "workflowName": "orders-ingress",
+    "runs": 130,
+    "p50": 991.5,
+    "p95": 2268,
+    "p99": 3271,
+    "maxMs": 4051
+  },
+  {
+    "minute": "2026-11-25T23:05:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 10,
+    "p50": 927,
+    "p95": 3132,
+    "p99": 3132,
+    "maxMs": 3132
+  },
+  {
+    "minute": "2026-11-25T23:05:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 106,
+    "p50": 4698,
+    "p95": 10003,
+    "p99": 10073,
+    "maxMs": 10082
+  },
+  {
+    "minute": "2026-11-25T23:05:00.000Z",
+    "workflowName": "process-order",
+    "runs": 106,
+    "p50": 3333,
+    "p95": 8830,
+    "p99": 8937,
+    "maxMs": 9125
+  },
+  {
+    "minute": "2026-11-25T23:06:00.000Z",
+    "workflowName": "orders-ingress",
+    "runs": 770,
+    "p50": 11246.416666666668,
+    "p95": 14289,
+    "p99": 18921,
+    "maxMs": 23945
+  },
+  {
+    "minute": "2026-11-25T23:06:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 22,
+    "p50": 584,
+    "p95": 1109,
+    "p99": 14889,
+    "maxMs": 14889
+  },
+  {
+    "minute": "2026-11-25T23:06:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 187,
+    "p50": 1359,
+    "p95": 12807,
+    "p99": 22522,
+    "maxMs": 22542
+  },
+  {
+    "minute": "2026-11-25T23:06:00.000Z",
+    "workflowName": "process-order",
+    "runs": 187,
+    "p50": 456,
+    "p95": 11089,
+    "p99": 13852,
+    "maxMs": 13874
+  },
+  {
+    "minute": "2026-11-25T23:07:00.000Z",
+    "workflowName": "orders-ingress",
+    "runs": 1199,
+    "p50": 30891.13912037037,
+    "p95": 42212.5,
+    "p99": 43318,
+    "maxMs": 45197
+  },
+  {
+    "minute": "2026-11-25T23:07:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 2,
+    "p50": 14285,
+    "p95": 41956,
+    "p99": 41956,
+    "maxMs": 41956
+  },
+  {
+    "minute": "2026-11-25T23:07:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 7,
+    "p50": 29691,
+    "p95": 29785,
+    "p99": 29785,
+    "maxMs": 29785
+  },
+  {
+    "minute": "2026-11-25T23:07:00.000Z",
+    "workflowName": "process-order",
+    "runs": 7,
+    "p50": 4578,
+    "p95": 4867,
+    "p99": 4867,
+    "maxMs": 4867
+  },
+  {
+    "minute": "2026-11-25T23:08:00.000Z",
+    "workflowName": "orders-ingress",
+    "runs": 1398,
+    "p50": 51144.09998556999,
+    "p95": 61614.875,
+    "p99": 65116,
+    "maxMs": 104070
+  },
+  {
+    "minute": "2026-11-25T23:08:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 1,
+    "p50": 60872,
+    "p95": 60872,
+    "p99": 60872,
+    "maxMs": 60872
+  },
+  {
+    "minute": "2026-11-25T23:08:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 76,
+    "p50": 63898,
+    "p95": 64691,
+    "p99": 65151,
+    "maxMs": 65151
+  },
+  {
+    "minute": "2026-11-25T23:08:00.000Z",
+    "workflowName": "process-order",
+    "runs": 76,
+    "p50": 10679,
+    "p95": 11839,
+    "p99": 11904,
+    "maxMs": 11904
+  },
+  {
+    "minute": "2026-11-25T23:09:00.000Z",
+    "workflowName": "orders-ingress",
+    "runs": 1203,
+    "p50": 56511.48392084106,
+    "p95": 59980,
+    "p99": 64212,
+    "maxMs": 111550
+  },
+  {
+    "minute": "2026-11-25T23:10:00.000Z",
+    "workflowName": "orders-ingress",
+    "runs": 826,
+    "p50": 81979.01333333334,
+    "p95": 103737,
+    "p99": 105580,
+    "maxMs": 107413
+  },
+  {
+    "minute": "2026-11-25T23:10:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 1,
+    "p50": 79910,
+    "p95": 79910,
+    "p99": 79910,
+    "maxMs": 79910
+  },
+  {
+    "minute": "2026-11-25T23:11:00.000Z",
+    "workflowName": "orders-ingress",
+    "runs": 1119,
+    "p50": 119855.28095238094,
+    "p95": 128436.75,
+    "p99": 130896,
+    "maxMs": 131308
+  },
+  {
+    "minute": "2026-11-25T23:12:00.000Z",
+    "workflowName": "orders-ingress",
+    "runs": 1233,
+    "p50": 152802.38888888888,
+    "p95": 163867.125,
+    "p99": 164588,
+    "maxMs": 217999
+  },
+  {
+    "minute": "2026-11-25T23:12:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 1,
+    "p50": 164044,
+    "p95": 164044,
+    "p99": 164044,
+    "maxMs": 164044
+  },
+  {
+    "minute": "2026-11-25T23:12:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 196,
+    "p50": 162569,
+    "p95": 171094,
+    "p99": 171445,
+    "maxMs": 171474
+  },
+  {
+    "minute": "2026-11-25T23:12:00.000Z",
+    "workflowName": "process-order",
+    "runs": 196,
+    "p50": 12511,
+    "p95": 23067,
+    "p99": 23918,
+    "maxMs": 23950
+  },
+  {
+    "minute": "2026-11-25T23:13:00.000Z",
+    "workflowName": "orders-ingress",
+    "runs": 1937,
+    "p50": 178354.53794289648,
+    "p95": 197085,
+    "p99": 197458,
+    "maxMs": 201381
+  },
+  {
+    "minute": "2026-11-25T23:13:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 2,
+    "p50": 190576,
+    "p95": 190610,
+    "p99": 190610,
+    "maxMs": 190610
+  },
+  {
+    "minute": "2026-11-25T23:13:00.000Z",
+    "workflowName": "process-order",
+    "runs": 2,
+    "p50": 42047,
+    "p95": 42109,
+    "p99": 42109,
+    "maxMs": 42109
+  },
+  {
+    "minute": "2026-11-25T23:14:00.000Z",
+    "workflowName": "orders-ingress",
+    "runs": 1810,
+    "p50": 206625.81831411523,
+    "p95": 220710.5,
+    "p99": 221206,
+    "maxMs": 229316
+  },
+  {
+    "minute": "2026-11-25T23:15:00.000Z",
+    "workflowName": "orders-ingress",
+    "runs": 1608,
+    "p50": 239158.000588697,
+    "p95": 247732.66666666666,
+    "p99": 249638,
+    "maxMs": 374628
+  },
+  {
+    "minute": "2026-11-25T23:16:00.000Z",
+    "workflowName": "orders-ingress",
+    "runs": 1057,
+    "p50": 257045.35221974208,
+    "p95": 263551.5,
+    "p99": 269090,
+    "maxMs": 415737
+  },
+  {
+    "minute": "2026-11-25T23:16:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 2,
+    "p50": 403750,
+    "p95": 403791,
+    "p99": 403791,
+    "maxMs": 403791
+  },
+  {
+    "minute": "2026-11-25T23:16:00.000Z",
+    "workflowName": "process-order",
+    "runs": 2,
+    "p50": 3575,
+    "p95": 3639,
+    "p99": 3639,
+    "maxMs": 3639
+  },
+  {
+    "minute": "2026-11-25T23:17:00.000Z",
+    "workflowName": "orders-ingress",
+    "runs": 802,
+    "p50": 271887.82757201645,
+    "p95": 276372,
+    "p99": 277707,
+    "maxMs": 431648
+  },
+  {
+    "minute": "2026-11-25T23:17:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 1,
+    "p50": 269676,
+    "p95": 269676,
+    "p99": 269676,
+    "maxMs": 269676
+  },
+  {
+    "minute": "2026-11-25T23:17:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 198,
+    "p50": 273199.5,
+    "p95": 281797,
+    "p99": 283491,
+    "maxMs": 283729
+  },
+  {
+    "minute": "2026-11-25T23:17:00.000Z",
+    "workflowName": "process-order",
+    "runs": 198,
+    "p50": 8699,
+    "p95": 15442,
+    "p99": 16612,
+    "maxMs": 17397
+  },
+  {
+    "minute": "2026-11-25T23:18:00.000Z",
+    "workflowName": "orders-ingress",
+    "runs": 965,
+    "p50": 259593.1697530864,
+    "p95": 267666,
+    "p99": 268408,
+    "maxMs": 270774
+  },
+  {
+    "minute": "2026-11-25T23:19:00.000Z",
+    "workflowName": "orders-ingress",
+    "runs": 666,
+    "p50": 266351.225,
+    "p95": 271973,
+    "p99": 479440,
+    "maxMs": 484036
+  },
+  {
+    "minute": "2026-11-25T23:20:00.000Z",
+    "workflowName": "orders-ingress",
+    "runs": 864,
+    "p50": 277505.7468253968,
+    "p95": 293921,
+    "p99": 294557,
+    "maxMs": 517687
+  },
+  {
+    "minute": "2026-11-25T23:21:00.000Z",
+    "workflowName": "orders-ingress",
+    "runs": 1494,
+    "p50": 306352.6670551671,
+    "p95": 315595,
+    "p99": 315845,
+    "maxMs": 318690
+  },
+  {
+    "minute": "2026-11-25T23:22:00.000Z",
+    "workflowName": "orders-ingress",
+    "runs": 1532,
+    "p50": 325926.2251386133,
+    "p95": 333453,
+    "p99": 339228,
+    "maxMs": 343366
+  },
+  {
+    "minute": "2026-11-25T23:22:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 2,
+    "p50": 601281,
+    "p95": 603105,
+    "p99": 603105,
+    "maxMs": 603105
+  },
+  {
+    "minute": "2026-11-25T23:22:00.000Z",
+    "workflowName": "process-order",
+    "runs": 2,
+    "p50": 7170,
+    "p95": 9008,
+    "p99": 9008,
+    "maxMs": 9008
+  },
+  {
+    "minute": "2026-11-25T23:23:00.000Z",
+    "workflowName": "orders-ingress",
+    "runs": 581,
+    "p50": 359191.3333333333,
+    "p95": 367509,
+    "p99": 368194,
+    "maxMs": 369828
+  },
+  {
+    "minute": "2026-11-25T23:23:00.000Z",
+    "workflowName": "orders-receiver",
+    "runs": 1,
+    "p50": 367788,
+    "p95": 367788,
+    "p99": 367788,
+    "maxMs": 367788
+  },
+  {
+    "minute": "2026-11-25T23:23:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 193,
+    "p50": 367483,
+    "p95": 378002,
+    "p99": 378236,
+    "maxMs": 378765
+  },
+  {
+    "minute": "2026-11-25T23:23:00.000Z",
+    "workflowName": "process-order",
+    "runs": 193,
+    "p50": 18289,
+    "p95": 29707,
+    "p99": 34377,
+    "maxMs": 34509
+  },
+  {
+    "minute": "2026-11-25T23:24:00.000Z",
+    "workflowName": "orders-ingress",
+    "runs": 580,
+    "p50": 398946.640625,
+    "p95": 416127,
+    "p99": 416873,
+    "maxMs": 416902
+  },
+  {
+    "minute": "2026-11-25T23:25:00.000Z",
+    "workflowName": "orders-ingress",
+    "runs": 1552,
+    "p50": 433649.1715964591,
+    "p95": 450725.5,
+    "p99": 454808,
+    "maxMs": 455122
+  },
+  {
+    "minute": "2026-11-25T23:26:00.000Z",
+    "workflowName": "orders-ingress",
+    "runs": 1443,
+    "p50": 476302.7887152778,
+    "p95": 488542.5,
+    "p99": 495608,
+    "maxMs": 497832
+  },
+  {
+    "minute": "2026-11-25T23:27:00.000Z",
+    "workflowName": "orders-ingress",
+    "runs": 1373,
+    "p50": 491169.3916083916,
+    "p95": 510824,
+    "p99": 514286,
+    "maxMs": 524137
+  },
+  {
+    "minute": "2026-11-25T23:28:00.000Z",
+    "workflowName": "orders-ingress",
+    "runs": 1361,
+    "p50": 541462.7196439924,
+    "p95": 550585,
+    "p99": 553747,
+    "maxMs": 562167
+  },
+  {
+    "minute": "2026-11-25T23:29:00.000Z",
+    "workflowName": "orders-ingress",
+    "runs": 1218,
+    "p50": 579649.4692640692,
+    "p95": 583172.625,
+    "p99": 583829,
+    "maxMs": 596694
+  },
+  {
+    "minute": "2026-11-25T23:30:00.000Z",
+    "workflowName": "orders-ingress",
+    "runs": 1910,
+    "p50": 598469.1353895207,
+    "p95": 615072.1481481481,
+    "p99": 617439,
+    "maxMs": 619199
+  },
+  {
+    "minute": "2026-11-25T23:31:00.000Z",
+    "workflowName": "orders-ingress",
+    "runs": 1715,
+    "p50": 629374.8553091905,
+    "p95": 635898.5833333333,
+    "p99": 640171,
+    "maxMs": 938240
+  },
+  {
+    "minute": "2026-11-25T23:32:00.000Z",
+    "workflowName": "orders-ingress",
+    "runs": 1035,
+    "p50": 651412.0035714286,
+    "p95": 664985,
+    "p99": 665707,
+    "maxMs": 666505
+  },
+  {
+    "minute": "2026-11-25T23:33:00.000Z",
+    "workflowName": "orders-ingress",
+    "runs": 2177,
+    "p50": 659010.3111695906,
+    "p95": 667419.7129629629,
+    "p99": 669159,
+    "maxMs": 978639
+  },
+  {
+    "minute": "2026-11-25T23:34:00.000Z",
+    "workflowName": "orders-ingress",
+    "runs": 1740,
+    "p50": 676927.2103052502,
+    "p95": 687134.5,
+    "p99": 689107,
+    "maxMs": 695431
+  },
+  {
+    "minute": "2026-11-25T23:34:00.000Z",
+    "workflowName": "process-batch-item",
+    "runs": 207,
+    "p50": 679752,
+    "p95": 693373,
+    "p99": 1031112,
+    "maxMs": 1031981
+  },
+  {
+    "minute": "2026-11-25T23:34:00.000Z",
+    "workflowName": "process-order",
+    "runs": 207,
+    "p50": 8453.5,
+    "p95": 12597,
+    "p99": 14400,
+    "maxMs": 17039
+  }
+]

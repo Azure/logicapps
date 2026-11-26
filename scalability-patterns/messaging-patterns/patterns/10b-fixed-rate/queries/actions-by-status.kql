@@ -1,5 +1,0 @@
-// Parameters: replace {{startUtc}}, {{endUtc}} and {{workflowName}} (Run-Queries.ps1 in this folder does this).
-let startTime = datetime({{startUtc}});
-let endTime = datetime({{endUtc}});
-let workflow = '{{workflowName}}';// Count of action and trigger executions by name, status and status code. Upsert_limited failures are 429s that outlasted the retries.
-requests | where timestamp between (startTime .. endTime) | where customDimensions.Category in ('Workflow.Operations.Actions', 'Workflow.Operations.Triggers') | where tostring(parse_json(tostring(customDimensions.resource)).workflowName) == workflow | extend actionName = coalesce(tostring(parse_json(tostring(customDimensions.resource)).actionName), tostring(parse_json(tostring(customDimensions.resource)).triggerName), name), status = resultCode, code = tostring(parse_json(tostring(customDimensions.error)).code) | summarize count = count(), p50Ms = percentile(duration, 50), p95Ms = percentile(duration, 95), maxMs = max(duration) by actionName, status, code | order by actionName asc, ['count'] desc

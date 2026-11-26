@@ -1,0 +1,272 @@
+[
+  {
+    "minute": "2026-11-26T01:53:00Z",
+    "instances": 1,
+    "processed": null,
+    "releases": null
+  },
+  {
+    "minute": "2026-11-26T01:54:00Z",
+    "instances": 1,
+    "processed": null,
+    "releases": null
+  },
+  {
+    "minute": "2026-11-26T01:55:00Z",
+    "instances": 1,
+    "processed": null,
+    "releases": null
+  },
+  {
+    "minute": "2026-11-26T01:56:00Z",
+    "instances": 1,
+    "processed": null,
+    "releases": null
+  },
+  {
+    "minute": "2026-11-26T01:57:00Z",
+    "instances": 5,
+    "processed": null,
+    "releases": 1
+  },
+  {
+    "minute": "2026-11-26T01:58:00Z",
+    "instances": 13,
+    "processed": 69,
+    "releases": 8
+  },
+  {
+    "minute": "2026-11-26T01:59:00Z",
+    "instances": 16,
+    "processed": 169,
+    "releases": 6
+  },
+  {
+    "minute": "2026-11-26T02:00:00Z",
+    "instances": 17,
+    "processed": 850,
+    "releases": 50
+  },
+  {
+    "minute": "2026-11-26T02:01:00Z",
+    "instances": 17,
+    "processed": 894,
+    "releases": 52
+  },
+  {
+    "minute": "2026-11-26T02:02:00Z",
+    "instances": 16,
+    "processed": 942,
+    "releases": 55
+  },
+  {
+    "minute": "2026-11-26T02:03:00Z",
+    "instances": 16,
+    "processed": 918,
+    "releases": 55
+  },
+  {
+    "minute": "2026-11-26T02:04:00Z",
+    "instances": 14,
+    "processed": 901,
+    "releases": 53
+  },
+  {
+    "minute": "2026-11-26T02:05:00Z",
+    "instances": 16,
+    "processed": 918,
+    "releases": 54
+  },
+  {
+    "minute": "2026-11-26T02:06:00Z",
+    "instances": 15,
+    "processed": 919,
+    "releases": 54
+  },
+  {
+    "minute": "2026-11-26T02:07:00Z",
+    "instances": 15,
+    "processed": 926,
+    "releases": 54
+  },
+  {
+    "minute": "2026-11-26T02:08:00Z",
+    "instances": 14,
+    "processed": 909,
+    "releases": 54
+  },
+  {
+    "minute": "2026-11-26T02:09:00Z",
+    "instances": 13,
+    "processed": 901,
+    "releases": 53
+  },
+  {
+    "minute": "2026-11-26T02:10:00Z",
+    "instances": 13,
+    "processed": 901,
+    "releases": 53
+  },
+  {
+    "minute": "2026-11-26T02:11:00Z",
+    "instances": 15,
+    "processed": 886,
+    "releases": 52
+  },
+  {
+    "minute": "2026-11-26T02:12:00Z",
+    "instances": 13,
+    "processed": 797,
+    "releases": 46
+  },
+  {
+    "minute": "2026-11-26T02:13:00Z",
+    "instances": 14,
+    "processed": 894,
+    "releases": 53
+  },
+  {
+    "minute": "2026-11-26T02:14:00Z",
+    "instances": 14,
+    "processed": 901,
+    "releases": 53
+  },
+  {
+    "minute": "2026-11-26T02:15:00Z",
+    "instances": 13,
+    "processed": 895,
+    "releases": 53
+  },
+  {
+    "minute": "2026-11-26T02:16:00Z",
+    "instances": 13,
+    "processed": 921,
+    "releases": 54
+  },
+  {
+    "minute": "2026-11-26T02:17:00Z",
+    "instances": 12,
+    "processed": 911,
+    "releases": 54
+  },
+  {
+    "minute": "2026-11-26T02:18:00Z",
+    "instances": 11,
+    "processed": 896,
+    "releases": 52
+  },
+  {
+    "minute": "2026-11-26T02:19:00Z",
+    "instances": 11,
+    "processed": 904,
+    "releases": 53
+  },
+  {
+    "minute": "2026-11-26T02:20:00Z",
+    "instances": 11,
+    "processed": 884,
+    "releases": 52
+  },
+  {
+    "minute": "2026-11-26T02:21:00Z",
+    "instances": 11,
+    "processed": 869,
+    "releases": 52
+  },
+  {
+    "minute": "2026-11-26T02:22:00Z",
+    "instances": 10,
+    "processed": 867,
+    "releases": 51
+  },
+  {
+    "minute": "2026-11-26T02:23:00Z",
+    "instances": 11,
+    "processed": 836,
+    "releases": 49
+  },
+  {
+    "minute": "2026-11-26T02:24:00Z",
+    "instances": 10,
+    "processed": 881,
+    "releases": 52
+  },
+  {
+    "minute": "2026-11-26T02:25:00Z",
+    "instances": 10,
+    "processed": 884,
+    "releases": 51
+  },
+  {
+    "minute": "2026-11-26T02:26:00Z",
+    "instances": 10,
+    "processed": 898,
+    "releases": 53
+  },
+  {
+    "minute": "2026-11-26T02:27:00Z",
+    "instances": 9,
+    "processed": 887,
+    "releases": 53
+  },
+  {
+    "minute": "2026-11-26T02:28:00Z",
+    "instances": 9,
+    "processed": 884,
+    "releases": 51
+  },
+  {
+    "minute": "2026-11-26T02:29:00Z",
+    "instances": 8,
+    "processed": 879,
+    "releases": 52
+  },
+  {
+    "minute": "2026-11-26T02:30:00Z",
+    "instances": 9,
+    "processed": 889,
+    "releases": 52
+  },
+  {
+    "minute": "2026-11-26T02:31:00Z",
+    "instances": 8,
+    "processed": 867,
+    "releases": 52
+  },
+  {
+    "minute": "2026-11-26T02:32:00Z",
+    "instances": 8,
+    "processed": 383,
+    "releases": 22
+  },
+  {
+    "minute": "2026-11-26T02:33:00Z",
+    "instances": 7,
+    "processed": null,
+    "releases": null
+  },
+  {
+    "minute": "2026-11-26T02:34:00Z",
+    "instances": 7,
+    "processed": null,
+    "releases": null
+  },
+  {
+    "minute": "2026-11-26T02:35:00Z",
+    "instances": 6,
+    "processed": null,
+    "releases": null
+  },
+  {
+    "minute": "2026-11-26T02:36:00Z",
+    "instances": 6,
+    "processed": null,
+    "releases": null
+  },
+  {
+    "minute": "2026-11-26T02:37:00Z",
+    "instances": 5,
+    "processed": null,
+    "releases": null
+  }
+]

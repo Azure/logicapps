@@ -1,9 +1,0 @@
-// Parameters: replace {{startUtc}}, {{endUtc}} and {{workflowName}} (Run-Queries.ps1 in this folder does this).
-let startTime = datetime({{startUtc}});
-let endTime = datetime({{endUtc}});
-let workflow = '{{workflowName}}';
-// Trigger skips and waiting-run errors (WorkflowMaximumWaitingRunCountExceeded) and failed actions.
-union traces, requests, exceptions
-| where timestamp between (startTime .. endTime)
-| where tostring(customDimensions) has 'WorkflowMaximumWaitingRunCountExceeded' or tostring(customDimensions) has 'Skipped' or message has 'WorkflowMaximumWaitingRunCountExceeded'
-| summarize count() by itemType, eventName = tostring(customDimensions.EventName), category = tostring(customDimensions.Category)

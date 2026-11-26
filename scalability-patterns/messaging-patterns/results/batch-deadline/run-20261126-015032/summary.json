@@ -1,0 +1,46 @@
+{
+  "pattern": "batch-deadline",
+  "runId": "run-20261126-015032",
+  "workflowName": "process-batch-item",
+  "windowStartUtc": "2026-11-26T01:51:00Z",
+  "windowEndUtc": "2026-11-26T02:14:00Z",
+  "t0Utc": "2026-11-26T01:52:31.600000Z",
+  "deadlineMinutes": 10,
+  "deadlineUtc": "2026-11-26T02:02:31.600000Z",
+  "requiredMessagesPerSecond": 166.7,
+  "messagesSent": 100000,
+  "queueFirstDropSeconds": 44.0,
+  "queueEmptySeconds": 378.0,
+  "queueDrainRatePerSecond": 299.4,
+  "ingressTriggerRuns": 101003,
+  "sendToBatchCompleted": 100000,
+  "releases": 2002,
+  "itemsReleased": 101001,
+  "runsCompleted": 100000,
+  "runsFailed": 0,
+  "processingComplete": true,
+  "avgMessagesPerSecond": 99.17,
+  "peakRunsPerSecond": 205.7,
+  "endToEndLatencyMs": {
+    "p50": 827867,
+    "p95": 1183855,
+    "p99": 1215739
+  },
+  "sinceStartMs": {
+    "p50": 764844,
+    "p95": 1147934
+  },
+  "childActionMs": {
+    "p50": 5773.444757831213,
+    "p95": 14433.103064933706,
+    "p99": 25447.442150815303
+  },
+  "maxInstances": 20,
+  "maxBusyInstances": 20,
+  "cpuPercentPeakPerInstance": 100.0,
+  "cpuPercentPeakPlanAverage": 95.96039603960396,
+  "memoryPercentPeak": 73.0,
+  "firstSentUtc": "2026-11-26T01:50:41.576875Z",
+  "lastFinishedUtc": "2026-11-26T02:12:28.8504869Z",
+  "failedActions": 0
+}

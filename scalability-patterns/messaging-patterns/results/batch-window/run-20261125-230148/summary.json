@@ -1,0 +1,38 @@
+{
+  "pattern": "batch-window",
+  "runId": "run-20261125-230148",
+  "workflowName": "process-batch-item",
+  "windowStartUtc": "2026-11-25T23:01:48Z",
+  "windowEndUtc": "2026-11-26T00:18:00Z",
+  "targetMessagesPerSecond": 500,
+  "loadDurationMinutes": 1,
+  "loadTestStatus": "DONE",
+  "loadTestResult": "NOT_APPLICABLE",
+  "loadEntity": "orders",
+  "messagesSent": 29300,
+  "messagesCompletedByBroker": 29340,
+  "peakQueueBacklog": 25500,
+  "deadletteredAtEnd": 0,
+  "runsCompleted": 29300,
+  "runsSucceeded": 29300,
+  "runsFailed": 0,
+  "avgMessagesPerSecond": 7.06,
+  "peakRunsPerSecond": 10.93,
+  "runDurationMs": {
+    "p50": 1951.732390602743,
+    "p95": 3183.8987318139316,
+    "p99": 4107.956666666667
+  },
+  "endToEndLatencyMs": {
+    "p50": 2682418,
+    "p95": 3950290,
+    "p99": 4066373
+  },
+  "maxInstances": 1,
+  "firstSentUtc": "2026-11-25T23:04:45.346Z",
+  "lastFinishedUtc": "2026-11-26T00:13:55.996Z",
+  "drainSeconds": 4150,
+  "failedActions": 0,
+  "exceptions": 0,
+  "portalUrl": "https://portal.azure.com/#blade/Microsoft_Azure_CloudNativeTesting/TestRunReport.ReactView//resourceId/%2fsubscriptions%2f21196cdf-abb2-4697-9f73-feef0db7cb2a%2fresourcegroups%2frg-msgpat-batch-window%2fproviders%2fmicrosoft.loadtestservice%2floadtests%2falt-msgpat-batchwindo-2g7ojh/testId/msgpat-batch-window/testRunId/run-20261125-230148"
+}

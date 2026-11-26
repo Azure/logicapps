@@ -1,8 +1,0 @@
-{
-  "source": "Azure Monitor TotalRequests by StatusCode, PT1M",
-  "window": "2026-11-22T11:39Z/12:07Z",
-  "status429": 3752,
-  "status429PeakPerMinute": 239,
-  "status201": 1810,
-  "status200": 1
-}

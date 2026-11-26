@@ -1,0 +1,782 @@
+[
+  {
+    "minute": "2026-11-25T23:01:00Z",
+    "batched": 0,
+    "released": 0,
+    "releases": 0,
+    "processed": 0,
+    "instances": 1,
+    "e2eP50": null,
+    "e2eP95": null
+  },
+  {
+    "minute": "2026-11-25T23:02:00Z",
+    "batched": 0,
+    "released": 0,
+    "releases": 0,
+    "processed": 0,
+    "instances": 1,
+    "e2eP50": null,
+    "e2eP95": null
+  },
+  {
+    "minute": "2026-11-25T23:03:00Z",
+    "batched": 0,
+    "released": 0,
+    "releases": 0,
+    "processed": 0,
+    "instances": 1,
+    "e2eP50": null,
+    "e2eP95": null
+  },
+  {
+    "minute": "2026-11-25T23:04:00Z",
+    "batched": 255,
+    "released": 0,
+    "releases": 0,
+    "processed": 0,
+    "instances": 1,
+    "e2eP50": null,
+    "e2eP95": null
+  },
+  {
+    "minute": "2026-11-25T23:05:00Z",
+    "batched": 1045,
+    "released": 34,
+    "releases": 2,
+    "processed": 0,
+    "instances": 1,
+    "e2eP50": null,
+    "e2eP95": null
+  },
+  {
+    "minute": "2026-11-25T23:06:00Z",
+    "batched": 1737,
+    "released": 17,
+    "releases": 1,
+    "processed": 0,
+    "instances": 1,
+    "e2eP50": null,
+    "e2eP95": null
+  },
+  {
+    "minute": "2026-11-25T23:07:00Z",
+    "batched": 1149,
+    "released": 17,
+    "releases": 1,
+    "processed": 17,
+    "instances": 1,
+    "e2eP50": 164.272,
+    "e2eP95": 164.695
+  },
+  {
+    "minute": "2026-11-25T23:08:00Z",
+    "batched": 114,
+    "released": 17,
+    "releases": 1,
+    "processed": 0,
+    "instances": 1,
+    "e2eP50": null,
+    "e2eP95": null
+  },
+  {
+    "minute": "2026-11-25T23:09:00Z",
+    "batched": 148,
+    "released": 0,
+    "releases": 0,
+    "processed": 3,
+    "instances": 1,
+    "e2eP50": 312.618,
+    "e2eP95": 312.762
+  },
+  {
+    "minute": "2026-11-25T23:10:00Z",
+    "batched": 1903,
+    "released": 0,
+    "releases": 0,
+    "processed": 14,
+    "instances": 1,
+    "e2eP50": 316.109,
+    "e2eP95": 320.222
+  },
+  {
+    "minute": "2026-11-25T23:11:00Z",
+    "batched": 1958,
+    "released": 0,
+    "releases": 0,
+    "processed": 0,
+    "instances": 1,
+    "e2eP50": null,
+    "e2eP95": null
+  },
+  {
+    "minute": "2026-11-25T23:12:00Z",
+    "batched": 1914,
+    "released": 17,
+    "releases": 1,
+    "processed": 17,
+    "instances": 1,
+    "e2eP50": 458.651,
+    "e2eP95": 459.144
+  },
+  {
+    "minute": "2026-11-25T23:13:00Z",
+    "batched": 1991,
+    "released": 0,
+    "releases": 0,
+    "processed": 0,
+    "instances": 1,
+    "e2eP50": null,
+    "e2eP95": null
+  },
+  {
+    "minute": "2026-11-25T23:14:00Z",
+    "batched": 1916,
+    "released": 0,
+    "releases": 0,
+    "processed": 0,
+    "instances": 1,
+    "e2eP50": null,
+    "e2eP95": null
+  },
+  {
+    "minute": "2026-11-25T23:15:00Z",
+    "batched": 1197,
+    "released": 0,
+    "releases": 0,
+    "processed": 0,
+    "instances": 1,
+    "e2eP50": null,
+    "e2eP95": null
+  },
+  {
+    "minute": "2026-11-25T23:16:00Z",
+    "batched": 625,
+    "released": 0,
+    "releases": 0,
+    "processed": 0,
+    "instances": 1,
+    "e2eP50": null,
+    "e2eP95": null
+  },
+  {
+    "minute": "2026-11-25T23:17:00Z",
+    "batched": 338,
+    "released": 17,
+    "releases": 1,
+    "processed": 17,
+    "instances": 1,
+    "e2eP50": 773.774,
+    "e2eP95": 774.875
+  },
+  {
+    "minute": "2026-11-25T23:18:00Z",
+    "batched": 767,
+    "released": 0,
+    "releases": 0,
+    "processed": 0,
+    "instances": 1,
+    "e2eP50": null,
+    "e2eP95": null
+  },
+  {
+    "minute": "2026-11-25T23:19:00Z",
+    "batched": 1427,
+    "released": 0,
+    "releases": 0,
+    "processed": 0,
+    "instances": 1,
+    "e2eP50": null,
+    "e2eP95": null
+  },
+  {
+    "minute": "2026-11-25T23:20:00Z",
+    "batched": 2090,
+    "released": 0,
+    "releases": 0,
+    "processed": 0,
+    "instances": 1,
+    "e2eP50": null,
+    "e2eP95": null
+  },
+  {
+    "minute": "2026-11-25T23:21:00Z",
+    "batched": 2122,
+    "released": 17,
+    "releases": 1,
+    "processed": 17,
+    "instances": 1,
+    "e2eP50": 1020.436,
+    "e2eP95": 1024.987
+  },
+  {
+    "minute": "2026-11-25T23:22:00Z",
+    "batched": 2098,
+    "released": 0,
+    "releases": 0,
+    "processed": 0,
+    "instances": 1,
+    "e2eP50": null,
+    "e2eP95": null
+  },
+  {
+    "minute": "2026-11-25T23:23:00Z",
+    "batched": 2208,
+    "released": 0,
+    "releases": 0,
+    "processed": 0,
+    "instances": 1,
+    "e2eP50": null,
+    "e2eP95": null
+  },
+  {
+    "minute": "2026-11-25T23:24:00Z",
+    "batched": 2146,
+    "released": 0,
+    "releases": 0,
+    "processed": 0,
+    "instances": 1,
+    "e2eP50": null,
+    "e2eP95": null
+  },
+  {
+    "minute": "2026-11-25T23:25:00Z",
+    "batched": 147,
+    "released": 0,
+    "releases": 0,
+    "processed": 17,
+    "instances": 1,
+    "e2eP50": 1247.762,
+    "e2eP95": 1248.165
+  },
+  {
+    "minute": "2026-11-25T23:26:00Z",
+    "batched": 5,
+    "released": 391,
+    "releases": 23,
+    "processed": 374,
+    "instances": 1,
+    "e2eP50": 1315.2655555555557,
+    "e2eP95": 1332.375
+  },
+  {
+    "minute": "2026-11-25T23:27:00Z",
+    "batched": 0,
+    "released": 629,
+    "releases": 37,
+    "processed": 629,
+    "instances": 1,
+    "e2eP50": 1363.30301,
+    "e2eP95": 1388.056
+  },
+  {
+    "minute": "2026-11-25T23:28:00Z",
+    "batched": 0,
+    "released": 612,
+    "releases": 36,
+    "processed": 629,
+    "instances": 1,
+    "e2eP50": 1420.947375,
+    "e2eP95": 1448.037
+  },
+  {
+    "minute": "2026-11-25T23:29:00Z",
+    "batched": 0,
+    "released": 663,
+    "releases": 39,
+    "processed": 648,
+    "instances": 1,
+    "e2eP50": 1481.5178703703705,
+    "e2eP95": 1506.942
+  },
+  {
+    "minute": "2026-11-25T23:30:00Z",
+    "batched": 0,
+    "released": 595,
+    "releases": 35,
+    "processed": 595,
+    "instances": 1,
+    "e2eP50": 1537.73091,
+    "e2eP95": 1564.432
+  },
+  {
+    "minute": "2026-11-25T23:31:00Z",
+    "batched": 0,
+    "released": 612,
+    "releases": 36,
+    "processed": 644,
+    "instances": 1,
+    "e2eP50": 1596.2615555555556,
+    "e2eP95": 1623.685
+  },
+  {
+    "minute": "2026-11-25T23:32:00Z",
+    "batched": 0,
+    "released": 578,
+    "releases": 34,
+    "processed": 561,
+    "instances": 1,
+    "e2eP50": 1656.0614312500002,
+    "e2eP95": 1684.237
+  },
+  {
+    "minute": "2026-11-25T23:33:00Z",
+    "batched": 0,
+    "released": 646,
+    "releases": 38,
+    "processed": 646,
+    "instances": 1,
+    "e2eP50": 1715.86544,
+    "e2eP95": 1742.323
+  },
+  {
+    "minute": "2026-11-25T23:34:00Z",
+    "batched": 0,
+    "released": 612,
+    "releases": 36,
+    "processed": 578,
+    "instances": 1,
+    "e2eP50": 1772.108,
+    "e2eP95": 1799.65
+  },
+  {
+    "minute": "2026-11-25T23:35:00Z",
+    "batched": 0,
+    "released": 595,
+    "releases": 35,
+    "processed": 627,
+    "instances": 1,
+    "e2eP50": 1832.34212,
+    "e2eP95": 1860.134
+  },
+  {
+    "minute": "2026-11-25T23:36:00Z",
+    "batched": 0,
+    "released": 629,
+    "releases": 37,
+    "processed": 631,
+    "instances": 1,
+    "e2eP50": 1890.7327500000001,
+    "e2eP95": 1919.55
+  },
+  {
+    "minute": "2026-11-25T23:37:00Z",
+    "batched": 0,
+    "released": 595,
+    "releases": 35,
+    "processed": 571,
+    "instances": 1,
+    "e2eP50": 1949.154005,
+    "e2eP95": 1974.038
+  },
+  {
+    "minute": "2026-11-25T23:38:00Z",
+    "batched": 0,
+    "released": 646,
+    "releases": 38,
+    "processed": 653,
+    "instances": 1,
+    "e2eP50": 2009.6210866666665,
+    "e2eP95": 2033.065
+  },
+  {
+    "minute": "2026-11-25T23:39:00Z",
+    "batched": 0,
+    "released": 578,
+    "releases": 34,
+    "processed": 612,
+    "instances": 1,
+    "e2eP50": 2069.1446666666666,
+    "e2eP95": 2094.744
+  },
+  {
+    "minute": "2026-11-25T23:40:00Z",
+    "batched": 0,
+    "released": 629,
+    "releases": 37,
+    "processed": 612,
+    "instances": 1,
+    "e2eP50": 2126.366,
+    "e2eP95": 2153.725
+  },
+  {
+    "minute": "2026-11-25T23:41:00Z",
+    "batched": 0,
+    "released": 578,
+    "releases": 34,
+    "processed": 595,
+    "instances": 1,
+    "e2eP50": 2184.1465000000003,
+    "e2eP95": 2211.059
+  },
+  {
+    "minute": "2026-11-25T23:42:00Z",
+    "batched": 0,
+    "released": 629,
+    "releases": 37,
+    "processed": 594,
+    "instances": 1,
+    "e2eP50": 2244.9578229166664,
+    "e2eP95": 2268.949
+  },
+  {
+    "minute": "2026-11-25T23:43:00Z",
+    "batched": 0,
+    "released": 646,
+    "releases": 38,
+    "processed": 655,
+    "instances": 1,
+    "e2eP50": 2304.3523958333335,
+    "e2eP95": 2329.296
+  },
+  {
+    "minute": "2026-11-25T23:44:00Z",
+    "batched": 0,
+    "released": 612,
+    "releases": 36,
+    "processed": 621,
+    "instances": 1,
+    "e2eP50": 2362.0247499999996,
+    "e2eP95": 2387.663
+  },
+  {
+    "minute": "2026-11-25T23:45:00Z",
+    "batched": 0,
+    "released": 612,
+    "releases": 36,
+    "processed": 626,
+    "instances": 1,
+    "e2eP50": 2420.8035,
+    "e2eP95": 2445.741
+  },
+  {
+    "minute": "2026-11-25T23:46:00Z",
+    "batched": 0,
+    "released": 646,
+    "releases": 38,
+    "processed": 628,
+    "instances": 1,
+    "e2eP50": 2485.6590625,
+    "e2eP95": 2514.435
+  },
+  {
+    "minute": "2026-11-25T23:47:00Z",
+    "batched": 0,
+    "released": 612,
+    "releases": 36,
+    "processed": 605,
+    "instances": 1,
+    "e2eP50": 2540.587266666667,
+    "e2eP95": 2564.733
+  },
+  {
+    "minute": "2026-11-25T23:48:00Z",
+    "batched": 0,
+    "released": 595,
+    "releases": 35,
+    "processed": 606,
+    "instances": 1,
+    "e2eP50": 2596.2852000000003,
+    "e2eP95": 2624.482
+  },
+  {
+    "minute": "2026-11-25T23:49:00Z",
+    "batched": 0,
+    "released": 629,
+    "releases": 37,
+    "processed": 627,
+    "instances": 1,
+    "e2eP50": 2656.3010099999997,
+    "e2eP95": 2682.223
+  },
+  {
+    "minute": "2026-11-25T23:50:00Z",
+    "batched": 0,
+    "released": 595,
+    "releases": 35,
+    "processed": 594,
+    "instances": 1,
+    "e2eP50": 2713.720611111111,
+    "e2eP95": 2742.82
+  },
+  {
+    "minute": "2026-11-25T23:51:00Z",
+    "batched": 0,
+    "released": 612,
+    "releases": 36,
+    "processed": 625,
+    "instances": 1,
+    "e2eP50": 2781.59348125,
+    "e2eP95": 2799.966
+  },
+  {
+    "minute": "2026-11-25T23:52:00Z",
+    "batched": 0,
+    "released": 612,
+    "releases": 36,
+    "processed": 602,
+    "instances": 1,
+    "e2eP50": 2834.5596277777777,
+    "e2eP95": 2859.13
+  },
+  {
+    "minute": "2026-11-25T23:53:00Z",
+    "batched": 0,
+    "released": 612,
+    "releases": 36,
+    "processed": 629,
+    "instances": 1,
+    "e2eP50": 2889.841592222222,
+    "e2eP95": 2917.833
+  },
+  {
+    "minute": "2026-11-25T23:54:00Z",
+    "batched": 0,
+    "released": 612,
+    "releases": 36,
+    "processed": 595,
+    "instances": 1,
+    "e2eP50": 2949.9707759999997,
+    "e2eP95": 2975.639
+  },
+  {
+    "minute": "2026-11-25T23:55:00Z",
+    "batched": 0,
+    "released": 612,
+    "releases": 36,
+    "processed": 620,
+    "instances": 1,
+    "e2eP50": 3010.18475,
+    "e2eP95": 3036.938
+  },
+  {
+    "minute": "2026-11-25T23:56:00Z",
+    "batched": 0,
+    "released": 578,
+    "releases": 34,
+    "processed": 587,
+    "instances": 1,
+    "e2eP50": 3065.6605,
+    "e2eP95": 3094.235
+  },
+  {
+    "minute": "2026-11-25T23:57:00Z",
+    "batched": 0,
+    "released": 612,
+    "releases": 36,
+    "processed": 593,
+    "instances": 1,
+    "e2eP50": 3129.14595,
+    "e2eP95": 3152.281
+  },
+  {
+    "minute": "2026-11-25T23:58:00Z",
+    "batched": 0,
+    "released": 612,
+    "releases": 36,
+    "processed": 614,
+    "instances": 1,
+    "e2eP50": 3184.330925,
+    "e2eP95": 3211.487
+  },
+  {
+    "minute": "2026-11-25T23:59:00Z",
+    "batched": 0,
+    "released": 629,
+    "releases": 37,
+    "processed": 628,
+    "instances": 1,
+    "e2eP50": 3244.2663166666666,
+    "e2eP95": 3270.406
+  },
+  {
+    "minute": "2026-11-26T00:00:00Z",
+    "batched": 0,
+    "released": 629,
+    "releases": 37,
+    "processed": 618,
+    "instances": 1,
+    "e2eP50": 3301.6435,
+    "e2eP95": 3328.914
+  },
+  {
+    "minute": "2026-11-26T00:01:00Z",
+    "batched": 0,
+    "released": 612,
+    "releases": 36,
+    "processed": 640,
+    "instances": 1,
+    "e2eP50": 3361.4017125,
+    "e2eP95": 3388.75
+  },
+  {
+    "minute": "2026-11-26T00:02:00Z",
+    "batched": 0,
+    "released": 646,
+    "releases": 38,
+    "processed": 613,
+    "instances": 1,
+    "e2eP50": 3419.4675055555554,
+    "e2eP95": 3446.499
+  },
+  {
+    "minute": "2026-11-26T00:03:00Z",
+    "batched": 0,
+    "released": 612,
+    "releases": 36,
+    "processed": 629,
+    "instances": 1,
+    "e2eP50": 3476.712605,
+    "e2eP95": 3504.82
+  },
+  {
+    "minute": "2026-11-26T00:04:00Z",
+    "batched": 0,
+    "released": 595,
+    "releases": 35,
+    "processed": 587,
+    "instances": 1,
+    "e2eP50": 3539.5798125,
+    "e2eP95": 3563.562
+  },
+  {
+    "minute": "2026-11-26T00:05:00Z",
+    "batched": 0,
+    "released": 612,
+    "releases": 36,
+    "processed": 620,
+    "instances": 1,
+    "e2eP50": 3594.082990740741,
+    "e2eP95": 3624.108
+  },
+  {
+    "minute": "2026-11-26T00:06:00Z",
+    "batched": 0,
+    "released": 629,
+    "releases": 37,
+    "processed": 612,
+    "instances": 1,
+    "e2eP50": 3655.024625,
+    "e2eP95": 3680.601
+  },
+  {
+    "minute": "2026-11-26T00:07:00Z",
+    "batched": 0,
+    "released": 612,
+    "releases": 36,
+    "processed": 612,
+    "instances": 1,
+    "e2eP50": 3713.4029499999997,
+    "e2eP95": 3739.81
+  },
+  {
+    "minute": "2026-11-26T00:08:00Z",
+    "batched": 0,
+    "released": 629,
+    "releases": 37,
+    "processed": 629,
+    "instances": 1,
+    "e2eP50": 3771.7046666666665,
+    "e2eP95": 3798.373
+  },
+  {
+    "minute": "2026-11-26T00:09:00Z",
+    "batched": 0,
+    "released": 578,
+    "releases": 34,
+    "processed": 593,
+    "instances": 1,
+    "e2eP50": 3830.8736000000004,
+    "e2eP95": 3859.577
+  },
+  {
+    "minute": "2026-11-26T00:10:00Z",
+    "batched": 0,
+    "released": 612,
+    "releases": 36,
+    "processed": 614,
+    "instances": 1,
+    "e2eP50": 3890.19315,
+    "e2eP95": 3915.941
+  },
+  {
+    "minute": "2026-11-26T00:11:00Z",
+    "batched": 0,
+    "released": 578,
+    "releases": 34,
+    "processed": 561,
+    "instances": 1,
+    "e2eP50": 3947.0430666666666,
+    "e2eP95": 3974.241
+  },
+  {
+    "minute": "2026-11-26T00:12:00Z",
+    "batched": 0,
+    "released": 612,
+    "releases": 36,
+    "processed": 601,
+    "instances": 1,
+    "e2eP50": 4006.4428937499997,
+    "e2eP95": 4032.467
+  },
+  {
+    "minute": "2026-11-26T00:13:00Z",
+    "batched": 0,
+    "released": 553,
+    "releases": 33,
+    "processed": 615,
+    "instances": 1,
+    "e2eP50": 4065.7953333333335,
+    "e2eP95": 4089.972
+  },
+  {
+    "minute": "2026-11-26T00:14:00Z",
+    "batched": 0,
+    "released": 0,
+    "releases": 0,
+    "processed": 0,
+    "instances": 1,
+    "e2eP50": null,
+    "e2eP95": null
+  },
+  {
+    "minute": "2026-11-26T00:15:00Z",
+    "batched": 0,
+    "released": 0,
+    "releases": 0,
+    "processed": 0,
+    "instances": 1,
+    "e2eP50": null,
+    "e2eP95": null
+  },
+  {
+    "minute": "2026-11-26T00:16:00Z",
+    "batched": 0,
+    "released": 0,
+    "releases": 0,
+    "processed": 0,
+    "instances": 1,
+    "e2eP50": null,
+    "e2eP95": null
+  },
+  {
+    "minute": "2026-11-26T00:17:00Z",
+    "batched": 0,
+    "released": 0,
+    "releases": 0,
+    "processed": 0,
+    "instances": 1,
+    "e2eP50": null,
+    "e2eP95": null
+  },
+  {
+    "minute": "2026-11-26T00:18:00Z",
+    "batched": 0,
+    "released": 0,
+    "releases": 0,
+    "processed": 0,
+    "instances": 0,
+    "e2eP50": null,
+    "e2eP95": null
+  }
+]

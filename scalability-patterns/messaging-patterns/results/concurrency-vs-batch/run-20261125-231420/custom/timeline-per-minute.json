@@ -1,0 +1,200 @@
+[
+  {
+    "minute": "2026-11-25T23:13:00Z",
+    "instances": 2,
+    "runsStarted": null,
+    "runsEnded": null,
+    "maxInFlight": null,
+    "p50RunMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:14:00Z",
+    "instances": 2,
+    "runsStarted": null,
+    "runsEnded": null,
+    "maxInFlight": null,
+    "p50RunMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:15:00Z",
+    "instances": 2,
+    "runsStarted": null,
+    "runsEnded": null,
+    "maxInFlight": null,
+    "p50RunMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:16:00Z",
+    "instances": 2,
+    "runsStarted": null,
+    "runsEnded": null,
+    "maxInFlight": null,
+    "p50RunMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:17:00Z",
+    "instances": 2,
+    "runsStarted": 411,
+    "runsEnded": 411,
+    "maxInFlight": 47,
+    "p50RunMs": 690.8194444444445,
+    "p95E2eMs": 55057
+  },
+  {
+    "minute": "2026-11-25T23:18:00Z",
+    "instances": 2,
+    "runsStarted": 296,
+    "runsEnded": 288,
+    "maxInFlight": 37,
+    "p50RunMs": 693,
+    "p95E2eMs": 117508
+  },
+  {
+    "minute": "2026-11-25T23:19:00Z",
+    "instances": 2,
+    "runsStarted": 304,
+    "runsEnded": 312,
+    "maxInFlight": 49,
+    "p50RunMs": 715.5,
+    "p95E2eMs": 158368
+  },
+  {
+    "minute": "2026-11-25T23:20:00Z",
+    "instances": 2,
+    "runsStarted": 400,
+    "runsEnded": 400,
+    "maxInFlight": 43,
+    "p50RunMs": 706.641975308642,
+    "p95E2eMs": 227327
+  },
+  {
+    "minute": "2026-11-25T23:21:00Z",
+    "instances": 2,
+    "runsStarted": 398,
+    "runsEnded": 387,
+    "maxInFlight": 38,
+    "p50RunMs": 700.3333333333334,
+    "p95E2eMs": 296023
+  },
+  {
+    "minute": "2026-11-25T23:22:00Z",
+    "instances": 2,
+    "runsStarted": 217,
+    "runsEnded": 213,
+    "maxInFlight": 43,
+    "p50RunMs": 766,
+    "p95E2eMs": 331902
+  },
+  {
+    "minute": "2026-11-25T23:23:00Z",
+    "instances": 2,
+    "runsStarted": 385,
+    "runsEnded": 400,
+    "maxInFlight": 43,
+    "p50RunMs": 810.6666666666666,
+    "p95E2eMs": 400441
+  },
+  {
+    "minute": "2026-11-25T23:24:00Z",
+    "instances": 2,
+    "runsStarted": 400,
+    "runsEnded": 400,
+    "maxInFlight": 38,
+    "p50RunMs": 734.1111111111111,
+    "p95E2eMs": 469600
+  },
+  {
+    "minute": "2026-11-25T23:25:00Z",
+    "instances": 2,
+    "runsStarted": 292,
+    "runsEnded": 272,
+    "maxInFlight": 42,
+    "p50RunMs": 736.125,
+    "p95E2eMs": 533013
+  },
+  {
+    "minute": "2026-11-25T23:26:00Z",
+    "instances": 2,
+    "runsStarted": 308,
+    "runsEnded": 328,
+    "maxInFlight": 40,
+    "p50RunMs": 703,
+    "p95E2eMs": 573541
+  },
+  {
+    "minute": "2026-11-25T23:27:00Z",
+    "instances": 2,
+    "runsStarted": 400,
+    "runsEnded": 400,
+    "maxInFlight": 38,
+    "p50RunMs": 751.7263374485597,
+    "p95E2eMs": 642990
+  },
+  {
+    "minute": "2026-11-25T23:28:00Z",
+    "instances": 2,
+    "runsStarted": 398,
+    "runsEnded": 380,
+    "maxInFlight": 45,
+    "p50RunMs": 745.5,
+    "p95E2eMs": 710614
+  },
+  {
+    "minute": "2026-11-25T23:29:00Z",
+    "instances": 2,
+    "runsStarted": 207,
+    "runsEnded": 221,
+    "maxInFlight": 33,
+    "p50RunMs": 788,
+    "p95E2eMs": 749951
+  },
+  {
+    "minute": "2026-11-25T23:30:00Z",
+    "instances": 2,
+    "runsStarted": 395,
+    "runsEnded": 399,
+    "maxInFlight": 42,
+    "p50RunMs": 756.5,
+    "p95E2eMs": 817932
+  },
+  {
+    "minute": "2026-11-25T23:31:00Z",
+    "instances": 2,
+    "runsStarted": 400,
+    "runsEnded": 400,
+    "maxInFlight": 44,
+    "p50RunMs": 722.5,
+    "p95E2eMs": 885027
+  },
+  {
+    "minute": "2026-11-25T23:32:00Z",
+    "instances": 2,
+    "runsStarted": 269,
+    "runsEnded": 264,
+    "maxInFlight": 41,
+    "p50RunMs": 799.25,
+    "p95E2eMs": 948324
+  },
+  {
+    "minute": "2026-11-25T23:33:00Z",
+    "instances": 2,
+    "runsStarted": 331,
+    "runsEnded": 336,
+    "maxInFlight": 37,
+    "p50RunMs": 657.5,
+    "p95E2eMs": 991335
+  },
+  {
+    "minute": "2026-11-25T23:34:00Z",
+    "instances": 2,
+    "runsStarted": 165,
+    "runsEnded": 165,
+    "maxInFlight": 32,
+    "p50RunMs": 598,
+    "p95E2eMs": 1050618
+  }
+]

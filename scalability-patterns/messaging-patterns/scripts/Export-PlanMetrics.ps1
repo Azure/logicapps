@@ -9,8 +9,8 @@
     Azure Monitor keeps platform metrics for 93 days, so export soon after the run.
 
 .EXAMPLE
-    ./Export-PlanMetrics.ps1 -RunFolder ../results/2b-steady-drain/run-20261122-075444 `
-        -ResourceGroup rg-msgpat-2b-steady-drain
+    ./Export-PlanMetrics.ps1 -RunFolder ../results/batch-steady-drain/run-20261126-015557 `
+        -ResourceGroup rg-msgpat-batch-steady-drain
 #>
 [CmdletBinding()]
 param(

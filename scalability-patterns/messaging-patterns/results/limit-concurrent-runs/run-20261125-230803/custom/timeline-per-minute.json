@@ -1,0 +1,263 @@
+[
+  {
+    "minute": "2026-11-25T23:08:00Z",
+    "instances": 1,
+    "runsStarted": null,
+    "runsEnded": null,
+    "maxInFlight": null,
+    "p50RunMs": null,
+    "p95E2eMs": null
+  },
+  {
+    "minute": "2026-11-25T23:11:00Z",
+    "instances": 1,
+    "runsStarted": 80,
+    "runsEnded": 70,
+    "maxInFlight": 10,
+    "p50RunMs": 1068,
+    "p95E2eMs": 38606
+  },
+  {
+    "minute": "2026-11-25T23:12:00Z",
+    "instances": 1,
+    "runsStarted": 60,
+    "runsEnded": 70,
+    "maxInFlight": 10,
+    "p50RunMs": 1032,
+    "p95E2eMs": 76821
+  },
+  {
+    "minute": "2026-11-25T23:13:00Z",
+    "instances": 1,
+    "runsStarted": 100,
+    "runsEnded": 100,
+    "maxInFlight": 10,
+    "p50RunMs": 1054,
+    "p95E2eMs": 145630
+  },
+  {
+    "minute": "2026-11-25T23:14:00Z",
+    "instances": 1,
+    "runsStarted": 100,
+    "runsEnded": 100,
+    "maxInFlight": 10,
+    "p50RunMs": 1042,
+    "p95E2eMs": 215242
+  },
+  {
+    "minute": "2026-11-25T23:15:00Z",
+    "instances": 1,
+    "runsStarted": 66,
+    "runsEnded": 60,
+    "maxInFlight": 10,
+    "p50RunMs": 1044,
+    "p95E2eMs": 276752
+  },
+  {
+    "minute": "2026-11-25T23:16:00Z",
+    "instances": 1,
+    "runsStarted": 84,
+    "runsEnded": 90,
+    "maxInFlight": 10,
+    "p50RunMs": 1019,
+    "p95E2eMs": 319395
+  },
+  {
+    "minute": "2026-11-25T23:17:00Z",
+    "instances": 1,
+    "runsStarted": 100,
+    "runsEnded": 100,
+    "maxInFlight": 10,
+    "p50RunMs": 1056,
+    "p95E2eMs": 388097
+  },
+  {
+    "minute": "2026-11-25T23:18:00Z",
+    "instances": 1,
+    "runsStarted": 90,
+    "runsEnded": 84,
+    "maxInFlight": 10,
+    "p50RunMs": 1055,
+    "p95E2eMs": 454815
+  },
+  {
+    "minute": "2026-11-25T23:19:00Z",
+    "instances": 1,
+    "runsStarted": 60,
+    "runsEnded": 66,
+    "maxInFlight": 10,
+    "p50RunMs": 1063,
+    "p95E2eMs": 491268
+  },
+  {
+    "minute": "2026-11-25T23:20:00Z",
+    "instances": 1,
+    "runsStarted": 100,
+    "runsEnded": 100,
+    "maxInFlight": 10,
+    "p50RunMs": 1037,
+    "p95E2eMs": 559869
+  },
+  {
+    "minute": "2026-11-25T23:21:00Z",
+    "instances": 1,
+    "runsStarted": 100,
+    "runsEnded": 100,
+    "maxInFlight": 10,
+    "p50RunMs": 1086,
+    "p95E2eMs": 628890
+  },
+  {
+    "minute": "2026-11-25T23:22:00Z",
+    "instances": 1,
+    "runsStarted": 60,
+    "runsEnded": 60,
+    "maxInFlight": 10,
+    "p50RunMs": 1018,
+    "p95E2eMs": 691465
+  },
+  {
+    "minute": "2026-11-25T23:23:00Z",
+    "instances": 1,
+    "runsStarted": 90,
+    "runsEnded": 90,
+    "maxInFlight": 10,
+    "p50RunMs": 1073,
+    "p95E2eMs": 733032
+  },
+  {
+    "minute": "2026-11-25T23:24:00Z",
+    "instances": 1,
+    "runsStarted": 100,
+    "runsEnded": 100,
+    "maxInFlight": 10,
+    "p50RunMs": 1034,
+    "p95E2eMs": 802775
+  },
+  {
+    "minute": "2026-11-25T23:25:00Z",
+    "instances": 1,
+    "runsStarted": 90,
+    "runsEnded": 80,
+    "maxInFlight": 10,
+    "p50RunMs": 1034,
+    "p95E2eMs": 867601
+  },
+  {
+    "minute": "2026-11-25T23:26:00Z",
+    "instances": 1,
+    "runsStarted": 60,
+    "runsEnded": 70,
+    "maxInFlight": 10,
+    "p50RunMs": 1053,
+    "p95E2eMs": 905057
+  },
+  {
+    "minute": "2026-11-25T23:27:00Z",
+    "instances": 1,
+    "runsStarted": 100,
+    "runsEnded": 100,
+    "maxInFlight": 10,
+    "p50RunMs": 999,
+    "p95E2eMs": 974904
+  },
+  {
+    "minute": "2026-11-25T23:28:00Z",
+    "instances": 1,
+    "runsStarted": 100,
+    "runsEnded": 100,
+    "maxInFlight": 10,
+    "p50RunMs": 1048,
+    "p95E2eMs": 1043681
+  },
+  {
+    "minute": "2026-11-25T23:29:00Z",
+    "instances": 1,
+    "runsStarted": 60,
+    "runsEnded": 60,
+    "maxInFlight": 10,
+    "p50RunMs": 1054,
+    "p95E2eMs": 1105327
+  },
+  {
+    "minute": "2026-11-25T23:30:00Z",
+    "instances": 1,
+    "runsStarted": 90,
+    "runsEnded": 90,
+    "maxInFlight": 10,
+    "p50RunMs": 1041,
+    "p95E2eMs": 1147797
+  },
+  {
+    "minute": "2026-11-25T23:31:00Z",
+    "instances": 1,
+    "runsStarted": 100,
+    "runsEnded": 100,
+    "maxInFlight": 10,
+    "p50RunMs": 1037,
+    "p95E2eMs": 1215968
+  },
+  {
+    "minute": "2026-11-25T23:32:00Z",
+    "instances": 1,
+    "runsStarted": 90,
+    "runsEnded": 80,
+    "maxInFlight": 10,
+    "p50RunMs": 1020,
+    "p95E2eMs": 1281654
+  },
+  {
+    "minute": "2026-11-25T23:33:00Z",
+    "instances": 1,
+    "runsStarted": 60,
+    "runsEnded": 70,
+    "maxInFlight": 10,
+    "p50RunMs": 1055,
+    "p95E2eMs": 1320069
+  },
+  {
+    "minute": "2026-11-25T23:34:00Z",
+    "instances": 1,
+    "runsStarted": 100,
+    "runsEnded": 100,
+    "maxInFlight": 10,
+    "p50RunMs": 1052,
+    "p95E2eMs": 1389104
+  },
+  {
+    "minute": "2026-11-25T23:35:00Z",
+    "instances": 1,
+    "runsStarted": 100,
+    "runsEnded": 100,
+    "maxInFlight": 10,
+    "p50RunMs": 1056,
+    "p95E2eMs": 1457843
+  },
+  {
+    "minute": "2026-11-25T23:36:00Z",
+    "instances": 1,
+    "runsStarted": 60,
+    "runsEnded": 60,
+    "maxInFlight": 10,
+    "p50RunMs": 1070,
+    "p95E2eMs": 1519414
+  },
+  {
+    "minute": "2026-11-25T23:37:00Z",
+    "instances": 1,
+    "runsStarted": 90,
+    "runsEnded": 90,
+    "maxInFlight": 10,
+    "p50RunMs": 993,
+    "p95E2eMs": 1559924
+  },
+  {
+    "minute": "2026-11-25T23:38:00Z",
+    "instances": 1,
+    "runsStarted": 50,
+    "runsEnded": 50,
+    "maxInFlight": 10,
+    "p50RunMs": 1079,
+    "p95E2eMs": 1596403
+  }
+]

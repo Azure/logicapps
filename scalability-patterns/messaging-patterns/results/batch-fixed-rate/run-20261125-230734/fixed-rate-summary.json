@@ -1,0 +1,316 @@
+{
+  "targetRate": 50.0,
+  "processedMessages": 6498.0,
+  "pushedMessages": 65610.0,
+  "processingSeconds": 3261,
+  "averageRateWhileProcessing": 1.9926402943882244,
+  "maxPerSecond": 50.0,
+  "secondsAbove50": 0,
+  "max10sAverage": 23.6,
+  "perMinuteRate": [
+    {
+      "minute": "2026-11-25T23:07:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 0.0
+    },
+    {
+      "minute": "2026-11-25T23:08:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 0.0
+    },
+    {
+      "minute": "2026-11-25T23:09:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 0.0
+    },
+    {
+      "minute": "2026-11-25T23:10:00+00:00",
+      "processedPerSecond": 3.08,
+      "pushedPerSecond": 4.37
+    },
+    {
+      "minute": "2026-11-25T23:11:00+00:00",
+      "processedPerSecond": 6.93,
+      "pushedPerSecond": 9.95
+    },
+    {
+      "minute": "2026-11-25T23:12:00+00:00",
+      "processedPerSecond": 0.92,
+      "pushedPerSecond": 21.2
+    },
+    {
+      "minute": "2026-11-25T23:13:00+00:00",
+      "processedPerSecond": 2.5,
+      "pushedPerSecond": 20.28
+    },
+    {
+      "minute": "2026-11-25T23:14:00+00:00",
+      "processedPerSecond": 0.83,
+      "pushedPerSecond": 22.48
+    },
+    {
+      "minute": "2026-11-25T23:15:00+00:00",
+      "processedPerSecond": 0.83,
+      "pushedPerSecond": 16.75
+    },
+    {
+      "minute": "2026-11-25T23:16:00+00:00",
+      "processedPerSecond": 0.83,
+      "pushedPerSecond": 15.73
+    },
+    {
+      "minute": "2026-11-25T23:17:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 23.35
+    },
+    {
+      "minute": "2026-11-25T23:18:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 22.48
+    },
+    {
+      "minute": "2026-11-25T23:19:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 23.8
+    },
+    {
+      "minute": "2026-11-25T23:20:00+00:00",
+      "processedPerSecond": 0.83,
+      "pushedPerSecond": 30.37
+    },
+    {
+      "minute": "2026-11-25T23:21:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 17.67
+    },
+    {
+      "minute": "2026-11-25T23:22:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 28.12
+    },
+    {
+      "minute": "2026-11-25T23:23:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 14.03
+    },
+    {
+      "minute": "2026-11-25T23:24:00+00:00",
+      "processedPerSecond": 0.83,
+      "pushedPerSecond": 16.08
+    },
+    {
+      "minute": "2026-11-25T23:25:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 0.0
+    },
+    {
+      "minute": "2026-11-25T23:26:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 15.37
+    },
+    {
+      "minute": "2026-11-25T23:27:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 18.1
+    },
+    {
+      "minute": "2026-11-25T23:28:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 14.83
+    },
+    {
+      "minute": "2026-11-25T23:29:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 3.53
+    },
+    {
+      "minute": "2026-11-25T23:30:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 33.8
+    },
+    {
+      "minute": "2026-11-25T23:31:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 11.47
+    },
+    {
+      "minute": "2026-11-25T23:32:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 16.28
+    },
+    {
+      "minute": "2026-11-25T23:33:00+00:00",
+      "processedPerSecond": 0.78,
+      "pushedPerSecond": 14.9
+    },
+    {
+      "minute": "2026-11-25T23:34:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 29.6
+    },
+    {
+      "minute": "2026-11-25T23:35:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 35.57
+    },
+    {
+      "minute": "2026-11-25T23:36:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 36.57
+    },
+    {
+      "minute": "2026-11-25T23:37:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 31.58
+    },
+    {
+      "minute": "2026-11-25T23:38:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 23.25
+    },
+    {
+      "minute": "2026-11-25T23:39:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 34.95
+    },
+    {
+      "minute": "2026-11-25T23:40:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 21.35
+    },
+    {
+      "minute": "2026-11-25T23:41:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 39.23
+    },
+    {
+      "minute": "2026-11-25T23:42:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 37.43
+    },
+    {
+      "minute": "2026-11-25T23:43:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 37.05
+    },
+    {
+      "minute": "2026-11-25T23:44:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 36.23
+    },
+    {
+      "minute": "2026-11-25T23:45:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 35.73
+    },
+    {
+      "minute": "2026-11-25T23:46:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 38.1
+    },
+    {
+      "minute": "2026-11-25T23:47:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 37.47
+    },
+    {
+      "minute": "2026-11-25T23:48:00+00:00",
+      "processedPerSecond": 0.17,
+      "pushedPerSecond": 37.33
+    },
+    {
+      "minute": "2026-11-25T23:49:00+00:00",
+      "processedPerSecond": 0.72,
+      "pushedPerSecond": 35.37
+    },
+    {
+      "minute": "2026-11-25T23:50:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 32.45
+    },
+    {
+      "minute": "2026-11-25T23:51:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 25.6
+    },
+    {
+      "minute": "2026-11-25T23:52:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 35.0
+    },
+    {
+      "minute": "2026-11-25T23:53:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 27.48
+    },
+    {
+      "minute": "2026-11-25T23:54:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 11.17
+    },
+    {
+      "minute": "2026-11-25T23:55:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 0.0
+    },
+    {
+      "minute": "2026-11-25T23:56:00+00:00",
+      "processedPerSecond": 0.83,
+      "pushedPerSecond": 0.03
+    },
+    {
+      "minute": "2026-11-25T23:57:00+00:00",
+      "processedPerSecond": 10.43,
+      "pushedPerSecond": 0.0
+    },
+    {
+      "minute": "2026-11-25T23:58:00+00:00",
+      "processedPerSecond": 12.22,
+      "pushedPerSecond": 0.0
+    },
+    {
+      "minute": "2026-11-25T23:59:00+00:00",
+      "processedPerSecond": 11.52,
+      "pushedPerSecond": 0.0
+    },
+    {
+      "minute": "2026-11-26T00:00:00+00:00",
+      "processedPerSecond": 12.37,
+      "pushedPerSecond": 0.0
+    },
+    {
+      "minute": "2026-11-26T00:01:00+00:00",
+      "processedPerSecond": 11.98,
+      "pushedPerSecond": 0.0
+    },
+    {
+      "minute": "2026-11-26T00:02:00+00:00",
+      "processedPerSecond": 11.62,
+      "pushedPerSecond": 0.0
+    },
+    {
+      "minute": "2026-11-26T00:03:00+00:00",
+      "processedPerSecond": 9.02,
+      "pushedPerSecond": 0.0
+    },
+    {
+      "minute": "2026-11-26T00:04:00+00:00",
+      "processedPerSecond": 9.05,
+      "pushedPerSecond": 0.0
+    },
+    {
+      "minute": "2026-11-26T00:05:00+00:00",
+      "processedPerSecond": 0.0,
+      "pushedPerSecond": 0.0
+    }
+  ],
+  "perMinuteRateCv": 0.9432171757426241,
+  "peakBatchBacklog": 64454.0,
+  "releases": 143,
+  "releaseSizeP50": 50.0,
+  "releaseSizeMax": 50.0,
+  "releasesAt50": 120,
+  "releaseGapP50": 3.885,
+  "releaseGapP95": 56.7299999999999,
+  "releaseGapMax": 944.73
+}

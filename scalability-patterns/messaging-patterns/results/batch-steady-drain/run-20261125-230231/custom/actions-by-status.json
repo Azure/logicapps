@@ -1,0 +1,132 @@
+[
+  {
+    "wf": "orders-ingress",
+    "actionName": "Send_to_batch",
+    "status": "Succeeded",
+    "code": "",
+    "count": 37388,
+    "p50Ms": 1078.36389679407,
+    "p95Ms": 5977.421723896665,
+    "maxMs": 71458.0591
+  },
+  {
+    "wf": "orders-ingress",
+    "actionName": "When_messages_are_available_in_orders",
+    "status": "Succeeded",
+    "code": "",
+    "count": 61461,
+    "p50Ms": 18.80216495564972,
+    "p95Ms": 294.58309414710317,
+    "maxMs": 40836.7263
+  },
+  {
+    "wf": "orders-ingress",
+    "actionName": "When_messages_are_available_in_orders",
+    "status": "0",
+    "code": "",
+    "count": 2,
+    "p50Ms": 56849.4039,
+    "p95Ms": 58556.9806,
+    "maxMs": 58556.9806
+  },
+  {
+    "wf": "orders-receiver",
+    "actionName": "Batch_messages",
+    "status": "Succeeded",
+    "code": "",
+    "count": 175,
+    "p50Ms": 7.584,
+    "p95Ms": 57.9504,
+    "maxMs": 302.4513
+  },
+  {
+    "wf": "orders-receiver",
+    "actionName": "Process_batch",
+    "status": "Succeeded",
+    "code": "",
+    "count": 39,
+    "p50Ms": 282.7682,
+    "p95Ms": 4144.4298,
+    "maxMs": 9646.6931
+  },
+  {
+    "wf": "orders-receiver",
+    "actionName": "Process_batch",
+    "status": "0",
+    "code": "",
+    "count": 39,
+    "p50Ms": 34.174,
+    "p95Ms": 2929.9385,
+    "maxMs": 7523.2614
+  },
+  {
+    "wf": "process-batch-item",
+    "actionName": "Process_order",
+    "status": "Succeeded",
+    "code": "",
+    "count": 1176,
+    "p50Ms": 10080.379001111112,
+    "p95Ms": 28095.501,
+    "maxMs": 42792.6812
+  },
+  {
+    "wf": "process-batch-item",
+    "actionName": "When_a_batch_arrives",
+    "status": "Succeeded",
+    "code": "",
+    "count": 1215,
+    "p50Ms": 15.083741887755103,
+    "p95Ms": 258.1936,
+    "maxMs": 9646.0286
+  },
+  {
+    "wf": "process-order",
+    "actionName": "Enrich_order",
+    "status": "Succeeded",
+    "code": "",
+    "count": 1176,
+    "p50Ms": 4521.416498124097,
+    "p95Ms": 12567.26645,
+    "maxMs": 15743.0406
+  },
+  {
+    "wf": "process-order",
+    "actionName": "Response",
+    "status": "Succeeded",
+    "code": "",
+    "count": 1176,
+    "p50Ms": 457.2135544047619,
+    "p95Ms": 7121.23945,
+    "maxMs": 19644.8261
+  },
+  {
+    "wf": "process-order",
+    "actionName": "Transform_order",
+    "status": "Succeeded",
+    "code": "",
+    "count": 1176,
+    "p50Ms": 478.76995144628097,
+    "p95Ms": 1952.5818,
+    "maxMs": 13092.1887
+  },
+  {
+    "wf": "process-order",
+    "actionName": "Upsert_order",
+    "status": "Succeeded",
+    "code": "",
+    "count": 1176,
+    "p50Ms": 726.1932214285715,
+    "p95Ms": 17232.90985,
+    "maxMs": 23136.0304
+  },
+  {
+    "wf": "process-order",
+    "actionName": "manual",
+    "status": "Succeeded",
+    "code": "",
+    "count": 1176,
+    "p50Ms": 10089.084950879269,
+    "p95Ms": 28094.7977,
+    "maxMs": 42792.0185
+  }
+]

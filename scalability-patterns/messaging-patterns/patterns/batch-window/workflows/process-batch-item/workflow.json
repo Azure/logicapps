@@ -1,0 +1,42 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "triggers": {
+      "manual": {
+        "type": "Request",
+        "kind": "Http",
+        "inputs": {
+          "schema": {}
+        },
+        "splitOn": "@triggerBody()?['items']"
+      }
+    },
+    "actions": {
+      "Process_order": {
+        "type": "Workflow",
+        "inputs": {
+          "host": {
+            "workflow": { "id": "process-order" },
+            "triggerName": "manual"
+          },
+          "body": {
+            "messageId": "@{triggerBody()?['content']?['messageId']}",
+            "pattern": "batch-window",
+            "order": "@triggerBody()?['content']?['contentData']"
+          }
+        },
+        "runAfter": {},
+        "trackedProperties": {
+          "messageId": "@{triggerBody()?['content']?['messageId']}",
+          "enqueuedTimeUtc": "@{triggerBody()?['content']?['enqueuedTimeUtc']}",
+          "sentAtUtc": "@{triggerBody()?['content']?['contentData']?['sentAtUtc']}",
+          "releaseRunId": "@{triggerOutputs()?['headers']?['x-ms-workflow-run-id']}",
+          "pattern": "batch-window"
+        }
+      }
+    },
+    "outputs": {}
+  },
+  "kind": "Stateful"
+}

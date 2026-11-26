@@ -1,0 +1,99 @@
+AzureCliCredential.get_token failed: Failed to invoke the Azure CLI
+Unexpected error occurred (CredentialUnavailableError('Failed to invoke the Azure CLI')). Handler shutting down.
+Traceback (most recent call last):
+  File "Q:\github\logicapps\scalability-patterns\messaging-patterns\.tools\pylib\azure\identity\_credentials\azure_cli.py", line 281, in _run_command
+    return subprocess.check_output(args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "subprocess.py", line 473, in check_output
+  File "subprocess.py", line 557, in run
+  File "subprocess.py", line 1221, in communicate
+  File "subprocess.py", line 1664, in _communicate
+subprocess.TimeoutExpired: Command '['C:\\Program Files\\Microsoft SDKs\\Azure\\CLI2\\wbin\\az.cmd', 'account', 'get-access-token', '--output', 'json', '--resource', 'https://servicebus.azure.net/']' timed out after 10 seconds
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "Q:\github\logicapps\scalability-patterns\messaging-patterns\.tools\pylib\azure\servicebus\_base_handler.py", line 402, in _do_retryable_operation
+    return operation(**kwargs)
+  File "Q:\github\logicapps\scalability-patterns\messaging-patterns\.tools\pylib\azure\servicebus\_servicebus_sender.py", line 277, in _open
+    if self._handler.client_ready():
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "Q:\github\logicapps\scalability-patterns\messaging-patterns\.tools\pylib\azure\servicebus\_pyamqp\client.py", line 418, in client_ready
+    if not self.auth_complete():
+           ~~~~~~~~~~~~~~~~~~^^
+  File "Q:\github\logicapps\scalability-patterns\messaging-patterns\.tools\pylib\azure\servicebus\_pyamqp\client.py", line 404, in auth_complete
+    if self._cbs_authenticator and not self._cbs_authenticator.handle_token():
+                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "Q:\github\logicapps\scalability-patterns\messaging-patterns\.tools\pylib\azure\servicebus\_pyamqp\cbs.py", line 256, in handle_token
+    self.update_token()
+    ~~~~~~~~~~~~~~~~~^^
+  File "Q:\github\logicapps\scalability-patterns\messaging-patterns\.tools\pylib\azure\servicebus\_pyamqp\cbs.py", line 219, in update_token
+    access_token = self._auth.get_token()
+  File "Q:\github\logicapps\scalability-patterns\messaging-patterns\.tools\pylib\azure\identity\_internal\decorators.py", line 23, in wrapper
+    token = fn(*args, **kwargs)
+  File "Q:\github\logicapps\scalability-patterns\messaging-patterns\.tools\pylib\azure\identity\_credentials\azure_cli.py", line 129, in get_token
+    token_info = self._get_token_base(*scopes, options=options, **kwargs)
+  File "Q:\github\logicapps\scalability-patterns\messaging-patterns\.tools\pylib\azure\identity\_credentials\azure_cli.py", line 191, in _get_token_base
+    output = _run_command(command_args, self._process_timeout)
+  File "Q:\github\logicapps\scalability-patterns\messaging-patterns\.tools\pylib\azure\identity\_credentials\azure_cli.py", line 307, in _run_command
+    raise error from ex
+azure.identity._exceptions.CredentialUnavailableError: Failed to invoke the Azure CLI
+Traceback (most recent call last):
+  File "Q:\github\logicapps\scalability-patterns\messaging-patterns\.tools\pylib\azure\identity\_credentials\azure_cli.py", line 281, in _run_command
+    return subprocess.check_output(args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "subprocess.py", line 473, in check_output
+  File "subprocess.py", line 557, in run
+  File "subprocess.py", line 1221, in communicate
+  File "subprocess.py", line 1664, in _communicate
+subprocess.TimeoutExpired: Command '['C:\\Program Files\\Microsoft SDKs\\Azure\\CLI2\\wbin\\az.cmd', 'account', 'get-access-token', '--output', 'json', '--resource', 'https://servicebus.azure.net/']' timed out after 10 seconds
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "Q:\github\logicapps\scalability-patterns\messaging-patterns\.tools\pylib\azure\servicebus\_base_handler.py", line 402, in _do_retryable_operation
+    return operation(**kwargs)
+  File "Q:\github\logicapps\scalability-patterns\messaging-patterns\.tools\pylib\azure\servicebus\_servicebus_sender.py", line 277, in _open
+    if self._handler.client_ready():
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "Q:\github\logicapps\scalability-patterns\messaging-patterns\.tools\pylib\azure\servicebus\_pyamqp\client.py", line 418, in client_ready
+    if not self.auth_complete():
+           ~~~~~~~~~~~~~~~~~~^^
+  File "Q:\github\logicapps\scalability-patterns\messaging-patterns\.tools\pylib\azure\servicebus\_pyamqp\client.py", line 404, in auth_complete
+    if self._cbs_authenticator and not self._cbs_authenticator.handle_token():
+                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "Q:\github\logicapps\scalability-patterns\messaging-patterns\.tools\pylib\azure\servicebus\_pyamqp\cbs.py", line 256, in handle_token
+    self.update_token()
+    ~~~~~~~~~~~~~~~~~^^
+  File "Q:\github\logicapps\scalability-patterns\messaging-patterns\.tools\pylib\azure\servicebus\_pyamqp\cbs.py", line 219, in update_token
+    access_token = self._auth.get_token()
+  File "Q:\github\logicapps\scalability-patterns\messaging-patterns\.tools\pylib\azure\identity\_internal\decorators.py", line 23, in wrapper
+    token = fn(*args, **kwargs)
+  File "Q:\github\logicapps\scalability-patterns\messaging-patterns\.tools\pylib\azure\identity\_credentials\azure_cli.py", line 129, in get_token
+    token_info = self._get_token_base(*scopes, options=options, **kwargs)
+  File "Q:\github\logicapps\scalability-patterns\messaging-patterns\.tools\pylib\azure\identity\_credentials\azure_cli.py", line 191, in _get_token_base
+    output = _run_command(command_args, self._process_timeout)
+  File "Q:\github\logicapps\scalability-patterns\messaging-patterns\.tools\pylib\azure\identity\_credentials\azure_cli.py", line 307, in _run_command
+    raise error from ex
+azure.identity._exceptions.CredentialUnavailableError: Failed to invoke the Azure CLI
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Q:\github\logicapps\scalability-patterns\messaging-patterns\scripts\Send-TestMessages.py", line 97, in <module>
+    main()
+    ~~~~^^
+  File "Q:\github\logicapps\scalability-patterns\messaging-patterns\scripts\Send-TestMessages.py", line 73, in main
+    with sender:
+         ^^^^^^
+  File "Q:\github\logicapps\scalability-patterns\messaging-patterns\.tools\pylib\azure\servicebus\_servicebus_sender.py", line 208, in __enter__
+    self._open_with_retry()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "Q:\github\logicapps\scalability-patterns\messaging-patterns\.tools\pylib\azure\servicebus\_base_handler.py", line 574, in _open_with_retry
+    return self._do_retryable_operation(self._open, operation_requires_timeout=True, apply_try_timeout=True)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "Q:\github\logicapps\scalability-patterns\messaging-patterns\.tools\pylib\azure\servicebus\_base_handler.py", line 409, in _do_retryable_operation
+    last_exception = self._handle_exception(exception)
+  File "Q:\github\logicapps\scalability-patterns\messaging-patterns\.tools\pylib\azure\servicebus\_base_handler.py", line 355, in _handle_exception
+    raise error
+azure.servicebus.exceptions.ServiceBusError: Handler failed: Failed to invoke the Azure CLI.

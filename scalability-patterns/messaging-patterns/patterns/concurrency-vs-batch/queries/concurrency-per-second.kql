@@ -1,0 +1,7 @@
+// Parameters: replace {{startUtc}}, {{endUtc}} and {{workflowName}} (tools\Run-Queries.ps1 does this).
+let startTime = datetime({{startUtc}});
+let endTime = datetime({{endUtc}});
+let workflow = '{{workflowName}}';// Runs in flight in each second, for the app and for the busiest instance. A run is in flight from its start (end minus duration) to its end.
+let runs = traces | where timestamp between (startTime .. endTime) | where customDimensions.Category == 'Workflow.Operations.Runs' and customDimensions.EventName == 'WorkflowRunEnd' | where tostring(parse_json(tostring(customDimensions.resource)).workflowName) == workflow | extend durationMs = todouble(customDimensions.prop__durationInMilliseconds) | extend runEnd = timestamp, runStart = timestamp - totimespan(durationMs * 10000), instance = cloud_RoleInstance;
+let perInstance = runs | extend sec = range(bin(runStart, 1s), bin(runEnd, 1s), 1s) | mv-expand sec to typeof(datetime) | summarize inFlight = count() by sec, instance;
+perInstance | summarize appInFlight = sum(inFlight), maxInstanceInFlight = max(inFlight), activeInstances = dcount(instance) by sec | order by sec asc

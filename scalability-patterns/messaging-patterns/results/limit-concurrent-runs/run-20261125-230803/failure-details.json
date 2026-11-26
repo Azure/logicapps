@@ -1,0 +1,8 @@
+[
+  {
+    "source": "exception",
+    "name": "ScaleControllerLogs",
+    "detail": "Failed to initialize scale monitoring for 'orders-limited' function.",
+    "count": 1
+  }
+]

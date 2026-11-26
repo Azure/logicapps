@@ -1,0 +1,1602 @@
+[
+  {
+    "timestamp": "2026-11-26T02:19:06.394Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 38531d66-43be-4208-a7f7-7cd65b709a35 subtotal 1805.04 total 1949.44.",
+    "invocationId": "053ad3b7-9076-4ebd-b59f-806ddc2c4bfa",
+    "cloud_RoleInstance": "1d174d165a1406b539c3d70f7b0182b8a5f3c3a3ae2f1cb92ea4150367b7a68d"
+  },
+  {
+    "timestamp": "2026-11-26T02:19:03.082Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order d1822c33-6337-4032-a839-2955959dd083 subtotal 46.32 total 47.52.",
+    "invocationId": "258af290-6171-4c7e-a571-55cda10bbdc8",
+    "cloud_RoleInstance": "6f2507e6e30da6b9f779c3ab52c055129c255917327e7d52850f4c8c759a0a7b"
+  },
+  {
+    "timestamp": "2026-11-26T02:18:49.120Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order b7605f4a-6b29-4366-9a77-3032843b461d subtotal 3174.56 total 3428.52.",
+    "invocationId": "8ce59588-096f-474a-b8ca-ad4206fed577",
+    "cloud_RoleInstance": "1bebfab062127399eddcaf60d5e9bf6cec46a196078dfa4c34d5564dd233262a"
+  },
+  {
+    "timestamp": "2026-11-26T02:18:46.838Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 9a983955-a4c4-4b2e-bfe5-1ec393ba2e1f subtotal 1838.94 total 1986.06.",
+    "invocationId": "fba2c81f-f5b9-47d4-bbcb-4fbb0dcb1b2b",
+    "cloud_RoleInstance": "ec177001f39cc220e5408a75b0c7fff863c7fe2a3a87b62f55770fa32b927260"
+  },
+  {
+    "timestamp": "2026-11-26T02:18:45.112Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order ac8386d0-d108-4762-9c8e-cb8c1d19f2e3 subtotal 1181.56 total 1276.08.",
+    "invocationId": "08752345-2b69-434f-825b-af77a4f39057",
+    "cloud_RoleInstance": "1bebfab062127399eddcaf60d5e9bf6cec46a196078dfa4c34d5564dd233262a"
+  },
+  {
+    "timestamp": "2026-11-26T02:18:41.881Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 771b008c-dc47-4ccd-84a4-e65bd1dafab4 subtotal 4705.92 total 4828.27.",
+    "invocationId": "eee0e781-ab88-4c8a-8666-3222255c8e54",
+    "cloud_RoleInstance": "b030f554f41ae0dc267e663f9c7dfc1fd83c18c69035699ba525e72e6f435ef9"
+  },
+  {
+    "timestamp": "2026-11-26T02:18:41.412Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order a63105f5-dc4a-4e4d-90da-89b8fb32f03c subtotal 3106.69 total 3187.46.",
+    "invocationId": "07a30220-449b-4a37-a156-7b84ab0a198e",
+    "cloud_RoleInstance": "a4636497a27bfaac1a028f9600df2f1108607e80aa0ae612dab24877f9240dd5"
+  },
+  {
+    "timestamp": "2026-11-26T02:18:36.233Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 5afdcf46-b58f-44eb-a9ed-5ba3b980ce56 subtotal 1548.82 total 1589.09.",
+    "invocationId": "6f13ec03-5069-4308-bb29-706888bdaf06",
+    "cloud_RoleInstance": "a0ee5ef314b501570150d88e6be44ab206c43299bbba91fab7a16615c0bc7a72"
+  },
+  {
+    "timestamp": "2026-11-26T02:18:35.460Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order e2ded8a2-72bd-4f13-a420-076c942c1671 subtotal 1516.32 total 1555.74.",
+    "invocationId": "68f49a84-9342-4cd4-b9c9-5161e57d7953",
+    "cloud_RoleInstance": "6dbddfcc98e2edc0ce5a98ded4c81f9ed63fcc09309e49c487429cc6add6272a"
+  },
+  {
+    "timestamp": "2026-11-26T02:18:32.193Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 6a708745-1174-4115-9d35-f16b74124ce2 subtotal 2813.6 total 2886.75.",
+    "invocationId": "db5abf6e-aa46-448c-8804-b9310c6fd14b",
+    "cloud_RoleInstance": "a0ee5ef314b501570150d88e6be44ab206c43299bbba91fab7a16615c0bc7a72"
+  },
+  {
+    "timestamp": "2026-11-26T02:18:31.184Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order e36e6f88-e78b-4d83-bf14-a757ed0b3370 subtotal 6873.61 total 7052.32.",
+    "invocationId": "cc59edf0-8005-42f1-bc16-8a021b40ca6b",
+    "cloud_RoleInstance": "a0ee5ef314b501570150d88e6be44ab206c43299bbba91fab7a16615c0bc7a72"
+  },
+  {
+    "timestamp": "2026-11-26T02:18:25.861Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order e52ca916-8307-428b-b2fb-f0451e341e78 subtotal 1276.92 total 1379.07.",
+    "invocationId": "b15fbabd-0463-43e7-b776-711e498b3380",
+    "cloud_RoleInstance": "1bebfab062127399eddcaf60d5e9bf6cec46a196078dfa4c34d5564dd233262a"
+  },
+  {
+    "timestamp": "2026-11-26T02:18:21.318Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 4397fb3c-3bef-4138-8962-eb125233301c subtotal 5113.44 total 5246.39.",
+    "invocationId": "3ce83962-9869-447f-9c9f-25d01f3265f1",
+    "cloud_RoleInstance": "a68380f6039146459d2c986cda020a74ce05d59ccfbec0a334a0fd9b43e9e52c"
+  },
+  {
+    "timestamp": "2026-11-26T02:18:17.893Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order c1b06e3a-8476-4c56-a420-12ca7f17a09f subtotal 833.58 total 900.27.",
+    "invocationId": "0494f906-dfc2-45a3-9ee0-6b23705e75a4",
+    "cloud_RoleInstance": "1d174d165a1406b539c3d70f7b0182b8a5f3c3a3ae2f1cb92ea4150367b7a68d"
+  },
+  {
+    "timestamp": "2026-11-26T02:18:16.071Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order d733551a-e0c7-41e2-9226-9f6099e6651f subtotal 1803.45 total 1850.34.",
+    "invocationId": "a3658ed5-b3f7-4d74-8b9e-15730d8fa051",
+    "cloud_RoleInstance": "a0ee5ef314b501570150d88e6be44ab206c43299bbba91fab7a16615c0bc7a72"
+  },
+  {
+    "timestamp": "2026-11-26T02:18:14.601Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 3dfb4835-993a-40f1-baa0-60d3a5e59579 subtotal 1779.16 total 1921.49.",
+    "invocationId": "4576c04f-d059-47b0-bdae-c74cf221d013",
+    "cloud_RoleInstance": "b030f554f41ae0dc267e663f9c7dfc1fd83c18c69035699ba525e72e6f435ef9"
+  },
+  {
+    "timestamp": "2026-11-26T02:18:13.011Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order f90782b7-f150-416d-80b0-3185582b2a65 subtotal 509.6 total 522.85.",
+    "invocationId": "72b7c336-8f1b-42ef-b069-4bd0bebb737d",
+    "cloud_RoleInstance": "a4636497a27bfaac1a028f9600df2f1108607e80aa0ae612dab24877f9240dd5"
+  },
+  {
+    "timestamp": "2026-11-26T02:18:10.099Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 1fbb1376-d445-4f85-9617-f725bd92404a subtotal 1690.37 total 1734.32.",
+    "invocationId": "670a98b6-c58e-4702-aebb-e89592f007b8",
+    "cloud_RoleInstance": "b0d653e3d2c4fba6e75578139341b84b35dee63a8a317f007b2447d8196b79e5"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:59.469Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 27eab6eb-bb45-4697-afc0-d2dfd990a64b subtotal 479.84 total 518.23.",
+    "invocationId": "f5d65097-f0a4-4667-9c59-b695df40db99",
+    "cloud_RoleInstance": "b030f554f41ae0dc267e663f9c7dfc1fd83c18c69035699ba525e72e6f435ef9"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:57.851Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order b93960d3-fa6e-4752-921f-06e0ebbbf808 subtotal 1263.2 total 1296.04.",
+    "invocationId": "f2320571-4dab-4100-aa4e-925e8b45ee4f",
+    "cloud_RoleInstance": "a0ee5ef314b501570150d88e6be44ab206c43299bbba91fab7a16615c0bc7a72"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:57.303Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order c1eb5d67-cfcc-43c2-a5e4-eacbb2faa1fd subtotal 553.95 total 598.27.",
+    "invocationId": "ab4fb081-ace3-47c7-96a5-0b0f1fd86fb9",
+    "cloud_RoleInstance": "ec177001f39cc220e5408a75b0c7fff863c7fe2a3a87b62f55770fa32b927260"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:57.090Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 8094f485-ad55-4f5a-a044-275e21d02e54 subtotal 1582.6 total 1709.21.",
+    "invocationId": "30c4eabe-0f8d-446b-a13d-ea21a7d83921",
+    "cloud_RoleInstance": "6dbddfcc98e2edc0ce5a98ded4c81f9ed63fcc09309e49c487429cc6add6272a"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:56.833Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order ca6edbdc-57ec-44a9-ba1b-8887cad836ec subtotal 545.28 total 559.46.",
+    "invocationId": "4a3a5cc2-7e0d-4a98-8995-646e06879821",
+    "cloud_RoleInstance": "a0ee5ef314b501570150d88e6be44ab206c43299bbba91fab7a16615c0bc7a72"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:55.551Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order db6a6bb3-5c67-4f33-825f-7fd4781b00ea subtotal 1555.4 total 1595.84.",
+    "invocationId": "69f2ea07-3e90-4310-ab85-7763af806326",
+    "cloud_RoleInstance": "1bebfab062127399eddcaf60d5e9bf6cec46a196078dfa4c34d5564dd233262a"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:55.399Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order a8ad14f9-d50a-4ddb-92b9-64e2c9337746 subtotal 7595.06 total 7792.53.",
+    "invocationId": "20991a44-a503-4d76-a93e-d28c45ac4ddb",
+    "cloud_RoleInstance": "b030f554f41ae0dc267e663f9c7dfc1fd83c18c69035699ba525e72e6f435ef9"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:54.814Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order eaeac64c-2815-4a54-861b-5e48685ae020 subtotal 1684.36 total 1728.15.",
+    "invocationId": "081991c5-2a92-447c-abee-9d236811c6ad",
+    "cloud_RoleInstance": "a0ee5ef314b501570150d88e6be44ab206c43299bbba91fab7a16615c0bc7a72"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:54.530Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 8d5cb1e7-e620-4447-8ed1-5f0664601fa6 subtotal 1868.72 total 2018.22.",
+    "invocationId": "ef3277d0-09cd-42f0-9ea4-810937b66d3e",
+    "cloud_RoleInstance": "1bebfab062127399eddcaf60d5e9bf6cec46a196078dfa4c34d5564dd233262a"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:53.968Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 0fad8f32-b2f2-4199-a285-63b9831e154a subtotal 1023.24 total 1105.1.",
+    "invocationId": "bd6b610f-38d0-4698-b7c8-a8a24b473ea6",
+    "cloud_RoleInstance": "b0d653e3d2c4fba6e75578139341b84b35dee63a8a317f007b2447d8196b79e5"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:53.271Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 73180007-0703-4fbc-894e-ffdbf0f80fde subtotal 7146.54 total 7332.35.",
+    "invocationId": "16189888-fb54-49ed-9d88-96d532461e17",
+    "cloud_RoleInstance": "ec177001f39cc220e5408a75b0c7fff863c7fe2a3a87b62f55770fa32b927260"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:53.097Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 3aaca2ea-bbf5-44f3-b13b-c6cf40d5d620 subtotal 847.16 total 914.93.",
+    "invocationId": "d4a44b04-5186-4792-b1c4-7ac6a3c12403",
+    "cloud_RoleInstance": "1c6c7a0a18efcd0c1f62ff61ff05f8a61bfe22533cfce5122cfd179979045df0"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:52.286Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 829f1771-07a5-4063-b79b-3b42a1a11818 subtotal 160.56 total 173.4.",
+    "invocationId": "32c14bce-046a-4749-93aa-ed659f067fbb",
+    "cloud_RoleInstance": "ec177001f39cc220e5408a75b0c7fff863c7fe2a3a87b62f55770fa32b927260"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:51.824Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 8fb3d195-6989-4d4f-82dd-cec60bc8af33 subtotal 3321.08 total 3407.43.",
+    "invocationId": "edc26cee-d346-4ea8-ace5-28a23374bbc9",
+    "cloud_RoleInstance": "6f2507e6e30da6b9f779c3ab52c055129c255917327e7d52850f4c8c759a0a7b"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:50.076Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 328af00c-283b-468f-8979-8d509db213e9 subtotal 3653.3 total 3748.29.",
+    "invocationId": "69cc4ff2-f87e-4b85-afad-2098f8f369bd",
+    "cloud_RoleInstance": "1c6c7a0a18efcd0c1f62ff61ff05f8a61bfe22533cfce5122cfd179979045df0"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:49.494Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 2f64a72f-3209-45f4-8ad5-b261cb66cd06 subtotal 204.86 total 221.25.",
+    "invocationId": "c134867c-9f45-4390-b64f-a4baab825233",
+    "cloud_RoleInstance": "1d174d165a1406b539c3d70f7b0182b8a5f3c3a3ae2f1cb92ea4150367b7a68d"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:45.658Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 538305ee-7611-48e3-864e-addbc21eb325 subtotal 2266.89 total 2325.83.",
+    "invocationId": "a90a5745-7a05-4e7a-bf57-3701f610b8c5",
+    "cloud_RoleInstance": "a0ee5ef314b501570150d88e6be44ab206c43299bbba91fab7a16615c0bc7a72"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:44.319Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 8f2cf540-b668-4cea-997b-9ccad9a1f9b1 subtotal 1850.79 total 1898.91.",
+    "invocationId": "7e2f348a-8a1e-4beb-b2aa-7ed353a37e8b",
+    "cloud_RoleInstance": "b030f554f41ae0dc267e663f9c7dfc1fd83c18c69035699ba525e72e6f435ef9"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:42.415Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 059270bb-da80-4347-8a83-7579a916087e subtotal 2094.23 total 2148.68.",
+    "invocationId": "1be9e862-8a43-49f0-9317-2521ad6c0694",
+    "cloud_RoleInstance": "1bebfab062127399eddcaf60d5e9bf6cec46a196078dfa4c34d5564dd233262a"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:40.582Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order b0ff7551-7f1e-4736-99b1-9c134da37ca3 subtotal 7232.35 total 7420.39.",
+    "invocationId": "033ca3b0-4839-4c6b-8d51-df958adff0e7",
+    "cloud_RoleInstance": "a0ee5ef314b501570150d88e6be44ab206c43299bbba91fab7a16615c0bc7a72"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:40.161Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 6762f554-2e9a-4bca-9b8f-da780092294e subtotal 390.24 total 421.46.",
+    "invocationId": "ab496e3d-1f0e-4bdf-b687-a7595d873833",
+    "cloud_RoleInstance": "ec177001f39cc220e5408a75b0c7fff863c7fe2a3a87b62f55770fa32b927260"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:36.516Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 0b556635-ff91-46aa-bebc-2f87cde494c1 subtotal 5769.54 total 5919.55.",
+    "invocationId": "98a60de3-8aad-46b1-9e3e-1b0e1db15d3d",
+    "cloud_RoleInstance": "a0ee5ef314b501570150d88e6be44ab206c43299bbba91fab7a16615c0bc7a72"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:35.612Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 55115880-5753-4128-8096-2689888ea793 subtotal 2808.75 total 3033.45.",
+    "invocationId": "7fee1b9a-2948-4118-a5f1-ecf276840cbc",
+    "cloud_RoleInstance": "a4636497a27bfaac1a028f9600df2f1108607e80aa0ae612dab24877f9240dd5"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:35.091Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 11446142-9911-47f4-b9f7-234bec2f8535 subtotal 4230.12 total 4340.1.",
+    "invocationId": "1acb1ed1-fd2d-42c1-84d9-24883c818a41",
+    "cloud_RoleInstance": "ec177001f39cc220e5408a75b0c7fff863c7fe2a3a87b62f55770fa32b927260"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:34.927Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 63613199-f68b-455c-8a0b-ed44009e437d subtotal 2428.8 total 2623.1.",
+    "invocationId": "8a0e1f70-2883-4fed-801e-0587b4a92578",
+    "cloud_RoleInstance": "1c6c7a0a18efcd0c1f62ff61ff05f8a61bfe22533cfce5122cfd179979045df0"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:33.324Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 723d7d4c-d5dc-48a1-8d97-2161401616be subtotal 4327.63 total 4440.15.",
+    "invocationId": "dc28083e-daa8-47e6-9a2f-e434fc2af24f",
+    "cloud_RoleInstance": "1bebfab062127399eddcaf60d5e9bf6cec46a196078dfa4c34d5564dd233262a"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:32.140Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 6cd728f5-a9f7-40ec-a79e-5380cd578479 subtotal 1815.99 total 1863.21.",
+    "invocationId": "1b4cbb76-b01c-4af4-a413-4dec54da740e",
+    "cloud_RoleInstance": "b030f554f41ae0dc267e663f9c7dfc1fd83c18c69035699ba525e72e6f435ef9"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:32.072Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order eae4f344-b109-4ded-8b66-681d0a5ed764 subtotal 597.54 total 645.34.",
+    "invocationId": "06bb6e1c-3d67-442f-beab-8a09cc057a42",
+    "cloud_RoleInstance": "ec177001f39cc220e5408a75b0c7fff863c7fe2a3a87b62f55770fa32b927260"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:30.597Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 2bccb48f-d29c-4b71-9332-513a8d465bad subtotal 1489.62 total 1608.79.",
+    "invocationId": "60acf826-842c-4317-bea9-6d588d33505e",
+    "cloud_RoleInstance": "a4636497a27bfaac1a028f9600df2f1108607e80aa0ae612dab24877f9240dd5"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:30.426Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order c5b12f87-abab-4c57-bc22-ad7cf566c61a subtotal 1793.5 total 1840.13.",
+    "invocationId": "b9c8e662-24f2-409d-b552-22e09b8b48ed",
+    "cloud_RoleInstance": "a0ee5ef314b501570150d88e6be44ab206c43299bbba91fab7a16615c0bc7a72"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:29.119Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order a8b02199-4abb-467e-9571-a7100ed2a904 subtotal 1355.67 total 1464.12.",
+    "invocationId": "d6da3203-c1a5-434f-a637-ce7458ec593b",
+    "cloud_RoleInstance": "b030f554f41ae0dc267e663f9c7dfc1fd83c18c69035699ba525e72e6f435ef9"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:28.572Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order beac41d6-36f3-4a47-8004-0835cf657734 subtotal 4359.78 total 4708.56.",
+    "invocationId": "00424958-460e-49f5-a052-015e7f8606c7",
+    "cloud_RoleInstance": "6f2507e6e30da6b9f779c3ab52c055129c255917327e7d52850f4c8c759a0a7b"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:26.715Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order b206b763-cac2-4309-8951-a650c1be7a83 subtotal 537.71 total 551.69.",
+    "invocationId": "04495926-0920-4f1b-bf3b-0ba7914ab236",
+    "cloud_RoleInstance": "b0d653e3d2c4fba6e75578139341b84b35dee63a8a317f007b2447d8196b79e5"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:26.124Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 6f92b7d1-479a-4f08-91f4-57dec86e42f2 subtotal 1816.4 total 1961.71.",
+    "invocationId": "476ded75-a0c2-4902-8bd7-36d492831776",
+    "cloud_RoleInstance": "1bebfab062127399eddcaf60d5e9bf6cec46a196078dfa4c34d5564dd233262a"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:26.063Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 65ce2ec0-41c1-44b4-8e93-457f7a6b7b49 subtotal 50.58 total 54.63.",
+    "invocationId": "c82802df-1689-41b5-a6d5-2a1b32eb2134",
+    "cloud_RoleInstance": "b030f554f41ae0dc267e663f9c7dfc1fd83c18c69035699ba525e72e6f435ef9"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:24.797Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 10f44613-387e-4720-afef-fe627ee7a577 subtotal 7925.4 total 8131.46.",
+    "invocationId": "d9cd8a99-9abf-4146-95fc-26901f23ac26",
+    "cloud_RoleInstance": "1c6c7a0a18efcd0c1f62ff61ff05f8a61bfe22533cfce5122cfd179979045df0"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:22.774Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 467ec97a-e002-42bd-8149-4d566f8a74b9 subtotal 7008.64 total 7190.86.",
+    "invocationId": "c9c65e34-de98-47f0-8cef-884167bd0e2b",
+    "cloud_RoleInstance": "7d39f79e4feec1961d26b8bde6107e2f6bf65844bcf1c9e6baf7751b28ebf6c7"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:22.639Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 79c61afa-ace8-4c89-b384-a8ac5b4324a3 subtotal 1737.05 total 1876.01.",
+    "invocationId": "fabd9938-fef3-40f1-a068-f1724512aa99",
+    "cloud_RoleInstance": "b0d653e3d2c4fba6e75578139341b84b35dee63a8a317f007b2447d8196b79e5"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:21.628Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 6b317c83-92dc-43a2-8bac-f9d0a41de86c subtotal 1698.28 total 1834.14.",
+    "invocationId": "f9ab5a92-7578-4f6a-b0b6-04505d7f9b6c",
+    "cloud_RoleInstance": "b0d653e3d2c4fba6e75578139341b84b35dee63a8a317f007b2447d8196b79e5"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:21.490Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order ae7a33f7-459d-4ade-a082-b425400f4089 subtotal 1007 total 1087.56.",
+    "invocationId": "8362bd8f-906d-4997-9cd6-40ea61540090",
+    "cloud_RoleInstance": "a4636497a27bfaac1a028f9600df2f1108607e80aa0ae612dab24877f9240dd5"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:20.294Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 176bc8a9-f986-4178-b89a-8b19514240ba subtotal 94.24 total 96.69.",
+    "invocationId": "f0ad0115-ea3e-498d-a953-595d99118562",
+    "cloud_RoleInstance": "a0ee5ef314b501570150d88e6be44ab206c43299bbba91fab7a16615c0bc7a72"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:20.292Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order d1fa059a-bafa-4d5e-9b7e-5cb39107bf06 subtotal 58.76 total 60.29.",
+    "invocationId": "7678a90b-4e90-4f9c-af84-4c19edabc47f",
+    "cloud_RoleInstance": "a0ee5ef314b501570150d88e6be44ab206c43299bbba91fab7a16615c0bc7a72"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:19.469Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 2b27a587-4c1f-47c0-a567-f61a9b3cbf4f subtotal 6102.56 total 6261.23.",
+    "invocationId": "58e280e5-bbc9-465c-8d81-5d783c40d9f6",
+    "cloud_RoleInstance": "6f2507e6e30da6b9f779c3ab52c055129c255917327e7d52850f4c8c759a0a7b"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:19.253Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 74080cda-0d14-44e7-b342-c9fd39c6ff81 subtotal 1329.52 total 1435.88.",
+    "invocationId": "61a77710-9a88-4d12-9798-5912d05535d6",
+    "cloud_RoleInstance": "a0ee5ef314b501570150d88e6be44ab206c43299bbba91fab7a16615c0bc7a72"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:18.982Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 3f23ba25-8643-4c3b-9cf7-1545ecaedb95 subtotal 2559.15 total 2625.69.",
+    "invocationId": "54ac6ef1-fa4d-4c1e-a129-2c6d469d56ca",
+    "cloud_RoleInstance": "ec177001f39cc220e5408a75b0c7fff863c7fe2a3a87b62f55770fa32b927260"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:18.598Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order cdf85596-d0aa-4d82-8b6b-7441da5aa59d subtotal 5607.72 total 5753.52.",
+    "invocationId": "a64b1c0d-0b97-409d-a272-0f64adfd7595",
+    "cloud_RoleInstance": "b0d653e3d2c4fba6e75578139341b84b35dee63a8a317f007b2447d8196b79e5"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:17.998Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 855b92ed-510f-4162-b893-6922602bcb9a subtotal 208.86 total 225.57.",
+    "invocationId": "d5731adc-7e1b-41f2-8824-a9164808f749",
+    "cloud_RoleInstance": "b030f554f41ae0dc267e663f9c7dfc1fd83c18c69035699ba525e72e6f435ef9"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:17.458Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order e5b77c61-2b0c-4f6b-ad64-368023079dc3 subtotal 643.12 total 694.57.",
+    "invocationId": "1fa132c4-bf42-4bf0-b1d3-22df78641442",
+    "cloud_RoleInstance": "a4636497a27bfaac1a028f9600df2f1108607e80aa0ae612dab24877f9240dd5"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:16.452Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 3ef227a4-9dbf-4ca7-a225-3a03606c9043 subtotal 1910.6 total 2063.45.",
+    "invocationId": "6dc4b3cf-269c-47e2-9d6a-7030b8b82ff3",
+    "cloud_RoleInstance": "a4636497a27bfaac1a028f9600df2f1108607e80aa0ae612dab24877f9240dd5"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:14.979Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 4e66f64a-0c0c-4156-a45c-242c97ea7b43 subtotal 1547.72 total 1671.54.",
+    "invocationId": "60114001-7c8c-4704-a48a-949fe3d3d9b6",
+    "cloud_RoleInstance": "1d174d165a1406b539c3d70f7b0182b8a5f3c3a3ae2f1cb92ea4150367b7a68d"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:14.547Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 1ad5798c-8f7c-4dd1-9b75-068ad77b6555 subtotal 6294.26 total 6457.91.",
+    "invocationId": "a2dc31e3-ebd3-4d83-9b09-4121c283f069",
+    "cloud_RoleInstance": "b0d653e3d2c4fba6e75578139341b84b35dee63a8a317f007b2447d8196b79e5"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:14.156Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 4054cbb7-2c14-425d-88f5-2d67325b314c subtotal 3378.76 total 3466.61.",
+    "invocationId": "b42ca086-4163-4efc-9b16-f0774e64c8eb",
+    "cloud_RoleInstance": "6f2507e6e30da6b9f779c3ab52c055129c255917327e7d52850f4c8c759a0a7b"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:13.534Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 8340d0f9-9802-43cc-9b2b-0f549545b432 subtotal 561.48 total 606.4.",
+    "invocationId": "ff20e930-1b06-469c-bdd2-bcdaca829dd4",
+    "cloud_RoleInstance": "b0d653e3d2c4fba6e75578139341b84b35dee63a8a317f007b2447d8196b79e5"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:12.427Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 9dfe80fc-8432-4ef2-b6cc-7243cda14648 subtotal 932.04 total 1006.6.",
+    "invocationId": "4b7e7b17-c327-40ca-9c1e-f7d50fca6c59",
+    "cloud_RoleInstance": "a4636497a27bfaac1a028f9600df2f1108607e80aa0ae612dab24877f9240dd5"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:11.427Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 5803bed9-4938-4a77-b206-ee5cc677bcd2 subtotal 1128.6 total 1218.89.",
+    "invocationId": "769acc5d-f3cf-49f0-82bf-7a7e377d8bb4",
+    "cloud_RoleInstance": "a4636497a27bfaac1a028f9600df2f1108607e80aa0ae612dab24877f9240dd5"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:11.116Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order c35fa8a8-720b-46a9-bb83-cb5170599ade subtotal 3849.34 total 3949.42.",
+    "invocationId": "6e5f1410-728f-4747-849b-e2c0e52fa706",
+    "cloud_RoleInstance": "6f2507e6e30da6b9f779c3ab52c055129c255917327e7d52850f4c8c759a0a7b"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:10.984Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 2bd2c270-b9eb-47ee-8610-6b7a0c7589d6 subtotal 360.6 total 389.45.",
+    "invocationId": "7fcb8298-cec0-4f9d-a13d-98c4ba4bfd1a",
+    "cloud_RoleInstance": "1bebfab062127399eddcaf60d5e9bf6cec46a196078dfa4c34d5564dd233262a"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:10.523Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order d77f6078-165c-4085-a5e1-7392c0dac84f subtotal 999 total 1078.92.",
+    "invocationId": "c75c2f0a-dac4-49ba-8a08-233d1c65f307",
+    "cloud_RoleInstance": "b0d653e3d2c4fba6e75578139341b84b35dee63a8a317f007b2447d8196b79e5"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:08.394Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 7f87620e-f8d5-4982-a038-3547cb595cf8 subtotal 1730.4 total 1868.83.",
+    "invocationId": "436fc15e-d2d6-4aca-bec9-7e9eb472da12",
+    "cloud_RoleInstance": "a4636497a27bfaac1a028f9600df2f1108607e80aa0ae612dab24877f9240dd5"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:07.090Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 11c241f0-776e-47b5-ab32-b93983c9172a subtotal 6442.14 total 6609.64.",
+    "invocationId": "f4dccd0d-30af-43c0-b9dd-a89ab019fac5",
+    "cloud_RoleInstance": "a0ee5ef314b501570150d88e6be44ab206c43299bbba91fab7a16615c0bc7a72"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:06.487Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 078fdde2-e429-4859-a1fa-1a36322f1ce2 subtotal 3128.51 total 3209.85.",
+    "invocationId": "3d44fc51-afcc-448b-81c0-e837e2652057",
+    "cloud_RoleInstance": "7d39f79e4feec1961d26b8bde6107e2f6bf65844bcf1c9e6baf7751b28ebf6c7"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:06.091Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 2f592495-ecae-4f9b-aa11-51a5104e7394 subtotal 6310.8 total 6474.88.",
+    "invocationId": "5e8d9eb8-1f17-4a18-94fa-50a9ecc675b3",
+    "cloud_RoleInstance": "a0ee5ef314b501570150d88e6be44ab206c43299bbba91fab7a16615c0bc7a72"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:04.567Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 3ff2ae93-8570-4ea8-b468-b15745d6d156 subtotal 261.15 total 267.94.",
+    "invocationId": "baaadc4f-91c6-49c5-8b52-bdc59a4fcfe2",
+    "cloud_RoleInstance": "a68380f6039146459d2c986cda020a74ce05d59ccfbec0a334a0fd9b43e9e52c"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:04.541Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order c71dc2b5-6c27-4c9a-8ad1-281c2b32c54e subtotal 161.4 total 165.6.",
+    "invocationId": "d439c874-0675-4de8-9dd0-f2712ce3d145",
+    "cloud_RoleInstance": "1c6c7a0a18efcd0c1f62ff61ff05f8a61bfe22533cfce5122cfd179979045df0"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:04.339Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 3e376654-f221-41f9-9113-9e3310633f9c subtotal 993.64 total 1073.13.",
+    "invocationId": "a92715e6-9325-4424-ae03-c918d5617f61",
+    "cloud_RoleInstance": "a4636497a27bfaac1a028f9600df2f1108607e80aa0ae612dab24877f9240dd5"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:03.340Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order c2fcecf9-9857-40f8-81e0-16fdc256d6aa subtotal 5353.74 total 5492.94.",
+    "invocationId": "014b3c91-f3d4-4700-a6b6-0d588dddfcf6",
+    "cloud_RoleInstance": "a4636497a27bfaac1a028f9600df2f1108607e80aa0ae612dab24877f9240dd5"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:03.338Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 821e51df-1a65-4f6a-97bd-5c0f8a38c050 subtotal 750.3 total 810.32.",
+    "invocationId": "8d7ebc74-732b-4c0a-860b-d817ee76e199",
+    "cloud_RoleInstance": "a4636497a27bfaac1a028f9600df2f1108607e80aa0ae612dab24877f9240dd5"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:02.576Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order a4199ea9-fdaf-4251-9a5c-f5db76c3e38b subtotal 6303.18 total 6467.06.",
+    "invocationId": "f9142a43-9403-4e2a-a7ae-0f75b401e4c9",
+    "cloud_RoleInstance": "7d39f79e4feec1961d26b8bde6107e2f6bf65844bcf1c9e6baf7751b28ebf6c7"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:02.027Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order d3360e19-5f55-4efd-8eb8-f77ac3c62437 subtotal 7993.4 total 8201.23.",
+    "invocationId": "fe8e5570-15db-45cb-9967-be9491af6d70",
+    "cloud_RoleInstance": "6f2507e6e30da6b9f779c3ab52c055129c255917327e7d52850f4c8c759a0a7b"
+  },
+  {
+    "timestamp": "2026-11-26T02:17:01.416Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 9a781dbf-616a-47ab-bbf0-bb49e8841cd9 subtotal 3697.29 total 3993.07.",
+    "invocationId": "e0646d93-268c-4985-840f-1f09d985d953",
+    "cloud_RoleInstance": "b0d653e3d2c4fba6e75578139341b84b35dee63a8a317f007b2447d8196b79e5"
+  },
+  {
+    "timestamp": "2026-11-26T02:16:58.305Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 1d2f2e72-712a-424d-83ea-b0b746b3be57 subtotal 2972.07 total 3209.84.",
+    "invocationId": "1b283129-e2e3-4ce7-b185-8b3e7871d0be",
+    "cloud_RoleInstance": "a4636497a27bfaac1a028f9600df2f1108607e80aa0ae612dab24877f9240dd5"
+  },
+  {
+    "timestamp": "2026-11-26T02:16:58.303Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order c7561e64-5955-4ab4-8553-beea876dcfa5 subtotal 454.69 total 491.07.",
+    "invocationId": "45935cdf-d42b-450b-8d91-eb5b2474ae32",
+    "cloud_RoleInstance": "a4636497a27bfaac1a028f9600df2f1108607e80aa0ae612dab24877f9240dd5"
+  },
+  {
+    "timestamp": "2026-11-26T02:16:55.695Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order d6de5cd1-daa0-401b-8114-ab35aa08801e subtotal 1663.74 total 1707.",
+    "invocationId": "3ed4d793-28f9-4016-91d8-24d4ad63fc43",
+    "cloud_RoleInstance": "ec177001f39cc220e5408a75b0c7fff863c7fe2a3a87b62f55770fa32b927260"
+  },
+  {
+    "timestamp": "2026-11-26T02:16:53.319Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 1a01dccb-15c7-48d9-8c9f-a8ab7f70f261 subtotal 1570.45 total 1696.09.",
+    "invocationId": "a1b85121-4c02-43a9-bb99-486c1bcc032c",
+    "cloud_RoleInstance": "1c6c7a0a18efcd0c1f62ff61ff05f8a61bfe22533cfce5122cfd179979045df0"
+  },
+  {
+    "timestamp": "2026-11-26T02:16:52.777Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 4b56c441-503e-4e5b-92a2-c227a225117f subtotal 338.68 total 365.77.",
+    "invocationId": "3467aa3f-f8f0-4539-937e-d09a3171c72f",
+    "cloud_RoleInstance": "b030f554f41ae0dc267e663f9c7dfc1fd83c18c69035699ba525e72e6f435ef9"
+  },
+  {
+    "timestamp": "2026-11-26T02:16:49.080Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order ae1e61c0-f36e-4d06-a002-c4806d734470 subtotal 364.2 total 373.67.",
+    "invocationId": "c427814b-bfb9-4129-97d4-3bd375331af2",
+    "cloud_RoleInstance": "1c6c7a0a18efcd0c1f62ff61ff05f8a61bfe22533cfce5122cfd179979045df0"
+  },
+  {
+    "timestamp": "2026-11-26T02:16:46.394Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 19a80a9d-5321-4c2b-80d2-cdeb762b34e1 subtotal 3191.25 total 3274.22.",
+    "invocationId": "5780111d-0976-4fd2-831c-5d3fa4c78bfc",
+    "cloud_RoleInstance": "a68380f6039146459d2c986cda020a74ce05d59ccfbec0a334a0fd9b43e9e52c"
+  },
+  {
+    "timestamp": "2026-11-26T02:16:45.377Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 6842d0a2-d1bb-4964-975e-67b98f383899 subtotal 5354.91 total 5494.14.",
+    "invocationId": "4b48d0a8-48ab-42e9-b535-fa5107de2ff1",
+    "cloud_RoleInstance": "a68380f6039146459d2c986cda020a74ce05d59ccfbec0a334a0fd9b43e9e52c"
+  },
+  {
+    "timestamp": "2026-11-26T02:16:43.564Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order f62783b4-f71a-4f9a-8ac2-d9d6e7ec308b subtotal 22.4 total 24.19.",
+    "invocationId": "4267c967-0a69-4650-a0f0-ed92f13b9b18",
+    "cloud_RoleInstance": "ec177001f39cc220e5408a75b0c7fff863c7fe2a3a87b62f55770fa32b927260"
+  },
+  {
+    "timestamp": "2026-11-26T02:16:42.572Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order aaa819da-ab49-423a-afac-fdd21804f60d subtotal 278.52 total 300.8.",
+    "invocationId": "9517c586-eac3-45a0-9607-a1bf64ad9784",
+    "cloud_RoleInstance": "ec177001f39cc220e5408a75b0c7fff863c7fe2a3a87b62f55770fa32b927260"
+  },
+  {
+    "timestamp": "2026-11-26T02:16:40.799Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order bb998e4c-5b8f-433b-864b-e6ceb89fec10 subtotal 5151.84 total 5285.79.",
+    "invocationId": "ed1383b4-358b-407b-a74a-8bebfbd2c512",
+    "cloud_RoleInstance": "6f2507e6e30da6b9f779c3ab52c055129c255917327e7d52850f4c8c759a0a7b"
+  },
+  {
+    "timestamp": "2026-11-26T02:16:36.507Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order ec8a2043-c029-4e20-a9ee-8febe9dcfa39 subtotal 594.06 total 641.58.",
+    "invocationId": "e1e8ba45-ef08-4886-93cd-cdc701497030",
+    "cloud_RoleInstance": "ec177001f39cc220e5408a75b0c7fff863c7fe2a3a87b62f55770fa32b927260"
+  },
+  {
+    "timestamp": "2026-11-26T02:16:36.164Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 41ce5973-8f55-41d5-9a77-b94a1ddc6551 subtotal 810.26 total 875.08.",
+    "invocationId": "dc435c03-6539-4ecc-b345-757a5f9cb1de",
+    "cloud_RoleInstance": "b0d653e3d2c4fba6e75578139341b84b35dee63a8a317f007b2447d8196b79e5"
+  },
+  {
+    "timestamp": "2026-11-26T02:16:35.712Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 7d36662c-650d-4cf5-8cd1-f7cef26d556d subtotal 561.52 total 606.44.",
+    "invocationId": "bd91954e-d684-4135-acc1-bf94828c7197",
+    "cloud_RoleInstance": "6f2507e6e30da6b9f779c3ab52c055129c255917327e7d52850f4c8c759a0a7b"
+  },
+  {
+    "timestamp": "2026-11-26T02:16:34.421Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 01a371c1-b02e-42e2-ad93-3820d3930903 subtotal 1049.44 total 1133.4.",
+    "invocationId": "89f70603-ea17-418f-a87a-f488de330296",
+    "cloud_RoleInstance": "4027fc0143679ef66bf1f47f5c86ca84fbae3a7856baa4fd10909e3af0ab2ed3"
+  },
+  {
+    "timestamp": "2026-11-26T02:16:33.528Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 5e963619-27b2-434b-82ac-4de74cd22bd6 subtotal 2973.23 total 3050.53.",
+    "invocationId": "c404fd41-0b57-461f-bdc4-9cf471c1399d",
+    "cloud_RoleInstance": "ec177001f39cc220e5408a75b0c7fff863c7fe2a3a87b62f55770fa32b927260"
+  },
+  {
+    "timestamp": "2026-11-26T02:16:32.003Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 0953d1ba-54b9-474e-a4cd-c1461f4bdcf3 subtotal 1821.12 total 1868.47.",
+    "invocationId": "a2da48ac-639e-4052-9b83-5acadd8b9849",
+    "cloud_RoleInstance": "1c6c7a0a18efcd0c1f62ff61ff05f8a61bfe22533cfce5122cfd179979045df0"
+  },
+  {
+    "timestamp": "2026-11-26T02:16:31.966Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 5dc673b7-6ca1-44e9-bec9-278672addba3 subtotal 5247.33 total 5383.76.",
+    "invocationId": "3b76da18-8bd6-4fb6-aa95-04c364445106",
+    "cloud_RoleInstance": "1c6c7a0a18efcd0c1f62ff61ff05f8a61bfe22533cfce5122cfd179979045df0"
+  },
+  {
+    "timestamp": "2026-11-26T02:16:30.216Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 4a938f80-6dcd-4228-8ebd-7f76d303c9a1 subtotal 5922.3 total 6076.28.",
+    "invocationId": "612a5060-cdc0-4940-a54d-c59a5f8dea94",
+    "cloud_RoleInstance": "a68380f6039146459d2c986cda020a74ce05d59ccfbec0a334a0fd9b43e9e52c"
+  },
+  {
+    "timestamp": "2026-11-26T02:16:29.551Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order f55b6292-dbf5-4386-80e2-61da1088e19c subtotal 5773.3 total 5923.41.",
+    "invocationId": "74ddfdb9-a3a9-4469-a59b-ae5f6822b07f",
+    "cloud_RoleInstance": "ec177001f39cc220e5408a75b0c7fff863c7fe2a3a87b62f55770fa32b927260"
+  },
+  {
+    "timestamp": "2026-11-26T02:16:28.687Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 71cbb25f-7e74-421f-afbf-5b5ad5461667 subtotal 4905.46 total 5033.",
+    "invocationId": "2a0b6e4d-d28b-43b2-984a-247bb14a29ea",
+    "cloud_RoleInstance": "6f2507e6e30da6b9f779c3ab52c055129c255917327e7d52850f4c8c759a0a7b"
+  },
+  {
+    "timestamp": "2026-11-26T02:16:26.153Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 33d571b0-de8d-46cd-803a-b858f835d882 subtotal 6392.8 total 6559.01.",
+    "invocationId": "55cef97f-59e8-4b06-9a44-0e7bfce757fe",
+    "cloud_RoleInstance": "b0d653e3d2c4fba6e75578139341b84b35dee63a8a317f007b2447d8196b79e5"
+  },
+  {
+    "timestamp": "2026-11-26T02:16:24.203Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 1db463e0-96d7-44e8-aed1-60d08a02afdc subtotal 1104.9 total 1193.29.",
+    "invocationId": "3e50a1fa-e3ff-4d1b-9766-543cedcab049",
+    "cloud_RoleInstance": "1d174d165a1406b539c3d70f7b0182b8a5f3c3a3ae2f1cb92ea4150367b7a68d"
+  },
+  {
+    "timestamp": "2026-11-26T02:16:23.209Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 9cbc2ed9-6c87-4f16-925a-609cf2bea262 subtotal 2089.84 total 2257.03.",
+    "invocationId": "93319499-d7d9-4c4e-80f3-fc469d40e74e",
+    "cloud_RoleInstance": "1d174d165a1406b539c3d70f7b0182b8a5f3c3a3ae2f1cb92ea4150367b7a68d"
+  },
+  {
+    "timestamp": "2026-11-26T02:16:19.819Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 8701ac55-127e-4798-8f1d-8f9fd108513e subtotal 3527.91 total 3810.14.",
+    "invocationId": "3d6945d7-8e8f-4bd5-ae70-a62086dec9bd",
+    "cloud_RoleInstance": "1c6c7a0a18efcd0c1f62ff61ff05f8a61bfe22533cfce5122cfd179979045df0"
+  },
+  {
+    "timestamp": "2026-11-26T02:16:17.050Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 4ecd5d78-6913-404a-9d9a-451397a2a941 subtotal 7099.92 total 7284.52.",
+    "invocationId": "0dc1ecc5-3365-4702-9693-5cc41fa45e3d",
+    "cloud_RoleInstance": "a68380f6039146459d2c986cda020a74ce05d59ccfbec0a334a0fd9b43e9e52c"
+  },
+  {
+    "timestamp": "2026-11-26T02:16:15.147Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 859a9957-1c7d-4c6d-a857-74c1ea3cf7ba subtotal 3631.32 total 3725.73.",
+    "invocationId": "0fe99832-553e-44d1-b292-c760f7368099",
+    "cloud_RoleInstance": "a68380f6039146459d2c986cda020a74ce05d59ccfbec0a334a0fd9b43e9e52c"
+  },
+  {
+    "timestamp": "2026-11-26T02:16:13.846Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 8ab0e8eb-c23d-49bc-a2cb-3aa616522952 subtotal 3968.64 total 4286.13.",
+    "invocationId": "71526522-27e7-4ff4-8d25-ada528c22ffc",
+    "cloud_RoleInstance": "a4636497a27bfaac1a028f9600df2f1108607e80aa0ae612dab24877f9240dd5"
+  },
+  {
+    "timestamp": "2026-11-26T02:16:07.702Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order a5249264-1f88-4e6d-9deb-39e9ffb4edfc subtotal 3575.64 total 3668.61.",
+    "invocationId": "d3b6b1d1-5694-4418-93e3-24c8f3937eb8",
+    "cloud_RoleInstance": "1c6c7a0a18efcd0c1f62ff61ff05f8a61bfe22533cfce5122cfd179979045df0"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:08.797Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 6a05e545-be33-4824-9001-d49668c93171 subtotal 682.26 total 736.84.",
+    "invocationId": "0368a204-5beb-4477-b699-8d62a793cda5",
+    "cloud_RoleInstance": "8f0ad63acf53a1eace2fa2d5cce83c92dde24a9400206fe36d825dd2343e355e"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:08.383Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 6138bbb6-c047-4f65-a268-52fd8d44d2cd subtotal 7144.59 total 7330.35.",
+    "invocationId": "086efc5a-8a79-42d3-a27d-b8ab2f55b7fe",
+    "cloud_RoleInstance": "1c6c7a0a18efcd0c1f62ff61ff05f8a61bfe22533cfce5122cfd179979045df0"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:08.178Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order de5ae3fd-a596-4367-97ce-79088658a40f subtotal 1922.36 total 2076.15.",
+    "invocationId": "78e35f94-3176-4d69-8409-fd7df60f3b3b",
+    "cloud_RoleInstance": "a68380f6039146459d2c986cda020a74ce05d59ccfbec0a334a0fd9b43e9e52c"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:07.985Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order a807386d-0fe8-4fd3-823b-87c399b3723e subtotal 4060.84 total 4166.42.",
+    "invocationId": "88106b6a-ff41-453d-a7e2-72e1b9f1a05e",
+    "cloud_RoleInstance": "1bebfab062127399eddcaf60d5e9bf6cec46a196078dfa4c34d5564dd233262a"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:07.733Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 47b87165-7191-4a9c-8ef7-86eda79bfac9 subtotal 8434.04 total 8653.33.",
+    "invocationId": "56e089eb-ade0-4e10-b1e7-9ca088c6c991",
+    "cloud_RoleInstance": "1bebfab062127399eddcaf60d5e9bf6cec46a196078dfa4c34d5564dd233262a"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:07.704Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order a4dfc408-4501-46ce-bb53-2ec493394f71 subtotal 1203.2 total 1299.46.",
+    "invocationId": "47e12f75-d583-47b9-8fcd-073d6f3af46b",
+    "cloud_RoleInstance": "ec177001f39cc220e5408a75b0c7fff863c7fe2a3a87b62f55770fa32b927260"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:06.393Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order b21f1aa3-0d77-42e3-bb30-fb836a0f470b subtotal 989.46 total 1068.62.",
+    "invocationId": "72313797-a31f-4720-a302-9482af840e54",
+    "cloud_RoleInstance": "a0ee5ef314b501570150d88e6be44ab206c43299bbba91fab7a16615c0bc7a72"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:06.391Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 3e1bfa6d-d189-4cb5-a021-4a5236c53f96 subtotal 183.68 total 198.37.",
+    "invocationId": "e63edcb2-be26-466a-8510-dd033498a01c",
+    "cloud_RoleInstance": "a0ee5ef314b501570150d88e6be44ab206c43299bbba91fab7a16615c0bc7a72"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:06.389Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 166e7d2a-1cb4-4f5e-96b4-acfdf290d879 subtotal 4094.1 total 4200.55.",
+    "invocationId": "12022d0c-cb18-4bf1-9000-b5816d356363",
+    "cloud_RoleInstance": "a0ee5ef314b501570150d88e6be44ab206c43299bbba91fab7a16615c0bc7a72"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:06.387Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order ce601aa9-c295-4bde-a047-998fe5f7eb93 subtotal 3946.11 total 4048.71.",
+    "invocationId": "6e0f1c3d-1226-445d-9503-b10fbc0057ae",
+    "cloud_RoleInstance": "1c6c7a0a18efcd0c1f62ff61ff05f8a61bfe22533cfce5122cfd179979045df0"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:06.385Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 855bc2dd-35ea-44f2-82c9-ddbb54b88abb subtotal 8990.28 total 9224.03.",
+    "invocationId": "71e42a37-7c46-401b-a00b-a4f5eff328ea",
+    "cloud_RoleInstance": "1c6c7a0a18efcd0c1f62ff61ff05f8a61bfe22533cfce5122cfd179979045df0"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:06.383Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 1be2456e-a4a3-4a77-a460-b897dce08898 subtotal 3491.28 total 3582.05.",
+    "invocationId": "30a86a84-275b-47da-a447-26cdbe26d284",
+    "cloud_RoleInstance": "1c6c7a0a18efcd0c1f62ff61ff05f8a61bfe22533cfce5122cfd179979045df0"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:06.264Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 075e1ec8-1512-4a77-9238-6ffa67cf1dfa subtotal 450.2 total 461.91.",
+    "invocationId": "ad0ee932-734a-469e-a276-9fe6fff2cd45",
+    "cloud_RoleInstance": "5c032f9536ead4971d3c29868da91573ccad19f1778130a0b22507fb07a769af"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:06.114Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 205851dd-5bcf-4c8c-8b12-f086c54b4fe7 subtotal 2045.1 total 2208.71.",
+    "invocationId": "83e5a68c-ebfb-4c87-aecd-be2ca9e9ecac",
+    "cloud_RoleInstance": "5c032f9536ead4971d3c29868da91573ccad19f1778130a0b22507fb07a769af"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:06.113Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order ff741205-7b09-4f69-8690-ec393e2a700a subtotal 1729.35 total 1867.7.",
+    "invocationId": "6bc0de39-f9f3-4751-ad14-7d99101b48fc",
+    "cloud_RoleInstance": "5c032f9536ead4971d3c29868da91573ccad19f1778130a0b22507fb07a769af"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:06.111Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order dff23eec-2a82-475b-ab06-ce4809501957 subtotal 2320.64 total 2380.98.",
+    "invocationId": "8b6abfde-1763-460f-ae70-4e2ff7ac7c0c",
+    "cloud_RoleInstance": "5c032f9536ead4971d3c29868da91573ccad19f1778130a0b22507fb07a769af"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:06.109Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 0941ec9a-06cb-4a2f-af7f-e127c577348e subtotal 282.8 total 290.15.",
+    "invocationId": "889e2c11-d5c1-4b5e-b320-cad51c212d3b",
+    "cloud_RoleInstance": "5c032f9536ead4971d3c29868da91573ccad19f1778130a0b22507fb07a769af"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:06.108Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 6b7cc66d-5c77-4347-afc7-05212faf4a62 subtotal 761.72 total 822.66.",
+    "invocationId": "1d3bdd07-4d3d-4116-aae5-936c41bf05f0",
+    "cloud_RoleInstance": "5c032f9536ead4971d3c29868da91573ccad19f1778130a0b22507fb07a769af"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:06.106Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 04777d98-738d-4ee1-acd7-3427717ab15f subtotal 1263.15 total 1295.99.",
+    "invocationId": "bc61a821-1034-453c-86be-d8a7162d0c19",
+    "cloud_RoleInstance": "5c032f9536ead4971d3c29868da91573ccad19f1778130a0b22507fb07a769af"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:06.104Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order bee33d8a-9fae-4e9d-b74a-d4142bd4d4bf subtotal 3212.58 total 3469.59.",
+    "invocationId": "ef66dff7-ac4e-46b4-9e86-61d773fc0813",
+    "cloud_RoleInstance": "5c032f9536ead4971d3c29868da91573ccad19f1778130a0b22507fb07a769af"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:06.103Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order f3312c3b-3b3c-4999-9e4d-23c772860706 subtotal 1332.28 total 1438.86.",
+    "invocationId": "1a9528a6-b42e-4674-b7f7-45ac73af053e",
+    "cloud_RoleInstance": "5c032f9536ead4971d3c29868da91573ccad19f1778130a0b22507fb07a769af"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:06.101Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 6b92d459-0f53-4d2a-9b9f-254da0b1eb31 subtotal 1668.32 total 1801.79.",
+    "invocationId": "e577a64e-210e-47a3-a0d4-84914bf7ec62",
+    "cloud_RoleInstance": "5c032f9536ead4971d3c29868da91573ccad19f1778130a0b22507fb07a769af"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:06.099Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 71b4f70d-8756-40e8-bb9d-12ad41f91faf subtotal 941.92 total 1017.27.",
+    "invocationId": "97bdc668-c24c-47c4-a9b7-2be71b94208c",
+    "cloud_RoleInstance": "5c032f9536ead4971d3c29868da91573ccad19f1778130a0b22507fb07a769af"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:06.097Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order dfdb1c46-9bfc-4688-89fb-da923bcdbdec subtotal 3645.92 total 3740.71.",
+    "invocationId": "0dcce407-4bbd-47ba-8d2a-a3a1f7e17387",
+    "cloud_RoleInstance": "5c032f9536ead4971d3c29868da91573ccad19f1778130a0b22507fb07a769af"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:06.095Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 234fd696-a026-4ae2-94d3-73e40f01129b subtotal 4611.08 total 4730.97.",
+    "invocationId": "fb7d54dc-154f-4c69-9d89-12a37f0797ee",
+    "cloud_RoleInstance": "5c032f9536ead4971d3c29868da91573ccad19f1778130a0b22507fb07a769af"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:06.071Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 41d8dbc5-6724-4aee-9d61-bbb8a5ba8495 subtotal 4686.72 total 4808.57.",
+    "invocationId": "4cb21472-be0a-4450-8bf8-57b435bc55a7",
+    "cloud_RoleInstance": "b030f554f41ae0dc267e663f9c7dfc1fd83c18c69035699ba525e72e6f435ef9"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:06.070Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 7ffe02cd-8274-440a-aa93-96b61e534c62 subtotal 537.46 total 580.46.",
+    "invocationId": "b84bc2b5-5826-4d3e-a4e4-2400dd3ed4c1",
+    "cloud_RoleInstance": "5c032f9536ead4971d3c29868da91573ccad19f1778130a0b22507fb07a769af"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:06.069Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 3a333f68-7966-4ebb-a5e1-a0813b5236da subtotal 3187.62 total 3442.63.",
+    "invocationId": "b5726f2c-60ac-4b20-bae3-7c72d5c37eee",
+    "cloud_RoleInstance": "b030f554f41ae0dc267e663f9c7dfc1fd83c18c69035699ba525e72e6f435ef9"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:06.067Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order faf243cb-6b1f-4a97-ba47-9f21378d6053 subtotal 207.54 total 224.14.",
+    "invocationId": "45a6f447-5388-4bb9-ac25-70b113034d4f",
+    "cloud_RoleInstance": "b030f554f41ae0dc267e663f9c7dfc1fd83c18c69035699ba525e72e6f435ef9"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:06.052Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order d271ad4f-b0d8-4cd8-828f-65e83f3e6ea1 subtotal 650.42 total 667.33.",
+    "invocationId": "9c8a5fe2-308a-4549-96e5-f16c6f8753c5",
+    "cloud_RoleInstance": "b030f554f41ae0dc267e663f9c7dfc1fd83c18c69035699ba525e72e6f435ef9"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:06.022Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 3a16899f-8fe5-4af4-a5d3-c80f2dfb5584 subtotal 2714.25 total 2931.39.",
+    "invocationId": "d573fff0-0a2e-4e9e-b8a3-7afc63e82c98",
+    "cloud_RoleInstance": "b030f554f41ae0dc267e663f9c7dfc1fd83c18c69035699ba525e72e6f435ef9"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:06.015Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 16fd8c61-4241-438b-8a3d-dcd59d6abf74 subtotal 6204.8 total 6366.12.",
+    "invocationId": "d5436075-c83c-4978-a63c-497a8a73df32",
+    "cloud_RoleInstance": "b030f554f41ae0dc267e663f9c7dfc1fd83c18c69035699ba525e72e6f435ef9"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.985Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order e1929438-91fc-43aa-9909-669778ca663e subtotal 5951.53 total 6106.27.",
+    "invocationId": "bc74f4d8-8486-4de5-a4dd-c9956e8ac654",
+    "cloud_RoleInstance": "a4636497a27bfaac1a028f9600df2f1108607e80aa0ae612dab24877f9240dd5"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.984Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 289a0e28-19bb-409d-bfef-e86d17a90380 subtotal 3441.82 total 3531.31.",
+    "invocationId": "990fce25-3b91-4979-b8db-f4e0038c4d5f",
+    "cloud_RoleInstance": "b030f554f41ae0dc267e663f9c7dfc1fd83c18c69035699ba525e72e6f435ef9"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.749Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order d66eace8-5cef-4ad9-bfdb-213ad3e85f55 subtotal 1887.2 total 1936.27.",
+    "invocationId": "47027492-8408-4ba3-8b46-d068168baca9",
+    "cloud_RoleInstance": "ec177001f39cc220e5408a75b0c7fff863c7fe2a3a87b62f55770fa32b927260"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.746Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order f8294acf-46dd-4e68-8845-d027736dd59c subtotal 5870.15 total 6022.77.",
+    "invocationId": "05bb528b-f09a-4741-a2be-9a398bbedda6",
+    "cloud_RoleInstance": "ec177001f39cc220e5408a75b0c7fff863c7fe2a3a87b62f55770fa32b927260"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.744Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order af351d15-54b2-4949-a942-55ec82634836 subtotal 880.08 total 902.96.",
+    "invocationId": "5a1a6996-4167-49c9-bfa1-2efa875d6a48",
+    "cloud_RoleInstance": "ec177001f39cc220e5408a75b0c7fff863c7fe2a3a87b62f55770fa32b927260"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.736Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 80333e8a-41d9-4282-9991-000afd9e42b6 subtotal 254.16 total 274.49.",
+    "invocationId": "a4af5a96-1fae-4695-95a6-d5445c600956",
+    "cloud_RoleInstance": "1bebfab062127399eddcaf60d5e9bf6cec46a196078dfa4c34d5564dd233262a"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.728Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 137b5940-ebc4-4295-9293-4cd6d984aed8 subtotal 1654.2 total 1786.54.",
+    "invocationId": "bfe4b577-60f7-450e-9729-07037f6a778a",
+    "cloud_RoleInstance": "1bebfab062127399eddcaf60d5e9bf6cec46a196078dfa4c34d5564dd233262a"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.726Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 95979e5e-cfe6-4404-9f86-54a840d46e4a subtotal 430.24 total 464.66.",
+    "invocationId": "46d25154-74e3-458a-a0e1-fda4765f738c",
+    "cloud_RoleInstance": "1bebfab062127399eddcaf60d5e9bf6cec46a196078dfa4c34d5564dd233262a"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.683Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 3b30b457-d67c-4549-abf0-8edb756c79f9 subtotal 251.16 total 257.69.",
+    "invocationId": "ed005d04-eab2-4ac2-806f-18b626cb2dea",
+    "cloud_RoleInstance": "a0ee5ef314b501570150d88e6be44ab206c43299bbba91fab7a16615c0bc7a72"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.659Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 0c943630-e753-4aee-a935-6d5a03ff5a36 subtotal 289.6 total 297.13.",
+    "invocationId": "3b992311-4681-4e78-b10e-3cc2c6efdbd9",
+    "cloud_RoleInstance": "6dbddfcc98e2edc0ce5a98ded4c81f9ed63fcc09309e49c487429cc6add6272a"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.590Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 0f48ceec-3690-4abe-83e7-0d5b2deef127 subtotal 1416.56 total 1529.88.",
+    "invocationId": "8bc06567-0292-42f0-b5e0-b15b55c18a09",
+    "cloud_RoleInstance": "6dbddfcc98e2edc0ce5a98ded4c81f9ed63fcc09309e49c487429cc6add6272a"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.571Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order c7674909-8a97-42cc-bdad-2eda35798948 subtotal 4448.66 total 4564.33.",
+    "invocationId": "d4d63289-6d58-4c09-abb2-c8fde947bbcb",
+    "cloud_RoleInstance": "1c6c7a0a18efcd0c1f62ff61ff05f8a61bfe22533cfce5122cfd179979045df0"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.571Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 639ab499-6136-4b05-b8d4-489056f3ed07 subtotal 296.38 total 304.09.",
+    "invocationId": "d7a6bc2a-875e-4fc5-97be-5ee8769864d7",
+    "cloud_RoleInstance": "a0ee5ef314b501570150d88e6be44ab206c43299bbba91fab7a16615c0bc7a72"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.569Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 218c87f0-a41d-41d7-9a3d-f812da3e8feb subtotal 98.43 total 106.3.",
+    "invocationId": "e15a3652-fddc-4275-b4c3-26a7a3922672",
+    "cloud_RoleInstance": "1c6c7a0a18efcd0c1f62ff61ff05f8a61bfe22533cfce5122cfd179979045df0"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.567Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 731c7658-9dca-49f7-b16d-9e69071e6ad9 subtotal 940.1 total 1015.31.",
+    "invocationId": "3c5e3996-f31f-4410-be07-5efd253b5dcb",
+    "cloud_RoleInstance": "1c6c7a0a18efcd0c1f62ff61ff05f8a61bfe22533cfce5122cfd179979045df0"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.566Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order e53a868a-c066-4e28-8014-398ed97bbe25 subtotal 1748.46 total 1888.34.",
+    "invocationId": "7be39631-d337-4285-94c6-489dc8c2a3a8",
+    "cloud_RoleInstance": "1c6c7a0a18efcd0c1f62ff61ff05f8a61bfe22533cfce5122cfd179979045df0"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.564Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order cd67faf7-faa2-4e33-88f3-eb7f3ac40a6b subtotal 3631.88 total 3726.31.",
+    "invocationId": "1fc72b77-87dc-43bb-88ca-4a4c16396b83",
+    "cloud_RoleInstance": "1c6c7a0a18efcd0c1f62ff61ff05f8a61bfe22533cfce5122cfd179979045df0"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.562Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order ed23e430-cd22-468e-8afb-1481b3318143 subtotal 3230.7 total 3314.7.",
+    "invocationId": "6845dfda-8fae-48a5-ab0d-27e757222fe4",
+    "cloud_RoleInstance": "1c6c7a0a18efcd0c1f62ff61ff05f8a61bfe22533cfce5122cfd179979045df0"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.560Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 64e31317-0bfe-449c-9f1c-c34e8a18cb68 subtotal 5183.49 total 5318.26.",
+    "invocationId": "8253654a-0f42-4b47-8f66-1d32758f921b",
+    "cloud_RoleInstance": "1c6c7a0a18efcd0c1f62ff61ff05f8a61bfe22533cfce5122cfd179979045df0"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.558Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 6d7b9f42-72dc-4417-8c22-9ce9b8a74584 subtotal 5178.54 total 5313.18.",
+    "invocationId": "63a79f56-fe85-4798-bb55-da7df13860d3",
+    "cloud_RoleInstance": "1c6c7a0a18efcd0c1f62ff61ff05f8a61bfe22533cfce5122cfd179979045df0"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.556Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 44eb3e0e-1f59-43ee-9e1e-8c532d20c8e2 subtotal 4190.25 total 4299.2.",
+    "invocationId": "c717aea7-8174-4bcf-b751-e6e75aeddc03",
+    "cloud_RoleInstance": "1c6c7a0a18efcd0c1f62ff61ff05f8a61bfe22533cfce5122cfd179979045df0"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.555Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order db7b15f7-910b-41f4-b233-dc864819e17a subtotal 919.18 total 992.71.",
+    "invocationId": "c613af3d-2c74-4aa0-956e-f9ce7141dbfc",
+    "cloud_RoleInstance": "1c6c7a0a18efcd0c1f62ff61ff05f8a61bfe22533cfce5122cfd179979045df0"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.553Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order fa22dc07-0f5a-40f6-af58-d69dede5ab1c subtotal 3923.1 total 4236.95.",
+    "invocationId": "f72f73ce-4430-4969-84b8-8fff03498b0d",
+    "cloud_RoleInstance": "1c6c7a0a18efcd0c1f62ff61ff05f8a61bfe22533cfce5122cfd179979045df0"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.549Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 33027ce0-e4ba-4f0b-a9cb-042229c087b3 subtotal 3053 total 3132.38.",
+    "invocationId": "bd1c21f2-8052-4061-bd19-80e099806fdc",
+    "cloud_RoleInstance": "1c6c7a0a18efcd0c1f62ff61ff05f8a61bfe22533cfce5122cfd179979045df0"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.547Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 147c0640-daae-45bf-a18e-62dea3271f22 subtotal 1495.91 total 1534.8.",
+    "invocationId": "421bf647-ec9c-4205-af6a-ca1a09fcad5d",
+    "cloud_RoleInstance": "1c6c7a0a18efcd0c1f62ff61ff05f8a61bfe22533cfce5122cfd179979045df0"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.477Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order fb4a846d-de44-483b-a167-ef652e8024b8 subtotal 8135.6 total 8347.13.",
+    "invocationId": "4bf8488e-e1d8-4ed9-8e4f-412ab12b25e7",
+    "cloud_RoleInstance": "6dbddfcc98e2edc0ce5a98ded4c81f9ed63fcc09309e49c487429cc6add6272a"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.475Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order e12118e3-7722-4f49-a9e7-8d0a2c97f027 subtotal 5660.2 total 5807.37.",
+    "invocationId": "05b6b7a3-d21b-466f-9ad5-0bba4f81870e",
+    "cloud_RoleInstance": "6dbddfcc98e2edc0ce5a98ded4c81f9ed63fcc09309e49c487429cc6add6272a"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.474Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 8c2508df-3a26-4823-bcee-1fc269d5a090 subtotal 1024.92 total 1106.91.",
+    "invocationId": "d4a3e79e-cc12-4ba3-9f58-369f3c71f96f",
+    "cloud_RoleInstance": "6dbddfcc98e2edc0ce5a98ded4c81f9ed63fcc09309e49c487429cc6add6272a"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.472Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order e08762ac-cf5e-401c-9358-35e45f2aca13 subtotal 2276.6 total 2458.73.",
+    "invocationId": "994e49f0-28ab-4ec1-972e-8c85155850de",
+    "cloud_RoleInstance": "6dbddfcc98e2edc0ce5a98ded4c81f9ed63fcc09309e49c487429cc6add6272a"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.469Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order bad35a7c-247b-4504-965c-8bc203d3a38d subtotal 1413.6 total 1450.35.",
+    "invocationId": "a0582d26-3090-4192-827d-e21304dc79c7",
+    "cloud_RoleInstance": "6dbddfcc98e2edc0ce5a98ded4c81f9ed63fcc09309e49c487429cc6add6272a"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.438Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 2cd06529-46ad-47a3-aa62-70e483370be1 subtotal 195.13 total 210.74.",
+    "invocationId": "336763a4-ceac-4ff6-9f4c-2d917106fa97",
+    "cloud_RoleInstance": "a0ee5ef314b501570150d88e6be44ab206c43299bbba91fab7a16615c0bc7a72"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.436Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 8118524c-592b-4d64-a74f-76cb9dec163b subtotal 244.9 total 264.49.",
+    "invocationId": "cfeb343d-8f00-41c1-a8b0-7622d7db8b3c",
+    "cloud_RoleInstance": "a0ee5ef314b501570150d88e6be44ab206c43299bbba91fab7a16615c0bc7a72"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.434Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 04566a74-92ee-492a-9b9c-d9bfe9146f0b subtotal 1302.8 total 1336.67.",
+    "invocationId": "b2f1db14-1c2e-4069-b579-f6f0874f39b7",
+    "cloud_RoleInstance": "a0ee5ef314b501570150d88e6be44ab206c43299bbba91fab7a16615c0bc7a72"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.432Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 311aa18b-7320-4011-9880-5c6518587f6d subtotal 4177.05 total 4285.65.",
+    "invocationId": "943b1a52-728c-4344-bff0-1f3896b698cd",
+    "cloud_RoleInstance": "a0ee5ef314b501570150d88e6be44ab206c43299bbba91fab7a16615c0bc7a72"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.430Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 0b99a05c-e2fa-44a8-aa2e-fd4976c104ae subtotal 2699.28 total 2915.22.",
+    "invocationId": "19c86ffe-9e6c-4b99-87ce-2d2215cedbf6",
+    "cloud_RoleInstance": "a0ee5ef314b501570150d88e6be44ab206c43299bbba91fab7a16615c0bc7a72"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.427Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 6f533d0e-a2c7-4de3-91c4-5c380772853e subtotal 5882.52 total 6035.47.",
+    "invocationId": "c37c81cc-abf6-4485-b52b-3b1bfd921059",
+    "cloud_RoleInstance": "a0ee5ef314b501570150d88e6be44ab206c43299bbba91fab7a16615c0bc7a72"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.425Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 3a5812d5-9eca-421e-b200-a425f784ee50 subtotal 220.41 total 238.04.",
+    "invocationId": "7e36f84d-715f-4a25-a3d5-c3319ce6418b",
+    "cloud_RoleInstance": "a0ee5ef314b501570150d88e6be44ab206c43299bbba91fab7a16615c0bc7a72"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:05.420Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order fdae5b19-e4c5-45e1-8446-1acc5a17eaf2 subtotal 1462.24 total 1579.22.",
+    "invocationId": "317f242a-154b-4ebd-95e1-717199c6e440",
+    "cloud_RoleInstance": "a0ee5ef314b501570150d88e6be44ab206c43299bbba91fab7a16615c0bc7a72"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:03.138Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order c1cc9840-bc3f-4a83-9c02-193eee1622a2 subtotal 433.18 total 467.83.",
+    "invocationId": "c71906c9-c3f9-4c98-a608-29b8ce8b2ff3",
+    "cloud_RoleInstance": "7dfa0bdf81ac3e587a4fbc5fc8f25789cde32bd0231e52fb5992760ef3936e9e"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:02.999Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order ae8a4d69-87d3-4e9b-ac24-83eb77524807 subtotal 2994.55 total 3072.41.",
+    "invocationId": "645decfa-03fb-40fb-a74e-1d2890114da8",
+    "cloud_RoleInstance": "a4636497a27bfaac1a028f9600df2f1108607e80aa0ae612dab24877f9240dd5"
+  },
+  {
+    "timestamp": "2026-11-26T02:14:02.937Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 302c06d2-9f3b-4f3b-bca7-58c805fde0ff subtotal 1598.85 total 1640.42.",
+    "invocationId": "035a2d72-863f-4f51-a333-71d4f6a24af9",
+    "cloud_RoleInstance": "b030f554f41ae0dc267e663f9c7dfc1fd83c18c69035699ba525e72e6f435ef9"
+  },
+  {
+    "timestamp": "2026-11-26T02:12:54.149Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 4845b31b-10b6-4acc-9ed9-48f7ce77c469 subtotal 7283.2 total 7472.56.",
+    "invocationId": "6d0c621e-8b47-48d4-85c7-972e35814b76",
+    "cloud_RoleInstance": "b030f554f41ae0dc267e663f9c7dfc1fd83c18c69035699ba525e72e6f435ef9"
+  },
+  {
+    "timestamp": "2026-11-26T02:12:16.044Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 4d6d8807-879b-41d8-93b8-40042cf5051a subtotal 2165.44 total 2338.68.",
+    "invocationId": "8192f710-cc4b-48d3-98fe-7d103ed68163",
+    "cloud_RoleInstance": "7dfa0bdf81ac3e587a4fbc5fc8f25789cde32bd0231e52fb5992760ef3936e9e"
+  },
+  {
+    "timestamp": "2026-11-26T02:11:11.813Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 757f6f21-a103-458a-8e58-2af872231211 subtotal 4305.07 total 4417.",
+    "invocationId": "26dbf002-41c7-47dd-9351-cbf785fa6219",
+    "cloud_RoleInstance": "5c032f9536ead4971d3c29868da91573ccad19f1778130a0b22507fb07a769af"
+  },
+  {
+    "timestamp": "2026-11-26T02:11:09.025Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order d2a77cdd-a32f-44b6-9fe5-7074f99593b8 subtotal 269.08 total 290.61.",
+    "invocationId": "dea9ac7d-7741-4b6f-ab72-67f3f1739454",
+    "cloud_RoleInstance": "7dfa0bdf81ac3e587a4fbc5fc8f25789cde32bd0231e52fb5992760ef3936e9e"
+  },
+  {
+    "timestamp": "2026-11-26T02:11:09.020Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 0a8e3738-d791-4f07-90ca-3c69481b8ea4 subtotal 1316.16 total 1421.45.",
+    "invocationId": "c9783e5e-3ae3-45ee-a2f7-09849dc98e4a",
+    "cloud_RoleInstance": "7dfa0bdf81ac3e587a4fbc5fc8f25789cde32bd0231e52fb5992760ef3936e9e"
+  },
+  {
+    "timestamp": "2026-11-26T02:11:08.920Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 3834717d-3686-4e06-890c-f736e79b58ed subtotal 447.9 total 483.73.",
+    "invocationId": "ba77b57c-47da-40fa-b76d-179de048f116",
+    "cloud_RoleInstance": "7dfa0bdf81ac3e587a4fbc5fc8f25789cde32bd0231e52fb5992760ef3936e9e"
+  },
+  {
+    "timestamp": "2026-11-26T02:11:08.822Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 7b17f649-e72b-4930-9311-e17f3cf3ae40 subtotal 892.11 total 963.48.",
+    "invocationId": "b7a13ee9-d24e-43d2-bf6e-e9363f16ed23",
+    "cloud_RoleInstance": "ac1bb84c9dec15da244bf7982c17fad237a1969ea0c97eeaa9da0e50827ae4ee"
+  },
+  {
+    "timestamp": "2026-11-26T02:11:08.820Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 0ab1e07c-6fa7-474d-89f8-58efcdbffc67 subtotal 2999.52 total 3239.48.",
+    "invocationId": "bd8bdcda-eb34-4393-8092-fa7d9f5182af",
+    "cloud_RoleInstance": "ac1bb84c9dec15da244bf7982c17fad237a1969ea0c97eeaa9da0e50827ae4ee"
+  },
+  {
+    "timestamp": "2026-11-26T02:11:08.818Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 11b24f1e-d025-4e9c-8065-de976e4292a7 subtotal 462.5 total 474.52.",
+    "invocationId": "87dfc334-2bff-4949-a57f-c46eebd4219d",
+    "cloud_RoleInstance": "ac1bb84c9dec15da244bf7982c17fad237a1969ea0c97eeaa9da0e50827ae4ee"
+  },
+  {
+    "timestamp": "2026-11-26T02:11:08.816Z",
+    "category": "Function.OrderEnricher.User",
+    "severityLevel": 1,
+    "message": "MsgPatOrderEnricher order 5bc4626b-d4ab-4e9f-81a8-f2965d427022 subtotal 3722.29 total 3819.07.",
+    "invocationId": "1b5efbd0-8d07-4070-90ba-e0765e14d310",
+    "cloud_RoleInstance": "ac1bb84c9dec15da244bf7982c17fad237a1969ea0c97eeaa9da0e50827ae4ee"
+  }
+]
