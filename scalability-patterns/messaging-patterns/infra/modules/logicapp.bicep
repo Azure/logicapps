@@ -10,6 +10,9 @@ param identityId string
 param identityClientId string
 param storageAccountName string
 param contentShareName string
+@description('Connection strings for scale units CU01 and later, in a values array. CU00 uses the primary account.')
+@secure()
+param scaleUnitConnections object = {}
 @secure()
 param appInsightsConnectionString string
 param serviceBusFqdn string
@@ -22,6 +25,8 @@ resource storage 'Microsoft.Storage/storageAccounts@2023-05-01' existing = {
 
 var storageConnection = 'DefaultEndpointsProtocol=https;AccountName=${storage.name};AccountKey=${storage.listKeys().keys[0].value};EndpointSuffix=${environment().suffixes.storage}'
 
+// NOTE: A host with Runtime.ScaleUnitsCount above 1 stays in Error unless every unit, CU00 included, has a connection string.
+var scaleUnitConnectionStrings = empty(scaleUnitConnections.?values ?? []) ? [] : concat([storageConnection], scaleUnitConnections.values)
 resource plan 'Microsoft.Web/serverfarms@2023-12-01' = {
   name: planName
   location: location
@@ -82,6 +87,10 @@ resource site 'Microsoft.Web/sites@2023-12-01' = {
       functionsRuntimeScaleMonitoringEnabled: functionsRuntimeScaleMonitoringEnabled
       appSettings: concat(
         filter(map(items(defaultSettings), setting => { name: setting.key, value: string(setting.value) }), setting => !contains(extraAppSettings, setting.name)),
+        map(range(0, length(scaleUnitConnectionStrings)), index => {
+          name: 'CloudStorageAccount.Workflows.ScaleUnitsDataStorage.CU${padLeft(index, 2, '0')}.ConnectionString'
+          value: scaleUnitConnectionStrings[index]
+        }),
         extraSettingsArray)
     }
   }

@@ -40,6 +40,11 @@ param queues array = [
 @description('Topics to create. Each item: { name, subscriptions: [ { name, requiresSession?, maxDeliveryCount?, lockDuration?, sqlFilter? } ] }.')
 param topics array = []
 
+@description('Number of storage scale units for workflow run data. Values above 1 add one storage account per extra unit.')
+@minValue(1)
+@maxValue(32)
+param scaleUnitsCount int = 1
+
 @description('Extra Logic App app settings (name/value object). Overrides defaults with the same name.')
 param extraAppSettings object = {}
 
@@ -85,6 +90,20 @@ module storage 'modules/storage.bicep' = {
   }
 }
 
+resource scaleUnitStorage 'Microsoft.Storage/storageAccounts@2023-05-01' = [for index in range(1, scaleUnitsCount - 1): {
+  name: 'st${shortId}${take(suffix, 8)}cu${padLeft(index, 2, '0')}'
+  location: location
+  tags: tags
+  kind: 'StorageV2'
+  sku: { name: 'Standard_LRS' }
+  properties: {
+    minimumTlsVersion: 'TLS1_2'
+    allowBlobPublicAccess: false
+    allowSharedKeyAccess: true
+    supportsHttpsTrafficOnly: true
+  }
+}]
+
 module serviceBus 'modules/servicebus.bicep' = {
   name: 'servicebus'
   params: {
@@ -126,6 +145,9 @@ module logicApp 'modules/logicapp.bicep' = {
     identityClientId: identity.outputs.clientId
     storageAccountName: storage.outputs.name
     contentShareName: storage.outputs.contentShareName
+    scaleUnitConnections: {
+      values: [for index in range(0, scaleUnitsCount - 1): 'DefaultEndpointsProtocol=https;AccountName=${scaleUnitStorage[index].name};AccountKey=${scaleUnitStorage[index].listKeys().keys[0].value};EndpointSuffix=${environment().suffixes.storage}']
+    }
     appInsightsConnectionString: monitoring.outputs.appInsightsConnectionString
     serviceBusFqdn: serviceBus.outputs.fqdn
     cosmosEndpoint: cosmos.outputs.endpoint
