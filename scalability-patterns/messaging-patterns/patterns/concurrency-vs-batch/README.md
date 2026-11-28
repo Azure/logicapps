@@ -1,12 +1,14 @@
-# Concurrency vs batch: two ways to control throughput
+# Trigger concurrency and batch trigger under heavy load
 
 ## What it shows
 
-At high load, how does a Service Bus trigger with trigger concurrency at its limit compare with
-the batch trigger for controlling throughput? Both designs run in one Logic Apps Standard app on
-the same WS1 plan (2 to 10 instances) and get the same load: about 119,000 messages sent at about
-500 msg/s for 3 minutes, then a 10-minute drain. The runs went one after the other, each on its
-own queue, with the other design's trigger turned off.
+How two designs behave under heavy load: a Service Bus trigger with trigger concurrency at 100,
+and the batch trigger. They serve different scenarios. Trigger concurrency limits how many runs
+process messages at once. The batch trigger groups messages for release. This sample reports each
+on its own. Both designs run in one Logic Apps Standard app on a WS1 plan (2 to 10 instances) and
+get the same load: about 119,000 messages sent at about 500 msg/s for 3 minutes, then a 10-minute
+drain. The runs went one after the other, each on its own queue, with the other design's trigger
+turned off.
 
 ## Flow
 
@@ -72,9 +74,7 @@ az webapp config appsettings set -g rg-msgpat-concurrency-vs-batch -n <app> `
 .\patterns\concurrency-vs-batch\tools\Run-Queries.ps1 -Pattern $p -RunId <runId> `
     -StartUtc <start> -EndUtc <end>
 
-# 4. After both runs, draw the comparison and scale down.
-python patterns\concurrency-vs-batch\tools\New-ComparisonCharts.py `
-    results\$p\<runA> results\$p\<runB> results\$p\comparison.png
+# 4. Scale down when you're done.
 .\scripts\Set-PatternScale.ps1 -Pattern $p -Down
 ```
 
@@ -83,58 +83,67 @@ because a backlog that does not drain carries into the next one.
 
 ## Results
 
-Runs: A `run-20261125-231420`, B `run-20261125-234025`. westus3, WS1, same load.
+The two designs serve different scenarios, so the results below stand on their own. They are not
+a ranking. Both runs used westus3, WS1 (2 to 10 instances) and the same load.
 
-![Comparison](../../results/concurrency-vs-batch/comparison.png)
+Kit charts sit beside each run's timeline (`throughput.png`, `run-latency.png`,
+`e2e-latency.png`, `queue-backlog.png`, `instances.png`).
 
-Per-run timelines (Service Bus in/out and backlog, instances, CPU and memory):
-[A](../../results/concurrency-vs-batch/run-20261125-231420/timeline.png),
-[B](../../results/concurrency-vs-batch/run-20261125-234025/timeline.png).
-Kit charts sit beside them (`throughput.png`, `run-latency.png`, `e2e-latency.png`,
-`queue-backlog.png`, `instances.png`).
+### A: trigger concurrency 100
 
-| Metric | A: concurrency 100 | B: batch (1 s, 200) |
-|---|---|---|
-| Messages sent | 119,100 | 119,180 |
-| Taken off the queue | about 6 msg/s | about 20-65 msg/s (into the batch store) |
-| Orders processed (`Process_order` ended) | 6,002 in about 17 min | about 2,077 in 23 min |
-| Processing rate | 5.7-5.9 msg/s average, 6.85 peak | about 1.5 msg/s average, in bursts up to 12/s (30 s average) |
-| Rate shape | Flat, dips to 3/s about every 3 min | Nothing for 10 min, then bursts and gaps |
-| Runs in flight | p50 28, p95 40, max 49 | p50 809, max about 1,178 |
-| Run duration | p50 0.73 s, p95 1.28 s | `process-batch-item` p50 235 s, p95 253 s |
-| End-to-end latency (sent to processed) | p50 506 s, p95 984 s | p50 900 s, p95 1,021 s |
-| Peak backlog | 117,489 (queue) | 119,180 (queue), then moved into the batch store |
-| Instances | 2 (the minimum) | 1 reported telemetry |
-| CPU | 17-28% average, 87% max | about 48% average, 97-99% max |
-| Memory | 51-54% average | 53-56% average, 67% max |
-| Batch releases | none | 42 |
-| Failures | 0 | 0 |
+Run `run-20261125-231420`.
+[Timeline](../../results/concurrency-vs-batch/run-20261125-231420/timeline.png)
+(Service Bus in and out, backlog, instances, CPU and memory).
 
-Neither run drained its backlog in the window. Neither design scaled out: the elastic scaler did
-not add instances for either trigger.
+| Metric | Value |
+|---|---|
+| Messages sent | 119,100 |
+| Taken off the queue | about 6 msg/s |
+| Orders processed (`Process_order` ended) | 6,002 in about 17 min |
+| Processing rate | 5.7-5.9 msg/s average, 6.85 peak, flat with dips to 3/s about every 3 min |
+| Runs in flight | p50 28, p95 40, max 49 |
+| Run duration | p50 0.73 s, p95 1.28 s |
+| End-to-end latency (sent to processed) | p50 506 s, p95 984 s |
+| Peak backlog | 117,489 (queue) |
+| Instances | 2 (the minimum) |
+| CPU, memory | CPU 17-28% average, 87% max; memory 51-54% average |
+| Failures | 0 |
 
-### What we learned
+- **The rate is steady and bounded.** With 100 runs allowed, only about 30-50 were ever in flight.
+  The child call, not the limit, set the pace, and CPU stayed low.
+- **The backlog waits on the queue,** where it costs nothing. The backlog did not drain in the
+  window, and the scaler did not add instances.
+- Use trigger concurrency to limit the rate into a downstream system or to keep the app steady
+  under a spike.
 
-- **A gives a steady, bounded rate.** With 100 runs allowed, only about 30-50 were ever in
-  flight on 2 instances. The child call, not the limit, set the pace. CPU stayed low and the
-  rate stayed near 6 msg/s for the whole run. The backlog waits on the queue, where it costs
-  nothing.
-- **B moves the backlog, it does not control it.** The ingress workflow drains the queue faster
-  than A, but each release fans out into one child run per item with no cap. More than 1,000
-  runs piled up on one instance, CPU hit 99%, each run waited about 4 minutes for a worker, and
-  orders came out in bursts. Throughput was lower than A and latency higher.
-- **The batch trigger adds overhead.** Every message costs an ingress run, a batch store write,
-  a release and a child run, on top of the work itself.
+### B: batch trigger (release every 1 s or at 200 items)
 
-### When to use which
+Run `run-20261125-234025`.
+[Timeline](../../results/concurrency-vs-batch/run-20261125-234025/timeline.png).
 
-- Use **trigger concurrency** when you want to limit the rate into a downstream system or keep
-  the app steady under a spike. Let the queue hold the backlog.
-- Use the **batch trigger** when the goal is grouping: one call per group, a time window, or a
-  partition. Do not use it as a throttle. If you must process items one by one after a release,
-  cap the fan-out (for example a `For each` with a concurrency limit) instead of calling a
-  workflow per item.
+| Metric | Value |
+|---|---|
+| Messages sent | 119,180 |
+| Taken off the queue | about 20-65 msg/s (into the batch store) |
+| Orders processed (`Process_order` ended) | about 2,077 in 23 min |
+| Processing rate | about 1.5 msg/s average, bursts up to 12/s (30 s average), nothing for the first 10 min |
+| Batch releases | 42 |
+| Runs in flight | p50 809, max about 1,178 |
+| `process-batch-item` run duration | p50 235 s, p95 253 s |
+| End-to-end latency (sent to processed) | p50 900 s, p95 1,021 s |
+| Peak backlog | 119,180 (queue), then moved into the batch store |
+| Instances | 1 reported telemetry |
+| CPU, memory | CPU about 48% average, 97-99% max; memory 53-56% average, 67% max |
+| Failures | 0 |
 
+- **The batch trigger groups messages; it does not throttle them.** Each release starts one child
+  run per item with no cap, so more than 1,000 runs piled up on one instance, CPU reached 99%, and
+  each run waited about 4 minutes for a worker.
+- **Each message costs more work:** an ingress run, a batch store write, a release and a child
+  run, on top of the work itself.
+- Use the batch trigger when the goal is grouping: one call per group, a time window, or a
+  partition. If you must handle items one by one after a release, cap the fan-out, for example
+  with a `For each` concurrency limit, instead of calling a workflow per item.
 ## Notes
 
 - App Insights has no telemetry for B from 23:40 to 23:50. The app restarted after the
@@ -144,7 +153,7 @@ not add instances for either trigger.
 - Service Bus completed-message counts measure intake. In B they show messages moved into the
   batch store, not orders processed. The processing rate comes from `Process_order` action
   ends in the shared child.
-- The `completions-per-second` query omits seconds with no completions. The comparison chart
-  bins it into 30-second buckets and fills empty buckets with zero.
+- The `completions-per-second` query omits seconds with no completions.
+
 - `Reset-Queue.ps1` dropped about 71,000 messages still queued after run B.
 - The app is scaled down (plan WS1, max burst 1, app stopped). The resource group stays.

@@ -4,7 +4,7 @@
   "location": "westus3",
   "requestedLocation": "westus3",
   "capacityNote": null,
-  "deployedAtUtc": "2026-11-25T22:52:22.8102107Z",
+  "deployedAtUtc": "2026-11-28T06:36:16.5530717Z",
   "appInsightsAppId": "e735024b-551e-48ba-bf15-b85e56cd3c9a",
   "appInsightsId": "/subscriptions/21196cdf-abb2-4697-9f73-feef0db7cb2a/resourceGroups/rg-msgpat-child-type/providers/Microsoft.Insights/components/appi-msgpat-childtype-yyw6jt",
   "appInsightsName": "appi-msgpat-childtype-yyw6jt",

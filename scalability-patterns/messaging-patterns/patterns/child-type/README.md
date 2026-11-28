@@ -14,7 +14,7 @@ child:
 
 `process-order-stateful` has the same actions as `shared/logicapp/process-order`;
 only `kind` differs. Both variants run in one Logic App on the same WS1 plan
-(2 to 10 instances).
+(2 always-ready, up to 20 instances).
 
 ## Flow
 
@@ -37,7 +37,7 @@ runs through the storage-backed job queue, like the parent.
 
 | Setting | Value | Why |
 |---|---|---|
-| Plan | WS1, 2 always-ready, max burst 10 | Same as 1a |
+| Plan | WS1, 2 always-ready, max 20 instances, runtime scale monitoring on | Same for A and B |
 | Trigger | Service Bus, `splitOn`, no concurrency limit | Same as 1a |
 | `loadTest.queueName` | `orders-a` or `orders-b` | Selects the variant to load |
 | `measurement.workflowName` | `orders-stateless-child` or `orders-stateful-child` | Selects the parent to measure |
@@ -58,109 +58,56 @@ The checked-in `params.json` targets variant A. To run B, set `loadTest.queueNam
 ./scripts/Set-PatternScale.ps1 -Pattern child-type -Down
 ```
 
-Charts: `python results/child-type/run-20261125-230008/comparison/make_charts.py`
-(needs matplotlib) reads the CSVs in that folder.
+Run A and B one after the other, never at the same time, and with the same
+plan settings. Scale the app down and clear leftover runs between them.
 
 ## Results
 
-### Clean A vs B (B rerun alone, 26 November 2026)
+A and B ran alone, one after the other, with the same settings: WS1,
+2 always-ready, max 20 instances, runtime scale monitoring on, and about
+54,000 messages at 300 msg/s for 3 minutes. Region westus3.
 
-B was rerun alone in [`run-20261126-014614`](../../results/child-type/run-20261126-014614/).
-Before the load started, all leftover runtime state and queue messages were
-cleared, so no wave 3 backlog ran with it. A is the wave 3 run
-[`run-20261125-230008`](../../results/child-type/run-20261125-230008/), which ran
-alone until B started. Both used the same load: about 54,000 messages at 300
-msg/s for 3 minutes.
+- A: [`run-20261128-064144`](../../results/child-type/run-20261128-064144/), 28 November 2026
+- B: [`run-20261126-014614`](../../results/child-type/run-20261126-014614/), 26 November 2026
 
 | Measure | A: stateless child | B: stateful child |
 |---|---|---|
-| Messages sent | 53,890 | 53,900 |
-| Parent runs finished / failed | 53,592 at export / 0 | 53,916 / 0 |
-| Instances | 2 (max burst 10) | 19-20 (max burst 20) |
-| Parent throughput | 15-19 runs/s | about 99 runs/s (01:50-01:59), peak 284 runs/s |
-| Parent throughput per instance | about 8.5 runs/s | about 5 runs/s |
-| End-to-end latency p50 / p95 | 1,405 s / 2,898 s | 352 s / 454 s |
-| Parent run duration p50 / p95 | 754 s / 1,760 s | 244 s / 339 s |
-| Child run duration p50 / p95 | 14.3 s / 31.9 s | about 147 s / 232 s |
-| CPU avg / max during load | 85.5% / 98.1% | 91.8% / 100% |
-| Memory avg / max during load | 61.3% / 65.5% | 60.3% / 78% |
-| First send to last run finished | about 53 min (estimated from throughput) | 1,114 s (most runs done in 9 min) |
+| Messages sent | 53,930 | 53,900 |
+| Parent runs finished / failed | 53,930 / 0 | 53,916 / 0 |
+| Peak instances | 20 | 20 |
+| Peak parent runs/s | 229 | 284 |
+| Average msg/s, first send to last run finished | 130.9 | 48.4 |
+| First send to last run finished | 412 s | 1,114 s |
+| Queue backlog peak | 13,690 | 21,465 |
+| End-to-end latency p50 / p95 / p99 | 153 s / 284 s / 311 s | 352 s / 454 s / 493 s |
+| Parent run duration p50 / p95 | 88 s / 180 s | 244 s / 339 s |
+| Child call (`Process_order`) p50 / p95 | 13 s / 32 s | 40 s / 249 s |
+| Storage transactions, whole run | 1.16 million | 5.58 million |
+| Child run history | None | Every run and action |
 
-B's child durations are run-weighted averages of per-minute percentiles.
-B finished faster only because the plan scaled out to 20 instances, where A
-stayed at 2. Compare per instance: the stateless child still moved about 1.7
-times as many parent runs per instance, and its child runs took seconds, not
-minutes. B had 5 failed `Process_order` actions, but no parent run failed.
+B had 5 failed `Process_order` actions that the parent retried; no parent run
+failed.
 
-Charts: [throughput](../../results/child-type/run-20261126-014614/throughput.png),
-[latency](../../results/child-type/run-20261126-014614/e2e-latency.png),
-[instances](../../results/child-type/run-20261126-014614/instances.png),
-[timeline](../../results/child-type/run-20261126-014614/timeline.png).
-
-### Wave 3 (overlapping runs, 25-26 November 2026)
-
-Runs on 25-26 November 2026, westus3. A: 53,890 messages sent, run
-`run-20261125-230008`. B: 54,020 messages sent, run `run-20261125-231852`.
-The B run is superseded by `run-20261126-014614`: it overlapped A and only
-10,138 runs finished before export. All finished runs succeeded.
-
-| Measure | A: stateless child | B: stateful child |
-|---|---|---|
-| Parent throughput, variant alone | 15-19 runs/s | about 10 runs/s |
-| Parent throughput, while sharing the app | (A finishing) | 1-4.5 runs/s |
-| End-to-end latency p50 / p95 | 1,405 s / 2,898 s | 2,537 s / 2,968 s (partial) |
-| Child run duration p50 / p95 | 14.3 s / 31.9 s | 869 s / 1,675 s (partial) |
-| Parent run duration p50 / p95 | 754 s / 1,760 s | 1,925 s / 2,578 s (partial) |
-| Storage transactions per minute | 27,954 (A alone) | 43,084 (A and B together) |
-| CPU avg / max | 85.5% / 98.1% | 96.8% / 97.1% (B alone) |
-| Memory avg / max | 61.3% / 65.5% | 57.4% / 59.0% (B alone) |
-| Instances | 2 | 2 |
-| Child run history | None (run list is empty) | Every run and action |
-| Parent runs finished at export | 53,592 | 10,138 of 54,020 |
-
-Total storage transactions from 22:55 to 00:20 UTC: 2.87 million, peaking at
-67,119 per minute.
-
-![Processing rate](../../results/child-type/run-20261125-230008/comparison/processing-rate.png)
-![End-to-end latency](../../results/child-type/run-20261125-230008/comparison/e2e-latency.png)
-![Child run duration](../../results/child-type/run-20261125-230008/comparison/child-run-duration.png)
-![Instances](../../results/child-type/run-20261125-230008/comparison/instances.png)
-![CPU and memory](../../results/child-type/run-20261125-230008/comparison/cpu-memory.png)
-![Storage transactions](../../results/child-type/run-20261125-230008/comparison/storage-transactions.png)
-
-### What changed and what did not
-
-- The stateful child roughly halved parent throughput on the same CPU-bound
-  plan, from 15-19 to about 10 runs/s.
-- Child run duration rose from seconds to minutes. Stateful child runs wait in
-  the same storage job queue as the parent runs that call them.
-- Storage transactions rose: each stateful child action is a storage write.
-- In wave 3, CPU stayed at about 95% and the plan stayed at 2 instances, so the
-  plan, not Service Bus, set the limit. In the B rerun alone, with max burst 20,
-  the plan scaled out to 20 instances and B drained in about 19 minutes.
-- Only the stateful child keeps run history you can open in the portal.
+![Stateless vs stateful child, same settings](../../results/child-type/matched-comparison.png)
 
 ## Conclusion
 
-Use a **stateless** child when it is small and all-or-nothing. If it fails,
-let the parent retry it. It is cheaper and moved about 1.7 times as many runs
-per instance here.
+With the same settings, the stateless child finished all the work about 2.7
+times sooner and used about a fifth of the storage transactions. Both variants
+reached 20 instances and both queues emptied within about 5 minutes. The
+stateful child runs then waited in the same storage job queue as the parents
+that called them, so the last runs finished about 18 minutes after the first
+message.
 
-Use a **stateful** child when you need per-step run history, or the child is
-long-running and must survive a restart. Expect lower throughput and more
-storage transactions.
+Use a **stateless** child when it is short and all-or-nothing. If it fails,
+let the parent retry it.
 
-## Notes
+Use a **stateful** child when you need run history for each child run, or the
+child is long-running and must survive a restart. Expect more storage load and
+a longer tail.
 
-- The runs overlapped. `splitOn` completes each message when it creates the
-  run, so the queue drains long before the runs finish. The load test's fixed
-  drain ended A's export early, and B started while A's backlog was still
-  running. The B figures marked "partial" cover the runs finished before
-  export; the "variant alone" rows use the minutes when only one variant ran.
-- The plan did not scale out beyond 2 instances despite about 95% CPU.
-- Always-ready instance provisioning took about 3.5 minutes inside the
-  measured window.
-- After the wave 3 export, about 44,000 B runs stayed pending in storage. They
-  were cleared before the B rerun, which ran alone.
-- The B rerun used max burst 20; A used max burst 10 and stayed at 2 instances.
-  Compare the two per instance, not by wall-clock time.
+## Earlier runs
+
+Earlier runs on 25 November 2026 (`run-20261125-230008`,
+`run-20261125-231852`) used different scale settings for A and B, and B
+overlapped A. Don't compare them. They're kept for reference only.

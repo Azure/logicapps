@@ -102,10 +102,10 @@ All runs: westus3, WS1, Service Bus Standard. Charts are in `results/7-long-runn
 - Holding the lock also lost nothing: no lock was lost, no message came back, and 724 renewals
   succeeded. But each Stateless run held its batch for about three minutes, so throughput fell
   to about 0.26 msg/s. Messages waited up to seven minutes in the queue before a run took them.
-- Holding the lock in a Stateful workflow doubled throughput (0.53 vs 0.26 msg/s) and cut
-  end-to-end p50 from 444 s to 162 s. The `splitOn` trigger gives each message its own run, so
-  162 runs held their locks at once on one instance. The Stateless runs worked through each
-  batch one message at a time and scaled out to five instances.
+- Holding the lock in a Stateful workflow reached 0.53 msg/s with end-to-end p50 of 162 s. The
+  `splitOn` trigger gives each message its own run, so 162 runs held their locks at once on one
+  instance. The Stateless runs worked through each batch one message at a time and scaled out to
+  five instances. Because the instance counts differ, these runs don't rank the two designs.
 - Both designs renewed the lock 724 times with no failure, no redelivery and no dead letter.
   Stateful renewals were faster (p95 21 ms vs 200 ms).
 - Stateful used about the same average CPU but a lower per-minute peak (41% vs 99%), slightly
