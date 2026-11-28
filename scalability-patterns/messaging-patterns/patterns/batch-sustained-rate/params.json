@@ -1,0 +1,57 @@
+{
+  "$comment": "Batch sustained rate: the same sustained incoming rate (2,000 msg/s: 15 minutes warm-up, then a 15-minute steady window) processed by two release configurations. A: 4 ingress+receiver pairs, messageCountLimit 400 (release ceiling about 4 x 400 / 1.5 s = about 1,000 msg/s). B: 10 pairs, messageCountLimit 500 (release ceiling about 4,500 msg/s). Workflows are in workflows-a and workflows-b. Runtime.ScaleUnitsCount 6 needs one extra storage account per scale unit; see README.md.",
+  "location": "westus3",
+  "planSku": "WS3",
+  "maximumElasticWorkerCount": 100,
+  "functionAppScaleLimit": 100,
+  "minimumElasticInstanceCount": 10,
+  "functionsRuntimeScaleMonitoringEnabled": true,
+  "serviceBusSku": "Premium",
+  "serviceBusCapacity": 8,
+  "storageScaleUnits": 6,
+  "queues": [
+    {
+      "name": "orders",
+      "lockDuration": "PT5M",
+      "maxDeliveryCount": 10,
+      "maxSizeInMegabytes": 81920
+    }
+  ],
+  "topics": [],
+  "extraAppSettings": {
+    "CloudStorageAccount.Workflows.ScaleUnitsDataStorage.CU00.ConnectionString": "<storage account 0>",
+    "CloudStorageAccount.Workflows.ScaleUnitsDataStorage.CU01.ConnectionString": "<storage account 1>",
+    "CloudStorageAccount.Workflows.ScaleUnitsDataStorage.CU02.ConnectionString": "<storage account 2>",
+    "CloudStorageAccount.Workflows.ScaleUnitsDataStorage.CU03.ConnectionString": "<storage account 3>",
+    "CloudStorageAccount.Workflows.ScaleUnitsDataStorage.CU04.ConnectionString": "<storage account 4>",
+    "CloudStorageAccount.Workflows.ScaleUnitsDataStorage.CU05.ConnectionString": "<storage account 5>"
+  },
+  "hostSettings": {
+    "Runtime.ScaleUnitsCount": "6",
+    "Jobs.NumPartitionsInJobTriggersQueue": "8",
+    "Runtime.Trigger.MaximumRunConcurrency": "10000",
+    "Runtime.FlowRunEngine.MaximumConcurrentSplitOnItemLimit": "1000",
+    "Runtime.FlowTriggerDispatchingJob.MessageProcessingConcurrencyLimit": "32",
+    "Runtime.FlowTriggerDispatchingJob.MaximumTriggerDispatchSize": "32",
+    "Runtime.BatchConfiguration.MinimumRecurrenceInterval": "00:00:01",
+    "Runtime.BatchConfiguration.AllowMessageCountInRecurrence": "true",
+    "Runtime.FlowBatchTriggerReleaseJob.ExecutionInterval": "00:00:00.100",
+    "Runtime.FlowBatchTriggerPushJob.ExecutionInterval": "00:00:01",
+    "Runtime.FlowBatchTriggerPushJob.DisableSafetyLimitsRelease": "true"
+  },
+  "configurations": {
+    "a": { "workflows": "workflows-a", "pairs": 4, "messageCountLimit": 400, "recurrence": "Second/1" },
+    "b": { "workflows": "workflows-b", "pairs": 10, "messageCountLimit": 500, "recurrence": "Second/1" }
+  },
+  "loadTest": {
+    "queueName": "orders",
+    "sender": "Send-Rate.py",
+    "phases": "warmup:2000:900,steady:2000:900",
+    "messagesPerSecond": 2000
+  },
+  "measurement": {
+    "workflowName": "process-order",
+    "steadyWindow": "steady",
+    "drainObservationMinutes": 30
+  }
+}

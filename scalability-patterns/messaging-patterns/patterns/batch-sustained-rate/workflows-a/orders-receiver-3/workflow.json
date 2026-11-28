@@ -1,0 +1,63 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "triggers": {
+      "Batch_messages": {
+        "type": "Batch",
+        "inputs": {
+          "mode": "Inline",
+          "configurations": {
+            "orders": {
+              "releaseCriteria": {
+                "recurrence": {
+                  "frequency": "Second",
+                  "interval": 1,
+                  "messageCountLimit": 400
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "actions": {
+      "Tag_items": {
+        "type": "Select",
+        "inputs": {
+          "from": "@triggerBody()?['items']",
+          "select": {
+            "content": "@item()?['content']",
+            "releaseId": "@{workflow()?['run']?['name']}",
+            "receiver": "orders-receiver-3"
+          }
+        },
+        "runAfter": {}
+      },
+      "Process_batch": {
+        "type": "Workflow",
+        "inputs": {
+          "host": {
+            "workflow": {
+              "id": "process-batch-item"
+            }
+          },
+          "body": {
+            "items": "@body('Tag_items')"
+          },
+          "retryPolicy": {
+            "type": "none"
+          }
+        },
+        "operationOptions": "DisableAsyncPattern",
+        "runAfter": {
+          "Tag_items": [
+            "Succeeded"
+          ]
+        }
+      }
+    },
+    "outputs": {}
+  },
+  "kind": "Stateful"
+}

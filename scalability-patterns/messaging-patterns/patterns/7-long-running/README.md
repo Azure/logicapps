@@ -15,8 +15,9 @@ message from being lost or delivered twice while that work runs:
    `slow-downstream` workflow and renews the lock after each call. It then completes the message,
    or abandons it on failure. The queue lock is one minute, so the run must renew it.
 3. **Hold the lock, Stateful.** A Stateful workflow with a `splitOn` peek-lock trigger takes
-   each message from `orders-lock-stateful` into its own run. The run does the same four
-   40-second calls and lock renewals, then completes the message, or abandons it on failure.
+   each message from `orders-lock-stateful` into its own run. Two branches run in parallel: one
+   makes the same four 40-second calls, and an Until loop renews the lock every 30 seconds until
+   the work finishes. The run then completes the message, or abandons it on failure.
    Stateful settle and renew actions need VNet integration and `vnetPrivatePortsCount` of 2 or
    more; `Set-VnetPorts.ps1` sets both.
 
@@ -33,8 +34,11 @@ Hold the lock (long-running-peeklock-stateless, Stateless)
 
 Hold the lock, Stateful (long-running-peeklock-stateful, Stateful, VNet ports >= 2)
   orders-lock-stateful --peek-lock splitOn trigger (one run per message)-->
-     4 x [ HTTP POST slow-downstream (Wait 40 s) --> Renew_lock ]
-     --> Process_order --> Complete_message  (Abandon_message on failure)
+     Set status = Running, then in parallel:
+       Process_message: 4 x HTTP POST slow-downstream (Wait 40 s) --> Process_order
+       Keep_lock_alive: Until status <> Running [ Wait 30 s --> Renew_lock ]
+     --> Set status (after Process_message succeeds or fails)
+     --> Complete_message  (Abandon_message on failure)
 ```
 
 ## Settings (`params.json`)
@@ -79,37 +83,39 @@ All runs: westus3, WS1, Service Bus Standard. Charts are in `results/7-long-runn
 
 | Metric | Run 1: settle early | Run 2: hold the lock, Stateless | Run 3: hold the lock, Stateful |
 |---|---|---|---|
-| Run id | `run-20261122-105441` | `run-20261122-111837` | `run-20261125-231212` |
+| Run id | `run-20261122-105441` | `run-20261122-111837` | `run-20261128-083205` |
 | Load | 2 msg/s, 5 min (602 msgs) | 1 msg/s, 3 min (181 msgs) | 1 msg/s, 3 min (181 msgs) |
 | Runs | 602 succeeded, 0 failed | 10 batch runs, 181 messages, all succeeded | 181 runs (one per message), all succeeded |
-| Throughput | about 2 msg/s | 0.26 msg/s | 0.53 msg/s |
-| Run duration p50 / p99 | 181.9 s / 182.0 s | 177.0 s / 186.6 s | 162.3 s / 163.0 s |
-| End-to-end p50 / p95 / p99 | 182.5 s / 183.0 s / 183.1 s | 443.6 s / 527.8 s / 540.8 s | 162.3 s / 162.8 s / 162.9 s |
-| Peak runs in flight | 364 | 5 runs (up to 100 locked messages) | 162 |
-| Peak queue backlog | 0 | 180 | 148 |
+| Throughput | about 2 msg/s | 0.26 msg/s | 0.52 msg/s |
+| Run duration p50 / p99 | 181.9 s / 182.0 s | 177.0 s / 186.6 s | 183 s / 189 s |
+| End-to-end p50 / p95 / p99 | 182.5 s / 183.0 s / 183.1 s | 443.6 s / 527.8 s / 540.8 s | 164 s / 171 s / 175 s |
+| Peak runs in flight | 364 | 5 runs (up to 100 locked messages) | 178 |
+| Peak queue backlog | 0 | 180 | 161 |
 | Redelivered (deliveryCount > 1) | 0 | 0 | 0 |
-| Lock renewals | n/a | 724, all succeeded (p95 200 ms) | 724, all succeeded (p95 21 ms) |
+| Lock renewals | n/a | 724, all succeeded (p95 200 ms) | 1,086 (6 per message, every 30 s), all succeeded (p50 21 ms) |
 | Dead letters | 0 | 0 | 0 |
-| Max instances | 2 | 5 | 1 |
-| Plan CPU, minute average (mean / peak) | n/a | 4.5% / 29.7% | 4.8% / 31.8% |
-| Plan CPU, highest per-minute max | n/a | 99% | 41% |
-| Plan memory (mean / peak) | n/a | 52% / 64% | 57% / 62% |
-| Max worker memory | about 317 MB | about 327 MB | about 346 MB |
-| Storage transactions | n/a | 38,892 (peak 6,797/min) | 46,250 (peak 12,009/min) |
+| Max instances | 2 | 5 | 4 |
+| Plan CPU, minute average (mean / peak) | n/a | 4.5% / 29.7% | 11.1% / 37.6% |
+| Plan CPU, highest per-minute max | n/a | 99% | 97% |
+| Plan memory (mean / peak) | n/a | 52% / 64% | 55% / 66% |
+| Max worker memory | about 317 MB | about 327 MB | about 416 MB |
+| Storage transactions | n/a | 38,892 (peak 6,797/min) | not measured |
 
 - Settling early let the app accept 2 msg/s while 364 runs waited at once on two workers. The
   queue never backed up, and end-to-end latency was the three-minute wait plus about one second.
 - Holding the lock also lost nothing: no lock was lost, no message came back, and 724 renewals
   succeeded. But each Stateless run held its batch for about three minutes, so throughput fell
   to about 0.26 msg/s. Messages waited up to seven minutes in the queue before a run took them.
-- Holding the lock in a Stateful workflow reached 0.53 msg/s with end-to-end p50 of 162 s. The
-  `splitOn` trigger gives each message its own run, so 162 runs held their locks at once on one
-  instance. The Stateless runs worked through each batch one message at a time and scaled out to
-  five instances. Because the instance counts differ, these runs don't rank the two designs.
-- Both designs renewed the lock 724 times with no failure, no redelivery and no dead letter.
-  Stateful renewals were faster (p95 21 ms vs 200 ms).
-- Stateful used about the same average CPU but a lower per-minute peak (41% vs 99%), slightly
-  more memory per worker, and about 19% more storage transactions, because it writes run history.
+- Holding the lock in a Stateful workflow reached 0.52 msg/s with end-to-end p50 of 164 s on up
+  to four instances. The `splitOn` trigger gives each message its own run, so up to 178 runs held
+  their locks at once. The Stateless runs worked through each batch one message at a time and
+  scaled out to five instances. The designs renew differently and scaled to different instance
+  counts, so these runs don't rank them.
+- The Until loop renewed each lock six times, 1,086 renewals in all, with no failure, no
+  redelivery and no dead letter. Each run took about 20 seconds longer than its work, because
+  the run settles only after the loop finishes its current 30-second wait.
+- The renewal loop does not depend on how long each step takes, so it also protects work whose
+  steps run longer than the lock duration.
 - The broker `CompletedMessages` metric showed 141 of 181 at export time in run 2.
   `Complete_message` succeeded 181 times and the queue was empty afterwards, so the metric lagged.
 
@@ -119,11 +125,11 @@ All runs: westus3, WS1, Service Bus Standard. Charts are in `results/7-long-runn
 |---|---|---|
 | Run 1: settle early | n/a | [throughput](../../results/7-long-running/run-20261122-105441/throughput.png), [instances](../../results/7-long-running/run-20261122-105441/instances.png), [end-to-end latency](../../results/7-long-running/run-20261122-105441/e2e-latency.png) |
 | Run 2: hold the lock, Stateless | [timeline](../../results/7-long-running/run-20261122-111837/timeline.png) | [throughput](../../results/7-long-running/run-20261122-111837/throughput.png), [queue backlog](../../results/7-long-running/run-20261122-111837/queue-backlog.png), [end-to-end latency](../../results/7-long-running/run-20261122-111837/e2e-latency.png) |
-| Run 3: hold the lock, Stateful | [timeline](../../results/7-long-running/run-20261125-231212/timeline.png) | [throughput](../../results/7-long-running/run-20261125-231212/throughput.png), [queue backlog](../../results/7-long-running/run-20261125-231212/queue-backlog.png), [end-to-end latency](../../results/7-long-running/run-20261125-231212/e2e-latency.png) |
+| Run 3: hold the lock, Stateful | [timeline](../../results/7-long-running/run-20261128-083205/timeline.png) | [throughput](../../results/7-long-running/run-20261128-083205/throughput.png), [queue backlog](../../results/7-long-running/run-20261128-083205/queue-backlog.png), [end-to-end latency](../../results/7-long-running/run-20261128-083205/e2e-latency.png) |
 
 ![Run 2: hold the lock, Stateless](../../results/7-long-running/run-20261122-111837/timeline.png)
 
-![Run 3: hold the lock, Stateful](../../results/7-long-running/run-20261125-231212/timeline.png)
+![Run 3: hold the lock, Stateful](../../results/7-long-running/run-20261128-083205/timeline.png)
 
 ## Notes
 

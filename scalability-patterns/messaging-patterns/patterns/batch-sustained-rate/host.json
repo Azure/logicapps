@@ -1,0 +1,45 @@
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Workflows",
+    "version": "[1.*, 2.0.0)"
+  },
+  "logging": {
+    "logLevel": {
+      "default": "Warning",
+      "Workflow.Operations.Runs": "Information"
+    },
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "maxTelemetryItemsPerSecond": 20
+      }
+    }
+  },
+  "extensions": {
+    "serviceBus": {
+      "maxMessageBatchSize": 100,
+      "prefetchCount": 0
+    },
+    "workflow": {
+      "Settings": {
+        "Runtime.ScaleUnitsCount": "6",
+        "Jobs.NumPartitionsInJobTriggersQueue": "8",
+        "Runtime.Trigger.MaximumRunConcurrency": "10000",
+        "Runtime.FlowRunEngine.MaximumConcurrentSplitOnItemLimit": "1000",
+        "Runtime.ServiceProviders.FunctionTriggers.DynamicListenerEnableDisableInterval": "00:00:01",
+        "Runtime.ServiceProviders.FunctionTriggers.SplitonTriggerDisableDynamicListenerInterval": "00:00:01",
+        "Runtime.FlowTriggerDispatchingJob.MessageProcessingConcurrencyLimit": "32",
+        "Runtime.FlowTriggerDispatchingJob.MaximumTriggerDispatchSize": "32",
+        "JobResourceGovernance.WorkerPulsationsThrottling.MinimumProcessorTimeUtilization": "55",
+        "JobResourceGovernance.WorkerPulsationsThrottling.MaximumProcessorTimeUtilization": "75",
+        "Runtime.ApplicationInsightTelemetryVersion": "v2",
+        "Runtime.BatchConfiguration.MinimumRecurrenceInterval": "00:00:01",
+        "Runtime.BatchConfiguration.AllowMessageCountInRecurrence": "true",
+        "Runtime.FlowBatchTriggerReleaseJob.ExecutionInterval": "00:00:00.100",
+        "Runtime.FlowBatchTriggerPushJob.ExecutionInterval": "00:00:01",
+        "Runtime.FlowBatchTriggerPushJob.DisableSafetyLimitsRelease": "true"
+      }
+    }
+  }
+}

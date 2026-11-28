@@ -10,7 +10,7 @@ defined only by the files in `patterns/<id>/`.
 | Pattern | Folders |
 |---|---|
 | 1 Process each message | `1a-max-throughput`, `2a-drain-fast`, `child-type` |
-| 2 Batch trigger | `batch-steady-drain`, `batch-deadline`, `batch-window`, `batch-trickle`, `batch-fixed-rate`, `concurrency-vs-batch` |
+| 2 Batch trigger | `batch-steady-drain`, `batch-sustained-rate`, `batch-deadline`, `batch-window`, `batch-trickle`, `batch-fixed-rate`, `concurrency-vs-batch` |
 | 3 Limit concurrent runs | `limit-concurrent-runs` |
 | 4 Large messages | `5a-claim-check`, `5b-premium-large` |
 | 5 Strict order | `6a-strict-order` |

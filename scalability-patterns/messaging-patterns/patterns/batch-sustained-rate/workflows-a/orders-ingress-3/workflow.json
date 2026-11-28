@@ -1,0 +1,44 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "triggers": {
+      "When_messages_are_available_in_orders": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "queueName": "orders",
+            "isSessionsEnabled": false,
+            "maxMessageBatchSize": 100
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "serviceBus",
+            "operationId": "receiveQueueMessages",
+            "serviceProviderId": "/serviceProviders/serviceBus"
+          }
+        },
+        "splitOn": "@triggerOutputs()?['body']"
+      }
+    },
+    "actions": {
+      "Send_to_batch": {
+        "type": "SendToBatch",
+        "inputs": {
+          "host": {
+            "workflow": {
+              "id": "orders-receiver-3"
+            },
+            "triggerName": "Batch_messages"
+          },
+          "batchName": "orders",
+          "partitionName": "default",
+          "messageId": "@triggerBody()?['messageId']",
+          "content": "@triggerBody()"
+        },
+        "runAfter": {}
+      }
+    },
+    "outputs": {}
+  },
+  "kind": "Stateful"
+}

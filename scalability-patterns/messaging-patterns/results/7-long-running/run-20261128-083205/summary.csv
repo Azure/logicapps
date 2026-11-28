@@ -1,0 +1,2 @@
+"runsCompleted","runsSucceeded","runsFailed","trackedMessages","avgMessagesPerSecond","peakRunsPerSecond","runP50","runP95","runP99","e2eP50","e2eP95","e2eP99","maxInstances","firstSent","lastFinished","drainSeconds"
+"181","181","0","181","0.52","1.02","183332","188164","189388","163540","171339","175479","4","2026-11-28T08:35:03.607Z","2026-11-28T08:40:53.092Z","350"

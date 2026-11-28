@@ -1,0 +1,211 @@
+[
+  {
+    "workflowName": "long-running-peeklock-stateful",
+    "action": "Slow_call_4",
+    "actionType": "Http",
+    "apiName": "",
+    "count": 181,
+    "failed": 0,
+    "p50": 40908.6305,
+    "p95": 43042.0803,
+    "p99": 48383.5016
+  },
+  {
+    "workflowName": "long-running-peeklock-stateful",
+    "action": "Slow_call_2",
+    "actionType": "Http",
+    "apiName": "",
+    "count": 181,
+    "failed": 0,
+    "p50": 40423.2479,
+    "p95": 42764.588,
+    "p99": 49614.5187
+  },
+  {
+    "workflowName": "long-running-peeklock-stateful",
+    "action": "Slow_call_1",
+    "actionType": "Http",
+    "apiName": "",
+    "count": 181,
+    "failed": 0,
+    "p50": 40670.5057,
+    "p95": 42763.648,
+    "p99": 49769.0838
+  },
+  {
+    "workflowName": "long-running-peeklock-stateful",
+    "action": "Slow_call_3",
+    "actionType": "Http",
+    "apiName": "",
+    "count": 181,
+    "failed": 0,
+    "p50": 40500.8821,
+    "p95": 42744.4749,
+    "p99": 49226.4535
+  },
+  {
+    "workflowName": "long-running-peeklock-stateful",
+    "action": "Wait_half_the_lock",
+    "actionType": "Wait",
+    "apiName": "",
+    "count": 1086,
+    "failed": 0,
+    "p50": 30179.577126250002,
+    "p95": 30759.6839,
+    "p99": 31661.6558
+  },
+  {
+    "workflowName": "long-running-peeklock-stateful",
+    "action": "Process_order",
+    "actionType": "Workflow",
+    "apiName": "",
+    "count": 181,
+    "failed": 0,
+    "p50": 37.3726,
+    "p95": 3024.05,
+    "p99": 4293.2784
+  },
+  {
+    "workflowName": "long-running-peeklock-stateful",
+    "action": "Complete_message",
+    "actionType": "ServiceProvider",
+    "apiName": "serviceBus",
+    "count": 181,
+    "failed": 0,
+    "p50": 71.4173,
+    "p95": 144.2867,
+    "p99": 184.1861
+  },
+  {
+    "workflowName": "long-running-peeklock-stateful",
+    "action": "Renew_lock",
+    "actionType": "ServiceProvider",
+    "apiName": "serviceBus",
+    "count": 1086,
+    "failed": 0,
+    "p50": 21.510256172839505,
+    "p95": 132.2747,
+    "p99": 939.1586
+  },
+  {
+    "workflowName": "long-running-peeklock-stateful",
+    "action": "Set_processing_status",
+    "actionType": "SetVariable",
+    "apiName": "",
+    "count": 181,
+    "failed": 0,
+    "p50": 15.474,
+    "p95": 56.7687,
+    "p99": 302.3045
+  },
+  {
+    "workflowName": "long-running-peeklock-stateful",
+    "action": "Keep_lock_alive",
+    "actionType": "Until",
+    "apiName": "",
+    "count": 181,
+    "failed": 0,
+    "p50": 15.7433,
+    "p95": 41.8592,
+    "p99": 248.3952
+  },
+  {
+    "workflowName": "long-running-peeklock-stateful",
+    "action": "Initialize_processing_status",
+    "actionType": "InitializeVariable",
+    "apiName": "",
+    "count": 181,
+    "failed": 0,
+    "p50": 9.6423,
+    "p95": 35.4808,
+    "p99": 427.7299
+  },
+  {
+    "workflowName": "long-running-peeklock-stateful",
+    "action": "Process_message",
+    "actionType": "Scope",
+    "apiName": "",
+    "count": 181,
+    "failed": 0,
+    "p50": 0.6156,
+    "p95": 7.3503,
+    "p99": 63.0383
+  },
+  {
+    "workflowName": "long-running-peeklock-stateful",
+    "action": "Settle_message",
+    "actionType": "If",
+    "apiName": "",
+    "count": 181,
+    "failed": 0,
+    "p50": 0.6945,
+    "p95": 2.5896,
+    "p99": 17.2266
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Upsert_order",
+    "actionType": "ServiceProvider",
+    "apiName": "AzureCosmosDB",
+    "count": 181,
+    "failed": 0,
+    "p50": 15.1676,
+    "p95": 2429.0236,
+    "p99": 3007.5675
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Enrich_order",
+    "actionType": "InvokeFunction",
+    "apiName": "",
+    "count": 181,
+    "failed": 0,
+    "p50": 2.6511,
+    "p95": 341.1954,
+    "p99": 524.3722
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Response",
+    "actionType": "Response",
+    "apiName": "",
+    "count": 181,
+    "failed": 0,
+    "p50": 3.0966,
+    "p95": 32.3059,
+    "p99": 475.5832
+  },
+  {
+    "workflowName": "process-order",
+    "action": "Transform_order",
+    "actionType": "Liquid",
+    "apiName": "",
+    "count": 181,
+    "failed": 0,
+    "p50": 1.1479,
+    "p95": 16.7007,
+    "p99": 435.1404
+  },
+  {
+    "workflowName": "slow-downstream",
+    "action": "Simulate_slow_downstream",
+    "actionType": "Wait",
+    "apiName": "",
+    "count": 724,
+    "failed": 0,
+    "p50": 40235.195881249994,
+    "p95": 40713.6368,
+    "p99": 41064.6371
+  },
+  {
+    "workflowName": "slow-downstream",
+    "action": "Response",
+    "actionType": "Response",
+    "apiName": "",
+    "count": 724,
+    "failed": 0,
+    "p50": 9.884301333333333,
+    "p95": 50.9292,
+    "p99": 498.5944
+  }
+]

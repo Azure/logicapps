@@ -1,0 +1,128 @@
+[
+  {
+    "minute": "2026-11-28T08:35:00.000Z",
+    "workflowName": "slow-downstream",
+    "runs": 17,
+    "p50": 40536,
+    "p95": 41102,
+    "p99": 41102,
+    "maxMs": 41102
+  },
+  {
+    "minute": "2026-11-28T08:36:00.000Z",
+    "workflowName": "slow-downstream",
+    "runs": 98,
+    "p50": 40489,
+    "p95": 40967,
+    "p99": 41098,
+    "maxMs": 41098
+  },
+  {
+    "minute": "2026-11-28T08:37:00.000Z",
+    "workflowName": "process-order",
+    "runs": 15,
+    "p50": 1736,
+    "p95": 4521,
+    "p99": 4521,
+    "maxMs": 4521
+  },
+  {
+    "minute": "2026-11-28T08:37:00.000Z",
+    "workflowName": "slow-downstream",
+    "runs": 193,
+    "p50": 40327,
+    "p95": 40862,
+    "p99": 43871,
+    "maxMs": 44415
+  },
+  {
+    "minute": "2026-11-28T08:38:00.000Z",
+    "workflowName": "long-running-peeklock-stateful",
+    "runs": 52,
+    "p50": 183469,
+    "p95": 189040,
+    "p99": 189159,
+    "maxMs": 189159
+  },
+  {
+    "minute": "2026-11-28T08:38:00.000Z",
+    "workflowName": "process-order",
+    "runs": 59,
+    "p50": 32,
+    "p95": 144,
+    "p99": 421,
+    "maxMs": 421
+  },
+  {
+    "minute": "2026-11-28T08:38:00.000Z",
+    "workflowName": "slow-downstream",
+    "runs": 221,
+    "p50": 40260,
+    "p95": 40677,
+    "p99": 40832,
+    "maxMs": 40843
+  },
+  {
+    "minute": "2026-11-28T08:39:00.000Z",
+    "workflowName": "long-running-peeklock-stateful",
+    "runs": 61,
+    "p50": 183495,
+    "p95": 188983,
+    "p99": 189825,
+    "maxMs": 189825
+  },
+  {
+    "minute": "2026-11-28T08:39:00.000Z",
+    "workflowName": "process-order",
+    "runs": 59,
+    "p50": 29,
+    "p95": 2706,
+    "p99": 3200,
+    "maxMs": 3200
+  },
+  {
+    "minute": "2026-11-28T08:39:00.000Z",
+    "workflowName": "slow-downstream",
+    "runs": 152,
+    "p50": 40317,
+    "p95": 42136,
+    "p99": 42373,
+    "maxMs": 42936
+  },
+  {
+    "minute": "2026-11-28T08:40:00.000Z",
+    "workflowName": "long-running-peeklock-stateful",
+    "runs": 61,
+    "p50": 183156,
+    "p95": 185165,
+    "p99": 186263,
+    "maxMs": 186263
+  },
+  {
+    "minute": "2026-11-28T08:40:00.000Z",
+    "workflowName": "process-order",
+    "runs": 48,
+    "p50": 29,
+    "p95": 38,
+    "p99": 56,
+    "maxMs": 56
+  },
+  {
+    "minute": "2026-11-28T08:40:00.000Z",
+    "workflowName": "slow-downstream",
+    "runs": 53,
+    "p50": 40345,
+    "p95": 40745,
+    "p99": 40810,
+    "maxMs": 40810
+  },
+  {
+    "minute": "2026-11-28T08:41:00.000Z",
+    "workflowName": "long-running-peeklock-stateful",
+    "runs": 7,
+    "p50": 183256,
+    "p95": 185799,
+    "p99": 185799,
+    "maxMs": 185799
+  }
+]
