@@ -1,0 +1,89 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "triggers": {
+      "When_messages_are_available_in_orders_pl_peek_lock": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "queueName": "orders-pl",
+            "isSessionsEnabled": false,
+            "maxMessageBatchSize": 100
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "serviceBus",
+            "operationId": "peekLockQueueMessages",
+            "serviceProviderId": "/serviceProviders/serviceBus"
+          }
+        },
+        "splitOn": "@triggerOutputs()?['body']"
+      }
+    },
+    "actions": {
+      "Process_order": {
+        "type": "Workflow",
+        "inputs": {
+          "host": {
+            "workflow": {
+              "id": "process-order"
+            }
+          },
+          "body": {
+            "messageId": "@{triggerBody()?['messageId']}",
+            "pattern": "1a-max-throughput-peeklock",
+            "order": "@triggerBody()?['contentData']"
+          }
+        },
+        "trackedProperties": {
+          "messageId": "@{triggerBody()?['messageId']}",
+          "enqueuedTimeUtc": "@{triggerBody()?['enqueuedTimeUtc']}",
+          "sentAtUtc": "@{triggerBody()?['contentData']?['sentAtUtc']}",
+          "pattern": "1a-max-throughput-peeklock"
+        },
+        "runAfter": {}
+      },
+      "Complete_message": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "messageId": "@triggerBody()?['messageId']",
+            "lockToken": "@triggerBody()?['lockToken']"
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "serviceBus",
+            "operationId": "completeMessage",
+            "serviceProviderId": "/serviceProviders/serviceBus"
+          }
+        },
+        "runAfter": {
+          "Process_order": [
+            "Succeeded"
+          ]
+        }
+      },
+      "Abandon_message": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "messageId": "@triggerBody()?['messageId']",
+            "lockToken": "@triggerBody()?['lockToken']"
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "serviceBus",
+            "operationId": "abandonMessage",
+            "serviceProviderId": "/serviceProviders/serviceBus"
+          }
+        },
+        "runAfter": {
+          "Process_order": [
+            "Failed",
+            "TimedOut"
+          ]
+        }
+      }
+    },
+    "outputs": {}
+  },
+  "kind": "Stateful"
+}

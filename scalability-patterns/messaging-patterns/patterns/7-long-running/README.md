@@ -1,4 +1,4 @@
-# Pattern 7: Long-running work per message
+# Process long-running work and handle redelivery
 
 Docs page: `load-pattern-07-long-running.md`.
 
@@ -7,9 +7,10 @@ Docs page: `load-pattern-07-long-running.md`.
 Each message starts about three minutes of work. The sample compares three ways to keep the
 message from being lost or delivered twice while that work runs:
 
-1. **Settle early (recommended).** A Stateful workflow with a `splitOn` Service Bus trigger takes
-   the message from `orders-early` and settles it at once. The run then owns the work: it waits
-   three minutes and calls `Process_order`. Run history in storage is the durable record.
+1. **Settle early.** A Stateful workflow with a `splitOn` Service Bus trigger takes the message
+   from `orders-early` and settles it at once. The run then owns the work and its recovery: it
+   waits three minutes and calls `Process_order`. Use this design when run history or a work
+   record gives you an adequate recovery path. Service Bus can't deliver the message again.
 2. **Hold the lock.** A Stateless workflow takes a batch of up to 20 messages from `orders-lock`
    in peek-lock mode. For each message it makes four 40-second HTTP calls to a Stateful
    `slow-downstream` workflow and renews the lock after each call. It then completes the message,
@@ -17,7 +18,10 @@ message from being lost or delivered twice while that work runs:
 3. **Hold the lock, Stateful.** A Stateful workflow with a `splitOn` peek-lock trigger takes
    each message from `orders-lock-stateful` into its own run. Two branches run in parallel: one
    makes the same four 40-second calls, and an Until loop renews the lock every 30 seconds until
-   the work finishes. The run then completes the message, or abandons it on failure.
+   the work finishes. If a renewal fails, the loop sets `lockHeld` to false and stops. The run
+   then completes the message, or abandons it on failure, only if it still holds the lock. If the
+   lock is lost, the run leaves the message unsettled, and Service Bus delivers it again, so the
+   work must be safe to repeat. Use this design when you need Service Bus redelivery.
    Stateful settle and renew actions need VNet integration and `vnetPrivatePortsCount` of 2 or
    more; `Set-VnetPorts.ps1` sets both.
 
@@ -34,11 +38,15 @@ Hold the lock (long-running-peeklock-stateless, Stateless)
 
 Hold the lock, Stateful (long-running-peeklock-stateful, Stateful, VNet ports >= 2)
   orders-lock-stateful --peek-lock splitOn trigger (one run per message)-->
-     Set status = Running, then in parallel:
+     Set status = Running, lockHeld = true, then in parallel:
        Process_message: 4 x HTTP POST slow-downstream (Wait 40 s) --> Process_order
-       Keep_lock_alive: Until status <> Running [ Wait 30 s --> Renew_lock ]
-     --> Set status (after Process_message succeeds or fails)
-     --> Complete_message  (Abandon_message on failure)
+         --> Set status (after Process_message succeeds or fails)
+       Keep_lock_alive: Until status <> Running or not lockHeld
+         [ Wait 30 s --> Renew_lock --(fails)--> Mark_lock_lost (lockHeld = false) ]
+     --> Settle_message: if lockHeld
+           Complete_message  (Abandon_message on failure)
+         else
+           leave unsettled; Service Bus delivers the message again after the lock expires
 ```
 
 ## Settings (`params.json`)
@@ -139,9 +147,9 @@ All runs: westus3, WS1, Service Bus Standard. Charts are in `results/7-long-runn
   Without it the lock lapsed and the message came back about once a minute (delivery count 6).
   `Set-VnetPorts.ps1` creates the VNet, integrates the app and sets the ports. A Bicep deploy
   resets these settings and `SlowDownstreamUrl`, so rerun the script after every deploy.
-- **Stateless runs stop at 5 minutes** (`Runtime.FlowRunTimeout` in `Flow.Web.Edge`
-  `AppSettings.xml`). Stateful runs can last 90 days. A Stateless run cannot hold a lock for
-  longer than 5 minutes however often it renews it.
+- **Stateless runs stop at the run timeout, 5 minutes by default.** The timeout is
+  configurable. Stateful runs can last much longer, so this sample uses a Stateful workflow for
+  work that outlasts the stateless timeout.
 - **Stateless workflows reject `Wait`** (`WorkflowRunActionTypeUnsupported`), and the
   built-in Workflow action from a Stateless parent to a Stateful child returns 202 at once.
   The sample calls the child's callback URL over HTTP so that the call blocks.

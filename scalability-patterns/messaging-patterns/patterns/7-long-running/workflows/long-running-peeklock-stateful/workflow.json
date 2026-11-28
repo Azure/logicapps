@@ -29,6 +29,11 @@
               "name": "processingStatus",
               "type": "string",
               "value": "Running"
+            },
+            {
+              "name": "lockHeld",
+              "type": "boolean",
+              "value": true
             }
           ]
         },
@@ -146,7 +151,7 @@
       },
       "Keep_lock_alive": {
         "type": "Until",
-        "expression": "@not(equals(variables('processingStatus'), 'Running'))",
+        "expression": "@or(not(equals(variables('processingStatus'), 'Running')), not(variables('lockHeld')))",
         "limit": {
           "count": 120,
           "timeout": "PT1H"
@@ -180,6 +185,19 @@
                 "Succeeded"
               ]
             }
+          },
+          "Mark_lock_lost": {
+            "type": "SetVariable",
+            "inputs": {
+              "name": "lockHeld",
+              "value": false
+            },
+            "runAfter": {
+              "Renew_lock": [
+                "Failed",
+                "TimedOut"
+              ]
+            }
           }
         },
         "runAfter": {
@@ -194,51 +212,72 @@
           "and": [
             {
               "equals": [
-                "@variables('processingStatus')",
-                "Succeeded"
+                "@variables('lockHeld')",
+                true
               ]
             }
           ]
         },
         "actions": {
-          "Complete_message": {
-            "type": "ServiceProvider",
-            "inputs": {
-              "parameters": {
-                "messageId": "@triggerBody()?['messageId']",
-                "lockToken": "@triggerBody()?['lockToken']"
-              },
-              "serviceProviderConfiguration": {
-                "connectionName": "serviceBus",
-                "operationId": "completeMessage",
-                "serviceProviderId": "/serviceProviders/serviceBus"
+          "Complete_or_abandon": {
+            "type": "If",
+            "expression": {
+              "and": [
+                {
+                  "equals": [
+                    "@variables('processingStatus')",
+                    "Succeeded"
+                  ]
+                }
+              ]
+            },
+            "actions": {
+              "Complete_message": {
+                "type": "ServiceProvider",
+                "inputs": {
+                  "parameters": {
+                    "messageId": "@triggerBody()?['messageId']",
+                    "lockToken": "@triggerBody()?['lockToken']"
+                  },
+                  "serviceProviderConfiguration": {
+                    "connectionName": "serviceBus",
+                    "operationId": "completeMessage",
+                    "serviceProviderId": "/serviceProviders/serviceBus"
+                  }
+                },
+                "runAfter": {}
+              }
+            },
+            "else": {
+              "actions": {
+                "Abandon_message": {
+                  "type": "ServiceProvider",
+                  "inputs": {
+                    "parameters": {
+                      "messageId": "@triggerBody()?['messageId']",
+                      "lockToken": "@triggerBody()?['lockToken']"
+                    },
+                    "serviceProviderConfiguration": {
+                      "connectionName": "serviceBus",
+                      "operationId": "abandonMessage",
+                      "serviceProviderId": "/serviceProviders/serviceBus"
+                    }
+                  },
+                  "runAfter": {}
+                }
               }
             },
             "runAfter": {}
           }
         },
         "else": {
-          "actions": {
-            "Abandon_message": {
-              "type": "ServiceProvider",
-              "inputs": {
-                "parameters": {
-                  "messageId": "@triggerBody()?['messageId']",
-                  "lockToken": "@triggerBody()?['lockToken']"
-                },
-                "serviceProviderConfiguration": {
-                  "connectionName": "serviceBus",
-                  "operationId": "abandonMessage",
-                  "serviceProviderId": "/serviceProviders/serviceBus"
-                }
-              },
-              "runAfter": {}
-            }
-          }
+          "actions": {}
         },
         "runAfter": {
           "Keep_lock_alive": [
-            "Succeeded"
+            "Succeeded",
+            "Failed",
+            "TimedOut"
           ],
           "Set_processing_status": [
             "Succeeded"

@@ -16,9 +16,8 @@
               "contentData": "@setProperty(coalesce(triggerBody(), json('{}')), 'frontReceivedUtc', utcNow())",
               "contentType": "application/json",
               "messageId": "@{outputs('Request_id')}",
-              "correlationId": "@{outputs('Request_id')}",
               "replyTo": "replies",
-              "replyToSession": "@{outputs('Request_id')}"
+              "replyToSessionId": "@{outputs('Request_id')}"
             }
           },
           "serviceProviderConfiguration": {"connectionName": "serviceBus", "operationId": "sendMessage", "serviceProviderId": "/serviceProviders/serviceBus"}
@@ -31,6 +30,7 @@
           "parameters": {"queueName": "replies", "sessionId": "@{outputs('Request_id')}", "maxMessages": 1, "acquireNewSession": true},
           "serviceProviderConfiguration": {"connectionName": "serviceBus", "operationId": "getMessagesFromQueueSession", "serviceProviderId": "/serviceProviders/serviceBus"}
         },
+        "limit": {"timeout": "PT60S"},
         "runAfter": {"Send_request": ["Succeeded"]}
       },
       "Has_reply": {
@@ -73,11 +73,17 @@
         },
         "runAfter": {"Get_reply": ["Succeeded"]}
       },
+      "Response_timed_out": {
+        "type": "Response",
+        "kind": "Http",
+        "inputs": {"statusCode": 504, "body": {"requestId": "@{outputs('Request_id')}", "error": "No reply before the wait timed out."}},
+        "runAfter": {"Get_reply": ["TimedOut"]}
+      },
       "Response_failed": {
         "type": "Response",
         "kind": "Http",
         "inputs": {"statusCode": 502, "body": {"requestId": "@{outputs('Request_id')}", "error": "Send or receive failed."}},
-        "runAfter": {"Get_reply": ["Failed", "TimedOut"]}
+        "runAfter": {"Send_request": ["Failed", "TimedOut"], "Get_reply": ["Failed"]}
       }
     },
     "outputs": {}

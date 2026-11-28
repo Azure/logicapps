@@ -1,4 +1,4 @@
-# Pattern 11: Request-reply over Service Bus
+# Request-reply over Service Bus
 
 ## What it shows
 
@@ -12,20 +12,25 @@ rises, and at which rate the tail latency and errors start to grow.
 Locust (Azure Load Testing) --HTTP POST to listCallbackUrl--> rr-front (stateless)
   rr-front: Request trigger
      Request_id   = guid()
-     Send_request -> queue "requests"  (messageId = correlationId = Request_id,
-                                        replyTo "replies", replyToSession = Request_id)
-     Get_reply    <- session queue "replies", sessionId = Request_id, 1 message
-     Complete_reply, Response 200 (or 504 when no reply arrives)
+     Send_request -> queue "requests"  (messageId = Request_id, replyTo "replies",
+                                        replyToSessionId = Request_id)
+     Get_reply    <- session queue "replies", sessionId = Request_id, acquireNewSession,
+                     1 message, action timeout 60 s
+     Complete_reply, Response 200
+     Response 504 when no reply arrives or the wait times out; 502 when send or receive fails
 
   rr-back (stateful): Service Bus receiveQueueMessages on "requests", splitOn
      Process_order: shared child workflow "process-order"
-     Send_reply  -> queue "replies", sessionId = replyToSessionId ?? correlationId ?? messageId
+     Send_reply  -> queue from replyTo, sessionId = replyToSessionId, correlationId = messageId
 ```
 
-The built-in Service Bus trigger does not return `replyToSessionId`, so rr-back falls back to
-`correlationId`. rr-front sets `correlationId` to the request id, so the reply lands in the
-session that rr-front waits on. A send to the session queue without a session id fails with
-BadRequest; rr-front then times out and returns 504 after about 30 s.
+The Service Bus trigger returns `replyToSessionId` on each message, and the send action
+accepts it. rr-back copies it into the reply's session ID, so the reply lands in the session
+that rr-front waits on.
+
+A shorter wait doesn't by itself return 504 to the caller. rr-front has explicit Response
+actions for each outcome: one runs when `Get_reply` times out, and one runs when it returns no
+message.
 
 Stateless workflows reject `splitOn`, so the back end is stateful. The front end must be
 stateless so the Response comes back on the open HTTP connection without run-history writes.
@@ -107,6 +112,6 @@ limit, and fail with 500 or 502.
   where the front end waits for the session. Its p50 is 170–560 ms, but p99 reaches 34 s and
   the maximum is 87 s.
 - Tail spikes match scale-out steps. Keep enough always-ready instances for the expected rate.
-- Set the `Get_reply` wait and the front-end timeout shorter than the caller's timeout, so the
-  caller gets a clear 504 instead of a 500 or 502 at the platform limit.
+- Set the `Get_reply` timeout shorter than the caller's timeout, and add a Response action that
+  runs when it times out, so the caller gets a 504 instead of a 500 or 502 at the platform limit.
 - A cold first call takes about 8.6 s.

@@ -35,7 +35,7 @@
             "message": {
               "contentData": "@body('Process_order')",
               "contentType": "application/json",
-              "sessionId": "@{coalesce(triggerBody()?['replyToSessionId'], triggerBody()?['correlationId'], triggerBody()?['messageId'])}",
+              "sessionId": "@{triggerBody()?['replyToSessionId']}",
               "correlationId": "@{triggerBody()?['messageId']}",
               "timeToLive": "3000000000"
             }
