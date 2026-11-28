@@ -2,9 +2,7 @@
   "extensions": {
     "serviceBus": {
       "maxMessageBatchSize": 50,
-      "prefetchCount": 0,
-      "maxConcurrentSessions": 32,
-      "sessionIdleTimeout": "00:00:05"
+      "prefetchCount": 0
     }
   }
 }

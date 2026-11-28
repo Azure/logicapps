@@ -57,7 +57,39 @@ See `results/1a-max-throughput/<runId>/summary.json` and the PNG charts beside i
 (`throughput.png`, `run-latency.png`, `e2e-latency.png`, `queue-backlog.png`, `instances.png`,
 `failures.png`).
 
-Both runs: westus3, WS1, 200 msg/s target for 10 min, then a 10 min drain.
+### Large-scale runs
+
+These runs show how far one app scales. They used a larger setup than `params.json`:
+
+| Setting | Value |
+|---|---|
+| Plan | WS3, 10 always-ready instances, maximum 100, runtime scale monitoring on |
+| Storage | 4 accounts (`Runtime.ScaleUnitsCount` 4) |
+| Service Bus | Premium, 4 messaging units, lock 1 min |
+| Cosmos DB | autoscale up to 80,000 RU/s, indexing only the queried paths |
+| Trigger | batch 100 with `splitOn`, child workflow `process-order` |
+| Load | about 1 KB JSON orders from 16 processes: 200 msg/s warm-up, 2,000 msg/s for 15 min, then 3,000 and 4,000 msg/s |
+
+| Send rate | Result |
+|---|---|
+| 200 msg/s | Held; p95 0.3 s end to end |
+| 2,000 msg/s | Held on 50-60 instances; p50 0.3 s, p95 5.4 s, p99 16.2 s (last 10 min) |
+| 3,000 msg/s | About 2,550 msg/s processed; p95 311 s |
+| 4,000 msg/s | About 2,200 msg/s and falling |
+
+- Storage set the limit. The main storage account reached about 40,000 transactions a second
+  and throttled; the scale-unit accounts did not. Each message cost about 18 storage
+  transactions.
+- Service Bus CPU peaked at 18%. Cosmos DB returned no 429 errors.
+- 88 of 6.06 million messages were lost and about 1.7% ran twice. An earlier run with Cosmos
+  capped at 30,000 RU/s lost about 581,000 messages: the trigger had already completed them on
+  the queue when the child failed.
+
+### Small sample runs
+
+These runs used `params.json`: westus3, WS1, 200 msg/s target for 10 min, then a 10 min drain.
+They had no runtime scale monitoring, so the app stayed at its minimum instance count. Don't
+read them as capacity.
 
 | Metric | Pilot `run-20261122-070617` | Tuned `run-20261122-081110` |
 |---|---|---|
@@ -85,17 +117,17 @@ per message: 200 msg/s is not reachable with this configuration.
 - Runs started faster than they finished (starts 1,500-3,000 a minute, ends 700-1,200). The
   extra runs waited inside the app, so run duration rose from 1 s to minutes. Run duration
   here measures waiting, not work.
-- The scale controller never added a third instance, even with thousands of runs in flight.
-  It scales on the job queue (`FlowTargetScaler`, target about 130 jobs per worker), and on this
-  run it did not ask for more than the 2-instance minimum. Raising `minimumElasticInstanceCount`
-  (or the plan size) is the reliable way to get more throughput.
+- The app never added a third instance. Without runtime scale monitoring it doesn't scale on
+  Service Bus backlog. The large-scale runs turned it on and set a maximum instance count, and
+  scaled to 50-60 instances.
 - Each message costs 2 runs (parent and child) and about 5 actions. Moving the child's actions
   into the parent, or using a stateless parent without `splitOn`, removes one run per message.
 
 ## Notes
 
 - You cannot remove `runtimeConfiguration.concurrency` from a trigger once a workflow has used
-  it. Deploy under a new workflow name, as this sample does.- Keep `maxMessageBatchSize` at 100 or less. The first smoke run (`run-20261122-061357`) had
+  it. Deploy under a new workflow name, as this sample does.
+- Keep `maxMessageBatchSize` at 100 or less. The first smoke run (`run-20261122-061357`) had
   no batch limit: the trigger read 1000 messages from the backlog, failed the `splitOn` limit and
   abandoned them, so only 20 of 15050 messages ran and 600 went to the dead-letter queue.
 - Do not set `clientTrackingId` from the trigger body on a `splitOn` trigger. The runtime

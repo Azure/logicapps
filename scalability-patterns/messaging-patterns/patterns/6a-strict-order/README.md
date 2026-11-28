@@ -7,6 +7,21 @@ session-enabled Service Bus queue, and what that order costs in throughput. Each
 session. Each run handles one batch from one session, writes the messages to Cosmos one at a
 time, and records when it processed each one. A checker then counts ordering violations per key.
 
+## Which workflow to use
+
+The recommended design is `reference\orders-strict-order-session`. It uses the session trigger
+**On new messages from queue session** (`onNewMessagesFromQueueSession`), a sequential For each,
+and the session actions to complete or dead-letter each message and close the session.
+
+The session actions must run on the instance that holds the session. The app routes them there
+over its private ports, so the app needs VNet integration and `vnetPrivatePortsCount` set to 2 or
+more. Without them, the actions fail with HTTP 400 `VNetPrivatePortsNotConfigured`.
+
+The test app had no VNet integration, so the measured workflow, `orders-strict-order-fn`, uses the
+**When messages are available in a queue** (`receiveQueueMessages`) trigger on the session queue
+instead. That trigger settles each batch itself, so the workflow has no settle or close actions.
+The results below come from this workflow.
+
 ## Flow
 
 ```
@@ -30,16 +45,13 @@ when the batch is settled.
 | Plan | WS1, `minimumElasticInstanceCount` 1, `maximumElasticWorkerCount` 20 (`params.json`) |
 | Queue `orders` | sessions on, lock 1 min, max delivery 5, 5 GB |
 | Trigger | `receiveQueueMessages`, `isSessionsEnabled` true, `maxMessageBatchSize` 50 |
-| host.json | `extensions.serviceBus`: `maxMessageBatchSize` 50, `prefetchCount` 0, `maxConcurrentSessions` 32, `sessionIdleTimeout` 00:00:05 |
+| host.json | `extensions.serviceBus`: `maxMessageBatchSize` 50, `prefetchCount` 0 |
 | Load | 20 users x 5 messages x 1 batch/s = 100 msg/s for 5 min over 100 keys (session ids) |
 
-Run 1 used the default `maxConcurrentSessions` (8); run 2 used 32.
-
-`maxConcurrentSessions`, `sessionIdleTimeout` and `maxAutoLockRenewalDuration` apply to this
-trigger because `receiveQueueMessages` with `isSessionsEnabled` runs on the Functions Service
-Bus extension. They do **not** apply to the built-in session operations
-(`onNewMessagesFromQueueSession`, `completeMessageInSession`, ...). Those read only `tryTimeout`
-and `maxMessageBatchSize` from host.json.
+Run 2 also set `maxConcurrentSessions` to 32 in host.json. It made no difference, because the
+trigger receives batches and that setting limits only single-message handling, so the sample
+no longer sets it. The session trigger in `reference\` polls on its recurrence and reads only
+`maxMessageBatchSize` from host.json.
 
 ## Run
 
@@ -63,7 +75,7 @@ because the Azure CLI Python ignores `PYTHONPATH`. For each key it sorts the Cos
 
 Same load for both runs: about 30,090 messages at 100 msg/s for 5 minutes, 100 keys.
 
-| Metric | Run 1: 8 sessions (`run-20261122-085556`) | Run 2: 32 sessions (`run-20261122-093052`) |
+| Metric | Run 1 (`run-20261122-085556`) | Run 2 (`run-20261122-093052`) |
 |---|---|---|
 | Messages sent | 30,090 | 30,085 |
 | Peak queue backlog | 29,789 | 28,681 |
@@ -79,12 +91,12 @@ Same load for both runs: about 30,090 messages at 100 msg/s for 5 minutes, 100 k
 Findings:
 
 - Order held: zero ordering violations across all 100 keys in both runs.
-- More sessions did not add throughput. With one instance the cost is the sequential
-  Cosmos upserts (about 15 ms each) plus the per-run overhead, so the app tops out near
-  27 msg/s whatever `maxConcurrentSessions` is.
+- Setting `maxConcurrentSessions` did not change throughput. With one instance the cost is the
+  sequential Cosmos upserts (about 15 ms each) plus the per-run overhead, so the app tops out
+  near 27 msg/s.
 - The app never scaled past one instance, though the queue held about 29,000 messages.
-  Logic Apps Standard scales on its own job queue, not on Service Bus backlog. To get more
-  capacity, raise `minimumElasticInstanceCount`; sessions then spread across instances.
+  To scale out on Service Bus backlog, the app needs a maximum instance count and runtime scale
+  monitoring turned on. This test app had neither. Sessions then spread across instances.
 - Throughput is capped per key: one key is never processed by two runs at once. With few hot
   keys, the run time per batch sets the ceiling for that key.
 
@@ -110,8 +122,5 @@ instance counts.
 - Keep `maxMessageBatchSize` at 100 or less in a stateless workflow. A stateless For each
   allows 100 items by default; a larger batch fails the run and dead-letters the messages
   (see 6b).
-- `reference\orders-strict-order-sl-v1-session` is the documented sequential-convoy workflow
-  built on the built-in session operations. Its settle actions returned HTTP 400
-  `VNetPrivatePortsNotConfigured` on this app: those operations need session affinity to the
-  instance that holds the receiver, and the runtime throws when that affinity is not set up.
-  This sample uses the extension trigger instead.
+- `reference\orders-strict-order-session` needs VNet integration and private ports. See
+  [Which workflow to use](#which-workflow-to-use).
